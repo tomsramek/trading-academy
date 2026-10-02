@@ -13,7 +13,7 @@ git diff --stat
 git branch --show-current
 ```
 
-- If on `main`, create a branch first: `git switch -c <type>/<slug>` (type from the change: feat, fix, chore, refactor, docs, test).
+- If on `main`, create a branch first: `git switch -c <type>/<slug>-<issue-number>` (type from the change: feat, fix, chore, refactor, docs, test; e.g. `feat/landing-page-12`).
 - Look for things that must not be committed: `.env*`, credentials, debug `console.log`, commented-out code, large binaries. Stop and ask if found.
 
 ## 2. Verify

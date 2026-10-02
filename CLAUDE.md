@@ -20,7 +20,7 @@ Live at **https://trading-academy.app**.
 ## Conventions
 
 - Detailed rules live in `.claude/rules/` — follow them.
-- Every change starts from a GitHub issue; reference it in the branch name and the PR (`Closes #N`).
+- Every change starts from a GitHub issue; reference it in the branch name (`<type>/<slug>-<N>`) and the PR (`Closes #N`).
 - Commits follow Conventional Commits (`feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `test:`).
 - Never commit to `main` directly; work on a branch and open a PR.
 - Only use libraries that are already in `package.json`. Adding a new dependency is a decision — propose it first.
