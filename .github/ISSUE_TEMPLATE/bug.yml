@@ -1,0 +1,44 @@
+name: Chyba
+description: Něco nefunguje, jak má
+labels: ["type:bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Popis chyby
+      description: Co se děje?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Kroky k reprodukci
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Očekávané chování
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Skutečné chování
+      description: Včetně chybových hlášek a screenshotů.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Prostředí
+      placeholder: Chrome 140, macOS / iPhone, Safari
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      placeholder: https://trading-academy.app/...
