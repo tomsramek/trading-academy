@@ -1,0 +1,35 @@
+name: Nová funkce / úkol
+description: Nová funkce, vylepšení nebo technický úkol
+labels: ["type:feature"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Cíl
+      description: Čeho chceme dosáhnout a proč?
+      placeholder: Uživatel uvidí seznam kurzů filtrovaný podle úrovně, aby rychle našel obsah pro sebe.
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Úkoly
+      description: Konkrétní kroky, které je potřeba udělat.
+      value: |
+        - [ ] 
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Akceptační kritéria
+      description: Podle čeho poznáme, že je hotovo?
+      value: |
+        - [ ] 
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Poznámky
+      description: Odkazy, návrhy, screenshoty, souvislosti.
