@@ -4,7 +4,7 @@
 - Keep changes scoped to the task. Unrelated refactors go into a separate PR.
 - Before saying "done": run the checks available in `package.json` scripts (`yarn lint`, `yarn build`, and `yarn typecheck` / `yarn test` once they exist), and report the real result. If something was not verified, say so.
 - Never commit secrets. `.env*` files stay out of git; add new variables to `.env.example` with a placeholder.
-- Branch names: `feat/<short-slug>`, `fix/<short-slug>`, `chore/<short-slug>`.
+- Branch names: `<type>/<short-slug>-<issue-number>`, e.g. `feat/landing-page-12`, `fix/login-redirect-27`, `chore/issue-pr-templates-5`. Lowercase, words separated by dashes, issue number last.
 - Commits: Conventional Commits, imperative mood, subject ≤ 72 chars.
 - Do not push, merge, deploy or touch production without the user's explicit go-ahead.
 

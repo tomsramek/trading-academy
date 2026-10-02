@@ -9,7 +9,7 @@ Worktrees live next to the repo: `../trading-academy-worktrees/<branch-slug>`.
 
 ## Steps
 
-1. Pick a branch name from the task: `feat/<slug>`, `fix/<slug>` or `chore/<slug>` (lowercase, dashes, ≤ 40 chars).
+1. Pick a branch name from the task: `<type>/<slug>-<issue-number>`, e.g. `feat/landing-page-12` (lowercase, dashes, ≤ 40 chars, issue number last).
 2. Update main and create the worktree:
 
    ```bash
