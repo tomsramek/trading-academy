@@ -13,14 +13,14 @@ A free online academy for learning crypto trading — from your very first candl
 
 ## Tech stack
 
-| Area            | Technology                         |
-| --------------- | ---------------------------------- |
+| Area            | Technology                                 |
+| --------------- | ------------------------------------------ |
 | Framework       | [Next.js](https://nextjs.org) (App Router) |
-| Language        | TypeScript                         |
-| Styling         | [Tailwind CSS](https://tailwindcss.com) |
-| Package manager | [Yarn 4](https://yarnpkg.com)      |
-| CI              | GitHub Actions                     |
-| Hosting         | Coolify on Hetzner                 |
+| Language        | TypeScript                                 |
+| Styling         | [Tailwind CSS](https://tailwindcss.com)    |
+| Package manager | [Yarn 4](https://yarnpkg.com)              |
+| CI              | GitHub Actions                             |
+| Hosting         | Coolify on Hetzner                         |
 
 ## Getting started
 
@@ -42,12 +42,15 @@ Open http://localhost:3000.
 
 ## Scripts
 
-| Command      | Description                                |
-| ------------ | ------------------------------------------ |
-| `yarn dev`   | Start the development server               |
-| `yarn build` | Create a production build                  |
-| `yarn start` | Run the production build                   |
-| `yarn lint`  | Check the code with ESLint                 |
+| Command           | Description                    |
+| ----------------- | ------------------------------ |
+| `yarn dev`        | Start the development server   |
+| `yarn build`      | Create a production build      |
+| `yarn start`      | Run the production build       |
+| `yarn lint`       | Check the code with ESLint     |
+| `yarn typecheck`  | Check types with TypeScript    |
+| `yarn format`     | Check formatting with Prettier |
+| `yarn format:fix` | Fix formatting with Prettier   |
 
 ## Contributing
 
