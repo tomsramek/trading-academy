@@ -19,7 +19,7 @@ gh run view <run-id> --log-failed
 | ------------- | ---------------------------------- | ----------------------------------------------------------------------------- |
 | Type error    | `tsc` output, `TS2xxx`             | Fix types; never silence with `any` / `@ts-ignore`                            |
 | Lint          | ESLint rule names                  | Fix the code; disable a rule only with a comment explaining why               |
-| Test          | Vitest / Playwright failure        | Reproduce locally first (`yarn test <file>`), then fix code or test         |
+| Test          | Vitest / Playwright failure        | Reproduce locally first (`yarn test <file>`), then fix code or test           |
 | Build         | `next build` error                 | Often server/client boundary, missing env var, or dynamic API in static route |
 | Env / secrets | `undefined` config, auth errors    | Missing GitHub secret — tell the user which one, never invent values          |
 | Flaky         | Passes on re-run, timing-dependent | Fix the wait/selector; don't just retry                                       |
