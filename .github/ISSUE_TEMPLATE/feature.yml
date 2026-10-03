@@ -16,7 +16,7 @@ body:
       label: Úkoly
       description: Konkrétní kroky, které je potřeba udělat.
       value: |
-        - [ ] 
+        - [ ]
     validations:
       required: true
   - type: textarea
@@ -25,7 +25,7 @@ body:
       label: Akceptační kritéria
       description: Podle čeho poznáme, že je hotovo?
       value: |
-        - [ ] 
+        - [ ]
     validations:
       required: true
   - type: textarea
