@@ -26,7 +26,7 @@ A free online academy for learning crypto trading — from your very first candl
 
 ### Requirements
 
-- [Node.js](https://nodejs.org) 22 or newer
+- [Node.js](https://nodejs.org) 24 (LTS) – the version is pinned in `.nvmrc` (`nvm use`)
 - Yarn — enable it once with `corepack enable` (the project pins its own Yarn version)
 
 ### Install and run
