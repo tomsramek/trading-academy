@@ -52,6 +52,51 @@ Open http://localhost:3000.
 | `yarn format`     | Check formatting with Prettier |
 | `yarn format:fix` | Fix formatting with Prettier   |
 
+## Deployment
+
+The app runs as a Docker container on a Hetzner server managed by [Coolify](https://coolify.io).
+
+```
+merge to main → GitHub Actions (CI) → Coolify webhook → docker build → health check → live
+```
+
+- Every push to `main` is deployed automatically.
+- Coolify starts the new version next to the old one and switches traffic only after the health check passes. If it fails, the old version keeps running.
+- HTTPS certificates (Let's Encrypt) are issued and renewed by Coolify. `www.trading-academy.app` redirects to `trading-academy.app`.
+
+### Health check
+
+```bash
+curl https://trading-academy.app/api/health
+# {"status":"ok","commit":"<git sha>"}
+```
+
+`commit` is the deployed Git commit. Compare it with the latest commit on `main`:
+
+```bash
+git fetch && git rev-parse origin/main
+```
+
+### Verify a deployment
+
+1. CI on `main` is green (GitHub → Actions).
+2. The deployment in Coolify (application → Deployments) finished with **Success**.
+3. `/api/health` returns `"status":"ok"` and the expected `commit`.
+4. The home page loads over HTTPS.
+
+### Roll back
+
+**Fast — previous image in Coolify:** application → **Rollback** → pick the last working version → **Rollback**. The old image is started again without a rebuild. Use this when production is broken and you need it fixed now.
+
+**Permanent — revert in Git:** create a branch, `git revert <bad-commit>`, open a pull request and merge it. The revert is deployed like any other change and keeps `main` in sync with production. Do this after a fast rollback, otherwise the next deploy brings the broken change back.
+
+### Run the production image locally
+
+```bash
+docker build -t trading-academy:local --build-arg SOURCE_COMMIT=$(git rev-parse --short HEAD) .
+docker run --rm -p 3000:3000 trading-academy:local
+```
+
 ## Contributing
 
 Work is planned in [GitHub Projects](https://github.com/users/wptom/projects/3).
