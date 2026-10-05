@@ -169,7 +169,8 @@
   }
 
   html {
-    @apply font-sans;
+    /* Smooth scrolling to #sections – only for users who have not asked for reduced motion. */
+    @apply font-sans motion-safe:scroll-smooth;
   }
 
   body {
