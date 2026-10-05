@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
+/* Dark mode is driven by the `dark` class on <html> (set by next-themes), not only by the OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens – colors named by their purpose, not by their shade.
+ * Components use them via Tailwind classes: bg-background, text-muted, border-border, bg-primary…
+ * Values reference the Tailwind palette (var(--color-…)) so the scale stays consistent.
+ * Every text/background pair meets WCAG AA contrast (4.5:1) in both themes.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-white);
+  --foreground: var(--color-zinc-950);
+  --surface: var(--color-zinc-50); /* cards, panels */
+  --muted: var(--color-zinc-600); /* secondary text */
+  --border: var(--color-zinc-200);
+  --primary: var(--color-blue-600); /* buttons, highlights (background) */
+  --primary-foreground: var(--color-white); /* text on primary */
+  --link: var(--color-blue-600); /* link text */
+  --ring: var(--color-blue-500); /* focus outline */
+  --bull: var(--color-green-700); /* price up */
+  --bear: var(--color-red-600); /* price down */
+  --warning: var(--color-amber-700);
+}
+
+.dark {
+  --background: var(--color-zinc-950);
+  --foreground: var(--color-zinc-50);
+  --surface: var(--color-zinc-900);
+  --muted: var(--color-zinc-400);
+  --border: var(--color-zinc-800);
+  --primary: var(
+    --color-blue-600
+  ); /* white text on blue-500 would fail WCAG AA */
+  --primary-foreground: var(--color-white);
+  --link: var(--color-blue-400);
+  --ring: var(--color-blue-400);
+  --bull: var(--color-green-500);
+  --bear: var(--color-red-500);
+  --warning: var(--color-amber-500);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-link: var(--link);
+  --color-ring: var(--ring);
+  --color-bull: var(--bull);
+  --color-bear: var(--bear);
+  --color-warning: var(--warning);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-background font-sans text-foreground;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Visible keyboard focus everywhere, in the brand color. */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
 }
