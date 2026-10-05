@@ -3,11 +3,6 @@
     "title": "Trading Academy",
     "description": "Bezplatná akademie tradingu kryptoměn – od prvního svíčkového grafu po pokročilé strategie."
   },
-  "HomePage": {
-    "badge": "Již brzy",
-    "title": "Trading Academy",
-    "description": "Bezplatná akademie tradingu kryptoměn – od prvního svíčkového grafu po pokročilé strategie."
-  },
   "ThemeToggle": {
     "label": "Barevný režim",
     "light": "Světlý",
@@ -33,5 +28,105 @@
   },
   "LocaleSwitcher": {
     "label": "Jazyk"
+  },
+  "Home": {
+    "hero": {
+      "badge": "Kurzy již brzy",
+      "title": "Nauč se tradovat krypto – od první svíčky po vlastní strategii",
+      "description": "Bezplatná strukturovaná akademie pro úplné začátečníky i zkušené tradery. Bez humbuku a bez slibů rychlého zisku.",
+      "primaryCta": "Prohlédnout osnovu",
+      "secondaryCta": "Proč Trading Academy"
+    },
+    "why": {
+      "title": "Proč Trading Academy",
+      "description": "Vše, co potřebuješ k pochopení kryptotrhů – a nic navíc.",
+      "items": {
+        "free": {
+          "title": "Zdarma pro všechny",
+          "description": "Všechny kurzy jsou zdarma. Žádná placená zeď, žádné doprodeje, žádná skrytá prémiová úroveň."
+        },
+        "structured": {
+          "title": "Jasná cesta",
+          "description": "Kurzy na sebe navazují: kurz → modul → lekce, takže vždy víš, co tě čeká dál."
+        },
+        "levels": {
+          "title": "Od začátečníka po pokročilého",
+          "description": "Začni od nuly, nebo naskoč na své úrovni – každý kurz je označený jako začátečnický, středně pokročilý nebo pokročilý."
+        },
+        "risk": {
+          "title": "Riziko na prvním místě",
+          "description": "Ztráty k tradingu patří. Řízení rizika učíme od úplně první lekce."
+        }
+      }
+    },
+    "levels": {
+      "title": "Vyber si úroveň",
+      "description": "Každý kurz má svou úroveň, takže snadno najdeš správný začátek.",
+      "beginner": {
+        "name": "Začátečník",
+        "description": "Krypto i trading jsou pro tebe nové.",
+        "topics": [
+          "Co je blockchain a kryptoměny",
+          "Burzy, peněženky a bezpečnost účtu",
+          "Čtení prvního svíčkového grafu"
+        ]
+      },
+      "intermediate": {
+        "name": "Středně pokročilý",
+        "description": "Znáš základy a chceš obchodovat podle plánu.",
+        "topics": [
+          "Podpora, rezistence a trendy",
+          "Typy příkazů a velikost pozice",
+          "Sestavení jednoduchého obchodního plánu"
+        ]
+      },
+      "advanced": {
+        "name": "Pokročilý",
+        "description": "Obchoduješ a chceš se zlepšit.",
+        "topics": [
+          "Indikátory a analýza více časových rámců",
+          "Řízení rizika napříč portfoliem",
+          "Testování a vyhodnocování strategie"
+        ]
+      }
+    },
+    "curriculum": {
+      "title": "První kurz: Základy kryptoměn",
+      "description": "Pozvolný start pro úplné začátečníky – první kurz, který připravujeme.",
+      "badge": "Již brzy",
+      "level": "Začátečník",
+      "modules": [
+        "Co je blockchain a kryptoměna",
+        "Bitcoin, Ethereum a jak se liší",
+        "Burzy a peněženky",
+        "Jak ochránit účet a prostředky",
+        "Co je trading – a jaká má rizika"
+      ]
+    },
+    "faq": {
+      "title": "Časté dotazy",
+      "items": {
+        "free": {
+          "question": "Je to opravdu zdarma?",
+          "answer": "Ano. Všechny kurzy jsou zdarma a zdarma zůstanou. Za učení nebudeš nic platit ani předplácet."
+        },
+        "advice": {
+          "question": "Je to investiční doporučení?",
+          "answer": "Ne. Trading Academy je pouze vzdělávací obsah. Vysvětlujeme, jak trhy fungují a jak řídit riziko – nikdy ti neříkáme, co koupit nebo prodat."
+        },
+        "when": {
+          "question": "Kdy budou kurzy k dispozici?",
+          "answer": "Právě připravujeme první kurz, Základy kryptoměn. Objeví se tady, jakmile bude hotový."
+        },
+        "money": {
+          "question": "Potřebuju k učení peníze?",
+          "answer": "Ne. Všechno se můžeš naučit bez rizika vlastních peněz. Až se rozhodneš obchodovat, používej jen peníze, o které si můžeš dovolit přijít."
+        },
+        "languages": {
+          "question": "V jakých jazycích je obsah?",
+          "answer": "V angličtině a češtině. Jazyk můžeš kdykoli přepnout v hlavičce."
+        }
+      }
+    }
   }
 }

@@ -1,19 +1,17 @@
-import { useTranslations } from "next-intl";
+import { CurriculumSection } from "@/components/home/CurriculumSection";
+import { FaqSection } from "@/components/home/FaqSection";
+import { Hero } from "@/components/home/Hero";
+import { LevelsSection } from "@/components/home/LevelsSection";
+import { WhySection } from "@/components/home/WhySection";
 
 export default function Home() {
-  const t = useTranslations("HomePage");
-
   return (
-    <section className="flex flex-1 flex-col items-center justify-center gap-6 px-4 py-24 text-center">
-      <p className="text-sm font-medium tracking-widest text-muted-foreground uppercase">
-        {t("badge")}
-      </p>
-      <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-        {t("title")}
-      </h1>
-      <p className="max-w-xl text-lg text-muted-foreground">
-        {t("description")}
-      </p>
-    </section>
+    <>
+      <Hero />
+      <WhySection />
+      <LevelsSection />
+      <CurriculumSection />
+      <FaqSection />
+    </>
   );
 }
