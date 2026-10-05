@@ -7,5 +7,11 @@
     "badge": "Coming soon",
     "title": "Trading Academy",
     "description": "A free academy for learning crypto trading — from your first candlestick chart to advanced strategies."
+  },
+  "ThemeToggle": {
+    "label": "Color theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
   }
 }

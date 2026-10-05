@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -46,12 +48,22 @@ export default async function LocaleLayout({
   }
 
   return (
+    // suppressHydrationWarning: next-themes sets the class on <html> before React loads.
     <html
       lang={locale}
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <ThemeProvider>
+            {/* Temporary placement – moves into the header in #21. */}
+            <div className="fixed top-4 right-4">
+              <ThemeToggle />
+            </div>
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
