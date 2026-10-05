@@ -3,11 +3,6 @@
     "title": "Trading Academy",
     "description": "A free academy for learning crypto trading — from your first candlestick chart to advanced strategies."
   },
-  "HomePage": {
-    "badge": "Coming soon",
-    "title": "Trading Academy",
-    "description": "A free academy for learning crypto trading — from your first candlestick chart to advanced strategies."
-  },
   "ThemeToggle": {
     "label": "Color theme",
     "light": "Light",
@@ -33,5 +28,105 @@
   },
   "LocaleSwitcher": {
     "label": "Language"
+  },
+  "Home": {
+    "hero": {
+      "badge": "Courses coming soon",
+      "title": "Learn crypto trading — from your first candle to your own strategy",
+      "description": "A free, structured academy for complete beginners and experienced traders. No hype, no promises of quick profit.",
+      "primaryCta": "Explore the curriculum",
+      "secondaryCta": "Why Trading Academy"
+    },
+    "why": {
+      "title": "Why Trading Academy",
+      "description": "Everything you need to understand crypto markets — and nothing you don't.",
+      "items": {
+        "free": {
+          "title": "Free for everyone",
+          "description": "All courses are free. No paywall, no upsell, no hidden premium tier."
+        },
+        "structured": {
+          "title": "A clear learning path",
+          "description": "Courses build on each other: course → module → lesson, so you always know what comes next."
+        },
+        "levels": {
+          "title": "Beginner to advanced",
+          "description": "Start from zero or jump in at your level — every course is marked Beginner, Intermediate or Advanced."
+        },
+        "risk": {
+          "title": "Risk comes first",
+          "description": "Losing money is part of trading. We teach risk management from the very first lesson."
+        }
+      }
+    },
+    "levels": {
+      "title": "Pick your level",
+      "description": "Every course has a level, so you can find the right starting point.",
+      "beginner": {
+        "name": "Beginner",
+        "description": "New to crypto and trading.",
+        "topics": [
+          "What blockchain and cryptocurrencies are",
+          "Exchanges, wallets and account security",
+          "Reading your first candlestick chart"
+        ]
+      },
+      "intermediate": {
+        "name": "Intermediate",
+        "description": "You know the basics and want to trade with a plan.",
+        "topics": [
+          "Support, resistance and trends",
+          "Order types and position sizing",
+          "Building a simple trading plan"
+        ]
+      },
+      "advanced": {
+        "name": "Advanced",
+        "description": "You trade and want to sharpen your edge.",
+        "topics": [
+          "Indicators and multi-timeframe analysis",
+          "Risk management across a portfolio",
+          "Testing and reviewing your strategy"
+        ]
+      }
+    },
+    "curriculum": {
+      "title": "The first course: Crypto basics",
+      "description": "A gentle start for complete beginners — the first course we are preparing.",
+      "badge": "Coming soon",
+      "level": "Beginner",
+      "modules": [
+        "What is a blockchain and a cryptocurrency",
+        "Bitcoin, Ethereum and how they differ",
+        "Exchanges and wallets",
+        "Keeping your account and funds safe",
+        "What trading is — and its risks"
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": {
+        "free": {
+          "question": "Is it really free?",
+          "answer": "Yes. All courses are free and will stay free. You won't need to pay or subscribe to learn."
+        },
+        "advice": {
+          "question": "Is this financial advice?",
+          "answer": "No. Trading Academy is educational content only. We explain how markets work and how to manage risk — we never tell you what to buy or sell."
+        },
+        "when": {
+          "question": "When will the courses be available?",
+          "answer": "We are preparing the first course, Crypto basics, right now. It will appear here as soon as it is ready."
+        },
+        "money": {
+          "question": "Do I need money to start learning?",
+          "answer": "No. You can learn everything without risking any money. When you do decide to trade, only use money you can afford to lose."
+        },
+        "languages": {
+          "question": "Which languages are available?",
+          "answer": "English and Czech. You can switch the language at any time in the header."
+        }
+      }
+    }
   }
 }
