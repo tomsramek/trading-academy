@@ -9,7 +9,8 @@ export function Header() {
   const t = useTranslations("Header");
 
   return (
-    <header className="relative border-b border-border">
+    // Sticky glass header: stays at the top while scrolling, content shows through blurred.
+    <header className="sticky top-0 z-30 border-b border-border glass">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
