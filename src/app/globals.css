@@ -59,6 +59,20 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/*
+ * Frosted glass: translucent background + blur of whatever is behind it.
+ * Usage: className="glass" (panels) or "glass-backdrop" (full-screen overlay behind dialogs).
+ */
+@utility glass {
+  background-color: color-mix(in oklab, var(--background) 80%, transparent);
+  backdrop-filter: blur(24px) saturate(1.5);
+}
+
+@utility glass-backdrop {
+  background-color: color-mix(in oklab, var(--background) 30%, transparent);
+  backdrop-filter: blur(8px);
+}
+
 @layer base {
   body {
     @apply bg-background font-sans text-foreground;
