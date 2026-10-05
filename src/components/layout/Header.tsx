@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Container } from "./Container";
 import { MobileMenu } from "./MobileMenu";
@@ -24,6 +25,7 @@ export function Header() {
           <nav aria-label={t("navLabel")}>
             <NavLinks />
           </nav>
+          <LocaleSwitcher />
           <ThemeToggle />
         </div>
 

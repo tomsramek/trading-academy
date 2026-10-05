@@ -10,6 +10,7 @@ import {
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { NavLinks } from "./NavLinks";
+import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export function MobileMenu() {
@@ -106,7 +107,10 @@ export function MobileMenu() {
               </nav>
 
               <div className="border-t border-border p-4">
-                <ThemeToggle />
+                <div className="flex flex-wrap items-center gap-3">
+                  <LocaleSwitcher placement="top" />
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
           </>,
