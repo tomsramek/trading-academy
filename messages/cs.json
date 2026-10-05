@@ -30,5 +30,8 @@
   "Footer": {
     "copyright": "© {year} Trading Academy",
     "disclaimer": "Pouze vzdělávací obsah – nejde o investiční doporučení."
+  },
+  "LocaleSwitcher": {
+    "label": "Jazyk"
   }
 }

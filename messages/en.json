@@ -30,5 +30,8 @@
   "Footer": {
     "copyright": "© {year} Trading Academy",
     "disclaimer": "Educational content only – not financial advice."
+  },
+  "LocaleSwitcher": {
+    "label": "Language"
   }
 }
