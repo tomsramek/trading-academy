@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider, useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -57,14 +58,28 @@ export default async function LocaleLayout({
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
           <ThemeProvider>
-            {/* Temporary placement – moves into the header in #21. */}
-            <div className="fixed top-4 right-4">
-              <ThemeToggle />
-            </div>
-            {children}
+            <SkipLink />
+            <Header />
+            <main id="content" className="flex flex-1 flex-col">
+              {children}
+            </main>
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
+  );
+}
+
+// Hidden until focused with the keyboard – lets keyboard and screen reader users jump past the header.
+function SkipLink() {
+  const t = useTranslations("Layout");
+  return (
+    <a
+      href="#content"
+      className="sr-only rounded-md bg-primary px-4 py-2 text-primary-foreground focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50"
+    >
+      {t("skipToContent")}
+    </a>
   );
 }

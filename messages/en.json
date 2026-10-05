@@ -13,5 +13,22 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "Layout": {
+    "skipToContent": "Skip to content"
+  },
+  "Header": {
+    "navLabel": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "soon": "Soon",
+    "nav": {
+      "courses": "Courses",
+      "glossary": "Glossary"
+    }
+  },
+  "Footer": {
+    "copyright": "© {year} Trading Academy",
+    "disclaimer": "Educational content only – not financial advice."
   }
 }

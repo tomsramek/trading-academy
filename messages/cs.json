@@ -13,5 +13,22 @@
     "light": "Světlý",
     "dark": "Tmavý",
     "system": "Podle systému"
+  },
+  "Layout": {
+    "skipToContent": "Přeskočit na obsah"
+  },
+  "Header": {
+    "navLabel": "Hlavní navigace",
+    "openMenu": "Otevřít menu",
+    "closeMenu": "Zavřít menu",
+    "soon": "Již brzy",
+    "nav": {
+      "courses": "Kurzy",
+      "glossary": "Glosář"
+    }
+  },
+  "Footer": {
+    "copyright": "© {year} Trading Academy",
+    "disclaimer": "Pouze vzdělávací obsah – nejde o investiční doporučení."
   }
 }
