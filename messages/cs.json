@@ -7,5 +7,11 @@
     "badge": "Již brzy",
     "title": "Trading Academy",
     "description": "Bezplatná akademie tradingu kryptoměn – od prvního svíčkového grafu po pokročilé strategie."
+  },
+  "ThemeToggle": {
+    "label": "Barevný režim",
+    "light": "Světlý",
+    "dark": "Tmavý",
+    "system": "Podle systému"
   }
 }
