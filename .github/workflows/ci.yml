@@ -44,5 +44,8 @@ jobs:
       - name: Check formatting
         run: yarn format
 
+      - name: Check translations
+        run: yarn i18n:check
+
       - name: Build
         run: yarn build
