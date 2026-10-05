@@ -42,15 +42,16 @@ Open http://localhost:3000.
 
 ## Scripts
 
-| Command           | Description                    |
-| ----------------- | ------------------------------ |
-| `yarn dev`        | Start the development server   |
-| `yarn build`      | Create a production build      |
-| `yarn start`      | Run the production build       |
-| `yarn lint`       | Check the code with ESLint     |
-| `yarn typecheck`  | Check types with TypeScript    |
-| `yarn format`     | Check formatting with Prettier |
-| `yarn format:fix` | Fix formatting with Prettier   |
+| Command           | Description                                               |
+| ----------------- | --------------------------------------------------------- |
+| `yarn dev`        | Start the development server                              |
+| `yarn build`      | Create a production build                                 |
+| `yarn start`      | Run the production build                                  |
+| `yarn lint`       | Check the code with ESLint                                |
+| `yarn typecheck`  | Check types with TypeScript                               |
+| `yarn format`     | Check formatting with Prettier                            |
+| `yarn format:fix` | Fix formatting with Prettier                              |
+| `yarn i18n:check` | Check that all translations have the same keys as English |
 
 ## Deployment
 
