@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { routing } from "@/i18n/routing";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import "../globals.css";
 
@@ -34,8 +35,18 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: t("title"),
     description: t("description"),
+    // Preview when the link is shared on social networks and messengers.
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      title: t("title"),
+      description: t("description"),
+      locale: locale === "cs" ? "cs_CZ" : "en_US",
+      url: locale === routing.defaultLocale ? "/" : `/${locale}`,
+    },
   };
 }
 
