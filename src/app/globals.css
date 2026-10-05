@@ -1,67 +1,157 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 /* Dark mode is driven by the `dark` class on <html> (set by next-themes), not only by the OS setting. */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * Design tokens – colors named by their purpose, not by their shade.
- * Components use them via Tailwind classes: bg-background, text-muted, border-border, bg-primary…
- * Values reference the Tailwind palette (var(--color-…)) so the scale stays consistent.
- * Every text/background pair meets WCAG AA contrast (4.5:1) in both themes.
+ * Design tokens – shadcn/ui naming, Trading Academy values.
+ * Colors are named by purpose (bg-primary, text-muted-foreground, border-border…) and reference
+ * the Tailwind palette. Every text/background pair meets WCAG AA contrast (4.5:1) in both themes.
+ * Extra tokens beyond shadcn: link (text links), bull / bear (price up / down), warning.
  */
 :root {
+  --radius: 0.625rem;
+
   --background: var(--color-white);
   --foreground: var(--color-zinc-950);
-  --surface: var(--color-zinc-50); /* cards, panels */
-  --muted: var(--color-zinc-600); /* secondary text */
+  --card: var(--color-zinc-50);
+  --card-foreground: var(--color-zinc-950);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-zinc-950);
+  --primary: var(--color-blue-600); /* white text on it: 5.3:1 */
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-zinc-100);
+  --secondary-foreground: var(--color-zinc-900);
+  --muted: var(--color-zinc-100); /* subtle background */
+  --muted-foreground: var(
+    --color-zinc-600
+  ); /* secondary text: 7.7:1 on background */
+  --accent: var(--color-zinc-100); /* hover background */
+  --accent-foreground: var(--color-zinc-900);
+  --destructive: var(--color-red-600);
   --border: var(--color-zinc-200);
-  --primary: var(--color-blue-600); /* buttons, highlights (background) */
-  --primary-foreground: var(--color-white); /* text on primary */
-  --link: var(--color-blue-600); /* link text */
+  --input: var(--color-zinc-200);
   --ring: var(--color-blue-500); /* focus outline */
-  --bull: var(--color-green-700); /* price up */
-  --bear: var(--color-red-600); /* price down */
+
+  --link: var(--color-blue-600);
+  --bull: var(--color-green-700); /* green-600 would be only 3.2:1 on white */
+  --bear: var(--color-red-600);
   --warning: var(--color-amber-700);
+
+  --chart-1: var(--color-blue-600);
+  --chart-2: var(--color-green-600);
+  --chart-3: var(--color-amber-500);
+  --chart-4: var(--color-red-600);
+  --chart-5: var(--color-violet-500);
+
+  --sidebar: var(--color-zinc-50);
+  --sidebar-foreground: var(--color-zinc-950);
+  --sidebar-primary: var(--color-blue-600);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-zinc-100);
+  --sidebar-accent-foreground: var(--color-zinc-900);
+  --sidebar-border: var(--color-zinc-200);
+  --sidebar-ring: var(--color-blue-500);
 }
 
 .dark {
   --background: var(--color-zinc-950);
   --foreground: var(--color-zinc-50);
-  --surface: var(--color-zinc-900);
-  --muted: var(--color-zinc-400);
-  --border: var(--color-zinc-800);
+  --card: var(--color-zinc-900);
+  --card-foreground: var(--color-zinc-50);
+  --popover: var(--color-zinc-900);
+  --popover-foreground: var(--color-zinc-50);
   --primary: var(
     --color-blue-600
-  ); /* white text on blue-500 would fail WCAG AA */
+  ); /* white text on blue-500 would be only 3.8:1 */
   --primary-foreground: var(--color-white);
-  --link: var(--color-blue-400);
+  --secondary: var(--color-zinc-800);
+  --secondary-foreground: var(--color-zinc-50);
+  --muted: var(--color-zinc-800);
+  --muted-foreground: var(--color-zinc-400);
+  --accent: var(--color-zinc-800);
+  --accent-foreground: var(--color-zinc-50);
+  --destructive: var(--color-red-500);
+  --border: var(--color-zinc-800);
+  --input: var(--color-zinc-800);
   --ring: var(--color-blue-400);
+
+  --link: var(--color-blue-400); /* blue-600 would be only 3.8:1 on zinc-950 */
   --bull: var(--color-green-500);
   --bear: var(--color-red-500);
   --warning: var(--color-amber-500);
+
+  --chart-1: var(--color-blue-500);
+  --chart-2: var(--color-green-500);
+  --chart-3: var(--color-amber-400);
+  --chart-4: var(--color-red-500);
+  --chart-5: var(--color-violet-400);
+
+  --sidebar: var(--color-zinc-900);
+  --sidebar-foreground: var(--color-zinc-50);
+  --sidebar-primary: var(--color-blue-600);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-zinc-800);
+  --sidebar-accent-foreground: var(--color-zinc-50);
+  --sidebar-border: var(--color-zinc-800);
+  --sidebar-ring: var(--color-blue-400);
 }
 
 @theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-link: var(--link);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-link: var(--link);
   --color-bull: var(--bull);
   --color-bear: var(--bear);
   --color-warning: var(--warning);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 /*
  * Frosted glass: translucent background + blur of whatever is behind it.
- * Usage: className="glass" (panels) or "glass-backdrop" (full-screen overlay behind dialogs).
+ * Usage: className="glass" (panels, menus) or "glass-backdrop" (full-screen overlay behind dialogs).
  */
 @utility glass {
   background-color: color-mix(in oklab, var(--background) 80%, transparent);
@@ -74,12 +164,20 @@
 }
 
 @layer base {
-  body {
-    @apply bg-background font-sans text-foreground;
+  * {
+    @apply border-border outline-ring/50;
   }
 
-  /* Visible keyboard focus everywhere, in the brand color. */
-  :focus-visible {
-    @apply outline-2 outline-offset-2 outline-ring;
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }

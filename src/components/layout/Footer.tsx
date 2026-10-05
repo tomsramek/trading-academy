@@ -6,7 +6,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border">
-      <Container className="flex flex-col gap-2 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+      <Container className="flex flex-col gap-2 py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>{t("copyright", { year: new Date().getFullYear() })}</p>
         <p>{t("disclaimer")}</p>
       </Container>
