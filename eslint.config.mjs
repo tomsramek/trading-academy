@@ -8,6 +8,19 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Turn off rules that conflict with Prettier – must stay last among shared configs.
   prettier,
+  {
+    // Type-aware rules: fail on any use of deprecated APIs.
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-deprecated": "error",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
