@@ -1,0 +1,91 @@
+import pumpAndDump from "./pump-and-dump.json";
+
+export const metadata = {
+  title: "The most common scams",
+  description:
+    "Giveaways, fake support, pump and dump, rug pulls and romance scams – how to recognise them and not fall for them.",
+};
+
+<Callout title="In this lesson">
+
+- recognise the most common crypto scams and their tricks
+- see on a chart what a pump and dump looks like
+- get one rule that protects you from most of them
+
+</Callout>
+
+Scammers love crypto: payments are fast, irreversible and cross borders. In the US alone, according
+to the FBI, people reported **9.3 billion dollars** lost to crypto scams in 2024. But the scams repeat
+over and over – you just need to know them.
+
+## Giveaways
+
+"Send us 1 BTC and we'll send you 2 back!" – usually with a photo or a deepfake video of a celebrity
+and a countdown.
+
+<Illustration name="giveawayScam" />
+
+Nobody gives away money by first asking you to send yours. **Ever.** What you send, you will not see
+again.
+
+## Fake support
+
+You post on social media that your withdrawal is stuck, and within minutes "exchange support" writes
+to you. They will help… if you tell them your seed phrase, install a "verification app" or send money
+to a "safe address". Real support does not message you first and never wants sensitive details.
+
+## Pump and dump
+
+A group secretly buys a small, thinly traded coin. Then they whip up hype on social media – "this
+coin will do 100×!" – and the price shoots up. Once enough new buyers have jumped in, the organisers
+sell everything and the price collapses.
+
+<CandleChart
+  data={pumpAndDump}
+  label="Illustrative daily chart: the price stays around 1 for a month, rises above 5 within a week, then falls below the starting price within four days"
+  caption="A typical pump and dump. Whoever was left holding the top paid the organisers' profit."
+  markers={[{ time: "2024-01-31", kind: "event", label: "Hype" }]}
+  zones={[{ from: "2024-01-31", to: "2024-02-10", label: "Pump & dump" }]}
+/>
+
+## Rug pull
+
+The creators of a new token take the investors' money and vanish – they literally "pull the rug".
+Often these are projects with an anonymous team, grand promises and pressure to buy as soon as
+possible.
+
+## Romance and friendship scams
+
+The most expensive of all. The scammer chats with you for months as a friend or partner, wins your
+trust and then "teaches you to invest" on their platform. The profits on the screen keep growing
+until you want to withdraw. Then comes a "tax" or a "release fee" – and finally silence. This is
+called _pig butchering_; in the US alone it cost people 5.8 billion dollars in 2024, according to the
+FBI.
+
+<Callout type="risk" title="One rule for almost everything">
+  If someone promises a sure profit, pushes you to decide quickly, or asks for
+  your seed phrase, access to your computer or money upfront – it is a scam. No
+  matter how trustworthy it looks.
+</Callout>
+
+## If it happens anyway
+
+- **Do not pay anything more** – "crypto recovery" for a fee is just another scam.
+- **Secure your accounts** – change passwords, check 2FA, move the remaining funds.
+- **Report it** – to the police and, if a licensed firm was involved, to the regulator.
+
+## Common myths
+
+- **"It won't happen to me, I'm not stupid."** Scams target emotions – trust, fear, greed. Not
+  intelligence.
+- **"It's a verified account, so it's real."** Accounts get stolen and badges get bought.
+- **"It's been paying out profits so far."** Small withdrawals at the start are part of the plan.
+
+<Callout title="Summary">
+
+- Giveaway: "send 1, get 2 back" is always a scam.
+- Fake support messages first and asks for sensitive data; real support never does.
+- Pump and dump and rug pulls: hype around a small coin, then a sharp fall.
+- Sure profit + urgency + a request for money or your seed phrase = a scam.
+
+</Callout>

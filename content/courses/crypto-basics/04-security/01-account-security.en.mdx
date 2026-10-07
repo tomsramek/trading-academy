@@ -1,0 +1,87 @@
+export const metadata = {
+  title: "Account security",
+  description:
+    "Strong passwords, two-factor authentication and defence against phishing – three locks that protect your crypto.",
+};
+
+<Callout title="In this lesson">
+
+- set up a password that cannot be guessed
+- find out why an authenticator app beats SMS
+- learn to spot phishing before you click
+
+</Callout>
+
+Crypto is rarely lost because hackers break the blockchain. It is lost because **people hand someone
+the key to the door** – a password, a code or a seed phrase. The good news: three simple locks stop
+most attacks.
+
+## 1. Password: long, unique, in a manager
+
+- **A different password for every service.** When a password leaks from an online shop, attackers
+  immediately try it on exchanges.
+- **Long rather than complex.** Four random words ("blue-sock-jumps-lamp") are stronger and easier to
+  remember than "P@ssw0rd1".
+- **A password manager** remembers them for you and will not fill them in on a fake site – that is
+  protection too.
+- **Protect your email the most.** Whoever controls your email can reset the passwords to everything
+  else.
+
+## 2. Two-factor authentication (2FA)
+
+With <KeyTerm term="2fa">two-factor authentication</KeyTerm>, a password is not enough to log in –
+you also need a one-time code. Where it comes from matters a lot:
+
+| Method            | Security | Why                                                                                  |
+| ----------------- | -------- | ------------------------------------------------------------------------------------ |
+| SMS               | lower    | an attacker can get a copy of your SIM card issued (SIM swap) and receive your texts |
+| Authenticator app | good     | the code is created right on your phone, not in the carrier's network                |
+| Hardware key      | best     | a physical key at your computer; phishing cannot fool it                             |
+
+Print your 2FA backup codes and keep them as carefully as your seed phrase.
+
+## 3. Phishing: don't bite the bait
+
+<Illustration name="phishingHook" />
+
+A <KeyTerm term="phishing">phishing</KeyTerm> message is a fake one pretending to be an exchange, a
+bank or support, trying to make you click and enter your details. You can spot it by:
+
+- **urgency** – "your account will be blocked within 24 hours", "suspicious login, verify now",
+- **the address** – `binnance-support.com` instead of the real domain; read it letter by letter,
+- **requests for sensitive data** – a password, a 2FA code, your seed phrase. **Nobody honest wants
+  your seed phrase. Ever.**
+
+**The rule:** do not click links in messages. Open the exchange's app or website yourself (from a
+bookmark) and check whether anything is really going on.
+
+<Callout type="warning" title="Support does not message you first">
+  Real exchange support will not contact you via WhatsApp, Telegram or social
+  media and never asks for your password, 2FA code or seed phrase. Whoever asks
+  for them is a scammer – no exceptions.
+</Callout>
+
+## Other small things that help
+
+- **An updated phone and computer** – security fixes.
+- **A withdrawal address whitelist**, if the exchange offers one – money then only goes to addresses
+  you approved in advance.
+- **A PIN with your mobile carrier** against a new SIM card being issued.
+
+## Common myths
+
+- **"My password is complex, I don't need 2FA."** A password can leak elsewhere. 2FA is a second
+  lock.
+- **"An SMS code is good enough."** Better than nothing, but an authenticator app is safer.
+- **"I'd always recognise phishing."** Good phishing looks exactly like the original. Hence the
+  rule: do not click links in messages.
+
+<Callout title="Summary">
+
+- A different long password for every service, ideally from a password manager; protect your email
+  the most.
+- Turn on 2FA with an authenticator app or a hardware key, not SMS.
+- Phishing lures with urgency and look-alike addresses – don't click, open the site yourself.
+- Never give anyone your password, 2FA code or seed phrase.
+
+</Callout>
