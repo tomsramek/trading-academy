@@ -1,0 +1,73 @@
+export const metadata = {
+  title: "Jak funguje burza",
+  description:
+    "Kniha objednávek, nákupní a prodejní cena, typy příkazů a poplatky – co se děje, když klikneš na Koupit.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, odkud se na burze bere cena
+- pochopíš rozdíl mezi tržním a limitním příkazem
+- uvidíš, za co všechno na burze platíš
+
+</Callout>
+
+Na burzu se dá dívat jako na trh se zeleninou. Jen místo mrkve se prodávají bitcoiny, nikdo
+nekřičí a stánek je otevřený nonstop. Burza sama nic neprodává – **páruje lidi, kteří chtějí
+koupit, s lidmi, kteří chtějí prodat**. A za to si bere malý poplatek.
+
+<Illustration name="marketShout" />
+
+## Kniha objednávek
+
+Všechny čekající nabídky jsou vypsané v knize objednávek. Nahoře jsou prodávající a jejich ceny,
+dole kupující:
+
+<OrderBook />
+
+Mezi nejnižší cenou, za kterou někdo prodává, a nejvyšší cenou, za kterou někdo kupuje, je mezera
+– říká se jí <KeyTerm term="spread">spread</KeyTerm>. Čím víc lidí na burze obchoduje, tím je
+spread menší. U málo obchodovaných mincí bývá velký, a to tě stojí peníze hned při nákupu.
+
+## Typy příkazů
+
+| Příkaz  | Kdy se provede               | Cena                  | Kdy ho použít                     |
+| ------- | ---------------------------- | --------------------- | --------------------------------- |
+| Tržní   | hned                         | nejlepší dostupná     | když ti jde o rychlost            |
+| Limitní | až cena dosáhne tvého limitu | tvoje cena nebo lepší | když ti jde o cenu                |
+| Stop    | když cena dosáhne stop ceny  | tržní                 | k omezení ztráty (lekce o riziku) |
+
+Tržní příkaz vezme nabídky z knihy jednu po druhé, dokud nekoupíš všechno, co chceš. U velkého
+nákupu nebo málo obchodované mince se tak část provede za horší ceny. Tomu rozdílu se říká <KeyTerm term="slippage">skluz</KeyTerm>.
+
+Limitní příkaz je trpělivější: zapíše se do knihy a čeká, až na něj někdo přistoupí. Může se ale
+stát, že se neprovede nikdy.
+
+## Za co na burze platíš
+
+- **Obchodní poplatek** – obvykle desetiny procenta z každého nákupu i prodeje. Limitní příkaz,
+  který čeká v knize, bývá levnější než tržní.
+- **Spread** – skrytý poplatek, viz výše.
+- **Vklad a výběr** – bankovní převod bývá levný, platba kartou dražší. Při výběru kryptoměny
+  zaplatíš i poplatek síti.
+
+<Callout type="warning" title="Mince na burze nedržíš ty">
+  Dokud máš kryptoměnu na burze, technicky ji drží burza – ty máš jen záznam ve
+  svém účtu. Když burza zkrachuje nebo zastaví výběry, můžeš o všechno přijít.
+  Proč a jak se tomu bránit, probereme v lekci o peněženkách.
+</Callout>
+
+## Časté omyly
+
+- **„Burza mi bitcoin prodává.“** Většinou ne – prodává ti ho jiný uživatel, burza jen páruje.
+- **„Tržní příkaz = cena, kterou vidím.“** Ne vždy. Při skluzu zaplatíš víc.
+- **„Poplatek 0 % znamená zadarmo.“** Burza pak obvykle vydělává na spreadu.
+
+<Callout title="Shrnutí">
+
+- Burza páruje kupující s prodávajícími; nabídky jsou v knize objednávek.
+- Rozdíl mezi nákupní a prodejní cenou je spread – skrytý poplatek.
+- Tržní příkaz je rychlý, limitní hlídá cenu; velké tržní příkazy trpí skluzem.
+- Platíš obchodní poplatky, spread a poplatky za vklad a výběr.
+
+</Callout>
