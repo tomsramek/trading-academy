@@ -1,10 +1,18 @@
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 import { SectionHeading } from "./SectionHeading";
 
-export function CurriculumSection() {
+type CurriculumSectionProps = {
+  // URL slug of the first course in the current language; missing while it is not published.
+  courseSlug: string | undefined;
+};
+
+export function CurriculumSection({ courseSlug }: CurriculumSectionProps) {
   const t = useTranslations("Home.curriculum");
   // next-intl returns arrays only through t.raw(); the shape comes from messages/en.json.
   const modules: string[] = t.raw("modules");
@@ -19,7 +27,7 @@ export function CurriculumSection() {
               {t("level")}
             </Badge>
             <Badge variant="secondary" className="h-auto px-3 py-1 text-sm">
-              {t("badge")}
+              {courseSlug ? t("badgeNew") : t("badge")}
             </Badge>
           </div>
           <ol className="flex flex-col divide-y">
@@ -32,6 +40,17 @@ export function CurriculumSection() {
               </li>
             ))}
           </ol>
+          {courseSlug && (
+            <Link
+              href={{
+                pathname: "/courses/[course]",
+                params: { course: courseSlug },
+              }}
+              className={cn(buttonVariants({ size: "lg" }), "w-fit")}
+            >
+              {t("start")}
+            </Link>
+          )}
         </Card>
       </Container>
     </section>

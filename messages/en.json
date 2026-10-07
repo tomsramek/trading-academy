@@ -37,10 +37,10 @@
   },
   "Home": {
     "hero": {
-      "badge": "Courses coming soon",
+      "badge": "New course: Crypto basics",
       "title": "Learn crypto trading — from your first candle to your own strategy",
       "description": "A free, structured academy for complete beginners and experienced traders. No hype, no promises of quick profit.",
-      "primaryCta": "Explore the curriculum",
+      "primaryCta": "Browse the courses",
       "secondaryCta": "Why Trading Academy"
     },
     "why": {
@@ -98,8 +98,10 @@
     },
     "curriculum": {
       "title": "The first course: Crypto basics",
-      "description": "A gentle start for complete beginners — the first course we are preparing.",
+      "description": "A gentle start for complete beginners — 18 short lessons, free.",
       "badge": "Coming soon",
+      "badgeNew": "New",
+      "start": "Start the course",
       "level": "Beginner",
       "modules": [
         "What is a blockchain and a cryptocurrency",
@@ -120,9 +122,9 @@
           "question": "Is this financial advice?",
           "answer": "No. Trading Academy is educational content only. We explain how markets work and how to manage risk — we never tell you what to buy or sell."
         },
-        "when": {
-          "question": "When will the courses be available?",
-          "answer": "We are preparing the first course, Crypto basics, right now. It will appear here as soon as it is ready."
+        "courses": {
+          "question": "Which courses are available?",
+          "answer": "The first course, Crypto basics, for complete beginners is ready. Intermediate and advanced courses are in the works."
         },
         "money": {
           "question": "Do I need money to start learning?",
