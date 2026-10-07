@@ -305,7 +305,73 @@
         "tag": "10 min",
         "caption": "Poplatky jako jízda autobusem: kdo nabídne víc, sedí první. Ostatní čekají na další spoj."
       },
-      "replay": "Přehrát animaci znovu"
+      "replay": "Přehrát animaci znovu",
+      "marketShout": {
+        "label": "Kreslený obrázek: kupující volá „Koupím za 64 990!“, prodávající „Prodám za 65 010!“ a burza mezi nimi hodí minci do kasičky na poplatky.",
+        "bubble": "Koupím za 64 990!",
+        "seller": "Prodám za 65 010!",
+        "tag": "BURZA",
+        "caption": "Burza je tržiště, kde se kupující s prodávajícím nikdy úplně neshodnou – a burza si pokaždé něco přivydělá."
+      },
+      "shadyBooth": {
+        "label": "Kreslený obrázek: pochybný stánek s blikajícím nápisem „1000 % ROČNĚ!“ a prodavačem v brýlích vedle nudného stánku s licencí.",
+        "bubble": "Licence? Na co?",
+        "tag": "1000 % ROČNĚ!",
+        "licence": "LICENCE ✓",
+        "caption": "Výběr burzy: nudný stánek s licencí vyhraje nad blikajícími sliby."
+      },
+      "stickyNote": {
+        "label": "Kreslený obrázek: seed fráze napsaná na žlutém lístečku na monitoru a za oknem zloděj s dalekohledem.",
+        "bubble": "Děkuju!",
+        "tag": "SEED",
+        "caption": "Kam seed frázi rozhodně neukládat: kamkoli, kde ji uvidí někdo další."
+      },
+      "firstBuy": {
+        "label": "Kreslený obrázek: trochu nervózní člověk před velkým zeleným tlačítkem Koupit a odškrtávací seznam.",
+        "bubble": "Adresu zkontroluju… potřetí.",
+        "tag": "KOUPIT",
+        "caption": "První nákup: malá částka, seznam a hluboký nádech."
+      },
+      "phishingHook": {
+        "label": "Kreslený obrázek: hacker v kapuci rybaří e-mailem s vykřičníkem, ustaraný uživatel po něm sahá.",
+        "bubble": "Můj účet je zablokovaný?!",
+        "caption": "Phishing: návnada je vždycky naléhavá. Čím naléhavější, tím podezřelejší."
+      },
+      "giveawayScam": {
+        "label": "Kreslený obrázek: falešná celebrita na obrazovce s třpytkami slibuje „Pošli 1 BTC → vrátím 2!“, divák se nadchne.",
+        "bubble": "To zní skvěle!",
+        "tag": "Pošli 1 BTC → vrátím 2!",
+        "caption": "Peníze zadarmo na internetu nikdo nerozdává. Natož dvakrát tolik, kolik pošleš."
+      },
+      "receiptPile": {
+        "label": "Kreslený obrázek: člověk u stolu s kalkulačkou obklopený létajícími účtenkami.",
+        "bubble": "Kde je ta účtenka z roku 2021?",
+        "caption": "Daňové přiznání bez záznamů: hodně papírů a ještě víc otázek."
+      },
+      "tortoiseHare": {
+        "label": "Kreslený obrázek: klidná želva s nápisem INVESTOR a zpocený zajíc s telefonem s nápisem DAY TRADER závodí k cílové vlajce.",
+        "bubble": "Ještě jeden obchod!",
+        "tag": "INVESTOR",
+        "tag2": "DAY TRADER",
+        "caption": "Želva a zajíc v kryptoverzi. Zajíc pořád kouká do telefonu."
+      },
+      "candleSurfer": {
+        "label": "Kreslený obrázek: surfař jede na vlně z rostoucích svíček.",
+        "bubble": "Trend je můj kamarád!",
+        "caption": "Jízda na trendu je zábava – dokud vlna neskončí. A ona vždycky skončí."
+      },
+      "parachuteStop": {
+        "label": "Kreslený obrázek: jeden parašutista klidně klesá na padáku s nápisem STOP-LOSS, druhý padá bez padáku k „−100 %“.",
+        "bubble": "Však ono se to odrazí!",
+        "tag": "STOP-LOSS",
+        "tag2": "−100 %",
+        "caption": "Stop-loss je padák: otevíráš ho dřív, než je země blízko."
+      },
+      "graduation": {
+        "label": "Kreslený obrázek: absolvent s čepicí a diplomem pod padajícími konfetami.",
+        "bubble": "Hotovo! A co dál?",
+        "caption": "Konec kurzu – a začátek pečlivého a trpělivého učení."
+      }
     }
   },
   "Courses": {

@@ -305,7 +305,73 @@
         "tag": "10 min",
         "caption": "Fees as a bus ride: whoever offers more gets a seat first. The rest wait for the next bus."
       },
-      "replay": "Replay the animation"
+      "replay": "Replay the animation",
+      "marketShout": {
+        "label": "Cartoon: a buyer shouts 'Buying at 64,990!', a seller shouts 'Selling at 65,010!', and the exchange between them drops a coin into its fee jar.",
+        "bubble": "Buying at 64,990!",
+        "seller": "Selling at 65,010!",
+        "tag": "EXCHANGE",
+        "caption": "An exchange is a market where buyers and sellers never quite agree – and the exchange earns a little either way."
+      },
+      "shadyBooth": {
+        "label": "Cartoon: a shady booth with a flashing '1000 % A YEAR!' sign and a salesman in sunglasses next to a boring booth with a licence certificate.",
+        "bubble": "A licence? What for?",
+        "tag": "1000 % A YEAR!",
+        "licence": "LICENCE ✓",
+        "caption": "Choosing an exchange: the boring booth with a licence beats the flashing promises."
+      },
+      "stickyNote": {
+        "label": "Cartoon: a seed phrase written on a sticky note on a monitor, and a thief with binoculars at the window.",
+        "bubble": "Thank you!",
+        "tag": "SEED",
+        "caption": "Where not to keep your seed phrase: anywhere someone else can see it."
+      },
+      "firstBuy": {
+        "label": "Cartoon: a slightly nervous person in front of a big green Buy button, with a checklist being ticked off.",
+        "bubble": "I'll check the address… a third time.",
+        "tag": "BUY",
+        "caption": "The first purchase: small amount, checklist, deep breath."
+      },
+      "phishingHook": {
+        "label": "Cartoon: a hooded hacker fishes with an email marked with an exclamation mark, a worried user reaches for it.",
+        "bubble": "My account is blocked?!",
+        "caption": "Phishing: the bait is always urgent. The more urgent, the more suspicious."
+      },
+      "giveawayScam": {
+        "label": "Cartoon: a fake celebrity on a screen with sparkles promising 'Send 1 BTC → get 2 back!', a viewer gets excited.",
+        "bubble": "Sounds great!",
+        "tag": "Send 1 BTC → get 2 back!",
+        "caption": "Nobody gives away free money on the internet. Especially not twice as much as you send."
+      },
+      "receiptPile": {
+        "label": "Cartoon: a person at a desk with a calculator, surrounded by flying receipts.",
+        "bubble": "Where is that receipt from 2021?",
+        "caption": "Tax season without records: a lot of paper and even more questions."
+      },
+      "tortoiseHare": {
+        "label": "Cartoon: a calm tortoise labelled INVESTOR and a sweating hare with a phone labelled DAY TRADER racing to a finish flag.",
+        "bubble": "Just one more trade!",
+        "tag": "INVESTOR",
+        "tag2": "DAY TRADER",
+        "caption": "The tortoise and the hare, crypto edition. The hare is still checking his phone."
+      },
+      "candleSurfer": {
+        "label": "Cartoon: a surfer riding on top of a wave made of rising candlesticks.",
+        "bubble": "The trend is my friend!",
+        "caption": "Riding a trend is fun – until the wave ends. And it always ends."
+      },
+      "parachuteStop": {
+        "label": "Cartoon: one jumper floats down calmly under a parachute labelled STOP-LOSS, another falls without one towards '−100 %'.",
+        "bubble": "It'll bounce back!",
+        "tag": "STOP-LOSS",
+        "tag2": "−100 %",
+        "caption": "A stop-loss is a parachute: you open it before the ground gets close."
+      },
+      "graduation": {
+        "label": "Cartoon: a graduate with a cap and a diploma under falling confetti.",
+        "bubble": "Done! What's next?",
+        "caption": "The end of the course – and the start of careful, patient learning."
+      }
     }
   },
   "Courses": {
