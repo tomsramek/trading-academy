@@ -405,6 +405,17 @@
       "description": "For intermediate and advanced traders: technical analysis, risk management and trading psychology."
     }
   },
+  "Glossary": {
+    "title": "Glossary",
+    "description": "Plain explanations of crypto and trading terms – from altcoin to stop-loss.",
+    "searchLabel": "Search for a term",
+    "searchPlaceholder": "For example leverage or seed phrase",
+    "letters": "Terms by letter",
+    "empty": "No term matches “{query}”.",
+    "clear": "Clear the search",
+    "lessons": "Explained in",
+    "related": "Related terms"
+  },
   "CourseDetail": {
     "breadcrumb": "Breadcrumb",
     "start": "Start the course",

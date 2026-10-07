@@ -1,0 +1,599 @@
+{
+  "2fa": {
+    "text": {
+      "en": {
+        "term": "Two-factor authentication (2FA)",
+        "definition": "A second proof of identity on top of your password – usually a code from an authenticator app or a security key. Codes sent by SMS are the weakest option."
+      },
+      "cs": {
+        "term": "Dvoufázové ověření (2FA)",
+        "definition": "Druhé ověření totožnosti kromě hesla – obvykle kód z ověřovací aplikace nebo bezpečnostní klíč. Kódy přes SMS jsou nejslabší varianta."
+      }
+    },
+    "related": ["phishing"]
+  },
+  "altcoin": {
+    "text": {
+      "en": {
+        "term": "Altcoin",
+        "definition": "Any cryptocurrency other than Bitcoin. Most of them have a small market and many disappear over time."
+      },
+      "cs": {
+        "term": "Altcoin",
+        "definition": "Jakákoli kryptoměna kromě Bitcoinu. Většina má malý trh a mnoho z nich časem zanikne."
+      }
+    },
+    "related": ["memecoin", "stablecoin"]
+  },
+  "blockchain": {
+    "text": {
+      "en": {
+        "term": "Blockchain",
+        "definition": "A shared record of transactions grouped into blocks. Each block is linked to the previous one by its hash, and copies are kept by many nodes, so nobody can quietly rewrite it."
+      },
+      "cs": {
+        "term": "Blockchain",
+        "definition": "Sdílený záznam transakcí seskupených do bloků. Každý blok je s předchozím spojený jeho hashem a kopie drží mnoho uzlů, takže ho nikdo nemůže potichu přepsat."
+      }
+    },
+    "related": ["hash", "node", "decentralization"]
+  },
+  "candlestick": {
+    "text": {
+      "en": {
+        "term": "Candlestick",
+        "definition": "One element of a price chart showing four prices of one period: open, high, low and close. Green usually means the price rose, red that it fell."
+      },
+      "cs": {
+        "term": "Svíčka",
+        "definition": "Jeden prvek cenového grafu, který ukazuje čtyři ceny jednoho období: otevírací, nejvyšší, nejnižší a zavírací. Zelená obvykle znamená růst, červená pokles."
+      }
+    },
+    "related": ["timeframe", "trend"]
+  },
+  "cold-wallet": {
+    "text": {
+      "en": {
+        "term": "Cold wallet",
+        "definition": "A wallet whose keys never touch the internet – typically a hardware wallet. Safer for larger amounts, less convenient for frequent use."
+      },
+      "cs": {
+        "term": "Studená peněženka",
+        "definition": "Peněženka, jejíž klíče nejsou nikdy připojené k internetu – typicky hardwarová peněženka. Bezpečnější pro větší částky, méně pohodlná pro časté používání."
+      }
+    },
+    "related": ["hot-wallet", "wallet", "seed-phrase"]
+  },
+  "confirmation": {
+    "text": {
+      "en": {
+        "term": "Confirmation",
+        "definition": "Each new block added after the block with your transaction. The more confirmations, the harder it is to reverse the transaction."
+      },
+      "cs": {
+        "term": "Potvrzení",
+        "definition": "Každý nový blok přidaný za blok s tvojí transakcí. Čím víc potvrzení, tím těžší je transakci zvrátit."
+      }
+    },
+    "related": ["blockchain", "mempool"]
+  },
+  "cryptocurrency": {
+    "text": {
+      "en": {
+        "term": "Cryptocurrency",
+        "definition": "Digital money recorded on a blockchain, without a central issuer such as a bank. Ownership is proved with a private key."
+      },
+      "cs": {
+        "term": "Kryptoměna",
+        "definition": "Digitální peníze zapsané na blockchainu, bez centrálního vydavatele, jako je banka. Vlastnictví se prokazuje soukromým klíčem."
+      }
+    },
+    "related": ["blockchain", "private-key", "altcoin"]
+  },
+  "dac8": {
+    "text": {
+      "en": {
+        "term": "DAC8",
+        "definition": "An EU directive under which crypto-asset service providers report their users' transactions to tax authorities. It applies from 2026."
+      },
+      "cs": {
+        "term": "DAC8",
+        "definition": "Směrnice EU, podle které poskytovatelé služeb kryptoaktiv hlásí transakce svých uživatelů finančním úřadům. Platí od roku 2026."
+      }
+    },
+    "related": ["mica"]
+  },
+  "dca": {
+    "text": {
+      "en": {
+        "term": "DCA (dollar-cost averaging)",
+        "definition": "Investing a fixed amount at regular intervals, regardless of the price. It spreads purchases over time instead of trying to guess the best moment."
+      },
+      "cs": {
+        "term": "DCA (pravidelné investování)",
+        "definition": "Investování stejné částky v pravidelných intervalech bez ohledu na cenu. Rozloží nákupy v čase, místo aby se hádal nejlepší okamžik."
+      }
+    }
+  },
+  "decentralization": {
+    "text": {
+      "en": {
+        "term": "Decentralization",
+        "definition": "Control is spread among many independent participants instead of one company or authority, so there is no single point that can stop or change the system."
+      },
+      "cs": {
+        "term": "Decentralizace",
+        "definition": "Kontrola je rozdělená mezi mnoho nezávislých účastníků místo jedné firmy nebo úřadu, takže neexistuje jediné místo, které by mohlo systém zastavit nebo změnit."
+      }
+    },
+    "related": ["node", "blockchain"]
+  },
+  "defi": {
+    "text": {
+      "en": {
+        "term": "DeFi",
+        "definition": "Decentralized finance – exchanges, loans and other financial services run by smart contracts without a bank or broker. Bugs and hacks can mean a total loss."
+      },
+      "cs": {
+        "term": "DeFi",
+        "definition": "Decentralizované finance – burzy, půjčky a další finanční služby, které běží na chytrých kontraktech bez banky nebo zprostředkovatele. Chyby a hacky můžou znamenat ztrátu všeho."
+      }
+    },
+    "related": ["smart-contract", "stablecoin"]
+  },
+  "double-spending": {
+    "text": {
+      "en": {
+        "term": "Double spending",
+        "definition": "Spending the same money twice. With digital money this is the main problem to solve – a blockchain prevents it because every node checks the shared record."
+      },
+      "cs": {
+        "term": "Dvojí utrácení",
+        "definition": "Utracení stejných peněz dvakrát. U digitálních peněz je to hlavní problém, který je potřeba vyřešit – blockchain mu brání, protože každý uzel kontroluje sdílený záznam."
+      }
+    },
+    "related": ["blockchain", "confirmation"]
+  },
+  "exchange": {
+    "text": {
+      "en": {
+        "term": "Exchange",
+        "definition": "A platform where you buy and sell cryptocurrencies. A centralized exchange holds your money and coins for you, so choose one with a licence."
+      },
+      "cs": {
+        "term": "Burza",
+        "definition": "Platforma, kde se kryptoměny nakupují a prodávají. Centralizovaná burza za tebe drží peníze i mince, proto vybírej burzu s licencí."
+      }
+    },
+    "related": ["order-book", "mica", "kyc"]
+  },
+  "gas": {
+    "text": {
+      "en": {
+        "term": "Gas",
+        "definition": "The fee for a transaction or a smart contract operation on Ethereum, paid in ETH. It rises when the network is busy."
+      },
+      "cs": {
+        "term": "Gas",
+        "definition": "Poplatek za transakci nebo operaci chytrého kontraktu na Ethereu, placený v ETH. Roste, když je síť vytížená."
+      }
+    },
+    "related": ["smart-contract"]
+  },
+  "halving": {
+    "text": {
+      "en": {
+        "term": "Halving",
+        "definition": "The halving of the reward for a new Bitcoin block, roughly every four years. It slows down how fast new bitcoins are created."
+      },
+      "cs": {
+        "term": "Halving",
+        "definition": "Snížení odměny za nový blok Bitcoinu na polovinu, zhruba každé čtyři roky. Zpomaluje tempo, jakým vznikají nové bitcoiny."
+      }
+    },
+    "related": ["mining", "satoshi"]
+  },
+  "hash": {
+    "text": {
+      "en": {
+        "term": "Hash",
+        "definition": "A short fingerprint of any data, calculated by a fixed formula. The smallest change in the data gives a completely different hash."
+      },
+      "cs": {
+        "term": "Hash (otisk)",
+        "definition": "Krátký otisk libovolných dat vypočítaný pevným postupem. Sebemenší změna dat dá úplně jiný hash."
+      }
+    },
+    "related": ["blockchain", "proof-of-work"]
+  },
+  "hot-wallet": {
+    "text": {
+      "en": {
+        "term": "Hot wallet",
+        "definition": "A wallet connected to the internet – a mobile app, a browser extension or an account at an exchange. Convenient, but more exposed to hackers."
+      },
+      "cs": {
+        "term": "Horká peněženka",
+        "definition": "Peněženka připojená k internetu – mobilní aplikace, rozšíření prohlížeče nebo účet na burze. Pohodlná, ale víc vystavená hackerům."
+      }
+    },
+    "related": ["cold-wallet", "wallet"]
+  },
+  "kyc": {
+    "text": {
+      "en": {
+        "term": "KYC (know your customer)",
+        "definition": "Identity verification that regulated exchanges must do before you can trade – usually an ID document and a selfie."
+      },
+      "cs": {
+        "term": "KYC (poznej svého klienta)",
+        "definition": "Ověření totožnosti, které regulované burzy musí udělat, než začneš obchodovat – obvykle doklad totožnosti a selfie."
+      }
+    },
+    "related": ["exchange"]
+  },
+  "leverage": {
+    "text": {
+      "en": {
+        "term": "Leverage",
+        "definition": "Trading with borrowed money. It magnifies both profits and losses – with 10× leverage, a 10% move against you wipes out the whole deposit."
+      },
+      "cs": {
+        "term": "Páka",
+        "definition": "Obchodování s vypůjčenými penězi. Zvětšuje zisky i ztráty – s pákou 10× vymaže pohyb ceny o 10 % proti tobě celý vklad."
+      }
+    },
+    "related": ["stop-loss"]
+  },
+  "limit-order": {
+    "text": {
+      "en": {
+        "term": "Limit order",
+        "definition": "An order to buy or sell only at your price or better. It waits in the order book and may never be filled."
+      },
+      "cs": {
+        "term": "Limitní příkaz",
+        "definition": "Příkaz koupit nebo prodat jen za tvoji cenu nebo lepší. Čeká v knize objednávek a nemusí se vůbec vyplnit."
+      }
+    },
+    "related": ["market-order", "order-book"]
+  },
+  "market-order": {
+    "text": {
+      "en": {
+        "term": "Market order",
+        "definition": "An order to buy or sell immediately at the best available price. It is filled at once, but the price can be worse than you expected."
+      },
+      "cs": {
+        "term": "Tržní příkaz",
+        "definition": "Příkaz koupit nebo prodat hned za nejlepší dostupnou cenu. Vyplní se okamžitě, ale cena může být horší, než jsi čekal."
+      }
+    },
+    "related": ["limit-order", "slippage", "spread"]
+  },
+  "memecoin": {
+    "text": {
+      "en": {
+        "term": "Memecoin",
+        "definition": "A coin built on a joke or an internet meme, usually without any practical use. Its price moves on hype and it is extremely risky."
+      },
+      "cs": {
+        "term": "Memecoin",
+        "definition": "Mince postavená na vtipu nebo internetovém memu, obvykle bez praktického využití. Cena se hýbe podle humbuku a je extrémně riziková."
+      }
+    },
+    "related": ["altcoin"]
+  },
+  "mempool": {
+    "text": {
+      "en": {
+        "term": "Mempool",
+        "definition": "The waiting room of transactions that have been sent but are not yet in a block. Transactions with a higher fee usually get in sooner."
+      },
+      "cs": {
+        "term": "Mempool",
+        "definition": "Čekárna transakcí, které už byly odeslané, ale ještě nejsou v bloku. Transakce s vyšším poplatkem se tam obvykle dostanou dřív."
+      }
+    },
+    "related": ["confirmation", "blockchain"]
+  },
+  "mica": {
+    "text": {
+      "en": {
+        "term": "MiCA",
+        "definition": "The EU regulation on markets in crypto-assets. Crypto-asset service providers need a licence and must follow rules for protecting customers – but it does not protect you from falling prices."
+      },
+      "cs": {
+        "term": "MiCA",
+        "definition": "Nařízení EU o trzích s kryptoaktivy. Poskytovatelé služeb kryptoaktiv potřebují licenci a musí dodržovat pravidla ochrany klientů – před poklesem ceny tě ale nechrání."
+      }
+    },
+    "related": ["exchange", "dac8"]
+  },
+  "mining": {
+    "text": {
+      "en": {
+        "term": "Mining",
+        "definition": "Creating new blocks in a proof-of-work network. Miners spend computing power and electricity and receive newly created coins and fees as a reward."
+      },
+      "cs": {
+        "term": "Těžba",
+        "definition": "Vytváření nových bloků v síti s proof of work. Těžaři vynakládají výpočetní výkon a elektřinu a odměnou dostávají nově vytvořené mince a poplatky."
+      }
+    },
+    "related": ["proof-of-work", "halving"]
+  },
+  "node": {
+    "text": {
+      "en": {
+        "term": "Node",
+        "definition": "A computer running the network's software. It keeps a copy of the blockchain and checks that new transactions and blocks follow the rules."
+      },
+      "cs": {
+        "term": "Uzel (node)",
+        "definition": "Počítač, na kterém běží software sítě. Drží kopii blockchainu a kontroluje, že nové transakce a bloky dodržují pravidla."
+      }
+    },
+    "related": ["blockchain", "decentralization"]
+  },
+  "order-book": {
+    "text": {
+      "en": {
+        "term": "Order book",
+        "definition": "The list of all buy and sell limit orders waiting at an exchange, sorted by price."
+      },
+      "cs": {
+        "term": "Kniha objednávek (order book)",
+        "definition": "Seznam všech nákupních a prodejních limitních příkazů, které čekají na burze, seřazený podle ceny."
+      }
+    },
+    "related": ["limit-order", "spread"]
+  },
+  "phishing": {
+    "text": {
+      "en": {
+        "term": "Phishing",
+        "definition": "A fake e-mail, message or website pretending to be someone you trust, made to steal your password, codes or seed phrase."
+      },
+      "cs": {
+        "term": "Phishing",
+        "definition": "Falešný e-mail, zpráva nebo web, který se vydává za někoho důvěryhodného, aby ti ukradl heslo, kódy nebo seed frázi."
+      }
+    },
+    "related": ["2fa", "seed-phrase"]
+  },
+  "private-key": {
+    "text": {
+      "en": {
+        "term": "Private key",
+        "definition": "A secret number that proves you own your coins and signs your transactions. Whoever has it controls the coins."
+      },
+      "cs": {
+        "term": "Soukromý klíč",
+        "definition": "Tajné číslo, které prokazuje, že mince vlastníš, a podepisuje tvoje transakce. Kdo ho má, ovládá mince."
+      }
+    },
+    "related": ["seed-phrase", "wallet"]
+  },
+  "proof-of-stake": {
+    "text": {
+      "en": {
+        "term": "Proof of stake",
+        "definition": "A way of agreeing on new blocks in which validators lock (stake) their own coins as a guarantee. It uses far less electricity than proof of work; Ethereum has used it since 2022."
+      },
+      "cs": {
+        "term": "Proof of stake",
+        "definition": "Způsob, jak se síť shodne na nových blocích: validátoři jako záruku uzamknou (stakují) vlastní mince. Spotřebuje mnohem méně elektřiny než proof of work; Ethereum ho používá od roku 2022."
+      }
+    },
+    "related": ["staking", "proof-of-work"]
+  },
+  "proof-of-work": {
+    "text": {
+      "en": {
+        "term": "Proof of work",
+        "definition": "A way of agreeing on new blocks in which miners compete to solve a computing puzzle. Rewriting history would cost an enormous amount of electricity; Bitcoin uses it."
+      },
+      "cs": {
+        "term": "Proof of work",
+        "definition": "Způsob, jak se síť shodne na nových blocích: těžaři soutěží v řešení výpočetní úlohy. Přepsat historii by stálo obrovské množství elektřiny; používá ho Bitcoin."
+      }
+    },
+    "related": ["mining", "proof-of-stake", "hash"]
+  },
+  "resistance": {
+    "text": {
+      "en": {
+        "term": "Resistance",
+        "definition": "A price level where rising prices stopped in the past because sellers outnumbered buyers. It can be broken at any time."
+      },
+      "cs": {
+        "term": "Rezistence",
+        "definition": "Cenová úroveň, kde se růst ceny v minulosti zastavil, protože převážili prodávající. Může být kdykoli prolomena."
+      }
+    },
+    "related": ["support", "trend"]
+  },
+  "satoshi": {
+    "text": {
+      "en": {
+        "term": "Satoshi",
+        "definition": "The smallest unit of Bitcoin: one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's creator."
+      },
+      "cs": {
+        "term": "Satoshi",
+        "definition": "Nejmenší jednotka Bitcoinu: jedna stomiliontina bitcoinu (0,00000001 BTC). Jmenuje se podle tvůrce Bitcoinu."
+      }
+    },
+    "related": ["halving"]
+  },
+  "seed-phrase": {
+    "text": {
+      "en": {
+        "term": "Seed phrase",
+        "definition": "12 or 24 words from which a wallet can restore all its keys. Anyone who has them owns your coins – never type them into a website or give them to anyone."
+      },
+      "cs": {
+        "term": "Seed fráze",
+        "definition": "12 nebo 24 slov, ze kterých peněženka obnoví všechny své klíče. Kdo je má, vlastní tvoje mince – nikdy je nezadávej na žádný web a nikomu je nedávej."
+      }
+    },
+    "related": ["private-key", "cold-wallet", "phishing"]
+  },
+  "slippage": {
+    "text": {
+      "en": {
+        "term": "Slippage",
+        "definition": "The difference between the price you expected and the price the trade was actually filled at. It is largest with market orders in fast or thin markets."
+      },
+      "cs": {
+        "term": "Skluz (slippage)",
+        "definition": "Rozdíl mezi cenou, kterou jsi čekal, a cenou, za kterou se obchod skutečně vyplnil. Největší bývá u tržních příkazů v rychlém nebo málo likvidním trhu."
+      }
+    },
+    "related": ["market-order", "spread"]
+  },
+  "smart-contract": {
+    "text": {
+      "en": {
+        "term": "Smart contract",
+        "definition": "A program stored on a blockchain that runs automatically when its conditions are met. Nobody can stop it – including when it contains a bug."
+      },
+      "cs": {
+        "term": "Chytrý kontrakt",
+        "definition": "Program uložený na blockchainu, který se spustí automaticky, když jsou splněné jeho podmínky. Nikdo ho nemůže zastavit – ani když obsahuje chybu."
+      }
+    },
+    "related": ["gas", "defi"]
+  },
+  "spread": {
+    "text": {
+      "en": {
+        "term": "Spread",
+        "definition": "The difference between the best buy price and the best sell price at a given moment. It is a hidden cost of every trade."
+      },
+      "cs": {
+        "term": "Spread",
+        "definition": "Rozdíl mezi nejlepší nákupní a nejlepší prodejní cenou v daném okamžiku. Je to skrytý náklad každého obchodu."
+      }
+    },
+    "related": ["order-book", "slippage"]
+  },
+  "stablecoin": {
+    "text": {
+      "en": {
+        "term": "Stablecoin",
+        "definition": "A token whose value is tied to a traditional currency, usually the US dollar (for example USDT or USDC). It can lose its peg if its reserves fail."
+      },
+      "cs": {
+        "term": "Stablecoin",
+        "definition": "Token, jehož hodnota je navázaná na klasickou měnu, obvykle americký dolar (třeba USDT nebo USDC). Pokud selžou jeho rezervy, může o navázání přijít."
+      }
+    },
+    "related": ["token", "defi"]
+  },
+  "staking": {
+    "text": {
+      "en": {
+        "term": "Staking",
+        "definition": "Locking your coins to help secure a proof-of-stake network in exchange for a reward. The coins may be locked for some time and their price can still fall."
+      },
+      "cs": {
+        "term": "Staking",
+        "definition": "Uzamčení mincí, kterými pomáháš zabezpečit síť s proof of stake, výměnou za odměnu. Mince můžou být nějakou dobu zamčené a jejich cena může dál klesat."
+      }
+    },
+    "related": ["proof-of-stake"]
+  },
+  "stop-loss": {
+    "text": {
+      "en": {
+        "term": "Stop-loss",
+        "definition": "An order that automatically sells your position when the price falls to a level you chose in advance. It limits the loss, but in a fast market it can be filled at a worse price."
+      },
+      "cs": {
+        "term": "Stop-loss",
+        "definition": "Příkaz, který pozici automaticky prodá, když cena klesne na předem zvolenou úroveň. Omezí ztrátu, ale v rychlém trhu se může vyplnit za horší cenu."
+      }
+    },
+    "related": ["take-profit", "slippage", "leverage"]
+  },
+  "support": {
+    "text": {
+      "en": {
+        "term": "Support",
+        "definition": "A price level where falling prices stopped in the past because buyers outnumbered sellers. It can be broken at any time."
+      },
+      "cs": {
+        "term": "Podpora",
+        "definition": "Cenová úroveň, kde se pokles ceny v minulosti zastavil, protože převážili kupující. Může být kdykoli prolomena."
+      }
+    },
+    "related": ["resistance", "stop-loss"]
+  },
+  "take-profit": {
+    "text": {
+      "en": {
+        "term": "Take-profit",
+        "definition": "An order that closes your position automatically when the price reaches your profit target."
+      },
+      "cs": {
+        "term": "Take-profit",
+        "definition": "Příkaz, který pozici automaticky uzavře, když cena dosáhne tvého cíle zisku."
+      }
+    },
+    "related": ["stop-loss"]
+  },
+  "timeframe": {
+    "text": {
+      "en": {
+        "term": "Timeframe",
+        "definition": "The period one candle on a chart covers – a minute, an hour, a day or a week. Longer timeframes show less noise."
+      },
+      "cs": {
+        "term": "Časový rámec",
+        "definition": "Období, které pokrývá jedna svíčka grafu – minuta, hodina, den nebo týden. Delší časové rámce ukazují méně šumu."
+      }
+    },
+    "related": ["candlestick", "trend"]
+  },
+  "token": {
+    "text": {
+      "en": {
+        "term": "Token",
+        "definition": "A unit of value created on an existing blockchain, such as Ethereum. Unlike a coin, it has no blockchain of its own."
+      },
+      "cs": {
+        "term": "Token",
+        "definition": "Jednotka hodnoty vytvořená na existujícím blockchainu, třeba na Ethereu. Na rozdíl od mince nemá vlastní blockchain."
+      }
+    },
+    "related": ["stablecoin", "smart-contract"]
+  },
+  "trend": {
+    "text": {
+      "en": {
+        "term": "Trend",
+        "definition": "The direction in which the price moves over a longer period. In an uptrend each high and low is higher than the previous one; a trend can end at any time."
+      },
+      "cs": {
+        "term": "Trend",
+        "definition": "Směr, kterým se cena pohybuje delší dobu. V rostoucím trendu je každé maximum i minimum výš než předchozí; trend může kdykoli skončit."
+      }
+    },
+    "related": ["support", "resistance", "timeframe"]
+  },
+  "wallet": {
+    "text": {
+      "en": {
+        "term": "Wallet",
+        "definition": "An app or device that keeps your keys. The coins themselves stay on the blockchain – the wallet only gives you access to them."
+      },
+      "cs": {
+        "term": "Peněženka",
+        "definition": "Aplikace nebo zařízení, které uchovává tvoje klíče. Samotné mince zůstávají na blockchainu – peněženka k nim jen dává přístup."
+      }
+    },
+    "related": ["private-key", "hot-wallet", "cold-wallet"]
+  }
+}

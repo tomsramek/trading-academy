@@ -29,5 +29,8 @@ content/courses/
 - Markdown inside a component (lists in `<Callout>`) needs an empty line after the opening and
   before the closing tag – otherwise it is read as one paragraph:
   `<Callout title="Summary">` ⏎ ⏎ `- first` ⏎ `- second` ⏎ ⏎ `</Callout>`
+- `<KeyTerm term="stop-loss">stop-loss</KeyTerm>` links the term to the glossary
+  (`content/glossary/terms.json`, page /glossary). The term must exist there, otherwise the build
+  stops. The glossary lists the lesson as the place where the term is explained.
 - Never start a line or a paragraph with a component used inside a sentence (`<KeyTerm>`) – MDX
   would turn it into its own block. Keep text before it on the same line.

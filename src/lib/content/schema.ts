@@ -10,6 +10,7 @@ import { routing } from "@/i18n/routing";
  * content/courses/<course>/<NN-module>/module.json             → moduleSchema
  * content/courses/<course>/<NN-module>/<NN-lesson>.<locale>.mdx → lessonSchema (export const metadata)
  * content/pages/<page>.<locale>.mdx                              → pageSchema (export const metadata)
+ * content/glossary/terms.json                                    → glossarySchema
  */
 
 export const LEVELS = ["beginner", "intermediate", "advanced"] as const;
@@ -83,3 +84,21 @@ export const pageSchema = z.strictObject({
 });
 
 export type PageMeta = z.infer<typeof pageSchema>;
+
+// The glossary: term id (used in <KeyTerm term="…"> and as the anchor /glossary#id) → its texts.
+export const glossarySchema = z.record(
+  slug,
+  z.strictObject({
+    text: z.record(
+      z.enum(routing.locales),
+      z.strictObject({
+        term: z.string().trim().min(1),
+        definition: z.string().trim().min(1),
+      }),
+    ),
+    // Ids of related terms, shown as links under the definition.
+    related: z.array(slug).optional(),
+  }),
+);
+
+export type GlossaryData = z.infer<typeof glossarySchema>;
