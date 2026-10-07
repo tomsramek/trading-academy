@@ -265,5 +265,16 @@
       "level": "Pro úroveň „{level}“ zatím nejsou kurzy.",
       "hint": "Píšeme nové lekce – brzy se sem vrať."
     }
+  },
+  "CourseDetail": {
+    "breadcrumb": "Drobečková navigace",
+    "start": "Začít kurz",
+    "noLessons": "Lekce se píšou – brzy se sem vrať.",
+    "modules": "{count, plural, one {# modul} few {# moduly} other {# modulů}}",
+    "audience": "Pro koho je",
+    "outcomes": "Co se naučíš",
+    "outline": "Osnova kurzu",
+    "module": "Modul {number}",
+    "minutes": "{count} min"
   }
 }
