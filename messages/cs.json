@@ -192,6 +192,59 @@
       "lowerWick": "Dolní knot",
       "rising": "Rostoucí",
       "falling": "Klesající"
+    },
+    "diagram": {
+      "blockchain": {
+        "block": "Blok {number}",
+        "previous": "Hash předchozího bloku",
+        "hash": "Hash tohoto bloku",
+        "transactions": "{count, plural, one {# transakce} few {# transakce} other {# transakcí}}",
+        "caption": "Každý blok obsahuje otisk (hash) předchozího bloku. Změna starého bloku by změnila jeho otisk a rozbila všechny bloky za ním."
+      },
+      "transaction": {
+        "sign": {
+          "title": "Podpis",
+          "text": "Odesílatel v peněžence podepíše platbu svým soukromým klíčem."
+        },
+        "broadcast": {
+          "title": "Rozeslání",
+          "text": "Peněženka pošle transakci do sítě, počítače si ji předávají dál."
+        },
+        "confirm": {
+          "title": "Potvrzení",
+          "text": "Těžaři nebo validátoři ji ověří a zapíšou do nového bloku."
+        },
+        "receive": {
+          "title": "Přijetí",
+          "text": "Příjemce vidí mince, jakmile se blok přidá – čím víc bloků nad ním, tím větší jistota."
+        },
+        "caption": "Uprostřed nestojí žádná banka – každou platbu ověří a zapíše sama síť."
+      },
+      "wallet": {
+        "privateKey": {
+          "title": "Soukromý klíč",
+          "text": "Tajemství, které ovládá tvoje mince. Nikdy ho nikomu neukazuj."
+        },
+        "publicKey": {
+          "title": "Veřejný klíč",
+          "text": "Vypočítá se ze soukromého klíče. Dokazuje tvůj podpis."
+        },
+        "address": {
+          "title": "Adresa",
+          "text": "Zkrácená podoba veřejného klíče. Pošli ji tomu, kdo ti má platit."
+        },
+        "oneWay": "jen jedním směrem",
+        "caption": "Každý krok funguje jen dopředu: z adresy nikdo tvůj soukromý klíč nezjistí."
+      },
+      "orderBook": {
+        "label": "Ilustrační kniha objednávek BTC/USDT",
+        "price": "Cena (USDT)",
+        "amount": "Množství (BTC)",
+        "asks": "Nabídky – chtějí prodat",
+        "bids": "Poptávky – chtějí koupit",
+        "lastPrice": "Poslední cena {price}",
+        "caption": "Prodávající čekají nad cenou, kupující pod ní. Pruhy ukazují, kolik čeká na každé ceně. Ilustrační data."
+      }
     }
   }
 }

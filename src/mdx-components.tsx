@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 
+import { BlockchainDiagram } from "@/components/lesson/BlockchainDiagram";
 import { Callout } from "@/components/lesson/Callout";
 import { CandleAnatomy } from "@/components/lesson/CandleAnatomy";
 import { CandleChart } from "@/components/lesson/CandleChart";
@@ -8,6 +9,9 @@ import { Figure } from "@/components/lesson/Figure";
 import { KeyTerm } from "@/components/lesson/KeyTerm";
 import { LessonHeading } from "@/components/lesson/LessonHeading";
 import { LessonLink } from "@/components/lesson/LessonLink";
+import { OrderBook } from "@/components/lesson/OrderBook";
+import { TransactionFlow } from "@/components/lesson/TransactionFlow";
+import { WalletKeys } from "@/components/lesson/WalletKeys";
 
 // Required by @next/mdx: components used for MDX content (lessons).
 // Elements of the Markdown text are replaced by our components; their look comes from `prose prose-academy`.
@@ -22,12 +26,16 @@ const components: MDXComponents = {
     </div>
   ),
   // Components available in every lesson without an import.
+  BlockchainDiagram,
   Callout,
   CandleAnatomy,
   CandleChart,
   CandlePattern,
   Figure,
   KeyTerm,
+  OrderBook,
+  TransactionFlow,
+  WalletKeys,
 };
 
 export function useMDXComponents(): MDXComponents {

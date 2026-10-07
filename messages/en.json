@@ -192,6 +192,59 @@
       "lowerWick": "Lower wick",
       "rising": "Rising",
       "falling": "Falling"
+    },
+    "diagram": {
+      "blockchain": {
+        "block": "Block {number}",
+        "previous": "Previous block hash",
+        "hash": "Hash of this block",
+        "transactions": "{count, plural, one {# transaction} other {# transactions}}",
+        "caption": "Every block stores the fingerprint (hash) of the previous one. Changing an old block would change its hash and break every block after it."
+      },
+      "transaction": {
+        "sign": {
+          "title": "Sign",
+          "text": "The sender signs the payment with their private key in the wallet."
+        },
+        "broadcast": {
+          "title": "Broadcast",
+          "text": "The wallet sends the transaction to the network, computers pass it on to each other."
+        },
+        "confirm": {
+          "title": "Confirm",
+          "text": "Miners or validators check it and write it into a new block."
+        },
+        "receive": {
+          "title": "Receive",
+          "text": "The receiver sees the coins once the block is added – more blocks on top mean more certainty."
+        },
+        "caption": "No bank sits in the middle – the network itself checks and records every payment."
+      },
+      "wallet": {
+        "privateKey": {
+          "title": "Private key",
+          "text": "The secret that controls your coins. Never share it with anyone."
+        },
+        "publicKey": {
+          "title": "Public key",
+          "text": "Calculated from the private key. Proves your signature."
+        },
+        "address": {
+          "title": "Address",
+          "text": "Short form of the public key. Share it to receive payments."
+        },
+        "oneWay": "one way only",
+        "caption": "Each step works only forward: from an address nobody can find your private key."
+      },
+      "orderBook": {
+        "label": "Illustrative BTC/USDT order book",
+        "price": "Price (USDT)",
+        "amount": "Amount (BTC)",
+        "asks": "Asks – offers to sell",
+        "bids": "Bids – offers to buy",
+        "lastPrice": "Last price {price}",
+        "caption": "Sellers wait above the price, buyers below it. The bars show how much is waiting at each price. Illustrative data."
+      }
     }
   }
 }
