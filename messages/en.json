@@ -269,6 +269,16 @@
         "label": "Cartoon: at night, George secretly writes 20 chickens into his notebook by candlelight, while a chicken at the window stares in disbelief.",
         "bubble": "Twenty?!",
         "caption": "George quietly \"improves\" his notebook at night. The chickens have their doubts."
+      },
+      "copyMachine": {
+        "label": "Cartoon: a cheerful person presses the button of a copy machine that spits out banknotes.",
+        "bubble": "Ctrl+C, Ctrl+V!",
+        "caption": "If money could be copied like a file, everyone would be a millionaire. At least until lunch."
+      },
+      "miningRace": {
+        "label": "Cartoon: three sweating computers race to guess a number while an electricity meter spins wildly.",
+        "bubble": "Almost got it!",
+        "caption": "Mining in a nutshell: millions of guesses per second – and an electricity meter that never rests."
       }
     }
   },
