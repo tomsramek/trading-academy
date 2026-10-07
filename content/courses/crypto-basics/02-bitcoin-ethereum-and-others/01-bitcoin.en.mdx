@@ -1,0 +1,96 @@
+import btc from "@content/market-data/btcusdt-1w-2018-2025.json";
+
+export const metadata = {
+  title: "Bitcoin",
+  description:
+    "Why there are only 21 million bitcoins, what the halving is and why it is called digital gold.",
+};
+
+<Callout title="In this lesson">
+
+- find out why there will never be more than 21 million bitcoins
+- understand what the halving is and how often it comes
+- see on a real chart how wildly the price of Bitcoin can swing
+
+</Callout>
+
+On 22 May 2010, programmer Laszlo Hanyecz ordered two pizzas and paid **10,000 bitcoins** for them.
+Back then that was about 41 dollars. It was one of the first real purchases made with bitcoin – and
+the day is still celebrated as _Bitcoin Pizza Day_.
+
+<Illustration name="pizzaDay" />
+
+Laszlo says he has no regrets. We might have a few. But how did "a few dollars for a pizza" turn
+into more than 120,000 dollars for a single bitcoin in 2025?
+
+## Only 21 million
+
+Bitcoin's rules say **there will never be more than 21 million bitcoins**. New coins are only
+created as the miners' reward for new blocks (you know that from the lesson on mining), and that
+reward keeps getting smaller.
+
+You do not have to buy a whole bitcoin, though. It splits into a hundred million pieces – the
+smallest is called a <KeyTerm term="satoshi">satoshi</KeyTerm> (0.00000001 BTC), after Bitcoin's
+creator. You can buy bitcoin for a few euros.
+
+## The halving: half the reward
+
+Roughly every four years (exactly every 210,000 blocks) the block reward is cut in half. This is
+called the <KeyTerm term="halving">halving</KeyTerm>.
+
+| Year | Block reward |
+| ---- | ------------ |
+| 2009 | 50 BTC       |
+| 2012 | 25 BTC       |
+| 2016 | 12.5 BTC     |
+| 2020 | 6.25 BTC     |
+| 2024 | 3.125 BTC    |
+
+So new bitcoins arrive more and more slowly. The last one will be created around the year 2140 –
+after that, miners will live on fees alone.
+
+## Digital gold
+
+There is a limited amount of gold in the world and nobody can "print" more. Bitcoin works in a
+similar way, which is why it is nicknamed **digital gold**: people buy it to store value, not to
+pay for their groceries.
+
+There is a big difference, though: gold has thousands of years of history, Bitcoin seventeen. And its
+price moves far more wildly.
+
+<CandleChart
+  data={btc}
+  label="Weekly Bitcoin chart 2018–2025: a rise to 69,000 USDT in November 2021, a fall to 15,476 in November 2022, then new highs above 120,000"
+  caption="Bitcoin week by week since 2018. Zoom in and move the chart."
+  markers={[
+    { time: "2020-05-11", kind: "event", label: "Halving 2020" },
+    { time: "2024-04-15", kind: "event", label: "Halving 2024" },
+  ]}
+  zones={[{ from: "2021-11-08", to: "2022-11-21", label: "−77%" }]}
+/>
+
+Look at the highlighted period: from a high of **69,000 dollars in November 2021**, the price fell
+to **15,476 dollars by November 2022 – down 77%**. Whoever bought at the top watched for a year as
+every hundred turned into twenty-three.
+
+<Callout type="warning" title="A halving does not guarantee a rise">
+  After past halvings the price rose in the following months. That does not mean
+  it always will – the market has long known and priced it in. The past
+  guarantees nothing.
+</Callout>
+
+## Common myths
+
+- **"I have to buy a whole bitcoin."** You do not – you can buy any fraction.
+- **"Bitcoin is anonymous."** More like public: every payment stays visible on the blockchain
+  forever.
+- **"The price always rises after a halving."** See the box above – and the 77% drop in the chart.
+
+<Callout title="Summary">
+
+- There will never be more than 21 million bitcoins, and each splits down to satoshis.
+- Every four years the block reward is cut in half (the halving); since 2024 it is 3.125 BTC.
+- The limited supply earned it the nickname digital gold.
+- The price can fall by three quarters – limited supply does not mean a stable price.
+
+</Callout>

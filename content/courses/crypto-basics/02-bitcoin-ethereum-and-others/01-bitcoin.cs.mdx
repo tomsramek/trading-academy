@@ -1,0 +1,93 @@
+import btc from "@content/market-data/btcusdt-1w-2018-2025.json";
+
+export const metadata = {
+  title: "Bitcoin",
+  description:
+    "Proč je bitcoinů jen 21 milionů, co je halving a proč se mu říká digitální zlato.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, proč bitcoinů nikdy nebude víc než 21 milionů
+- pochopíš, co je halving a jak často přichází
+- uvidíš na skutečném grafu, jak umí cena Bitcoinu kolísat
+
+</Callout>
+
+22. května 2010 si programátor Laszlo Hanyecz objednal dvě pizzy a zaplatil za ně
+    **10 000 bitcoinů**. Tehdy to bylo asi 41 dolarů. Byla to jedna z prvních skutečných plateb
+    v bitcoinech – a dodnes se ten den slaví jako _Bitcoin Pizza Day_.
+
+<Illustration name="pizzaDay" />
+
+Laszlo prý nelituje. My bychom možná trochu litovali. Proč ale z „pár dolarů za pizzu“ vyrostlo
+něco, za co se v roce 2025 platilo přes 120 000 dolarů za jediný bitcoin?
+
+## Jen 21 milionů
+
+Pravidla Bitcoinu určují, že **bitcoinů nikdy nebude víc než 21 milionů**. Nové mince vznikají jen
+jako odměna těžařům za nové bloky (to už znáš z lekce o těžbě) a ta odměna se postupně zmenšuje.
+
+Nemusíš ale kupovat celý bitcoin. Dělí se na sto milionů dílků – nejmenší se jmenuje <KeyTerm term="satoshi">satoshi</KeyTerm> (0,00000001 BTC), podle tvůrce Bitcoinu. Klidně si
+koupíš bitcoin za pár stovek korun.
+
+## Halving: odměna na polovinu
+
+Zhruba každé čtyři roky (přesně každých 210 000 bloků) se odměna za blok sníží na polovinu. Tomu
+se říká <KeyTerm term="halving">halving</KeyTerm>.
+
+| Rok  | Odměna za blok |
+| ---- | -------------- |
+| 2009 | 50 BTC         |
+| 2012 | 25 BTC         |
+| 2016 | 12,5 BTC       |
+| 2020 | 6,25 BTC       |
+| 2024 | 3,125 BTC      |
+
+Nových bitcoinů tedy přibývá čím dál pomaleji. Poslední vznikne zhruba kolem roku 2140 – pak už
+budou těžaři žít jen z poplatků.
+
+## Digitální zlato
+
+Zlata je na světě omezené množství a nikdo ho nemůže „natisknout“. Bitcoin funguje podobně, proto
+se mu přezdívá **digitální zlato**: lidé ho kupují jako uchovatele hodnoty, ne jako peníze na
+nákup rohlíků.
+
+Je tu ale velký rozdíl: zlato má za sebou tisíce let historie, Bitcoin sedmnáct. A jeho cena se
+hýbe mnohem divočeji.
+
+<CandleChart
+  data={btc}
+  label="Týdenní graf Bitcoinu 2018–2025: růst na 69 000 USDT v listopadu 2021, propad na 15 476 v listopadu 2022, pak nová maxima nad 120 000"
+  caption="Bitcoin týden po týdnu od roku 2018. Graf si přibliž a posuň."
+  markers={[
+    { time: "2020-05-11", kind: "event", label: "Halving 2020" },
+    { time: "2024-04-15", kind: "event", label: "Halving 2024" },
+  ]}
+  zones={[{ from: "2021-11-08", to: "2022-11-21", label: "−77 %" }]}
+/>
+
+Všimni si zvýrazněného období: z maxima **69 000 dolarů v listopadu 2021** spadla cena do
+listopadu 2022 až na **15 476 dolarů – o 77 %**. Kdo nakoupil na vrcholu, sledoval rok, jak mu
+z každé stokoruny zbývá třiadvacet.
+
+<Callout type="warning" title="Halving není záruka růstu">
+  Po minulých halvingech cena v následujících měsících rostla. To ale neznamená,
+  že to tak bude vždycky – trh to dávno ví a počítá s tím. Minulost nic
+  nezaručuje.
+</Callout>
+
+## Časté omyly
+
+- **„Musím koupit celý bitcoin.“** Nemusíš – koupíš si jakýkoli zlomek.
+- **„Bitcoin je anonymní.“** Spíš veřejný: každá platba je navždy vidět v blockchainu.
+- **„Po halvingu cena vždycky vyroste.“** Viz box výše – a viz propad o 77 % v grafu.
+
+<Callout title="Shrnutí">
+
+- Bitcoinů nikdy nebude víc než 21 milionů a dělí se až na satoshi.
+- Každé čtyři roky se odměna za blok sníží na polovinu (halving); od roku 2024 je to 3,125 BTC.
+- Omezená nabídka mu vysloužila přezdívku digitální zlato.
+- Cena umí spadnout i o tři čtvrtiny – omezená nabídka neznamená stabilní cenu.
+
+</Callout>

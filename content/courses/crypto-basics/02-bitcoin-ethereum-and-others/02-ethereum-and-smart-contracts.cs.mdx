@@ -1,0 +1,75 @@
+export const metadata = {
+  title: "Ethereum a chytré kontrakty",
+  description:
+    "Blockchain, na kterém běží programy: chytré kontrakty, tokeny, DeFi a NFT – a jejich rizika.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, čím se Ethereum liší od Bitcoinu
+- pochopíš, co je chytrý kontrakt – na příkladu automatu na sladkosti
+- uvidíš, co všechno na Ethereu vzniklo a kde číhají rizika
+
+</Callout>
+
+Bitcoin umí v podstatě jednu věc: posílat bitcoiny. Na konci roku 2013 přišel devatenáctiletý
+programátor **Vitalik Buterin** s otázkou: co kdyby blockchain uměl spouštět **libovolné
+programy**? Tak vzniklo Ethereum – síť se spustila **30. července 2015**.
+
+## Chytrý kontrakt: automat bez prodavače
+
+Představ si automat na sladkosti. Vhodíš minci, vybereš číslo a automat ti vydá sušenku. Žádný
+prodavač, žádné smlouvání – pravidla jsou zabudovaná přímo v automatu.
+
+<Illustration name="vendingMachine" />
+
+Takzvaný <KeyTerm term="smart-contract">chytrý kontrakt</KeyTerm> funguje stejně, jen v blockchainu:
+je to program s pravidly typu „když přijde platba, pošli zpět token“. Jakmile se nahraje do
+Etherea, běží sám, vidí ho každý a nikdo ho nemůže potichu změnit.
+
+Za spuštění se platí poplatek v měně Etherea (ETH), kterému se říká <KeyTerm term="gas">gas</KeyTerm> – doslova „palivo“. Čím složitější program a čím víc lidí chce
+zrovna síť používat, tím víc paliva spotřebuješ.
+
+## Co na Ethereu vzniklo
+
+- **Tokeny** – vlastní měny nebo poukázky, které si kdokoli vytvoří chytrým kontraktem. Většina
+  „kryptoměn“, o kterých jsi slyšel, je ve skutečnosti token na Ethereu nebo podobné síti.
+- **DeFi** (decentralizované finance) – půjčky, směnárny nebo spoření bez banky, řízené jen
+  kontrakty. Tomu se říká <KeyTerm term="defi">DeFi</KeyTerm>.
+- **NFT** – digitální „list vlastnictví“ k obrázku, vstupence nebo herní věci. V letech 2021–2022
+  kolem nich vypukla horečka a mnohé se prodávaly za miliony; velká část z nich dnes nemá skoro
+  žádnou cenu.
+
+## Bitcoin vs. Ethereum
+
+|                      | Bitcoin                     | Ethereum                    |
+| -------------------- | --------------------------- | --------------------------- |
+| K čemu hlavně slouží | uchování a posílání hodnoty | platforma pro programy      |
+| Počet mincí          | max. 21 milionů             | pevný strop nemá            |
+| Kdo zapisuje bloky   | těžaři (proof of work)      | validátoři (proof of stake) |
+| Nový blok            | ~10 minut                   | ~12 vteřin                  |
+
+<Callout type="risk" title="Kód dělá přesně to, co je v něm napsané">
+  Včetně chyb. Když má chytrý kontrakt chybu, útočník ji může zneužít a peníze z
+  něj vybrat – a žádná zákaznická linka je nevrátí. V DeFi se tak ztratily
+  obrovské částky. Do neznámých kontraktů neposílej peníze, které nechceš
+  riskovat.
+</Callout>
+
+## Časté omyly
+
+- **„Ethereum je jen další Bitcoin.“** Bitcoin je hlavně peníze, Ethereum hlavně platforma, na
+  které běží jiné věci.
+- **„Chytrý kontrakt je chytrý.“** Je to jen program. Neví, co je spravedlivé – dělá přesně to, co
+  mu někdo napsal. I když se ten někdo spletl.
+- **„NFT znamená, že vlastním obrázek.“** Obvykle vlastníš jen záznam v blockchainu, který na
+  obrázek odkazuje – autorská práva tím nezískáš.
+
+<Callout title="Shrnutí">
+
+- Ethereum (2015) je blockchain, na kterém běží programy – chytré kontrakty.
+- Chytrý kontrakt je jako automat: pravidla v kódu, žádný prostředník.
+- Na Ethereu vznikly tokeny, DeFi i NFT; za spuštění programů se platí poplatky (gas).
+- Chyba v kódu může znamenat ztracené peníze – kód nikdo „neohne“, ani v dobrém.
+
+</Callout>
