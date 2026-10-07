@@ -1,0 +1,80 @@
+export const metadata = {
+  title: "Jak probíhá transakce",
+  description:
+    "Co se stane po kliknutí na Odeslat: podpis, čekárna, poplatky a potvrzení.",
+};
+
+<Callout title="V této lekci">
+
+- uvidíš, kudy putuje platba od odeslání až k příjemci
+- pochopíš, proč se platí poplatky a na čem závisí
+- zjistíš, co znamená „potvrzení“ a proč se transakce nedá vrátit
+
+</Callout>
+
+Jana prodává Tomášovi staré kolo a Tomáš chce zaplatit v bitcoinech. Jana mu pošle adresu,
+Tomáš klikne na **Odeslat** – a pak chvíli nevěřícně kouká, protože se „nic neděje“. Ve skutečnosti se
+toho děje spousta.
+
+## Cesta jedné platby
+
+<TransactionFlow />
+
+### 1. Podpis
+
+Peněženka platbu nejdřív **podepíše** <KeyTerm term="private-key">soukromým klíčem</KeyTerm> –
+tajným číslem, které má jen Tomáš. Podpis dokazuje, že platbu poslal opravdu on, a nikdo ho
+nemůže zfalšovat ani přenést na jinou platbu. (Klíčům a peněženkám se věnuje samostatná lekce.)
+
+### 2. Čekárna
+
+Podepsaná platba se rozešle do sítě a přistane v „čekárně“ nepotvrzených transakcí – říká se jí <KeyTerm term="mempool">mempool</KeyTerm>. Tam čeká, až ji někdo zapíše do bloku.
+
+### 3. Zápis do bloku
+
+Bitcoin přidává nový blok **průměrně každých 10 minut**, Ethereum zhruba **každých 12 vteřin**.
+Do bloku se ale nevejde všechno, co zrovna čeká – a tady přicházejí na řadu poplatky.
+
+### 4. Potvrzení
+
+Jakmile je platba v bloku, má první <KeyTerm term="confirmation">potvrzení</KeyTerm>. Každý další
+blok nad ní přidá další potvrzení a vrátit ji je čím dál nemožnější. U větších částek služby často
+čekají na několik potvrzení – u Bitcoinu se jako pravidlo palce uvádí šest, tedy zhruba hodina.
+
+## Poplatky: aukce o místa v autobuse
+
+Představ si autobus, který odjíždí každých deset minut a má omezený počet sedadel. Cestujících je
+víc než míst, a tak řidič bere přednostně ty, kdo nabídnou víc. Kdo nabídne málo, počká na další
+spoj. Nebo na další. Nebo do zítřka.
+
+Přesně tak fungují poplatky:
+
+- **Poplatek dostane ten, kdo transakci zapíše do bloku** – jako odměnu za práci.
+- **Výše poplatku závisí na zájmu**, ne na tom, kolik posíláš. Když chce v jednu chvíli posílat
+  hodně lidí, poplatky rostou.
+- **Nízký poplatek = delší čekání.** Peněženky proto obvykle nabízejí volbu „pomalu a levně“ nebo
+  „rychle a dráž“.
+
+<Callout type="warning" title="Platba se nedá vrátit">
+  Žádná banka, žádné reklamace. Pošleš-li peníze na špatnou adresu, jsou pryč.
+  Adresu vždycky zkontroluj (aspoň začátek a konec) a u větší částky pošli
+  nejdřív malou zkušební platbu.
+</Callout>
+
+## Časté omyly
+
+- **„Čím víc posílám, tím vyšší poplatek.“** U Bitcoinu ne – poplatek se řídí velikostí transakce
+  v datech a aktuálním zájmem. Milion může stát stejně jako stovka.
+- **„Kryptoměnová platba je okamžitá.“** Odeslání ano, potvrzení ne. Počítej s minutami, při
+  přetížené síti i déle.
+- **„Platbu můžu zrušit.“** Jakmile je v bloku, už ne. Dokud čeká v čekárně, jde ji u některých
+  peněženek nahradit platbou s vyšším poplatkem – ale nespoléhej na to.
+
+<Callout title="Shrnutí">
+
+- Platba se podepíše soukromým klíčem, rozešle do sítě a čeká v čekárně (mempool).
+- Do bloku se dostanou nejdřív platby s vyšším poplatkem; poplatek závisí na zájmu, ne na částce.
+- Každý další blok přidá potvrzení – víc potvrzení, větší jistota.
+- Potvrzenou platbu nikdo nevrátí, proto adresu vždycky kontroluj.
+
+</Callout>

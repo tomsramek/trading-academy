@@ -1,0 +1,83 @@
+export const metadata = {
+  title: "How a transaction works",
+  description:
+    "What happens after you click Send: the signature, the waiting room, fees and confirmations.",
+};
+
+<Callout title="In this lesson">
+
+- follow a payment from sending all the way to the receiver
+- understand why there are fees and what they depend on
+- find out what a "confirmation" is and why a transaction cannot be reversed
+
+</Callout>
+
+Jane is selling her old bike to Tom, and he wants to pay in bitcoin. Jane sends him her address,
+Tom clicks **Send** – and then stares in disbelief, because "nothing is happening". In fact, a lot
+is happening.
+
+## The journey of one payment
+
+<TransactionFlow />
+
+### 1. The signature
+
+First, the wallet **signs** the payment with a <KeyTerm term="private-key">private key</KeyTerm> –
+a secret number only Tom has. The signature proves the payment really comes from him, and nobody
+can forge it or move it to another payment. (Keys and wallets get a lesson of their own.)
+
+### 2. The waiting room
+
+The signed payment is broadcast to the network and lands in the "waiting room" of unconfirmed
+transactions – called the <KeyTerm term="mempool">mempool</KeyTerm>. There it waits until someone
+writes it into a block.
+
+### 3. Into a block
+
+Bitcoin adds a new block **every 10 minutes on average**, Ethereum roughly **every 12 seconds**.
+But not everything that is waiting fits into one block – and this is where fees come in.
+
+### 4. Confirmations
+
+Once the payment is in a block, it has its first <KeyTerm term="confirmation">confirmation</KeyTerm>.
+Every further block on top adds another confirmation and makes reversing it ever more impossible.
+For larger amounts, services often wait for several confirmations – for Bitcoin, six (about an
+hour) is a common rule of thumb.
+
+## Fees: an auction for bus seats
+
+Imagine a bus that leaves every ten minutes and has a limited number of seats. There are more
+passengers than seats, so the driver takes those who offer more first. Whoever offers little
+waits for the next bus. Or the one after. Or until tomorrow.
+
+That is exactly how fees work:
+
+- **The fee goes to whoever writes the transaction into a block** – as a reward for the work.
+- **The fee depends on demand**, not on how much you send. When many people want to send at once,
+  fees go up.
+- **Low fee = longer wait.** That is why wallets usually let you choose "slow and cheap" or "fast
+  and pricier".
+
+<Callout type="warning" title="Payments cannot be reversed">
+  No bank, no refunds. Send money to the wrong address and it is gone. Always
+  check the address (at least its beginning and end), and for a larger amount
+  send a small test payment first.
+</Callout>
+
+## Common myths
+
+- **"The more I send, the higher the fee."** Not with Bitcoin – the fee depends on the data size
+  of the transaction and current demand. A million can cost the same as a hundred.
+- **"Crypto payments are instant."** Sending is, confirming is not. Expect minutes, longer when the
+  network is busy.
+- **"I can cancel a payment."** Not once it is in a block. While it is still waiting, some wallets
+  can replace it with a higher-fee payment – but do not count on it.
+
+<Callout title="Summary">
+
+- A payment is signed with a private key, broadcast to the network and waits in the mempool.
+- Payments with higher fees get into blocks first; the fee depends on demand, not on the amount.
+- Every further block adds a confirmation – more confirmations, more certainty.
+- Nobody can reverse a confirmed payment, so always check the address.
+
+</Callout>
