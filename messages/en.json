@@ -136,6 +136,10 @@
       "tip": "Tip",
       "warning": "Warning",
       "risk": "Risk"
+    },
+    "chart": {
+      "source": "Data: {source}",
+      "illustrative": "Illustrative data, not a real market"
     }
   }
 }

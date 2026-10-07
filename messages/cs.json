@@ -136,6 +136,10 @@
       "tip": "Tip",
       "warning": "Pozor",
       "risk": "Riziko"
+    },
+    "chart": {
+      "source": "Data: {source}",
+      "illustrative": "Ilustrační data, ne skutečný trh"
     }
   }
 }

@@ -1,5 +1,7 @@
 import chart from "./sample-chart.png";
 import chartLight from "./sample-chart-light.png";
+import illustrative from "./sample-candles.json";
+import btc from "@content/market-data/btcusdt-1d-2024-h1.json";
 
 Every lesson starts with a short introduction. It says what you will learn and why it matters
 before you put any money at risk.
@@ -15,6 +17,17 @@ four values: _open_, _high_, _low_ and _close_. Read more in the
   lightSrc={chartLight}
   alt="Candlestick chart: the price first falls, then rises again"
   caption="Red candles – the price went down, green candles – it went up."
+/>
+
+<CandleChart
+  data={btc}
+  label="Bitcoin daily chart, January to June 2024: rise from 42,000 to 73,000 USDT, then a pullback"
+  caption="Bitcoin in the first half of 2024."
+/>
+
+<CandleChart
+  data={illustrative}
+  label="Illustrative daily chart: the price rises, then falls back"
 />
 
 ### Parts of a candle
