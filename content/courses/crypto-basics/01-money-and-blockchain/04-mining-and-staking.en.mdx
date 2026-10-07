@@ -1,0 +1,97 @@
+export const metadata = {
+  title: "Mining and staking",
+  description:
+    "Who writes new blocks, why they do it and why cheating does not pay – proof of work and proof of stake.",
+};
+
+<Callout title="In this lesson">
+
+- find out who decides which block comes next
+- understand the difference between mining (proof of work) and staking (proof of stake)
+- see why both cost money – and why that is actually a good thing
+
+</Callout>
+
+In the previous lessons we said that "the network" writes new payments into blocks. But the
+network is thousands of computers that do not know each other and do not have to trust each other.
+**Which of them may write the next block?** If anyone could, any time, George from the blockchain lesson
+would write himself as many chickens as he liked.
+
+The solution is simple and a little harsh: **writing a block has to cost something.** Whoever wants
+to cheat must pay a lot first – and loses what they paid.
+
+## Proof of work: a guessing race
+
+Bitcoin uses <KeyTerm term="proof-of-work">proof of work</KeyTerm>. So-called miners compete to be
+the first to find a number that makes the fingerprint (hash) of the new block start with enough
+zeros. There is no clever shortcut – you can only guess. Fast, and a lot.
+
+<Illustration name="miningRace" />
+
+Whoever guesses first adds the block and gets a reward: **newly created bitcoins plus the fees**
+from the payments in the block. Since April 2024 that is 3.125 BTC per block. That is why it is
+called mining – new coins are "mined" from work, not from the ground.
+
+To keep blocks coming roughly **every 10 minutes**, the network keeps adjusting how hard the
+guessing is. More miners join, guessing gets harder; fewer miners, it gets easier.
+
+**Why this stops fraud:** anyone who wanted to rewrite an old block would have to "guess" its
+number again, plus the numbers of all blocks after it – faster than all other miners combined.
+They would need most of the computing power of the whole network. For Bitcoin, that would cost an
+astronomical amount.
+
+The price for this is **electricity**. Bitcoin mining uses as much energy as a whole mid-sized
+country – one of the most common criticisms of cryptocurrencies.
+
+## Proof of stake: a deposit instead of electricity
+
+The second approach is called <KeyTerm term="proof-of-stake">proof of stake</KeyTerm>. Instead of a
+race of computers, **validators** lock up their own cryptocurrency as a deposit. The network picks
+who writes the next block by lottery – the bigger the deposit, the bigger the chance.
+
+A validator who cheats loses part of the deposit (this is called _slashing_). So cheating still
+does not pay – you just risk your own money instead of electricity.
+
+Ethereum switched from mining to proof of stake on **15 September 2022**, and according to
+ethereum.org its energy use dropped by about **99.95%**. Running your own Ethereum validator
+requires locking up at least 32 ETH.
+
+|                      | Proof of work            | Proof of stake             |
+| -------------------- | ------------------------ | -------------------------- |
+| Who writes blocks    | miners                   | validators                 |
+| What is at stake     | electricity and hardware | their own cryptocurrency   |
+| Penalty for cheating | wasted energy            | losing part of the deposit |
+| Example              | Bitcoin                  | Ethereum (since 2022)      |
+
+## Staking for ordinary people
+
+When an exchange or app talks about "staking", it usually means **you lend your cryptocurrency to
+validators** and get part of their reward in return. It sounds like interest at a bank. It is not
+interest at a bank.
+
+<Callout type="risk" title="Staking is not a savings account">
+  The reward is paid in a cryptocurrency whose price can drop sharply – a few
+  percent a year will not save you if the price falls by a third. Deposits are
+  often locked for some time, and the platform you stake through can go bust.
+  Nobody guarantees you anything.
+</Callout>
+
+## Common myths
+
+- **"Miners dig up bitcoin out of nothing, for free."** They pay for electricity and special
+  hardware – and when the price drops, mining stops paying off.
+- **"Proof of stake is less secure because it costs nothing."** It does cost – validators risk
+  their own deposit instead of electricity.
+- **"Staking is risk-free interest."** See the box above.
+
+<Callout title="Summary">
+
+- Writing a new block has to cost something, otherwise cheating would pay.
+- Proof of work (Bitcoin): miners guess, the winner gets new coins and fees; it uses a lot of
+  electricity.
+- Proof of stake (Ethereum): validators lock up a deposit and lose it for cheating; energy use is
+  a tiny fraction.
+- Staking in an app means lending your cryptocurrency to validators – with a reward, but also
+  with risks.
+
+</Callout>
