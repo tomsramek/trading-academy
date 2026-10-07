@@ -97,7 +97,7 @@
             "All of it up to CZK 1 million a year",
             "Yearly income up to CZK 100,000 and sales after more than 3 years of holding"
           ],
-          "explanation": "Exempt are yearly sales income up to CZK 100,000 and sales after more than 3 years of holding (up to CZK 40 million a year). Note: CZK 100,000 is income, not profit."
+          "explanation": "Exempt are yearly sales income up to CZK 100,000 and sales after more than 3 years of holding (the CZK 40 million yearly cap is shared with securities). Note: CZK 100,000 is income, not profit, and the exemptions do not apply to stablecoins tied to the euro or dollar."
         },
         "cs": {
           "question": "Které příjmy z prodeje kryptoměn jsou v Česku od roku 2025 osvobozené od daně?",
@@ -106,7 +106,7 @@
             "Všechny do jednoho milionu korun ročně",
             "Roční příjmy do 100 000 Kč a prodeje po více než 3 letech držení"
           ],
-          "explanation": "Osvobozené jsou roční příjmy z prodeje do 100 000 Kč a prodeje po více než 3 letech držení (do 40 milionů Kč ročně). Pozor: 100 000 Kč jsou příjmy, ne zisk."
+          "explanation": "Osvobozené jsou roční příjmy z prodeje do 100 000 Kč a prodeje po více než 3 letech držení (limit 40 mil. Kč ročně je společný s cennými papíry). Pozor: 100 000 Kč jsou příjmy, ne zisk, a osvobození neplatí pro stablecoiny navázané na euro nebo dolar."
         }
       },
       "answer": 2

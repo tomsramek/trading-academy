@@ -288,11 +288,11 @@
     "text": {
       "en": {
         "term": "Mempool",
-        "definition": "The waiting room of transactions that have been sent but are not yet in a block. Transactions with a higher fee usually get in sooner."
+        "definition": "The waiting room of transactions that have been sent but are not yet in a block. Transactions with a higher fee usually get into a block sooner."
       },
       "cs": {
         "term": "Mempool",
-        "definition": "Čekárna transakcí, které už byly odeslané, ale ještě nejsou v bloku. Transakce s vyšším poplatkem se tam obvykle dostanou dřív."
+        "definition": "Čekárna transakcí, které už byly odeslané, ale ještě nejsou v bloku. Transakce s vyšším poplatkem se obvykle dostanou do bloku dřív."
       }
     },
     "related": ["confirmation", "blockchain"]
@@ -457,11 +457,11 @@
     "text": {
       "en": {
         "term": "Smart contract",
-        "definition": "A program stored on a blockchain that runs automatically when its conditions are met. Nobody can stop it – including when it contains a bug."
+        "definition": "A program stored on a blockchain that runs automatically when its conditions are met. Nobody can quietly change it – unless its authors built in a way to pause or upgrade it, which is a risk in itself."
       },
       "cs": {
         "term": "Chytrý kontrakt",
-        "definition": "Program uložený na blockchainu, který se spustí automaticky, když jsou splněné jeho podmínky. Nikdo ho nemůže zastavit – ani když obsahuje chybu."
+        "definition": "Program uložený na blockchainu, který se spustí automaticky, když jsou splněné jeho podmínky. Nikdo ho nemůže potichu změnit – pokud do něj autoři nezabudovali možnost ho pozastavit nebo upravit, což je samo o sobě riziko."
       }
     },
     "related": ["gas", "defi"]
@@ -496,11 +496,11 @@
     "text": {
       "en": {
         "term": "Staking",
-        "definition": "Locking your coins to help secure a proof-of-stake network in exchange for a reward. The coins may be locked for some time and their price can still fall."
+        "definition": "Locking your coins to help secure a proof-of-stake network in exchange for a reward. In an app or at an exchange you usually hand them to a validator or the platform, which stakes them for you. The coins may be locked for some time and their price can still fall."
       },
       "cs": {
         "term": "Staking",
-        "definition": "Uzamčení mincí, kterými pomáháš zabezpečit síť s proof of stake, výměnou za odměnu. Mince můžou být nějakou dobu zamčené a jejich cena může dál klesat."
+        "definition": "Uzamčení mincí, kterými pomáháš zabezpečit síť s proof of stake, výměnou za odměnu. V aplikaci nebo na burze je obvykle svěříš validátorovi či platformě, která za tebe stakuje. Mince můžou být nějakou dobu zamčené a jejich cena může dál klesat."
       }
     },
     "related": ["proof-of-stake"]
