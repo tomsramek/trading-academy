@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
@@ -28,15 +29,15 @@ export function Hero() {
           {t("description")}
         </p>
         <div className="flex flex-wrap justify-center gap-4 pt-2">
-          <a
-            href="#curriculum"
+          <Link
+            href="/courses"
             className={cn(
               buttonVariants({ size: "lg" }),
               "h-12 px-7 text-base",
             )}
           >
             {t("primaryCta")}
-          </a>
+          </Link>
           <a
             href="#why"
             className={cn(

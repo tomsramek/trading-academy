@@ -37,10 +37,10 @@
   },
   "Home": {
     "hero": {
-      "badge": "Kurzy již brzy",
+      "badge": "Nový kurz: Základy kryptoměn",
       "title": "Nauč se tradovat krypto – od první svíčky po vlastní strategii",
       "description": "Bezplatná strukturovaná akademie pro úplné začátečníky i zkušené tradery. Bez humbuku a bez slibů rychlého zisku.",
-      "primaryCta": "Prohlédnout osnovu",
+      "primaryCta": "Prohlédnout kurzy",
       "secondaryCta": "Proč Trading Academy"
     },
     "why": {
@@ -98,8 +98,10 @@
     },
     "curriculum": {
       "title": "První kurz: Základy kryptoměn",
-      "description": "Pozvolný start pro úplné začátečníky – první kurz, který připravujeme.",
+      "description": "Pozvolný start pro úplné začátečníky – 18 krátkých lekcí, zdarma.",
       "badge": "Již brzy",
+      "badgeNew": "Nový",
+      "start": "Začít kurz",
       "level": "Začátečník",
       "modules": [
         "Co je blockchain a kryptoměna",
@@ -120,9 +122,9 @@
           "question": "Je to investiční doporučení?",
           "answer": "Ne. Trading Academy je pouze vzdělávací obsah. Vysvětlujeme, jak trhy fungují a jak řídit riziko – nikdy ti neříkáme, co koupit nebo prodat."
         },
-        "when": {
-          "question": "Kdy budou kurzy k dispozici?",
-          "answer": "Právě připravujeme první kurz, Základy kryptoměn. Objeví se tady, jakmile bude hotový."
+        "courses": {
+          "question": "Jaké kurzy jsou k dispozici?",
+          "answer": "Hotový je první kurz, Základy kryptoměn, pro úplné začátečníky. Kurzy pro středně pokročilé a pokročilé připravujeme."
         },
         "money": {
           "question": "Potřebuju k učení peníze?",

@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { SectionHeading } from "./SectionHeading";
 
-const QUESTIONS = ["free", "advice", "when", "money", "languages"] as const;
+const QUESTIONS = ["free", "advice", "courses", "money", "languages"] as const;
 
 export function FaqSection() {
   const t = useTranslations("Home.faq");
