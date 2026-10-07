@@ -1,0 +1,96 @@
+import luna from "@content/market-data/lunausdt-1d-2022-crash.json";
+
+export const metadata = {
+  title: "Stablecoiny, altcoiny a memecoiny",
+  description:
+    "Tisíce kryptoměn kromě Bitcoinu: k čemu jsou stablecoiny, co jsou altcoiny a proč jsou memecoiny loterie.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, k čemu slouží stablecoiny a v čem je jejich háček
+- pochopíš, co jsou altcoiny a proč většina z nich nepřežije
+- uvidíš, jak během pár dní zmizela kryptoměna za desítky miliard dolarů
+
+</Callout>
+
+Kryptoměn existují tisíce. Některé mají za sebou velké týmy a miliardové sítě, jiné vznikly jako
+vtip o psovi. Pro začátek se vyplatí je rozdělit do tří skupin.
+
+## Stablecoiny: kryptoměna, která se (většinou) nehýbe
+
+Takzvaný <KeyTerm term="stablecoin">stablecoin</KeyTerm> je token, jehož cena má být pořád stejná – nejčastěji
+**1 dolar**. Mezi nejznámější patří USDT a USDC. Vydavatel slibuje, že za každý vydaný token drží
+v rezervě skutečný dolar nebo bezpečné dluhopisy.
+
+K čemu je to dobré? Na burzách se stablecoiny používají jako „parkoviště“: prodáš bitcoin za USDT
+a nemusíš peníze posílat zpátky do banky. A posílat je jde kamkoli na světě během minut.
+
+Háček je v důvěře: **stablecoin je jen tak stabilní, jak poctivý je jeho vydavatel** a jak dobré
+má rezervy. Nejhorší případ ukázal rok 2022.
+
+## Pád Terra/LUNA: 99,99 % za týden
+
+Stablecoin UST neměl v rezervě dolary. Jeho cenu držel na dolaru jen algoritmus navázaný na druhou
+kryptoměnu, LUNA. 9. května 2022 UST ztratil vazbu na dolar a začala spirála: lidé prodávali UST,
+algoritmus tiskl další LUNA a ta padala čím dál rychleji.
+
+<CandleChart
+  data={luna}
+  label="Denní graf LUNA, březen až 13. května 2022: cena kolem 100 USDT, maximum 119,55 v dubnu, pak během pěti dnů pád téměř na nulu"
+  caption="LUNA před pádem a během něj. Na konci grafu je cena tak blízko nule, že ji ani nejde rozeznat."
+  markers={[{ time: "2022-05-09", kind: "event", label: "UST ≠ 1 $" }]}
+  zones={[{ from: "2022-05-09", to: "2022-05-13", label: "Pád" }]}
+/>
+
+Z ceny **119,55 dolaru** na začátku dubna zbylo 13. května **0,00005 dolaru**. Pak Binance obchodování
+ukončil. Kryptoměna, která patřila mezi největší na světě, prakticky zmizela za pár dní.
+
+## Altcoiny: všechno ostatní
+
+Slovo <KeyTerm term="altcoin">altcoin</KeyTerm> je zkrácenina z „alternative coin“ – tak se říká každé
+kryptoměně kromě Bitcoinu. Patří sem velké sítě jako Ethereum, ale i tisíce malých projektů, které
+slibují, že budou „rychlejší“, „levnější“ nebo „revoluční“.
+
+Většina z nich za pár let zmizí, nebo ztratí skoro celou hodnotu. Než do nějakého vložíš peníze,
+zeptej se:
+
+- **Kdo za projektem stojí?** Skutečná jména, nebo anonymní tým?
+- **Jaký problém řeší?** Umí to líp než existující řešení, nebo jen slibuje?
+- **Kdo drží většinu mincí?** Pokud tvůrci, můžou je kdykoli prodat.
+- **Slibuje jistý zisk?** Pak utíkej.
+
+## Memecoiny: loterie s pejskem
+
+Takzvaný <KeyTerm term="memecoin">memecoin</KeyTerm> je kryptoměna, která vznikla z internetového vtipu.
+Nejznámější je **Dogecoin**, spuštěný 6. prosince 2013 jako parodie s obrázkem psa plemene šiba-inu.
+Memecoiny obvykle nic neřeší – jejich cenu žene jen pozornost na sociálních sítích.
+
+<Illustration name="memeSlot" />
+
+Ceny memecoinů umí vyletět o stovky procent za den – a stejně rychle spadnout. Je to spíš loterie
+než investice. A na rozdíl od loterie tu nikdo nekontroluje, jestli losování není zmanipulované.
+
+<Callout type="risk" title="Čím menší mince, tím větší riziko">
+  Malé altcoiny a memecoiny se dají snadno zmanipulovat: stačí pár velkých
+  hráčů, kteří nakoupí, rozjedou humbuk a prodají těm, kdo přišli pozdě. Počítej
+  s tím, že o vložené peníze můžeš přijít úplně.
+</Callout>
+
+## Časté omyly
+
+- **„Mince za 0,0001 dolaru je levná, může snadno stoupnout stokrát.“** Cena jedné mince nic neříká.
+  Důležité je, kolik stojí všechny mince dohromady (tržní kapitalizace). Když jich jsou biliony,
+  i maličká cena znamená obrovskou hodnotu – a stonásobek je skoro nemožný.
+- **„Stablecoin je bezpečný jako peníze v bance.“** Není to vklad v bance a žádné pojištění vkladů
+  na něj neplatí.
+- **„Když je to na velké burze, je to prověřené.“** LUNA byla na všech velkých burzách.
+
+<Callout title="Shrnutí">
+
+- Stablecoiny drží cenu kolem dolaru – jen pokud je jejich vydavatel poctivý a má rezervy.
+- Algoritmický stablecoin UST a s ním LUNA se v květnu 2022 zhroutily během pár dní.
+- Altcoiny jsou všechny kryptoměny kromě Bitcoinu; většina z nich nepřežije.
+- Memecoiny vznikly z vtipu a jejich cenu žene jen humbuk – je to loterie.
+
+</Callout>

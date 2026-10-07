@@ -1,0 +1,99 @@
+import luna from "@content/market-data/lunausdt-1d-2022-crash.json";
+
+export const metadata = {
+  title: "Stablecoins, altcoins and memecoins",
+  description:
+    "Thousands of cryptocurrencies besides Bitcoin: what stablecoins are for, what altcoins are and why memecoins are a lottery.",
+};
+
+<Callout title="In this lesson">
+
+- find out what stablecoins are for and where the catch is
+- understand what altcoins are and why most of them do not survive
+- see how a cryptocurrency worth tens of billions of dollars vanished in a few days
+
+</Callout>
+
+There are thousands of cryptocurrencies. Some have large teams and billion-dollar networks behind
+them, others started as a joke about a dog. To begin with, it helps to sort them into three groups.
+
+## Stablecoins: crypto that (mostly) stands still
+
+A <KeyTerm term="stablecoin">stablecoin</KeyTerm> is a token whose price is meant to stay the same –
+most often **1 dollar**. The best known include USDT and USDC. The issuer promises to hold a real
+dollar or safe bonds in reserve for every token issued.
+
+What is that good for? On exchanges, stablecoins are used as a "parking spot": you sell bitcoin for
+USDT and do not have to send the money back to a bank. And you can send them anywhere in the world
+within minutes.
+
+The catch is trust: **a stablecoin is only as stable as its issuer is honest** and its reserves are
+good. 2022 showed the worst case.
+
+## The fall of Terra/LUNA: 99.99% in a week
+
+The UST stablecoin did not hold dollars in reserve. Its price was kept at one dollar only by an
+algorithm tied to a second cryptocurrency, LUNA. On 9 May 2022, UST lost its peg to the dollar and
+a spiral began: people sold UST, the algorithm printed more LUNA, and LUNA fell faster and faster.
+
+<CandleChart
+  data={luna}
+  label="Daily LUNA chart, March to 13 May 2022: price around 100 USDT, a high of 119.55 in April, then a fall to almost zero within five days"
+  caption="LUNA before and during the crash. At the end of the chart the price is so close to zero you cannot even see it."
+  markers={[{ time: "2022-05-09", kind: "event", label: "UST ≠ $1" }]}
+  zones={[{ from: "2022-05-09", to: "2022-05-13", label: "Crash" }]}
+/>
+
+From **119.55 dollars** in early April, **0.00005 dollars** was left on 13 May. Then Binance ended
+trading. A cryptocurrency that ranked among the largest in the world practically vanished in a few
+days.
+
+## Altcoins: everything else
+
+The word <KeyTerm term="altcoin">altcoin</KeyTerm> is short for "alternative coin" – any
+cryptocurrency other than Bitcoin. It covers big networks like Ethereum, but also thousands of small
+projects promising to be "faster", "cheaper" or "revolutionary".
+
+Most of them disappear within a few years or lose almost all their value. Before putting money into
+one, ask:
+
+- **Who is behind the project?** Real names, or an anonymous team?
+- **What problem does it solve?** Does it do it better than what exists, or does it just promise?
+- **Who holds most of the coins?** If it is the creators, they can sell any time.
+- **Does it promise a sure profit?** Then run.
+
+## Memecoins: a lottery with a dog
+
+A <KeyTerm term="memecoin">memecoin</KeyTerm> is a cryptocurrency born from an internet joke. The
+best known is **Dogecoin**, launched on 6 December 2013 as a parody featuring a Shiba Inu dog.
+Memecoins usually solve nothing – their price is driven only by attention on social media.
+
+<Illustration name="memeSlot" />
+
+Memecoin prices can shoot up hundreds of percent in a day – and fall just as fast. It is more of a
+lottery than an investment. And unlike a lottery, nobody checks whether the draw is rigged.
+
+<Callout type="risk" title="The smaller the coin, the bigger the risk">
+  Small altcoins and memecoins are easy to manipulate: a few big players buy in,
+  stir up hype and sell to those who came late. Be prepared to lose all the
+  money you put in.
+</Callout>
+
+## Common myths
+
+- **"A coin at 0.0001 dollars is cheap, it can easily go up a hundred times."** The price of one coin
+  tells you nothing. What matters is what all coins are worth together (market capitalization). If
+  there are trillions of them, even a tiny price means a huge value – and a hundredfold rise is
+  nearly impossible.
+- **"A stablecoin is as safe as money in a bank."** It is not a bank deposit, and no deposit
+  insurance covers it.
+- **"If it is on a big exchange, it has been checked."** LUNA was on every big exchange.
+
+<Callout title="Summary">
+
+- Stablecoins keep their price around a dollar – only if the issuer is honest and has reserves.
+- The algorithmic stablecoin UST, and LUNA with it, collapsed within days in May 2022.
+- Altcoins are all cryptocurrencies other than Bitcoin; most of them do not survive.
+- Memecoins started as jokes and are driven by hype alone – they are a lottery.
+
+</Callout>
