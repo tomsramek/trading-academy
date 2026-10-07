@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
 
-import { DiagramArrow } from "./DiagramArrow";
+import { DiagramArrow, flowListVariants } from "./DiagramArrow";
 
 // Made-up, shortened hashes – only the link between the blocks matters.
 const BLOCKS = [
@@ -18,8 +18,8 @@ export function BlockchainDiagram() {
   const t = useTranslations("Lesson.diagram.blockchain");
 
   return (
-    <figure className="not-prose my-8">
-      <ol className="flex flex-col items-stretch gap-2 md:flex-row">
+    <figure className="not-prose @container my-8">
+      <ol className={flowListVariants({ row: "2xl" })}>
         {BLOCKS.map((block, index) => (
           <Fragment key={block.number}>
             {index > 0 && (
@@ -27,7 +27,7 @@ export function BlockchainDiagram() {
                 aria-hidden="true"
                 className="flex items-center justify-center"
               >
-                <DiagramArrow />
+                <DiagramArrow row="2xl" />
               </li>
             )}
             <li className="flex flex-1 flex-col gap-2 rounded-lg border border-border bg-card p-4 text-sm">

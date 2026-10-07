@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { KeyRoundIcon, LockKeyholeIcon, QrCodeIcon } from "lucide-react";
 import { cva } from "class-variance-authority";
 
-import { DiagramArrow } from "./DiagramArrow";
+import { DiagramArrow, flowListVariants } from "./DiagramArrow";
 
 // Made-up, shortened example values.
 const KEYS = [
@@ -48,13 +48,13 @@ export function WalletKeys() {
   const t = useTranslations("Lesson.diagram.wallet");
 
   return (
-    <figure className="not-prose my-8">
-      <ol className="flex flex-col items-stretch gap-2 md:flex-row">
+    <figure className="not-prose @container my-8">
+      <ol className={flowListVariants({ row: "3xl" })}>
         {KEYS.map(({ key, Icon, example, tone }, index) => (
           <Fragment key={key}>
             {index > 0 && (
               <li className="flex items-center justify-center">
-                <DiagramArrow label={t("oneWay")} />
+                <DiagramArrow row="3xl" label={t("oneWay")} />
               </li>
             )}
             <li className={boxVariants({ tone })}>

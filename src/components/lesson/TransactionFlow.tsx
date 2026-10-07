@@ -7,7 +7,7 @@ import {
   UserCheckIcon,
 } from "lucide-react";
 
-import { DiagramArrow } from "./DiagramArrow";
+import { DiagramArrow, flowListVariants } from "./DiagramArrow";
 
 const STEPS = [
   { key: "sign", Icon: SignatureIcon },
@@ -21,8 +21,8 @@ export function TransactionFlow() {
   const t = useTranslations("Lesson.diagram.transaction");
 
   return (
-    <figure className="not-prose my-8">
-      <ol className="flex flex-col items-stretch gap-2 md:flex-row">
+    <figure className="not-prose @container my-8">
+      <ol className={flowListVariants({ row: "5xl" })}>
         {STEPS.map(({ key, Icon }, index) => (
           <Fragment key={key}>
             {index > 0 && (
@@ -30,7 +30,7 @@ export function TransactionFlow() {
                 aria-hidden="true"
                 className="flex items-center justify-center"
               >
-                <DiagramArrow />
+                <DiagramArrow row="5xl" />
               </li>
             )}
             <li className="flex flex-1 flex-col gap-2 rounded-lg border border-border bg-card p-4 text-sm">
