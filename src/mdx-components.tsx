@@ -6,10 +6,12 @@ import { CandleAnatomy } from "@/components/lesson/CandleAnatomy";
 import { CandleChart } from "@/components/lesson/CandleChart";
 import { CandlePattern } from "@/components/lesson/CandlePattern";
 import { Figure } from "@/components/lesson/Figure";
+import { Illustration } from "@/components/lesson/Illustration";
 import { KeyTerm } from "@/components/lesson/KeyTerm";
 import { LessonHeading } from "@/components/lesson/LessonHeading";
 import { LessonLink } from "@/components/lesson/LessonLink";
 import { OrderBook } from "@/components/lesson/OrderBook";
+import { SharedLedger } from "@/components/lesson/SharedLedger";
 import { TransactionFlow } from "@/components/lesson/TransactionFlow";
 import { WalletKeys } from "@/components/lesson/WalletKeys";
 
@@ -32,8 +34,10 @@ const components: MDXComponents = {
   CandleChart,
   CandlePattern,
   Figure,
+  Illustration,
   KeyTerm,
   OrderBook,
+  SharedLedger,
   TransactionFlow,
   WalletKeys,
 };

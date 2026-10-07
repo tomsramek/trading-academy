@@ -244,6 +244,31 @@
         "bids": "Poptávky – chtějí koupit",
         "lastPrice": "Poslední cena {price}",
         "caption": "Prodávající čekají nad cenou, kupující pod ní. Pruhy ukazují, kolik čeká na každé ceně. Ilustrační data."
+      },
+      "sharedLedger": {
+        "owners": {
+          "peter": "Petr",
+          "jane": "Jana",
+          "tom": "Tomáš",
+          "eve": "Eva",
+          "george": "Jirka"
+        },
+        "entries": {
+          "first": "Petr → Jana: 2 slepice",
+          "second": "Jana → Tomáš: 1 koza",
+          "third": "Tomáš → Eva: 6 vajec"
+        },
+        "forged": "Petr → Jirka: 20 slepic",
+        "matches": "Sedí",
+        "differs": "Nesedí",
+        "caption": "Čtyři sešity se shodují, jeden ne. Vesnice věří většině – Jirkových dvacet slepic zůstane jen snem."
+      }
+    },
+    "illustration": {
+      "midnightEdit": {
+        "label": "Kreslený obrázek: Jirka v noci při svíčce potají připisuje do sešitu 20 slepic, slepice za oknem nevěří vlastním očím.",
+        "bubble": "Dvacet?!",
+        "caption": "Jirka si v noci potichu „vylepšuje“ sešit. Slepice mají pochybnosti."
       }
     }
   },

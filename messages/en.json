@@ -244,6 +244,31 @@
         "bids": "Bids – offers to buy",
         "lastPrice": "Last price {price}",
         "caption": "Sellers wait above the price, buyers below it. The bars show how much is waiting at each price. Illustrative data."
+      },
+      "sharedLedger": {
+        "owners": {
+          "peter": "Peter",
+          "jane": "Jane",
+          "tom": "Tom",
+          "eve": "Eve",
+          "george": "George"
+        },
+        "entries": {
+          "first": "Peter → Jane: 2 chickens",
+          "second": "Jane → Tom: 1 goat",
+          "third": "Tom → Eve: 6 eggs"
+        },
+        "forged": "Peter → George: 20 chickens",
+        "matches": "Matches",
+        "differs": "Doesn't match",
+        "caption": "Four notebooks agree, one does not. The village trusts the majority – George's twenty chickens stay a dream."
+      }
+    },
+    "illustration": {
+      "midnightEdit": {
+        "label": "Cartoon: at night, George secretly writes 20 chickens into his notebook by candlelight, while a chicken at the window stares in disbelief.",
+        "bubble": "Twenty?!",
+        "caption": "George quietly \"improves\" his notebook at night. The chickens have their doubts."
       }
     }
   },
