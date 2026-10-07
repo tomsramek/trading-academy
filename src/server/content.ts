@@ -93,13 +93,17 @@ function parseOrderedName(name: string, file: string) {
   return { order: Number(order), slug };
 }
 
-// The bundler needs the static part of the path ("../../content/courses/") to include the .mdx files.
+// The bundler includes every file matching the static parts of the path – the folder at the start and
+// ".mdx" at the end – so other files in content/courses (README.md) are left out.
 function importLesson(
   course: string,
   moduleDir: string,
-  file: string,
+  lesson: string,
+  locale: Locale,
 ): Promise<MDXModule> {
-  return import(`../../content/courses/${course}/${moduleDir}/${file}`);
+  return import(
+    `../../content/courses/${course}/${moduleDir}/${lesson}.${locale}.mdx`
+  );
 }
 
 async function loadLesson(
@@ -113,9 +117,11 @@ async function loadLesson(
   const entries = await Promise.all(
     routing.locales.map(async (locale) => {
       const file = `${baseName}.${locale}.mdx`;
-      const mdx = await importLesson(course, moduleDir, file).catch(() => {
-        throw new ContentError(path.join(dir, file), "missing translation");
-      });
+      const mdx = await importLesson(course, moduleDir, baseName, locale).catch(
+        () => {
+          throw new ContentError(path.join(dir, file), "missing translation");
+        },
+      );
       const metadata: unknown = "metadata" in mdx ? mdx.metadata : undefined;
       return [
         locale,
@@ -192,10 +198,22 @@ async function loadCourse(slug: string): Promise<Course> {
   return { slug, meta, modules };
 }
 
-/** All courses, validated. Cached for one render, so several components can call it freely. */
+/**
+ * All courses, validated. Cached for one render, so several components can call it freely.
+ * Draft courses (`"draft": true` in course.json) are left out of production builds.
+ */
 export const getCourses = cache(async (): Promise<Course[]> => {
-  const slugs = await listDirectories(COURSES_DIR);
-  return Promise.all(slugs.map(loadCourse));
+  const slugs = await listDirectories(COURSES_DIR).catch((error: unknown) => {
+    // No content/courses folder yet = no courses (the pages show their empty state).
+    if (error instanceof Error && "code" in error && error.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  });
+  const courses = await Promise.all(slugs.map(loadCourse));
+  return process.env.NODE_ENV === "production"
+    ? courses.filter((course) => !course.meta.draft)
+    : courses;
 });
 
 export async function getCourse(slug: string): Promise<Course | undefined> {
@@ -214,8 +232,8 @@ export async function getLessonContent(
     );
     if (lesson) {
       const moduleDir = `${String(courseModule.order).padStart(2, "0")}-${courseModule.slug}`;
-      const file = `${String(lesson.order).padStart(2, "0")}-${lesson.slug}.${locale}.mdx`;
-      const mdx = await importLesson(course.slug, moduleDir, file);
+      const file = `${String(lesson.order).padStart(2, "0")}-${lesson.slug}`;
+      const mdx = await importLesson(course.slug, moduleDir, file, locale);
       return mdx.default;
     }
   }

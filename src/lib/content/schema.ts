@@ -31,6 +31,8 @@ export const courseSchema = z.strictObject({
   order: z.int().positive(),
   // Cover image path inside public/, e.g. "/courses/crypto-basics.png". Added with the course list (#26).
   image: z.string().startsWith("/").optional(),
+  // Work in progress: shown by `yarn dev`, hidden in production until removed.
+  draft: z.boolean().optional(),
 });
 
 export type CourseMeta = z.infer<typeof courseSchema>;
