@@ -15,6 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
 // Development-only catalogue of the shadcn/ui components as used in Trading Academy.
 // Not translated and not available in production.
@@ -66,7 +67,7 @@ export default function UiPage() {
           </Button>
         ))}
         <Button disabled>Disabled</Button>
-        <Link href="/" className={buttonVariants({ variant: "outline" })}>
+        <Link href="/" className={cn(buttonVariants({ variant: "outline" }))}>
           Link styled as a button
         </Link>
       </Section>
