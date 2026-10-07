@@ -153,6 +153,164 @@
 }
 
 /*
+ * Animations of lesson illustrations (src/components/lesson/Illustration.tsx). Only transform and
+ * opacity are animated – the graphics card handles them without recalculating the page. Each one
+ * runs a few times and stops (at most ~4 s), and only with `motion-safe:` in the components.
+ */
+@theme {
+  /* Loops run a few times and return to the drawn state; entrances (`both`) start hidden. */
+  --animate-sweat-drop: sweat-drop 1.2s ease-in 3;
+  --animate-meter-spin: meter-spin 3s ease-in-out 1;
+  --animate-screen-flicker: screen-flicker 0.4s steps(2) 6;
+  --animate-bubble-pop: bubble-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1 both;
+  --animate-peek: peek 0.8s ease-out both;
+  --animate-flame-flicker: flame-flicker 0.3s ease-in-out 10 alternate;
+  --animate-scribble: scribble 0.18s ease-in-out 12 alternate;
+  --animate-scan: scan 0.5s ease-in-out 6 alternate;
+  --animate-note-out: note-out 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-swing: swing 1s ease-in-out 3;
+  --animate-coin-insert: coin-insert 0.9s ease-in 1;
+  --animate-drop-in: drop-in 0.6s cubic-bezier(0.3, 1.4, 0.6, 1) both;
+  --animate-lever-pull: lever-pull 0.6s ease-in-out 1;
+  --animate-reel-spin: reel-spin 0.12s linear 12;
+  --animate-drive-in: drive-in 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-wiggle: wiggle 0.25s ease-in-out 8 alternate;
+
+  @keyframes sweat-drop {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(22px);
+      opacity: 0;
+    }
+  }
+  @keyframes meter-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(1080deg);
+    }
+  }
+  @keyframes screen-flicker {
+    50% {
+      opacity: 0.35;
+    }
+  }
+  @keyframes bubble-pop {
+    from {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes peek {
+    from {
+      transform: translateY(45px);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @keyframes flame-flicker {
+    to {
+      transform: scale(0.9, 0.75);
+      opacity: 0.75;
+    }
+  }
+  @keyframes scribble {
+    from {
+      transform: rotate(-4deg);
+    }
+    to {
+      transform: rotate(4deg);
+    }
+  }
+  @keyframes scan {
+    to {
+      transform: translateY(14px);
+    }
+  }
+  @keyframes note-out {
+    from {
+      transform: translate(-120px, 40px) scale(0.2);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @keyframes swing {
+    25% {
+      transform: rotate(7deg);
+    }
+    75% {
+      transform: rotate(-7deg);
+    }
+  }
+  @keyframes coin-insert {
+    from {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(18px);
+      opacity: 0;
+    }
+  }
+  @keyframes drop-in {
+    from {
+      transform: translateY(-70px);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @keyframes lever-pull {
+    50% {
+      transform: rotate(60deg);
+    }
+  }
+  @keyframes reel-spin {
+    from {
+      transform: translateY(-10px);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0.6;
+    }
+  }
+  @keyframes drive-in {
+    from {
+      transform: translateX(420px);
+    }
+  }
+  @keyframes wiggle {
+    from {
+      transform: rotate(-10deg);
+    }
+    to {
+      transform: rotate(10deg);
+    }
+  }
+}
+
+/*
  * Frosted glass: translucent background + blur of whatever is behind it.
  * Usage: className="glass" (panels, menus) or "glass-backdrop" (full-screen overlay behind dialogs).
  */
