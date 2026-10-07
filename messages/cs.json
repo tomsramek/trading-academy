@@ -147,7 +147,8 @@
         "stopLoss": "Stop-loss",
         "takeProfit": "Take-profit",
         "buy": "Nákup",
-        "sell": "Prodej"
+        "sell": "Prodej",
+        "event": "Událost"
       },
       "zone": "Zvýrazněné období"
     },
@@ -279,6 +280,30 @@
         "label": "Kreslený obrázek: tři zpocené počítače závodí v hádání čísla, elektroměr se divoce točí.",
         "bubble": "Už to skoro mám!",
         "caption": "Těžba v kostce: miliony pokusů za vteřinu – a elektroměr, který si neodpočine."
+      },
+      "pizzaDay": {
+        "label": "Kreslený obrázek: šťastný člověk se dvěma pizzami se salámem a cenovkou 10 000 BTC.",
+        "bubble": "Dobrou chuť!",
+        "tag": "10 000 BTC",
+        "caption": "22. května 2010: dvě pizzy za 10 000 bitcoinů, tehdy asi 41 dolarů. Nejspíš nejdražší večeře v historii."
+      },
+      "vendingMachine": {
+        "label": "Kreslený obrázek: překvapený zákazník u automatu s nápisem „když mince → sušenka“, který vydá zboží bez prodavače.",
+        "bubble": "Žádný prodavač?",
+        "tag": "když mince → sušenka",
+        "caption": "Chytrý kontrakt v kostce: pravidla jsou zapsaná v kódu a fungují sama – nikdo je neohne. Ani když hezky poprosíš."
+      },
+      "memeSlot": {
+        "label": "Kreslený obrázek: pes šiba-inu tahá za páku hracího automatu s nápisem MEMECOIN; válce ukazují ×100, ×100 a −99 %.",
+        "bubble": "Tentokrát to vyjde!",
+        "tag": "MEMECOIN",
+        "caption": "Memecoiny v kostce: dva válce slibují stonásobek, třetí má většinou pravdu."
+      },
+      "feeBus": {
+        "label": "Kreslený obrázek: plný autobus s odjezdem za 10 minut; nastupuje cestující mávající bankovkami, člověk s jednou mincí čeká na zastávce.",
+        "bubble": "Já počkám…",
+        "tag": "10 min",
+        "caption": "Poplatky jako jízda autobusem: kdo nabídne víc, sedí první. Ostatní čekají na další spoj."
       }
     }
   },
