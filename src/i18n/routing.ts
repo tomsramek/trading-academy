@@ -20,6 +20,8 @@ export const routing = defineRouting({
       cs: "/kurzy/[course]/[lesson]",
     },
     "/glossary": { en: "/glossary", cs: "/slovnik" },
+    "/terms": { en: "/terms", cs: "/podminky-uzivani" },
+    "/risk-warning": { en: "/risk-warning", cs: "/upozorneni-na-rizika" },
     "/ui": "/ui",
     "/ui/lesson": "/ui/lesson",
   },

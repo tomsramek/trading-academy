@@ -24,7 +24,13 @@
   },
   "Footer": {
     "copyright": "© {year} Trading Academy",
-    "disclaimer": "Educational content only – not financial advice."
+    "disclaimer": "Educational content only – not financial advice.",
+    "legal": "Legal information",
+    "riskWarning": "Risk warning",
+    "terms": "Terms of use"
+  },
+  "TextPage": {
+    "updated": "Last updated {date, date, long}"
   },
   "LocaleSwitcher": {
     "label": "Language"
@@ -403,6 +409,11 @@
     "outline": "Course outline",
     "module": "Module {number}",
     "minutes": "{count} min"
+  },
+  "RiskNotice": {
+    "title": "Risk warning",
+    "body": "This course is educational and is not investment advice. Trading crypto is highly risky – you can lose all the money you put in.",
+    "link": "Read the risk warning"
   },
   "LessonPage": {
     "breadcrumb": "Breadcrumb",

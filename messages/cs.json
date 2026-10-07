@@ -24,7 +24,13 @@
   },
   "Footer": {
     "copyright": "© {year} Trading Academy",
-    "disclaimer": "Pouze vzdělávací obsah – nejde o investiční doporučení."
+    "disclaimer": "Pouze vzdělávací obsah – nejde o investiční doporučení.",
+    "legal": "Právní informace",
+    "riskWarning": "Upozornění na rizika",
+    "terms": "Podmínky užívání"
+  },
+  "TextPage": {
+    "updated": "Naposledy upraveno {date, date, long}"
   },
   "LocaleSwitcher": {
     "label": "Jazyk"
@@ -403,6 +409,11 @@
     "outline": "Osnova kurzu",
     "module": "Modul {number}",
     "minutes": "{count} min"
+  },
+  "RiskNotice": {
+    "title": "Upozornění na rizika",
+    "body": "Kurz je vzdělávací a není investičním doporučením. Obchodování s kryptoměnami je vysoce rizikové – můžeš přijít o všechny vložené peníze.",
+    "link": "Přečíst upozornění na rizika"
   },
   "LessonPage": {
     "breadcrumb": "Drobečková navigace",

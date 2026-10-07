@@ -5,6 +5,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { CheckIcon } from "lucide-react";
 
 import { CourseOutline } from "@/components/courses/CourseOutline";
+import { RiskNotice } from "@/components/legal/RiskNotice";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -98,6 +99,8 @@ export default async function CoursePage({
           {tCourses("lessons", { count: lessons.length })} ·{" "}
           {tCourses("minutes", { count: minutes })}
         </p>
+        {/* Seen before the reader starts the course. */}
+        <RiskNotice />
         {firstLesson ? (
           <Link
             href={lessonHref(course, firstLesson, locale)}
