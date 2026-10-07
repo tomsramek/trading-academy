@@ -1,0 +1,77 @@
+export const metadata = {
+  title: "How an exchange works",
+  description:
+    "The order book, buy and sell prices, order types and fees – what happens when you click Buy.",
+};
+
+<Callout title="In this lesson">
+
+- find out where the price on an exchange comes from
+- understand the difference between a market and a limit order
+- see everything you pay for on an exchange
+
+</Callout>
+
+You can think of an exchange as a vegetable market. Only instead of carrots it sells bitcoin,
+nobody shouts and the stall never closes. The exchange itself sells nothing – **it matches people
+who want to buy with people who want to sell**. And takes a small fee for it.
+
+<Illustration name="marketShout" />
+
+## The order book
+
+All waiting offers are listed in the order book. Sellers and their prices are at the top, buyers at
+the bottom:
+
+<OrderBook />
+
+Between the lowest price someone sells at and the highest price someone buys at there is a gap –
+called the <KeyTerm term="spread">spread</KeyTerm>. The more people trade on the exchange, the
+smaller the spread. Thinly traded coins often have a wide one, and it costs you money the moment you
+buy.
+
+## Order types
+
+| Order  | When it fills                      | Price                | When to use it                   |
+| ------ | ---------------------------------- | -------------------- | -------------------------------- |
+| Market | immediately                        | best available       | when speed matters               |
+| Limit  | when the price reaches your limit  | your price or better | when the price matters           |
+| Stop   | when the price hits the stop price | market               | to limit a loss (lesson on risk) |
+
+A market order takes offers from the book one after another until you have bought everything you
+want. With a big order or a thinly traded coin, part of it fills at worse prices. This difference is
+called <KeyTerm term="slippage">slippage</KeyTerm>.
+
+A limit order is more patient: it is written into the book and waits for someone to take it. It may
+also never fill.
+
+## What you pay for on an exchange
+
+- **Trading fee** – usually a fraction of a percent of every purchase and sale. A limit order waiting
+  in the book is often cheaper than a market order.
+- **Spread** – a hidden fee, see above.
+- **Deposits and withdrawals** – a bank transfer is usually cheap, a card payment pricier. When you
+  withdraw crypto, you also pay the network fee.
+
+<Callout type="warning" title="Coins on an exchange are not held by you">
+  As long as your crypto sits on an exchange, technically the exchange holds it
+  – you only have a record in your account. If the exchange goes bust or freezes
+  withdrawals, you can lose everything. Why, and how to protect yourself, comes
+  in the lesson on wallets.
+</Callout>
+
+## Common myths
+
+- **"The exchange sells me the bitcoin."** Usually not – another user sells it to you, the exchange
+  just matches you.
+- **"A market order = the price I see."** Not always. With slippage you pay more.
+- **"A 0% fee means free."** The exchange then usually earns on the spread.
+
+<Callout title="Summary">
+
+- An exchange matches buyers with sellers; offers sit in the order book.
+- The gap between the buy and sell price is the spread – a hidden fee.
+- A market order is fast, a limit order protects the price; big market orders suffer from slippage.
+- You pay trading fees, the spread, and fees for deposits and withdrawals.
+
+</Callout>

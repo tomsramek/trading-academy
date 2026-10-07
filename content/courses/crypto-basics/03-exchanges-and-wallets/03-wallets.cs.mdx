@@ -1,0 +1,80 @@
+export const metadata = {
+  title: "Peněženky",
+  description:
+    "Peněženka na burze nebo vlastní, horká nebo studená – a proč je seed fráze to nejcennější, co máš.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš rozdíl mezi peněženkou na burze a vlastní peněženkou
+- zjistíš, co je horká a studená peněženka
+- naučíš se, jak zacházet se seed frází
+
+</Callout>
+
+Kryptoměnová peněženka mince ve skutečnosti **neobsahuje**. Mince jsou zapsané v blockchainu.
+Peněženka drží jen **klíče**, které s nimi umí pohnout. Kdo má klíče, má mince – ať je to on, nebo
+ne.
+
+<WalletKeys />
+
+## Na burze, nebo vlastní?
+
+- **Peněženka na burze** (správu klíčů má burza) – pohodlná, zapomenuté heslo jde obnovit. Ale klíče
+  drží burza. Když zkrachuje jako FTX, máš smůlu.
+- **Vlastní peněženka** (klíče máš ty) – nikdo ti mince nezablokuje ani nezpronevěří. Ale taky ti
+  nikdo nepomůže, když klíče ztratíš.
+
+Proto se v kryptu říká: **„Nejsou tvoje klíče, nejsou tvoje mince.“**
+
+## Horká, nebo studená?
+
+|                       | Horká peněženka                            | Studená peněženka                          |
+| --------------------- | ------------------------------------------ | ------------------------------------------ |
+| Co to je              | aplikace v telefonu nebo počítači          | samostatné zařízení (hardwarová peněženka) |
+| Připojení k internetu | stále                                      | jen při podpisu platby                     |
+| Pohodlí               | vysoké                                     | nižší                                      |
+| Bezpečnost            | nižší – útočník se může dostat do zařízení | vyšší                                      |
+| Na co                 | menší částky na běžné používání            | dlouhodobé úspory                          |
+
+## Seed fráze: hlavní klíč
+
+Když si založíš vlastní peněženku, dostaneš **12 nebo 24 slov** v přesném pořadí – takzvanou <KeyTerm term="seed-phrase">seed frázi</KeyTerm>. Z ní jde peněženku kdykoli a
+kdekoli obnovit. Kdo ji zná, ovládá všechny tvoje mince. Kdo ji ztratí, o mince
+přijde navždy.
+
+<Illustration name="stickyNote" />
+
+**Jak se seed frází zacházet:**
+
+- napiš ji **ručně na papír** (nebo vyraz do kovu) a schovej na bezpečné místo, ideálně na dvě,
+- **nikdy ji nefoť, nekopíruj do počítače, neposílej e-mailem** ani neukládej do cloudu,
+- **nikdy ji nikomu nediktuj** – žádná podpora, burza ani „technik“ ji po tobě nikdy nepotřebuje,
+- **nikdy ji nezadávej na webu**, který ti někdo poslal.
+
+## Co se stane, když klíče ztratíš
+
+V roce 2013 vyhodil Brit James Howells při úklidu starý disk. Byl na něm klíč k **8 000
+bitcoinům**. Disk skončil na skládce v Newportu a James ho od té doby marně hledá – v lednu 2025
+soud jeho žalobu na město zamítl. Je to asi nejdražší úklid kanceláře v dějinách.
+
+<Callout type="warning" title="Nikdo ti nepomůže">
+  U vlastní peněženky neexistuje „zapomenuté heslo“. Bez seed fráze jsou mince
+  ztracené navždy – a s ukradenou seed frází je zloděj vybere během minut.
+</Callout>
+
+## Časté omyly
+
+- **„Mince mám v peněžence.“** Mince jsou v blockchainu, peněženka má jen klíče.
+- **„Fotka seed fráze v telefonu je záloha.“** Je to pozvánka pro zloděje.
+- **„Hardwarová peněženka = nemůžu o nic přijít.“** Pořád můžeš ztratit seed frázi nebo podepsat
+  podvodnou platbu.
+
+<Callout title="Shrnutí">
+
+- Peněženka drží klíče, ne mince; kdo má klíče, má mince.
+- Na burze je to pohodlné, ale klíče drží burza; vlastní peněženka dává kontrolu i zodpovědnost.
+- Horká peněženka na menší částky, studená na úspory.
+- Seed frázi piš ručně na papír, schovej offline a nikdy ji nikomu nedávej.
+
+</Callout>
