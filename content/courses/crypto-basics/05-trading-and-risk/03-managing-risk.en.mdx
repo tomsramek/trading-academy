@@ -1,0 +1,93 @@
+import btc from "@content/market-data/btcusdt-1d-2024-h1.json";
+
+export const metadata = {
+  title: "Managing risk",
+  description:
+    "Position size, stop-loss, the reward-to-risk ratio and why leverage is the fastest way to lose everything.",
+};
+
+<Callout title="In this lesson">
+
+- work out how big a trade you can afford
+- learn to set a stop-loss before you buy
+- understand why leverage is dangerous for beginners
+
+</Callout>
+
+Successful traders are not the ones who always get the direction right. They are the ones who
+**survive their mistakes**. You can be right half the time and still make money – if the losses are
+small and the profits bigger. All of risk management revolves around one question: **how much do I
+lose if I am wrong?**
+
+## The 1% rule
+
+Risk only a small part of your money on one trade – **1–2%** is often quoted. With an account of
+1,000 euros and 1% risk, that is **10 euros**. Ten losing trades in a row will then not ruin you –
+you lose about a tenth, not everything.
+
+## Stop-loss: decide before you buy
+
+A <KeyTerm term="stop-loss">stop-loss</KeyTerm> is an order that automatically sells your position
+when the price falls to a level you chose in advance. You set it **before buying**, with a clear
+head – not while the price is falling and you hope it will "bounce back".
+
+<Illustration name="parachuteStop" />
+
+The stop-loss goes where your assumption would turn out wrong – typically just below support.
+
+## An example on a real chart
+
+In early May 2024, Bitcoin touched support around 56,500. Imagine buying at **58,400**, with a
+stop-loss below support at **55,500** and a profit target (take-profit) at **67,000**:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart January to June 2024 showing a purchase on 1 May at 58,400, a stop-loss at 55,500 and a profit target at 67,000, which the price reached on 17 May"
+  caption="An example trade – an explanation, not a recommendation. The price hit the profit target on 17 May, not the stop-loss."
+  levels={[
+    { price: 58400, kind: "entry" },
+    { price: 55500, kind: "stopLoss" },
+    { price: 67000, kind: "takeProfit" },
+  ]}
+  markers={[
+    { time: "2024-05-01", kind: "buy" },
+    { time: "2024-05-17", kind: "sell", label: "Take-profit" },
+  ]}
+/>
+
+**How much to buy?** The stop-loss is 5% below the purchase price (58,400 → 55,500). You want to risk
+10 euros, so position size = 10 euros ÷ 5% = **200 euros**. If the price falls to the stop-loss, you
+lose 10 euros.
+
+**Reward-to-risk ratio:** you risk 2,900 USDT per bitcoin (58,400 → 55,500), and the target is 8,600
+USDT above the purchase. That is about **1 : 3** – you make three times more than you risk. Thanks to that,
+you can be profitable even if only every third trade works out.
+
+## Leverage: a fast road to zero
+
+Trading with <KeyTerm term="leverage">leverage</KeyTerm> means trading with borrowed money. With 10× leverage, a 10%
+price move against you wipes out your whole deposit. According to the EU's ESMA, **74–89% of retail
+investor accounts** lose money trading leveraged CFDs. That is why the EU limited leverage on crypto
+CFDs for retail investors to 2 : 1.
+
+<Callout type="risk" title="A beginner does not need leverage">
+  Leverage magnifies both profits and losses – and losses come faster than you
+  can react. Until you have long experience with small amounts and no leverage,
+  leave it alone.
+</Callout>
+
+## Common myths
+
+- **"I'll set a stop-loss when I need one."** When you need one, emotions will decide.
+- **"I'll move the stop-loss lower, it'll come back."** That is how big losses happen.
+- **"A bigger position = a bigger profit."** And a bigger loss. Position size is driven by risk, not
+  greed.
+
+<Callout title="Summary">
+
+- Risk only 1–2% of your account on one trade.
+- Set the stop-loss before buying, where your assumption would turn out wrong.
+- Position size = the amount you want to risk ÷ the distance to the stop-loss.
+- Look for trades where the possible profit is bigger than the risk; as a beginner, avoid leverage.
+
+</Callout>

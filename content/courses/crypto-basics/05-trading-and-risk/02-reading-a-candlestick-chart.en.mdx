@@ -1,0 +1,95 @@
+import btc from "@content/market-data/btcusdt-1d-2024-h1.json";
+
+export const metadata = {
+  title: "Reading a candlestick chart",
+  description:
+    "Candles, timeframes, trends, support and resistance – the basics of reading a chart, and what a chart cannot tell you.",
+};
+
+<Callout title="In this lesson">
+
+- recap what one candle shows
+- understand why the timeframe matters
+- learn to recognise a trend and its end
+
+</Callout>
+
+A chart is a trader's most common tool. It does not tell the future – it shows **what happened** and
+how people behaved. If you can read it, at least you know where you are.
+
+## A candle in a nutshell
+
+Each candle sums up one period with four prices: open, high, low and close.
+
+<CandleAnatomy />
+
+## Timeframe
+
+The same market looks completely different depending on how long a period one candle covers. On a
+one-minute chart it is a wild rollercoaster, on a weekly chart a calm road. This is called the <KeyTerm term="timeframe">timeframe</KeyTerm>.
+
+- **Short timeframes** (minutes, hours) – lots of noise, quick decisions, easy to get caught out.
+- **Long timeframes** (days, weeks) – less noise, a clearer big picture.
+
+Beginners do well to start with the **daily chart** and also look at the weekly one, to know where
+they are in the bigger picture.
+
+## Trend
+
+<Illustration name="candleSurfer" />
+
+A <KeyTerm term="trend">trend</KeyTerm> is the direction the price moves in over a longer time:
+
+- **uptrend** – every high and every low is above the previous one,
+- **downtrend** – every high and low is lower,
+- **sideways** – the price stays in a range between support and resistance.
+
+Look at Bitcoin in the first half of 2024:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart January to June 2024: an uptrend until mid-March, then sideways between 56,500 and 73,000"
+  caption="First a clear uptrend, then months of sideways movement."
+  levels={[
+    { price: 73000, kind: "resistance" },
+    { price: 56500, kind: "support" },
+  ]}
+  zones={[
+    { from: "2024-01-23", to: "2024-03-14", label: "Uptrend" },
+    { from: "2024-03-14", to: "2024-06-30", label: "Sideways" },
+  ]}
+/>
+
+From late January the price made higher highs and higher lows. In mid-March the trend stopped at
+resistance around 73,000, and for months afterwards the price moved within a range.
+
+## Candlestick patterns
+
+Some candle shapes can hint at a turn – like the hammer or the engulfing pattern you saw in the
+module on Bitcoin and the rest:
+
+<CandlePattern name="bullishEngulfing" />
+
+But patterns **guarantee nothing on their own**. At best they work as a warning that "something is
+going on here", never as a sure signal to buy.
+
+<Callout type="warning" title="A chart does not tell the future">
+  Everything you see on a chart has already happened. A trend can end at any
+  moment and support can break. Chart analysis improves the odds of a sensible
+  decision – it does not guarantee a profit.
+</Callout>
+
+## Common myths
+
+- **"I'll see more on a one-minute chart."** You will mostly see more noise.
+- **"A hammer = the price will rise."** Maybe. Or not. That is what risk management is for.
+- **"A trend lasts forever."** Every trend ends – the only question is when.
+
+<Callout title="Summary">
+
+- A candle shows the open, high, low and close of one period.
+- The timeframe changes the picture: a longer timeframe = less noise.
+- You recognise a trend by higher (or lower) highs and lows; it can end at any moment.
+- Patterns are warnings, not certainty – a chart shows the past.
+
+</Callout>

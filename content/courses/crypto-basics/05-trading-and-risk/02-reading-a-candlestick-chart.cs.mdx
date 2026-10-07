@@ -1,0 +1,95 @@
+import btc from "@content/market-data/btcusdt-1d-2024-h1.json";
+
+export const metadata = {
+  title: "Čtení svíčkového grafu",
+  description:
+    "Svíčky, časové rámce, trend a podpora s rezistencí – základy, jak graf přečíst a co z něj vyčíst nejde.",
+};
+
+<Callout title="V této lekci">
+
+- zopakuješ si, co ukazuje jedna svíčka
+- pochopíš, proč záleží na časovém rámci
+- naučíš se poznat trend a jeho konec
+
+</Callout>
+
+Graf je nejčastější nástroj tradera. Neříká budoucnost – ukazuje, **co se dělo** a jak se lidé
+chovali. Když ho umíš číst, aspoň víš, kde jsi.
+
+## Svíčka v kostce
+
+Každá svíčka shrnuje jedno období čtyřmi cenami: otevírací, nejvyšší, nejnižší a zavírací.
+
+<CandleAnatomy />
+
+## Časový rámec
+
+Stejný trh vypadá úplně jinak podle toho, jak dlouhé období jedna svíčka pokrývá. Na minutovém
+grafu je to divoká horská dráha, na týdenním klidná cesta. Říká se tomu <KeyTerm term="timeframe">časový rámec</KeyTerm>.
+
+- **Krátké rámce** (minuty, hodiny) – hodně šumu, rychlá rozhodnutí, snadno se nachytáš.
+- **Dlouhé rámce** (dny, týdny) – méně šumu, lépe vidíš velký obraz.
+
+Začátečníkům se vyplatí začínat **denním grafem** a podívat se i na týdenní, ať vědí, kde v širším
+obraze jsou.
+
+## Trend
+
+<Illustration name="candleSurfer" />
+
+Slovem <KeyTerm term="trend">trend</KeyTerm> se označuje směr, kterým se cena dlouhodoběji pohybuje:
+
+- **rostoucí** – každé maximum a každé minimum je výš než to předchozí,
+- **klesající** – každé maximum a minimum je níž,
+- **do strany** – cena se drží v pásmu mezi podporou a rezistencí.
+
+Podívej se na Bitcoin v první polovině roku 2024:
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu leden až červen 2024: rostoucí trend do poloviny března, pak pohyb do strany mezi 56 500 a 73 000"
+  caption="Nejdřív jasný trend nahoru, pak měsíce do strany."
+  levels={[
+    { price: 73000, kind: "resistance" },
+    { price: 56500, kind: "support" },
+  ]}
+  zones={[
+    { from: "2024-01-23", to: "2024-03-14", label: "Trend ↑" },
+    { from: "2024-03-14", to: "2024-06-30", label: "Do strany" },
+  ]}
+/>
+
+Od konce ledna cena vytvářela vyšší maxima i vyšší minima. V polovině března se trend zastavil
+na rezistenci kolem 73 000 a cena se pak měsíce točila v pásmu.
+
+## Vzory svíček
+
+Některé tvary svíček můžou naznačit obrat – třeba kladivo nebo pohlcení, které jsi viděl v modulu
+o Bitcoinu a spol.:
+
+<CandlePattern name="bullishEngulfing" />
+
+Vzory ale **samy o sobě nic nezaručují**. Fungují nanejvýš jako upozornění „tady se něco děje“,
+nikdy jako jistý signál k nákupu.
+
+<Callout type="warning" title="Graf neříká budoucnost">
+  Všechno, co v grafu vidíš, se už stalo. Trend může skončit kdykoli a podpora
+  se může prolomit. Analýza grafu zvyšuje šance na rozumné rozhodnutí –
+  nezaručuje zisk.
+</Callout>
+
+## Časté omyly
+
+- **„Na minutovém grafu uvidím víc.“** Uvidíš hlavně víc šumu.
+- **„Vzor kladivo = cena poroste.“** Možná. Nebo ne. Proto existuje řízení rizika.
+- **„Trend trvá věčně.“** Každý trend jednou skončí – otázka je jen kdy.
+
+<Callout title="Shrnutí">
+
+- Svíčka ukazuje otevírací, nejvyšší, nejnižší a zavírací cenu jednoho období.
+- Časový rámec mění obraz: delší rámec = méně šumu.
+- Trend poznáš podle vyšších (nebo nižších) maxim a minim; může skončit kdykoli.
+- Vzory jsou upozornění, ne jistota – graf ukazuje minulost.
+
+</Callout>
