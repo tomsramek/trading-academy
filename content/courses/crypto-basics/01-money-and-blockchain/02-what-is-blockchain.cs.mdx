@@ -1,0 +1,106 @@
+export const metadata = {
+  title: "Co je blockchain",
+  description:
+    "Sdílený záznam plateb, který nikdo nemůže potichu přepsat – a proč to funguje i bez banky.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, co je blockchain, na jednoduchém příkladu z vesnice
+- zjistíš, co je otisk (hash) a proč na něm všechno stojí
+- uvidíš, proč blockchain nepotřebuje banku – a co to stojí
+
+</Callout>
+
+Slovo blockchain zní jako něco, co vyžaduje doktorát z informatiky. Ve skutečnosti je to hlavně
+**sešit s platbami**. Jen hodně chytře vedený.
+
+## Vesnice, která si vede sešit
+
+Představ si malou vesnici, kde se platí slepicemi, kozami a vejci. Banka tu není a nikdo nikomu
+moc nevěří. Kdo komu kolik dluží?
+
+Vesničané vymyslí jednoduchou věc: **každý si vede stejný sešit**. Když Petr pošle Janě dvě
+slepice, zavolá to na návsi a všichni si to zapíšou. Nikdo nemá „hlavní“ sešit, všechny jsou
+rovnocenné.
+
+<SharedLedger />
+
+Co když si Jirka v noci potají připíše, že mu Petr poslal dvacet slepic? Ráno porovnají sešity
+a čtyři se shodují, jen jeden ne. Vesnice věří většině – a Jirka zůstane u svých slepic.
+
+<Illustration name="midnightEdit" />
+
+Tohle je jádro blockchainu: **záznam plateb, který má každý účastník u sebe**, a změnu prosadí
+jen většina. V Bitcoinu místo vesničanů drží kopii tisíce počítačů po celém světě – říká se jim <KeyTerm term="node">uzly</KeyTerm>.
+
+## Otisk: malá změna, úplně jiný výsledek
+
+Porovnávat celé sešity řádek po řádku by bylo pomalé. Blockchain proto používá <KeyTerm term="hash">otisk (hash)</KeyTerm> – krátký „otisk prstu“ libovolného
+textu. Bitcoin k tomu používá výpočet zvaný SHA-256.
+
+Podívej se, co udělá změna jediného znaku:
+
+| Text                        | Otisk SHA-256 (prvních 16 znaků) |
+| --------------------------- | -------------------------------- |
+| `Petr pošle Janě 2 slepice` | `6db0056a22c5d3cc…`              |
+| `Petr pošle Janě 20 slepic` | `5702932e3a035689…`              |
+
+Otisky si nejsou ani trochu podobné. A to je přesně ten trik:
+
+- ze stejného textu vyjde **vždycky stejný otisk**,
+- sebemenší změna dá **úplně jiný otisk**,
+- z otisku **nejde zpětně zjistit** původní text.
+
+Stačí tedy porovnat otisky, a hned je jasné, jestli někdo něco změnil. Jirkův podvod by se
+prozradil během zlomku vteřiny.
+
+## Bloky spojené do řetězu
+
+Platby se nezapisují po jedné, ale po dávkách – **blocích**. Každý blok obsahuje seznam plateb
+a navíc **otisk předchozího bloku**. Tím vzniká řetěz: block + chain, blockchain.
+
+<BlockchainDiagram />
+
+Kdyby někdo chtěl změnit platbu ve starém bloku, změní se otisk toho bloku. Ten ale je uložený
+v bloku následujícím – takže nesedí ani ten. A ani ten za ním. Podvodník by musel přepsat celý
+zbytek řetězu, a to dřív, než si toho všimne zbytek sítě. U Bitcoinu je to v praxi neproveditelné.
+
+První blok Bitcoinu vznikl 3. ledna 2009 a od té doby se řetěz jen prodlužuje.
+
+## Proč to funguje bez banky
+
+V běžném světě platbu potvrdí banka – věříš, že vede záznamy správně. Blockchain tuhle důvěru
+nahrazuje pravidly a matematikou: kopii má každý, otisky prozradí každou změnu a o novém bloku
+rozhoduje síť, ne jedna firma. Tomu se říká <KeyTerm term="decentralization">decentralizace</KeyTerm>.
+
+Zadarmo to ale není:
+
+- **Je to pomalejší.** Shoda tisíců počítačů trvá déle než zápis v jedné bance.
+- **Stojí to energii a poplatky.** Někdo musí bloky vytvářet a za to chce zaplatit (o tom v lekci
+  o těžbě).
+- **Chybu nejde vrátit.** Pošleš-li peníze na špatnou adresu, žádná zákaznická linka ti je
+  nevrátí.
+
+<Callout type="warning" title="Blockchain ≠ dobrá investice">
+  To, že projekt „běží na blockchainu“, neznamená, že je bezpečný nebo že má
+  hodnotu. Blockchain zaručuje jen to, že se záznam nedá potichu přepsat – ne
+  to, že dává smysl.
+</Callout>
+
+## Časté omyly
+
+- **„Blockchain je Bitcoin.“** Bitcoin je první a nejznámější blockchain, ale zdaleka ne jediný.
+- **„Na blockchainu je všechno anonymní.“** Spíš veřejné: každou platbu vidí kdokoli, jen místo
+  jmen jsou adresy.
+- **„Blockchain se nedá hacknout, takže o peníze nemůžu přijít.“** Řetěz sám vydrží, ale lidé
+  přicházejí o peníze kvůli ukradeným heslům, podvodům a chybám – o tom celý modul Bezpečnost.
+
+<Callout title="Shrnutí">
+
+- Blockchain je sdílený záznam plateb, který má u sebe každý účastník sítě.
+- Otisk (hash) prozradí i tu nejmenší změnu.
+- Bloky jsou spojené otisky, takže starý záznam nejde přepsat bez přepsání všeho po něm.
+- Banku nahrazují pravidla a shoda sítě – za cenu rychlosti, energie a nevratnosti chyb.
+
+</Callout>

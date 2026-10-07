@@ -1,0 +1,113 @@
+export const metadata = {
+  title: "What is a blockchain",
+  description:
+    "A shared record of payments that nobody can quietly rewrite – and why it works without a bank.",
+};
+
+<Callout title="In this lesson">
+
+- understand what a blockchain is, using a simple village example
+- learn what a fingerprint (hash) is and why everything rests on it
+- see why a blockchain needs no bank – and what that costs
+
+</Callout>
+
+"Blockchain" sounds like something that needs a PhD in computer science. In reality it is mostly
+**a notebook of payments**. A very cleverly kept one.
+
+## A village that keeps a notebook
+
+Imagine a small village where people pay with chickens, goats and eggs. There is no bank, and
+nobody fully trusts anybody. So who owes what to whom?
+
+The villagers come up with a simple idea: **everyone keeps the same notebook**. When Peter sends
+Jane two chickens, he announces it on the village green and everyone writes it down. Nobody has
+the "main" notebook – all copies are equal.
+
+<SharedLedger />
+
+What if George secretly writes down at night that Peter sent him twenty chickens? In the morning
+the villagers compare notebooks: four agree, one does not. The village trusts the majority – and
+George keeps the chickens he actually has.
+
+<Illustration name="midnightEdit" />
+
+That is the core of a blockchain: **a record of payments that every participant keeps**, and a
+change only goes through if the majority agrees. In Bitcoin, the copies are kept not by
+villagers but by thousands of computers around the world, called <KeyTerm term="node">nodes</KeyTerm>.
+
+## Fingerprints: a tiny change, a completely different result
+
+Comparing whole notebooks line by line would be slow. So a blockchain uses a <KeyTerm term="hash">fingerprint (hash)</KeyTerm> – a short "fingerprint" of any
+text. Bitcoin uses a calculation called SHA-256.
+
+Look what changing a single character does:
+
+| Text                           | SHA-256 fingerprint (first 16 characters) |
+| ------------------------------ | ----------------------------------------- |
+| `Peter sends Jane 2 chickens`  | `d0be996747d8bbbb…`                       |
+| `Peter sends Jane 20 chickens` | `caa639ad2df2413a…`                       |
+
+The fingerprints are not even slightly alike. And that is exactly the trick:
+
+- the same text **always gives the same fingerprint**,
+- the smallest change gives **a completely different fingerprint**,
+- you **cannot work back** from the fingerprint to the original text.
+
+So comparing fingerprints is enough to see at once whether anything was changed. George's
+little fraud would be caught in a fraction of a second.
+
+## Blocks linked into a chain
+
+Payments are not recorded one by one but in batches – **blocks**. Each block contains a list of
+payments plus **the fingerprint of the previous block**. That creates a chain: block + chain,
+blockchain.
+
+<BlockchainDiagram />
+
+If someone wanted to change a payment in an old block, that block's fingerprint would change.
+But the fingerprint is stored in the next block – so that one no longer matches either. Nor does
+the one after it. A fraudster would have to rewrite the whole rest of the chain before the rest
+of the network noticed. For Bitcoin, that is practically impossible.
+
+The first Bitcoin block was created on 3 January 2009, and the chain has only grown longer since.
+
+## Why it works without a bank
+
+Normally a bank confirms your payment – you trust it to keep its records right. A blockchain
+replaces that trust with rules and maths: everyone has a copy, fingerprints reveal any change,
+and the network decides on each new block, not a single company. This is called <KeyTerm term="decentralization">decentralization</KeyTerm>.
+
+It does not come for free, though:
+
+- **It is slower.** Getting thousands of computers to agree takes longer than one bank writing
+  a line.
+- **It costs energy and fees.** Someone has to create the blocks and wants to be paid for it
+  (more in the lesson on mining).
+- **Mistakes cannot be undone.** Send money to the wrong address and no customer hotline will
+  bring it back.
+
+<Callout type="warning" title="Blockchain ≠ good investment">
+  A project "running on a blockchain" is not automatically safe or valuable. A
+  blockchain only guarantees that a record cannot be quietly rewritten – not
+  that it makes sense.
+</Callout>
+
+## Common myths
+
+- **"Blockchain means Bitcoin."** Bitcoin is the first and best-known blockchain, but far from
+  the only one.
+- **"Everything on a blockchain is anonymous."** More like public: anyone can see every payment,
+  just with addresses instead of names.
+- **"A blockchain can't be hacked, so I can't lose my money."** The chain itself holds, but
+  people lose money through stolen passwords, scams and mistakes – the whole Security module is
+  about that.
+
+<Callout title="Summary">
+
+- A blockchain is a shared record of payments kept by every participant of the network.
+- A fingerprint (hash) reveals even the smallest change.
+- Blocks are linked by fingerprints, so an old record cannot be rewritten without rewriting everything after it.
+- Rules and network agreement replace the bank – at the cost of speed, energy and mistakes that cannot be undone.
+
+</Callout>
