@@ -1,0 +1,89 @@
+import pumpAndDump from "./pump-and-dump.json";
+
+export const metadata = {
+  title: "Nejčastější podvody",
+  description:
+    "Rozdávání zadarmo, falešná podpora, pump & dump, rug pull a podvody přes falešný vztah – jak je poznat a nenaletět.",
+};
+
+<Callout title="V této lekci">
+
+- poznáš nejčastější kryptopodvody a jejich triky
+- uvidíš na grafu, jak vypadá pump & dump
+- dostaneš jedno pravidlo, které tě ochrání před většinou z nich
+
+</Callout>
+
+Podvodníci milují kryptoměny: platby jsou rychlé, nevratné a přes hranice. Jen v USA lidé podle
+FBI v roce 2024 nahlásili ztráty z kryptopodvodů **9,3 miliardy dolarů**. Podvody se ale opakují
+pořád dokola – stačí je znát.
+
+## Rozdávání zadarmo (giveaway)
+
+„Pošli nám 1 BTC a my ti vrátíme 2!“ – obvykle s fotkou nebo deepfake videem známé osobnosti a
+odpočítáváním času.
+
+<Illustration name="giveawayScam" />
+
+Nikdo nerozdává peníze tím, že ti nejdřív řekne, ať mu pošleš svoje. **Nikdy.** Co pošleš, už
+neuvidíš.
+
+## Falešná podpora
+
+Napíšeš na sociální síti, že ti nejde výběr, a do pár minut ti píše „podpora burzy“. Pomůže ti…
+když jí sdělíš seed frázi, nainstaluješ „ověřovací aplikaci“ nebo pošleš peníze na „bezpečnou
+adresu“. Skutečná podpora ti sama nepíše a citlivé údaje nikdy nechce.
+
+## Pump & dump
+
+Skupina lidí potají nakoupí malou, málo obchodovanou minci. Pak na sociálních sítích rozjede humbuk
+– „tahle mince udělá 100×!“ – a ceny vyletí. Když naskočí dost nových kupujících, organizátoři
+všechno prodají a cena se zřítí.
+
+<CandleChart
+  data={pumpAndDump}
+  label="Ilustrační denní graf: měsíc cena kolem 1, pak během týdne růst nad 5 a během čtyř dnů pád pod původní cenu"
+  caption="Typický pump & dump. Na koho zbyl vrchol, ten zaplatil organizátorům zisk."
+  markers={[{ time: "2024-01-31", kind: "event", label: "Humbuk" }]}
+  zones={[{ from: "2024-01-31", to: "2024-02-10", label: "Pump & dump" }]}
+/>
+
+## Rug pull
+
+Tvůrci nového tokenu vyberou peníze investorů a zmizí – doslova „vytrhnou koberec“. Často jde
+o projekty s anonymním týmem, velkolepými sliby a tlakem nakoupit co nejdřív.
+
+## Podvod přes falešný vztah
+
+Nejdražší ze všech. Podvodník si s tebou měsíce píše jako kamarád nebo partner, získá důvěru a pak
+tě „naučí investovat“ na své platformě. Zisky na obrazovce rostou, dokud nechceš peníze vybrat. Pak
+přijde „daň“ nebo „poplatek za uvolnění“ – a nakonec ticho. V angličtině se tomu říká _pig
+butchering_; jen v USA za rok 2024 podle FBI stál lidi 5,8 miliardy dolarů.
+
+<Callout type="risk" title="Jedno pravidlo na skoro všechno">
+  Když ti někdo slibuje jistý zisk, tlačí tě do rychlého rozhodnutí nebo po tobě
+  chce seed frázi, přístup k počítači či peníze předem – je to podvod. Bez
+  ohledu na to, jak důvěryhodně vypadá.
+</Callout>
+
+## Když už se to stane
+
+- **Nic dalšího neplať** – „vymáhání ztracených kryptoměn“ za poplatek je jen další podvod.
+- **Zabezpeč účty** – změň hesla, zkontroluj 2FA, přesuň zbylé prostředky.
+- **Nahlas to** – policii, a pokud šlo o licencovanou firmu, i dozoru (v Česku ČNB).
+
+## Časté omyly
+
+- **„Mně se to nestane, nejsem hloupý.“** Podvody cílí na emoce – důvěru, strach, chamtivost. Ne na
+  inteligenci.
+- **„Je to ověřený účet, takže je pravý.“** Účty se kradou a odznáčky se kupují.
+- **„Zatím mi to vyplácí zisky.“** Malé výběry na začátku jsou součást plánu.
+
+<Callout title="Shrnutí">
+
+- Giveaway: „pošli 1, vrátíme 2“ je vždycky podvod.
+- Falešná podpora píše první a chce citlivé údaje; skutečná nikdy.
+- Pump & dump a rug pull: humbuk kolem malé mince a pak prudký pád.
+- Jistý zisk + spěch + žádost o peníze nebo seed frázi = podvod.
+
+</Callout>

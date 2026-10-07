@@ -1,0 +1,83 @@
+export const metadata = {
+  title: "Zabezpečení účtu",
+  description:
+    "Silná hesla, dvoufázové ověření a obrana proti phishingu – tři zámky, které ochrání tvoje kryptoměny.",
+};
+
+<Callout title="V této lekci">
+
+- nastavíš si heslo, které se nedá uhodnout
+- zjistíš, proč je ověřovací aplikace lepší než SMS
+- naučíš se poznat phishing dřív, než klikneš
+
+</Callout>
+
+Kryptoměny se nejčastěji neztrácejí kvůli hackerům, kteří prolomí blockchain. Ztrácejí se kvůli
+**lidem, kteří někomu dají klíč od dveří** – heslo, kód nebo seed frázi. Dobrá zpráva: proti
+většině útoků stačí tři jednoduché zámky.
+
+## 1. Heslo: dlouhé, jedinečné, ve správci
+
+- **Pro každou službu jiné heslo.** Když unikne heslo z e-shopu, útočníci ho hned zkoušejí i na
+  burzách.
+- **Dlouhé místo složitého.** Čtyři náhodná slova („modrá-ponožka-skáče-lampa“) jsou silnější a
+  zapamatovatelnější než „P@ssw0rd1“.
+- **Správce hesel** si je pamatuje za tebe a na falešném webu je sám nevyplní – i to je ochrana.
+- **E-mail zabezpeč nejvíc.** Kdo ovládne tvůj e-mail, resetuje si hesla ke všemu ostatnímu.
+
+## 2. Dvoufázové ověření (2FA)
+
+Zapnuté <KeyTerm term="2fa">dvoufázové ověření</KeyTerm> znamená, že k přihlášení nestačí heslo – potřebuješ
+i jednorázový kód. Odkud ho bereš, je zásadní:
+
+| Způsob             | Bezpečnost | Proč                                                                                     |
+| ------------------ | ---------- | ---------------------------------------------------------------------------------------- |
+| SMS                | nižší      | útočník si může nechat vystavit kopii tvé SIM karty (SIM swap) a SMS mu chodí místo tobě |
+| Ověřovací aplikace | dobrá      | kód vzniká přímo v telefonu, ne v síti operátora                                         |
+| Hardwarový klíč    | nejlepší   | fyzický klíč u počítače, phishing ho neobelstí                                           |
+
+Záložní kódy k 2FA si vytiskni a schovej stejně pečlivě jako seed frázi.
+
+## 3. Phishing: nekousni do návnady
+
+<Illustration name="phishingHook" />
+
+Slovem <KeyTerm term="phishing">phishing</KeyTerm> se označuje podvodná zpráva, která se tváří jako burza, banka nebo
+podpora a chce, abys klikl a zadal údaje. Poznáš ho podle:
+
+- **naléhavosti** – „účet bude zablokován do 24 hodin“, „podezřelé přihlášení, ověřte se“,
+- **adresy** – `binnance-support.com` místo skutečné domény; přečti ji písmeno po písmenu,
+- **žádosti o citlivé údaje** – heslo, kód z 2FA, seed frázi. **Seed frázi nechce nikdo poctivý.
+  Nikdy.**
+
+**Pravidlo:** na odkaz ze zprávy neklikej. Otevři si aplikaci nebo web burzy sám (ze záložky) a
+zkontroluj, jestli se tam opravdu něco děje.
+
+<Callout type="warning" title="Podpora ti sama nepíše">
+  Skutečná podpora burzy tě nekontaktuje přes WhatsApp, Telegram ani sociální
+  sítě a nikdy po tobě nechce heslo, 2FA kód ani seed frázi. Kdo o ně žádá, je
+  podvodník – bez výjimky.
+</Callout>
+
+## Další drobnosti, které pomáhají
+
+- **Aktualizovaný telefon a počítač** – opravy bezpečnostních chyb.
+- **Seznam povolených adres pro výběr** (whitelist), pokud ho burza nabízí – peníze pak jdou jen
+  na adresy, které sis předem schválil.
+- **PIN u operátora** proti vystavení nové SIM karty.
+
+## Časté omyly
+
+- **„Mám složité heslo, 2FA nepotřebuju.“** Heslo může uniknout odjinud. 2FA je druhý zámek.
+- **„SMS kód je dostatečný.“** Je to lepší než nic, ale ověřovací aplikace je bezpečnější.
+- **„Phishing poznám vždycky.“** Dobře udělaný phishing vypadá úplně jako originál. Proto pravidlo:
+  na odkazy ze zpráv neklikat.
+
+<Callout title="Shrnutí">
+
+- Pro každou službu jiné dlouhé heslo, ideálně ze správce hesel; nejvíc chraň e-mail.
+- Zapni 2FA přes ověřovací aplikaci nebo hardwarový klíč, ne přes SMS.
+- Phishing láká naléhavostí a podobnými adresami – neklikej, otevři si web sám.
+- Heslo, 2FA kód a seed frázi nikdy nikomu nedávej.
+
+</Callout>
