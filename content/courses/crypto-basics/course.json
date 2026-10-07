@@ -27,5 +27,8 @@
   },
   "level": "beginner",
   "order": 1,
+  "slug": {
+    "cs": "zaklady-kryptomen"
+  },
   "draft": true
 }
