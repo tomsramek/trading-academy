@@ -276,5 +276,19 @@
     "outline": "Course outline",
     "module": "Module {number}",
     "minutes": "{count} min"
+  },
+  "LessonPage": {
+    "breadcrumb": "Breadcrumb",
+    "courses": "Courses",
+    "outline": "Course outline",
+    "closeOutline": "Close the course outline",
+    "onThisPage": "On this page",
+    "lessonOf": "Lesson {number} of {total}",
+    "minutes": "{count} min read",
+    "pager": "Lessons",
+    "previous": "Previous lesson",
+    "next": "Next lesson",
+    "finished": "You finished the course",
+    "backToCourse": "Back to the course"
   }
 }

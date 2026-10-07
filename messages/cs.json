@@ -276,5 +276,19 @@
     "outline": "Osnova kurzu",
     "module": "Modul {number}",
     "minutes": "{count} min"
+  },
+  "LessonPage": {
+    "breadcrumb": "Drobečková navigace",
+    "courses": "Kurzy",
+    "outline": "Osnova kurzu",
+    "closeOutline": "Zavřít osnovu kurzu",
+    "onThisPage": "Na této stránce",
+    "lessonOf": "Lekce {number} z {total}",
+    "minutes": "{count} min čtení",
+    "pager": "Lekce",
+    "previous": "Předchozí lekce",
+    "next": "Další lekce",
+    "finished": "Dokončil(a) jsi kurz",
+    "backToCourse": "Zpět na kurz"
   }
 }
