@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Typography for long texts (lessons): `prose` class. */
+@plugin "@tailwindcss/typography";
+
 /* Dark mode is driven by the `dark` class on <html> (set by next-themes), not only by the OS setting. */
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -161,6 +164,39 @@
 @utility glass-backdrop {
   background-color: color-mix(in oklab, var(--background) 30%, transparent);
   backdrop-filter: blur(8px);
+}
+
+/*
+ * Colors of `prose` text mapped to our tokens. The tokens switch with the theme,
+ * so lessons need no `dark:prose-invert`. Usage: className="prose prose-academy".
+ */
+@utility prose-academy {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--muted-foreground);
+  --tw-prose-links: var(--link);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--muted-foreground);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--primary);
+  --tw-prose-captions: var(--muted-foreground);
+  --tw-prose-kbd: var(--foreground);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-pre-code: var(--foreground);
+  --tw-prose-pre-bg: var(--muted);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+
+  /* Inline code: subtle background instead of the default backticks. */
+  & :where(code):not(:where(pre *)) {
+    @apply rounded-sm bg-muted px-1.5 py-0.5 font-normal;
+  }
+  & :where(code):not(:where(pre *))::before,
+  & :where(code):not(:where(pre *))::after {
+    content: none;
+  }
 }
 
 @layer base {
