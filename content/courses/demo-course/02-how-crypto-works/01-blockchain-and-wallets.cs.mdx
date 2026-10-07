@@ -1,0 +1,28 @@
+export const metadata = {
+  title: "Blockchain a peněženky",
+  description: "Jak se zapisují platby a komu tvoje mince doopravdy patří.",
+  minutes: 8,
+};
+
+Blockchain je sdílený záznam plateb. Stejnou kopii drží tisíce počítačů, takže ho nikdo nemůže
+potichu změnit.
+
+## Bloky spojené otisky
+
+<BlockchainDiagram />
+
+## Cesta platby
+
+<TransactionFlow />
+
+## Klíče a adresy
+
+Tvoje mince nejsou uložené v aplikaci peněženky – jsou zapsané v blockchainu. Peněženka drží
+**klíč**, který s nimi umí pohnout.
+
+<WalletKeys />
+
+<Callout type="warning" title="Nejsou tvoje klíče, nejsou tvoje mince">
+  Na burze za tebe klíče drží burza. Když zkrachuje nebo zastaví výběry, s
+  mincemi nepohneš.
+</Callout>

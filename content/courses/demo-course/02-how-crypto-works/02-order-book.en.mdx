@@ -1,0 +1,25 @@
+export const metadata = {
+  title: "The order book",
+  description:
+    "Where the price comes from and what happens when you click Buy.",
+  minutes: 6,
+};
+
+An exchange matches people who want to buy with people who want to sell. All waiting offers
+are listed in the **order book**.
+
+<OrderBook />
+
+## Order types
+
+| Order  | When it fills                    | Price                |
+| ------ | -------------------------------- | -------------------- |
+| Market | immediately                      | best available       |
+| Limit  | when the price reaches the limit | your price or better |
+| Stop   | after the stop price is hit      | market               |
+
+A <KeyTerm term="market-order">market order</KeyTerm> takes the best offers from the book right
+away. If there is little waiting, a big order can fill at worse prices – this is called
+**slippage**.
+
+<Callout>Use a limit order when the price matters more than speed.</Callout>
