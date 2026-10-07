@@ -14,14 +14,14 @@ export const metadata = {
 </Callout>
 
 Na burzu se dá dívat jako na trh se zeleninou. Jen místo mrkve se prodávají bitcoiny, nikdo
-nekřičí a stánek je otevřený nonstop. Burza sama nic neprodává – **páruje lidi, kteří chtějí
+nekřičí a stánek je otevřený nonstop. <KeyTerm term="exchange">Burza</KeyTerm> sama nic neprodává – **páruje lidi, kteří chtějí
 koupit, s lidmi, kteří chtějí prodat**. A za to si bere malý poplatek.
 
 <Illustration name="marketShout" />
 
 ## Kniha objednávek
 
-Všechny čekající nabídky jsou vypsané v knize objednávek. Nahoře jsou prodávající a jejich ceny,
+Všechny čekající nabídky jsou vypsané v <KeyTerm term="order-book">knize objednávek</KeyTerm>. Nahoře jsou prodávající a jejich ceny,
 dole kupující:
 
 <OrderBook />
@@ -38,10 +38,10 @@ spread menší. U málo obchodovaných mincí bývá velký, a to tě stojí pen
 | Limitní | až cena dosáhne tvého limitu | tvoje cena nebo lepší | když ti jde o cenu                |
 | Stop    | když cena dosáhne stop ceny  | tržní                 | k omezení ztráty (lekce o riziku) |
 
-Tržní příkaz vezme nabídky z knihy jednu po druhé, dokud nekoupíš všechno, co chceš. U velkého
+Když zadáš <KeyTerm term="market-order">tržní příkaz</KeyTerm>, vezme nabídky z knihy jednu po druhé, dokud nekoupíš všechno, co chceš. U velkého
 nákupu nebo málo obchodované mince se tak část provede za horší ceny. Tomu rozdílu se říká <KeyTerm term="slippage">skluz</KeyTerm>.
 
-Limitní příkaz je trpělivější: zapíše se do knihy a čeká, až na něj někdo přistoupí. Může se ale
+Naproti tomu <KeyTerm term="limit-order">limitní příkaz</KeyTerm> je trpělivější: zapíše se do knihy a čeká, až na něj někdo přistoupí. Může se ale
 stát, že se neprovede nikdy.
 
 ## Za co na burze platíš
