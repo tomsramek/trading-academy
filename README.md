@@ -32,7 +32,7 @@ A free online academy for learning crypto trading — from your very first candl
 ### Install and run
 
 ```bash
-git clone https://github.com/wptom/trading-academy.git
+git clone https://github.com/tomsramek/trading-academy.git
 cd trading-academy
 yarn install
 yarn dev
@@ -100,6 +100,6 @@ docker run --rm -p 3000:3000 trading-academy:local
 
 ## Contributing
 
-Work is planned in [GitHub Projects](https://github.com/users/wptom/projects/3).
+Work is planned in [GitHub Projects](https://github.com/users/tomsramek/projects/1).
 Every change starts from an issue, lives on its own branch and is merged through a pull request.
 Commit messages follow [Conventional Commits](https://www.conventionalcommits.org).
