@@ -47,6 +47,9 @@ export default function UiPage() {
   return (
     <Container className="flex flex-col gap-12 py-12">
       <h1 className="text-3xl font-semibold tracking-tight">UI components</h1>
+      <Link href="/ui/lesson" className="text-link underline">
+        Lesson preview – every MDX element and component
+      </Link>
 
       <Section title="Button – variants">
         {BUTTON_VARIANTS.map((variant) => (
