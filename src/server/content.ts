@@ -1,0 +1,223 @@
+import "server-only";
+
+import fs from "node:fs/promises";
+import path from "node:path";
+
+import type { MDXContent, MDXModule } from "mdx/types";
+import type { Locale } from "next-intl";
+import { cache } from "react";
+import { z } from "zod";
+
+import { routing } from "@/i18n/routing";
+import {
+  courseSchema,
+  lessonSchema,
+  moduleSchema,
+  type CourseMeta,
+  type LessonMeta,
+  type ModuleMeta,
+} from "@/lib/content/schema";
+
+/*
+ * Loads the courses from content/courses/ (structure described in @/lib/content/schema).
+ * Everything is validated while loading – any mistake throws an error that names the file,
+ * so `yarn build` stops before broken content reaches production.
+ */
+
+const COURSES_DIR = path.join(process.cwd(), "content", "courses");
+
+// "crypto-basics" – lowercase words separated by dashes, used in URLs.
+const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+// "01-blockchain" – two-digit position + slug (modules and lessons).
+const ORDERED_SLUG = /^(\d{2})-([a-z0-9]+(?:-[a-z0-9]+)*)$/;
+
+export type Lesson = {
+  slug: string;
+  order: number;
+  meta: Record<Locale, LessonMeta>;
+};
+
+export type Module = {
+  slug: string;
+  order: number;
+  meta: ModuleMeta;
+  lessons: Lesson[];
+};
+
+export type Course = {
+  slug: string;
+  meta: CourseMeta;
+  modules: Module[];
+};
+
+class ContentError extends Error {
+  constructor(file: string, problem: string) {
+    super(
+      `Invalid content in ${path.relative(process.cwd(), file)}:\n${problem}`,
+    );
+    this.name = "ContentError";
+  }
+}
+
+function parseWith<T>(schema: z.ZodType<T>, data: unknown, file: string): T {
+  const result = schema.safeParse(data);
+  if (!result.success) {
+    throw new ContentError(file, z.prettifyError(result.error));
+  }
+  return result.data;
+}
+
+async function readJson(file: string): Promise<unknown> {
+  try {
+    return JSON.parse(await fs.readFile(file, "utf8"));
+  } catch (error) {
+    throw new ContentError(file, String(error));
+  }
+}
+
+async function listDirectories(dir: string): Promise<string[]> {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort();
+}
+
+function parseOrderedName(name: string, file: string) {
+  const match = ORDERED_SLUG.exec(name);
+  if (!match) {
+    throw new ContentError(file, `"${name}" must look like "01-some-name"`);
+  }
+  // The regex has two groups, so both exist when it matches.
+  const [, order = "", slug = ""] = match;
+  return { order: Number(order), slug };
+}
+
+// The bundler needs the static part of the path ("../../content/courses/") to include the .mdx files.
+function importLesson(
+  course: string,
+  moduleDir: string,
+  file: string,
+): Promise<MDXModule> {
+  return import(`../../content/courses/${course}/${moduleDir}/${file}`);
+}
+
+async function loadLesson(
+  course: string,
+  moduleDir: string,
+  baseName: string,
+): Promise<Lesson> {
+  const dir = path.join(COURSES_DIR, course, moduleDir);
+  const { order, slug } = parseOrderedName(baseName, path.join(dir, baseName));
+
+  const entries = await Promise.all(
+    routing.locales.map(async (locale) => {
+      const file = `${baseName}.${locale}.mdx`;
+      const mdx = await importLesson(course, moduleDir, file).catch(() => {
+        throw new ContentError(path.join(dir, file), "missing translation");
+      });
+      const metadata: unknown = "metadata" in mdx ? mdx.metadata : undefined;
+      return [
+        locale,
+        parseWith(lessonSchema, metadata, path.join(dir, file)),
+      ] as const;
+    }),
+  );
+
+  return {
+    slug,
+    order,
+    meta: Object.fromEntries(entries) as Record<Locale, LessonMeta>,
+  };
+}
+
+async function loadModule(course: string, moduleDir: string): Promise<Module> {
+  const dir = path.join(COURSES_DIR, course, moduleDir);
+  const { order, slug } = parseOrderedName(moduleDir, dir);
+  const meta = parseWith(
+    moduleSchema,
+    await readJson(path.join(dir, "module.json")),
+    path.join(dir, "module.json"),
+  );
+
+  // "01-what-is-bitcoin.en.mdx" + "01-what-is-bitcoin.cs.mdx" → one lesson "01-what-is-bitcoin".
+  const files = await fs.readdir(dir);
+  const baseNames = [
+    ...new Set(
+      files
+        .filter((file) => file.endsWith(".mdx"))
+        .map((file) => file.split(".")[0] ?? ""),
+    ),
+  ].sort();
+
+  const lessons = await Promise.all(
+    baseNames.map((baseName) => loadLesson(course, moduleDir, baseName)),
+  );
+  return { slug, order, meta, lessons };
+}
+
+async function loadCourse(slug: string): Promise<Course> {
+  const dir = path.join(COURSES_DIR, slug);
+  if (!SLUG.test(slug)) {
+    throw new ContentError(
+      dir,
+      `"${slug}" must be lowercase words separated by dashes`,
+    );
+  }
+  const meta = parseWith(
+    courseSchema,
+    await readJson(path.join(dir, "course.json")),
+    path.join(dir, "course.json"),
+  );
+  const modules = await Promise.all(
+    (await listDirectories(dir)).map((moduleDir) =>
+      loadModule(slug, moduleDir),
+    ),
+  );
+
+  // Lesson URLs are /courses/<course>/<lesson> without the module, so lesson slugs must be unique per course.
+  const seen = new Set<string>();
+  for (const lesson of modules.flatMap(
+    (courseModule) => courseModule.lessons,
+  )) {
+    if (seen.has(lesson.slug)) {
+      throw new ContentError(
+        dir,
+        `lesson "${lesson.slug}" exists more than once – lesson names must be unique in a course`,
+      );
+    }
+    seen.add(lesson.slug);
+  }
+
+  return { slug, meta, modules };
+}
+
+/** All courses, validated. Cached for one render, so several components can call it freely. */
+export const getCourses = cache(async (): Promise<Course[]> => {
+  const slugs = await listDirectories(COURSES_DIR);
+  return Promise.all(slugs.map(loadCourse));
+});
+
+export async function getCourse(slug: string): Promise<Course | undefined> {
+  return (await getCourses()).find((course) => course.slug === slug);
+}
+
+/** The lesson body as a React component, e.g. `<Content />`. */
+export async function getLessonContent(
+  course: Course,
+  lessonSlug: string,
+  locale: Locale,
+): Promise<MDXContent | undefined> {
+  for (const courseModule of course.modules) {
+    const lesson = courseModule.lessons.find(
+      (item) => item.slug === lessonSlug,
+    );
+    if (lesson) {
+      const moduleDir = `${String(courseModule.order).padStart(2, "0")}-${courseModule.slug}`;
+      const file = `${String(lesson.order).padStart(2, "0")}-${lesson.slug}.${locale}.mdx`;
+      const mdx = await importLesson(course.slug, moduleDir, file);
+      return mdx.default;
+    }
+  }
+  return undefined;
+}
