@@ -16,9 +16,11 @@ const VISUAL_SECONDS: Record<string, number> = {
   TransactionFlow: 30,
   WalletKeys: 30,
   OrderBook: 30,
+  SharedLedger: 30,
   CandlePattern: 15,
   CandleAnatomy: 15,
   Figure: 15,
+  Illustration: 15,
 };
 
 export function readingMinutes(source: string, locale: Locale): number {
