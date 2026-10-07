@@ -23,9 +23,19 @@ const localizedText = z.record(
   z.string().trim().min(1),
 );
 
+// A non-empty list of texts in every language of the site.
+const localizedList = z.record(
+  z.enum(routing.locales),
+  z.array(z.string().trim().min(1)).min(1),
+);
+
 export const courseSchema = z.strictObject({
   title: localizedText,
   description: localizedText,
+  // Who the course is for – one or two sentences.
+  audience: localizedText,
+  // What the reader will be able to do after the course.
+  outcomes: localizedList,
   level: levelSchema,
   // Position in the course list within the same level (1 = first).
   order: z.int().positive(),

@@ -7,6 +7,24 @@
     "en": "What blockchain and cryptocurrencies are, how exchanges and wallets work, how to keep your account safe and what trading really means.",
     "cs": "Co je blockchain a kryptoměny, jak fungují burzy a peněženky, jak si zabezpečit účet a co trading doopravdy znamená."
   },
+  "audience": {
+    "en": "Complete beginners who have never bought a cryptocurrency or want to understand what they bought.",
+    "cs": "Úplní začátečníci, kteří si nikdy nekoupili kryptoměnu, nebo chtějí pochopit, co si koupili."
+  },
+  "outcomes": {
+    "en": [
+      "Explain what a blockchain and a cryptocurrency are",
+      "Choose an exchange and a wallet and keep your account safe",
+      "Read a basic candlestick chart",
+      "Know the real risks of trading before you start"
+    ],
+    "cs": [
+      "Vysvětlit, co je blockchain a kryptoměna",
+      "Vybrat burzu a peněženku a zabezpečit si účet",
+      "Přečíst základní svíčkový graf",
+      "Znát skutečná rizika tradingu dřív, než začneš"
+    ]
+  },
   "level": "beginner",
   "order": 1,
   "draft": true
