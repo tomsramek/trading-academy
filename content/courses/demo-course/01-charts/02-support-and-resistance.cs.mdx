@@ -1,0 +1,38 @@
+import btc from "@content/market-data/btcusdt-1d-2024-h1.json";
+
+export const metadata = {
+  title: "Podpora a rezistence",
+  description:
+    "Cenové úrovně, kde opakovaně nastupovali kupující nebo prodávající.",
+  minutes: 7,
+};
+
+Ceny se nepohybují v přímce. Některé úrovně cenu zastaví znovu a znovu – protože si je pamatuje
+spousta traderů a právě tam jednají.
+
+## Skutečný příklad
+
+V první polovině roku 2024 Bitcoin prudce vyrostl a pak strávil měsíce mezi dvěma úrovněmi.
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu, leden až červen 2024: růst na 73 000 USDT, pak měsíce mezi 56 500 a 73 000"
+  caption="Bitcoin v první polovině roku 2024 – graf si přibliž a posuň."
+  levels={[
+    { price: 73000, kind: "resistance" },
+    { price: 56500, kind: "support" },
+  ]}
+  markers={[
+    { time: "2024-03-14", kind: "sell", label: "Historické maximum" },
+    { time: "2024-05-01", kind: "buy" },
+  ]}
+  zones={[{ from: "2024-02-26", to: "2024-03-14", label: "Růst" }]}
+/>
+
+- **Rezistence** – úroveň, kde prodeje stlačily cenu zpátky dolů (kolem 73 000).
+- **Podpora** – úroveň, kde nákupy vrátily cenu nahoru (kolem 56 500).
+
+<Callout type="risk">
+  Úrovně jsou pásma, ne přesné ceny. Úroveň, která vydržela třikrát, se
+  napočtvrté může prolomit. Vždycky si předem urči, kde se mýlíš.
+</Callout>

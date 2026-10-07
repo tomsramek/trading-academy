@@ -1,0 +1,28 @@
+{
+  "title": { "en": "Demo course", "cs": "Ukázkový kurz" },
+  "description": {
+    "en": "A short sample course that shows every part of a lesson – charts, patterns, diagrams and tips. Visible only during development.",
+    "cs": "Krátký ukázkový kurz, který předvádí všechny části lekce – grafy, vzory, diagramy a tipy. Vidět jen při vývoji."
+  },
+  "audience": {
+    "en": "Authors of the academy who want to see how a finished course looks and works.",
+    "cs": "Autoři akademie, kteří chtějí vidět, jak hotový kurz vypadá a funguje."
+  },
+  "outcomes": {
+    "en": [
+      "Read the parts of a candlestick and recognize basic patterns",
+      "Find support and resistance on a real Bitcoin chart",
+      "Explain how a blockchain, a transaction and a wallet work",
+      "Read an order book"
+    ],
+    "cs": [
+      "Přečíst části svíčky a poznat základní vzory",
+      "Najít podporu a rezistenci na skutečném grafu Bitcoinu",
+      "Vysvětlit, jak funguje blockchain, transakce a peněženka",
+      "Přečíst knihu objednávek"
+    ]
+  },
+  "level": "intermediate",
+  "order": 99,
+  "draft": true
+}
