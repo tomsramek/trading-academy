@@ -6,7 +6,7 @@ checks everything and stops with a clear error when something is wrong.
 ```
 content/courses/
   crypto-basics/                     ← course slug = URL: /courses/crypto-basics
-    course.json                      ← title + description (en, cs), level, order, image, draft
+    course.json                      ← title, description, audience, outcomes (en, cs), level, order, image, draft
     01-blockchain/                   ← NN-module: number = order, not part of the URL
       module.json                    ← title (en, cs)
       01-what-is-bitcoin.en.mdx      ← NN-lesson.<locale>.mdx: one file per language
