@@ -15,7 +15,8 @@ content/courses/
 
 - Lesson slugs must be unique within a course (the module is not in the URL).
 - Every lesson starts with its metadata:
-  `export const metadata = { title: "…", description: "…", minutes: 5 };`
+  `export const metadata = { title: "…", description: "…" };`
+- The reading time is computed from the text and the charts/diagrams – never written by hand.
 - Schemas: `src/lib/content/schema.ts`. Components for lessons: `src/mdx-components.tsx`.
 - Market data for charts: `content/market-data/` (see its LICENSE.md).
 - `"draft": true` in course.json: the course is visible in `yarn dev` only, never on the website.

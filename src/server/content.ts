@@ -9,6 +9,7 @@ import { cache } from "react";
 import { z } from "zod";
 
 import { routing } from "@/i18n/routing";
+import { readingMinutes } from "@/lib/content/reading-time";
 import { slugify } from "@/lib/slugify";
 import {
   courseSchema,
@@ -35,7 +36,8 @@ const ORDERED_SLUG = /^(\d{2})-([a-z0-9]+(?:-[a-z0-9]+)*)$/;
 export type Lesson = {
   slug: string;
   order: number;
-  meta: Record<Locale, LessonMeta>;
+  // Metadata from the lesson file + reading time computed from its text, per language.
+  meta: Record<Locale, LessonMeta & { minutes: number }>;
 };
 
 export type Module = {
@@ -124,9 +126,11 @@ async function loadLesson(
         },
       );
       const metadata: unknown = "metadata" in mdx ? mdx.metadata : undefined;
+      const meta = parseWith(lessonSchema, metadata, path.join(dir, file));
+      const source = await fs.readFile(path.join(dir, file), "utf8");
       return [
         locale,
-        parseWith(lessonSchema, metadata, path.join(dir, file)),
+        { ...meta, minutes: readingMinutes(source, locale) },
       ] as const;
     }),
   );
@@ -134,7 +138,7 @@ async function loadLesson(
   return {
     slug,
     order,
-    meta: Object.fromEntries(entries) as Record<Locale, LessonMeta>,
+    meta: Object.fromEntries(entries) as Lesson["meta"],
   };
 }
 

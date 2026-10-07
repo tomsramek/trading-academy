@@ -57,8 +57,7 @@ export type ModuleMeta = z.infer<typeof moduleSchema>;
 export const lessonSchema = z.strictObject({
   title: z.string().trim().min(1),
   description: z.string().trim().min(1),
-  // Estimated reading time in minutes.
-  minutes: z.int().positive(),
+  // No reading time here – it is computed from the text (src/lib/content/reading-time.ts).
 });
 
 export type LessonMeta = z.infer<typeof lessonSchema>;
