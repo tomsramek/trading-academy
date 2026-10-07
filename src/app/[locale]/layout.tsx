@@ -62,9 +62,12 @@ export default async function LocaleLayout({
 
   return (
     // suppressHydrationWarning: next-themes sets the class on <html> before React loads.
+    // data-scroll-behavior: page navigation jumps to the top instantly; smooth scrolling (globals.css)
+    // stays for links within the page, like the lesson's table of contents.
     <html
       lang={locale}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
