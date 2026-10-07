@@ -25,7 +25,8 @@ export function LessonLink({
     );
   }
 
-  if (href.startsWith("#")) {
+  // Links within the page and e-mail addresses stay in the same tab.
+  if (href.startsWith("#") || href.startsWith("mailto:")) {
     return (
       <a href={href} {...props}>
         {children}

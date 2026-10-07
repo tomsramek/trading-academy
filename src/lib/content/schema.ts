@@ -9,6 +9,7 @@ import { routing } from "@/i18n/routing";
  * content/courses/<course>/course.json                         → courseSchema
  * content/courses/<course>/<NN-module>/module.json             → moduleSchema
  * content/courses/<course>/<NN-module>/<NN-lesson>.<locale>.mdx → lessonSchema (export const metadata)
+ * content/pages/<page>.<locale>.mdx                              → pageSchema (export const metadata)
  */
 
 export const LEVELS = ["beginner", "intermediate", "advanced"] as const;
@@ -72,3 +73,13 @@ export const lessonSchema = z.strictObject({
 });
 
 export type LessonMeta = z.infer<typeof lessonSchema>;
+
+// A standalone text page, e.g. the terms of use. One language version, so the texts are plain strings.
+export const pageSchema = z.strictObject({
+  title: z.string().trim().min(1),
+  description: z.string().trim().min(1),
+  // Date of the last change of the content, shown on the page: "2026-10-07".
+  updated: z.iso.date(),
+});
+
+export type PageMeta = z.infer<typeof pageSchema>;
