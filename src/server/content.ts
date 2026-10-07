@@ -9,6 +9,7 @@ import { cache } from "react";
 import { z } from "zod";
 
 import { routing } from "@/i18n/routing";
+import { slugify } from "@/lib/slugify";
 import {
   courseSchema,
   lessonSchema,
@@ -220,22 +221,90 @@ export async function getCourse(slug: string): Promise<Course | undefined> {
   return (await getCourses()).find((course) => course.slug === slug);
 }
 
+// Folder and file name of a lesson: "01-blockchain", "02-what-is-bitcoin" (without ".<locale>.mdx").
+function lessonLocation(course: Course, lessonSlug: string) {
+  for (const courseModule of course.modules) {
+    const lesson = courseModule.lessons.find(
+      (item) => item.slug === lessonSlug,
+    );
+    if (lesson) {
+      return {
+        moduleDir: `${String(courseModule.order).padStart(2, "0")}-${courseModule.slug}`,
+        file: `${String(lesson.order).padStart(2, "0")}-${lesson.slug}`,
+      };
+    }
+  }
+  return undefined;
+}
+
 /** The lesson body as a React component, e.g. `<Content />`. */
 export async function getLessonContent(
   course: Course,
   lessonSlug: string,
   locale: Locale,
 ): Promise<MDXContent | undefined> {
-  for (const courseModule of course.modules) {
-    const lesson = courseModule.lessons.find(
-      (item) => item.slug === lessonSlug,
-    );
-    if (lesson) {
-      const moduleDir = `${String(courseModule.order).padStart(2, "0")}-${courseModule.slug}`;
-      const file = `${String(lesson.order).padStart(2, "0")}-${lesson.slug}`;
-      const mdx = await importLesson(course.slug, moduleDir, file, locale);
-      return mdx.default;
+  const location = lessonLocation(course, lessonSlug);
+  if (!location) {
+    return undefined;
+  }
+  const mdx = await importLesson(
+    course.slug,
+    location.moduleDir,
+    location.file,
+    locale,
+  );
+  return mdx.default;
+}
+
+export type LessonHeading = {
+  level: 2 | 3;
+  text: string;
+  // Same id as the rendered heading gets (LessonHeading uses the same slugify).
+  id: string;
+};
+
+/**
+ * "## Heading" and "### Heading" lines of a lesson for its table of contents, read from the MDX source.
+ * Lines inside ``` code blocks are skipped.
+ */
+export async function getLessonHeadings(
+  course: Course,
+  lessonSlug: string,
+  locale: Locale,
+): Promise<LessonHeading[]> {
+  const location = lessonLocation(course, lessonSlug);
+  if (!location) {
+    return [];
+  }
+  const source = await fs.readFile(
+    path.join(
+      COURSES_DIR,
+      course.slug,
+      location.moduleDir,
+      `${location.file}.${locale}.mdx`,
+    ),
+    "utf8",
+  );
+
+  const headings: LessonHeading[] = [];
+  let inCode = false;
+  for (const line of source.split("\n")) {
+    if (line.trimStart().startsWith("```")) {
+      inCode = !inCode;
+      continue;
+    }
+    const match = inCode ? null : /^(#{2,3})\s+(.+?)\s*$/.exec(line);
+    if (match?.[1] && match[2]) {
+      // Plain text without Markdown formatting: **bold**, _italic_, `code`, [link](url).
+      const text = match[2]
+        .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+        .replace(/[*_`]/g, "");
+      headings.push({
+        level: match[1].length === 2 ? 2 : 3,
+        text,
+        id: slugify(text),
+      });
     }
   }
-  return undefined;
+  return headings;
 }
