@@ -12,12 +12,18 @@ import {
   type IPriceLine,
   type ISeriesApi,
   type ISeriesMarkersPluginApi,
+  type SeriesMarkerPosition,
+  type SeriesMarkerShape,
   type Logical,
   type Time,
   type UTCTimestamp,
 } from "lightweight-charts";
 
-import type { ChartAnnotations, LevelKind } from "@/lib/content/chart";
+import type {
+  ChartAnnotations,
+  LevelKind,
+  MarkerKind,
+} from "@/lib/content/chart";
 
 import type { Candle } from "./CandleChart";
 
@@ -35,6 +41,21 @@ const LEVEL_TOKENS: Record<LevelKind, string> = {
   entry: "--primary",
   stopLoss: "--bear",
   takeProfit: "--bull",
+};
+
+const MARKER_STYLES = {
+  buy: { position: "belowBar", shape: "arrowUp" },
+  sell: { position: "aboveBar", shape: "arrowDown" },
+  event: { position: "aboveBar", shape: "circle" },
+} as const satisfies Record<
+  MarkerKind,
+  { position: SeriesMarkerPosition; shape: SeriesMarkerShape }
+>;
+
+const MARKER_TOKENS: Record<MarkerKind, string> = {
+  buy: "--bull",
+  sell: "--bear",
+  event: "--primary",
 };
 
 // The interactive part of <CandleChart>: pinch or drag the axes to zoom, drag to move, hover for values.
@@ -56,12 +77,20 @@ export function CandleChartCanvas({
       return;
     }
 
+    // Two decimals for normal prices, three significant digits below 1 – otherwise a price like
+    // 0.00005 would show as "0".
     const price = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
+    const smallPrice = new Intl.NumberFormat(locale, {
+      maximumSignificantDigits: 3,
+    });
     const chart = createChart(container, {
       autoSize: true,
       localization: {
         locale,
-        priceFormatter: (value: number) => price.format(value),
+        priceFormatter: (value: number) =>
+          Math.abs(value) < 1 && value !== 0
+            ? smallPrice.format(value)
+            : price.format(value),
       },
       layout: { fontFamily: getComputedStyle(container).fontFamily },
       // The page must keep scrolling over the chart: no zoom by mouse wheel, no vertical drag.
@@ -198,9 +227,8 @@ function colorAnnotations(
     annotations.markers.map((marker) => ({
       time: marker.time as UTCTimestamp,
       text: marker.label,
-      ...(marker.kind === "buy"
-        ? { position: "belowBar", shape: "arrowUp", color: color("--bull") }
-        : { position: "aboveBar", shape: "arrowDown", color: color("--bear") }),
+      ...MARKER_STYLES[marker.kind],
+      color: color(MARKER_TOKENS[marker.kind]),
     })),
   );
 }

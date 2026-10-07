@@ -147,7 +147,8 @@
         "stopLoss": "Stop-loss",
         "takeProfit": "Take-profit",
         "buy": "Buy",
-        "sell": "Sell"
+        "sell": "Sell",
+        "event": "Event"
       },
       "zone": "Highlighted period"
     },
@@ -279,6 +280,30 @@
         "label": "Cartoon: three sweating computers race to guess a number while an electricity meter spins wildly.",
         "bubble": "Almost got it!",
         "caption": "Mining in a nutshell: millions of guesses per second – and an electricity meter that never rests."
+      },
+      "pizzaDay": {
+        "label": "Cartoon: a happy person with two pepperoni pizzas and a price tag of 10,000 BTC.",
+        "bubble": "Enjoy your meal!",
+        "tag": "10 000 BTC",
+        "caption": "22 May 2010: two pizzas for 10,000 bitcoins, then about 41 dollars. Probably the most expensive dinner in history."
+      },
+      "vendingMachine": {
+        "label": "Cartoon: a surprised customer at a vending machine labelled 'if coin → snack' that hands out a snack without any shop assistant.",
+        "bubble": "No shop assistant?",
+        "tag": "if coin → snack",
+        "caption": "Smart contract in a nutshell: the rules are written in code and run on their own – nobody can bend them. Not even when you ask nicely."
+      },
+      "memeSlot": {
+        "label": "Cartoon: a Shiba Inu pulls the lever of a slot machine labelled MEMECOIN; the reels show ×100, ×100 and −99%.",
+        "bubble": "This time for sure!",
+        "tag": "MEMECOIN",
+        "caption": "Memecoins in a nutshell: two reels promise a hundredfold, the third one is usually right."
+      },
+      "feeBus": {
+        "label": "Cartoon: a full bus leaving in 10 minutes; a passenger waving banknotes gets on, a person with one coin waits at the stop.",
+        "bubble": "I'll wait…",
+        "tag": "10 min",
+        "caption": "Fees as a bus ride: whoever offers more gets a seat first. The rest wait for the next bus."
       }
     }
   },

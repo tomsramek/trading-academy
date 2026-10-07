@@ -17,7 +17,8 @@ export const LEVEL_KINDS = [
 ] as const;
 export type LevelKind = (typeof LEVEL_KINDS)[number];
 
-export const MARKER_KINDS = ["buy", "sell"] as const;
+// buy/sell show a trade; event marks a neutral moment (a halving, news) without suggesting a trade.
+export const MARKER_KINDS = ["buy", "sell", "event"] as const;
 export type MarkerKind = (typeof MARKER_KINDS)[number];
 
 // "2024-03-05" – a day in UTC, the format used in lessons.
