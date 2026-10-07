@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Crypto basics",
+    "cs": "Základy kryptoměn"
+  },
+  "description": {
+    "en": "What blockchain and cryptocurrencies are, how exchanges and wallets work, how to keep your account safe and what trading really means.",
+    "cs": "Co je blockchain a kryptoměny, jak fungují burzy a peněženky, jak si zabezpečit účet a co trading doopravdy znamená."
+  },
+  "level": "beginner",
+  "order": 1,
+  "draft": true
+}
