@@ -9,6 +9,7 @@ content/courses/
     course.json                      ← title, description, audience, outcomes (en, cs), level, order, slug, image, draft
     01-blockchain/                   ← NN-module: number = order, not part of the URL
       module.json                    ← title (en, cs)
+      quiz.json                      ← optional quiz shown after the module's last lesson
       01-what-is-bitcoin.en.mdx      ← NN-lesson.<locale>.mdx: one file per language
       01-what-is-bitcoin.cs.mdx         URL: /courses/crypto-basics/what-is-bitcoin
 ```
@@ -22,6 +23,9 @@ content/courses/
   must be unique in every language.
 - A link to another page of the academy is written in the language of the file, without the language
   prefix: `[Bitcoin](/kurzy/zaklady-kryptomen/bitcoin)` in a Czech lesson.
+- `quiz.json`: `{ "questions": [{ "text": { "en": { "question", "options", "explanation" }, "cs": … },
+"answer": 0 }] }` – 2–4 options, the same number in every language; `answer` is the index of the
+  correct option (from 0). The explanation says why the correct answer is right.
 - The reading time is computed from the text and the charts/diagrams – never written by hand.
 - Schemas: `src/lib/content/schema.ts`. Components for lessons: `src/mdx-components.tsx`.
 - Market data for charts: `content/market-data/` (see its LICENSE.md).

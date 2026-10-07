@@ -445,5 +445,18 @@
     "next": "Next lesson",
     "finished": "You finished the course",
     "backToCourse": "Back to the course"
+  },
+  "Quiz": {
+    "title": "Quiz: {module}",
+    "intro": "{count, plural, one {# question} other {# questions}} to check what you know from this module. Nothing is saved and you can retake it.",
+    "check": "Check answers",
+    "progress": "{answered} of {total} answered",
+    "score": "{correct} of {total} correct. Read the explanations and try again.",
+    "allCorrect": "All {total} correct – well done!",
+    "retry": "Try again",
+    "right": "Correct.",
+    "wrong": "Wrong.",
+    "correctAnswer": "Correct answer",
+    "yourAnswer": "Your answer"
   }
 }
