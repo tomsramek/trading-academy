@@ -246,5 +246,24 @@
         "caption": "Sellers wait above the price, buyers below it. The bars show how much is waiting at each price. Illustrative data."
       }
     }
+  },
+  "Courses": {
+    "title": "Courses",
+    "description": "Structured crypto trading courses for every level – free, step by step, from your first candle to your own strategy.",
+    "filterLabel": "Filter courses by level",
+    "all": "All levels",
+    "level": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "lessons": "{count, plural, one {# lesson} other {# lessons}}",
+    "minutes": "{count} min",
+    "showAll": "Show all courses",
+    "empty": {
+      "none": "The first courses are on the way.",
+      "level": "No {level} courses yet.",
+      "hint": "We are writing new lessons – check back soon."
+    }
   }
 }

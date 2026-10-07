@@ -246,5 +246,24 @@
         "caption": "Prodávající čekají nad cenou, kupující pod ní. Pruhy ukazují, kolik čeká na každé ceně. Ilustrační data."
       }
     }
+  },
+  "Courses": {
+    "title": "Kurzy",
+    "description": "Strukturované kurzy tradingu kryptoměn pro každou úroveň – zdarma, krok za krokem, od první svíčky po vlastní strategii.",
+    "filterLabel": "Filtrovat kurzy podle úrovně",
+    "all": "Všechny úrovně",
+    "level": {
+      "beginner": "Začátečník",
+      "intermediate": "Středně pokročilý",
+      "advanced": "Pokročilý"
+    },
+    "lessons": "{count, plural, one {# lekce} few {# lekce} other {# lekcí}}",
+    "minutes": "{count} min",
+    "showAll": "Zobrazit všechny kurzy",
+    "empty": {
+      "none": "První kurzy jsou na cestě.",
+      "level": "Pro úroveň „{level}“ zatím nejsou kurzy.",
+      "hint": "Píšeme nové lekce – brzy se sem vrať."
+    }
   }
 }
