@@ -1,0 +1,99 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What is DCA?",
+          "options": [
+            "Investing the same amount regularly, regardless of the price",
+            "Trading with leverage",
+            "Buying only after a big drop"
+          ],
+          "explanation": "DCA spreads purchases over time, so you do not have to guess the best moment."
+        },
+        "cs": {
+          "question": "Co je DCA?",
+          "options": [
+            "Pravidelné investování stejné částky bez ohledu na cenu",
+            "Obchodování s pákou",
+            "Nakupování jen při velkém propadu"
+          ],
+          "explanation": "DCA rozloží nákupy v čase, takže nemusíš hádat nejlepší okamžik."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does one candle on a chart show?",
+          "options": [
+            "Only the closing price",
+            "The open, high, low and close of one period",
+            "How many people are trading right now"
+          ],
+          "explanation": "A candle sums up one period with four prices: open, high, low and close."
+        },
+        "cs": {
+          "question": "Co ukazuje jedna svíčka v grafu?",
+          "options": [
+            "Jen zavírací cenu",
+            "Otevírací, nejvyšší, nejnižší a zavírací cenu jednoho období",
+            "Kolik lidí právě obchoduje"
+          ],
+          "explanation": "Svíčka shrnuje jedno období čtyřmi cenami: otevírací, nejvyšší, nejnižší a zavírací."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What share of your account is often recommended to risk on one trade?",
+          "options": ["1–2%", "10–20%", "Half"],
+          "explanation": "With 1–2% risk, even ten losing trades in a row will not ruin you."
+        },
+        "cs": {
+          "question": "Kolik procent účtu se často doporučuje riskovat na jeden obchod?",
+          "options": ["1–2 %", "10–20 %", "Polovinu"],
+          "explanation": "S rizikem 1–2 % tě ani deset ztrátových obchodů za sebou nezruinuje."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "When should you set a stop-loss?",
+          "options": [
+            "When the price starts falling",
+            "After the first profit",
+            "Before buying"
+          ],
+          "explanation": "Set the stop-loss before buying, with a clear head – where your assumption would turn out wrong."
+        },
+        "cs": {
+          "question": "Kdy nastavit stop-loss?",
+          "options": ["Až cena začne padat", "Po prvním zisku", "Před nákupem"],
+          "explanation": "Stop-loss nastav před nákupem, s klidnou hlavou – tam, kde by se tvůj předpoklad ukázal jako chybný."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Your stop-loss is 5% below the purchase price and you want to risk 10 euros. How big a position do you buy?",
+          "options": ["10 euros", "200 euros", "500 euros"],
+          "explanation": "Position size = the amount you want to risk ÷ the distance to the stop-loss: 10 euros ÷ 5% = 200 euros."
+        },
+        "cs": {
+          "question": "Stop-loss je 5 % pod nákupní cenou a chceš riskovat 100 Kč. Jak velkou pozici koupíš?",
+          "options": ["100 Kč", "2 000 Kč", "5 000 Kč"],
+          "explanation": "Velikost pozice = částka, kterou chceš riskovat ÷ vzdálenost stop-lossu: 100 Kč ÷ 5 % = 2 000 Kč."
+        }
+      },
+      "answer": 1
+    }
+  ]
+}

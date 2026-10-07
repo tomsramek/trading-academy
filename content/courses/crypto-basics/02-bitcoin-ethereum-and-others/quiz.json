@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What is the maximum number of bitcoins that can ever exist?",
+          "options": ["100 million", "21 million", "Unlimited"],
+          "explanation": "There will never be more than 21 million bitcoins. Each one can be divided into 100 million satoshis."
+        },
+        "cs": {
+          "question": "Kolik bitcoinů může nejvýš vzniknout?",
+          "options": ["100 milionů", "21 milionů", "Neomezeně"],
+          "explanation": "Bitcoinů nikdy nebude víc než 21 milionů. Každý se dá dělit až na 100 milionů satoshi."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is halving?",
+          "options": [
+            "The block reward being cut in half roughly every four years",
+            "Bitcoin splitting into two currencies",
+            "The Bitcoin price falling by half"
+          ],
+          "explanation": "Roughly every four years (every 210,000 blocks) the block reward is cut in half. Since April 2024 it is 3.125 BTC."
+        },
+        "cs": {
+          "question": "Co je halving?",
+          "options": [
+            "Snížení odměny za blok na polovinu zhruba každé čtyři roky",
+            "Rozdělení Bitcoinu na dvě měny",
+            "Pokles ceny Bitcoinu na polovinu"
+          ],
+          "explanation": "Zhruba každé čtyři roky (každých 210 000 bloků) se odměna za blok sníží na polovinu. Od dubna 2024 je to 3,125 BTC."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is a smart contract?",
+          "options": [
+            "A contract signed at a notary",
+            "An exchange's mobile app",
+            "A program on a blockchain that runs by itself according to its rules"
+          ],
+          "explanation": "A smart contract works like a vending machine: the rules are in the code and no middleman is needed. But nobody can bend a bug in the code either."
+        },
+        "cs": {
+          "question": "Co je chytrý kontrakt?",
+          "options": [
+            "Smlouva podepsaná u notáře",
+            "Mobilní aplikace burzy",
+            "Program na blockchainu, který se spustí sám podle svých pravidel"
+          ],
+          "explanation": "Chytrý kontrakt funguje jako automat: pravidla jsou v kódu a žádný prostředník není potřeba. Chybu v kódu ale nikdo „neohne“."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What happened to the UST stablecoin in May 2022?",
+          "options": [
+            "It rose to two dollars",
+            "It collapsed within days, and LUNA with it",
+            "It switched to proof of stake"
+          ],
+          "explanation": "The algorithmic stablecoin UST lost its dollar peg and collapsed within a few days together with the LUNA token. A stable price only holds while real reserves stand behind a stablecoin."
+        },
+        "cs": {
+          "question": "Co se v květnu 2022 stalo se stablecoinem UST?",
+          "options": [
+            "Posílil na dva dolary",
+            "Během pár dní se zhroutil a s ním i LUNA",
+            "Přešel na proof of stake"
+          ],
+          "explanation": "Algoritmický stablecoin UST ztratil navázání na dolar a během několika dní se zhroutil spolu s tokenem LUNA. Stabilní cena platí, jen dokud za stablecoinem stojí skutečné rezervy."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Which statement about memecoins is true?",
+          "options": [
+            "They are backed by gold",
+            "A central bank issues them",
+            "Their price is driven mainly by hype – it is a lottery"
+          ],
+          "explanation": "Memecoins started as a joke and usually have no practical use. The price moves on hype and most of them end up close to zero."
+        },
+        "cs": {
+          "question": "Který výrok o memecoinech je pravdivý?",
+          "options": [
+            "Jsou kryté zlatem",
+            "Vydává je centrální banka",
+            "Jejich cenu žene hlavně humbuk – je to loterie"
+          ],
+          "explanation": "Memecoiny vznikly z vtipu a obvykle nemají praktické využití. Cena se hýbe podle humbuku a většina z nich skončí téměř na nule."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

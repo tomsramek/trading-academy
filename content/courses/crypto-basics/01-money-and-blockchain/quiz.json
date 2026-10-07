@@ -1,0 +1,115 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "Why did digital money use to need a bank?",
+          "options": [
+            "Digital things can be copied, so someone had to keep the one record",
+            "Computers could not handle large amounts",
+            "The law banned digital money without a bank"
+          ],
+          "explanation": "A file can be copied, so the same money could be spent twice. The bank kept the one record and made sure that did not happen."
+        },
+        "cs": {
+          "question": "Proč digitální peníze dřív potřebovaly banku?",
+          "options": [
+            "Digitální věci jdou kopírovat, takže někdo musel vést jediný záznam",
+            "Počítače neuměly počítat s velkými částkami",
+            "Zákon digitální peníze bez banky zakazoval"
+          ],
+          "explanation": "Soubor jde zkopírovat, a tak by šlo stejné peníze utratit dvakrát. Banka vedla jediný záznam a hlídala, aby se to nestalo."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What happens to a block's hash if you change a single letter in it?",
+          "options": [
+            "It stays the same",
+            "It changes only slightly",
+            "It is completely different"
+          ],
+          "explanation": "Even the smallest change in the data gives a completely different hash – that is why any edit of an old record is spotted at once."
+        },
+        "cs": {
+          "question": "Co se stane s hashem bloku, když v něm změníš jediné písmeno?",
+          "options": [
+            "Zůstane stejný",
+            "Změní se jen trochu",
+            "Bude úplně jiný"
+          ],
+          "explanation": "I ta nejmenší změna dat dá úplně jiný hash – proto se každá úprava starého záznamu hned prozradí."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What gets a payment into a block sooner?",
+          "options": ["A larger amount", "A higher fee", "Who sends it"],
+          "explanation": "Payments with a higher fee get into a block first. The fee depends on demand for space in the block, not on how much you send."
+        },
+        "cs": {
+          "question": "Podle čeho se platba dostane do bloku dřív?",
+          "options": [
+            "Podle výše částky",
+            "Podle výše poplatku",
+            "Podle toho, kdo ji posílá"
+          ],
+          "explanation": "Do bloku se dostanou nejdřív platby s vyšším poplatkem. Poplatek závisí na zájmu o místo v bloku, ne na tom, kolik posíláš."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "You sent bitcoin to the wrong address and the payment is confirmed. What now?",
+          "options": [
+            "The bank reverses it",
+            "Blockchain support cancels it",
+            "Nobody can reverse it"
+          ],
+          "explanation": "Nobody can cancel a confirmed payment on a blockchain. That is why you always check the address before sending."
+        },
+        "cs": {
+          "question": "Poslal jsi bitcoin na špatnou adresu a platba je potvrzená. Co teď?",
+          "options": [
+            "Banka platbu vrátí",
+            "Podpora blockchainu ji zruší",
+            "Nikdo ji nevrátí"
+          ],
+          "explanation": "Potvrzenou platbu na blockchainu nikdo nezruší. Proto adresu před odesláním vždycky kontroluj."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How does proof of stake differ from proof of work?",
+          "options": [
+            "Validators put up locked coins as a deposit instead of spending electricity",
+            "A central bank writes the blocks",
+            "It needs no rules"
+          ],
+          "explanation": "With proof of stake, validators lock their own coins as a deposit and lose them if they cheat. It uses a fraction of the energy mining does."
+        },
+        "cs": {
+          "question": "Čím se proof of stake liší od proof of work?",
+          "options": [
+            "Validátoři ručí zamčenou zástavou místo spotřebované elektřiny",
+            "Bloky zapisuje centrální banka",
+            "Nepotřebuje žádná pravidla"
+          ],
+          "explanation": "U proof of stake validátoři zamknou vlastní mince jako zástavu a za podvod o ně přijdou. Spotřeba energie je proti těžbě zlomková."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}
