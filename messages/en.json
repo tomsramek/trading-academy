@@ -265,5 +265,16 @@
       "level": "No {level} courses yet.",
       "hint": "We are writing new lessons – check back soon."
     }
+  },
+  "CourseDetail": {
+    "breadcrumb": "Breadcrumb",
+    "start": "Start the course",
+    "noLessons": "Lessons are being written – check back soon.",
+    "modules": "{count, plural, one {# module} other {# modules}}",
+    "audience": "Who it is for",
+    "outcomes": "What you will learn",
+    "outline": "Course outline",
+    "module": "Module {number}",
+    "minutes": "{count} min"
   }
 }
