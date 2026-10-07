@@ -58,6 +58,11 @@ export function CourseCatalog({ courses, level }: CourseCatalogProps) {
               <CourseCard course={course} />
             </li>
           ))}
+          {/* More courses are being written – shown after the existing ones. */}
+          <li className="flex flex-col gap-2 rounded-xl border border-dashed border-border p-6">
+            <p className="text-xl font-semibold">{t("upcoming.title")}</p>
+            <p className="text-muted-foreground">{t("upcoming.description")}</p>
+          </li>
         </ul>
       ) : (
         <div className="flex flex-col items-start gap-3 rounded-lg border border-dashed border-border p-8">
