@@ -1,22 +1,15 @@
 import type { ReactNode } from "react";
 
-import { Link } from "@/i18n/navigation";
-
 type KeyTermProps = {
-  // Id of the term in the glossary (#30), e.g. "market-order".
+  // Id of the term in the glossary, e.g. "market-order".
   term: string;
   children: ReactNode;
 };
 
-// Important term linked to its explanation in the glossary:
+// Important term that will link to its explanation in the glossary:
 // <KeyTerm term="market-order">market order</KeyTerm>
-export function KeyTerm({ term, children }: KeyTermProps) {
-  return (
-    <Link
-      href={`/glossary#${term}`}
-      className="font-medium text-foreground underline decoration-muted-foreground decoration-dotted underline-offset-4 hover:decoration-foreground"
-    >
-      {children}
-    </Link>
-  );
+// Until the glossary exists (#30) it is plain text, so no lesson links to a missing page.
+// #30 turns it into a link and makes the build fail when a term is missing in the glossary.
+export function KeyTerm({ children }: KeyTermProps) {
+  return <>{children}</>;
 }
