@@ -1,7 +1,9 @@
 import type { MDXComponents } from "mdx/types";
 
 import { Callout } from "@/components/lesson/Callout";
+import { CandleAnatomy } from "@/components/lesson/CandleAnatomy";
 import { CandleChart } from "@/components/lesson/CandleChart";
+import { CandlePattern } from "@/components/lesson/CandlePattern";
 import { Figure } from "@/components/lesson/Figure";
 import { KeyTerm } from "@/components/lesson/KeyTerm";
 import { LessonHeading } from "@/components/lesson/LessonHeading";
@@ -21,7 +23,9 @@ const components: MDXComponents = {
   ),
   // Components available in every lesson without an import.
   Callout,
+  CandleAnatomy,
   CandleChart,
+  CandlePattern,
   Figure,
   KeyTerm,
 };

@@ -150,6 +150,48 @@
         "sell": "Prodej"
       },
       "zone": "Zvýrazněné období"
+    },
+    "pattern": {
+      "doji": {
+        "name": "Doji",
+        "description": "Otevírací a zavírací cena jsou skoro stejné – kupující a prodávající jsou v rovnováze a trh váhá."
+      },
+      "hammer": {
+        "name": "Kladivo",
+        "description": "Po poklesu prodávající stlačili cenu dolů, ale kupující ji vrátili nahoru – možný obrat vzhůru."
+      },
+      "shootingStar": {
+        "name": "Padající hvězda",
+        "description": "Po růstu kupující vytlačili cenu nahoru, ale prodávající ji vrátili dolů – možný obrat dolů."
+      },
+      "bullishEngulfing": {
+        "name": "Býčí pohlcení",
+        "description": "Zelené tělo úplně překryje předchozí červené – vládu přebírají kupující."
+      },
+      "bearishEngulfing": {
+        "name": "Medvědí pohlcení",
+        "description": "Červené tělo úplně překryje předchozí zelené – vládu přebírají prodávající."
+      },
+      "morningStar": {
+        "name": "Ranní hvězda",
+        "description": "Velká červená svíčka, malá váhavá a velká zelená – obrat z poklesu v růst."
+      },
+      "eveningStar": {
+        "name": "Večerní hvězda",
+        "description": "Velká zelená svíčka, malá váhavá a velká červená – obrat z růstu v pokles."
+      }
+    },
+    "anatomy": {
+      "label": "Části svíčky: rostoucí a klesající svíčka. Tělo je mezi otevírací a zavírací cenou, knoty sahají k nejvyšší a nejnižší ceně.",
+      "high": "Maximum",
+      "low": "Minimum",
+      "open": "Otevření",
+      "close": "Zavření",
+      "body": "Tělo",
+      "upperWick": "Horní knot",
+      "lowerWick": "Dolní knot",
+      "rising": "Rostoucí",
+      "falling": "Klesající"
     }
   }
 }
