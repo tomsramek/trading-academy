@@ -1,12 +1,13 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
+import type { CourseSlugs } from "@/lib/content/localized-slugs";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Container } from "./Container";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
 
-export function Header() {
+export function Header({ courseSlugs }: { courseSlugs: CourseSlugs }) {
   const t = useTranslations("Header");
 
   return (
@@ -25,12 +26,12 @@ export function Header() {
           <nav aria-label={t("navLabel")}>
             <NavLinks />
           </nav>
-          <LocaleSwitcher />
+          <LocaleSwitcher courseSlugs={courseSlugs} />
           <ThemeToggle />
         </div>
 
         {/* Mobile */}
-        <MobileMenu />
+        <MobileMenu courseSlugs={courseSlugs} />
       </Container>
     </header>
   );

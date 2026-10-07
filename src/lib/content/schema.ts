@@ -23,6 +23,13 @@ const localizedText = z.record(
   z.string().trim().min(1),
 );
 
+// "crypto-basics" – lowercase words separated by dashes, no diacritics; used in URLs.
+export const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+const slug = z
+  .string()
+  .regex(SLUG, "lowercase words separated by dashes, without diacritics");
+
 // A non-empty list of texts in every language of the site.
 const localizedList = z.record(
   z.enum(routing.locales),
@@ -43,6 +50,8 @@ export const courseSchema = z.strictObject({
   image: z.string().startsWith("/").optional(),
   // Work in progress: shown by `yarn dev`, hidden in production until removed.
   draft: z.boolean().optional(),
+  // URL slug per language, e.g. { "cs": "zaklady-kryptomen" }. A missing language uses the folder name.
+  slug: z.partialRecord(z.enum(routing.locales), slug).optional(),
 });
 
 export type CourseMeta = z.infer<typeof courseSchema>;
@@ -57,6 +66,8 @@ export type ModuleMeta = z.infer<typeof moduleSchema>;
 export const lessonSchema = z.strictObject({
   title: z.string().trim().min(1),
   description: z.string().trim().min(1),
+  // URL slug in this language, e.g. "co-je-blockchain". Without it the file name is used.
+  slug: slug.optional(),
   // No reading time here – it is computed from the text (src/lib/content/reading-time.ts).
 });
 

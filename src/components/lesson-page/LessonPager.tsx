@@ -2,11 +2,16 @@ import { useLocale, useTranslations } from "next-intl";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
-import type { LessonEntry } from "@/lib/content/course-navigation";
+import {
+  courseHref,
+  lessonHref,
+  type LessonEntry,
+} from "@/lib/content/course-navigation";
 import { cn } from "@/lib/utils";
+import type { Course } from "@/server/content";
 
 type LessonPagerProps = {
-  courseSlug: string;
+  course: Course;
   previous: LessonEntry | undefined;
   next: LessonEntry | undefined;
 };
@@ -15,7 +20,7 @@ const CARD =
   "flex flex-1 flex-col gap-1 rounded-lg border border-border p-4 transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none";
 
 // Previous / next lesson at the end of a lesson. After the last lesson it leads back to the course.
-export function LessonPager({ courseSlug, previous, next }: LessonPagerProps) {
+export function LessonPager({ course, previous, next }: LessonPagerProps) {
   const t = useTranslations("LessonPage");
   const locale = useLocale();
 
@@ -26,7 +31,7 @@ export function LessonPager({ courseSlug, previous, next }: LessonPagerProps) {
     >
       {previous ? (
         <Link
-          href={`/courses/${courseSlug}/${previous.lesson.slug}`}
+          href={lessonHref(course, previous.lesson, locale)}
           rel="prev"
           className={CARD}
         >
@@ -43,7 +48,7 @@ export function LessonPager({ courseSlug, previous, next }: LessonPagerProps) {
       )}
       {next ? (
         <Link
-          href={`/courses/${courseSlug}/${next.lesson.slug}`}
+          href={lessonHref(course, next.lesson, locale)}
           rel="next"
           className={cn(CARD, "sm:items-end sm:text-right")}
         >
@@ -55,7 +60,7 @@ export function LessonPager({ courseSlug, previous, next }: LessonPagerProps) {
         </Link>
       ) : (
         <Link
-          href={`/courses/${courseSlug}`}
+          href={courseHref(course, locale)}
           className={cn(CARD, "sm:items-end sm:text-right")}
         >
           <span className="text-sm text-muted-foreground">{t("finished")}</span>

@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { routing } from "@/i18n/routing";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { getCourseSlugs } from "@/server/content";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import "../globals.css";
 
@@ -59,6 +60,7 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  const courseSlugs = await getCourseSlugs();
 
   return (
     // suppressHydrationWarning: next-themes sets the class on <html> before React loads.
@@ -74,7 +76,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <ThemeProvider>
             <SkipLink />
-            <Header />
+            <Header courseSlugs={courseSlugs} />
             <main id="content" className="flex flex-1 flex-col">
               {children}
             </main>

@@ -112,7 +112,8 @@ export default function UiPage() {
       </Section>
 
       <Section title="Dropdown menu and toggle group">
-        <LocaleSwitcher />
+        {/* No course on this page, so there are no slugs to translate. */}
+        <LocaleSwitcher courseSlugs={[]} />
         <ThemeToggle />
       </Section>
     </Container>

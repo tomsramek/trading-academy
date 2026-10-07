@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { CheckIcon } from "lucide-react";
 
@@ -7,13 +8,27 @@ import { CourseOutline } from "@/components/courses/CourseOutline";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
+import { alternateLinks } from "@/i18n/alternates";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { lessonHref } from "@/lib/content/course-navigation";
 import { cn } from "@/lib/utils";
 import { getCourse, getCourses } from "@/server/content";
 
-// One page per course, generated at build time; other course URLs are 404.
-export async function generateStaticParams() {
-  return (await getCourses()).map((course) => ({ course: course.slug }));
+// One page per course and language, generated at build time; other course URLs are 404.
+// [locale] comes from the layout, the course slug differs per language.
+export async function generateStaticParams({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  if (!hasLocale(routing.locales, params.locale)) {
+    return [];
+  }
+  const locale = params.locale;
+  return (await getCourses()).map((course) => ({
+    course: course.slugs[locale],
+  }));
 }
 
 export const dynamicParams = false;
@@ -22,13 +37,18 @@ export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/courses/[course]">): Promise<Metadata> {
   const { course: slug } = await params;
-  const [course, locale] = await Promise.all([getCourse(slug), getLocale()]);
+  const locale = await getLocale();
+  const course = await getCourse(slug, locale);
   if (!course) {
     return {};
   }
   return {
     title: course.meta.title[locale],
     description: course.meta.description[locale],
+    alternates: alternateLinks(locale, (other) => ({
+      pathname: "/courses/[course]",
+      params: { course: course.slugs[other] },
+    })),
   };
 }
 
@@ -36,9 +56,9 @@ export default async function CoursePage({
   params,
 }: PageProps<"/[locale]/courses/[course]">) {
   const { course: slug } = await params;
-  const [course, locale, t, tCourses] = await Promise.all([
-    getCourse(slug),
-    getLocale(),
+  const locale = await getLocale();
+  const [course, t, tCourses] = await Promise.all([
+    getCourse(slug, locale),
     getTranslations("CourseDetail"),
     getTranslations("Courses"),
   ]);
@@ -80,7 +100,7 @@ export default async function CoursePage({
         </p>
         {firstLesson ? (
           <Link
-            href={`/courses/${course.slug}/${firstLesson.slug}`}
+            href={lessonHref(course, firstLesson, locale)}
             className={cn(buttonVariants({ size: "lg" }), "w-fit")}
           >
             {t("start")}

@@ -1,6 +1,7 @@
 "use client";
 
 import NextLink from "next/link";
+import { useParams } from "next/navigation";
 import { CheckIcon, ChevronDownIcon, GlobeIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
@@ -13,17 +14,25 @@ import {
 import { getPathname, usePathname } from "@/i18n/navigation";
 import { LANGUAGES } from "@/i18n/languages";
 import { routing } from "@/i18n/routing";
+import {
+  translateCourseParams,
+  type CourseSlugs,
+} from "@/lib/content/localized-slugs";
 
 type Props = {
+  // URL slugs of the courses and lessons in every language – a lesson has a different address in each.
+  courseSlugs: CourseSlugs;
   // "bottom" opens the menu below the button (header), "top" above it (bottom of the mobile menu).
   side?: "bottom" | "top";
 };
 
-export function LocaleSwitcher({ side = "bottom" }: Props) {
+export function LocaleSwitcher({ courseSlugs, side = "bottom" }: Props) {
   const t = useTranslations("LocaleSwitcher");
   const currentLocale = useLocale();
-  // Current path without the locale prefix, e.g. "/courses" for both /courses and /cs/courses.
+  // The route without the locale, e.g. "/courses/[course]" for /courses/crypto-basics and
+  // /cs/kurzy/zaklady-kryptomen, and its params in the current language.
   const pathname = usePathname();
+  const params = useParams<{ course?: string; lesson?: string }>();
 
   return (
     <DropdownMenu>
@@ -43,7 +52,18 @@ export function LocaleSwitcher({ side = "bottom" }: Props) {
             key={locale}
             render={
               <NextLink
-                href={getPathname({ href: pathname, locale })}
+                href={getPathname({
+                  locale,
+                  href: hrefWithParams(
+                    pathname,
+                    translateCourseParams(
+                      params,
+                      currentLocale,
+                      locale,
+                      courseSlugs,
+                    ),
+                  ),
+                })}
                 lang={locale}
                 hrefLang={locale}
                 aria-current={locale === currentLocale ? "true" : undefined}
@@ -58,4 +78,21 @@ export function LocaleSwitcher({ side = "bottom" }: Props) {
       </DropdownMenuContent>
     </DropdownMenu>
   );
+}
+
+// A route with params for getPathname. The params exist on their routes, so the empty fallback is
+// never used – it only satisfies the types.
+function hrefWithParams(
+  pathname: ReturnType<typeof usePathname>,
+  params: { course?: string; lesson?: string },
+) {
+  const course = params.course ?? "";
+  switch (pathname) {
+    case "/courses/[course]":
+      return { pathname, params: { course } };
+    case "/courses/[course]/[lesson]":
+      return { pathname, params: { course, lesson: params.lesson ?? "" } };
+    default:
+      return pathname;
+  }
 }

@@ -21,7 +21,10 @@ export function CourseCard({ course }: { course: CourseSummary }) {
         <Badge variant="secondary">{t(`level.${course.level}`)}</Badge>
         <CardTitle className="text-xl">
           <Link
-            href={`/courses/${course.slug}`}
+            href={{
+              pathname: "/courses/[course]",
+              params: { course: course.slug },
+            }}
             className="outline-none after:absolute after:inset-0"
           >
             {course.title}
