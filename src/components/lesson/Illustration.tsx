@@ -1070,6 +1070,1321 @@ function FeeBus() {
   );
 }
 
+// An exchange as a market: a buyer and a seller shout their prices, the exchange keeps a small fee.
+function MarketShout() {
+  const t = useTranslations("Lesson.illustration.marketShout");
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+
+      {/* The exchange booth in the middle with a fee jar */}
+      <rect
+        x="250"
+        y="150"
+        width="140"
+        height="150"
+        rx="8"
+        className="fill-background stroke-muted-foreground"
+        strokeWidth="3"
+      />
+      <rect
+        x="240"
+        y="120"
+        width="160"
+        height="34"
+        rx="6"
+        className="fill-primary"
+      />
+      <text
+        x="320"
+        y="144"
+        textAnchor="middle"
+        className="fill-background text-lg font-bold"
+      >
+        {t("tag")}
+      </text>
+      <rect
+        x="295"
+        y="235"
+        width="50"
+        height="60"
+        rx="8"
+        className="fill-card stroke-muted-foreground"
+        strokeWidth="2"
+      />
+      <circle
+        cx="320"
+        cy="225"
+        r="10"
+        className="fill-warning motion-safe:group-data-playing/anim:animate-coin-insert"
+        style={{ animationDelay: "1300ms" }}
+      />
+
+      {/* Buyer (left) and seller (right) */}
+      <path
+        d="M55 300 q0 -75 65 -75 q65 0 65 75 z"
+        className="fill-foreground"
+      />
+      <circle cx="120" cy="185" r="36" className="fill-foreground" />
+      <path
+        d="M104 182 q8 12 16 0 M128 182 q8 12 16 0"
+        className="fill-none stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <ellipse cx="124" cy="203" rx="9" ry="7" className="fill-background" />
+
+      <path
+        d="M455 300 q0 -75 65 -75 q65 0 65 75 z"
+        className="fill-foreground"
+      />
+      <circle cx="520" cy="185" r="36" className="fill-foreground" />
+      <circle cx="508" cy="180" r="4" className="fill-background" />
+      <circle cx="532" cy="180" r="4" className="fill-background" />
+      <ellipse cx="520" cy="203" rx="9" ry="7" className="fill-background" />
+
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "200ms" }}
+      >
+        <rect
+          x="20"
+          y="40"
+          width="230"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M120 86 l0 24 l22 -24 z" className="fill-card" />
+        <text
+          x="135"
+          y="71"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "700ms" }}
+      >
+        <rect
+          x="390"
+          y="40"
+          width="230"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M520 86 l0 24 l-22 -24 z" className="fill-card" />
+        <text
+          x="505"
+          y="71"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("seller")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// A shady booth promising 1000 % a year next to a boring, licensed one.
+function ShadyBooth() {
+  const t = useTranslations("Lesson.illustration.shadyBooth");
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+
+      {/* Shady booth with a flashing neon sign */}
+      <rect
+        x="40"
+        y="150"
+        width="250"
+        height="150"
+        rx="8"
+        className="fill-background stroke-bear"
+        strokeWidth="3"
+      />
+      <rect
+        x="50"
+        y="105"
+        width="230"
+        height="40"
+        rx="8"
+        className="fill-card stroke-bear"
+        strokeWidth="3"
+      />
+      <text
+        x="165"
+        y="133"
+        textAnchor="middle"
+        className="fill-bear text-lg font-bold motion-safe:group-data-playing/anim:animate-screen-flicker"
+      >
+        {t("tag")}
+      </text>
+      {/* The salesman in sunglasses */}
+      <path
+        d="M100 300 q0 -70 65 -70 q65 0 65 70 z"
+        className="fill-foreground"
+      />
+      <circle cx="165" cy="195" r="34" className="fill-foreground" />
+      <rect
+        x="140"
+        y="183"
+        width="22"
+        height="12"
+        rx="4"
+        className="fill-background"
+      />
+      <rect
+        x="168"
+        y="183"
+        width="22"
+        height="12"
+        rx="4"
+        className="fill-background"
+      />
+      <line
+        x1="162"
+        y1="189"
+        x2="168"
+        y2="189"
+        className="stroke-background"
+        strokeWidth="3"
+      />
+      <path
+        d="M152 210 q13 8 28 -2"
+        className="fill-none stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      {/* Licensed booth: boring, but with a certificate */}
+      <rect
+        x="370"
+        y="150"
+        width="230"
+        height="150"
+        rx="8"
+        className="fill-background stroke-muted-foreground"
+        strokeWidth="3"
+      />
+      <g
+        className="motion-safe:group-data-playing/anim:animate-drop-in"
+        style={{ animationDelay: "900ms" }}
+      >
+        <rect
+          x="430"
+          y="95"
+          width="110"
+          height="46"
+          rx="6"
+          className="fill-card stroke-bull"
+          strokeWidth="3"
+        />
+        <text
+          x="485"
+          y="125"
+          textAnchor="middle"
+          className="fill-bull text-base font-bold"
+        >
+          {t("licence")}
+        </text>
+      </g>
+      <path
+        d="M440 300 q0 -60 45 -60 q45 0 45 60 z"
+        className="fill-muted-foreground"
+      />
+      <circle cx="485" cy="215" r="26" className="fill-muted-foreground" />
+      <path
+        d="M470 213 h10 M490 213 h10"
+        className="stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M477 228 h16"
+        className="stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "600ms" }}
+      >
+        <rect
+          x="130"
+          y="30"
+          width="240"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M200 76 l-10 24 l30 -24 z" className="fill-card" />
+        <text
+          x="250"
+          y="61"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// The seed phrase on a sticky note on the monitor – and a thief with binoculars at the window.
+function StickyNote() {
+  const t = useTranslations("Lesson.illustration.stickyNote");
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+
+      {/* Monitor with the sticky note */}
+      <rect
+        x="60"
+        y="110"
+        width="260"
+        height="160"
+        rx="10"
+        className="fill-background stroke-muted-foreground"
+        strokeWidth="3"
+      />
+      <rect
+        x="175"
+        y="270"
+        width="30"
+        height="30"
+        className="fill-muted-foreground"
+      />
+      <g
+        className="origin-top transform-fill motion-safe:group-data-playing/anim:animate-wiggle"
+        style={{ animationDelay: "300ms" }}
+      >
+        <rect
+          x="230"
+          y="125"
+          width="110"
+          height="80"
+          rx="3"
+          className="fill-warning"
+        />
+        <text
+          x="285"
+          y="150"
+          textAnchor="middle"
+          className="fill-background font-mono text-sm font-bold"
+        >
+          {t("tag")}
+        </text>
+        <rect
+          x="242"
+          y="162"
+          width="86"
+          height="4"
+          rx="2"
+          className="fill-background opacity-60"
+        />
+        <rect
+          x="242"
+          y="174"
+          width="70"
+          height="4"
+          rx="2"
+          className="fill-background opacity-60"
+        />
+        <rect
+          x="242"
+          y="186"
+          width="80"
+          height="4"
+          rx="2"
+          className="fill-background opacity-60"
+        />
+      </g>
+
+      {/* Window with the thief peeking through binoculars */}
+      <rect
+        x="400"
+        y="80"
+        width="200"
+        height="190"
+        rx="8"
+        className="fill-background stroke-border"
+        strokeWidth="6"
+      />
+      <g
+        className="motion-safe:group-data-playing/anim:animate-peek"
+        style={{ animationDelay: "600ms" }}
+      >
+        <path
+          d="M430 270 q0 -60 70 -60 q70 0 70 60 z"
+          className="fill-foreground"
+        />
+        <circle cx="500" cy="180" r="38" className="fill-foreground" />
+        <rect
+          x="470"
+          y="168"
+          width="26"
+          height="22"
+          rx="6"
+          className="fill-muted-foreground"
+        />
+        <rect
+          x="504"
+          y="168"
+          width="26"
+          height="22"
+          rx="6"
+          className="fill-muted-foreground"
+        />
+        <circle cx="483" cy="179" r="7" className="fill-primary" />
+        <circle cx="517" cy="179" r="7" className="fill-primary" />
+        <path
+          d="M486 205 q14 10 28 0"
+          className="fill-none stroke-background"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+      </g>
+
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "1400ms" }}
+      >
+        <rect
+          x="380"
+          y="20"
+          width="180"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M460 66 l6 24 l18 -24 z" className="fill-card" />
+        <text
+          x="470"
+          y="51"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// The first purchase: a big Buy button, a checklist and a slightly nervous person.
+function FirstBuy() {
+  const t = useTranslations("Lesson.illustration.firstBuy");
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+
+      {/* Checklist with ticks appearing one by one */}
+      <rect
+        x="40"
+        y="90"
+        width="150"
+        height="190"
+        rx="10"
+        className="fill-background stroke-muted-foreground"
+        strokeWidth="3"
+      />
+      {[130, 180, 230].map((y, index) => (
+        <g key={y}>
+          <rect
+            x="60"
+            y={y - 14}
+            width="24"
+            height="24"
+            rx="5"
+            className="fill-card stroke-muted-foreground"
+            strokeWidth="2"
+          />
+          <path
+            d={`M64 ${y - 2} l7 7 l12 -14`}
+            className="fill-none stroke-bull motion-safe:group-data-playing/anim:animate-drop-in"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ animationDelay: `${300 + index * 400}ms` }}
+          />
+          <rect
+            x="94"
+            y={y - 4}
+            width="78"
+            height="6"
+            rx="3"
+            className="fill-muted-foreground opacity-60"
+          />
+        </g>
+      ))}
+
+      {/* Big Buy button pressed a few times */}
+      <g
+        className="motion-safe:group-data-playing/anim:animate-press"
+        style={{ animationDelay: "1600ms" }}
+      >
+        <rect
+          x="380"
+          y="200"
+          width="200"
+          height="70"
+          rx="35"
+          className="fill-bull"
+        />
+        <text
+          x="480"
+          y="244"
+          textAnchor="middle"
+          className="fill-background text-2xl font-bold"
+        >
+          {t("tag")}
+        </text>
+      </g>
+      <rect
+        x="370"
+        y="270"
+        width="220"
+        height="14"
+        rx="7"
+        className="fill-muted-foreground opacity-50"
+      />
+
+      {/* Nervous person with a sweat drop */}
+      <path
+        d="M215 300 q0 -75 65 -75 q65 0 65 75 z"
+        className="fill-foreground"
+      />
+      <circle cx="280" cy="185" r="36" className="fill-foreground" />
+      <circle cx="268" cy="182" r="4" className="fill-background" />
+      <circle cx="292" cy="182" r="4" className="fill-background" />
+      <path
+        d="M266 202 q6 -4 12 0 q6 4 12 0"
+        className="fill-none stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M322 160 q6 10 0 14 q-6 -4 0 -14 z"
+        className="fill-primary motion-safe:group-data-playing/anim:animate-sweat-drop"
+      />
+      <line
+        x1="330"
+        y1="250"
+        x2="400"
+        y2="225"
+        className="stroke-foreground"
+        strokeWidth="12"
+        strokeLinecap="round"
+      />
+
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "400ms" }}
+      >
+        <rect
+          x="200"
+          y="40"
+          width="400"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M290 86 l-6 24 l26 -24 z" className="fill-card" />
+        <text
+          x="400"
+          y="71"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// Phishing: a hooded hacker fishes with an urgent email.
+function PhishingHook() {
+  const t = useTranslations("Lesson.illustration.phishingHook");
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+      {/* Hacker in a hood with a fishing rod */}
+      <path
+        d="M40 300 q0 -90 70 -90 q70 0 70 90 z"
+        className="fill-muted-foreground"
+      />
+      <circle cx="110" cy="165" r="44" className="fill-muted-foreground" />
+      <circle cx="110" cy="172" r="30" className="fill-background" />
+      <circle cx="99" cy="168" r="4" className="fill-bear" />
+      <circle cx="121" cy="168" r="4" className="fill-bear" />
+      <line
+        x1="160"
+        y1="240"
+        x2="330"
+        y2="70"
+        className="stroke-warning"
+        strokeWidth="6"
+        strokeLinecap="round"
+      />
+      <g className="motion-safe:group-data-playing/anim:animate-bob">
+        <line
+          x1="330"
+          y1="70"
+          x2="330"
+          y2="170"
+          className="stroke-muted-foreground"
+          strokeWidth="2"
+        />
+        <rect
+          x="290"
+          y="170"
+          width="80"
+          height="54"
+          rx="6"
+          className="fill-card stroke-bear"
+          strokeWidth="3"
+        />
+        <path
+          d="M292 172 l38 28 l38 -28"
+          className="fill-none stroke-bear"
+          strokeWidth="3"
+        />
+        <text
+          x="330"
+          y="218"
+          textAnchor="middle"
+          className="fill-bear text-base font-bold"
+        >
+          !
+        </text>
+      </g>
+
+      {/* Worried user reaching for the email */}
+      <path
+        d="M445 300 q0 -75 65 -75 q65 0 65 75 z"
+        className="fill-foreground"
+      />
+      <circle cx="510" cy="185" r="36" className="fill-foreground" />
+      <circle cx="498" cy="180" r="5" className="fill-background" />
+      <circle cx="522" cy="180" r="5" className="fill-background" />
+      <ellipse cx="510" cy="203" rx="7" ry="9" className="fill-background" />
+      <line
+        x1="455"
+        y1="250"
+        x2="385"
+        y2="215"
+        className="stroke-foreground"
+        strokeWidth="12"
+        strokeLinecap="round"
+      />
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "900ms" }}
+      >
+        <rect
+          x="380"
+          y="30"
+          width="240"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M500 76 l0 24 l20 -24 z" className="fill-card" />
+        <text
+          x="500"
+          y="61"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// A fake celebrity giveaway: "send 1, get 2 back".
+function GiveawayScam() {
+  const t = useTranslations("Lesson.illustration.giveawayScam");
+  const sparkles = [
+    [70, 70],
+    [300, 60],
+    [330, 230],
+    [40, 220],
+  ];
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+      {/* Screen with the "celebrity" */}
+      <rect
+        x="30"
+        y="50"
+        width="330"
+        height="220"
+        rx="12"
+        className="fill-background stroke-muted-foreground"
+        strokeWidth="3"
+      />
+      <path d="M130 270 q0 -60 65 -60 q65 0 65 60 z" className="fill-warning" />
+      <circle cx="195" cy="160" r="38" className="fill-warning" />
+      <rect
+        x="168"
+        y="148"
+        width="24"
+        height="12"
+        rx="4"
+        className="fill-background"
+      />
+      <rect
+        x="198"
+        y="148"
+        width="24"
+        height="12"
+        rx="4"
+        className="fill-background"
+      />
+      <path
+        d="M178 180 q17 12 34 0"
+        className="fill-none stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <rect
+        x="55"
+        y="70"
+        width="280"
+        height="36"
+        rx="6"
+        className="fill-bull"
+      />
+      <text
+        x="195"
+        y="95"
+        textAnchor="middle"
+        className="fill-background text-base font-bold"
+      >
+        {t("tag")}
+      </text>
+      {sparkles.map(([x = 0, y = 0], index) => (
+        <path
+          key={`${x}-${y}`}
+          d={`M${x} ${y - 12} l4 8 l8 4 l-8 4 l-4 8 l-4 -8 l-8 -4 l8 -4 z`}
+          className="fill-warning motion-safe:group-data-playing/anim:animate-screen-flicker"
+          style={{ animationDelay: `${index * 150}ms` }}
+        />
+      ))}
+
+      {/* Viewer, a little too excited */}
+      <path
+        d="M445 300 q0 -75 65 -75 q65 0 65 75 z"
+        className="fill-foreground"
+      />
+      <circle cx="510" cy="185" r="36" className="fill-foreground" />
+      <path
+        d="M494 178 q6 -6 12 0 M514 178 q6 -6 12 0"
+        className="fill-none stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <path d="M494 198 q16 16 32 0" className="fill-background" />
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "900ms" }}
+      >
+        <rect
+          x="400"
+          y="40"
+          width="200"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M500 86 l0 24 l20 -24 z" className="fill-card" />
+        <text
+          x="500"
+          y="71"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// Tax time: a person buried in receipts.
+function ReceiptPile() {
+  const t = useTranslations("Lesson.illustration.receiptPile");
+  const receipts = [
+    [120, 120, -20],
+    [210, 90, 15],
+    [470, 110, -10],
+    [540, 170, 25],
+    [90, 200, 10],
+  ];
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+      {/* Desk with a calculator */}
+      <rect
+        x="180"
+        y="250"
+        width="300"
+        height="20"
+        rx="4"
+        className="fill-muted-foreground"
+      />
+      <rect
+        x="380"
+        y="215"
+        width="60"
+        height="36"
+        rx="4"
+        className="fill-background stroke-muted-foreground"
+        strokeWidth="2"
+      />
+      <rect
+        x="388"
+        y="222"
+        width="44"
+        height="10"
+        rx="2"
+        className="fill-bull opacity-60"
+      />
+
+      {/* Person behind the desk */}
+      <path
+        d="M255 250 q0 -75 65 -75 q65 0 65 75 z"
+        className="fill-foreground"
+      />
+      <circle cx="320" cy="135" r="36" className="fill-foreground" />
+      <circle cx="308" cy="128" r="5" className="fill-background" />
+      <circle cx="332" cy="128" r="5" className="fill-background" />
+      <path
+        d="M306 150 q14 -8 28 0"
+        className="fill-none stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      {/* Flying receipts */}
+      {receipts.map(([x = 0, y = 0, r = 0], index) => (
+        <g key={`${x}-${y}`} transform={`rotate(${r} ${x} ${y})`}>
+          <g
+            className="motion-safe:group-data-playing/anim:animate-bob"
+            style={{ animationDelay: `${index * 120}ms` }}
+          >
+            <rect
+              x={x - 22}
+              y={y - 30}
+              width="44"
+              height="60"
+              rx="3"
+              className="fill-foreground"
+            />
+            <rect
+              x={x - 14}
+              y={y - 18}
+              width="28"
+              height="4"
+              rx="2"
+              className="fill-muted-foreground"
+            />
+            <rect
+              x={x - 14}
+              y={y - 8}
+              width="22"
+              height="4"
+              rx="2"
+              className="fill-muted-foreground"
+            />
+            <rect
+              x={x - 14}
+              y={y + 2}
+              width="26"
+              height="4"
+              rx="2"
+              className="fill-muted-foreground"
+            />
+          </g>
+        </g>
+      ))}
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "700ms" }}
+      >
+        <rect
+          x="150"
+          y="20"
+          width="340"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M320 66 l0 24 l20 -24 z" className="fill-card" />
+        <text
+          x="320"
+          y="51"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// The tortoise and the hare: a patient investor and a restless day trader.
+function TortoiseHare() {
+  const t = useTranslations("Lesson.illustration.tortoiseHare");
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+      {/* Finish flag */}
+      <line
+        x1="590"
+        y1="300"
+        x2="590"
+        y2="150"
+        className="stroke-muted-foreground"
+        strokeWidth="5"
+      />
+      <path
+        d="M590 150 l40 12 l-40 12 z"
+        className="origin-left fill-bull transform-fill motion-safe:group-data-playing/anim:animate-wiggle"
+      />
+
+      {/* Tortoise (investor) */}
+      <g className="motion-safe:group-data-playing/anim:animate-bob">
+        <path d="M70 290 q0 -70 80 -70 q80 0 80 70 z" className="fill-bull" />
+        <path
+          d="M100 290 q0 -40 50 -40 q50 0 50 40"
+          className="fill-none stroke-background opacity-50"
+          strokeWidth="3"
+        />
+        <circle cx="245" cy="270" r="20" className="fill-bull opacity-80" />
+        <circle cx="252" cy="265" r="4" className="fill-background" />
+        <rect
+          x="90"
+          y="285"
+          width="18"
+          height="15"
+          rx="4"
+          className="fill-bull opacity-80"
+        />
+        <rect
+          x="190"
+          y="285"
+          width="18"
+          height="15"
+          rx="4"
+          className="fill-bull opacity-80"
+        />
+      </g>
+      <text
+        x="150"
+        y="205"
+        textAnchor="middle"
+        className="fill-bull text-base font-bold"
+      >
+        {t("tag")}
+      </text>
+
+      {/* Hare (day trader) with a phone */}
+      <g className="origin-bottom transform-fill motion-safe:group-data-playing/anim:animate-wiggle">
+        <ellipse
+          cx="420"
+          cy="260"
+          rx="55"
+          ry="35"
+          className="fill-foreground"
+        />
+        <ellipse
+          cx="470"
+          cy="215"
+          rx="28"
+          ry="24"
+          className="fill-foreground"
+        />
+        <ellipse cx="462" cy="170" rx="9" ry="30" className="fill-foreground" />
+        <ellipse cx="482" cy="172" rx="9" ry="30" className="fill-foreground" />
+        <circle cx="478" cy="210" r="4" className="fill-background" />
+        <rect
+          x="490"
+          y="225"
+          width="22"
+          height="34"
+          rx="4"
+          className="fill-background stroke-muted-foreground"
+          strokeWidth="2"
+        />
+        <path
+          d="M494 252 l5 -8 l5 4 l5 -10"
+          className="fill-none stroke-bear"
+          strokeWidth="2"
+        />
+        <path d="M455 192 q6 10 0 14 q-6 -4 0 -14 z" className="fill-primary" />
+      </g>
+      <text
+        x="420"
+        y="320"
+        textAnchor="middle"
+        className="fill-bear text-base font-bold"
+      >
+        {t("tag2")}
+      </text>
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "700ms" }}
+      >
+        <rect
+          x="300"
+          y="40"
+          width="260"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M440 86 l10 24 l14 -24 z" className="fill-card" />
+        <text
+          x="430"
+          y="71"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// Wick color of each candle body color.
+const WICK = {
+  "fill-bull": "stroke-bull",
+  "fill-bear": "stroke-bear",
+} as const;
+
+// Riding the trend: a surfer on a wave of candles.
+function CandleSurfer() {
+  const t = useTranslations("Lesson.illustration.candleSurfer");
+  const candles = [
+    [60, 250, 30, "fill-bull"],
+    [100, 235, 40, "fill-bull"],
+    [140, 240, 25, "fill-bear"],
+    [180, 210, 45, "fill-bull"],
+    [220, 190, 40, "fill-bull"],
+    [260, 195, 20, "fill-bear"],
+    [300, 160, 50, "fill-bull"],
+    [340, 140, 40, "fill-bull"],
+  ] as const;
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+      {candles.map(([x, y, h, fill]) => (
+        <g key={x}>
+          <line
+            x1={x}
+            x2={x}
+            y1={y - 12}
+            y2={y + h + 12}
+            className={WICK[fill]}
+            strokeWidth="3"
+          />
+          <rect
+            x={x - 12}
+            y={y}
+            width="24"
+            height={h}
+            rx="3"
+            className={fill}
+          />
+        </g>
+      ))}
+
+      {/* Surfer riding on top of the last candles */}
+      <g className="motion-safe:group-data-playing/anim:animate-bob">
+        <rect
+          x="320"
+          y="122"
+          width="110"
+          height="10"
+          rx="5"
+          className="fill-warning"
+          transform="rotate(-12 375 127)"
+        />
+        <path
+          d="M368 120 l-14 -50 M368 120 l18 -40"
+          className="stroke-foreground"
+          strokeWidth="8"
+          strokeLinecap="round"
+        />
+        <circle cx="375" cy="55" r="18" className="fill-foreground" />
+        <path
+          d="M360 85 l-28 -10 M378 82 l30 -18"
+          className="stroke-foreground"
+          strokeWidth="7"
+          strokeLinecap="round"
+        />
+      </g>
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "700ms" }}
+      >
+        <rect
+          x="400"
+          y="150"
+          width="220"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M440 150 l-24 -14 l40 14 z" className="fill-card" />
+        <text
+          x="510"
+          y="181"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// Stop-loss as a parachute: one jumper floats down calmly, the other falls without one.
+function ParachuteStop() {
+  const t = useTranslations("Lesson.illustration.parachuteStop");
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+
+      {/* With a parachute */}
+      <g className="motion-safe:group-data-playing/anim:animate-bob">
+        <path d="M80 110 q100 -110 200 0 z" className="fill-bull" />
+        <text
+          x="180"
+          y="95"
+          textAnchor="middle"
+          className="fill-background text-sm font-bold"
+        >
+          {t("tag")}
+        </text>
+        <path
+          d="M85 110 l85 90 M275 110 l-85 90 M180 110 l0 90"
+          className="stroke-muted-foreground"
+          strokeWidth="2"
+        />
+        <circle cx="180" cy="215" r="18" className="fill-foreground" />
+        <path
+          d="M172 212 q8 6 16 0"
+          className="fill-none stroke-background"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <rect
+          x="168"
+          y="233"
+          width="24"
+          height="40"
+          rx="10"
+          className="fill-foreground"
+        />
+      </g>
+
+      {/* Without one */}
+      <g
+        className="motion-safe:group-data-playing/anim:animate-drop-in"
+        style={{ animationDelay: "400ms" }}
+      >
+        <circle cx="460" cy="150" r="20" className="fill-foreground" />
+        <ellipse cx="460" cy="158" rx="6" ry="8" className="fill-background" />
+        <path
+          d="M440 170 l-30 -40 M480 170 l30 -40"
+          className="stroke-foreground"
+          strokeWidth="8"
+          strokeLinecap="round"
+        />
+        <rect
+          x="447"
+          y="170"
+          width="26"
+          height="45"
+          rx="10"
+          className="fill-foreground"
+        />
+        <path
+          d="M452 215 l-12 35 M468 215 l12 35"
+          className="stroke-foreground"
+          strokeWidth="8"
+          strokeLinecap="round"
+        />
+      </g>
+      <text
+        x="460"
+        y="300"
+        textAnchor="middle"
+        className="fill-bear text-2xl font-bold"
+      >
+        {t("tag2")}
+      </text>
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "900ms" }}
+      >
+        <rect
+          x="380"
+          y="20"
+          width="240"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M470 66 l-6 24 l24 -24 z" className="fill-card" />
+        <text
+          x="500"
+          y="51"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
+// The end of the course: a graduate with a diploma under falling confetti.
+function Graduation() {
+  const t = useTranslations("Lesson.illustration.graduation");
+  const confetti = [
+    [80, 70, "fill-bull"],
+    [160, 40, "fill-primary"],
+    [240, 90, "fill-warning"],
+    [420, 50, "fill-bear"],
+    [500, 90, "fill-bull"],
+    [570, 60, "fill-primary"],
+    [330, 30, "fill-warning"],
+  ] as const;
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+      {confetti.map(([x, y, fill], index) => (
+        <rect
+          key={x}
+          x={x}
+          y={y}
+          width="12"
+          height="18"
+          rx="2"
+          className={cn(
+            fill,
+            "origin-center transform-fill motion-safe:group-data-playing/anim:animate-confetti",
+          )}
+          style={{ animationDelay: `${index * 120}ms` }}
+        />
+      ))}
+
+      {/* Graduate with a cap and a diploma */}
+      <path
+        d="M255 300 q0 -75 65 -75 q65 0 65 75 z"
+        className="fill-foreground"
+      />
+      <circle cx="320" cy="185" r="36" className="fill-foreground" />
+      <path d="M270 150 l50 -22 l50 22 l-50 22 z" className="fill-background" />
+      <line
+        x1="362"
+        y1="153"
+        x2="368"
+        y2="185"
+        className="stroke-warning"
+        strokeWidth="3"
+      />
+      <path
+        d="M306 182 q6 -6 12 0 M326 182 q6 -6 12 0"
+        className="fill-none stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <path d="M304 202 q16 16 32 0" className="fill-background" />
+      <rect
+        x="380"
+        y="225"
+        width="80"
+        height="22"
+        rx="11"
+        className="fill-foreground"
+      />
+      <rect x="415" y="225" width="10" height="22" className="fill-bear" />
+      <line
+        x1="370"
+        y1="255"
+        x2="400"
+        y2="240"
+        className="stroke-foreground"
+        strokeWidth="12"
+        strokeLinecap="round"
+      />
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "900ms" }}
+      >
+        <rect
+          x="80"
+          y="110"
+          width="180"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M230 156 l20 24 l0 -24 z" className="fill-card" />
+        <text
+          x="170"
+          y="141"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
+    </>
+  );
+}
+
 const ILLUSTRATIONS = {
   midnightEdit: MidnightEdit,
   copyMachine: CopyMachine,
@@ -1078,6 +2393,17 @@ const ILLUSTRATIONS = {
   vendingMachine: VendingMachine,
   memeSlot: MemeSlot,
   feeBus: FeeBus,
+  marketShout: MarketShout,
+  shadyBooth: ShadyBooth,
+  stickyNote: StickyNote,
+  firstBuy: FirstBuy,
+  phishingHook: PhishingHook,
+  giveawayScam: GiveawayScam,
+  receiptPile: ReceiptPile,
+  tortoiseHare: TortoiseHare,
+  candleSurfer: CandleSurfer,
+  parachuteStop: ParachuteStop,
+  graduation: Graduation,
 } as const;
 
 type IllustrationName = keyof typeof ILLUSTRATIONS;
@@ -1091,6 +2417,17 @@ const ANIMATED: ReadonlySet<IllustrationName> = new Set([
   "vendingMachine",
   "memeSlot",
   "feeBus",
+  "marketShout",
+  "shadyBooth",
+  "stickyNote",
+  "firstBuy",
+  "phishingHook",
+  "giveawayScam",
+  "receiptPile",
+  "tortoiseHare",
+  "candleSurfer",
+  "parachuteStop",
+  "graduation",
 ]);
 
 function isIllustrationName(name: string): name is IllustrationName {

@@ -175,6 +175,9 @@
   --animate-reel-spin: reel-spin 0.12s linear 12;
   --animate-drive-in: drive-in 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-wiggle: wiggle 0.25s ease-in-out 8 alternate;
+  --animate-press: press 0.4s ease-in-out 3;
+  --animate-bob: bob 0.7s ease-in-out 6 alternate;
+  --animate-confetti: confetti 1.2s ease-in both;
 
   @keyframes sweat-drop {
     from {
@@ -298,6 +301,26 @@
   @keyframes drive-in {
     from {
       transform: translateX(420px);
+    }
+  }
+  @keyframes bob {
+    to {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes confetti {
+    from {
+      transform: translateY(-120px) rotate(-90deg);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @keyframes press {
+    50% {
+      transform: translateY(8px);
     }
   }
   @keyframes wiggle {
