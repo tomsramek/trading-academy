@@ -19,7 +19,7 @@
     "soon": "Již brzy",
     "nav": {
       "courses": "Kurzy",
-      "glossary": "Glosář"
+      "glossary": "Slovník"
     }
   },
   "Footer": {
@@ -404,6 +404,17 @@
       "title": "Další kurzy připravujeme",
       "description": "Pro středně pokročilé a pokročilé: technická analýza, řízení rizika a psychologie tradingu."
     }
+  },
+  "Glossary": {
+    "title": "Slovník",
+    "description": "Srozumitelná vysvětlení pojmů ze světa kryptoměn a tradingu – od altcoinu po stop-loss.",
+    "searchLabel": "Hledat pojem",
+    "searchPlaceholder": "Třeba páka nebo seed fráze",
+    "letters": "Pojmy podle písmen",
+    "empty": "Žádný pojem neodpovídá „{query}“.",
+    "clear": "Zrušit hledání",
+    "lessons": "Vysvětleno v lekci",
+    "related": "Související pojmy"
   },
   "CourseDetail": {
     "breadcrumb": "Drobečková navigace",

@@ -9,6 +9,7 @@ import { cache } from "react";
 import { z } from "zod";
 
 import { routing } from "@/i18n/routing";
+import { getGlossary } from "@/server/glossary";
 import { readingMinutes } from "@/lib/content/reading-time";
 import { slugify } from "@/lib/slugify";
 import type { CourseSlugs } from "@/lib/content/localized-slugs";
@@ -39,6 +40,8 @@ export type Lesson = {
   // URL slug per language – the "slug" from the lesson metadata, otherwise `slug`.
   slugs: Record<Locale, string>;
   order: number;
+  // Glossary terms the lesson marks with <KeyTerm term="…"> (in any language).
+  terms: string[];
   // Metadata from the lesson file + reading time computed from its text, per language.
   meta: Record<Locale, LessonMeta & { minutes: number }>;
 };
@@ -122,6 +125,8 @@ async function loadLesson(
 ): Promise<Lesson> {
   const dir = path.join(COURSES_DIR, course, moduleDir);
   const { order, slug } = parseOrderedName(baseName, path.join(dir, baseName));
+  const glossary = await getGlossary();
+  const terms = new Set<string>();
 
   const entries = await Promise.all(
     routing.locales.map(async (locale) => {
@@ -144,6 +149,18 @@ async function loadLesson(
           `line ${brokenLine + 1}: <KeyTerm> must not start a line – keep the text before it on the same line`,
         );
       }
+      // Every <KeyTerm> links to the glossary, so its term must be there.
+      for (const [, term = ""] of source.matchAll(
+        /<KeyTerm\s+term="([^"]*)"/g,
+      )) {
+        if (!(term in glossary)) {
+          throw new ContentError(
+            path.join(dir, file),
+            `<KeyTerm term="${term}"> is not in the glossary – add it to content/glossary/terms.json`,
+          );
+        }
+        terms.add(term);
+      }
       return [
         locale,
         { ...meta, minutes: readingMinutes(source, locale) },
@@ -156,6 +173,7 @@ async function loadLesson(
     slug,
     slugs: localizedSlugs(slug, (locale) => meta[locale].slug),
     order,
+    terms: [...terms].sort(),
     meta,
   };
 }
