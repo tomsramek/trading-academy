@@ -445,5 +445,18 @@
     "next": "Další lekce",
     "finished": "Dokončil(a) jsi kurz",
     "backToCourse": "Zpět na kurz"
+  },
+  "Quiz": {
+    "title": "Kvíz: {module}",
+    "intro": "{count, plural, one {# otázka} few {# otázky} other {# otázek}} k ověření toho, co víš z tohoto modulu. Nic se neukládá a kvíz můžeš opakovat.",
+    "check": "Vyhodnotit",
+    "progress": "Zodpovězeno {answered} z {total}",
+    "score": "Správně {correct} z {total}. Přečti si vysvětlení a zkus to znovu.",
+    "allCorrect": "Všech {total} správně – výborně!",
+    "retry": "Zkusit znovu",
+    "right": "Správně.",
+    "wrong": "Špatně.",
+    "correctAnswer": "Správná odpověď",
+    "yourAnswer": "Tvoje odpověď"
   }
 }

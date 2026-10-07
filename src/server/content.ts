@@ -17,10 +17,12 @@ import {
   courseSchema,
   lessonSchema,
   moduleSchema,
+  quizSchema,
   SLUG,
   type CourseMeta,
   type LessonMeta,
   type ModuleMeta,
+  type QuizData,
 } from "@/lib/content/schema";
 
 /*
@@ -51,6 +53,8 @@ export type Module = {
   order: number;
   meta: ModuleMeta;
   lessons: Lesson[];
+  // Quiz at the end of the module's last lesson, from quiz.json (optional).
+  quiz?: QuizData;
 };
 
 export type Course = {
@@ -77,6 +81,16 @@ function parseWith<T>(schema: z.ZodType<T>, data: unknown, file: string): T {
     throw new ContentError(file, z.prettifyError(result.error));
   }
   return result.data;
+}
+
+// A JSON file that may be missing: undefined when it does not exist, other errors stop the build.
+async function readOptionalJson(file: string): Promise<unknown> {
+  try {
+    await fs.access(file);
+  } catch {
+    return undefined;
+  }
+  return readJson(file);
 }
 
 async function readJson(file: string): Promise<unknown> {
@@ -237,7 +251,13 @@ async function loadModule(course: string, moduleDir: string): Promise<Module> {
   const lessons = await Promise.all(
     baseNames.map((baseName) => loadLesson(course, moduleDir, baseName)),
   );
-  return { slug, order, meta, lessons };
+  const quizFile = path.join(dir, "quiz.json");
+  const quizData = await readOptionalJson(quizFile);
+  const quiz =
+    quizData === undefined
+      ? undefined
+      : parseWith(quizSchema, quizData, quizFile);
+  return { slug, order, meta, lessons, quiz };
 }
 
 async function loadCourse(slug: string): Promise<Course> {

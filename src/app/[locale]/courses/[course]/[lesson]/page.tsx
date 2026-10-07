@@ -8,10 +8,12 @@ import { LessonBreadcrumbs } from "@/components/lesson-page/LessonBreadcrumbs";
 import { LessonOutline } from "@/components/lesson-page/LessonOutline";
 import { LessonOutlineSheet } from "@/components/lesson-page/LessonOutlineSheet";
 import { LessonPager } from "@/components/lesson-page/LessonPager";
+import { ModuleQuiz } from "@/components/lesson-page/ModuleQuiz";
 import { TableOfContents } from "@/components/lesson-page/TableOfContents";
 import { alternateLinks } from "@/i18n/alternates";
 import { routing } from "@/i18n/routing";
 import { findLesson } from "@/lib/content/course-navigation";
+import { toQuizQuestions } from "@/lib/content/quiz";
 import {
   getCourse,
   getCourses,
@@ -91,6 +93,11 @@ export default async function LessonPage({
 
   const { current, previous, next, total } = found;
   const meta = current.lesson.meta[locale];
+  // The module's quiz comes after its last lesson.
+  const quiz =
+    current.module.lessons.at(-1) === current.lesson
+      ? current.module.quiz
+      : undefined;
   const outline = <LessonOutline course={course} currentSlug={slug} />;
 
   return (
@@ -145,6 +152,13 @@ export default async function LessonPage({
           <article className="prose prose-lg max-w-none prose-academy">
             <Content />
           </article>
+
+          {quiz && (
+            <ModuleQuiz
+              moduleTitle={current.module.meta.title[locale]}
+              questions={toQuizQuestions(quiz, locale)}
+            />
+          )}
 
           <LessonPager course={course} previous={previous} next={next} />
         </div>

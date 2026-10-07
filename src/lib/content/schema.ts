@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
  *
  * content/courses/<course>/course.json                         → courseSchema
  * content/courses/<course>/<NN-module>/module.json             → moduleSchema
+ * content/courses/<course>/<NN-module>/quiz.json               → quizSchema (optional)
  * content/courses/<course>/<NN-module>/<NN-lesson>.<locale>.mdx → lessonSchema (export const metadata)
  * content/pages/<page>.<locale>.mdx                              → pageSchema (export const metadata)
  * content/glossary/terms.json                                    → glossarySchema
@@ -102,3 +103,47 @@ export const glossarySchema = z.record(
 );
 
 export type GlossaryData = z.infer<typeof glossarySchema>;
+
+// A quiz at the end of a module. `answer` is the index of the correct option, the same in every language.
+export const quizSchema = z
+  .strictObject({
+    questions: z
+      .array(
+        z.strictObject({
+          text: z.record(
+            z.enum(routing.locales),
+            z.strictObject({
+              question: z.string().trim().min(1),
+              options: z.array(z.string().trim().min(1)).min(2).max(4),
+              // Why the correct answer is right – shown after the quiz is checked.
+              explanation: z.string().trim().min(1),
+            }),
+          ),
+          answer: z.int().min(0),
+        }),
+      )
+      .min(1),
+  })
+  .superRefine((quiz, context) => {
+    quiz.questions.forEach((question, index) => {
+      const counts = new Set(
+        Object.values(question.text).map((text) => text.options.length),
+      );
+      const [count = 0] = counts;
+      if (counts.size > 1) {
+        context.addIssue({
+          code: "custom",
+          path: ["questions", index],
+          message: "every language must have the same number of options",
+        });
+      } else if (question.answer >= count) {
+        context.addIssue({
+          code: "custom",
+          path: ["questions", index, "answer"],
+          message: `answer ${question.answer} does not exist – options are numbered from 0 to ${count - 1}`,
+        });
+      }
+    });
+  });
+
+export type QuizData = z.infer<typeof quizSchema>;
