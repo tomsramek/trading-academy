@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
+import { flushSync } from "react-dom";
 import { SearchIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -19,6 +20,18 @@ export function GlossaryList({ groups }: { groups: GlossaryGroup[] }) {
   const [query, setQuery] = useState("");
 
   const search = normalizeForSearch(query.trim());
+
+  // A related term may be hidden by the search, so its anchor does not exist yet. Clear the search,
+  // let React render the whole list right away, then jump to the term.
+  function showTerm(event: MouseEvent<HTMLAnchorElement>, id: string) {
+    if (!search) {
+      return;
+    }
+    event.preventDefault();
+    flushSync(() => setQuery(""));
+    document.getElementById(id)?.scrollIntoView();
+    window.history.pushState(null, "", `#${id}`);
+  }
   const visible = search
     ? groups
         .map((group) => ({
@@ -148,7 +161,11 @@ export function GlossaryList({ groups }: { groups: GlossaryGroup[] }) {
                         {entry.related.map((related, index) => (
                           <span key={related.id}>
                             {index > 0 && ", "}
-                            <a href={`#${related.id}`} className={TERM_LINK}>
+                            <a
+                              href={`#${related.id}`}
+                              onClick={(event) => showTerm(event, related.id)}
+                              className={TERM_LINK}
+                            >
                               {related.term}
                             </a>
                           </span>
