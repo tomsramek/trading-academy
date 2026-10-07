@@ -6,7 +6,13 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 
 // Compiles imported .mdx files (lessons in content/) into React components.
-const withMDX = createMDX();
+const withMDX = createMDX({
+  options: {
+    // Plugins are given by name (a string) so they work with Turbopack.
+    // remark-gfm adds tables, ~~strikethrough~~ and task lists (GitHub Flavored Markdown).
+    remarkPlugins: ["remark-gfm"],
+  },
+});
 
 const nextConfig: NextConfig = {
   // Self-contained server bundle for the Docker image.
