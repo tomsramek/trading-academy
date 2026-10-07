@@ -150,6 +150,48 @@
         "sell": "Sell"
       },
       "zone": "Highlighted period"
+    },
+    "pattern": {
+      "doji": {
+        "name": "Doji",
+        "description": "Open and close are almost the same – buyers and sellers are in balance and the market hesitates."
+      },
+      "hammer": {
+        "name": "Hammer",
+        "description": "After a fall, sellers pushed the price down, but buyers pushed it back up – a possible turn upwards."
+      },
+      "shootingStar": {
+        "name": "Shooting star",
+        "description": "After a rise, buyers pushed the price up, but sellers pushed it back down – a possible turn downwards."
+      },
+      "bullishEngulfing": {
+        "name": "Bullish engulfing",
+        "description": "A green body completely covers the previous red one – buyers are taking over."
+      },
+      "bearishEngulfing": {
+        "name": "Bearish engulfing",
+        "description": "A red body completely covers the previous green one – sellers are taking over."
+      },
+      "morningStar": {
+        "name": "Morning star",
+        "description": "A big red candle, a small hesitant one and a big green one – a turn from a fall to a rise."
+      },
+      "eveningStar": {
+        "name": "Evening star",
+        "description": "A big green candle, a small hesitant one and a big red one – a turn from a rise to a fall."
+      }
+    },
+    "anatomy": {
+      "label": "Parts of a candlestick: a rising and a falling candle. The body is between the open and close price, the wicks reach the highest and the lowest price.",
+      "high": "High",
+      "low": "Low",
+      "open": "Open",
+      "close": "Close",
+      "body": "Body",
+      "upperWick": "Upper wick",
+      "lowerWick": "Lower wick",
+      "rising": "Rising",
+      "falling": "Falling"
     }
   }
 }
