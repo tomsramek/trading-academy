@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Button } from "@/components/ui/button";
+import type { CourseSlugs } from "@/lib/content/localized-slugs";
 import {
   Sheet,
   SheetContent,
@@ -15,7 +16,7 @@ import {
 import { NavLinks } from "./NavLinks";
 
 // Side drawer (shadcn Sheet on Base UI Dialog): focus trap, Escape, click outside and scroll lock built in.
-export function MobileMenu() {
+export function MobileMenu({ courseSlugs }: { courseSlugs: CourseSlugs }) {
   const t = useTranslations("Header");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,7 +42,7 @@ export function MobileMenu() {
             <NavLinks vertical onNavigate={() => setIsOpen(false)} />
           </nav>
           <div className="flex flex-wrap items-center gap-3 border-t p-4">
-            <LocaleSwitcher side="top" />
+            <LocaleSwitcher courseSlugs={courseSlugs} side="top" />
             <ThemeToggle />
           </div>
         </SheetContent>

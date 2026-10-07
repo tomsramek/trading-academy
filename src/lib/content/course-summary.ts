@@ -6,6 +6,7 @@ import { LEVELS, type Level } from "./schema";
 
 // What a course card needs, in one language. Plain data, so it can be passed to client components.
 export type CourseSummary = {
+  // URL slug in this language.
   slug: string;
   title: string;
   description: string;
@@ -17,7 +18,7 @@ export type CourseSummary = {
 export function toCourseSummary(course: Course, locale: Locale): CourseSummary {
   const lessons = course.modules.flatMap((module) => module.lessons);
   return {
-    slug: course.slug,
+    slug: course.slugs[locale],
     title: course.meta.title[locale],
     description: course.meta.description[locale],
     level: course.meta.level,

@@ -9,4 +9,18 @@ export const routing = defineRouting({
   localeDetection: false,
   // Without detection the NEXT_LOCALE cookie has no purpose – the site sets no cookies at all.
   localeCookie: false,
+  // Czech URLs are in Czech: /courses → /cs/kurzy. Course and lesson slugs are translated in the content
+  // (course.json and the lesson metadata), these are only the fixed parts of the paths.
+  pathnames: {
+    "/": "/",
+    "/courses": { en: "/courses", cs: "/kurzy" },
+    "/courses/[course]": { en: "/courses/[course]", cs: "/kurzy/[course]" },
+    "/courses/[course]/[lesson]": {
+      en: "/courses/[course]/[lesson]",
+      cs: "/kurzy/[course]/[lesson]",
+    },
+    "/glossary": { en: "/glossary", cs: "/slovnik" },
+    "/ui": "/ui",
+    "/ui/lesson": "/ui/lesson",
+  },
 });

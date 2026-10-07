@@ -4,6 +4,7 @@ import { ChevronRightIcon } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 
 type LessonBreadcrumbsProps = {
+  // URL slug of the course in the current language.
   courseSlug: string;
   courseTitle: string;
   moduleTitle: string;
@@ -33,7 +34,10 @@ export function LessonBreadcrumbs({
         </li>
         <li className="flex items-center gap-1.5">
           <Link
-            href={`/courses/${courseSlug}`}
+            href={{
+              pathname: "/courses/[course]",
+              params: { course: courseSlug },
+            }}
             className="hover:text-foreground"
           >
             {courseTitle}

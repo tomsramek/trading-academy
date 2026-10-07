@@ -1,22 +1,27 @@
 import type { ComponentProps } from "react";
-import { useTranslations } from "next-intl";
+import NextLink from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRightIcon } from "lucide-react";
 
-import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 
 // Links in a lesson: pages of the academy keep the current language, other websites open in a new tab.
+// An academy link is written in the language of the lesson file without the language prefix –
+// "/kurzy/zaklady-kryptomen/bitcoin" in a Czech lesson becomes "/cs/kurzy/zaklady-kryptomen/bitcoin".
 export function LessonLink({
   href = "",
   children,
   ...props
 }: ComponentProps<"a">) {
   const t = useTranslations("Lesson");
+  const locale = useLocale();
 
   if (href.startsWith("/")) {
+    const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
     return (
-      <Link href={href} {...props}>
+      <NextLink href={`${prefix}${href === "/" ? "" : href}` || "/"} {...props}>
         {children}
-      </Link>
+      </NextLink>
     );
   }
 

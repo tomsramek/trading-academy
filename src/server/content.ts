@@ -11,10 +11,12 @@ import { z } from "zod";
 import { routing } from "@/i18n/routing";
 import { readingMinutes } from "@/lib/content/reading-time";
 import { slugify } from "@/lib/slugify";
+import type { CourseSlugs } from "@/lib/content/localized-slugs";
 import {
   courseSchema,
   lessonSchema,
   moduleSchema,
+  SLUG,
   type CourseMeta,
   type LessonMeta,
   type ModuleMeta,
@@ -28,13 +30,14 @@ import {
 
 const COURSES_DIR = path.join(process.cwd(), "content", "courses");
 
-// "crypto-basics" – lowercase words separated by dashes, used in URLs.
-const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 // "01-blockchain" – two-digit position + slug (modules and lessons).
 const ORDERED_SLUG = /^(\d{2})-([a-z0-9]+(?:-[a-z0-9]+)*)$/;
 
 export type Lesson = {
+  // From the file name; identifies the lesson in the code. URLs use `slugs`.
   slug: string;
+  // URL slug per language – the "slug" from the lesson metadata, otherwise `slug`.
+  slugs: Record<Locale, string>;
   order: number;
   // Metadata from the lesson file + reading time computed from its text, per language.
   meta: Record<Locale, LessonMeta & { minutes: number }>;
@@ -48,7 +51,10 @@ export type Module = {
 };
 
 export type Course = {
+  // The folder name; identifies the course in the code. URLs use `slugs`.
   slug: string;
+  // URL slug per language – "slug" from course.json, otherwise `slug`.
+  slugs: Record<Locale, string>;
   meta: CourseMeta;
   modules: Module[];
 };
@@ -145,11 +151,50 @@ async function loadLesson(
     }),
   );
 
+  const meta = Object.fromEntries(entries) as Lesson["meta"];
   return {
     slug,
+    slugs: localizedSlugs(slug, (locale) => meta[locale].slug),
     order,
-    meta: Object.fromEntries(entries) as Lesson["meta"],
+    meta,
   };
+}
+
+function localizedSlugs(
+  fallback: string,
+  slugFor: (locale: Locale) => string | undefined,
+): Record<Locale, string> {
+  return Object.fromEntries(
+    routing.locales.map((locale) => [locale, slugFor(locale) ?? fallback]),
+  ) as Record<Locale, string>;
+}
+
+function assertUnique(values: string[], what: string, file: string) {
+  const seen = new Set<string>();
+  for (const value of values) {
+    if (seen.has(value)) {
+      throw new ContentError(
+        file,
+        `${what} "${value}" exists more than once – it must be unique`,
+      );
+    }
+    seen.add(value);
+  }
+}
+
+// Two pages of one language must not share a URL – e.g. two lessons with the same Czech slug.
+function assertUniqueSlugs(
+  items: { slugs: Record<Locale, string> }[],
+  what: string,
+  file: string,
+) {
+  for (const locale of routing.locales) {
+    assertUnique(
+      items.map((item) => item.slugs[locale]),
+      `${what} (${locale})`,
+      file,
+    );
+  }
 }
 
 async function loadModule(course: string, moduleDir: string): Promise<Module> {
@@ -196,21 +241,22 @@ async function loadCourse(slug: string): Promise<Course> {
     ),
   );
 
-  // Lesson URLs are /courses/<course>/<lesson> without the module, so lesson slugs must be unique per course.
-  const seen = new Set<string>();
-  for (const lesson of modules.flatMap(
-    (courseModule) => courseModule.lessons,
-  )) {
-    if (seen.has(lesson.slug)) {
-      throw new ContentError(
-        dir,
-        `lesson "${lesson.slug}" exists more than once – lesson names must be unique in a course`,
-      );
-    }
-    seen.add(lesson.slug);
-  }
+  // Lesson URLs are /courses/<course>/<lesson> without the module, so lesson slugs must be unique per course
+  // – both the file names and the URL slugs in every language.
+  const lessons = modules.flatMap((courseModule) => courseModule.lessons);
+  assertUnique(
+    lessons.map((lesson) => lesson.slug),
+    "lesson file name",
+    dir,
+  );
+  assertUniqueSlugs(lessons, "lesson slug", dir);
 
-  return { slug, meta, modules };
+  return {
+    slug,
+    slugs: localizedSlugs(slug, (locale) => meta.slug?.[locale]),
+    meta,
+    modules,
+  };
 }
 
 /**
@@ -226,13 +272,28 @@ export const getCourses = cache(async (): Promise<Course[]> => {
     throw error;
   });
   const courses = await Promise.all(slugs.map(loadCourse));
+  assertUniqueSlugs(courses, "course slug", COURSES_DIR);
   return process.env.NODE_ENV === "production"
     ? courses.filter((course) => !course.meta.draft)
     : courses;
 });
 
-export async function getCourse(slug: string): Promise<Course | undefined> {
-  return (await getCourses()).find((course) => course.slug === slug);
+/** The course with this URL slug in the given language. */
+export async function getCourse(
+  slug: string,
+  locale: Locale,
+): Promise<Course | undefined> {
+  return (await getCourses()).find((course) => course.slugs[locale] === slug);
+}
+
+/** URL slugs of every course and its lessons, for switching the language of a page. */
+export async function getCourseSlugs(): Promise<CourseSlugs> {
+  return (await getCourses()).map((course) => ({
+    slugs: course.slugs,
+    lessons: course.modules.flatMap((courseModule) =>
+      courseModule.lessons.map((lesson) => lesson.slugs),
+    ),
+  }));
 }
 
 // Folder and file name of a lesson: "01-blockchain", "02-what-is-bitcoin" (without ".<locale>.mdx").

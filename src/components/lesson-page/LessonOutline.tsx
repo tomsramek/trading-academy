@@ -1,12 +1,13 @@
 import { useLocale } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
-import { listLessons } from "@/lib/content/course-navigation";
+import { lessonHref, listLessons } from "@/lib/content/course-navigation";
 import { cn } from "@/lib/utils";
 import type { Course } from "@/server/content";
 
 type LessonOutlineProps = {
   course: Course;
+  // `slug` of the open lesson (the file name, the same in every language).
   currentSlug: string;
 };
 
@@ -30,7 +31,7 @@ export function LessonOutline({ course, currentSlug }: LessonOutlineProps) {
                 return (
                   <li key={lesson.slug}>
                     <Link
-                      href={`/courses/${course.slug}/${lesson.slug}`}
+                      href={lessonHref(course, lesson, locale)}
                       aria-current={current ? "page" : undefined}
                       className={cn(
                         "flex gap-2 rounded-md px-2 py-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground",

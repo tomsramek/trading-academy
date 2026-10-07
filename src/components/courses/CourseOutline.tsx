@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import { lessonHref } from "@/lib/content/course-navigation";
 import type { Course } from "@/server/content";
 
 // Modules and lessons of a course, each lesson linking to its page.
@@ -34,7 +35,7 @@ export function CourseOutline({ course }: { course: Course }) {
             {module.lessons.map((lesson, lessonIndex) => (
               <li key={lesson.slug}>
                 <Link
-                  href={`/courses/${course.slug}/${lesson.slug}`}
+                  href={lessonHref(course, lesson, locale)}
                   className="flex items-baseline gap-3 px-4 py-3 transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:outline-none"
                 >
                   <span className="w-6 shrink-0 text-sm text-muted-foreground tabular-nums">
