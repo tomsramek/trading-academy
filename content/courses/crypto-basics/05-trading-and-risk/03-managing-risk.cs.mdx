@@ -1,0 +1,90 @@
+import btc from "@content/market-data/btcusdt-1d-2024-h1.json";
+
+export const metadata = {
+  title: "Riziko a jak ho řídit",
+  description:
+    "Velikost pozice, stop-loss, poměr výnosu a rizika a proč je páka nejrychlejší cesta, jak o všechno přijít.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš, jak velký obchod si můžeš dovolit
+- naučíš se nastavit stop-loss dřív, než nakoupíš
+- pochopíš, proč je páka pro začátečníky nebezpečná
+
+</Callout>
+
+Úspěšní tradeři nejsou ti, kdo vždycky trefí směr. Jsou to ti, kdo **přežijí svoje omyly**. Trefit
+se v polovině případů a přitom vydělávat jde – když jsou ztráty malé a zisky větší. Celé řízení
+rizika se točí kolem jedné otázky: **kolik ztratím, když se spletu?**
+
+## Pravidlo 1 %
+
+Na jeden obchod riskuj jen malou část svých peněz – často se uvádí **1–2 %**. Při účtu 10 000 Kč
+a riziku 1 % je to **100 Kč**. Deset ztrátových obchodů za sebou tě pak nezruinuje – ztratíš asi
+desetinu, ne všechno.
+
+## Stop-loss: rozhodni se dřív, než nakoupíš
+
+Příkaz <KeyTerm term="stop-loss">stop-loss</KeyTerm> pozici automaticky prodá, když cena
+klesne na předem zvolenou úroveň. Stanovíš ho **před nákupem**, s klidnou hlavou – ne ve chvíli,
+kdy cena padá a ty doufáš, že „se to odrazí“.
+
+<Illustration name="parachuteStop" />
+
+Stop-loss se dává tam, kde by se tvůj předpoklad ukázal jako chybný – typicky kousek pod podporu.
+
+## Příklad na skutečném grafu
+
+Na začátku května 2024 se Bitcoin dotkl podpory kolem 56 500. Představ si nákup za **58 400**,
+stop-loss pod podporou na **55 500** a cíl zisku (take-profit) na **67 000**:
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu leden až červen 2024 s vyznačeným nákupem 1. května za 58 400, stop-lossem na 55 500 a cílem zisku na 67 000, kterého cena dosáhla 17. května"
+  caption="Ukázkový obchod – vysvětlení, ne doporučení. Cíl zisku cena zasáhla 17. května, stop-loss ne."
+  levels={[
+    { price: 58400, kind: "entry" },
+    { price: 55500, kind: "stopLoss" },
+    { price: 67000, kind: "takeProfit" },
+  ]}
+  markers={[
+    { time: "2024-05-01", kind: "buy" },
+    { time: "2024-05-17", kind: "sell", label: "Take-profit" },
+  ]}
+/>
+
+**Kolik koupit?** Stop-loss je o 5 % níž než nákup (58 400 → 55 500). Chceš riskovat 100 Kč, takže
+velikost pozice = 100 Kč ÷ 5 % = **2 000 Kč**. Kdyby cena spadla na stop-loss, ztratíš 100 Kč.
+
+**Poměr výnosu a rizika:** riskuješ 2 900 USDT na jeden bitcoin (58 400 → 55 500), cíl je o 8 600 USDT výš.
+To je zhruba **1 : 3** – vyděláš třikrát víc, než kolik riskuješ. Díky tomu můžeš být ziskový, i když
+se trefíš jen v každém třetím obchodu.
+
+## Páka: rychlá cesta k nule
+
+Obchodovat s <KeyTerm term="leverage">pákou</KeyTerm> znamená obchodovat s vypůjčenými penězi. S pákou 10× ti
+pohyb ceny o 10 % proti tobě vymaže celý vklad. Podle evropského úřadu ESMA prodělává u obchodování
+s pákou (CFD) **74–89 % účtů drobných investorů**. Proto EU omezila páku u CFD na kryptoměny pro
+drobné investory na 2 : 1.
+
+<Callout type="risk" title="Začátečník páku nepotřebuje">
+  Páka zvětšuje zisky i ztráty – a ztráty přicházejí rychleji, než stihneš
+  zareagovat. Dokud nemáš za sebou dlouhou praxi s malými částkami bez páky,
+  nech ji být.
+</Callout>
+
+## Časté omyly
+
+- **„Stop-loss si nastavím, až to bude potřeba.“** Až to bude potřeba, rozhodnou emoce.
+- **„Posunu stop-loss níž, ono se to vrátí.“** Tak vznikají velké ztráty.
+- **„Větší pozice = větší zisk.“** A větší ztráta. Velikost pozice řídí riziko, ne chamtivost.
+
+<Callout title="Shrnutí">
+
+- Na jeden obchod riskuj jen 1–2 % účtu.
+- Stop-loss nastav před nákupem, tam, kde by se tvůj předpoklad ukázal jako chybný.
+- Velikost pozice = částka, kterou chceš riskovat ÷ vzdálenost stop-lossu.
+- Hledej obchody, kde je možný zisk větší než riziko; páku jako začátečník nepoužívej.
+
+</Callout>
