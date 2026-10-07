@@ -36,7 +36,8 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: t("title"),
+    // Subpages set only their own title: "Courses" → "Courses – Trading Academy".
+    title: { default: t("title"), template: `%s – ${SITE_NAME}` },
     description: t("description"),
     // Preview when the link is shared on social networks and messengers.
     openGraph: {
