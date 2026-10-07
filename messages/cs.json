@@ -139,7 +139,17 @@
     },
     "chart": {
       "source": "Data: {source}",
-      "illustrative": "Ilustrační data, ne skutečný trh"
+      "illustrative": "Ilustrační data, ne skutečný trh",
+      "kind": {
+        "support": "Podpora",
+        "resistance": "Rezistence",
+        "entry": "Vstup",
+        "stopLoss": "Stop-loss",
+        "takeProfit": "Take-profit",
+        "buy": "Nákup",
+        "sell": "Prodej"
+      },
+      "zone": "Zvýrazněné období"
     }
   }
 }

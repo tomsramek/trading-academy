@@ -23,6 +23,15 @@ four values: _open_, _high_, _low_ and _close_. Read more in the
   data={btc}
   label="Bitcoin daily chart, January to June 2024: rise from 42,000 to 73,000 USDT, then a pullback"
   caption="Bitcoin in the first half of 2024."
+  levels={[
+    { price: 73000, kind: "resistance" },
+    { price: 56500, kind: "support" },
+  ]}
+  markers={[
+    { time: "2024-03-14", kind: "sell", label: "All-time high" },
+    { time: "2024-05-01", kind: "buy" },
+  ]}
+  zones={[{ from: "2024-02-26", to: "2024-03-14", label: "ETF rally" }]}
 />
 
 <CandleChart

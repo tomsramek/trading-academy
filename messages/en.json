@@ -139,7 +139,17 @@
     },
     "chart": {
       "source": "Data: {source}",
-      "illustrative": "Illustrative data, not a real market"
+      "illustrative": "Illustrative data, not a real market",
+      "kind": {
+        "support": "Support",
+        "resistance": "Resistance",
+        "entry": "Entry",
+        "stopLoss": "Stop-loss",
+        "takeProfit": "Take-profit",
+        "buy": "Buy",
+        "sell": "Sell"
+      },
+      "zone": "Highlighted period"
     }
   }
 }
