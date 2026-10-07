@@ -128,6 +128,16 @@ async function loadLesson(
       const metadata: unknown = "metadata" in mdx ? mdx.metadata : undefined;
       const meta = parseWith(lessonSchema, metadata, path.join(dir, file));
       const source = await fs.readFile(path.join(dir, file), "utf8");
+      // MDX turns a line starting with <KeyTerm> into its own block and splits the sentence.
+      const brokenLine = source
+        .split("\n")
+        .findIndex((line) => /^\s*<KeyTerm\b/.test(line));
+      if (brokenLine !== -1) {
+        throw new ContentError(
+          path.join(dir, file),
+          `line ${brokenLine + 1}: <KeyTerm> must not start a line – keep the text before it on the same line`,
+        );
+      }
       return [
         locale,
         { ...meta, minutes: readingMinutes(source, locale) },

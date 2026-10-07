@@ -23,5 +23,5 @@ content/courses/
 - Markdown inside a component (lists in `<Callout>`) needs an empty line after the opening and
   before the closing tag – otherwise it is read as one paragraph:
   `<Callout title="Summary">` ⏎ ⏎ `- first` ⏎ `- second` ⏎ ⏎ `</Callout>`
-- Never start a line with a component used inside a sentence (`<KeyTerm>`) – MDX would split the
-  paragraph there. Keep it on the same line as the text before it.
+- Never start a line or a paragraph with a component used inside a sentence (`<KeyTerm>`) – MDX
+  would turn it into its own block. Keep text before it on the same line.
