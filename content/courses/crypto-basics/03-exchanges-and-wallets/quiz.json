@@ -1,0 +1,103 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What is the spread?",
+          "options": [
+            "A fee for withdrawing from an exchange",
+            "The difference between the best buy and sell price",
+            "Interest on money held at an exchange"
+          ],
+          "explanation": "The spread is the difference between the best buyers' and sellers' offers. It is a hidden cost of every trade."
+        },
+        "cs": {
+          "question": "Co je spread?",
+          "options": [
+            "Poplatek za výběr z burzy",
+            "Rozdíl mezi nejlepší nákupní a prodejní cenou",
+            "Úrok z peněz na burze"
+          ],
+          "explanation": "Spread je rozdíl mezi nejlepší nabídkou kupujících a prodávajících. Je to skrytý náklad každého obchodu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "You want to buy only at your price, even if it takes a while. Which order do you place?",
+          "options": ["A market order", "A limit order", "It does not matter"],
+          "explanation": "A limit order fills only at your price or better. A market order fills at once, but the price can be worse (slippage)."
+        },
+        "cs": {
+          "question": "Chceš koupit jen za svoji cenu, i kdyby to trvalo. Jaký příkaz zadáš?",
+          "options": ["Tržní příkaz", "Limitní příkaz", "Na tom nezáleží"],
+          "explanation": "Limitní příkaz se provede jen za tvoji cenu nebo lepší. Tržní příkaz se provede hned, ale cena může být horší (skluz)."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What must a firm offering crypto-asset services in the EU have from 1 July 2026?",
+          "options": [
+            "A MiCA licence",
+            "An ad with a celebrity",
+            "An office in Prague"
+          ],
+          "explanation": "From 1 July 2026, only firms licensed under MiCA may offer crypto-asset services in the EU. Check the licence before you sign up."
+        },
+        "cs": {
+          "question": "Co musí od 1. července 2026 mít firma, která v EU nabízí služby s kryptoaktivy?",
+          "options": [
+            "Licenci podle MiCA",
+            "Reklamu se známou osobností",
+            "Pobočku v Praze"
+          ],
+          "explanation": "Od 1. července 2026 smí v EU služby s kryptoaktivy nabízet jen firmy s licencí podle MiCA. Před registrací si licenci ověř."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does a crypto wallet actually hold?",
+          "options": ["Coins", "A copy of the exchange", "Keys"],
+          "explanation": "The coins are recorded on the blockchain. The wallet only holds the keys that can move them – whoever has the keys has the coins."
+        },
+        "cs": {
+          "question": "Co ve skutečnosti drží kryptoměnová peněženka?",
+          "options": ["Mince", "Kopii burzy", "Klíče"],
+          "explanation": "Mince jsou zapsané v blockchainu. Peněženka drží jen klíče, které s nimi umí pohnout – kdo má klíče, má mince."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How should you store a seed phrase?",
+          "options": [
+            "Take a photo of it on your phone",
+            "Write it by hand on paper, keep it offline and never give it to anyone",
+            "E-mail it to yourself"
+          ],
+          "explanation": "A seed phrase restores the whole wallet. A photo or an e-mail exposes it to hackers – it belongs on paper, by hand and offline."
+        },
+        "cs": {
+          "question": "Jak správně uložit seed frázi?",
+          "options": [
+            "Vyfotit ji do telefonu",
+            "Napsat ručně na papír, schovat offline a nikomu ji nedávat",
+            "Poslat si ji e-mailem"
+          ],
+          "explanation": "Seed fráze obnoví celou peněženku. Fotka nebo e-mail ji vystaví hackerům – patří ručně na papír a offline."
+        }
+      },
+      "answer": 1
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "Which kind of two-factor authentication (2FA) is the weakest?",
+          "options": [
+            "An authenticator app",
+            "A hardware key",
+            "A code by SMS"
+          ],
+          "explanation": "SMS can be redirected through a SIM swap scam. An authenticator app or a hardware key is safer."
+        },
+        "cs": {
+          "question": "Který způsob dvoufázového ověření (2FA) je nejslabší?",
+          "options": ["Ověřovací aplikace", "Hardwarový klíč", "Kód přes SMS"],
+          "explanation": "SMS se dá přesměrovat podvodem s výměnou SIM karty. Ověřovací aplikace nebo hardwarový klíč jsou bezpečnější."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "An e-mail says: “Your account will be blocked, click here.” What do you do?",
+          "options": [
+            "Click and log in",
+            "Do not click, and open the exchange's website myself",
+            "Forward it to friends"
+          ],
+          "explanation": "Urgency and a login link are classic signs of phishing. Open the website yourself through a bookmark or by typing the address."
+        },
+        "cs": {
+          "question": "Přijde e-mail: „Váš účet bude zablokován, klikněte zde.“ Co uděláš?",
+          "options": [
+            "Kliknu a přihlásím se",
+            "Neklikám a otevřu si web burzy sám",
+            "Přepošlu ho kamarádům"
+          ],
+          "explanation": "Naléhavost a odkaz na přihlášení jsou typické znaky phishingu. Web si otevři sám přes záložku nebo napsanou adresu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "“Send 1 BTC and we will send back 2.” What is it?",
+          "options": [
+            "Always a scam",
+            "An exchange's marketing campaign",
+            "A halving reward"
+          ],
+          "explanation": "Nobody will send back double. Whoever sends loses the money – even if a celebrity seems to be behind it."
+        },
+        "cs": {
+          "question": "„Pošli 1 BTC a vrátíme ti 2.“ Co to je?",
+          "options": [
+            "Vždycky podvod",
+            "Marketingová akce burzy",
+            "Odměna za halving"
+          ],
+          "explanation": "Nikdo ti nevrátí dvojnásobek. Kdo pošle, o peníze přijde – i když se za akci vydává známá osobnost."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "“Exchange support” messages you on Telegram asking for your seed phrase to verify you. What is true?",
+          "options": [
+            "It is a normal procedure",
+            "Real support never asks for a seed phrase",
+            "Sending half of the words is enough"
+          ],
+          "explanation": "Fake support writes first and wants sensitive details. Real support never asks for a password, a 2FA code or a seed phrase."
+        },
+        "cs": {
+          "question": "„Podpora burzy“ ti píše na Telegramu a chce seed frázi kvůli ověření. Co platí?",
+          "options": [
+            "Je to běžný postup",
+            "Skutečná podpora o seed frázi nikdy nežádá",
+            "Stačí poslat polovinu slov"
+          ],
+          "explanation": "Falešná podpora píše první a chce citlivé údaje. Skutečná podpora nikdy nežádá heslo, 2FA kód ani seed frázi."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Which income from selling crypto has been tax-exempt in the Czech Republic since 2025?",
+          "options": [
+            "None",
+            "All of it up to CZK 1 million a year",
+            "Yearly income up to CZK 100,000 and sales after more than 3 years of holding"
+          ],
+          "explanation": "Exempt are yearly sales income up to CZK 100,000 and sales after more than 3 years of holding (up to CZK 40 million a year). Note: CZK 100,000 is income, not profit."
+        },
+        "cs": {
+          "question": "Které příjmy z prodeje kryptoměn jsou v Česku od roku 2025 osvobozené od daně?",
+          "options": [
+            "Žádné",
+            "Všechny do jednoho milionu korun ročně",
+            "Roční příjmy do 100 000 Kč a prodeje po více než 3 letech držení"
+          ],
+          "explanation": "Osvobozené jsou roční příjmy z prodeje do 100 000 Kč a prodeje po více než 3 letech držení (do 40 milionů Kč ročně). Pozor: 100 000 Kč jsou příjmy, ne zisk."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}
