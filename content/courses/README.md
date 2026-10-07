@@ -20,3 +20,8 @@ content/courses/
 - Schemas: `src/lib/content/schema.ts`. Components for lessons: `src/mdx-components.tsx`.
 - Market data for charts: `content/market-data/` (see its LICENSE.md).
 - `"draft": true` in course.json: the course is visible in `yarn dev` only, never on the website.
+- Markdown inside a component (lists in `<Callout>`) needs an empty line after the opening and
+  before the closing tag – otherwise it is read as one paragraph:
+  `<Callout title="Summary">` ⏎ ⏎ `- first` ⏎ `- second` ⏎ ⏎ `</Callout>`
+- Never start a line with a component used inside a sentence (`<KeyTerm>`) – MDX would split the
+  paragraph there. Keep it on the same line as the text before it.
