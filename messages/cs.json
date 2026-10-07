@@ -269,6 +269,16 @@
         "label": "Kreslený obrázek: Jirka v noci při svíčce potají připisuje do sešitu 20 slepic, slepice za oknem nevěří vlastním očím.",
         "bubble": "Dvacet?!",
         "caption": "Jirka si v noci potichu „vylepšuje“ sešit. Slepice mají pochybnosti."
+      },
+      "copyMachine": {
+        "label": "Kreslený obrázek: rozjařený člověk mačká tlačítko kopírky, ze které létají bankovky.",
+        "bubble": "Ctrl+C, Ctrl+V!",
+        "caption": "Kdyby šly peníze kopírovat jako soubory, byl by milionář každý. Aspoň do oběda."
+      },
+      "miningRace": {
+        "label": "Kreslený obrázek: tři zpocené počítače závodí v hádání čísla, elektroměr se divoce točí.",
+        "bubble": "Už to skoro mám!",
+        "caption": "Těžba v kostce: miliony pokusů za vteřinu – a elektroměr, který si neodpočine."
       }
     }
   },

@@ -189,8 +189,300 @@ function MidnightEdit({ bubble }: Texts) {
   );
 }
 
+// Digital money copied like a file: a copy machine spitting out banknotes.
+function CopyMachine({ bubble }: Texts) {
+  const notes = [
+    { x: 430, y: 150, r: -18 },
+    { x: 470, y: 205, r: 12 },
+    { x: 520, y: 140, r: 28 },
+    { x: 545, y: 230, r: -8 },
+    { x: 455, y: 265, r: 20 },
+  ];
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+
+      {/* Copy machine with a glowing scan light and the original banknote on top */}
+      <rect
+        x="250"
+        y="150"
+        width="170"
+        height="150"
+        rx="10"
+        className="fill-background stroke-muted-foreground"
+        strokeWidth="3"
+      />
+      <rect
+        x="240"
+        y="130"
+        width="190"
+        height="24"
+        rx="6"
+        className="fill-muted-foreground"
+      />
+      <g transform="rotate(-4 335 122)">
+        <rect
+          x="303"
+          y="106"
+          width="64"
+          height="30"
+          rx="4"
+          className="fill-bull"
+        />
+        <text
+          x="335"
+          y="127"
+          textAnchor="middle"
+          className="fill-background text-sm font-bold"
+        >
+          100
+        </text>
+      </g>
+      <rect
+        x="262"
+        y="172"
+        width="146"
+        height="8"
+        rx="4"
+        className="fill-primary"
+      />
+      <rect
+        x="270"
+        y="205"
+        width="90"
+        height="10"
+        rx="3"
+        className="fill-muted-foreground opacity-50"
+      />
+      <circle cx="392" cy="210" r="8" className="fill-bull" />
+      <rect
+        x="418"
+        y="232"
+        width="44"
+        height="12"
+        rx="3"
+        className="fill-muted-foreground"
+      />
+
+      {/* Banknotes flying out */}
+      {notes.map(({ x, y, r }) => (
+        <g key={`${x}-${y}`} transform={`rotate(${r} ${x} ${y})`}>
+          <rect
+            x={x - 32}
+            y={y - 17}
+            width="64"
+            height="34"
+            rx="4"
+            className="fill-bull"
+          />
+          <rect
+            x={x - 26}
+            y={y - 11}
+            width="52"
+            height="22"
+            rx="3"
+            className="fill-none stroke-background opacity-60"
+            strokeWidth="2"
+          />
+          <text
+            x={x}
+            y={y + 6}
+            textAnchor="middle"
+            className="fill-background text-base font-bold"
+          >
+            100
+          </text>
+        </g>
+      ))}
+
+      {/* Happy person pressing the button, arms up */}
+      <path
+        d="M90 300 q0 -75 65 -75 q65 0 65 75 z"
+        className="fill-foreground"
+      />
+      <circle cx="155" cy="185" r="36" className="fill-foreground" />
+      <path
+        d="M138 178 q6 -6 12 0 M162 178 q6 -6 12 0"
+        className="fill-none stroke-background"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <path d="M138 196 q17 16 34 0" className="fill-background" />
+      <line
+        x1="200"
+        y1="245"
+        x2="262"
+        y2="210"
+        className="stroke-foreground"
+        strokeWidth="12"
+        strokeLinecap="round"
+      />
+      <line
+        x1="110"
+        y1="245"
+        x2="80"
+        y2="190"
+        className="stroke-foreground"
+        strokeWidth="12"
+        strokeLinecap="round"
+      />
+
+      {/* Speech bubble */}
+      <rect
+        x="40"
+        y="60"
+        width="200"
+        height="48"
+        rx="24"
+        className="fill-card stroke-border"
+        strokeWidth="2"
+      />
+      <path d="M150 106 l-6 24 l26 -24 z" className="fill-card" />
+      <text
+        x="140"
+        y="91"
+        textAnchor="middle"
+        className="fill-foreground text-lg font-semibold"
+      >
+        {bubble}
+      </text>
+    </>
+  );
+}
+
+// Mining as a race: sweating computers guessing numbers while the electricity meter spins.
+function MiningRace({ bubble }: Texts) {
+  const computers = [130, 300, 470];
+  return (
+    <>
+      <rect width="640" height="360" className="fill-muted" />
+      <rect x="0" y="300" width="640" height="60" className="fill-card" />
+
+      {computers.map((x, index) => (
+        <g key={x}>
+          {/* Monitor with a guessed number, stand and keyboard */}
+          <rect
+            x={x - 60}
+            y="170"
+            width="120"
+            height="85"
+            rx="8"
+            className="fill-background stroke-muted-foreground"
+            strokeWidth="3"
+          />
+          <text
+            x={x}
+            y="222"
+            textAnchor="middle"
+            className="fill-bull font-mono text-lg font-bold"
+          >
+            {["7f3a…", "00c1…", "b92e…"][index]}
+          </text>
+          <rect
+            x={x - 8}
+            y="255"
+            width="16"
+            height="25"
+            className="fill-muted-foreground"
+          />
+          <rect
+            x={x - 45}
+            y="280"
+            width="90"
+            height="12"
+            rx="4"
+            className="fill-muted-foreground"
+          />
+          {/* Strained face: squeezed eyes and a wavy mouth */}
+          <path
+            d={`M${x - 26} 190 l10 5 l-10 5 M${x + 26} 190 l-10 5 l10 5`}
+            className="fill-none stroke-foreground"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d={`M${x - 16} 240 q4 -5 8 0 q4 5 8 0 q4 -5 8 0 q4 5 8 0`}
+            className="fill-none stroke-foreground"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          {/* Sweat drops */}
+          <path
+            d={`M${x + 66} 175 q6 10 0 14 q-6 -4 0 -14 z`}
+            className="fill-primary"
+          />
+          <path
+            d={`M${x + 76} 195 q5 8 0 11 q-5 -3 0 -11 z`}
+            className="fill-primary opacity-70"
+          />
+        </g>
+      ))}
+
+      {/* Electricity meter spinning wildly */}
+      <circle
+        cx="575"
+        cy="80"
+        r="40"
+        className="fill-background stroke-warning"
+        strokeWidth="4"
+      />
+      <line
+        x1="575"
+        y1="80"
+        x2="600"
+        y2="58"
+        className="stroke-warning"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M540 60 a40 40 0 0 1 20 -18"
+        className="fill-none stroke-warning opacity-60"
+        strokeWidth="3"
+      />
+      <path
+        d="M612 98 a40 40 0 0 1 -18 18"
+        className="fill-none stroke-warning opacity-60"
+        strokeWidth="3"
+      />
+      <text
+        x="575"
+        y="104"
+        textAnchor="middle"
+        className="fill-warning text-sm font-bold"
+      >
+        kWh
+      </text>
+
+      {/* Speech bubble from the middle computer */}
+      <rect
+        x="215"
+        y="62"
+        width="200"
+        height="48"
+        rx="24"
+        className="fill-card stroke-border"
+        strokeWidth="2"
+      />
+      <path d="M300 108 l4 24 l18 -24 z" className="fill-card" />
+      <text
+        x="315"
+        y="93"
+        textAnchor="middle"
+        className="fill-foreground text-lg font-semibold"
+      >
+        {bubble}
+      </text>
+    </>
+  );
+}
+
 const ILLUSTRATIONS = {
   midnightEdit: MidnightEdit,
+  copyMachine: CopyMachine,
+  miningRace: MiningRace,
 } as const;
 
 type IllustrationName = keyof typeof ILLUSTRATIONS;
