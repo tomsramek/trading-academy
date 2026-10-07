@@ -2,6 +2,8 @@ import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
 
+import { AnimateOnView } from "./AnimateOnView";
+
 /*
  * Fun illustrations for lessons, drawn in code: <Illustration name="midnightEdit" />
  * Colors come from the design tokens. Illustrations always use the dark theme (the `dark` class on
@@ -54,44 +56,63 @@ function MidnightEdit() {
         className="stroke-border"
         strokeWidth="6"
       />
-      <ellipse cx="110" cy="240" rx="44" ry="30" className="fill-foreground" />
-      <circle cx="140" cy="200" r="22" className="fill-foreground" />
-      <path
-        d="M128 180 q4 -14 10 -2 q4 -14 10 0 q6 -10 8 4"
-        className="fill-bear"
-      />
-      <path d="M161 200 l14 5 l-14 5 z" className="fill-warning" />
-      <circle cx="146" cy="196" r="3.5" className="fill-background" />
-      <path
-        d="M88 232 q22 22 42 -4"
-        className="fill-none stroke-background"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
+      <g className="motion-safe:group-data-playing/anim:animate-peek">
+        <ellipse
+          cx="110"
+          cy="240"
+          rx="44"
+          ry="30"
+          className="fill-foreground"
+        />
+        <circle cx="140" cy="200" r="22" className="fill-foreground" />
+        <path
+          d="M128 180 q4 -14 10 -2 q4 -14 10 0 q6 -10 8 4"
+          className="fill-bear"
+        />
+        <path d="M161 200 l14 5 l-14 5 z" className="fill-warning" />
+        <circle cx="146" cy="196" r="3.5" className="fill-background" />
+        <path
+          d="M88 232 q22 22 42 -4"
+          className="fill-none stroke-background"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+      </g>
 
       {/* Speech bubble */}
-      <rect
-        x="160"
-        y="78"
-        width="150"
-        height="46"
-        rx="23"
-        className="fill-card stroke-border"
-        strokeWidth="2"
-      />
-      <path d="M182 122 l-14 22 l28 -22 z" className="fill-card" />
-      <text
-        x="235"
-        y="108"
-        textAnchor="middle"
-        className="fill-foreground text-xl font-semibold"
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "700ms" }}
       >
-        {t("bubble")}
-      </text>
+        <rect
+          x="160"
+          y="78"
+          width="150"
+          height="46"
+          rx="23"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M182 122 l-14 22 l28 -22 z" className="fill-card" />
+        <text
+          x="235"
+          y="108"
+          textAnchor="middle"
+          className="fill-foreground text-xl font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
 
       {/* Candle on the desk – a little nod to candlestick charts */}
       <circle cx="505" cy="215" r="55" className="fill-warning opacity-15" />
-      <ellipse cx="505" cy="212" rx="7" ry="13" className="fill-warning" />
+      <ellipse
+        cx="505"
+        cy="212"
+        rx="7"
+        ry="13"
+        className="origin-bottom fill-warning transform-fill motion-safe:group-data-playing/anim:animate-flame-flicker"
+      />
       <rect
         x="496"
         y="225"
@@ -168,24 +189,26 @@ function MidnightEdit() {
         20
       </text>
       {/* Hand with a pencil */}
-      <line
-        x1="400"
-        y1="235"
-        x2="440"
-        y2="270"
-        className="stroke-foreground"
-        strokeWidth="12"
-        strokeLinecap="round"
-      />
-      <line
-        x1="440"
-        y1="270"
-        x2="452"
-        y2="250"
-        className="stroke-warning"
-        strokeWidth="5"
-        strokeLinecap="round"
-      />
+      <g className="origin-top-left transform-fill motion-safe:group-data-playing/anim:animate-scribble">
+        <line
+          x1="400"
+          y1="235"
+          x2="440"
+          y2="270"
+          className="stroke-foreground"
+          strokeWidth="12"
+          strokeLinecap="round"
+        />
+        <line
+          x1="440"
+          y1="270"
+          x2="452"
+          y2="250"
+          className="stroke-warning"
+          strokeWidth="5"
+          strokeLinecap="round"
+        />
+      </g>
     </>
   );
 }
@@ -247,7 +270,7 @@ function CopyMachine() {
         width="146"
         height="8"
         rx="4"
-        className="fill-primary"
+        className="fill-primary motion-safe:group-data-playing/anim:animate-scan"
       />
       <rect
         x="270"
@@ -268,33 +291,38 @@ function CopyMachine() {
       />
 
       {/* Banknotes flying out */}
-      {notes.map(({ x, y, r }) => (
+      {notes.map(({ x, y, r }, index) => (
         <g key={`${x}-${y}`} transform={`rotate(${r} ${x} ${y})`}>
-          <rect
-            x={x - 32}
-            y={y - 17}
-            width="64"
-            height="34"
-            rx="4"
-            className="fill-bull"
-          />
-          <rect
-            x={x - 26}
-            y={y - 11}
-            width="52"
-            height="22"
-            rx="3"
-            className="fill-none stroke-background opacity-60"
-            strokeWidth="2"
-          />
-          <text
-            x={x}
-            y={y + 6}
-            textAnchor="middle"
-            className="fill-background text-base font-bold"
+          <g
+            className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-note-out"
+            style={{ animationDelay: `${index * 250}ms` }}
           >
-            100
-          </text>
+            <rect
+              x={x - 32}
+              y={y - 17}
+              width="64"
+              height="34"
+              rx="4"
+              className="fill-bull"
+            />
+            <rect
+              x={x - 26}
+              y={y - 11}
+              width="52"
+              height="22"
+              rx="3"
+              className="fill-none stroke-background opacity-60"
+              strokeWidth="2"
+            />
+            <text
+              x={x}
+              y={y + 6}
+              textAnchor="middle"
+              className="fill-background text-base font-bold"
+            >
+              100
+            </text>
+          </g>
         </g>
       ))}
 
@@ -331,24 +359,29 @@ function CopyMachine() {
       />
 
       {/* Speech bubble */}
-      <rect
-        x="40"
-        y="60"
-        width="200"
-        height="48"
-        rx="24"
-        className="fill-card stroke-border"
-        strokeWidth="2"
-      />
-      <path d="M150 106 l-6 24 l26 -24 z" className="fill-card" />
-      <text
-        x="140"
-        y="91"
-        textAnchor="middle"
-        className="fill-foreground text-lg font-semibold"
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "1300ms" }}
       >
-        {t("bubble")}
-      </text>
+        <rect
+          x="40"
+          y="60"
+          width="200"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M150 106 l-6 24 l26 -24 z" className="fill-card" />
+        <text
+          x="140"
+          y="91"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
     </>
   );
 }
@@ -378,7 +411,8 @@ function MiningRace() {
             x={x}
             y="222"
             textAnchor="middle"
-            className="fill-bull font-mono text-lg font-bold"
+            className="fill-bull font-mono text-lg font-bold motion-safe:group-data-playing/anim:animate-screen-flicker"
+            style={{ animationDelay: `${index * 150}ms` }}
           >
             {["7f3a…", "00c1…", "b92e…"][index]}
           </text>
@@ -414,11 +448,13 @@ function MiningRace() {
           {/* Sweat drops */}
           <path
             d={`M${x + 66} 175 q6 10 0 14 q-6 -4 0 -14 z`}
-            className="fill-primary"
+            className="fill-primary motion-safe:group-data-playing/anim:animate-sweat-drop"
+            style={{ animationDelay: `${index * 200}ms` }}
           />
           <path
             d={`M${x + 76} 195 q5 8 0 11 q-5 -3 0 -11 z`}
-            className="fill-primary opacity-70"
+            className="fill-primary opacity-70 motion-safe:group-data-playing/anim:animate-sweat-drop"
+            style={{ animationDelay: `${index * 200 + 500}ms` }}
           />
         </g>
       ))}
@@ -436,7 +472,7 @@ function MiningRace() {
         y1="80"
         x2="600"
         y2="58"
-        className="stroke-warning"
+        className="origin-[575px_80px] stroke-warning motion-safe:group-data-playing/anim:animate-meter-spin"
         strokeWidth="4"
         strokeLinecap="round"
       />
@@ -460,24 +496,26 @@ function MiningRace() {
       </text>
 
       {/* Speech bubble from the middle computer */}
-      <rect
-        x="215"
-        y="62"
-        width="200"
-        height="48"
-        rx="24"
-        className="fill-card stroke-border"
-        strokeWidth="2"
-      />
-      <path d="M300 108 l4 24 l18 -24 z" className="fill-card" />
-      <text
-        x="315"
-        y="93"
-        textAnchor="middle"
-        className="fill-foreground text-lg font-semibold"
-      >
-        {t("bubble")}
-      </text>
+      <g className="origin-[315px_86px] motion-safe:group-data-playing/anim:animate-bubble-pop">
+        <rect
+          x="215"
+          y="62"
+          width="200"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M300 108 l4 24 l18 -24 z" className="fill-card" />
+        <text
+          x="315"
+          y="93"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
     </>
   );
 }
@@ -506,8 +544,12 @@ function PizzaDay() {
         rx="6"
         className="fill-muted-foreground opacity-60"
       />
-      {[370, 530].map((cx) => (
-        <g key={cx}>
+      {[370, 530].map((cx, index) => (
+        <g
+          key={cx}
+          className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+          style={{ animationDelay: `${index * 250}ms` }}
+        >
           <circle cx={cx} cy="240" r="62" className="fill-warning opacity-70" />
           <circle cx={cx} cy="240" r="52" className="fill-warning" />
           {pepperoni.map(([dx = 0, dy = 0]) => (
@@ -524,24 +566,29 @@ function PizzaDay() {
 
       {/* Price tag */}
       <g transform="rotate(-8 450 120)">
-        <rect
-          x="360"
-          y="95"
-          width="180"
-          height="50"
-          rx="8"
-          className="fill-background stroke-warning"
-          strokeWidth="3"
-        />
-        <circle cx="378" cy="120" r="6" className="fill-warning" />
-        <text
-          x="460"
-          y="128"
-          textAnchor="middle"
-          className="fill-warning font-mono text-xl font-bold"
+        <g
+          className="origin-left transform-fill motion-safe:group-data-playing/anim:animate-swing"
+          style={{ animationDelay: "600ms" }}
         >
-          {t("tag")}
-        </text>
+          <rect
+            x="360"
+            y="95"
+            width="180"
+            height="50"
+            rx="8"
+            className="fill-background stroke-warning"
+            strokeWidth="3"
+          />
+          <circle cx="378" cy="120" r="6" className="fill-warning" />
+          <text
+            x="460"
+            y="128"
+            textAnchor="middle"
+            className="fill-warning font-mono text-xl font-bold"
+          >
+            {t("tag")}
+          </text>
+        </g>
       </g>
 
       {/* Happy, hungry person */}
@@ -564,24 +611,29 @@ function PizzaDay() {
       />
 
       {/* Speech bubble */}
-      <rect
-        x="40"
-        y="60"
-        width="200"
-        height="48"
-        rx="24"
-        className="fill-card stroke-border"
-        strokeWidth="2"
-      />
-      <path d="M150 106 l-6 24 l26 -24 z" className="fill-card" />
-      <text
-        x="140"
-        y="91"
-        textAnchor="middle"
-        className="fill-foreground text-lg font-semibold"
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "1200ms" }}
       >
-        {t("bubble")}
-      </text>
+        <rect
+          x="40"
+          y="60"
+          width="200"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M150 106 l-6 24 l26 -24 z" className="fill-card" />
+        <text
+          x="140"
+          y="91"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
     </>
   );
 }
@@ -635,7 +687,12 @@ function VendingMachine() {
         rx="3"
         className="fill-muted-foreground"
       />
-      <circle cx="510" cy="62" r="12" className="fill-warning" />
+      <circle
+        cx="510"
+        cy="62"
+        r="12"
+        className="fill-warning motion-safe:group-data-playing/anim:animate-coin-insert"
+      />
       <text
         x="435"
         y="262"
@@ -658,7 +715,8 @@ function VendingMachine() {
         width="20"
         height="14"
         rx="3"
-        className="fill-warning"
+        className="fill-warning motion-safe:group-data-playing/anim:animate-drop-in"
+        style={{ animationDelay: "900ms" }}
       />
 
       {/* Surprised customer */}
@@ -681,24 +739,29 @@ function VendingMachine() {
       />
 
       {/* Speech bubble */}
-      <rect
-        x="40"
-        y="70"
-        width="230"
-        height="48"
-        rx="24"
-        className="fill-card stroke-border"
-        strokeWidth="2"
-      />
-      <path d="M170 116 l-6 24 l26 -24 z" className="fill-card" />
-      <text
-        x="155"
-        y="101"
-        textAnchor="middle"
-        className="fill-foreground text-lg font-semibold"
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "1500ms" }}
       >
-        {t("bubble")}
-      </text>
+        <rect
+          x="40"
+          y="70"
+          width="230"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M170 116 l-6 24 l26 -24 z" className="fill-card" />
+        <text
+          x="155"
+          y="101"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
     </>
   );
 }
@@ -742,7 +805,7 @@ function MemeSlot() {
       >
         {t("tag")}
       </text>
-      {reels.map(({ x, text, fill }) => (
+      {reels.map(({ x, text, fill }, index) => (
         <g key={x}>
           <rect
             x={x - 30}
@@ -756,7 +819,11 @@ function MemeSlot() {
             x={x}
             y="157"
             textAnchor="middle"
-            className={cn(fill, "font-mono text-base font-bold")}
+            className={cn(
+              fill,
+              "font-mono text-base font-bold motion-safe:group-data-playing/anim:animate-reel-spin",
+            )}
+            style={{ animationDelay: `${600 + index * 350}ms` }}
           >
             {text}
           </text>
@@ -780,16 +847,18 @@ function MemeSlot() {
         />
       ))}
       {/* Lever */}
-      <line
-        x1="530"
-        y1="150"
-        x2="575"
-        y2="110"
-        className="stroke-muted-foreground"
-        strokeWidth="8"
-        strokeLinecap="round"
-      />
-      <circle cx="578" cy="105" r="14" className="fill-bear" />
+      <g className="origin-bottom-left transform-fill motion-safe:group-data-playing/anim:animate-lever-pull">
+        <line
+          x1="530"
+          y1="150"
+          x2="575"
+          y2="110"
+          className="stroke-muted-foreground"
+          strokeWidth="8"
+          strokeLinecap="round"
+        />
+        <circle cx="578" cy="105" r="14" className="fill-bear" />
+      </g>
 
       {/* Shiba Inu */}
       <path d="M95 310 q0 -80 75 -80 q75 0 75 80 z" className="fill-warning" />
@@ -817,24 +886,29 @@ function MemeSlot() {
       />
 
       {/* Speech bubble */}
-      <rect
-        x="30"
-        y="40"
-        width="250"
-        height="48"
-        rx="24"
-        className="fill-card stroke-border"
-        strokeWidth="2"
-      />
-      <path d="M150 86 l-4 24 l24 -24 z" className="fill-card" />
-      <text
-        x="155"
-        y="71"
-        textAnchor="middle"
-        className="fill-foreground text-lg font-semibold"
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "2200ms" }}
       >
-        {t("bubble")}
-      </text>
+        <rect
+          x="30"
+          y="40"
+          width="250"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M150 86 l-4 24 l24 -24 z" className="fill-card" />
+        <text
+          x="155"
+          y="71"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
     </>
   );
 }
@@ -848,65 +922,67 @@ function FeeBus() {
       <rect x="0" y="300" width="640" height="60" className="fill-card" />
 
       {/* Bus with full windows */}
-      <rect
-        x="250"
-        y="120"
-        width="340"
-        height="150"
-        rx="20"
-        className="fill-primary"
-      />
-      {[275, 345, 415, 485].map((x) => (
-        <g key={x}>
-          <rect
-            x={x}
-            y="140"
-            width="55"
-            height="50"
-            rx="6"
-            className="fill-card"
-          />
-          <circle cx={x + 27} cy="165" r="12" className="fill-foreground" />
-        </g>
-      ))}
-      <rect
-        x="555"
-        y="140"
-        width="25"
-        height="110"
-        rx="4"
-        className="fill-card"
-      />
-      <rect
-        x="380"
-        y="98"
-        width="110"
-        height="26"
-        rx="6"
-        className="fill-background"
-      />
-      <text
-        x="435"
-        y="117"
-        textAnchor="middle"
-        className="fill-warning font-mono text-base font-bold"
-      >
-        {t("tag")}
-      </text>
-      <circle
-        cx="320"
-        cy="275"
-        r="24"
-        className="fill-background stroke-muted-foreground"
-        strokeWidth="4"
-      />
-      <circle
-        cx="530"
-        cy="275"
-        r="24"
-        className="fill-background stroke-muted-foreground"
-        strokeWidth="4"
-      />
+      <g className="motion-safe:group-data-playing/anim:animate-drive-in">
+        <rect
+          x="250"
+          y="120"
+          width="340"
+          height="150"
+          rx="20"
+          className="fill-primary"
+        />
+        {[275, 345, 415, 485].map((x) => (
+          <g key={x}>
+            <rect
+              x={x}
+              y="140"
+              width="55"
+              height="50"
+              rx="6"
+              className="fill-card"
+            />
+            <circle cx={x + 27} cy="165" r="12" className="fill-foreground" />
+          </g>
+        ))}
+        <rect
+          x="555"
+          y="140"
+          width="25"
+          height="110"
+          rx="4"
+          className="fill-card"
+        />
+        <rect
+          x="380"
+          y="98"
+          width="110"
+          height="26"
+          rx="6"
+          className="fill-background"
+        />
+        <text
+          x="435"
+          y="117"
+          textAnchor="middle"
+          className="fill-warning font-mono text-base font-bold"
+        >
+          {t("tag")}
+        </text>
+        <circle
+          cx="320"
+          cy="275"
+          r="24"
+          className="fill-background stroke-muted-foreground"
+          strokeWidth="4"
+        />
+        <circle
+          cx="530"
+          cy="275"
+          r="24"
+          className="fill-background stroke-muted-foreground"
+          strokeWidth="4"
+        />
+      </g>
 
       {/* Passenger waving banknotes at the door */}
       <path
@@ -921,7 +997,8 @@ function FeeBus() {
           width="44"
           height="24"
           rx="3"
-          className="fill-bull"
+          className="origin-center fill-bull transform-fill motion-safe:group-data-playing/anim:animate-wiggle"
+          style={{ animationDelay: "1400ms" }}
         />
       </g>
       <g transform="rotate(10 560 170)">
@@ -931,7 +1008,8 @@ function FeeBus() {
           width="44"
           height="24"
           rx="3"
-          className="fill-bull"
+          className="origin-center fill-bull transform-fill motion-safe:group-data-playing/anim:animate-wiggle"
+          style={{ animationDelay: "1500ms" }}
         />
       </g>
 
@@ -965,24 +1043,29 @@ function FeeBus() {
       <circle cx="215" cy="265" r="9" className="fill-warning" />
 
       {/* Speech bubble */}
-      <rect
-        x="40"
-        y="40"
-        width="190"
-        height="48"
-        rx="24"
-        className="fill-card stroke-border"
-        strokeWidth="2"
-      />
-      <path d="M150 86 l4 24 l18 -24 z" className="fill-card" />
-      <text
-        x="135"
-        y="71"
-        textAnchor="middle"
-        className="fill-foreground text-lg font-semibold"
+      <g
+        className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
+        style={{ animationDelay: "1600ms" }}
       >
-        {t("bubble")}
-      </text>
+        <rect
+          x="40"
+          y="40"
+          width="190"
+          height="48"
+          rx="24"
+          className="fill-card stroke-border"
+          strokeWidth="2"
+        />
+        <path d="M150 86 l4 24 l18 -24 z" className="fill-card" />
+        <text
+          x="135"
+          y="71"
+          textAnchor="middle"
+          className="fill-foreground text-lg font-semibold"
+        >
+          {t("bubble")}
+        </text>
+      </g>
     </>
   );
 }
@@ -999,6 +1082,17 @@ const ILLUSTRATIONS = {
 
 type IllustrationName = keyof typeof ILLUSTRATIONS;
 
+// Illustrations with a short animation (played once when visible, see AnimateOnView).
+const ANIMATED: ReadonlySet<IllustrationName> = new Set([
+  "midnightEdit",
+  "copyMachine",
+  "miningRace",
+  "pizzaDay",
+  "vendingMachine",
+  "memeSlot",
+  "feeBus",
+]);
+
 function isIllustrationName(name: string): name is IllustrationName {
   return Object.hasOwn(ILLUSTRATIONS, name);
 }
@@ -1014,17 +1108,24 @@ export function Illustration({ name }: { name: string }) {
   }
 
   const Drawing = ILLUSTRATIONS[name];
+  const drawing = (
+    <svg
+      viewBox="0 0 640 360"
+      role="img"
+      aria-label={t(`${name}.label`)}
+      className="dark w-full overflow-hidden rounded-lg border border-border"
+    >
+      {/* Each drawing reads its own texts (bubble, labels inside the picture). */}
+      <Drawing />
+    </svg>
+  );
   return (
     <figure className="not-prose my-8">
-      <svg
-        viewBox="0 0 640 360"
-        role="img"
-        aria-label={t(`${name}.label`)}
-        className="dark w-full overflow-hidden rounded-lg border border-border"
-      >
-        {/* Each drawing reads its own texts (bubble, labels inside the picture). */}
-        <Drawing />
-      </svg>
+      {ANIMATED.has(name) ? (
+        <AnimateOnView replayLabel={t("replay")}>{drawing}</AnimateOnView>
+      ) : (
+        drawing
+      )}
       <figcaption className="mt-3 text-sm text-muted-foreground">
         {t(`${name}.caption`)}
       </figcaption>

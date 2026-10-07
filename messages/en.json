@@ -304,7 +304,8 @@
         "bubble": "I'll wait…",
         "tag": "10 min",
         "caption": "Fees as a bus ride: whoever offers more gets a seat first. The rest wait for the next bus."
-      }
+      },
+      "replay": "Replay the animation"
     }
   },
   "Courses": {
