@@ -13,14 +13,14 @@ export const metadata = {
 </Callout>
 
 You can think of an exchange as a vegetable market. Only instead of carrots it sells bitcoin,
-nobody shouts and the stall never closes. The exchange itself sells nothing – **it matches people
+nobody shouts and the stall never closes. The <KeyTerm term="exchange">exchange</KeyTerm> itself sells nothing – **it matches people
 who want to buy with people who want to sell**. And takes a small fee for it.
 
 <Illustration name="marketShout" />
 
 ## The order book
 
-All waiting offers are listed in the order book. Sellers and their prices are at the top, buyers at
+All waiting offers are listed in the <KeyTerm term="order-book">order book</KeyTerm>. Sellers and their prices are at the top, buyers at
 the bottom:
 
 <OrderBook />
@@ -38,11 +38,11 @@ buy.
 | Limit  | when the price reaches your limit  | your price or better | when the price matters           |
 | Stop   | when the price hits the stop price | market               | to limit a loss (lesson on risk) |
 
-A market order takes offers from the book one after another until you have bought everything you
+A <KeyTerm term="market-order">market order</KeyTerm> takes offers from the book one after another until you have bought everything you
 want. With a big order or a thinly traded coin, part of it fills at worse prices. This difference is
 called <KeyTerm term="slippage">slippage</KeyTerm>.
 
-A limit order is more patient: it is written into the book and waits for someone to take it. It may
+A <KeyTerm term="limit-order">limit order</KeyTerm> is more patient: it is written into the book and waits for someone to take it. It may
 also never fill.
 
 ## What you pay for on an exchange
