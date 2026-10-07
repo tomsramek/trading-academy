@@ -128,5 +128,14 @@
         }
       }
     }
+  },
+  "Lesson": {
+    "linkToSection": "Link to section: {title}",
+    "opensInNewTab": "opens in a new tab",
+    "callout": {
+      "tip": "Tip",
+      "warning": "Warning",
+      "risk": "Risk"
+    }
   }
 }

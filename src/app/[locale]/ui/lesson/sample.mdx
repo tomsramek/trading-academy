@@ -1,0 +1,67 @@
+import chart from "./sample-chart.png";
+
+Every lesson starts with a short introduction. It says what you will learn and why it matters
+before you put any money at risk.
+
+## What is a candlestick
+
+A **candlestick** shows how the price moved during one period, for example one hour. It has
+four values: _open_, _high_, _low_ and _close_. Read more in the
+[Bitcoin whitepaper](https://bitcoin.org/bitcoin.pdf).
+
+<Figure
+  src={chart}
+  alt="Candlestick chart: the price first falls, then rises again"
+  caption="Red candles – the price went down, green candles – it went up."
+/>
+
+### Parts of a candle
+
+1. The **body** – between the open and the close price.
+2. The **wicks** – the highest and the lowest price.
+3. The **color** – green when the price went up, red when it went down.
+
+- Short body: buyers and sellers were balanced.
+- Long body: one side was clearly stronger.
+  - Long upper wick: the price was pushed back down.
+  - Long lower wick: the price was pushed back up.
+
+> The trend is your friend – until it ends.
+
+<Callout>
+  Look at the **daily** chart first. Shorter periods are noisy and easy to
+  misread.
+</Callout>
+
+<Callout type="warning" title="Exchanges can fail">
+  Do not keep your coins on an exchange longer than needed. Learn about
+  [wallets](#what-is-a-candlestick) first.
+</Callout>
+
+<Callout type="risk">
+  Never trade with money you cannot afford to lose. Most beginners lose money in
+  their first year.
+</Callout>
+
+## Order types
+
+| Order  | When it fills                    | Price                |
+| ------ | -------------------------------- | -------------------- |
+| Market | immediately                      | best available       |
+| Limit  | when the price reaches the limit | your price or better |
+| Stop   | after the stop price is hit      | market               |
+
+~~Buy high, sell low.~~ Plan your exit before you enter.
+
+## Placing an order
+
+An order is an instruction for the exchange. The simplest one is a <KeyTerm term="market-order">market order</KeyTerm>. In code it looks like `buy(0.01, "BTC")`:
+
+```ts
+const order = { side: "buy", amount: 0.01, symbol: "BTC/USDT" };
+```
+
+---
+
+That is all for this lesson. Go back to [the home page](/) or read again about
+[order types](#order-types).

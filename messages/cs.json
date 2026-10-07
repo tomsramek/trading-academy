@@ -128,5 +128,14 @@
         }
       }
     }
+  },
+  "Lesson": {
+    "linkToSection": "Odkaz na sekci: {title}",
+    "opensInNewTab": "otevře se v nové záložce",
+    "callout": {
+      "tip": "Tip",
+      "warning": "Pozor",
+      "risk": "Riziko"
+    }
   }
 }
