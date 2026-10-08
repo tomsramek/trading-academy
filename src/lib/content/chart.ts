@@ -72,6 +72,8 @@ export const indicatorsSchema = z
     rsi: z.boolean().default(false),
     // Traded volume as bars in its own panel; the data must contain `volume`.
     volume: z.boolean().default(false),
+    // ATR 14 as a percentage of the price, in its own panel: how much the price typically moves a day.
+    atr: z.boolean().default(false),
   })
   .refine(
     (indicators) => indicators.sma.length + indicators.ema.length <= 3,
@@ -86,6 +88,7 @@ export type ChartIndicators = {
   lines: { label: string; color: 1 | 3 | 5; points: IndicatorPoint[] }[];
   volume?: { time: number; value: number; up: boolean }[];
   rsi?: IndicatorPoint[];
+  atr?: IndicatorPoint[];
 };
 
 // Annotations ready for drawing: dates as Unix seconds, every label filled in.
@@ -99,3 +102,32 @@ export type ChartAnnotations = {
 export function toTimestamp(date: string): number {
   return Date.parse(`${date}T00:00:00Z`) / 1000;
 }
+
+// Props of a <LineChart> written in MDX – equity curves, comparisons of markets, funding rates.
+export const lineChartSchema = z.strictObject({
+  // Which series of the data file to draw, each with its legend label. At most four lines.
+  lines: z
+    .array(
+      z.strictObject({
+        key: z.string().min(1),
+        label: z.string().trim().min(1),
+      }),
+    )
+    .min(1)
+    .max(4),
+  // A logarithmic price axis – for curves that grow many times over.
+  logarithmic: z.boolean().default(false),
+  // Values are percentages (shown with a % sign).
+  percent: z.boolean().default(false),
+  // Neutral markers on the first line, e.g. a halving.
+  markers: z
+    .array(
+      z.strictObject({
+        time: isoDate,
+        label: z.string().trim().min(1),
+      }),
+    )
+    .default([]),
+});
+
+export type LineChartInput = z.input<typeof lineChartSchema>;

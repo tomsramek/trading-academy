@@ -166,7 +166,9 @@
       "rsi": "RSI 14 (panel pod grafem, čáry 30 a 70)",
       "zoomIn": "Přiblížit graf",
       "zoomOut": "Oddálit graf",
-      "zoomReset": "Zobrazit celý graf"
+      "zoomReset": "Zobrazit celý graf",
+      "atr": "ATR 14 – průměrné rozpětí v % ceny (panel pod grafem)",
+      "logarithmic": "Logaritmická osa: stejná vzdálenost = stejná změna v procentech"
     },
     "pattern": {
       "doji": {
