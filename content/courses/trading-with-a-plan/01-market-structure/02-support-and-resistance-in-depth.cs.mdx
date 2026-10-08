@@ -1,0 +1,100 @@
+import btc from "@content/market-data/btcusdt-1d-2024-03-2025-05.json";
+
+export const metadata = {
+  title: "Podpora a rezistence do hloubky",
+  slug: "podpora-a-rezistence-do-hloubky",
+  description:
+    "Proč jsou podpora a rezistence zóny, ne čáry, jak vypadá průlom a retest a proč se z rezistence stává podpora.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, proč podpora a rezistence fungují
+- naučíš se kreslit zóny místo přesných čar
+- poznáš průlom, retest a výměnu rolí – i falešné průlomy
+
+</Callout>
+
+Z prvního kurzu víš, že <KeyTerm term="support">podpora</KeyTerm> je úroveň, kde se pokles v minulosti
+zastavil, a <KeyTerm term="resistance">rezistence</KeyTerm> úroveň, kde se zastavil růst. Teď se
+podíváme, proč to tak je a jak s tím pracovat, aby ses nespoléhal na jedno magické číslo.
+
+## Proč to funguje
+
+Za každou úrovní stojí **lidská paměť a čekající příkazy**. Kdo koupil na vrcholu a pak se díval na
+ztrátu, rád prodá, až se cena vrátí „aspoň na nulu“. Kdo nestihl nákup u minima, čeká na druhou
+šanci. Na kulatých číslech (70 000, 100 000) navíc čeká spousta limitních příkazů.
+
+Nic z toho není zákon přírody. Jen se hodně lidí dívá na stejný graf a jedná podobně.
+
+## Zóna, ne čára
+
+Cena se k úrovni málokdy vrátí na dolar přesně. Proto si kresli **zónu** – pásmo mezi několika
+podobnými maximy nebo minimy.
+
+Podívej se na Bitcoin v roce 2024. Mezi březnem a červencem se růst pětkrát zastavil v pásmu zhruba mezi 70 000 a 73 800: na 73 777, 72 798, 71 979, 71 997 a 70 080. Kdo by čekal přesně na 73 777, nepochopil by,
+proč se cena otočila už o tisíce níž.
+
+<Illustration name="ceilingFloor" />
+
+## Průlom a retest
+
+Průlom nastává, když se cena **uzavře** za zónou – ne když ji jen na chvíli překročí knot svíčky.
+Šestého listopadu 2024 se denní svíčka uzavřela na 75 572, nad celou zónou, a s velkým objemem
+(o objemu bude řeč v modulu 2).
+
+Po průlomu se cena často vrací zónu „otestovat“. Tomu se říká retest. A tady přichází zajímavá věc: <KeyTerm term="role-reversal">výměna rolí</KeyTerm>. Bývalá rezistence se může stát podporou. V dubnu
+2025 spadl Bitcoin z více než 100 000 až na 74 508 – a zastavil se těsně nad zónou, kde ho rok
+předtím pětkrát zastavili prodávající.
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od března 2024 do května 2025: zóna rezistence mezi 70 000 a 73 800 s pěti dotyky, průlom 6. listopadu 2024 a retest zóny 7. dubna 2025 s minimem 74 508"
+  caption="Pět dotyků zóny rezistence, průlom v listopadu 2024 a v dubnu 2025 zastavení pádu těsně nad stejnou zónou."
+  levels={[
+    { price: 73800, kind: "resistance", label: "Zóna" },
+    { price: 70000, kind: "resistance", label: "Zóna" },
+  ]}
+  markers={[
+    { time: "2024-03-14", kind: "high", label: "1" },
+    { time: "2024-04-08", kind: "high", label: "2" },
+    { time: "2024-05-21", kind: "high", label: "3" },
+    { time: "2024-06-07", kind: "high", label: "4" },
+    { time: "2024-07-29", kind: "high", label: "5" },
+    { time: "2024-11-06", kind: "event", label: "Průlom" },
+    { time: "2025-04-07", kind: "low", label: "Retest" },
+  ]}
+/>
+
+## Falešné průlomy
+
+Ne každý průlom vydrží. V srpnu 2024 spadla cena během jednoho dne až na 49 000 – hluboko pod podporu kolem 56 500, která se naštípla už v červenci. Kdo prodal „protože se podpora prolomila“, prodal skoro na dně: za
+tři dny byl Bitcoin zpátky nad 61 000.
+
+Jak se falešným průlomům bránit? Jistota neexistuje, ale pomáhá:
+
+- čekat na **uzavření svíčky** za zónou, ne na první knot,
+- sledovat, jestli průlom provází **vyšší objem**,
+- mít stop-loss, který počítá s tím, že se trh může vrátit.
+
+<Callout type="warning" title="Úroveň není zeď">
+  Podpora a rezistence ukazují, kde se lidé v minulosti rozhodovali. Každá
+  úroveň se dřív nebo později prolomí – a čím častěji ji cena testuje, tím víc
+  příkazů na ní už bylo spotřebováno.
+</Callout>
+
+## Časté omyly
+
+- **„Podpora je na 56 500 a basta.“** Je to zóna, a i ta se umí prolomit.
+- **„Knot nad rezistencí = průlom.“** Rozhoduje uzavření svíčky, ne chvilkový výlet.
+- **„Čím víc dotyků, tím silnější úroveň.“** Často naopak – každý dotyk spotřebuje část čekajících
+  příkazů.
+
+<Callout title="Shrnutí">
+
+- Podpora a rezistence fungují, protože se lidé rozhodují podle stejných cen v minulosti.
+- Kresli zóny podle několika podobných maxim nebo minim, ne jednu přesnou čáru.
+- Průlom = uzavření svíčky za zónou; po něm často přijde retest a výměna rolí.
+- Falešné průlomy jsou běžné – počítej s nimi ve stop-lossu.
+
+</Callout>

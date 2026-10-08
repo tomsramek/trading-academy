@@ -1,0 +1,103 @@
+import btc from "@content/market-data/btcusdt-1d-2022-03-2023-04.json";
+
+export const metadata = {
+  title: "Trend and market structure",
+  description:
+    "How to read a trend from its highs and lows, when the structure breaks and why even the nicest structure guarantees nothing.",
+};
+
+<Callout title="In this lesson">
+
+- learn to find clear highs and lows on a chart
+- recognise rising and falling market structure
+- find out when a trend breaks – and why that is never certain
+
+</Callout>
+
+In the first course you saw that a trend shows in its highs and lows. Now we turn that into a tool.
+Instead of a feeling that "it is probably going up", you mark specific points on the chart and use
+them to say which phase the market is in. This is called <KeyTerm term="market-structure">market structure</KeyTerm>.
+
+## Clear highs and lows
+
+Price never moves in a straight line. It goes up, pulls back, goes up again. Every peak where the
+price turned down is a **high**, every bottom where it bounced up is a **low**. They are also called
+_swing highs_ and _swing lows_.
+
+Do not count every small wiggle. Look for points you can see at first glance – for example the
+highest price for several weeks on each side.
+
+## Rising and falling structure
+
+- **Rising structure** – every new high is above the previous one, and so is every low. Buyers are in
+  control.
+- **Falling structure** – lower highs and lower lows. Every attempt to rise ends lower than the last
+  one.
+- **Range** – highs and lows stay at roughly the same levels.
+
+<Illustration name="stairsDown" />
+
+## Example: Bitcoin 2022–2023
+
+2022 was a textbook decline. A high of 48,190 USDT at the end of March, then a lower high in May
+(32,399) and another in August (25,211). The lows fell too: 26,700, 17,622 and, after the collapse of
+the FTX exchange in November, as low as 15,476.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from March 2022 to April 2023: lower highs at 48,190, 32,399 and 25,211, lower lows at 26,700, 17,622 and 15,476, a break of structure in January 2023 and a rise to 31,000 in April"
+  caption="Lower highs and lows until November 2022; in January 2023 the price broke the last lower high."
+  markers={[
+    { time: "2022-03-28", kind: "high", label: "48,190" },
+    { time: "2022-05-12", kind: "low", label: "26,700" },
+    { time: "2022-05-31", kind: "high", label: "32,399" },
+    { time: "2022-06-18", kind: "low", label: "17,622" },
+    { time: "2022-08-15", kind: "high", label: "25,211" },
+    { time: "2022-11-21", kind: "low", label: "15,476" },
+    { time: "2022-12-14", kind: "high", label: "18,388" },
+    { time: "2023-01-12", kind: "event", label: "Break of structure" },
+  ]}
+  zones={[{ from: "2022-03-28", to: "2022-11-21", label: "Falling structure" }]}
+/>
+
+## When a trend breaks
+
+A downtrend ends when the price breaks **the last lower high**. This is called a <KeyTerm term="break-of-structure">break of structure</KeyTerm>. On the chart above, the last lower
+high was 18,388 from 14 December. On 12 January 2023 the daily candle closed above it (18,847) – and
+eight days later also above the November high of 21,481.
+
+A break of structure does not mean a big rally starts now. It is only **an early warning** that
+sellers are losing strength. Look at March 2023: the price fell to 19,549 – below the February low.
+The rising structure broke for a while, and yet the market reached 31,000 in about five weeks.
+
+<Callout type="warning" title="Structure is a map, not a forecast">
+  Structure tells you what has happened so far and helps you decide where you
+  are wrong. It does not tell you what comes next. Any break can be false – that
+  is why it always comes with a stop-loss.
+</Callout>
+
+## How to use it
+
+- **Trade with the structure, not against it.** Buying "the bottom" in a falling structure is a bet
+  against the trend.
+- **Structure gives you a place for the stop-loss.** In a rising structure it typically goes below the
+  last higher low – if the price breaks it, your idea no longer holds.
+- **Start with a longer timeframe.** On an hourly chart you will find dozens of "breaks", on a daily
+  chart only a few that matter.
+
+## Common myths
+
+- **"It is down a lot, it has to go up."** A low price is not a signal. In 2022 Bitcoin looked cheap
+  at 30,000 – and then at 20,000.
+- **"One higher low = a new trend."** One swallow does not make a summer. Wait for a break of
+  structure.
+- **"Structure always works."** March 2023 shows that even the nicest structure can break for a while.
+
+<Callout title="Summary">
+
+- Market structure = the clear highs and lows and their order.
+- Rising: higher highs and lows. Falling: lower highs and lows.
+- A break of structure is a break of the last lower (or higher) point – a warning, not a certainty.
+- Above all, structure tells you where you are wrong, and that is where the stop-loss goes.
+
+</Callout>

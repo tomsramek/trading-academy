@@ -1,0 +1,106 @@
+import btc from "@content/market-data/btcusdt-1d-2022-03-2023-04.json";
+
+export const metadata = {
+  title: "Trend a struktura trhu",
+  slug: "trend-a-struktura-trhu",
+  description:
+    "Jak poznat trend podle maxim a minim, kdy se struktura láme a proč ani ta nejhezčí struktura nic nezaručuje.",
+};
+
+<Callout title="V této lekci">
+
+- naučíš se najít v grafu výrazná maxima a minima
+- poznáš rostoucí a klesající strukturu trhu
+- zjistíš, kdy se trend láme – a proč to nikdy není jisté
+
+</Callout>
+
+V prvním kurzu jsi viděl, že trend poznáš podle maxim a minim. Teď z toho uděláme nástroj. Místo
+pocitu „asi to roste“ si v grafu označíš konkrétní body a podle nich řekneš, v jaké fázi trh je.
+Tomu se říká <KeyTerm term="market-structure">struktura trhu</KeyTerm>.
+
+## Výrazná maxima a minima
+
+Cena se nikdy nepohybuje rovně. Jde nahoru, vrací se, zase jde nahoru. Každý vrchol, odkud se cena
+otočila dolů, je **maximum**, každé dno, odkud se odrazila nahoru, je **minimum**. Anglicky se jim
+říká _swing high_ a _swing low_.
+
+Nepočítej každou malou vlnku. Hledej body, které jsou vidět i na první pohled – třeba nejvyšší cenu
+za několik týdnů na každou stranu.
+
+## Rostoucí a klesající struktura
+
+- **Rostoucí struktura** – každé nové maximum je vyšší než předchozí a každé minimum taky. Kupující
+  mají navrch.
+- **Klesající struktura** – nižší maxima a nižší minima. Každý pokus o růst skončí níž než ten
+  minulý.
+- **Pásmo** – maxima i minima se drží zhruba na stejných úrovních.
+
+<Illustration name="stairsDown" />
+
+## Příklad: Bitcoin 2022–2023
+
+Rok 2022 je učebnicový sestup. Maximum na konci března 48 190 USDT, pak nižší maximum v květnu
+(32 399) a další v srpnu (25 211). Minima padala taky: 26 700, 17 622 a po krachu burzy FTX
+v listopadu až 15 476.
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od března 2022 do dubna 2023: nižší maxima 48 190, 32 399 a 25 211, nižší minima 26 700, 17 622 a 15 476, zlom struktury v lednu 2023 a růst na 31 000 v dubnu"
+  caption="Nižší maxima a minima až do listopadu 2022, v lednu 2023 cena prorazila poslední nižší maximum."
+  markers={[
+    { time: "2022-03-28", kind: "high", label: "48 190" },
+    { time: "2022-05-12", kind: "low", label: "26 700" },
+    { time: "2022-05-31", kind: "high", label: "32 399" },
+    { time: "2022-06-18", kind: "low", label: "17 622" },
+    { time: "2022-08-15", kind: "high", label: "25 211" },
+    { time: "2022-11-21", kind: "low", label: "15 476" },
+    { time: "2022-12-14", kind: "high", label: "18 388" },
+    { time: "2023-01-12", kind: "event", label: "Zlom struktury" },
+  ]}
+  zones={[
+    { from: "2022-03-28", to: "2022-11-21", label: "Klesající struktura" },
+  ]}
+/>
+
+## Kdy se trend láme
+
+Klesající trend končí, když cena prorazí **poslední nižší maximum**. Tomu se říká <KeyTerm term="break-of-structure">zlom struktury</KeyTerm>. Na grafu nahoře bylo posledním nižším
+maximem 18 388 ze 14. prosince. Dvanáctého ledna 2023 se denní svíčka uzavřela nad ním (18 847) –
+a o osm dní později i nad listopadovým maximem 21 481.
+
+Zlom struktury neznamená, že teď začne velký růst. Je to jen **první varování**, že prodávající
+ztrácejí sílu. Podívej se na březen 2023: cena spadla až na 19 549 – pod předchozí únorové minimum.
+Rostoucí struktura se na chvíli rozbila, a přesto se trh zhruba za pět týdnů dostal na 31 000.
+
+<Callout type="warning" title="Struktura je mapa, ne předpověď">
+  Struktura ti řekne, co se dosud dělo, a pomůže určit, kde se mýlíš. Neřekne
+  ti, co bude dál. Každý zlom může být falešný – proto se k němu vždy přidává
+  stop-loss.
+</Callout>
+
+## Jak to využít
+
+- **Obchoduj se strukturou, ne proti ní.** V klesající struktuře je nákup „na dně“ sázka proti
+  trendu.
+- **Struktura ti dá místo pro stop-loss.** V rostoucí struktuře patří typicky pod poslední vyšší
+  minimum – když ho cena prorazí, tvůj předpoklad neplatí.
+- **Začni u delšího časového rámce.** Na hodinovém grafu najdeš desítky „zlomů“, na denním jen pár
+  podstatných.
+
+## Časté omyly
+
+- **„Je to dole, už to musí růst.“** Nízká cena není signál. V roce 2022 vypadal levně Bitcoin za
+  30 000 – a pak za 20 000.
+- **„Jedno vyšší minimum = nový trend.“** Jedna vlaštovka jaro nedělá. Počkej na zlom struktury.
+- **„Struktura funguje vždycky.“** Březen 2023 ukazuje, že i ta nejhezčí struktura se umí na chvíli
+  rozbít.
+
+<Callout title="Shrnutí">
+
+- Struktura trhu = výrazná maxima a minima a jejich pořadí.
+- Rostoucí: vyšší maxima i minima. Klesající: nižší maxima i minima.
+- Zlom struktury je proražení posledního nižšího (nebo vyššího) bodu – varování, ne jistota.
+- Struktura ti hlavně řekne, kde se mýlíš, a tam patří stop-loss.
+
+</Callout>

@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "How does an EMA differ from an SMA?",
+          "options": [
+            "Recent prices weigh more in an EMA, so it reacts faster",
+            "An EMA is calculated from volume",
+            "An SMA is always more accurate"
+          ],
+          "explanation": "An SMA weighs all days equally, an EMA weighs recent days more. Faster reactions also mean more false moves."
+        },
+        "cs": {
+          "question": "Čím se liší EMA od SMA?",
+          "options": [
+            "Novější ceny mají v EMA větší váhu, takže reaguje rychleji",
+            "EMA se počítá z objemu",
+            "SMA je vždy přesnější"
+          ],
+          "explanation": "SMA váží všechny dny stejně, EMA novější víc. Rychlejší reakce ale znamená i víc falešných pohybů."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why does the “golden cross” often fail as a buy signal?",
+          "options": [
+            "Because only Binance calculates it",
+            "It comes late – a large part of the move has already happened",
+            "Because it only appears in a downtrend"
+          ],
+          "explanation": "The averages only cross after a longer move. The golden cross in October 2023 came when the price had already risen by more than a third."
+        },
+        "cs": {
+          "question": "Proč „zlatý kříž“ často nefunguje jako signál k nákupu?",
+          "options": [
+            "Protože ho počítá jen Binance",
+            "Přichází pozdě – velká část pohybu už proběhla",
+            "Protože se objevuje jen v klesajícím trendu"
+          ],
+          "explanation": "Průměry se protnou až po delším pohybu. Zlatý kříž v říjnu 2023 přišel, když cena už vyrostla o víc než třetinu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "RSI is above 70. What does it mean?",
+          "options": [
+            "You must sell right away",
+            "The market will certainly fall within a week",
+            "Rises clearly dominate – the market is strong but can keep rising"
+          ],
+          "explanation": "Overbought does not mean sell. In autumn 2020 Bitcoin's RSI stayed above 70 for almost six weeks while the price rose by more than 60%."
+        },
+        "cs": {
+          "question": "RSI je nad 70. Co to znamená?",
+          "options": [
+            "Musíš okamžitě prodat",
+            "Trh určitě do týdne spadne",
+            "Růsty výrazně převažují – trh je silný, ale může stoupat dál"
+          ],
+          "explanation": "Překoupeno neznamená prodej. Na podzim 2020 bylo RSI Bitcoinu skoro šest týdnů nad 70 a cena mezitím vyrostla o víc než 60 %."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "A breakout above resistance came with several times the usual volume. What does that suggest?",
+          "options": [
+            "Real interest is behind the breakout – it is more convincing",
+            "The breakout is certainly false",
+            "Volume changes nothing, only price counts"
+          ],
+          "explanation": "High volume confirms a breakout, though it guarantees nothing. On 6 November 2024 the breakout above 73,800 came with more than four times the usual volume."
+        },
+        "cs": {
+          "question": "Průlom nad rezistenci přišel s několikanásobně vyšším objemem než obvykle. Co to naznačuje?",
+          "options": [
+            "Za průlomem stojí skutečný zájem – je přesvědčivější",
+            "Průlom je určitě falešný",
+            "Objem na směru nic nemění, jde jen o cenu"
+          ],
+          "explanation": "Vysoký objem průlom potvrzuje, i když nic nezaručuje. 6. listopadu 2024 doprovázel průlom nad 73 800 víc než čtyřnásobný objem."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is overfitting a strategy?",
+          "options": [
+            "When a strategy learns to react faster",
+            "Tuning rules to past data until they fit even random details",
+            "When you use several timeframes"
+          ],
+          "explanation": "On the past you can make anything. A strategy tuned to random details of the past often fails in the future – so test it on data it was not built on."
+        },
+        "cs": {
+          "question": "Co je přeučení strategie?",
+          "options": [
+            "Když se strategie naučí reagovat rychleji",
+            "Ladění pravidel na minulá data, dokud nesedí i na náhodné detaily",
+            "Když používáš víc časových rámců"
+          ],
+          "explanation": "Na minulosti se dá „vydělat“ cokoli. Strategie vyladěná na náhodné detaily minulosti v budoucnu často selže – proto ji testuj na datech, na kterých nevznikla."
+        }
+      },
+      "answer": 1
+    }
+  ]
+}

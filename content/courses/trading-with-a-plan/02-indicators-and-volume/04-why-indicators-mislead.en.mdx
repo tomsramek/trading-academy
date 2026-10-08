@@ -1,0 +1,95 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Why indicators mislead",
+  description:
+    "Delay, false signals in a range, overfitting to the past and ten indicators that say the same thing.",
+};
+
+<Callout title="In this lesson">
+
+- understand why indicators come late
+- see what false signals in a range cost
+- find out how not to be fooled by a “perfect” strategy from the past
+
+</Callout>
+
+Indicators look like magic: one line crosses another and you know what to do. If it worked like that,
+everyone who can open a chart would be rich. This lesson is about why they are not.
+
+<Illustration name="crystalBall" />
+
+## 1. Delay
+
+Every indicator is calculated from prices that have already happened. A 200-day average needs a lot of
+new prices before it turns. That is why the signal arrives after a large part of the move has happened
+– you already know this from the lesson on moving averages.
+
+## 2. False signals in a range
+
+In a trend, trend-following indicators make sense. In a range, however, the price jumps back and forth
+and the indicators with it. The result: one false signal after another, known as a _whipsaw_.
+
+Bitcoin in 2024: from April to October the price moved in a range roughly between 49,000 and 73,000.
+
+- **10 August** – a death cross at a price of 60,924, five days after the panic day.
+- **28 October** – a golden cross at 69,962.
+
+Anyone who sold and bought back on the crosses would have bought back 15% higher – plus fees.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with SMA 50 and SMA 200: a range between 49,000 and 73,000 from April to October 2024, a death cross on 10 August at 60,924 and a golden cross on 28 October at 69,962"
+  caption="In the range, the averages crossed at the moments when it was least useful."
+  indicators={{ sma: [50, 200] }}
+  markers={[
+    { time: "2024-08-10", kind: "event", label: "Death cross" },
+    { time: "2024-10-28", kind: "event", label: "Golden cross" },
+  ]}
+/>
+
+## 3. Ten indicators, one piece of information
+
+RSI, stochastic, MACD, CCI… Most indicators are calculated from the same thing: closing prices. When
+they all agree, you do not have ten confirmations – you have one piece of information shown ten times.
+More lines on a chart mostly mean more chances to find the one that agrees with what you already
+think.
+
+## 4. Overfitting to the past
+
+On historical data you can find a setting that would have "made" a great profit. Just keep trying
+average lengths and RSI thresholds until it works. This is called <KeyTerm term="overfitting">overfitting</KeyTerm>: the strategy learns random details of the past
+that will not repeat.
+
+How to protect yourself:
+
+- **Simple rules** with few settings survive better than complex ones.
+- **Test on data you did not use to invent the rules.** If a strategy only works on the period it was
+  built on, it does not work.
+- **Count fees and slippage.** Many strategies are profitable only on paper, without costs.
+
+<Callout type="warning" title="There is no indicator that always works">
+  If there were, everyone would use it – and it would stop working. Indicators
+  are aids for orientation, not a money machine. Anyone selling you a "90%
+  accurate indicator" is mostly selling a dream.
+</Callout>
+
+## What to use, then
+
+A sensible base is small: **market structure**, **support and resistance zones**, one **trend filter**
+(for example SMA 200) and **volume**. Add anything else only when you can say what it gives you on top.
+
+## Common myths
+
+- **"When five indicators agree, it is certain."** It is one piece of information five times.
+- **"This strategy would have made 300% over the last year."** On the past, you can make anything.
+- **"I just have not found the right setting yet."** Maybe because there is none.
+
+<Callout title="Summary">
+
+- Indicators are calculated from past prices, so they come late.
+- In a range, trend indicators give false signals that cost money.
+- Most indicators carry the same information – more lines do not mean more certainty.
+- A strategy tuned to the past (overfitting) often fails in the future.
+
+</Callout>

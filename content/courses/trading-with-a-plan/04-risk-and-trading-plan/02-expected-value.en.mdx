@@ -1,0 +1,82 @@
+export const metadata = {
+  title: "Expected value",
+  description:
+    "Why the win rate alone means nothing, how to calculate expected value and why you need hundreds of trades before you know anything.",
+};
+
+<Callout title="In this lesson">
+
+- understand why a high win rate does not mean profit
+- calculate a strategy's expected value in R
+- find out how long losing streaks are normal
+
+</Callout>
+
+"My strategy has a 70% win rate!" Sounds great. But without a second number it means nothing at all.
+This lesson is about telling whether a way of trading has any chance of working.
+
+## Two numbers, not one
+
+Every strategy is described by two numbers:
+
+- **the win rate** – what percentage of trades end in profit,
+- **the average win and the average loss** – in the R-multiples from the last lesson.
+
+Only together do they give the <KeyTerm term="expected-value">expected value</KeyTerm> – how many R
+you make or lose on one trade on average:
+
+**Expected value = win rate × average win − loss rate × average loss**
+
+<Illustration name="coinFlip" />
+
+## Two examples
+
+**Strategy A:** a 40% win rate, wins of +2R, losses of −1R.
+0.4 × 2 − 0.6 × 1 = **+0.2R** per trade. Most trades end in a loss, and yet the strategy is positive on
+average.
+
+**Strategy B:** a 70% win rate, wins of +0.4R, losses of −1R.
+0.7 × 0.4 − 0.3 × 1 = **−0.02R** per trade. Seven trades out of ten work out – and you still lose in the
+long run.
+
+And that is before costs. If fees and slippage cost, say, 0.1R per trade, strategy A makes +0.1R and strategy B ends at −0.12R.
+
+<Callout type="warning" title="A positive expected value is rare">
+  The numbers above are an example of the calculation, not a promise. Most
+  people who trade do not have a positive expected value after costs – that is
+  why most of them lose. Finding out whether you have one takes a long time and
+  costs money.
+</Callout>
+
+## Losing streaks are normal
+
+Even a strategy with a positive expected value has long losing streaks. With a 40% win rate over 100
+trades:
+
+- **5 losses in a row** happen almost certainly (in 98% of cases in a simulation),
+- **8 losses in a row** in roughly every second case,
+- **10 losses in a row** in roughly every fifth.
+
+That is why you risk 1% and not 10%. And that is why a streak of five losses on its own does not mean
+the strategy does not work.
+
+## How many trades you need
+
+After ten trades you know nothing – luck decided. After fifty you have a first idea. A more reliable
+picture comes from **a hundred or more trades** under the same rules. Anyone who changes strategy after
+every three losses will never find out whether any of them worked.
+
+## Common myths
+
+- **"I win 7 out of 10, I am good."** It depends on how much you win and how much you lose.
+- **"Five losses in a row – the strategy is broken."** With a 40% win rate that is common.
+- **"I am up for the month, it works."** A month is too short to prove anything – it may have been luck.
+
+<Callout title="Summary">
+
+- The win rate without the size of wins and losses says nothing.
+- Expected value = win rate × average win − loss rate × average loss (in R).
+- Costs reduce the expected value of every trade.
+- Long losing streaks are normal; you only know something about a strategy after a hundred trades.
+
+</Callout>

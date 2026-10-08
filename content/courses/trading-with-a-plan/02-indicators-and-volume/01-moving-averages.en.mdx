@@ -1,0 +1,96 @@
+import btc from "@content/market-data/btcusdt-1d-2022-04-2024-01.json";
+
+export const metadata = {
+  title: "Moving averages",
+  description:
+    "What SMA and EMA are, how to use them as a trend filter and why the so-called golden cross comes late.",
+};
+
+<Callout title="In this lesson">
+
+- understand what a moving average calculates and how SMA and EMA differ
+- learn to use an average as a trend filter
+- see why moving average crossovers come with a delay
+
+</Callout>
+
+A daily chart is full of noise: +3% today, −4% tomorrow. The simplest way to smooth the noise is a <KeyTerm term="moving-average">moving average</KeyTerm> – a line showing the average price over the
+last few days. Every day the oldest day drops out and a new one is added, hence "moving".
+
+## SMA and EMA
+
+- **SMA** (simple moving average) – adds up the closing prices of the last N days and divides by N.
+  Every day has the same weight. SMA 50 is the average of the last 50 days.
+- **EMA** (exponential moving average) – recent days weigh more, so it reacts faster. Faster also
+  means more false moves.
+
+The most common averages are 20 to 21, 50 and 200 days. There is nothing magic about those numbers –
+many people simply use them.
+
+<Illustration name="dogWalk" />
+
+## The average as a trend filter
+
+The most useful use is the simplest one: **is the price above a long average or below it?**
+
+- Price staying above SMA 200 with the average rising – the market is more likely in an uptrend.
+- Price below SMA 200 with the average falling – more likely in a downtrend.
+
+Look at Bitcoin. At the end of 2022 the price was far below SMA 200 (the yellow line). In mid-January
+2023 it rose above it and stayed there, apart from just under two months from August to mid-October.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from April 2022 to January 2024 with SMA 50 and SMA 200: price below SMA 200 at the end of 2022 and above it from January 2023, a golden cross on 7 February 2023, a death cross on 12 September 2023 and another golden cross on 30 October 2023"
+  caption="SMA 50 and SMA 200. The crossovers are marked – notice how late they come."
+  indicators={{ sma: [50, 200] }}
+  markers={[
+    { time: "2023-02-07", kind: "event", label: "Golden cross" },
+    { time: "2023-09-12", kind: "event", label: "Death cross" },
+    { time: "2023-10-30", kind: "event", label: "Golden cross" },
+  ]}
+/>
+
+## Golden cross and death cross
+
+When the faster average (SMA 50) crosses the slower one (SMA 200) from below, it is called a <KeyTerm term="golden-cross">golden cross</KeyTerm>. The opposite crossover is a death cross. The
+media love them because they sound dramatic.
+
+In reality they come **late**. A 200-day average turns slowly, so by the time the averages finally
+cross, a large part of the move has already happened. On the chart above:
+
+- **The golden cross on 7 February 2023** came at a price of 23,240 – about half again above the
+  November bottom.
+- **The death cross on 12 September 2023** came at 25,840, practically at the bottom. Anyone who sold
+  on it sold before a rise to more than 40,000.
+- **The next golden cross on 30 October 2023** arrived at 34,475, when the price had already risen by
+  more than a third.
+
+<Callout type="warning" title="An average sums up the past">
+  A moving average is calculated from prices that have already happened. It
+  shows which way the market has been moving – not where it will go. That is why
+  it works as a filter or a guide, not as a buy signal.
+</Callout>
+
+## The average as moving support
+
+In a strong trend the price often comes back to an average (for example EMA 21 or SMA 50) and bounces
+off it. It works like support and resistance – for the same reason: many people watch the same line.
+And just like support, an average can break at any time.
+
+## Common myths
+
+- **"Golden cross = buy."** It comes late, and in a range it gives one false signal after another.
+- **"The more averages, the better."** Five lines on a chart tell you no more than one – they only
+  confuse more.
+- **"There is a best setting."** There is not. An average length that always works has yet to be
+  found.
+
+<Callout title="Summary">
+
+- A moving average smooths the noise; SMA weighs all days equally, EMA weighs recent days more.
+- Its best use is as a filter: price above a rising long average = more likely an uptrend.
+- The golden cross and the death cross come late – a large part of the move has already happened.
+- An average describes the past, it does not predict the future.
+
+</Callout>

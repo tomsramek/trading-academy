@@ -1,0 +1,78 @@
+import btc from "@content/market-data/btcusdt-1d-2020-10-2021-03.json";
+
+export const metadata = {
+  title: "RSI a momentum",
+  slug: "rsi-a-momentum",
+  description:
+    "Co měří RSI, proč „překoupeno“ neznamená „prodej“ a jak s indikátorem hybnosti pracovat rozumně.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, co měří RSI a jak číst hodnoty 30 a 70
+- uvidíš, proč může trh zůstat „překoupený“ celé týdny
+- naučíš se použít RSI jako doplněk, ne jako signál
+
+</Callout>
+
+Klouzavý průměr ukazuje směr. Indikátory hybnosti se ptají na něco jiného: **jak silný je pohyb?**
+Nejznámější z nich je <KeyTerm term="rsi">RSI</KeyTerm> (Relative Strength Index), který v roce
+1978 představil J. Welles Wilder.
+
+## Co RSI měří
+
+RSI porovnává průměrné růsty a průměrné poklesy za posledních 14 období a výsledek převede na
+stupnici 0 až 100:
+
+- **kolem 50** – růsty a poklesy jsou vyrovnané,
+- **nad 70** – růsty výrazně převažují, trh je takzvaně <KeyTerm term="overbought">překoupený</KeyTerm>,
+- **pod 30** – převažují poklesy, trh je přeprodaný.
+
+Zní to jednoduše: nad 70 prodej, pod 30 nákup. A přesně tohle je nejdražší omyl začátečníků.
+
+<Illustration name="speedometer" />
+
+## Překoupeno neznamená prodej
+
+Podívej se na Bitcoin na podzim 2020. Od poloviny října do 25. listopadu bylo RSI nad 70 – skoro šest
+týdnů v kuse. Kdo prodával „protože je trh překoupený“, prodal u 11 500, u 13 000, u 15 000… Cena
+mezitím vyrostla z 11 503 na 18 719. A o měsíc později stála přes 24 000.
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od října 2020 do března 2021 s RSI v panelu pod grafem: RSI nad 70 od poloviny října do 25. listopadu 2020, cena roste z 11 500 na 18 700 a v lednu 2021 přes 40 000"
+  caption="RSI se drželo nad 70 téměř šest týdnů a cena přitom stoupala dál."
+  indicators={{ rsi: true }}
+  zones={[{ from: "2020-10-18", to: "2020-11-25", label: "RSI nad 70" }]}
+/>
+
+Vysoké RSI v silném trendu neznamená, že pohyb končí. Znamená, že je **silný**. Překoupený trh může
+být ještě víc překoupený.
+
+## Jak RSI použít rozumně
+
+- **Jako teploměr síly, ne jako spoušť.** RSI nad 50 a rostoucí potvrzuje, že kupující mají navrch.
+- **V pásmu funguje lépe než v trendu.** Když se cena drží mezi podporou a rezistencí, RSI u hranic
+  pásma může pomoct s načasováním. V silném trendu tě bude mást.
+- **Divergence jako varování.** Když cena udělá nové maximum, ale RSI už ne, pohyb ztrácí sílu.
+  Takové varování ale může trvat týdny, než se projeví – a nemusí se projevit vůbec.
+
+<Callout type="warning" title="Indikátor se počítá z ceny">
+  RSI nevidí nic, co by nebylo v ceně. Nepřináší novou informaci – jen jinak
+  zobrazuje tu, kterou už máš. Nikdy nerozhoduj jen podle něj.
+</Callout>
+
+## Časté omyly
+
+- **„RSI 80 – musí to spadnout.“** V lednu 2021 bylo RSI Bitcoinu kolem 90 a cena byla přes 40 000.
+- **„RSI pod 30 je jistý nákup.“** V propadu může zůstat pod 30 stejně dlouho jako nad 70 v růstu.
+- **„Změním nastavení na 7 a bude to přesnější.“** Bude to rychlejší – a s víc falešnými signály.
+
+<Callout title="Shrnutí">
+
+- RSI měří sílu pohybu na stupnici 0–100; hranice 70 a 30 značí překoupený a přeprodaný trh.
+- Překoupeno neznamená prodej – v silném trendu zůstává RSI vysoko celé týdny.
+- Nejlépe funguje jako potvrzení síly a v pásmu, divergence je jen varování.
+- RSI se počítá z ceny, novou informaci nepřináší.
+
+</Callout>

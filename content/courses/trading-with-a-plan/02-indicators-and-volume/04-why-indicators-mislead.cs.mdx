@@ -1,0 +1,95 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Proč indikátory klamou",
+  slug: "proc-indikatory-klamou",
+  description:
+    "Zpoždění, falešné signály v pásmu, přeučení na minulosti a deset indikátorů, které říkají totéž.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, proč indikátory přicházejí pozdě
+- uvidíš, kolik stojí falešné signály v pásmu
+- zjistíš, jak se nenechat napálit „dokonalou“ strategií z minulosti
+
+</Callout>
+
+Indikátory vypadají jako kouzlo: čára protne čáru a víš, co dělat. Kdyby to tak fungovalo, byli by
+bohatí všichni, kdo si umí otevřít graf. Tahle lekce je o tom, proč nejsou.
+
+<Illustration name="crystalBall" />
+
+## 1. Zpoždění
+
+Každý indikátor se počítá z cen, které už byly. Průměr za 200 dní potřebuje hodně nových cen, než se
+otočí. Proto přichází signál až po tom, co velká část pohybu proběhla – to už znáš z lekce
+o klouzavých průměrech.
+
+## 2. Falešné signály v pásmu
+
+V trendu dávají indikátory sledující trend smysl. V pásmu ale cena přeskakuje sem a tam a indikátory
+s ní. Výsledek: jeden falešný signál za druhým. Anglicky se tomu říká _whipsaw_ – šlehnutí bičem.
+
+Bitcoin v roce 2024: od dubna do října se cena točila v pásmu zhruba mezi 49 000 a 73 000.
+
+- **10. srpna** – kříž smrti u ceny 60 924, pět dní po panickém dnu.
+- **28. října** – zlatý kříž u 69 962.
+
+Kdo by podle křížů prodal a pak znovu koupil, koupil by zpátky o 15 % dráž – plus poplatky.
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od října 2023 do prosince 2024 s průměry SMA 50 a SMA 200: pásmo mezi 49 000 a 73 000 od dubna do října 2024, kříž smrti 10. srpna u 60 924 a zlatý kříž 28. října u 69 962"
+  caption="V pásmu se průměry křížily ve chvílích, kdy to bylo nejméně užitečné."
+  indicators={{ sma: [50, 200] }}
+  markers={[
+    { time: "2024-08-10", kind: "event", label: "Kříž smrti" },
+    { time: "2024-10-28", kind: "event", label: "Zlatý kříž" },
+  ]}
+/>
+
+## 3. Deset indikátorů, jedna informace
+
+RSI, stochastic, MACD, CCI… Většina indikátorů se počítá ze stejné věci: z uzavíracích cen. Když se
+všechny shodnou, nemáš deset potvrzení – máš jednu informaci zobrazenou desetkrát. Víc čar v grafu
+znamená hlavně víc příležitostí najít tu, která souhlasí s tím, co si už myslíš.
+
+## 4. Přeučení na minulosti
+
+Na historických datech se dá najít nastavení, které by „vydělalo“ skvěle. Stačí zkoušet délky
+průměrů a hranice RSI tak dlouho, až to vyjde. Tomu se říká <KeyTerm term="overfitting">přeučení</KeyTerm>: strategie se naučí náhodné detaily minulosti, které
+se už nebudou opakovat.
+
+Jak se bránit:
+
+- **Jednoduchá pravidla** s málo nastaveními přežijí lépe než složité.
+- **Testuj na datech, na kterých jsi pravidla nevymýšlel.** Když strategie funguje jen na období,
+  podle kterého vznikla, nefunguje.
+- **Počítej poplatky a skluz.** Hodně strategií je ziskových jen na papíře bez nákladů.
+
+<Callout type="warning" title="Neexistuje indikátor, který vždy funguje">
+  Kdyby existoval, každý by ho používal – a tím by přestal fungovat. Indikátory
+  jsou pomůcky pro orientaci, ne stroj na peníze. Kdo ti prodává „indikátor s
+  90% úspěšností“, prodává hlavně sen.
+</Callout>
+
+## Co tedy používat
+
+Rozumný základ je malý: **struktura trhu**, **zóny podpory a rezistence**, jeden **filtr trendu**
+(třeba SMA 200) a **objem**. Všechno ostatní přidávej jen tehdy, když umíš říct, co ti to dá navíc.
+
+## Časté omyly
+
+- **„Když se shodne pět indikátorů, je to jisté.“** Je to jedna informace pětkrát.
+- **„Tahle strategie by za poslední rok vydělala 300 %.“** Na minulosti se dá vydělat cokoli.
+- **„Jen jsem ještě nenašel správné nastavení.“** Možná proto, že žádné neexistuje.
+
+<Callout title="Shrnutí">
+
+- Indikátory se počítají z minulých cen, proto přicházejí pozdě.
+- V pásmu dávají indikátory trendu falešné signály, které stojí peníze.
+- Většina indikátorů nese stejnou informaci – víc čar neznamená víc jistoty.
+- Strategie vyladěná na minulost (přeučení) v budoucnu často selže.
+
+</Callout>
