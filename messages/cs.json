@@ -849,6 +849,121 @@
         "label": "Modrý štít s fajfkou, kolem padají konfety a vedle stojí spokojená postava",
         "bubble": "Plán je hotový!",
         "caption": "Jedno odpoledne práce a pár let klidu. A jednou za rok kontrola."
+      },
+      "licenseCheck": {
+        "label": "Profesor Knot kontroluje dvě budovy burz: na jedné razítko licence MiCA, na druhé razítko zavřeno pro EU",
+        "licensed": "BURZA A",
+        "closed": "BURZA B",
+        "stampOk": "LICENCE ✓",
+        "stampNo": "ZAVŘENO PRO EU",
+        "bubble": "Nejdřív licence, pak registrace.",
+        "caption": "Velikost ani slavné jméno licenci nenahradí. Ověř ji v registru ČNB nebo ESMA."
+      },
+      "idSelfie": {
+        "label": "Postava drží občanský průkaz a telefon s rámečkem pro selfie",
+        "phone": "SELFIE",
+        "bubble": "Neutrální výraz? To mi nejde.",
+        "caption": "Doklad a selfie jsou při registraci normální. Žádost o seed frázi nikdy."
+      },
+      "securityToggles": {
+        "label": "Nastavení zabezpečení s pěti zapnutými přepínači a vedle Profesor Knot",
+        "twoFa": "Dvoufázové ověření",
+        "devices": "Přehled zařízení",
+        "antiPhishing": "Anti-phishingový kód",
+        "whitelist": "Povolené adresy",
+        "email": "Zabezpečený e-mail",
+        "bubble": "Čtvrt hodiny klikání.",
+        "caption": "Pět přepínačů dělá z účtu pevnost místo stanu."
+      },
+      "depositPipes": {
+        "label": "Široká trubka SEPA, kterou tečou mince, a úzká trubka karty s mýtnou bránou",
+        "sepa": "PŘEVOD SEPA",
+        "card": "KARTA",
+        "toll": "−2,5 %",
+        "bubble": "Stejné peníze, jiná trubka.",
+        "caption": "Převod v eurech bývá zdarma, karta si bere procenta."
+      },
+      "screenTour": {
+        "label": "Zjednodušená obrazovka burzy s očíslovanými částmi: obchodní pár, graf, kniha objednávek, poslední obchody, panel příkazů a tvoje příkazy",
+        "pair": "BTC/EUR",
+        "price": "60 000 +2,1 %",
+        "caption": "Šest částí, které má skoro každá burza: 1 pár, 2 graf, 3 kniha objednávek, 4 poslední obchody, 5 panel příkazů, 6 tvoje příkazy."
+      },
+      "quickBuyMarkup": {
+        "label": "Dva obchody se stejnou mincí: zářivý rychlý nákup s vyšší cenou a obyčejný spotový stánek s nižší",
+        "quick": "RYCHLÝ NÁKUP",
+        "spot": "SPOT",
+        "coin": "BTC",
+        "quickPrice": "60 900 €",
+        "spotPrice": "60 010 €",
+        "bubble": "Pohodlí se platí.",
+        "caption": "Rychlý nákup schovává přirážku v ceně. Spot ukazuje poplatek otevřeně."
+      },
+      "orderForm": {
+        "label": "Panel příkazu s poli Cena, Množství a Celkem a vedle Profesor Knot",
+        "buy": "KOUPIT",
+        "sell": "PRODAT",
+        "priceLabel": "CENA (EUR)",
+        "amountLabel": "MNOŽSTVÍ (BTC)",
+        "totalLabel": "CELKEM (EUR)",
+        "priceValue": "58 000",
+        "amountValue": "0,002",
+        "totalValue": "116",
+        "confirm": "KOUPIT BTC",
+        "bubble": "Dvakrát kontroluj nuly.",
+        "caption": "Cena × množství = celkem. Před potvrzením si přečti souhrn."
+      },
+      "makerTaker": {
+        "label": "Pult s mincemi: vlevo maker, který zboží vykládá, vpravo taker, který ho odnáší; nad nimi poplatky",
+        "counter": "KNIHA OBJEDNÁVEK",
+        "maker": "MAKER",
+        "taker": "TAKER",
+        "makerFee": "nižší poplatek",
+        "takerFee": "vyšší poplatek",
+        "bubble": "Kdo vykládá, platí míň.",
+        "caption": "Maker přidává nabídku do knihy, taker ji bere. Burza odměňuje ty, kdo trh plní."
+      },
+      "timeframeZoom": {
+        "label": "Dva grafy vedle sebe: roztřesený minutový a klidný denní",
+        "minute": "1m – minuta",
+        "day": "1D – den",
+        "bubble": "Stejný trh, jiná lupa.",
+        "caption": "Kratší rámec ukazuje víc šumu. Začni delším, kratší je až na načasování."
+      },
+      "indicatorSoup": {
+        "label": "Graf se svíčkami zasypaný pěti barevnými čarami indikátorů a vedle spadlý Profesor Knot",
+        "bubble": "Tohle už není graf, to je polévka.",
+        "caption": "Víc čar neznamená víc jistoty. Na začátek stačí objem, průměr a RSI."
+      },
+      "alarmLine": {
+        "label": "Graf s vodorovnou čárou úrovně a zvonícím budíkem",
+        "level": "MOJE ÚROVEŇ",
+        "bubble": "Zazvoní, až bude co dělat.",
+        "caption": "Cenové upozornění hlídá graf za tebe. Nic nekoupí, jen dá vědět."
+      },
+      "depthMountains": {
+        "label": "Graf hloubky jako dvě hory, zelená vlevo a červená vpravo, mezi nimi stojí Profesor Knot v mezeře spreadu",
+        "buys": "NÁKUPY",
+        "sells": "PRODEJE",
+        "spread": "spread",
+        "bubble": "Tady v údolí je spread.",
+        "caption": "Strmé hory znamenají hodně nabídek blízko ceny. Údolí mezi nimi je spread."
+      },
+      "dangerButtons": {
+        "label": "Čtyři velká barevná tlačítka futures, bonus, copy trading a Earn a vedle Profesor Knot",
+        "futures": "FUTURES 50×",
+        "bonus": "BONUS!",
+        "copy": "COPY TRADING",
+        "earn": "EARN 12 %",
+        "bubble": "Na tyhle zatím nesahám.",
+        "caption": "Nejzářivější tlačítka vedou k páce, poplatkům a riziku. Když nevíš, co dělají, nesahej na ně."
+      },
+      "withdrawJourney": {
+        "label": "Profesor Knot nese minci z budovy burzy do domácího trezoru",
+        "exchange": "BURZA",
+        "wallet": "MOJE PENĚŽENKA",
+        "bubble": "Nejdřív malou zkušební.",
+        "caption": "Správná síť, celá adresa, malá zkušební částka – a mince jsou doma."
       }
     }
   },

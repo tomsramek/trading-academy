@@ -849,6 +849,121 @@
         "label": "A blue shield with a tick, confetti falling around and a happy figure next to it",
         "bubble": "The plan is done!",
         "caption": "One afternoon of work and a few years of peace. And a check once a year."
+      },
+      "licenseCheck": {
+        "label": "Professor Wick checks two exchange buildings: one has a MiCA licence stamp, the other a closed for the EU stamp",
+        "licensed": "EXCHANGE A",
+        "closed": "EXCHANGE B",
+        "stampOk": "LICENSED ✓",
+        "stampNo": "CLOSED FOR EU",
+        "bubble": "Licence first, sign-up second.",
+        "caption": "Neither size nor a famous name replaces a licence. Check it in the regulators' registers."
+      },
+      "idSelfie": {
+        "label": "A figure holds an ID card and a phone with a selfie frame",
+        "phone": "SELFIE",
+        "bubble": "A neutral face? I cannot do that.",
+        "caption": "An ID and a selfie are normal at sign-up. A request for your seed phrase never is."
+      },
+      "securityToggles": {
+        "label": "Security settings with five switches turned on and Professor Wick next to them",
+        "twoFa": "Two-factor authentication",
+        "devices": "Device list",
+        "antiPhishing": "Anti-phishing code",
+        "whitelist": "Withdrawal whitelist",
+        "email": "Secure account email",
+        "bubble": "15 minutes of clicking.",
+        "caption": "Five switches turn your account from a tent into a fortress."
+      },
+      "depositPipes": {
+        "label": "A wide SEPA pipe with coins flowing and a narrow card pipe with a toll booth",
+        "sepa": "SEPA TRANSFER",
+        "card": "CARD",
+        "toll": "−2.5%",
+        "bubble": "Same money, different pipe.",
+        "caption": "A euro transfer is often free; a card takes a percentage."
+      },
+      "screenTour": {
+        "label": "A simplified exchange screen with numbered parts: trading pair, chart, order book, recent trades, order panel and your orders",
+        "pair": "BTC/EUR",
+        "price": "60,000 +2.1%",
+        "caption": "Six parts almost every exchange has: 1 pair, 2 chart, 3 order book, 4 recent trades, 5 order panel, 6 your orders."
+      },
+      "quickBuyMarkup": {
+        "label": "Two shops with the same coin: a shiny quick buy with a higher price and a plain spot stall with a lower one",
+        "quick": "QUICK BUY",
+        "spot": "SPOT",
+        "coin": "BTC",
+        "quickPrice": "€60,900",
+        "spotPrice": "€60,010",
+        "bubble": "Convenience costs extra.",
+        "caption": "Quick buy hides a markup in the price. Spot shows the fee openly."
+      },
+      "orderForm": {
+        "label": "An order panel with Price, Amount and Total fields and Professor Wick next to it",
+        "buy": "BUY",
+        "sell": "SELL",
+        "priceLabel": "PRICE (EUR)",
+        "amountLabel": "AMOUNT (BTC)",
+        "totalLabel": "TOTAL (EUR)",
+        "priceValue": "58,000",
+        "amountValue": "0.002",
+        "totalValue": "116",
+        "confirm": "BUY BTC",
+        "bubble": "Check the zeros twice.",
+        "caption": "Price × amount = total. Read the summary before confirming."
+      },
+      "makerTaker": {
+        "label": "A counter with coins: on the left a maker putting goods out, on the right a taker taking them; fees above them",
+        "counter": "ORDER BOOK",
+        "maker": "MAKER",
+        "taker": "TAKER",
+        "makerFee": "lower fee",
+        "takerFee": "higher fee",
+        "bubble": "Whoever stocks the shelf pays less.",
+        "caption": "A maker adds an offer to the book, a taker takes it. The exchange rewards those who fill the market."
+      },
+      "timeframeZoom": {
+        "label": "Two charts side by side: a jittery minute chart and a calm daily one",
+        "minute": "1m – minute",
+        "day": "1D – day",
+        "bubble": "Same market, different magnifier.",
+        "caption": "A shorter timeframe shows more noise. Start longer; shorter is only for timing."
+      },
+      "indicatorSoup": {
+        "label": "A candle chart buried under five coloured indicator lines and a fallen Professor Wick next to it",
+        "bubble": "This is no longer a chart, it is soup.",
+        "caption": "More lines do not mean more certainty. Volume, an average and RSI are enough to start."
+      },
+      "alarmLine": {
+        "label": "A chart with a horizontal level line and a ringing alarm clock",
+        "level": "MY LEVEL",
+        "bubble": "It rings when there is something to do.",
+        "caption": "A price alert watches the chart for you. It buys nothing, it just lets you know."
+      },
+      "depthMountains": {
+        "label": "A depth chart as two mountains, green on the left and red on the right, with Professor Wick standing in the spread gap between them",
+        "buys": "BUYS",
+        "sells": "SELLS",
+        "spread": "spread",
+        "bubble": "Down here in the valley is the spread.",
+        "caption": "Steep mountains mean many offers near the price. The valley between them is the spread."
+      },
+      "dangerButtons": {
+        "label": "Four big colourful buttons for futures, bonus, copy trading and Earn, with Professor Wick next to them",
+        "futures": "FUTURES 50×",
+        "bonus": "BONUS!",
+        "copy": "COPY TRADING",
+        "earn": "EARN 12%",
+        "bubble": "I am not touching these yet.",
+        "caption": "The shiniest buttons lead to leverage, fees and risk. If you do not know what they do, leave them alone."
+      },
+      "withdrawJourney": {
+        "label": "Professor Wick carries a coin from the exchange building to a home safe",
+        "exchange": "EXCHANGE",
+        "wallet": "MY WALLET",
+        "bubble": "A small test first.",
+        "caption": "The right network, the whole address, a small test amount – and the coins are home."
       }
     }
   },
