@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { Container } from "@/components/layout/Container";
+import { CourseFinished } from "@/components/lesson-page/CourseFinished";
 import { LessonBreadcrumbs } from "@/components/lesson-page/LessonBreadcrumbs";
 import { LessonOutline } from "@/components/lesson-page/LessonOutline";
 import { LessonOutlineSheet } from "@/components/lesson-page/LessonOutlineSheet";
@@ -92,6 +93,12 @@ export default async function LessonPage({
   }
 
   const { current, previous, next, total } = found;
+  // After the last lesson: the next course on the recommended main path, if there is one.
+  const step = course.meta.path;
+  const nextCourse =
+    next === undefined && step !== undefined
+      ? (await getCourses()).find((other) => other.meta.path === step + 1)
+      : undefined;
   const meta = current.lesson.meta[locale];
   // The module's quiz comes after its last lesson.
   const quiz =
@@ -158,6 +165,10 @@ export default async function LessonPage({
               moduleTitle={current.module.meta.title[locale]}
               questions={toQuizQuestions(quiz, locale)}
             />
+          )}
+
+          {next === undefined && (
+            <CourseFinished course={course} nextCourse={nextCourse} />
           )}
 
           <LessonPager course={course} previous={previous} next={next} />
