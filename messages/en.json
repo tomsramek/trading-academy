@@ -768,6 +768,87 @@
         "flag": "SOLANA",
         "bubble": "Done! Now carefully down.",
         "caption": "You have finished the course. Take the ten rules with you."
+      },
+      "hotelSafe": {
+        "label": "A hotel safe labelled your crypto and, behind the reception desk, a smiling receptionist with a spare key dangling from a finger",
+        "safe": "YOUR CRYPTO",
+        "desk": "RECEPTION EXCHANGE",
+        "bubble": "I have the key, do not worry.",
+        "caption": "On an exchange, the exchange holds the keys. Convenient – as long as it is honest and stays open."
+      },
+      "masterKey": {
+        "label": "A big golden key labelled seed and three doors labelled BTC, ETH and SOL opening",
+        "seed": "SEED",
+        "btc": "BTC",
+        "eth": "ETH",
+        "sol": "SOL",
+        "bubble": "One key, every door.",
+        "caption": "A seed phrase creates the keys to all your accounts. Whoever has it has everything."
+      },
+      "walletPockets": {
+        "label": "A phone labelled pocket, a safe labelled savings and a paper flying off in the wind",
+        "phone": "POCKET",
+        "safe": "SAVINGS",
+        "paper": "PAPER",
+        "bubble": "Phone for coffee, safe for savings.",
+        "caption": "A hot wallet for small change, a hardware wallet for savings – and paper only as a backup."
+      },
+      "trustTheScreen": {
+        "label": "A laptop shows a different address from the hardware wallet's screen; the laptop address is crossed out",
+        "laptopAddress": "bc1q…x9w",
+        "deviceAddress": "bc1q…7kd",
+        "bubble": "Trust the device's screen!",
+        "caption": "An infected computer can lie. The hardware wallet's screen shows what you are really signing."
+      },
+      "sealedBox": {
+        "label": "A card with a pre-filled seed phrase peeks out of a parcel and a surprised figure raises a hand to stop",
+        "card": "YOUR SEED PHRASE",
+        "words": "apple banana cat…",
+        "bubble": "Pre-filled? Hands off!",
+        "caption": "Only your device creates the seed phrase. A pre-filled card means someone else knows it."
+      },
+      "addressCompare": {
+        "label": "Two almost identical addresses one above the other; a magnifying glass shows they differ in the middle",
+        "real": "bc1q8f4k…2nvp…9xqm",
+        "fake": "bc1q8f4k…7tzr…9xqm",
+        "bubble": "Check the middle too.",
+        "caption": "A poisoned address matches at the start and at the end. It differs where nobody looks."
+      },
+      "fireTest": {
+        "label": "A campfire burns a paper backup, next to it lies an undamaged steel plate",
+        "paper": "SEED",
+        "steel": "STEEL",
+        "bubble": "Paper burns, steel does not.",
+        "caption": "Stainless steel survives a fire, paper does not. A second copy elsewhere survives even a whole house burning."
+      },
+      "secretDoor": {
+        "label": "A bookshelf with a secret door opening onto a safe; a happy figure stands next to it",
+        "hint": "PASSPHRASE",
+        "bubble": "No password, just the living room.",
+        "caption": "A passphrase opens a completely different wallet. Whoever finds the seed phrase finds only the living room."
+      },
+      "twoOfThree": {
+        "label": "A chest with two keyholes and three keys numbered 1, 2 and 3; keys 1 and 2 drop towards the chest",
+        "chest": "2 OF 3",
+        "bubble": "Any two will do.",
+        "caption": "A split backup: one share reveals nothing, two recover the money."
+      },
+      "letterForFamily": {
+        "label": "A figure at a desk writes a letter titled for the family",
+        "title": "FOR THE FAMILY",
+        "bubble": "What, where and whom to call.",
+        "caption": "The letter says where to find the backups – not what is in them."
+      },
+      "phishingHookWallet": {
+        "label": "An email saying verify your seed phrase hangs on a fishing hook and a worried figure watches it",
+        "email": "URGENT: verify your seed phrase",
+        "bubble": "I will not bite.",
+        "caption": "No honest party asks for your seed phrase. Not the manufacturer, not the exchange, not support."
+      },
+      "securityShield": {
+        "label": "A blue shield with a tick, confetti falling around and a happy figure next to it",
+        "bubble": "The plan is done!",
+        "caption": "One afternoon of work and a few years of peace. And a check once a year."
       }
     }
   },
