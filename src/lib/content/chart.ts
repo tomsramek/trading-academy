@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import type { IndicatorPoint } from "./indicators";
+
 /*
  * Annotations of a lesson chart, written in MDX:
  *   levels={[{ price: 73000, kind: "resistance" }]}
@@ -17,8 +19,9 @@ export const LEVEL_KINDS = [
 ] as const;
 export type LevelKind = (typeof LEVEL_KINDS)[number];
 
-// buy/sell show a trade; event marks a neutral moment (a halving, news) without suggesting a trade.
-export const MARKER_KINDS = ["buy", "sell", "event"] as const;
+// buy/sell show a trade; event marks a neutral moment (a halving, news) without suggesting a trade;
+// high/low mark a swing high or low (market structure) above or below the candle.
+export const MARKER_KINDS = ["buy", "sell", "event", "high", "low"] as const;
 export type MarkerKind = (typeof MARKER_KINDS)[number];
 
 // "2024-03-05" – a day in UTC, the format used in lessons.
@@ -57,6 +60,33 @@ export const annotationsSchema = z.strictObject({
 });
 
 export type AnnotationsInput = z.input<typeof annotationsSchema>;
+
+// Indicators of a lesson chart, written in MDX: indicators={{ sma: [50, 200], volume: true }}.
+// At most three average lines, so the chart stays readable.
+const period = z.int().min(2).max(400);
+export const indicatorsSchema = z
+  .strictObject({
+    sma: z.array(period).max(3).default([]),
+    ema: z.array(period).max(3).default([]),
+    // RSI 14 in its own panel under the chart, with the 30 and 70 lines.
+    rsi: z.boolean().default(false),
+    // Traded volume as bars in its own panel; the data must contain `volume`.
+    volume: z.boolean().default(false),
+  })
+  .refine(
+    (indicators) => indicators.sma.length + indicators.ema.length <= 3,
+    "at most three moving averages in one chart",
+  );
+
+export type IndicatorsInput = z.input<typeof indicatorsSchema>;
+
+// Indicators ready for drawing.
+export type ChartIndicators = {
+  // Average lines over the candles; `color` is the index of the --chart-N token (1–5).
+  lines: { label: string; color: 1 | 3 | 5; points: IndicatorPoint[] }[];
+  volume?: { time: number; value: number; up: boolean }[];
+  rsi?: IndicatorPoint[];
+};
 
 // Annotations ready for drawing: dates as Unix seconds, every label filled in.
 export type ChartAnnotations = {
