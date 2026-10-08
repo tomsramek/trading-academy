@@ -4,6 +4,7 @@ import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import type { CourseSlugs } from "@/lib/content/localized-slugs";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Container } from "./Container";
+import { LogoMark } from "./LogoMark";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
 
@@ -16,8 +17,9 @@ export function Header({ courseSlugs }: { courseSlugs: CourseSlugs }) {
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
-          className="rounded-md text-lg font-semibold tracking-tight"
+          className="flex items-center gap-2.5 rounded-md text-lg font-semibold tracking-tight"
         >
+          <LogoMark />
           Trading Academy
         </Link>
 
