@@ -1,0 +1,83 @@
+export const metadata = {
+  title: "Kolik tě stojí obchod",
+  slug: "kolik-te-stoji-obchod",
+  description:
+    "Poplatky maker a taker, spread, skluz a výběry – a proč časté obchodování sežere účet i bez jediné špatné předpovědi.",
+};
+
+<Callout title="V této lekci">
+
+- poznáš rozdíl mezi poplatkem maker a taker
+- sečteš všechny náklady jednoho obchodu
+- spočítáš, kolik stojí časté obchodování za rok
+
+</Callout>
+
+Obchod, který skončí „na nule“, ve skutečnosti skončí ve ztrátě. Pokaždé, když koupíš a prodáš,
+zaplatíš – i když to na účtu nevidíš jako samostatnou položku. Tahle lekce je o penězích, které
+mizí potichu.
+
+## Maker a taker
+
+Většina burz účtuje dva různé poplatky:
+
+- **Taker** – bereš nabídku, která už v knize objednávek je. Typicky tržní příkaz. Platíš vyšší
+  poplatek.
+- **Maker** – přidáváš do knihy novou nabídku, která čeká. Typicky limitní příkaz, který se neprovede
+  hned. Platíš nižší poplatek, někdy skoro nic.
+
+Tomu rozdělení se říká <KeyTerm term="maker-taker">maker a taker</KeyTerm>. Na velkých burzách se
+poplatky na spotu pohybují zhruba mezi 0,1 a 0,8 % z hodnoty obchodu, podle burzy a objemu.
+Aplikace pro „rychlý nákup jedním tlačítkem“ bývají dražší – často mají přirážku schovanou v kurzu.
+
+<Illustration name="feeTermites" />
+
+## Všechny náklady jednoho obchodu
+
+| Náklad                                   | Kdy ho platíš                      | Orientačně                     |
+| ---------------------------------------- | ---------------------------------- | ------------------------------ |
+| Poplatek burzy                           | při nákupu i prodeji               | 0,1–0,8 % pokaždé              |
+| <KeyTerm term="spread">Spread</KeyTerm>  | při každém tržním příkazu          | u BTC málo, u malých mincí víc |
+| <KeyTerm term="slippage">Skluz</KeyTerm> | u větších příkazů a v rychlém trhu | od nuly po jednotky procent    |
+| Vklad a výběr                            | při převodu peněz a mincí          | poplatek sítě nebo burzy       |
+
+„Bez poplatků“ neznamená zadarmo. Když burza nebo aplikace nebere poplatek, obvykle si vezme víc ve
+spreadu nebo v horším kurzu.
+
+## Kolik stojí časté obchodování
+
+Řekněme, že jeden obchod (nákup i prodej) tě stojí dohromady **0,3 %** z jeho hodnoty: dvakrát
+poplatek 0,1 % plus trochu spreadu a skluzu. To zní jako drobnost. Teď to vynásob:
+
+- **2 obchody týdně** = asi 100 obchodů ročně = **30 %** hodnoty účtu za rok, pokud pokaždé obchoduješ
+  s celým účtem.
+- **1 obchod denně** (v pracovní dny) = asi 250 obchodů = **75 %** za rok.
+
+Zhruba tolik (počítáno prostým součtem) musíš vydělat, jen abys byl na nule. Náklady jsou jedním z důvodů, proč ve studii brazilských day traderů z prvního kurzu prodělala naprostá většina.
+
+<Callout type="warning" title="Poplatky jsou jistá ztráta, zisk ne">
+  Výsledek obchodu je nejistý. Náklady jsou jisté – zaplatíš je vždycky. Čím víc
+  obchodů, tím víc jistých ztrát proti nejistým ziskům.
+</Callout>
+
+## Jak náklady snížit
+
+- **Obchoduj méně.** Nejlevnější obchod je ten, který neuděláš.
+- **Používej limitní příkazy**, když nespěcháš – platíš nižší poplatek a vyhneš se skluzu.
+- **Vyhýbej se malým mincím s řídkou knihou objednávek** – spread a skluz tam umí být velké.
+- **Před obchodem si spočítej celkovou cenu**, ne jen poplatek.
+
+## Časté omyly
+
+- **„Poplatek 0,1 % je zanedbatelný.“** Jednou ano. Stokrát za rok ne.
+- **„Mám aplikaci bez poplatků.“** Někdo za ni platí – nejspíš ty, ve spreadu.
+- **„Na nule = nic jsem neztratil.“** Ztratil jsi poplatky.
+
+<Callout title="Shrnutí">
+
+- Taker (tržní příkaz) platí víc, maker (čekající limitní příkaz) méně.
+- Celková cena obchodu = poplatky + spread + skluz (+ vklady a výběry).
+- 0,3 % na obchod při 100 obchodech ročně je 30 % účtu – jen na nákladech.
+- Nejlevnější obchod je ten, který neuděláš.
+
+</Callout>

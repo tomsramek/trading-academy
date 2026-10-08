@@ -1,0 +1,103 @@
+import weekly from "@content/market-data/btcusdt-1w-2018-2025.json";
+import daily from "@content/market-data/btcusdt-1d-2024-h1.json";
+import hourly from "@content/market-data/btcusdt-1h-2024-03-w2.json";
+
+export const metadata = {
+  title: "Multiple timeframes",
+  description:
+    "How to combine the weekly, daily and hourly chart into one picture, so that noise does not scare you and detail does not blind you.",
+};
+
+<Callout title="In this lesson">
+
+- see the same market on three timeframes
+- learn the top-down approach: direction, structure, timing
+- find out why a short timeframe never overrules a longer one
+
+</Callout>
+
+The same week of Bitcoin can look like a calm walk or a rollercoaster – it only depends on which <KeyTerm term="timeframe">timeframe</KeyTerm> you open. That is why experienced traders do not look at
+one chart. They look at several and put them together into one picture.
+
+## Three views of one market
+
+**The weekly chart** shows the big picture. In March 2024 Bitcoin was in a strong uptrend: from the low
+of November 2022 it had climbed from around 15,500 to more than 70,000.
+
+<CandleChart
+  data={weekly}
+  label="Weekly Bitcoin chart 2018–2025: the 2022 decline and a strong rise from 2023 above 70,000 in March 2024"
+  caption="Week: the big picture. In March 2024 a clear uptrend."
+  zones={[{ from: "2024-03-04", to: "2024-03-11", label: "March 2024" }]}
+/>
+
+**The daily chart** shows the structure. Higher highs and lows from late January until mid-March.
+
+<CandleChart
+  data={daily}
+  label="Daily Bitcoin chart January to June 2024: rising structure until 14 March, a candle on 5 March with a long lower wick"
+  caption="Day: structure. On 5 March one candle with a long wick – otherwise the rise continues."
+  zones={[{ from: "2024-03-05", to: "2024-03-05", label: "5 Mar" }]}
+/>
+
+**The hourly chart** shows the detail. And this is what happened on 5 March: at 15:00 UTC the price
+jumped to 69,000, four hours later it was at 59,005. A 14.5% drop in one afternoon. On the hourly
+chart it looks like the end of the world. On the daily chart it is one wick – and by the end of the
+week the price was back at 69,000.
+
+<CandleChart
+  data={hourly}
+  label="Hourly Bitcoin chart from 4 to 10 March 2024: on 5 March a drop from 69,000 to 59,005 within four hours, by the end of the week back at 69,000"
+  caption="Hour: the detail. A 14.5% afternoon drop – and back within a few days."
+  zones={[{ from: "2024-03-05", to: "2024-03-06", label: "5 March" }]}
+/>
+
+<Illustration name="zoomLenses" />
+
+## The top-down approach
+
+Traders who use several timeframes usually go from the longer to the shorter one:
+
+1. **The longer timeframe sets the direction.** On the weekly chart you find out whether the market is
+   rising, falling or in a range.
+2. **The middle timeframe shows the structure and zones.** On the daily chart you find the highs,
+   lows, support and resistance.
+3. **The shorter timeframe helps with timing.** On the hourly or four-hour chart you look for where
+   exactly to enter and where to put the stop-loss.
+
+A common rule of thumb: keep a ratio of roughly 1 : 4 to 1 : 7 between timeframes – for example a week,
+a day and four hours.
+
+## When timeframes disagree
+
+A falling structure on the hourly chart, a rising one on the daily. Which one counts? **The longer
+timeframe carries more weight.** In that situation a decline on the hourly chart is often just a
+breather in an uptrend. A trade against the longer timeframe is a trade against the current – it can
+work, but it needs stricter risk management.
+
+<Callout
+  type="warning"
+  title="More charts = more noise, unless you have a method"
+>
+  Anyone who switches between the 1-minute, 5-minute and hourly chart without a
+  plan will always find a "reason" for whatever they want to do right now.
+  Choose your timeframes in advance and stick to them.
+</Callout>
+
+## Common myths
+
+- **"It is falling on the minute chart, I am selling!"** First look at what the daily chart is doing.
+- **"The shorter the timeframe, the more precise the entry, the more profit."** A shorter timeframe
+  means more noise, more trades and more fees.
+- **"Every timeframe has to give me the same signal."** It does not. The longer timeframe sets the
+  direction, the shorter one only the timing.
+
+<Callout title="Summary">
+
+- The same market looks different on every timeframe.
+- Go top-down: the longer timeframe for direction, the middle for structure and zones, the shorter for
+  timing.
+- When timeframes disagree, the longer one carries more weight.
+- Choose your timeframes in advance – otherwise you will find a reason for anything.
+
+</Callout>

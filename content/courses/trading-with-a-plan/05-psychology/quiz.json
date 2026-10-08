@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What is loss aversion?",
+          "options": [
+            "A loss hurts roughly twice as much as an equal gain pleases",
+            "The fear of trading with leverage",
+            "Reluctance to pay fees"
+          ],
+          "explanation": "Kahneman and Tversky showed that we feel losses more strongly. In trading it leads to taking profits early and holding losses long."
+        },
+        "cs": {
+          "question": "Co je averze ke ztrátě?",
+          "options": [
+            "Ztráta bolí zhruba dvakrát víc, než těší stejně velký zisk",
+            "Strach z obchodování s pákou",
+            "Neochota platit poplatky"
+          ],
+          "explanation": "Kahneman a Tversky ukázali, že ztráty vnímáme silněji. V obchodování to vede k brzkému vybírání zisků a dlouhému držení ztrát."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "You have just lost. According to the lesson, what is best to do?",
+          "options": [
+            "Open a bigger trade right away to win it back",
+            "Stop at least until tomorrow – revenge trading turns one loss into several",
+            "Switch to a shorter timeframe"
+          ],
+          "explanation": "The market owes you nothing. Trying to “win it back” right away is revenge trading and the fastest road to more losses."
+        },
+        "cs": {
+          "question": "Právě jsi prodělal. Co je podle lekce nejlepší udělat?",
+          "options": [
+            "Hned otevřít větší obchod, ať to vrátíš",
+            "Přestat aspoň do zítřka – obchodování ze vzteku dělá z jedné ztráty několik",
+            "Přepnout na kratší časový rámec"
+          ],
+          "explanation": "Trh ti nic nedluží. Snaha hned „vyhrát to zpátky“ je obchodování ze vzteku a nejrychlejší cesta k dalším ztrátám."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What did Barber and Odean's study show about the households that traded the most?",
+          "options": [
+            "They beat the market",
+            "They matched the market",
+            "They earned 11.4% a year on average, while the market returned 17.9%"
+          ],
+          "explanation": "The most active traders did clearly worse than the market – mainly because of trading costs. The authors explain it with overconfidence."
+        },
+        "cs": {
+          "question": "Co ukázala studie Barbera a Odeana o domácnostech, které obchodovaly nejvíc?",
+          "options": [
+            "Vydělaly víc než trh",
+            "Vydělaly stejně jako trh",
+            "Vydělaly v průměru 11,4 % ročně, zatímco trh 17,9 %"
+          ],
+          "explanation": "Nejaktivnější obchodníci byli výrazně horší než trh – hlavně kvůli nákladům na obchodování. Autoři to vysvětlují přehnanou sebedůvěrou."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How do you protect yourself against confirmation bias?",
+          "options": [
+            "Write down reasons why a trade might not work before entering",
+            "Read only sources that agree with you",
+            "Trade more often"
+          ],
+          "explanation": "We mostly look for what proves us right. Written reasons against force you to look at the other side too."
+        },
+        "cs": {
+          "question": "Jak se bránit potvrzovacímu zkreslení?",
+          "options": [
+            "Před obchodem si napsat důvody, proč by nemusel vyjít",
+            "Číst jen zdroje, které souhlasí s tvým názorem",
+            "Obchodovat častěji"
+          ],
+          "explanation": "Hledáme hlavně to, co nám dává za pravdu. Sepsané důvody proti přinutí podívat se i na druhou stranu."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "According to the last lesson, how do you try out a trading plan safely?",
+          "options": [
+            "Straight away with the whole account, so it is real",
+            "First without money (demo or paper), then with small amounts, reviewing by the numbers",
+            "With leverage, so the results show faster"
+          ],
+          "explanation": "First at least 50, ideally 100 trades without money, then small amounts and regular review in R. And accept that the plan may not work."
+        },
+        "cs": {
+          "question": "Jak podle poslední lekce bezpečně vyzkoušet obchodní plán?",
+          "options": [
+            "Rovnou s celým účtem, ať je to skutečné",
+            "Nejdřív bez peněz (demo nebo papír), pak na malých částkách a vyhodnocovat podle čísel",
+            "S pákou, aby byly výsledky rychleji vidět"
+          ],
+          "explanation": "Nejdřív aspoň 50, ideálně 100 obchodů bez peněz, pak malé částky a pravidelné vyhodnocení v R. A počítat s tím, že plán nemusí fungovat."
+        }
+      },
+      "answer": 1
+    }
+  ]
+}

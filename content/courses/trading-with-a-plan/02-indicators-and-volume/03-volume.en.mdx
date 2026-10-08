@@ -1,0 +1,90 @@
+import btc from "@content/market-data/btcusdt-1d-2024-h2.json";
+
+export const metadata = {
+  title: "Volume: confirming the move",
+  description:
+    "What trading volume reveals, how to confirm a breakout with it and why you take crypto volume with a pinch of salt.",
+};
+
+<Callout title="In this lesson">
+
+- find out what volume is and how to read it on a chart
+- learn to tell a strong move from a weak one
+- understand why volume on one exchange is not the whole market
+
+</Callout>
+
+Price tells you **where** the market moved. <KeyTerm term="volume">Volume</KeyTerm> tells you **how
+many people were there**. It is the amount traded in a given period – for the BTC/USDT pair, the
+number of bitcoins. On a chart it is drawn as bars below the candles: a green bar belongs to a rising
+candle, a red one to a falling candle.
+
+## Why volume matters
+
+A move with a lot of trading has a lot of money and many decisions behind it. A move on low volume may
+be just a few big orders in a quiet market. That is why traders say volume **confirms** a move:
+
+- **a breakout on high volume** – real interest is behind it,
+- **a breakout on low volume** – a higher risk that it is a false breakout,
+- **extreme volume in a drop** – often panic and mass selling; it can mean sellers are exhausted, but
+  also the start of another drop.
+
+<Illustration name="crowdRoar" />
+
+## Example: the second half of 2024
+
+In June and July 2024 around 24,000 BTC typically changed hands on Binance each day. Then came two
+days that jump out of the chart:
+
+- **5 August 2024** – panic across all markets. The price fell as low as 49,000 during the day and
+  volume was 162,066 BTC, almost seven times more than usual. Three days later the price was back above
+  61,000.
+- **6 November 2024** – the day of the breakout above the resistance zone around 73,800 that you know
+  from module 1. Volume of 104,127 BTC, more than four times a normal day. For the next two weeks
+  volume stayed at roughly twice the normal level and the price rose to almost 99,000.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from June to December 2024 with volume in a panel below: huge volume on 5 August during the drop to 49,000 and high volume on 6 November during the breakout above 73,800, after which the price rose to almost 99,000"
+  caption="Two days with huge volume: the panic on 5 August and the breakout on 6 November."
+  indicators={{ volume: true }}
+  markers={[
+    { time: "2024-08-05", kind: "event", label: "Panic" },
+    { time: "2024-11-06", kind: "event", label: "Breakout" },
+  ]}
+/>
+
+For comparison: between mid-September and the end of October the price rose from about 59,000 to about 70,000 –
+but volume stayed at a completely ordinary level. A rise like that has less conviction behind it and
+is more fragile.
+
+## Crypto volume with a pinch of salt
+
+- **One exchange is not the whole market.** The chart shows volume on Binance only. Bitcoin trades on
+  dozens of exchanges and outside them.
+- **Volume can be inflated.** Some exchanges or traders trade with themselves to make the market look
+  busier (so-called wash trading).
+- **Exchange rules change volume.** From July 2022 to March 2023 Binance charged no fees for trading
+  bitcoin – volume shot up. When the promotion ended, BTC/USDT volume fell by around 90%, even though
+  nothing major happened in the market.
+
+<Callout type="warning" title="Volume confirms, it does not predict">
+  High volume shows that something important is happening. It does not tell you
+  whether it will end up or down. The same huge volume came with the panic in
+  August and the breakout in November.
+</Callout>
+
+## Common myths
+
+- **"High volume = the price will rise."** Volume is also high in panic selling.
+- **"Volume on my exchange is the market's volume."** It is only a slice, and it can be distorted.
+- **"Low volume means nothing."** It means less conviction – and a higher chance of a false move.
+
+<Callout title="Summary">
+
+- Volume shows how much was traded – how many people are behind a move.
+- A breakout on high volume is more convincing than one on low volume.
+- Extreme volume comes with panics and breakouts alike – on its own it does not set the direction.
+- Volume on one exchange is only a slice of the market and can be distorted.
+
+</Callout>

@@ -1,0 +1,93 @@
+import btc from "@content/market-data/btcusdt-1d-2022-04-2024-01.json";
+
+export const metadata = {
+  title: "Klouzavé průměry",
+  slug: "klouzave-prumery",
+  description:
+    "Co je SMA a EMA, jak je použít jako filtr trendu a proč takzvaný zlatý kříž přichází pozdě.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, co počítá klouzavý průměr a jak se liší SMA a EMA
+- naučíš se použít průměr jako filtr trendu
+- uvidíš, proč křížení průměrů přichází se zpožděním
+
+</Callout>
+
+Denní graf je plný šumu: dnes +3 %, zítra −4 %. Nejjednodušší způsob, jak šum uhladit, je <KeyTerm term="moving-average">klouzavý průměr</KeyTerm> – čára, která ukazuje průměrnou cenu za
+posledních několik dní. Každý den se jeden nejstarší den vyřadí a nový přidá, proto „klouzavý“.
+
+## SMA a EMA
+
+- **SMA** (prostý průměr) – sečte uzavírací ceny posledních N dní a vydělí N. Všechny dny mají
+  stejnou váhu. SMA 50 je průměr za posledních 50 dní.
+- **EMA** (exponenciální průměr) – novější dny mají větší váhu, takže reaguje rychleji. Rychlejší
+  ale znamená i víc falešných pohybů.
+
+Nejčastěji se používají průměry za 20 až 21, 50 a 200 dní. Nic magického na těch číslech není –
+používá je prostě hodně lidí.
+
+<Illustration name="dogWalk" />
+
+## Průměr jako filtr trendu
+
+Nejužitečnější použití je to nejjednodušší: **je cena nad dlouhým průměrem, nebo pod ním?**
+
+- Cena dlouhodobě nad SMA 200 a průměr roste – trh je spíš v rostoucím trendu.
+- Cena pod SMA 200 a průměr klesá – spíš v klesajícím.
+
+Podívej se na Bitcoin. Na konci roku 2022 byla cena hluboko pod SMA 200 (žlutá čára). V polovině ledna 2023 se nad ni dostala a kromě necelých dvou měsíců od srpna do poloviny října tam zůstala.
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od dubna 2022 do ledna 2024 s průměry SMA 50 a SMA 200: na konci roku 2022 cena pod SMA 200, od poloviny ledna 2023 nad ní, zlatý kříž 7. února 2023, kříž smrti 12. září 2023 a znovu zlatý kříž 30. října 2023"
+  caption="SMA 50 a SMA 200. Křížení průměrů jsou vyznačená – všimni si, jak pozdě přicházejí."
+  indicators={{ sma: [50, 200] }}
+  markers={[
+    { time: "2023-02-07", kind: "event", label: "Zlatý kříž" },
+    { time: "2023-09-12", kind: "event", label: "Kříž smrti" },
+    { time: "2023-10-30", kind: "event", label: "Zlatý kříž" },
+  ]}
+/>
+
+## Zlatý kříž a kříž smrti
+
+Když rychlejší průměr (SMA 50) protne pomalejší (SMA 200) zespodu, říká se tomu <KeyTerm term="golden-cross">zlatý kříž</KeyTerm>. Opačné křížení je kříž smrti. Média je milují,
+protože zní dramaticky.
+
+Ve skutečnosti přicházejí **pozdě**. Průměr za 200 dní se otáčí pomalu, takže když se průměry
+konečně protnou, velká část pohybu už proběhla. Na grafu nahoře:
+
+- **Zlatý kříž 7. února 2023** přišel u ceny 23 240 – zhruba o polovinu výš než listopadové dno.
+- **Kříž smrti 12. září 2023** přišel u 25 840, prakticky na dně. Kdo podle něj prodal, prodal
+  před růstem na víc než 40 000.
+- **Další zlatý kříž 30. října 2023** dorazil u 34 475, když cena už vyrostla o víc než třetinu.
+
+<Callout type="warning" title="Průměr shrnuje minulost">
+  Klouzavý průměr se počítá z cen, které už byly. Ukáže ti, jakým směrem se trh
+  hýbal – ne kam půjde. Proto se hodí jako filtr nebo orientace, ne jako signál
+  k nákupu.
+</Callout>
+
+## Průměr jako pohyblivá podpora
+
+V silném trendu se cena často vrací k průměru (třeba k EMA 21 nebo SMA 50) a odráží se od něj. Funguje
+to podobně jako podpora a rezistence – ze stejného důvodu: hodně lidí se dívá na stejnou čáru. A
+stejně jako podpora se i průměr umí kdykoli prolomit.
+
+## Časté omyly
+
+- **„Zlatý kříž = kupuj.“** Přichází pozdě a v pásmu dává jeden falešný signál za druhým.
+- **„Čím víc průměrů, tím lepší.“** Pět čar v grafu ti neřekne víc než jedna – jen víc mate.
+- **„Existuje nejlepší nastavení.“** Neexistuje. Délka průměru, která by fungovala vždycky, se ještě
+  nenašla.
+
+<Callout title="Shrnutí">
+
+- Klouzavý průměr uhlazuje šum; SMA váží všechny dny stejně, EMA novější víc.
+- Nejlepší použití je jako filtr: cena nad rostoucím dlouhým průměrem = spíš rostoucí trend.
+- Zlatý kříž a kříž smrti přicházejí pozdě – velká část pohybu už proběhla.
+- Průměr popisuje minulost, budoucnost nepředpovídá.
+
+</Callout>

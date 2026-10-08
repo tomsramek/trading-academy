@@ -1,0 +1,81 @@
+export const metadata = {
+  title: "What a trade costs",
+  description:
+    "Maker and taker fees, the spread, slippage and withdrawals – and why frequent trading eats an account even without a single wrong prediction.",
+};
+
+<Callout title="In this lesson">
+
+- learn the difference between a maker and a taker fee
+- add up all the costs of one trade
+- work out what frequent trading costs over a year
+
+</Callout>
+
+A trade that ends "at zero" actually ends at a loss. Every time you buy and sell, you pay – even if you
+do not see it as a separate item in your account. This lesson is about money that disappears quietly.
+
+## Maker and taker
+
+Most exchanges charge two different fees:
+
+- **Taker** – you take an offer that is already in the order book. Typically a market order. You pay a
+  higher fee.
+- **Maker** – you add a new offer to the book that waits. Typically a limit order that does not fill
+  right away. You pay a lower fee, sometimes almost nothing.
+
+This split is called <KeyTerm term="maker-taker">maker and taker</KeyTerm>. On big exchanges spot fees
+range roughly between 0.1 and 0.8% of the trade value, depending on the exchange and volume. "One-tap
+buy" apps tend to be more expensive – often with a markup hidden in the exchange rate.
+
+<Illustration name="feeTermites" />
+
+## All the costs of one trade
+
+| Cost                                        | When you pay it                     | Roughly                             |
+| ------------------------------------------- | ----------------------------------- | ----------------------------------- |
+| Exchange fee                                | when buying and when selling        | 0.1–0.8% each time                  |
+| <KeyTerm term="spread">Spread</KeyTerm>     | with every market order             | small for BTC, more for small coins |
+| <KeyTerm term="slippage">Slippage</KeyTerm> | with bigger orders and fast markets | from zero to a few percent          |
+| Deposit and withdrawal                      | when moving money and coins         | a network or exchange fee           |
+
+"Zero fees" does not mean free. When an exchange or app charges no fee, it usually takes more in the
+spread or a worse exchange rate.
+
+## What frequent trading costs
+
+Say one trade (buy and sell) costs you **0.3%** of its value in total: twice a 0.1% fee plus a little
+spread and slippage. That sounds trivial. Now multiply it:
+
+- **2 trades a week** = about 100 trades a year = **30%** of the account value a year, if you trade the
+  whole account every time.
+- **1 trade a day** (on weekdays) = about 250 trades = **75%** a year.
+
+That is roughly (as a simple sum) how much you have to make just to break even. Costs are one of the reasons why, in the study of Brazilian day traders from the first course, the vast majority lost money.
+
+<Callout type="warning" title="Fees are a sure loss, profit is not">
+  The outcome of a trade is uncertain. The costs are certain – you always pay
+  them. The more trades, the more certain losses against uncertain profits.
+</Callout>
+
+## How to cut costs
+
+- **Trade less.** The cheapest trade is the one you do not make.
+- **Use limit orders** when you are not in a hurry – you pay a lower fee and avoid slippage.
+- **Avoid small coins with a thin order book** – the spread and slippage there can be large.
+- **Work out the total cost before a trade**, not just the fee.
+
+## Common myths
+
+- **"A 0.1% fee is negligible."** Once, yes. A hundred times a year, no.
+- **"My app has no fees."** Someone pays for it – most likely you, in the spread.
+- **"Break even = I lost nothing."** You lost the fees.
+
+<Callout title="Summary">
+
+- A taker (market order) pays more, a maker (waiting limit order) less.
+- The total cost of a trade = fees + spread + slippage (+ deposits and withdrawals).
+- 0.3% per trade with 100 trades a year is 30% of the account – on costs alone.
+- The cheapest trade is the one you do not make.
+
+</Callout>

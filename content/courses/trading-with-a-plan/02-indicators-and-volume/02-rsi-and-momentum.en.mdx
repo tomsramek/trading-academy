@@ -1,0 +1,84 @@
+import btc from "@content/market-data/btcusdt-1d-2020-10-2021-03.json";
+
+export const metadata = {
+  title: "RSI and momentum",
+  description:
+    "What RSI measures, why “overbought” does not mean “sell” and how to use a momentum indicator sensibly.",
+};
+
+<Callout title="In this lesson">
+
+- find out what RSI measures and how to read the values 30 and 70
+- see why a market can stay “overbought” for weeks
+- learn to use RSI as a supplement, not a signal
+
+</Callout>
+
+A moving average shows the direction. Momentum indicators ask something else: **how strong is the
+move?** The best known of them is <KeyTerm term="rsi">RSI</KeyTerm> (Relative Strength Index),
+introduced by J. Welles Wilder in 1978.
+
+## What RSI measures
+
+RSI compares the average rises and the average falls over the last 14 periods and converts the result
+to a scale of 0 to 100:
+
+- **around 50** – rises and falls are balanced,
+- **above 70** – rises clearly dominate, the market is so-called <KeyTerm term="overbought">overbought</KeyTerm>,
+- **below 30** – falls dominate, the market is oversold.
+
+It sounds simple: sell above 70, buy below 30. And that is exactly the most expensive beginner's
+mistake.
+
+<Illustration name="speedometer" />
+
+## Overbought does not mean sell
+
+Look at Bitcoin in autumn 2020. From mid-October to 25 November RSI was above 70 – almost six weeks in
+a row. Anyone selling "because the market is overbought" sold at 11,500, at 13,000, at 15,000… The
+price meanwhile rose from 11,503 to 18,719. And a month later it was above 24,000.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2020 to March 2021 with RSI in a panel below: RSI above 70 from mid-October to 25 November 2020, the price rising from 11,500 to 18,700 and above 40,000 in January 2021"
+  caption="RSI stayed above 70 for almost six weeks while the price kept climbing."
+  indicators={{ rsi: true }}
+  zones={[{ from: "2020-10-18", to: "2020-11-25", label: "RSI above 70" }]}
+/>
+
+A high RSI in a strong trend does not mean the move is ending. It means it is **strong**. An
+overbought market can become even more overbought.
+
+## How to use RSI sensibly
+
+- **As a strength thermometer, not a trigger.** RSI above 50 and rising confirms that buyers are in
+  control.
+- **It works better in a range than in a trend.** When the price stays between support and
+  resistance, RSI near the edges of the range can help with timing. In a strong trend it will mislead
+  you.
+- **Divergence as a warning.** When the price makes a new high but RSI does not, the move is losing
+  strength. Such a warning can take weeks to play out, though – and may never play out at all.
+
+<Callout type="warning" title="The indicator is calculated from the price">
+  RSI sees nothing that is not already in the price. It brings no new
+  information – it only shows the information you already have in a different
+  way. Never decide on it alone.
+</Callout>
+
+## Common myths
+
+- **"RSI 80 – it has to fall."** In January 2021 Bitcoin's RSI was around 90 and the price was above
+  40,000.
+- **"RSI below 30 is a sure buy."** In a crash it can stay below 30 as long as above 70 in a rally.
+- **"I will change the setting to 7 and it will be more accurate."** It will be faster – and with more
+  false signals.
+
+<Callout title="Summary">
+
+- RSI measures the strength of a move on a 0–100 scale; the 70 and 30 lines mark overbought and
+  oversold.
+- Overbought does not mean sell – in a strong trend RSI stays high for weeks.
+- It works best as a confirmation of strength and in a range; divergence is only a warning.
+- RSI is calculated from the price and brings no new information.
+
+</Callout>

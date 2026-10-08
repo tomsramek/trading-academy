@@ -1,0 +1,82 @@
+export const metadata = {
+  title: "Obchodní plán krok za krokem",
+  slug: "obchodni-plan",
+  description:
+    "Co patří do obchodního plánu, jak ho sepsat na jednu stránku a proč se rozhodnutí dělají předem, ne v obchodu.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, co všechno patří do obchodního plánu
+- uvidíš příklad plánu na jednu stránku
+- nastavíš si limity, které tě zastaví dřív, než napácháš škodu
+
+</Callout>
+
+Piloti mají kontrolní seznam i po deseti tisících hodin letu. Ne proto, že by neuměli létat, ale
+protože pod tlakem dělá chyby každý. <KeyTerm term="trading-plan">Obchodní plán</KeyTerm> je totéž
+pro obchodování: všechna důležitá rozhodnutí uděláš předem, s klidnou hlavou – a v obchodu je už jen
+plníš.
+
+<Illustration name="pilotChecklist" />
+
+## Co patří do plánu
+
+1. **Trhy a časové rámce** – co obchoduješ (třeba jen BTC a ETH) a na jakých grafech (týden, den,
+   čtyři hodiny).
+2. **Situace, kterou hledáš** – přesně popsaná. Ne „když to vypadá dobře“, ale třeba „cena nad
+   rostoucí SMA 200, retest zóny podpory na denním grafu“.
+3. **Vstup** – co se musí stát, abys koupil, a jakým příkazem.
+4. **Stop-loss** – kam přesně a proč tam (kde se tvůj předpoklad ukáže jako chybný).
+5. **Výstup** – cíl zisku, trailing stop nebo jiné pravidlo. A kdy obchod ukončíš, i když nedošel ani
+   k cíli, ani ke stop-lossu.
+6. **Velikost pozice** – riziko na obchod (třeba 1 %) a vzorec.
+7. **Limity** – kolik smíš ztratit za den, týden a měsíc, než přestaneš obchodovat.
+8. **Kdy neobchoduješ** – před důležitými zprávami, když jsi unavený, naštvaný nebo po sérii ztrát.
+9. **Vyhodnocení** – kdy a jak projdeš deník (víc v další lekci).
+
+## Příklad plánu na jednu stránku
+
+| Bod         | Moje pravidlo                                                 |
+| ----------- | ------------------------------------------------------------- |
+| Trhy        | BTC/USDT, spot, bez páky                                      |
+| Rámce       | týden směr, den struktura a zóny, 4 hodiny vstup              |
+| Situace     | cena nad rostoucí SMA 200 (den) a retest prolomené rezistence |
+| Vstup       | limitní příkaz v zóně, jen po uzavření 4h svíčky nad zónou    |
+| Stop-loss   | pod spodním okrajem zóny, nejméně 1,5 % pod vstupem           |
+| Výstup      | polovina na +2R, zbytek trailing stop 8 %                     |
+| Riziko      | 1 % účtu na obchod, nejvýš 2 otevřené obchody                 |
+| Limity      | −3 % za týden nebo 4 ztráty v řadě = týden pauza              |
+| Neobchoduji | v den důležitých zpráv, po půlnoci, když jsem naštvaný        |
+| Vyhodnocení | každou neděli deník, každý měsíc statistika v R               |
+
+Tohle není doporučená strategie – je to ukázka, jak konkrétní plán vypadá. Tvůj může být úplně jiný.
+Důležité je, aby byl **sepsaný a jednoznačný**: kdyby ho dostal někdo jiný, udělal by stejné
+obchody.
+
+## Limity: brzda v nouzi
+
+Nejdůležitější část plánu je ta, na kterou se nejčastěji zapomíná: **kdy přestat**. Po sérii ztrát
+se lidé snaží „vyhrát to zpátky“ – zvětšují pozice a porušují pravidla. Pevný limit (třeba týdenní
+pauza po −3 %) zastaví škodu dřív, než se ze špatného týdne stane špatný rok.
+
+<Callout type="warning" title="Plán, který nedodržuješ, není plán">
+  Většina obchodníků nějaký plán má – v hlavě. V hlavě se ale dá snadno upravit
+  uprostřed obchodu. Napiš si ho a měň ho jen o víkendu, nikdy s otevřenou
+  pozicí.
+</Callout>
+
+## Časté omyly
+
+- **„Plán mám v hlavě.“** Plán v hlavě se mění podle nálady.
+- **„Plán mě omezuje.“** To je jeho smysl – omezuje rozhodnutí, která děláš ve stresu.
+- **„Když plán poruším a vyjde to, nevadí.“** Vadí. Naučil ses, že porušovat pravidla se vyplácí.
+
+<Callout title="Shrnutí">
+
+- Obchodní plán je seznam rozhodnutí udělaných předem, s klidnou hlavou.
+- Patří do něj trhy, situace, vstup, stop-loss, výstup, velikost pozice, limity a vyhodnocení.
+- Musí být sepsaný a tak jednoznačný, aby podle něj někdo jiný udělal stejné obchody.
+- Limity ztrát tě zastaví dřív, než se ze špatného týdne stane špatný rok.
+
+</Callout>

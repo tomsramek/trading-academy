@@ -1,0 +1,87 @@
+export const metadata = {
+  title: "Position size and R-multiples",
+  description:
+    "How to work out position size from risk, why to measure results in R and how fast an account sinks with high risk.",
+};
+
+<Callout title="In this lesson">
+
+- recap how to calculate position size
+- learn to measure every trade in R-multiples
+- see why a big drawdown is so hard to recover
+
+</Callout>
+
+In the first course you met the 1% rule and the formula for position size. Now we turn it into a
+common language for all your trades. Instead of "I made 15 euros" you will say "I made 2R" – and it
+will be clear right away whether it was a good trade.
+
+## Position size: a reminder
+
+**Position size = the amount you want to risk ÷ the distance to the stop-loss.**
+
+Account of 2,000 euros, 1% risk = **20 euros**. You buy Bitcoin at 60,000 with the stop-loss at
+57,000 – that is 5% below the purchase. Position size = 20 euros ÷ 5% = **400 euros**. If the price
+falls to the stop-loss, you lose roughly 20 euros (a bit more in a fast market).
+
+Notice: position size is not set by how much you "believe in it". It is set by the risk and the
+distance to the stop-loss.
+
+<Illustration name="cakeSlice" />
+
+## R: the unit of risk
+
+The amount you risk in a trade is **1R**. In the example above 1R = 20 euros. You then express every
+result as a multiple of R – this is called an <KeyTerm term="r-multiple">R-multiple</KeyTerm>:
+
+| Trade result                 | In euros | In R  |
+| ---------------------------- | -------- | ----- |
+| Price fell to the stop-loss  | −20 €    | −1R   |
+| Sold at 66,000 (target)      | +40 €    | +2R   |
+| Sold early, at 61,500        | +10 €    | +0.5R |
+| Stop-loss skipped in a crash | −26 €    | −1.3R |
+
+Why is this useful? R works the same with an account of 1,000 or 100,000 euros and shows right away
+whether the plan is being followed. A −1R loss is fine – it is the price of the trade. A −3R loss
+means something failed: there was no stop-loss, or you did not stick to it.
+
+## Why small risk
+
+Ten losing trades in a row sounds extreme. In reality it happens more often than you would think (more
+in the next lesson). How much of the account is left after them?
+
+| Risk per trade | After 10 losses in a row |
+| -------------- | ------------------------ |
+| 1%             | −9.6%                    |
+| 2%             | −18.3%                   |
+| 5%             | −40.1%                   |
+| 10%            | −65.1%                   |
+
+And a drop is harder to recover than to suffer. Such a decline is called a <KeyTerm term="drawdown">drawdown</KeyTerm>, and the maths is merciless:
+
+- after a **10%** drop you need **+11%** to get back,
+- after a **25%** drop you need **+33%**,
+- after a **50%** drop you need **+100%**.
+
+<Callout type="warning" title="You choose the risk, not the market">
+  You have no control over the outcome of a single trade. You do control how
+  much you risk in it. Small risk per trade is the only thing that reliably
+  keeps you in the game long enough to learn something.
+</Callout>
+
+## Common myths
+
+- **"I believe in this trade, I will put in more."** There is no certainty in trading. Risk sets the
+  size.
+- **"I will move the stop-loss further away so I do not get thrown out."** Then you have to shrink the
+  position, otherwise you risk more than 1R.
+- **"A 50% loss can be made back with a few good trades."** You need to double what is left.
+
+<Callout title="Summary">
+
+- Position size = the amount at risk ÷ the distance to the stop-loss.
+- 1R is the amount you risk in a trade; measure results in R-multiples.
+- A −1R loss is the plan; a loss worse than −1R is a mistake or a fast market.
+- A drawdown is harder to recover than to suffer – hence small risk per trade.
+
+</Callout>

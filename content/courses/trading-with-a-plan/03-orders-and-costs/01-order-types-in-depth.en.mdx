@@ -1,0 +1,82 @@
+export const metadata = {
+  title: "Order types in depth",
+  description:
+    "Stop-market, stop-limit, OCO and the trailing stop: how they work, when to use which and where they can catch you out.",
+};
+
+<Callout title="In this lesson">
+
+- recap the market and limit order
+- understand the difference between a stop-market and a stop-limit order
+- learn the OCO and the trailing stop – and their weak spots
+
+</Callout>
+
+From the first course you know the <KeyTerm term="market-order">market order</KeyTerm> (right away,
+at the best available price) and the <KeyTerm term="limit-order">limit order</KeyTerm> (only at your
+price or better). With them you buy and sell. Protecting a trade and planning an exit, however, need
+other order types.
+
+<Illustration name="orderRemote" />
+
+## Stop orders: asleep until the price arrives
+
+A stop order waits for a **trigger price**. Until the price reaches it, nothing happens. Then it wakes
+up – and what it does next depends on the type:
+
+| Order       | Once the trigger price is reached…        | Advantage                | Risk                                                       |
+| ----------- | ----------------------------------------- | ------------------------ | ---------------------------------------------------------- |
+| Stop-market | sends a market order                      | almost sure to fill      | in a fast market at a worse price (slippage)               |
+| Stop-limit  | sends a limit order with your limit price | you know the worst price | if the price jumps past the limit, it does not fill at all |
+
+A typical <KeyTerm term="stop-loss">stop-loss</KeyTerm> is a stop-market order. Imagine you have a
+stop-loss at 62,000 and the market crashes like on 5 March 2024 – 14.5% in four hours. The stop-market
+fills, say at 61,700. A <KeyTerm term="stop-limit">stop-limit</KeyTerm> with a limit of 61,900 may not
+fill at all in such a drop – and you stay in the trade you wanted to close.
+
+**For protecting against losses, a stop-market is usually better.** A worse price is a smaller evil
+than no exit.
+
+## OCO: one cancels the other
+
+An <KeyTerm term="oco">OCO</KeyTerm> (_one cancels the other_) links two orders: when one fills, the
+other is cancelled automatically. Typically a take-profit above the price and a stop-loss below it.
+You do not have to watch which comes first – and you will not end up with a forgotten stop-loss left
+hanging after the profit target filled, which later "throws you out" of a new position.
+
+## Trailing stop: a stop-loss that moves with the price
+
+A <KeyTerm term="trailing-stop">trailing stop</KeyTerm> has no fixed price but a distance – for example
+5% below the highest price since the trade was opened. When the price rises, the stop moves up with
+it. When it falls, the stop stays where it is.
+
+Example: you buy at 60,000 with a 5% trailing stop. The stop is at 57,000. The price rises to 70,000 –
+the stop moves to 66,500. Then the price falls to 66,500 and the order takes you out with a profit.
+
+The weak spot: in crypto, swings of 5% are common even in the middle of a strong trend. A trailing
+stop that is too tight will throw you out at the first bigger wave.
+
+<Callout type="warning" title="Every exchange does it a little differently">
+  The names, the available order types and what exactly happens when they
+  trigger differ between exchanges. Before you use a new order type with real
+  money, read the exchange's help pages and try it with a small amount or on a
+  demo account.
+</Callout>
+
+## Common myths
+
+- **"A stop-limit is better because I know the price."** You know the price – if it fills. In a crash
+  it may not.
+- **"A stop-loss guarantees an exact loss."** In a fast market the loss can be bigger.
+- **"A 2% trailing stop is safe."** In crypto it will throw you out before you can blink.
+
+<Callout title="Summary">
+
+- Stop orders wait for a trigger price; a stop-market then sells at market, a stop-limit only up to its
+  limit.
+- For protecting against losses a stop-market is usually better – a worse price is a smaller evil than
+  no exit.
+- An OCO links a profit target and a stop-loss: one fills, the other disappears.
+- A trailing stop moves with the price; in crypto it needs plenty of room.
+
+</Callout>

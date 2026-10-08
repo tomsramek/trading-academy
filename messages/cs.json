@@ -156,9 +156,13 @@
         "takeProfit": "Take-profit",
         "buy": "Nákup",
         "sell": "Prodej",
-        "event": "Událost"
+        "event": "Událost",
+        "high": "Maximum",
+        "low": "Minimum"
       },
-      "zone": "Zvýrazněné období"
+      "zone": "Zvýrazněné období",
+      "volume": "Objem (panel pod grafem)",
+      "rsi": "RSI 14 (panel pod grafem, čáry 30 a 70)"
     },
     "pattern": {
       "doji": {
@@ -379,6 +383,122 @@
         "label": "Kreslený obrázek: absolvent s čepicí a diplomem pod padajícími konfetami.",
         "bubble": "Hotovo! A co dál?",
         "caption": "Konec kurzu – a začátek pečlivého a trpělivého učení."
+      },
+      "stairsDown": {
+        "label": "Nakupující s taškou SLEVA vesele schází po schodech, kde je každý schod níž než předchozí",
+        "tag": "SLEVA",
+        "bubble": "Konečně sleva!",
+        "caption": "Každý schod níž je nižší maximum i minimum. Sleva to není, dokud se schody neotočí."
+      },
+      "ceilingFloor": {
+        "label": "Míček skáče po stropu mezi dvěma patry, překvapený člověk v přízemí se dívá nahoru",
+        "slab": "REZISTENCE → PODPORA",
+        "ball": "Teď je to moje podlaha.",
+        "bubble": "Vždyť to byl můj strop!",
+        "caption": "Výměna rolí: co cenu zastavovalo zdola, ji teď může držet shora."
+      },
+      "zoomLenses": {
+        "label": "Dvě tabule: hladká rostoucí čára s nápisem týden a nervózní cikcak s nápisem hodina pod lupou, vedle ustaraný člověk",
+        "week": "Týden",
+        "hour": "Hodina",
+        "bubble": "Z dálky klid, zblízka panika.",
+        "caption": "Stejný trh na dvou časových rámcích. Než vezmeš lupu, podívej se na celek."
+      },
+      "dogWalk": {
+        "label": "Pes s nápisem cena kličkuje na vodítku, jeho pán s nápisem průměr jde klidně dál",
+        "price": "CENA",
+        "average": "PRŮMĚR",
+        "bubble": "Klid, dojdeme tam spolu.",
+        "caption": "Cena běhá sem a tam, klouzavý průměr jde klidně za ní – nikdy nepředbíhá."
+      },
+      "speedometer": {
+        "label": "Tachometr s ručičkou hluboko v červeném pásmu nad 70, ukazuje RSI 85",
+        "value": "RSI 85",
+        "bubble": "Překoupeno! …a zrychluju dál.",
+        "caption": "Vysoké RSI říká, že pohyb je rychlý. Neříká, že přijdou brzdy."
+      },
+      "crowdRoar": {
+        "label": "Plná tribuna fanoušků fandí společně s nápisem velký objem, osamělý fanoušek s nápisem malý objem",
+        "big": "VELKÝ OBJEM",
+        "small": "MALÝ OBJEM",
+        "crowd": "GÓÓÓL!",
+        "lonely": "Gól…?",
+        "caption": "Pohyb, ke kterému se přidá spousta lidí, má větší váhu než jeden osamělý výkřik."
+      },
+      "crystalBall": {
+        "label": "Věštkyně ve špičatém klobouku hledí do blikající křišťálové koule s čarami grafu",
+        "sign": "VĚŠTÍRNA INDIKÁTORŮ",
+        "bubble": "Vidím zlatý kříž!",
+        "caption": "Indikátory se počítají z minulosti. Křišťálová koule ukazuje jen to, co už se stalo."
+      },
+      "orderRemote": {
+        "label": "Vysoký ovladač s tlačítky tržní, limit, stop a OCO, jedno se právě mačká, vedle ustaraný člověk",
+        "market": "TRŽNÍ",
+        "limit": "LIMIT",
+        "stop": "STOP",
+        "oco": "OCO",
+        "bubble": "Který čudlík to byl?",
+        "caption": "Než zmáčkneš tlačítko se skutečnými penězi, zjisti si, co dělá."
+      },
+      "feeTermites": {
+        "label": "Tři malí brouci s nápisy poplatek, spread a skluz okusují peněženku plnou mincí",
+        "fee": "poplatek",
+        "spread": "spread",
+        "slippage": "skluz",
+        "bubble": "Kam mi mizí peníze?",
+        "caption": "Náklady jsou malí brouci. Jednoho si nevšimneš – stovka ukousne pořádný kus peněženky."
+      },
+      "jengaLeverage": {
+        "label": "Vratká věž z kostek s nápisem 100× nahoře a člověk s další kostkou v ruce",
+        "tag": "100×",
+        "bubble": "Ještě jednu kostku!",
+        "caption": "Každý další násobek páky je další kostka na věži, která se už kymácí."
+      },
+      "cakeSlice": {
+        "label": "Celý dort rozkrájený na mnoho dílků s nápisem účet a jeden malý dílek na vlastním talířku s nápisem 1R",
+        "tag": "1R",
+        "account": "TVŮJ ÚČET",
+        "bubble": "Riskuju jen jeden dílek.",
+        "caption": "Účet je dort, jeden obchod jeden malý dílek. Přijít o dílek je v pořádku – o celý dort ne."
+      },
+      "coinFlip": {
+        "label": "Roztočená mince mezi dvěma cedulkami: výhra plus 2R ve 40 procentech a prohra minus 1R v 60 procentech",
+        "win": "+2R",
+        "winOdds": "40 % hodů",
+        "loss": "−1R",
+        "lossOdds": "60 % hodů",
+        "bubble": "Počítám průměr, ne jeden hod.",
+        "caption": "Prohráváš častěji, než vyhráváš – a v průměru to přesto může vyjít kladně. Nebo taky ne: záleží jen na číslech."
+      },
+      "pilotChecklist": {
+        "label": "Pilot v čepici odškrtává kontrolní seznam na desce, vedle něj obchodník, který má plán v hlavě",
+        "bubble": "Plán mám v hlavě!",
+        "caption": "Piloti mají kontrolní seznam i po deseti tisících hodin letu. Obchodníci si po deseti obchodech myslí, že ho nepotřebují."
+      },
+      "detectiveDiary": {
+        "label": "Detektiv v klobouku zkoumá lupou otevřený deník obchodů",
+        "entry": "−1,8R ?!",
+        "bubble": "Proč jsem to v úterý koupil?",
+        "caption": "Deník si pamatuje to, co bys raději zapomněl – a právě proto je užitečný."
+      },
+      "fomoTrain": {
+        "label": "Zpocený obchodník běží s napřaženou rukou za zeleným vlakem s nápisem na Měsíc, který už odjíždí ze stanice",
+        "board": "Odjel před 5 min",
+        "train": "NA MĚSÍC",
+        "bubble": "Počkejte na mě!",
+        "caption": "FOMO tě nutí běžet za vlakem, který už odjel. Další jede vždycky – a jeho stanice se jmenuje plán."
+      },
+      "happyNews": {
+        "label": "Usměvavý člověk čte noviny s titulkem Bitcoin na milion, zatímco noviny s titulkem Bitcoin padá letí do koše",
+        "headline": "BTC NA 1 MILION!",
+        "bad": "BTC padá",
+        "bubble": "Vidíš? Mám pravdu.",
+        "caption": "Potvrzovací zkreslení: dobré zprávy čteme dvakrát, špatné letí rovnou do koše."
+      },
+      "hammockRest": {
+        "label": "Obchodník odpočívá v houpací síti mezi dvěma stromy, zavřený notebook leží v trávě",
+        "bubble": "Dnes netraduju.",
+        "caption": "Žádná pozice je taky pozice. Nejlepší obchod týdne se někdy odehraje v houpací síti."
       }
     }
   },

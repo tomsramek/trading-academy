@@ -1,0 +1,33 @@
+{
+  "title": {
+    "en": "Trading with a plan",
+    "cs": "Obchodování podle plánu"
+  },
+  "description": {
+    "en": "Market structure, support and resistance, indicators and volume, order types and costs, position sizing, a trading plan and the psychology behind it.",
+    "cs": "Struktura trhu, podpora a rezistence, indikátory a objem, typy příkazů a náklady, velikost pozice, obchodní plán a psychologie, která za tím stojí."
+  },
+  "audience": {
+    "en": "People who know the basics of crypto – exchanges, wallets, a candlestick chart – and want to trade with a plan instead of a gut feeling.",
+    "cs": "Lidé, kteří znají základy kryptoměn – burzy, peněženky, svíčkový graf – a chtějí obchodovat podle plánu, ne podle pocitu."
+  },
+  "outcomes": {
+    "en": [
+      "Read market structure and work with support and resistance zones",
+      "Use moving averages, RSI and volume – and know their limits",
+      "Choose the right order type and count the real cost of a trade",
+      "Size a position, write a trading plan and keep a journal"
+    ],
+    "cs": [
+      "Číst strukturu trhu a pracovat se zónami podpory a rezistence",
+      "Používat klouzavé průměry, RSI a objem – a znát jejich limity",
+      "Vybrat správný typ příkazu a spočítat skutečnou cenu obchodu",
+      "Určit velikost pozice, sepsat obchodní plán a vést deník"
+    ]
+  },
+  "level": "intermediate",
+  "order": 1,
+  "slug": {
+    "cs": "obchodovani-podle-planu"
+  }
+}

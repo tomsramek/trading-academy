@@ -1,0 +1,96 @@
+import weekly from "@content/market-data/btcusdt-1w-2018-2025.json";
+import daily from "@content/market-data/btcusdt-1d-2024-h1.json";
+import hourly from "@content/market-data/btcusdt-1h-2024-03-w2.json";
+
+export const metadata = {
+  title: "Více časových rámců",
+  slug: "vice-casovych-ramcu",
+  description:
+    "Jak spojit týdenní, denní a hodinový graf do jednoho obrazu, aby ses nenechal vyděsit šumem ani zaslepit detailem.",
+};
+
+<Callout title="V této lekci">
+
+- uvidíš stejný trh na třech časových rámcích
+- naučíš se postup shora dolů: směr, struktura, načasování
+- zjistíš, proč krátký rámec nikdy nepřebije ten delší
+
+</Callout>
+
+Stejný týden na Bitcoinu může vypadat jako klidná procházka i jako horská dráha – záleží jen na tom,
+jaký <KeyTerm term="timeframe">časový rámec</KeyTerm> si otevřeš. Zkušení obchodníci se proto
+nedívají na jeden graf. Dívají se na několik a skládají z nich jeden obraz.
+
+## Tři pohledy na jeden trh
+
+**Týdenní graf** ukazuje velký obraz. V březnu 2024 byl Bitcoin v silném růstu: od minima z listopadu
+2022 vystoupal ze zhruba 15 500 na víc než 70 000.
+
+<CandleChart
+  data={weekly}
+  label="Týdenní graf Bitcoinu 2018–2025: propad v roce 2022 a silný růst od roku 2023 přes 70 000 v březnu 2024"
+  caption="Týden: velký obraz. V březnu 2024 jasný rostoucí trend."
+  zones={[{ from: "2024-03-04", to: "2024-03-11", label: "Březen 2024" }]}
+/>
+
+**Denní graf** ukazuje strukturu. Vyšší maxima a minima od konce ledna až do poloviny března.
+
+<CandleChart
+  data={daily}
+  label="Denní graf Bitcoinu leden až červen 2024: rostoucí struktura do 14. března, svíčka 5. března s dlouhým spodním knotem"
+  caption="Den: struktura. 5. března jedna svíčka s dlouhým knotem – jinak růst pokračuje."
+  zones={[{ from: "2024-03-05", to: "2024-03-05", label: "5. 3." }]}
+/>
+
+**Hodinový graf** ukazuje detail. A tady se 5. března stalo tohle: ve 15:00 UTC cena vyskočila na
+69 000, o čtyři hodiny později byla na 59 005. Pád o 14,5 % za odpoledne. Na hodinovém grafu to
+vypadá jako konec světa. Na denním je to jeden knot – a do konce týdne byla cena zase u 69 000.
+
+<CandleChart
+  data={hourly}
+  label="Hodinový graf Bitcoinu 4. až 10. března 2024: 5. března pád z 69 000 na 59 005 během čtyř hodin, do konce týdne návrat k 69 000"
+  caption="Hodina: detail. Odpolední pád o 14,5 % – a během pár dní zpátky."
+  zones={[{ from: "2024-03-05", to: "2024-03-06", label: "5. března" }]}
+/>
+
+<Illustration name="zoomLenses" />
+
+## Postup shora dolů
+
+Obchodníci, kteří používají víc rámců, obvykle postupují od delšího ke kratšímu:
+
+1. **Delší rámec určí směr.** Na týdenním grafu zjistíš, jestli je trh v růstu, poklesu, nebo pásmu.
+2. **Střední rámec ukáže strukturu a zóny.** Na denním grafu najdeš maxima, minima, podpory
+   a rezistence.
+3. **Kratší rámec pomůže s načasováním.** Na hodinovém nebo čtyřhodinovém grafu hledáš, kde přesně
+   vstoupit a kam dát stop-loss.
+
+Častá pomůcka: mezi rámci držet poměr zhruba 1 : 4 až 1 : 7 – třeba týden, den a čtyři hodiny.
+
+## Když si rámce odporují
+
+Na hodinovém grafu klesající struktura, na denním rostoucí. Co platí? **Delší rámec má větší váhu.**
+Pokles na hodinovém grafu je v takové situaci často jen oddech v rostoucím trendu. Obchod proti
+delšímu rámci je obchod proti proudu – může vyjít, ale potřebuje přísnější řízení rizika.
+
+<Callout type="warning" title="Víc grafů = víc šumu, pokud nemáš postup">
+  Kdo přepíná mezi minutovým, pětiminutovým a hodinovým grafem bez plánu, najde
+  vždycky „důvod“ pro cokoli, co právě chce udělat. Rámce si vyber předem a drž
+  se jich.
+</Callout>
+
+## Časté omyly
+
+- **„Na minutovém grafu to padá, prodávám!“** Podívej se nejdřív, co dělá denní graf.
+- **„Čím kratší rámec, tím přesnější vstup, tím víc zisku.“** Kratší rámec znamená víc šumu, víc
+  obchodů a víc poplatků.
+- **„Každý rámec mi musí dát stejný signál.“** Nemusí. Delší rámec určuje směr, kratší jen načasování.
+
+<Callout title="Shrnutí">
+
+- Stejný trh vypadá na každém časovém rámci jinak.
+- Postupuj shora dolů: delší rámec směr, střední strukturu a zóny, kratší načasování.
+- Když si rámce odporují, delší má větší váhu.
+- Rámce si vyber předem – jinak najdeš důvod pro cokoli.
+
+</Callout>

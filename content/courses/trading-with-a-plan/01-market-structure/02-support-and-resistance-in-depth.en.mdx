@@ -1,0 +1,102 @@
+import btc from "@content/market-data/btcusdt-1d-2024-03-2025-05.json";
+
+export const metadata = {
+  title: "Support and resistance in depth",
+  description:
+    "Why support and resistance are zones rather than lines, what a breakout and a retest look like and why resistance turns into support.",
+};
+
+<Callout title="In this lesson">
+
+- understand why support and resistance work
+- learn to draw zones instead of exact lines
+- recognise a breakout, a retest and a role reversal – and false breakouts
+
+</Callout>
+
+From the first course you know that <KeyTerm term="support">support</KeyTerm> is a level where a fall
+stopped in the past, and <KeyTerm term="resistance">resistance</KeyTerm> a level where a rise stopped.
+Now we look at why that happens and how to work with it without relying on one magic number.
+
+## Why it works
+
+Behind every level there is **human memory and waiting orders**. Someone who bought at the top and
+then watched a loss is happy to sell once the price comes back "at least to break even". Someone who
+missed the purchase at the low waits for a second chance. Round numbers (70,000, 100,000) also
+attract lots of limit orders.
+
+None of this is a law of nature. It is just many people looking at the same chart and acting alike.
+
+## A zone, not a line
+
+The price rarely returns to a level to the exact dollar. That is why you draw a **zone** – a band
+between several similar highs or lows.
+
+Look at Bitcoin in 2024. Between March and July the rise stopped five times in a band between roughly 70,000 and 73,800: at
+73,777, 72,798, 71,979, 71,997 and 70,080. Anyone waiting for exactly 73,777 would not understand why
+the price turned thousands of dollars lower.
+
+<Illustration name="ceilingFloor" />
+
+## Breakout and retest
+
+A breakout happens when the price **closes** beyond the zone – not when a candle's wick crosses it for
+a moment. On 6 November 2024 the daily candle closed at 75,572, above the whole zone, and on high
+volume (more on volume in module 2).
+
+After a breakout the price often comes back to "test" the zone. This is called a retest. And here
+comes the interesting part: a <KeyTerm term="role-reversal">role reversal</KeyTerm>. Former resistance
+can become support. In April 2025 Bitcoin fell from more than 100,000 to 74,508 – and stopped just
+above the zone where sellers had stopped it five times a year earlier.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from March 2024 to May 2025: a resistance zone between 70,000 and 73,800 with five touches, a breakout on 6 November 2024 and a retest of the zone on 7 April 2025 with a low of 74,508"
+  caption="Five touches of the resistance zone, a breakout in November 2024 and in April 2025 the fall stopping just above the same zone."
+  levels={[
+    { price: 73800, kind: "resistance", label: "Zone" },
+    { price: 70000, kind: "resistance", label: "Zone" },
+  ]}
+  markers={[
+    { time: "2024-03-14", kind: "high", label: "1" },
+    { time: "2024-04-08", kind: "high", label: "2" },
+    { time: "2024-05-21", kind: "high", label: "3" },
+    { time: "2024-06-07", kind: "high", label: "4" },
+    { time: "2024-07-29", kind: "high", label: "5" },
+    { time: "2024-11-06", kind: "event", label: "Breakout" },
+    { time: "2025-04-07", kind: "low", label: "Retest" },
+  ]}
+/>
+
+## False breakouts
+
+Not every breakout holds. In August 2024 the price fell within a single day to 49,000 – far below the support around 56,500 that had already cracked in July. Anyone who sold "because support broke" sold almost at the bottom: three
+days later Bitcoin was back above 61,000.
+
+How do you protect yourself from false breakouts? There is no certainty, but it helps to:
+
+- wait for a **candle close** beyond the zone, not the first wick,
+- watch whether the breakout comes with **higher volume**,
+- use a stop-loss that allows for the market coming back.
+
+<Callout type="warning" title="A level is not a wall">
+  Support and resistance show where people made decisions in the past. Every
+  level breaks sooner or later – and the more often the price tests it, the more
+  of the waiting orders have already been used up.
+</Callout>
+
+## Common myths
+
+- **"Support is at 56,500, full stop."** It is a zone, and even a zone can break.
+- **"A wick above resistance = a breakout."** The candle close decides, not a brief excursion.
+- **"The more touches, the stronger the level."** Often the opposite – each touch uses up some of the
+  waiting orders.
+
+<Callout title="Summary">
+
+- Support and resistance work because people make decisions based on the same past prices.
+- Draw zones from several similar highs or lows, not one exact line.
+- Breakout = a candle close beyond the zone; a retest and a role reversal often follow.
+- False breakouts are common – allow for them in your stop-loss.
+
+</Callout>

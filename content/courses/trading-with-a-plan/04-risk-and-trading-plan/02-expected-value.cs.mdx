@@ -1,0 +1,83 @@
+export const metadata = {
+  title: "Očekávaná hodnota",
+  slug: "ocekavana-hodnota",
+  description:
+    "Proč úspěšnost obchodů sama nic neznamená, jak spočítat očekávanou hodnotu a proč potřebuješ stovky obchodů, než něco víš.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, proč vysoká úspěšnost neznamená zisk
+- spočítáš očekávanou hodnotu strategie v R
+- zjistíš, jak dlouhé série ztrát jsou normální
+
+</Callout>
+
+„Moje strategie má úspěšnost 70 %!“ Zní to skvěle. Jenže bez druhého čísla to neznamená vůbec nic.
+Tahle lekce je o tom, jak poznat, jestli má nějaký způsob obchodování vůbec šanci fungovat.
+
+## Dvě čísla, ne jedno
+
+Každou strategii popisují dvě čísla:
+
+- **úspěšnost** (_win rate_) – kolik procent obchodů skončí ziskem,
+- **průměrný zisk a průměrná ztráta** – v R-násobcích z minulé lekce.
+
+Teprve dohromady dávají <KeyTerm term="expected-value">očekávanou hodnotu</KeyTerm> – kolik R
+průměrně vyděláš nebo proděláš na jednom obchodě:
+
+**Očekávaná hodnota = úspěšnost × průměrný zisk − neúspěšnost × průměrná ztráta**
+
+<Illustration name="coinFlip" />
+
+## Dva příklady
+
+**Strategie A:** úspěšnost 40 %, zisky +2R, ztráty −1R.
+0,4 × 2 − 0,6 × 1 = **+0,2R** na obchod. Většina obchodů skončí ztrátou, a přesto je strategie
+v průměru kladná.
+
+**Strategie B:** úspěšnost 70 %, zisky +0,4R, ztráty −1R.
+0,7 × 0,4 − 0,3 × 1 = **−0,02R** na obchod. Sedm obchodů z deseti vyjde – a stejně dlouhodobě
+proděláváš.
+
+A to je ještě bez nákladů. Když poplatky a skluz stojí třeba 0,1R na obchod, strategie A vydělává
++0,1R a strategie B skončí na −0,12R.
+
+<Callout type="warning" title="Kladná očekávaná hodnota je vzácná">
+  Čísla výše jsou příklad výpočtu, ne slib. Většina lidí, kteří tradují, po
+  započtení nákladů kladnou očekávanou hodnotu nemá – proto většina prodělává.
+  Zjistit, jestli ji máš ty, trvá dlouho a stojí peníze.
+</Callout>
+
+## Série ztrát jsou normální
+
+I strategie s kladnou očekávanou hodnotou má dlouhé série ztrát. Při úspěšnosti 40 % během 100
+obchodů:
+
+- **5 ztrát za sebou** se objeví téměř jistě (v simulaci v 98 % případů),
+- **8 ztrát za sebou** zhruba v každém druhém případě,
+- **10 ztrát za sebou** zhruba v každém pátém.
+
+Proto riskuješ 1 % a ne 10 %. A proto série pěti ztrát sama o sobě neznamená, že strategie
+nefunguje.
+
+## Kolik obchodů potřebuješ
+
+Po deseti obchodech nevíš nic – rozhodla náhoda. Po padesáti máš první tušení. Spolehlivější obraz dá
+**sto a víc obchodů** podle stejných pravidel. Kdo mění strategii po každých třech ztrátách, nikdy
+nezjistí, jestli nějaká fungovala.
+
+## Časté omyly
+
+- **„Vyhrávám 7 z 10, jsem dobrý.“** Záleží na tom, kolik vyhraješ a kolik proděláš.
+- **„Pět ztrát v řadě – strategie je rozbitá.“** S úspěšností 40 % je to běžné.
+- **„Za měsíc jsem v plusu, funguje to.“** Měsíc je na důkaz příliš krátký – mohlo jít o štěstí.
+
+<Callout title="Shrnutí">
+
+- Úspěšnost bez velikosti zisků a ztrát nic neříká.
+- Očekávaná hodnota = úspěšnost × průměrný zisk − neúspěšnost × průměrná ztráta (v R).
+- Náklady snižují očekávanou hodnotu každého obchodu.
+- Dlouhé série ztrát jsou normální; o strategii něco víš až po stovce obchodů.
+
+</Callout>

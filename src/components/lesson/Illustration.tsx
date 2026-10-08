@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 import { AnimateOnView } from "./AnimateOnView";
+import { TRADING_PLAN_ILLUSTRATIONS } from "./illustrations/tradingPlanIllustrations";
 
 /*
  * Fun illustrations for lessons, drawn in code: <Illustration name="midnightEdit" />
@@ -2404,6 +2405,7 @@ const ILLUSTRATIONS = {
   candleSurfer: CandleSurfer,
   parachuteStop: ParachuteStop,
   graduation: Graduation,
+  ...TRADING_PLAN_ILLUSTRATIONS,
 } as const;
 
 type IllustrationName = keyof typeof ILLUSTRATIONS;
@@ -2428,6 +2430,8 @@ const ANIMATED: ReadonlySet<IllustrationName> = new Set([
   "candleSurfer",
   "parachuteStop",
   "graduation",
+  // Every illustration of the second course is animated.
+  ...(Object.keys(TRADING_PLAN_ILLUSTRATIONS) as IllustrationName[]),
 ]);
 
 function isIllustrationName(name: string): name is IllustrationName {

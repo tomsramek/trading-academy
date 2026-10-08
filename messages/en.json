@@ -156,9 +156,13 @@
         "takeProfit": "Take-profit",
         "buy": "Buy",
         "sell": "Sell",
-        "event": "Event"
+        "event": "Event",
+        "high": "High",
+        "low": "Low"
       },
-      "zone": "Highlighted period"
+      "zone": "Highlighted period",
+      "volume": "Volume (panel below the chart)",
+      "rsi": "RSI 14 (panel below the chart, lines at 30 and 70)"
     },
     "pattern": {
       "doji": {
@@ -379,6 +383,122 @@
         "label": "Cartoon: a graduate with a cap and a diploma under falling confetti.",
         "bubble": "Done! What's next?",
         "caption": "The end of the course – and the start of careful, patient learning."
+      },
+      "stairsDown": {
+        "label": "A shopper with a SALE bag walks happily down a staircase whose every step is lower than the last",
+        "tag": "SALE",
+        "bubble": "Finally a bargain!",
+        "caption": "Every step down is a lower high and a lower low. It is not a sale until the stairs turn around."
+      },
+      "ceilingFloor": {
+        "label": "A ball bounces on the slab between two floors while a surprised person downstairs looks up",
+        "slab": "RESISTANCE → SUPPORT",
+        "ball": "This is my floor now.",
+        "bubble": "That was my ceiling!",
+        "caption": "Role reversal: what stopped the price from below can hold it up from above."
+      },
+      "zoomLenses": {
+        "label": "Two boards: a smooth rising line labelled week and a nervous zigzag labelled hour under a magnifying glass, and a worried person",
+        "week": "Week",
+        "hour": "Hour",
+        "bubble": "From afar calm, up close panic.",
+        "caption": "The same market on two timeframes. Look at the big picture before the magnifying glass."
+      },
+      "dogWalk": {
+        "label": "A dog labelled price zigzags on a leash while its owner labelled average walks calmly",
+        "price": "PRICE",
+        "average": "AVERAGE",
+        "bubble": "Easy, we will get there together.",
+        "caption": "The price runs back and forth, the moving average walks calmly behind it – it never runs ahead."
+      },
+      "speedometer": {
+        "label": "A speedometer with the needle deep in the red zone above 70, showing RSI 85",
+        "value": "RSI 85",
+        "bubble": "Overbought! …still speeding up.",
+        "caption": "A high RSI says the move is fast. It does not say the brakes are coming."
+      },
+      "crowdRoar": {
+        "label": "A packed stand of fans cheering together labelled big volume and one lonely fan labelled small volume",
+        "big": "BIG VOLUME",
+        "small": "SMALL VOLUME",
+        "crowd": "GOAL!",
+        "lonely": "Goal…?",
+        "caption": "A move many people join counts for more than one lonely shout."
+      },
+      "crystalBall": {
+        "label": "A fortune teller in a pointed hat looks into a flickering crystal ball with chart lines",
+        "sign": "INDICATOR FORTUNES",
+        "bubble": "I see a golden cross!",
+        "caption": "Indicators are calculated from the past. The crystal ball only shows what has already happened."
+      },
+      "orderRemote": {
+        "label": "A tall remote control with buttons market, limit, stop and OCO, one of them being pressed, and a worried person",
+        "market": "MARKET",
+        "limit": "LIMIT",
+        "stop": "STOP",
+        "oco": "OCO",
+        "bubble": "Which button was it?",
+        "caption": "Know what each button does before you press it with real money."
+      },
+      "feeTermites": {
+        "label": "Three little bugs labelled fee, spread and slippage nibble at a wallet full of coins",
+        "fee": "fee",
+        "spread": "spread",
+        "slippage": "slippage",
+        "bubble": "Where is my money going?",
+        "caption": "Costs are small bugs. You will not notice one – a hundred take a big bite out of the wallet."
+      },
+      "jengaLeverage": {
+        "label": "A wobbly tower of blocks with 100× on top and a person holding one more block",
+        "tag": "100×",
+        "bubble": "Just one more block!",
+        "caption": "Every extra multiple of leverage is another block on a tower that is already swaying."
+      },
+      "cakeSlice": {
+        "label": "A whole cake cut into many slices labelled account, and one small slice on its own plate labelled 1R",
+        "tag": "1R",
+        "account": "YOUR ACCOUNT",
+        "bubble": "I only risk one slice.",
+        "caption": "The account is the cake, one trade is one small slice. Losing a slice is fine – losing the cake is not."
+      },
+      "coinFlip": {
+        "label": "A spinning coin between two signs: win plus 2R with 40 percent and loss minus 1R with 60 percent",
+        "win": "+2R",
+        "winOdds": "40% of flips",
+        "loss": "−1R",
+        "lossOdds": "60% of flips",
+        "bubble": "I count the average, not one flip.",
+        "caption": "You lose more often than you win – and on average it can still come out positive. Or not: it all depends on the numbers."
+      },
+      "pilotChecklist": {
+        "label": "A pilot in a cap ticks a checklist on a clipboard, next to him a trader who keeps the plan in his head",
+        "bubble": "I have the plan in my head!",
+        "caption": "Pilots use a checklist after ten thousand hours of flying. Traders after ten trades think they do not need one."
+      },
+      "detectiveDiary": {
+        "label": "A detective in a hat examines an open trading journal with a magnifying glass",
+        "entry": "−1.8R ?!",
+        "bubble": "Why did I buy that on Tuesday?",
+        "caption": "The journal remembers what you would rather forget – and that is exactly why it is useful."
+      },
+      "fomoTrain": {
+        "label": "A sweaty trader runs with an outstretched arm after a green train labelled to the moon that is already leaving the station",
+        "board": "Departed 5 min ago",
+        "train": "TO THE MOON",
+        "bubble": "Wait for me!",
+        "caption": "FOMO makes you run after a train that has already left. The next one always comes – the station is called a plan."
+      },
+      "happyNews": {
+        "label": "A smiling person reads a newspaper headline saying Bitcoin to a million, while a paper saying Bitcoin falls lands in a bin",
+        "headline": "BTC TO $1M!",
+        "bad": "BTC falls",
+        "bubble": "See? I am right.",
+        "caption": "Confirmation bias: the good news gets read twice, the bad news goes straight to the bin."
+      },
+      "hammockRest": {
+        "label": "A trader rests in a hammock between two trees, a closed laptop lies on the grass",
+        "bubble": "Not trading today.",
+        "caption": "No position is also a position. Sometimes the best trade of the week happens in a hammock."
       }
     }
   },

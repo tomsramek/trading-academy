@@ -1,0 +1,103 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "An account of 2,000 euros, 1% risk and a stop-loss 5% below the purchase. How big a position do you buy?",
+          "options": ["20 euros", "400 euros", "1,000 euros"],
+          "explanation": "1% risk = 20 euros. Position size = 20 euros ÷ 5% = 400 euros."
+        },
+        "cs": {
+          "question": "Účet 50 000 Kč, riziko 1 % a stop-loss 5 % pod nákupem. Jak velkou pozici koupíš?",
+          "options": ["500 Kč", "10 000 Kč", "25 000 Kč"],
+          "explanation": "Riziko 1 % = 500 Kč. Velikost pozice = 500 Kč ÷ 5 % = 10 000 Kč."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "An account dropped by 50%. How much does it have to gain to get back?",
+          "options": ["50%", "75%", "100%"],
+          "explanation": "1,000 becomes 500, and getting back to 1,000 means doubling what is left – that is +100%. Hence small risk per trade."
+        },
+        "cs": {
+          "question": "Účet spadl o 50 %. Kolik musí vydělat, aby byl zpátky?",
+          "options": ["50 %", "75 %", "100 %"],
+          "explanation": "Z 1 000 zbude 500 a k návratu na 1 000 potřebuješ zdvojnásobit to, co zbylo – tedy +100 %. Proto malé riziko na obchod."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "A strategy has a 70% win rate, an average win of +0.4R and an average loss of −1R. What is the expected value?",
+          "options": [
+            "Negative: −0.02R per trade",
+            "Positive: +0.7R per trade",
+            "It cannot be calculated"
+          ],
+          "explanation": "0.7 × 0.4 − 0.3 × 1 = −0.02R. A high win rate on its own means nothing – the size of wins and losses matters too."
+        },
+        "cs": {
+          "question": "Strategie má úspěšnost 70 %, průměrný zisk +0,4R a průměrnou ztrátu −1R. Jaká je očekávaná hodnota?",
+          "options": [
+            "Záporná: −0,02R na obchod",
+            "Kladná: +0,7R na obchod",
+            "Nedá se spočítat"
+          ],
+          "explanation": "0,7 × 0,4 − 0,3 × 1 = −0,02R. Vysoká úspěšnost sama nic neznamená – záleží i na velikosti zisků a ztrát."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is the most important quality of a trading plan?",
+          "options": [
+            "That it is long and detailed",
+            "That it is written down and so unambiguous that someone else would make the same trades",
+            "That it can be changed during an open trade"
+          ],
+          "explanation": "A plan in your head changes with your mood. A written, unambiguous plan decides for you in advance, with a clear head."
+        },
+        "cs": {
+          "question": "Co je nejdůležitější vlastnost obchodního plánu?",
+          "options": [
+            "Že je dlouhý a podrobný",
+            "Že je sepsaný a tak jednoznačný, aby podle něj někdo jiný udělal stejné obchody",
+            "Že se dá měnit během otevřeného obchodu"
+          ],
+          "explanation": "Plán v hlavě se mění podle nálady. Sepsaný a jednoznačný plán rozhoduje za tebe předem, s klidnou hlavou."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why record the reason for a trade in the journal before entering?",
+          "options": [
+            "For taxes",
+            "To make the journal longer",
+            "In hindsight everything seems obvious – a reason written in advance shows how you really thought"
+          ],
+          "explanation": "Memory distorts and in hindsight we tell ourselves everything was obvious. A reason written in advance shows what you actually knew."
+        },
+        "cs": {
+          "question": "Proč si do deníku zapisovat i důvod obchodu ještě před vstupem?",
+          "options": [
+            "Kvůli daním",
+            "Aby byl deník delší",
+            "Zpětně se zdá jasné všechno – předem zapsaný důvod ukáže, jak jsi doopravdy uvažoval"
+          ],
+          "explanation": "Paměť zkresluje a zpětně si namlouváme, že bylo všechno jasné. Důvod zapsaný předem ukáže, co jsi skutečně věděl."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

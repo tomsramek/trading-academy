@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What does a falling market structure look like?",
+          "options": [
+            "Higher highs and higher lows",
+            "Lower highs and lower lows",
+            "Highs and lows at the same levels"
+          ],
+          "explanation": "In a falling structure every high and low is below the previous one – every attempt to rise ends lower."
+        },
+        "cs": {
+          "question": "Jak vypadá klesající struktura trhu?",
+          "options": [
+            "Vyšší maxima a vyšší minima",
+            "Nižší maxima a nižší minima",
+            "Maxima a minima na stejných úrovních"
+          ],
+          "explanation": "V klesající struktuře je každé maximum i minimum níž než předchozí – každý pokus o růst skončí níž."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "When does a falling structure break?",
+          "options": [
+            "When the price makes a new low",
+            "When the moving averages cross",
+            "When the price breaks the last lower high"
+          ],
+          "explanation": "A break of structure is a break of the last lower high. It is an early warning, not a certainty – which is why it comes with a stop-loss."
+        },
+        "cs": {
+          "question": "Kdy nastává zlom klesající struktury?",
+          "options": [
+            "Když cena udělá nové minimum",
+            "Když se protnou klouzavé průměry",
+            "Když cena prorazí poslední nižší maximum"
+          ],
+          "explanation": "Zlom struktury je proražení posledního nižšího maxima. Je to první varování, ne jistota – i proto k němu patří stop-loss."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why draw support and resistance as a zone rather than an exact line?",
+          "options": [
+            "The price rarely returns to a level to the exact dollar",
+            "Zones look better on a chart",
+            "Lines cannot be entered on an exchange"
+          ],
+          "explanation": "In 2024 Bitcoin's rise stopped five times between 70,080 and 73,777 – not at one price. A zone captures that, an exact line does not."
+        },
+        "cs": {
+          "question": "Proč kreslit podporu a rezistenci jako zónu, ne jako přesnou čáru?",
+          "options": [
+            "Cena se k úrovni málokdy vrátí na dolar přesně",
+            "Zóny vypadají v grafu lépe",
+            "Čáry se na burze nedají zadat"
+          ],
+          "explanation": "V roce 2024 se růst Bitcoinu pětkrát zastavil mezi 70 080 a 73 777 – ne na jedné ceně. Zóna to zachytí, přesná čára ne."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does a role reversal mean?",
+          "options": [
+            "Buyers and sellers swap exchanges",
+            "A broken resistance starts acting as support",
+            "The longer timeframe stops counting"
+          ],
+          "explanation": "After a breakout, former resistance can become support – like the zone around 73,800 that Bitcoin stopped above in April 2025."
+        },
+        "cs": {
+          "question": "Co znamená výměna rolí?",
+          "options": [
+            "Kupující a prodávající si vymění burzu",
+            "Prolomená rezistence začne fungovat jako podpora",
+            "Delší časový rámec přestane platit"
+          ],
+          "explanation": "Po průlomu se bývalá rezistence může stát podporou – jako zóna kolem 73 800, nad kterou se Bitcoin v dubnu 2025 zastavil."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The hourly chart shows a falling structure, the daily a rising one. Which counts?",
+          "options": [
+            "The hourly chart, because it is more precise",
+            "Both equally, so it does not matter what you do",
+            "The longer timeframe carries more weight"
+          ],
+          "explanation": "The longer timeframe sets the direction. In that situation a decline on the hourly chart is often just a breather in an uptrend."
+        },
+        "cs": {
+          "question": "Na hodinovém grafu je klesající struktura, na denním rostoucí. Co platí?",
+          "options": [
+            "Hodinový graf, protože je přesnější",
+            "Oba stejně, takže je jedno, co uděláš",
+            "Delší časový rámec má větší váhu"
+          ],
+          "explanation": "Delší rámec určuje směr. Pokles na hodinovém grafu bývá v takové situaci jen oddech v rostoucím trendu."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

@@ -38,6 +38,19 @@
     },
     "related": ["hash", "node", "decentralization"]
   },
+  "break-of-structure": {
+    "text": {
+      "en": {
+        "term": "Break of structure",
+        "definition": "The moment the price breaks the last lower high in a downtrend (or the last higher low in an uptrend). An early warning that the trend may be ending, not a certainty."
+      },
+      "cs": {
+        "term": "Zlom struktury",
+        "definition": "Okamžik, kdy cena prorazí poslední nižší maximum v klesajícím trendu (nebo poslední vyšší minimum v rostoucím). První varování, že trend možná končí – ne jistota."
+      }
+    },
+    "related": ["market-structure", "trend"]
+  },
   "candlestick": {
     "text": {
       "en": {
@@ -76,6 +89,19 @@
       }
     },
     "related": ["blockchain", "mempool"]
+  },
+  "confirmation-bias": {
+    "text": {
+      "en": {
+        "term": "Confirmation bias",
+        "definition": "Looking for information that proves us right and overlooking the rest. Countermeasure: write down reasons why a trade might not work."
+      },
+      "cs": {
+        "term": "Potvrzovací zkreslení",
+        "definition": "Hledání informací, které nám dávají za pravdu, a přehlížení ostatních. Protiopatření: napsat si důvody, proč by obchod nemusel vyjít."
+      }
+    },
+    "related": ["loss-aversion", "trading-journal"]
   },
   "cryptocurrency": {
     "text": {
@@ -154,6 +180,19 @@
     },
     "related": ["blockchain", "confirmation"]
   },
+  "drawdown": {
+    "text": {
+      "en": {
+        "term": "Drawdown",
+        "definition": "A drop of the account from its previous peak. A drawdown is harder to recover than to suffer: after −50% you need +100%."
+      },
+      "cs": {
+        "term": "Drawdown",
+        "definition": "Pokles účtu od předchozího maxima. Propad se dohání hůř, než vzniká: po −50 % potřebuješ +100 %."
+      }
+    },
+    "related": ["r-multiple"]
+  },
   "exchange": {
     "text": {
       "en": {
@@ -167,6 +206,58 @@
     },
     "related": ["order-book", "mica", "kyc"]
   },
+  "expected-value": {
+    "text": {
+      "en": {
+        "term": "Expected value",
+        "definition": "The average result per trade: win rate × average win − loss rate × average loss, usually in R. Positive after costs is rare."
+      },
+      "cs": {
+        "term": "Očekávaná hodnota",
+        "definition": "Průměrný výsledek na obchod: úspěšnost × průměrný zisk − neúspěšnost × průměrná ztráta, obvykle v R. Kladná po započtení nákladů je vzácná."
+      }
+    },
+    "related": ["r-multiple"]
+  },
+  "fomo": {
+    "text": {
+      "en": {
+        "term": "FOMO",
+        "definition": "Fear of missing out: buying because the price is rising and everyone celebrates – without a plan, often near the top."
+      },
+      "cs": {
+        "term": "FOMO",
+        "definition": "Fear of missing out, strach, že něco uteče: nákup jen proto, že cena roste a všichni slaví – bez plánu, často blízko vrcholu."
+      }
+    },
+    "related": ["revenge-trading", "trading-plan"]
+  },
+  "funding-rate": {
+    "text": {
+      "en": {
+        "term": "Funding",
+        "definition": "A payment between long and short traders of perpetual futures, usually every 8 hours, that keeps the contract price close to spot. When the contract trades above spot, longs pay shorts; below it, shorts pay longs."
+      },
+      "cs": {
+        "term": "Funding",
+        "definition": "Platba mezi obchodníky v longu a shortu u perpetual futures, obvykle každých 8 hodin, která drží cenu kontraktu u ceny spotu. Když se kontrakt obchoduje nad spotem, platí longy shortům; pod ním platí shorty longům."
+      }
+    },
+    "related": ["futures", "leverage"]
+  },
+  "futures": {
+    "text": {
+      "en": {
+        "term": "Futures",
+        "definition": "Contracts on the price of an asset; you do not own the coin. In crypto mostly perpetual futures without an expiry date, traded with leverage, margin and funding."
+      },
+      "cs": {
+        "term": "Futures",
+        "definition": "Kontrakty na cenu aktiva; minci nevlastníš. V kryptoměnách hlavně perpetual futures bez data vypršení, obchodované s pákou, marginem a fundingem."
+      }
+    },
+    "related": ["leverage", "margin", "liquidation", "funding-rate"]
+  },
   "gas": {
     "text": {
       "en": {
@@ -179,6 +270,19 @@
       }
     },
     "related": ["smart-contract"]
+  },
+  "golden-cross": {
+    "text": {
+      "en": {
+        "term": "Golden cross",
+        "definition": "When a faster moving average (often SMA 50) crosses a slower one (SMA 200) from below; the opposite is a death cross. Popular, but it comes late."
+      },
+      "cs": {
+        "term": "Zlatý kříž",
+        "definition": "Když rychlejší klouzavý průměr (často SMA 50) protne pomalejší (SMA 200) zespodu; opak je kříž smrti. Populární, ale přichází pozdě."
+      }
+    },
+    "related": ["moving-average"]
   },
   "halving": {
     "text": {
@@ -258,6 +362,58 @@
     },
     "related": ["market-order", "order-book"]
   },
+  "liquidation": {
+    "text": {
+      "en": {
+        "term": "Liquidation",
+        "definition": "The exchange automatically closes a leveraged position when the loss eats almost all of its margin. With 10× leverage a move of roughly 9–10% against you is enough."
+      },
+      "cs": {
+        "term": "Likvidace",
+        "definition": "Burza automaticky zavře pozici s pákou, když ztráta sní skoro celý margin. S pákou 10× stačí pohyb zhruba o 9–10 % proti tobě."
+      }
+    },
+    "related": ["margin", "leverage", "futures"]
+  },
+  "loss-aversion": {
+    "text": {
+      "en": {
+        "term": "Loss aversion",
+        "definition": "A loss hurts roughly twice as much as an equal gain pleases (Kahneman and Tversky). In trading it leads to taking profits too early and holding losses too long."
+      },
+      "cs": {
+        "term": "Averze ke ztrátě",
+        "definition": "Ztráta bolí zhruba dvakrát víc, než těší stejně velký zisk (Kahneman a Tversky). V obchodování vede k brzkému vybírání zisků a dlouhému držení ztrát."
+      }
+    },
+    "related": ["fomo", "confirmation-bias"]
+  },
+  "maker-taker": {
+    "text": {
+      "en": {
+        "term": "Maker and taker",
+        "definition": "A taker takes an offer already in the order book (a market order) and pays a higher fee; a maker adds a waiting offer (a limit order) and pays a lower one."
+      },
+      "cs": {
+        "term": "Maker a taker",
+        "definition": "Taker bere nabídku, která už v knize objednávek je (tržní příkaz), a platí vyšší poplatek; maker přidává čekající nabídku (limitní příkaz) a platí nižší."
+      }
+    },
+    "related": ["order-book", "limit-order", "market-order"]
+  },
+  "margin": {
+    "text": {
+      "en": {
+        "term": "Margin",
+        "definition": "The deposit that backs a leveraged position. If losses eat it up, the position is liquidated."
+      },
+      "cs": {
+        "term": "Margin",
+        "definition": "Vklad, který ručí za pozici s pákou. Když ho ztráty sní, pozice je zlikvidována."
+      }
+    },
+    "related": ["leverage", "liquidation"]
+  },
   "market-order": {
     "text": {
       "en": {
@@ -270,6 +426,19 @@
       }
     },
     "related": ["limit-order", "slippage", "spread"]
+  },
+  "market-structure": {
+    "text": {
+      "en": {
+        "term": "Market structure",
+        "definition": "The order of the clear highs and lows on a chart. Higher highs and lows mean a rising structure, lower highs and lows a falling one."
+      },
+      "cs": {
+        "term": "Struktura trhu",
+        "definition": "Pořadí výrazných maxim a minim v grafu. Vyšší maxima i minima znamenají rostoucí strukturu, nižší maxima i minima klesající."
+      }
+    },
+    "related": ["break-of-structure", "trend", "support"]
   },
   "memecoin": {
     "text": {
@@ -323,6 +492,19 @@
     },
     "related": ["proof-of-work", "halving"]
   },
+  "moving-average": {
+    "text": {
+      "en": {
+        "term": "Moving average",
+        "definition": "A line showing the average closing price over the last N periods, e.g. SMA 50. SMA weighs all days equally, EMA weighs recent days more. It smooths the noise but always lags."
+      },
+      "cs": {
+        "term": "Klouzavý průměr",
+        "definition": "Čára s průměrnou uzavírací cenou za posledních N období, třeba SMA 50. SMA váží všechny dny stejně, EMA novější víc. Uhlazuje šum, ale vždy se zpožďuje."
+      }
+    },
+    "related": ["golden-cross", "trend"]
+  },
   "node": {
     "text": {
       "en": {
@@ -336,6 +518,19 @@
     },
     "related": ["blockchain", "decentralization"]
   },
+  "oco": {
+    "text": {
+      "en": {
+        "term": "OCO (one cancels the other)",
+        "definition": "Two linked orders, typically a take-profit and a stop-loss: when one fills, the other is cancelled automatically."
+      },
+      "cs": {
+        "term": "OCO (jeden ruší druhý)",
+        "definition": "Dva propojené příkazy, typicky take-profit a stop-loss: když se provede jeden, druhý se automaticky zruší."
+      }
+    },
+    "related": ["take-profit", "stop-loss"]
+  },
   "order-book": {
     "text": {
       "en": {
@@ -348,6 +543,32 @@
       }
     },
     "related": ["limit-order", "spread"]
+  },
+  "overbought": {
+    "text": {
+      "en": {
+        "term": "Overbought",
+        "definition": "An RSI above 70: rises have strongly dominated recently. In a strong trend the market can stay overbought for weeks."
+      },
+      "cs": {
+        "term": "Překoupenost",
+        "definition": "RSI nad 70: v poslední době výrazně převažovaly růsty. V silném trendu může trh zůstat překoupený celé týdny."
+      }
+    },
+    "related": ["rsi"]
+  },
+  "overfitting": {
+    "text": {
+      "en": {
+        "term": "Overfitting",
+        "definition": "Tuning a strategy to past data until it fits random details that will not repeat. It looks great in a backtest and fails in real trading."
+      },
+      "cs": {
+        "term": "Přeučení",
+        "definition": "Ladění strategie na minulá data, dokud nesedí na náhodné detaily, které se nebudou opakovat. V testu na historii vypadá skvěle, ve skutečnosti selže."
+      }
+    },
+    "related": ["moving-average", "rsi"]
   },
   "phishing": {
     "text": {
@@ -401,6 +622,19 @@
     },
     "related": ["mining", "proof-of-stake", "hash"]
   },
+  "r-multiple": {
+    "text": {
+      "en": {
+        "term": "R-multiple",
+        "definition": "A trade result expressed as a multiple of the amount risked (1R). A loss at the stop-loss is −1R, a profit twice the risk is +2R."
+      },
+      "cs": {
+        "term": "R-násobek",
+        "definition": "Výsledek obchodu vyjádřený jako násobek riskované částky (1R). Ztráta na stop-lossu je −1R, zisk dvojnásobku rizika +2R."
+      }
+    },
+    "related": ["stop-loss", "expected-value"]
+  },
   "resistance": {
     "text": {
       "en": {
@@ -413,6 +647,45 @@
       }
     },
     "related": ["support", "trend"]
+  },
+  "revenge-trading": {
+    "text": {
+      "en": {
+        "term": "Revenge trading",
+        "definition": "Trading to win back a loss right away, usually with a bigger position and without a plan. It turns one loss into several."
+      },
+      "cs": {
+        "term": "Obchodování ze vzteku",
+        "definition": "Obchodování s cílem hned vyhrát zpátky ztrátu, obvykle větší pozicí a bez plánu. Z jedné ztráty udělá několik."
+      }
+    },
+    "related": ["fomo", "trading-plan"]
+  },
+  "role-reversal": {
+    "text": {
+      "en": {
+        "term": "Role reversal",
+        "definition": "When a broken resistance starts acting as support, or a broken support as resistance."
+      },
+      "cs": {
+        "term": "Výměna rolí",
+        "definition": "Když se z prolomené rezistence stane podpora, nebo z prolomené podpory rezistence."
+      }
+    },
+    "related": ["support", "resistance"]
+  },
+  "rsi": {
+    "text": {
+      "en": {
+        "term": "RSI",
+        "definition": "Relative Strength Index: compares recent rises and falls on a 0–100 scale. Above 70 means overbought, below 30 oversold – which is not a signal to sell or buy."
+      },
+      "cs": {
+        "term": "RSI",
+        "definition": "Relative Strength Index: porovnává nedávné růsty a poklesy na stupnici 0–100. Nad 70 překoupeno, pod 30 přeprodáno – což není signál k prodeji ani nákupu."
+      }
+    },
+    "related": ["overbought", "moving-average"]
   },
   "satoshi": {
     "text": {
@@ -505,6 +778,19 @@
     },
     "related": ["proof-of-stake"]
   },
+  "stop-limit": {
+    "text": {
+      "en": {
+        "term": "Stop-limit order",
+        "definition": "An order that, once a trigger price is reached, places a limit order at your limit price. You know the worst price, but if the market jumps past the limit, it does not fill at all."
+      },
+      "cs": {
+        "term": "Stop-limit příkaz",
+        "definition": "Příkaz, který po dosažení spouštěcí ceny zadá limitní příkaz s tvojí limitní cenou. Znáš nejhorší cenu, ale když trh limit přeskočí, neprovede se vůbec."
+      }
+    },
+    "related": ["stop-loss", "limit-order"]
+  },
   "stop-loss": {
     "text": {
       "en": {
@@ -570,6 +856,45 @@
     },
     "related": ["stablecoin", "smart-contract"]
   },
+  "trading-journal": {
+    "text": {
+      "en": {
+        "term": "Trading journal",
+        "definition": "A record of every trade: why it was made, entry, stop, result in R, whether the plan was followed and how you felt. Reviewed regularly."
+      },
+      "cs": {
+        "term": "Deník obchodů",
+        "definition": "Záznam každého obchodu: proč vznikl, vstup, stop, výsledek v R, jestli byl dodržen plán a jak ses cítil. Pravidelně se vyhodnocuje."
+      }
+    },
+    "related": ["trading-plan"]
+  },
+  "trading-plan": {
+    "text": {
+      "en": {
+        "term": "Trading plan",
+        "definition": "Written rules decided in advance: markets, the situation you trade, entry, stop-loss, exit, position size, loss limits and review."
+      },
+      "cs": {
+        "term": "Obchodní plán",
+        "definition": "Sepsaná pravidla rozhodnutá předem: trhy, situace, kterou obchoduješ, vstup, stop-loss, výstup, velikost pozice, limity ztrát a vyhodnocení."
+      }
+    },
+    "related": ["trading-journal", "r-multiple"]
+  },
+  "trailing-stop": {
+    "text": {
+      "en": {
+        "term": "Trailing stop",
+        "definition": "A stop-loss set as a distance from the highest price (e.g. 5%). It moves up as the price rises and stays put when it falls."
+      },
+      "cs": {
+        "term": "Trailing stop",
+        "definition": "Stop-loss nastavený jako vzdálenost od nejvyšší ceny (třeba 5 %). Při růstu ceny se posouvá nahoru, při poklesu zůstává na místě."
+      }
+    },
+    "related": ["stop-loss"]
+  },
   "trend": {
     "text": {
       "en": {
@@ -582,6 +907,19 @@
       }
     },
     "related": ["support", "resistance", "timeframe"]
+  },
+  "volume": {
+    "text": {
+      "en": {
+        "term": "Volume",
+        "definition": "The amount traded in a period – for BTC/USDT the number of bitcoins. High volume confirms a move but does not tell its direction."
+      },
+      "cs": {
+        "term": "Objem",
+        "definition": "Množství zobchodované za období – u BTC/USDT počet bitcoinů. Vysoký objem potvrzuje pohyb, ale neurčí jeho směr."
+      }
+    },
+    "related": ["break-of-structure", "support"]
   },
   "wallet": {
     "text": {

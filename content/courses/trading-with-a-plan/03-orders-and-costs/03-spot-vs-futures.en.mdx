@@ -1,0 +1,102 @@
+import hourly from "@content/market-data/btcusdt-1h-2024-03-w2.json";
+
+export const metadata = {
+  title: "Spot vs futures: leverage, liquidation, funding",
+  description:
+    "How buying a coin differs from trading contracts, how liquidation and funding work – and why we do not recommend it to beginners.",
+};
+
+<Callout title="In this lesson">
+
+- understand the difference between spot and futures
+- see how fast liquidation comes with leverage
+- work out what funding costs
+
+</Callout>
+
+This lesson does not aim to teach you to trade with leverage. It aims to show you **how it works and
+why most people lose money on it** – so you know what you are getting into when an exchange offers you
+a "100× bonus".
+
+## Spot: you own the coin
+
+On spot you buy the actual cryptocurrency. When the price falls by 30%, you have 30% less – but you still have the coins and can wait – though nothing guarantees the price comes back. The worst possible case is a fall to zero: you lose what you put
+in, nothing more.
+
+## Futures: a bet on the price
+
+So-called <KeyTerm term="futures">futures</KeyTerm> are contracts on the price of a cryptocurrency. You do not
+own the coin. In crypto the most traded are so-called perpetual futures – contracts with no expiry
+date. They let you:
+
+- **trade with leverage** – open a 10,000 € position with a 1,000 € deposit,
+- **profit from a fall** (short) – which also means losing when the price rises.
+
+The deposit that backs the position is called <KeyTerm term="margin">margin</KeyTerm>. And this is
+where the trouble starts.
+
+<Illustration name="jengaLeverage" />
+
+## Liquidation
+
+When the price moves against you so far that the loss eats almost all the margin, the exchange closes
+the position itself. This is called <KeyTerm term="liquidation">liquidation</KeyTerm>, and the margin
+is gone.
+
+With 10× leverage, a move of roughly 9–10% against you is enough. With 20× about 5%, with 50× just
+under 2% – a normal Bitcoin move within a few hours.
+
+An example from 5 March 2024: someone buys Bitcoin in the afternoon at 68,000 with 10× leverage. The
+liquidation price is roughly 61,500. A few hours later the price is at 59,005 – the position is
+liquidated and the margin is gone. By the end of the week Bitcoin is back at 69,000. Whoever bought on
+spot is in profit. Whoever bought with leverage has nothing.
+
+<CandleChart
+  data={hourly}
+  label="Hourly Bitcoin chart from 4 to 10 March 2024: a purchase at 68,000 with 10× leverage and a liquidation price of roughly 61,500; on 5 March the price fell to 59,005 and by the end of the week returned to 69,000"
+  caption="An illustrative 10× leveraged trade: liquidated within an afternoon, even though the price came back by the end of the week."
+  levels={[
+    { price: 68000, kind: "entry", label: "Buy (10×)" },
+    { price: 61500, kind: "stopLoss", label: "Liquidation" },
+  ]}
+/>
+
+## Funding: a fee for holding
+
+A perpetual contract has no expiry date. To keep its price close to the spot price, traders pay each
+other <KeyTerm term="funding-rate">funding</KeyTerm>, usually every 8 hours. When the contract trades above the spot price (demand for longs, bets on a rise, is stronger), longs pay shorts; when it trades below, shorts pay longs. In euphoria that can be a lot.
+
+A common baseline rate is 0.01% per 8 hours. That is 0.03% a day, roughly **11% a year of the position
+value**. With 10× leverage that is over 100% of your margin a year – just for holding the position. In
+the heat of a bull market funding is often many times higher.
+
+## Regulation
+
+In the EU, crypto derivatives are financial instruments, and regulated exchanges and brokers have to
+follow rules that protect retail investors. For crypto CFDs leverage is limited to 2 : 1, and according
+to analyses ESMA cited in 2018, 74–89% of retail investor accounts lose money on CFDs. Platforms
+offering 50× or 100× leverage are usually based outside the EU and give no such protection.
+
+<Callout type="risk" title="Leverage is not for beginners">
+  With leverage you can lose your whole deposit within minutes – even if you are
+  right about the long-term direction. Until you have long experience with spot,
+  small amounts and a plan, leave futures alone.
+</Callout>
+
+## Common myths
+
+- **"With 10× leverage I will make ten times more."** And lose ten times faster. Liquidation comes
+  before profit.
+- **"I will use a stop-loss, so I cannot be liquidated."** In a fast market the stop-loss fills at a
+  worse price – and funding and fees keep running.
+- **"A short is safe when I know it will fall."** The market can rise for longer than you can hold out.
+
+<Callout title="Summary">
+
+- On spot you own the coin and can lose at most your deposit; futures are a bet on the price.
+- With 10× leverage liquidation comes after a 9–10% move, with higher leverage even sooner.
+- Funding is paid every few hours and over a year can eat a large part of the margin.
+- 50× leverage and more usually means a platform without EU protection – and, for a beginner, a fast
+  road to zero.
+
+</Callout>

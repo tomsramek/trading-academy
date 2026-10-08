@@ -178,6 +178,8 @@
   --animate-press: press 0.4s ease-in-out 3;
   --animate-bob: bob 0.7s ease-in-out 6 alternate;
   --animate-confetti: confetti 1.2s ease-in both;
+  --animate-bounce-ball: bounce-ball 0.45s ease-out 8 alternate;
+  --animate-sweep: sweep 0.8s ease-in-out 4 alternate;
 
   @keyframes sweat-drop {
     from {
@@ -321,6 +323,16 @@
   @keyframes press {
     50% {
       transform: translateY(8px);
+    }
+  }
+  @keyframes bounce-ball {
+    to {
+      transform: translateY(-60px);
+    }
+  }
+  @keyframes sweep {
+    to {
+      transform: translateX(120px);
     }
   }
   @keyframes wiggle {

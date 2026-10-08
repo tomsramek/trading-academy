@@ -1,0 +1,90 @@
+import btc from "@content/market-data/btcusdt-1d-2024-h2.json";
+
+export const metadata = {
+  title: "Objem: potvrzení pohybu",
+  slug: "objem",
+  description:
+    "Co prozradí objem obchodů, jak s ním potvrdit průlom a proč objem v kryptoměnách bereš s rezervou.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, co je objem a jak ho číst v grafu
+- naučíš se odlišit silný pohyb od slabého
+- pochopíš, proč objem na jedné burze není celý trh
+
+</Callout>
+
+Cena ti řekne, **kam** se trh pohnul. <KeyTerm term="volume">Objem</KeyTerm> ti řekne, **kolik lidí
+u toho bylo**. Je to množství, které se za dané období zobchodovalo – u páru BTC/USDT počet
+bitcoinů. V grafu se kreslí jako sloupce pod svíčkami: zelený sloupec patří rostoucí svíčce,
+červený klesající.
+
+## Proč na objemu záleží
+
+Pohyb, u kterého je hodně obchodů, má za sebou hodně peněz a hodně rozhodnutí. Pohyb s malým
+objemem může být jen pár velkých příkazů v tichém trhu. Proto obchodníci říkají, že objem
+**potvrzuje** pohyb:
+
+- **průlom s vysokým objemem** – za průlomem stojí skutečný zájem,
+- **průlom s nízkým objemem** – větší riziko, že jde o falešný průlom,
+- **extrémní objem při pádu** – často panika a hromadné výprodeje; může znamenat vyčerpání
+  prodávajících, ale taky začátek dalšího pádu.
+
+<Illustration name="crowdRoar" />
+
+## Příklad: druhá polovina roku 2024
+
+V červnu a červenci 2024 se na Binance denně zobchodovalo typicky kolem 24 000 BTC. Pak přišly dva
+dny, které z grafu vyskakují:
+
+- **5. srpna 2024** – panika na všech trzích. Cena spadla během dne až na 49 000 a objem byl
+  162 066 BTC, skoro sedmkrát víc než obvykle. O tři dny později byla cena zpátky nad 61 000.
+- **6. listopadu 2024** – den průlomu nad zónu rezistence kolem 73 800, kterou znáš z modulu 1.
+  Objem 104 127 BTC, víc než čtyřnásobek běžného dne. Další dva týdny se objem držel zhruba na
+  dvojnásobku normálu a cena vyrostla skoro na 99 000.
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od června do prosince 2024 s objemem v panelu pod grafem: obří objem 5. srpna při pádu na 49 000 a vysoký objem 6. listopadu při průlomu nad 73 800, po kterém cena vyrostla skoro na 99 000"
+  caption="Dva dny s obřím objemem: panika 5. srpna a průlom 6. listopadu."
+  indicators={{ volume: true }}
+  markers={[
+    { time: "2024-08-05", kind: "event", label: "Panika" },
+    { time: "2024-11-06", kind: "event", label: "Průlom" },
+  ]}
+/>
+
+Pro srovnání: mezi polovinou září a koncem října cena vyrostla z 59 000 zhruba na 70 000 – ale objem
+zůstal na úplně běžné úrovni. Takový růst má za sebou méně přesvědčení a je křehčí.
+
+## Objem v kryptoměnách s rezervou
+
+- **Jedna burza není celý trh.** Graf ukazuje objem jen na Binance. Bitcoin se obchoduje na desítkách
+  burz a mimo ně.
+- **Objem se dá nafouknout.** Některé burzy nebo obchodníci obchodují sami se sebou, aby trh vypadal
+  živěji (takzvaný wash trading).
+- **Pravidla burzy objem mění.** Binance od července 2022 do března 2023 nebral poplatky za
+  obchodování bitcoinu – objem vyletěl. Po skončení akce objem páru BTC/USDT spadl zhruba o 90 %,
+  i když se na trhu nic zásadního nestalo.
+
+<Callout type="warning" title="Objem potvrzuje, nepředpovídá">
+  Vysoký objem ukazuje, že se něco důležitého děje. Neřekne ti, jestli to
+  dopadne nahoru, nebo dolů. Stejný obří objem doprovázel paniku v srpnu i
+  průlom v listopadu.
+</Callout>
+
+## Časté omyly
+
+- **„Velký objem = cena poroste.“** Velký objem je i při panických výprodejích.
+- **„Objem na mé burze je objem trhu.“** Je to jen výřez a může být zkreslený.
+- **„Nízký objem nic neznamená.“** Znamená menší přesvědčení – a větší šanci na falešný pohyb.
+
+<Callout title="Shrnutí">
+
+- Objem ukazuje, kolik se zobchodovalo – kolik lidí za pohybem stojí.
+- Průlom s vysokým objemem je přesvědčivější než průlom s nízkým.
+- Extrémní objem provází paniku i průlomy – sám o sobě směr neurčí.
+- Objem na jedné burze je jen výřez trhu a dá se zkreslit.
+
+</Callout>

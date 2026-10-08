@@ -1,0 +1,98 @@
+import hourly from "@content/market-data/btcusdt-1h-2024-03-w2.json";
+
+export const metadata = {
+  title: "Spot vs. futures: páka, likvidace, funding",
+  slug: "spot-vs-futures",
+  description:
+    "Čím se liší nákup mince od obchodování s kontrakty, jak funguje likvidace a funding – a proč to začátečníkům nedoporučujeme.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš rozdíl mezi spotem a futures
+- uvidíš, jak rychle přijde likvidace s pákou
+- spočítáš, kolik stojí funding
+
+</Callout>
+
+Tahle lekce nemá za cíl tě naučit obchodovat s pákou. Má ti ukázat, **jak to funguje a proč na tom
+většina lidí prodělá** – abys věděl, do čeho jdeš, až ti nějaká burza nabídne „100× bonus“.
+
+## Spot: vlastníš minci
+
+Na spotu kupuješ skutečnou kryptoměnu. Když cena spadne o 30 %, máš o 30 % méně – ale pořád máš mince a můžeš počkat – jenže nic nezaručuje, že se cena vrátí. Nejhorší možný scénář je pád na nulu: přijdeš o to, co jsi vložil, nic víc.
+
+## Futures: sázka na cenu
+
+Takzvané <KeyTerm term="futures">futures</KeyTerm> jsou kontrakty na cenu kryptoměny. Minci nevlastníš.
+V kryptoměnách se nejčastěji obchodují takzvané perpetual futures – kontrakty bez data vypršení.
+Umožňují:
+
+- **obchodovat s pákou** – s vkladem 1 000 € otevřít pozici za 10 000 €,
+- **vydělat na poklesu** (short) – což ale znamená i ztrátu, když cena roste.
+
+Vklad, který na pozici ručí, se jmenuje <KeyTerm term="margin">margin</KeyTerm>. A tady začíná
+problém.
+
+<Illustration name="jengaLeverage" />
+
+## Likvidace
+
+Když se cena pohne proti tobě tak, že ztráta sní skoro celý margin, burza pozici sama zavře. Tomu se
+říká <KeyTerm term="liquidation">likvidace</KeyTerm> a margin je pryč.
+
+S pákou 10× stačí pohyb zhruba o 9–10 % proti tobě. S pákou 20× asi 5 %, s pákou 50× necelá 2 % –
+to je u Bitcoinu běžný pohyb za pár hodin.
+
+Příklad z 5. března 2024: někdo koupí odpoledne Bitcoin za 68 000 s pákou 10×. Likvidační cena je
+zhruba 61 500. Za pár hodin je cena na 59 005 – pozice je zlikvidovaná a margin pryč. Do konce týdne
+je Bitcoin zpátky na 69 000. Kdo koupil na spotu, je v plusu. Kdo koupil s pákou, nemá nic.
+
+<CandleChart
+  data={hourly}
+  label="Hodinový graf Bitcoinu 4. až 10. března 2024: nákup za 68 000 s pákou 10× a likvidační cena zhruba 61 500, cena 5. března spadla na 59 005 a do konce týdne se vrátila na 69 000"
+  caption="Ilustrační obchod s pákou 10×: likvidace během odpoledne, přestože cena se do konce týdne vrátila."
+  levels={[
+    { price: 68000, kind: "entry", label: "Nákup (10×)" },
+    { price: 61500, kind: "stopLoss", label: "Likvidace" },
+  ]}
+/>
+
+## Funding: poplatek za držení
+
+Perpetual kontrakt nemá datum vypršení. Aby se jeho cena držela u ceny spotu, platí si obchodníci
+navzájem <KeyTerm term="funding-rate">funding</KeyTerm>, obvykle každých 8 hodin. Když se kontrakt obchoduje nad cenou spotu (zájem o longy, tedy sázky na růst, převažuje), platí longy shortům; když pod ní, platí shorty longům. V euforii to bývá hodně.
+
+Běžná základní sazba bývá 0,01 % za 8 hodin. To je 0,03 % denně, zhruba **11 % ročně z hodnoty
+pozice**. S pákou 10× to je přes 100 % tvého marginu za rok – jen za to, že pozici držíš. V horečce
+býčího trhu bývá funding i mnohonásobně vyšší.
+
+## Regulace
+
+V EU jsou kryptoměnové deriváty finanční nástroje a regulované burzy a brokeři musí dodržovat
+pravidla na ochranu drobných investorů. U CFD na kryptoměny je páka omezená na 2 : 1 a podle analýz,
+na které se v roce 2018 odvolal úřad ESMA, prodělává na CFD 74–89 % účtů drobných investorů.
+Platformy, které nabízejí páku 50× nebo 100×, obvykle sídlí mimo EU a takovou ochranu nedávají.
+
+<Callout type="risk" title="Páka není pro začátečníky">
+  S pákou můžeš přijít o celý vklad během minut – i když máš v dlouhodobém směru
+  pravdu. Dokud nemáš za sebou dlouhou praxi se spotem, s malými částkami a s
+  plánem, futures nech být.
+</Callout>
+
+## Časté omyly
+
+- **„S pákou 10× vydělám desetkrát víc.“** A desetkrát rychleji prodělám. Likvidace přijde dřív než
+  zisk.
+- **„Dám si stop-loss, tak mě nelikvidují.“** V rychlém trhu se stop-loss provede za horší cenu – a
+  funding a poplatky běží dál.
+- **„Short je bezpečný, když vím, že to spadne.“** Trh může růst déle, než vydržíš ty.
+
+<Callout title="Shrnutí">
+
+- Na spotu vlastníš minci a můžeš přijít nanejvýš o vklad; futures jsou sázka na cenu.
+- Likvidace s pákou 10× přichází už po pohybu o 9–10 %, s vyšší pákou ještě dřív.
+- Funding se platí každých pár hodin a za rok může sníst velkou část marginu.
+- Páka 50× a víc znamená obvykle platformu bez ochrany EU – a pro začátečníka rychlou cestu k nule.
+
+</Callout>

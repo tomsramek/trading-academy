@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "The market crashes and jumps past your limit. What happens to a stop-limit order?",
+          "options": [
+            "It fills at the market price",
+            "It may not fill at all",
+            "The exchange turns it into an OCO automatically"
+          ],
+          "explanation": "A stop-limit sends a limit order – if the price jumps past the limit, nobody buys at that price. That is why a stop-market is usually better for protecting against losses."
+        },
+        "cs": {
+          "question": "Trh prudce padá a přeskočí tvůj limit. Co se stane se stop-limit příkazem?",
+          "options": [
+            "Provede se za tržní cenu",
+            "Nemusí se provést vůbec",
+            "Burza ho automaticky změní na OCO"
+          ],
+          "explanation": "Stop-limit pošle limitní příkaz – když cena limit přeskočí, nikdo za tu cenu nekoupí. Pro ochranu před ztrátou je proto obvykle lepší stop-market."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does an OCO order do?",
+          "options": [
+            "Links two orders – when one fills, the other is cancelled",
+            "Executes an order only at the opening hour",
+            "Splits a trade into two halves"
+          ],
+          "explanation": "It typically links a take-profit and a stop-loss: one fills and the other disappears, so no forgotten order is left hanging."
+        },
+        "cs": {
+          "question": "Co dělá příkaz OCO?",
+          "options": [
+            "Spojí dva příkazy – když se provede jeden, druhý se zruší",
+            "Provede příkaz jen v otevírací hodinu",
+            "Rozdělí obchod na dvě poloviny"
+          ],
+          "explanation": "Typicky spojí take-profit a stop-loss: provede se jeden a druhý zmizí, takže nezůstane viset zapomenutý příkaz."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "One trade costs you 0.3% and you make about 100 a year, each time with the whole account. What does that cost per year?",
+          "options": ["About 0.3%", "About 3%", "About 30%"],
+          "explanation": "0.3% × 100 trades = roughly 30% of the account a year (as a simple sum) – on costs alone, before a single profit or loss."
+        },
+        "cs": {
+          "question": "Jeden obchod tě stojí 0,3 % a uděláš jich asi 100 ročně, pokaždé s celým účtem. Kolik tě to stojí za rok?",
+          "options": ["Asi 0,3 %", "Asi 3 %", "Asi 30 %"],
+          "explanation": "0,3 % × 100 obchodů = zhruba 30 % hodnoty účtu ročně (prostým součtem) – jen na nákladech, ještě před jediným ziskem nebo ztrátou."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "When does a 10× leveraged position get liquidated?",
+          "options": [
+            "Only after the price halves",
+            "After a move of roughly 9–10% against you",
+            "Never, if you have a stop-loss"
+          ],
+          "explanation": "With 10× leverage a 10% move eats the whole margin, and liquidation usually comes slightly earlier. On 5 March 2024 the afternoon crash would have liquidated such a position."
+        },
+        "cs": {
+          "question": "Kdy přijde likvidace pozice s pákou 10×?",
+          "options": [
+            "Až po pádu ceny o polovinu",
+            "Už po pohybu zhruba o 9–10 % proti tobě",
+            "Nikdy, pokud máš stop-loss"
+          ],
+          "explanation": "S pákou 10× sní pohyb o 10 % celý margin, likvidace přijde obvykle o kousek dřív. 5. března 2024 by takovou pozici zlikvidoval odpolední pád."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is funding in perpetual futures?",
+          "options": [
+            "A payment between longs and shorts, usually every 8 hours",
+            "A one-off fee when signing up",
+            "A bonus the exchange pays for trading"
+          ],
+          "explanation": "Funding keeps the contract price close to spot. At 0.01% per 8 hours it is roughly 11% of the position value a year – with 10× leverage over 100% of the margin."
+        },
+        "cs": {
+          "question": "Co je funding u perpetual futures?",
+          "options": [
+            "Platba mezi longy a shorty, obvykle každých 8 hodin",
+            "Jednorázový poplatek při registraci",
+            "Bonus, který burza vyplácí za obchodování"
+          ],
+          "explanation": "Funding drží cenu kontraktu u ceny spotu. Při sazbě 0,01 % za 8 hodin je to zhruba 11 % hodnoty pozice ročně – s pákou 10× přes 100 % marginu."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

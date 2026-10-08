@@ -1,0 +1,84 @@
+export const metadata = {
+  title: "Velikost pozice a R-násobky",
+  slug: "velikost-pozice-a-r-nasobky",
+  description:
+    "Jak spočítat velikost pozice z rizika, proč měřit výsledky v R a jak rychle se účet propadá při velkém riziku.",
+};
+
+<Callout title="V této lekci">
+
+- zopakuješ si výpočet velikosti pozice
+- naučíš se měřit každý obchod v R-násobcích
+- uvidíš, proč je velký propad tak těžké dohnat
+
+</Callout>
+
+V prvním kurzu jsi poznal pravidlo 1 % a vzorec pro velikost pozice. Teď z toho uděláme jednotný
+jazyk pro všechny tvoje obchody. Místo „vydělal jsem 300 Kč“ budeš říkat „vydělal jsem 2R“ – a hned
+bude jasné, jestli to byl dobrý obchod.
+
+## Velikost pozice: připomenutí
+
+**Velikost pozice = částka, kterou chceš riskovat ÷ vzdálenost stop-lossu.**
+
+Účet 50 000 Kč, riziko 1 % = **500 Kč**. Bitcoin kupuješ za 60 000, stop-loss je na 57 000 – tedy
+5 % pod nákupem. Velikost pozice = 500 Kč ÷ 5 % = **10 000 Kč**. Když cena spadne na stop-loss,
+ztratíš zhruba 500 Kč (v rychlém trhu o něco víc).
+
+Všimni si: velikost pozice neurčuje, jak moc „tomu věříš“. Určuje ji riziko a vzdálenost stop-lossu.
+
+<Illustration name="cakeSlice" />
+
+## R: jednotka rizika
+
+Částka, kterou v obchodu riskuješ, je **1R**. V příkladu výše je 1R = 500 Kč. Každý výsledek pak
+vyjádříš jako násobek R – tomu se říká <KeyTerm term="r-multiple">R-násobek</KeyTerm>:
+
+| Výsledek obchodu           | V korunách | V R   |
+| -------------------------- | ---------- | ----- |
+| Cena spadla na stop-loss   | −500 Kč    | −1R   |
+| Prodáno na 66 000 (cíl)    | +1 000 Kč  | +2R   |
+| Prodáno dřív, na 61 500    | +250 Kč    | +0,5R |
+| Stop-loss přeskočen v pádu | −650 Kč    | −1,3R |
+
+Proč je to užitečné? R funguje stejně při účtu 10 000 i 1 000 000 Kč a hned ukáže, jestli se
+dodržuje plán. Ztráta −1R je v pořádku – je to cena za obchod. Ztráta −3R znamená, že něco
+selhalo: stop-loss nebyl, nebo ses ho nedržel.
+
+## Proč malé riziko
+
+Deset ztrátových obchodů za sebou zní jako extrém. Ve skutečnosti se to stává častěji, než by sis myslel (víc v další lekci). Kolik po nich zbude z účtu?
+
+| Riziko na obchod | Po 10 ztrátách v řadě |
+| ---------------- | --------------------- |
+| 1 %              | −9,6 %                |
+| 2 %              | −18,3 %               |
+| 5 %              | −40,1 %               |
+| 10 %             | −65,1 %               |
+
+A propad se dohání hůř, než vzniká. Takový pokles se jmenuje <KeyTerm term="drawdown">drawdown</KeyTerm> a matematika je neúprosná:
+
+- po propadu o **10 %** potřebuješ **+11 %**, abys byl zpátky,
+- po propadu o **25 %** potřebuješ **+33 %**,
+- po propadu o **50 %** potřebuješ **+100 %**.
+
+<Callout type="warning" title="Riziko volíš ty, trh ne">
+  Na výsledek jednoho obchodu nemáš vliv. Na to, kolik v něm riskuješ, ano. Malé
+  riziko na obchod je jediná věc, která tě spolehlivě udrží ve hře dost dlouho
+  na to, aby ses něco naučil.
+</Callout>
+
+## Časté omyly
+
+- **„Tomuhle obchodu věřím, dám tam víc.“** Jistota v obchodování neexistuje. Velikost řídí riziko.
+- **„Posunu stop-loss dál, ať mě nevyhodí.“** Pak musíš zmenšit pozici, jinak riskuješ víc než 1R.
+- **„Ztráta 50 % se dožene za pár dobrých obchodů.“** Potřebuješ zdvojnásobit to, co zbylo.
+
+<Callout title="Shrnutí">
+
+- Velikost pozice = riskovaná částka ÷ vzdálenost stop-lossu.
+- 1R je částka, kterou v obchodu riskuješ; výsledky měř v R-násobcích.
+- Ztráta −1R je plán, ztráta horší než −1R je chyba nebo rychlý trh.
+- Propad se dohání hůř, než vzniká – proto malé riziko na obchod.
+
+</Callout>

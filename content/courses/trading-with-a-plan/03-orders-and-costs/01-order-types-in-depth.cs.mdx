@@ -1,0 +1,79 @@
+export const metadata = {
+  title: "Typy příkazů do hloubky",
+  slug: "typy-prikazu-do-hloubky",
+  description:
+    "Stop-market, stop-limit, OCO a trailing stop: jak fungují, kdy který použít a kde tě můžou nachytat.",
+};
+
+<Callout title="V této lekci">
+
+- zopakuješ si tržní a limitní příkaz
+- pochopíš rozdíl mezi stop-market a stop-limit příkazem
+- naučíš se OCO a trailing stop – a jejich slabá místa
+
+</Callout>
+
+Z prvního kurzu znáš <KeyTerm term="market-order">tržní příkaz</KeyTerm> (hned, za nejlepší
+dostupnou cenu) a <KeyTerm term="limit-order">limitní příkaz</KeyTerm> (jen za tvoji cenu nebo
+lepší). S nimi koupíš a prodáš. Ochranu obchodu a plánovaný výstup ale řeší další typy příkazů.
+
+<Illustration name="orderRemote" />
+
+## Stop příkazy: spí, dokud cena nedorazí
+
+Stop příkaz čeká na **spouštěcí cenu**. Dokud jí cena nedosáhne, nic se neděje. Pak se probudí – a co
+udělá dál, záleží na typu:
+
+| Příkaz      | Po dosažení spouštěcí ceny…                | Výhoda                 | Riziko                                       |
+| ----------- | ------------------------------------------ | ---------------------- | -------------------------------------------- |
+| Stop-market | pošle tržní příkaz                         | provede se skoro jistě | v rychlém trhu za horší cenu (skluz)         |
+| Stop-limit  | pošle limitní příkaz s tvojí limitní cenou | víš, za kolik nejhůř   | když cena přeskočí limit, neprovede se vůbec |
+
+Typický <KeyTerm term="stop-loss">stop-loss</KeyTerm> je stop-market příkaz. Představ si, že máš
+stop-loss na 62 000 a trh spadne jako 5. března 2024 – o 14,5 % za čtyři hodiny. Stop-market se
+provede, třeba za 61 700. <KeyTerm term="stop-limit">Stop-limit</KeyTerm> s limitem 61 900 se při
+takovém pádu nemusí provést vůbec – a ty zůstaneš v obchodu, který jsi chtěl zavřít.
+
+**Pro ochranu před ztrátou je většinou lepší stop-market.** Horší cena je menší zlo než žádný
+výstup.
+
+## OCO: jeden ruší druhý
+
+Příkaz <KeyTerm term="oco">OCO</KeyTerm> (_one cancels the other_) spojí dva příkazy: když se provede jeden,
+druhý se automaticky zruší. Typicky take-profit nad cenou a stop-loss pod ní. Nemusíš hlídat, co se
+stane dřív – a nestane se ti, že po provedení příkazu na cíl zisku zůstane viset zapomenutý stop-loss, který tě
+později „vyhodí“ z nové pozice.
+
+## Trailing stop: stop-loss, který jde s cenou
+
+Příkaz <KeyTerm term="trailing-stop">trailing stop</KeyTerm> nemá pevnou cenu, ale vzdálenost – třeba 5 %
+pod nejvyšší cenou od otevření obchodu. Když cena roste, stop jde nahoru s ní. Když klesá, stop
+zůstane na místě.
+
+Příklad: koupíš za 60 000 s trailing stopem 5 %. Stop je na 57 000. Cena vyroste na 70 000 – stop se
+posune na 66 500. Pak cena klesne na 66 500 a příkaz tě vyřadí se ziskem.
+
+Slabé místo: v kryptoměnách jsou výkyvy o 5 % běžné i uprostřed silného trendu. Příliš těsný trailing
+stop tě vyhodí při první větší vlně.
+
+<Callout type="warning" title="Každá burza to dělá trochu jinak">
+  Názvy, dostupné typy příkazů i to, co přesně se stane po spuštění, se mezi
+  burzami liší. Než použiješ nový typ příkazu se skutečnými penězi, přečti si
+  nápovědu burzy a vyzkoušej ho na malé částce nebo na demo účtu.
+</Callout>
+
+## Časté omyly
+
+- **„Stop-limit je lepší, protože znám cenu.“** Znáš cenu – pokud se provede. V pádu se provést
+  nemusí.
+- **„Stop-loss mi zaručí přesnou ztrátu.“** V rychlém trhu může být ztráta větší.
+- **„Trailing stop na 2 % je bezpečný.“** V kryptoměnách tě vyhodí dřív, než stihneš mrknout.
+
+<Callout title="Shrnutí">
+
+- Stop příkazy čekají na spouštěcí cenu; stop-market pak prodá za trh, stop-limit jen do svého limitu.
+- Pro ochranu před ztrátou je obvykle lepší stop-market – horší cena je menší zlo než žádný výstup.
+- OCO spojí cíl zisku a stop-loss: provede se jeden, druhý zmizí.
+- Trailing stop se posouvá s cenou; v kryptoměnách potřebuje dost volnosti.
+
+</Callout>
