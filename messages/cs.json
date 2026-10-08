@@ -37,102 +37,103 @@
   },
   "Home": {
     "hero": {
-      "badge": "Nový kurz: Základy kryptoměn",
-      "title": "Nauč se tradovat krypto – od první svíčky po vlastní strategii",
-      "description": "Bezplatná strukturovaná akademie pro úplné začátečníky i zkušené tradery. Bez humbuku a bez slibů rychlého zisku.",
+      "badge": "Zdarma · česky i anglicky · bez lamba na úvodní fotce",
+      "title": "Nauč se tradovat krypto – dřív, než tě to naučí trh",
+      "description": "Trh učí taky, jen si za lekce účtuje hodně. U nás je to zdarma: srozumitelné lekce od první svíčky po vlastní obchodní plán, skutečné grafy, kvízy – a žádné „zaručené signály“.",
       "primaryCta": "Prohlédnout kurzy",
-      "secondaryCta": "Proč Trading Academy"
+      "secondaryCta": "Proč zrovna tady",
+      "carousel": {
+        "slide": "obrázek",
+        "position": "Obrázek {number} z {total}",
+        "show": "Zobrazit obrázek {number} z {total}",
+        "pause": "Pozastavit střídání obrázků",
+        "play": "Spustit střídání obrázků"
+      }
     },
     "why": {
-      "title": "Proč Trading Academy",
-      "description": "Vše, co potřebuješ k pochopení kryptotrhů – a nic navíc.",
+      "title": "Proč zrovna tady",
+      "description": "Protože na internetu je víc „guru“ než svíček v grafu. My jsme ten nudný kamarád, který se nejdřív zeptá, kolik si můžeš dovolit ztratit.",
       "items": {
         "free": {
-          "title": "Zdarma pro všechny",
-          "description": "Všechny kurzy jsou zdarma. Žádná placená zeď, žádné doprodeje, žádná skrytá prémiová úroveň."
+          "title": "Zdarma. Opravdu.",
+          "description": "Žádná placená zeď, žádný „VIP kanál“ a žádný kurz za 9 999 Kč, který tě naučí koupit kurz za 19 999 Kč."
         },
         "structured": {
-          "title": "Jasná cesta",
-          "description": "Kurzy na sebe navazují: kurz → modul → lekce, takže vždy víš, co tě čeká dál."
+          "title": "Krok za krokem",
+          "description": "Kurz → modul → lekce. Vždycky víš, kde jsi a co přijde dál – na rozdíl od ceny Bitcoinu."
         },
         "levels": {
-          "title": "Od začátečníka po pokročilého",
-          "description": "Začni od nuly, nebo naskoč na své úrovni – každý kurz je označený jako začátečnický, středně pokročilý nebo pokročilý."
+          "title": "Od nuly po vlastní plán",
+          "description": "Začni úplně od začátku, nebo naskoč tam, kde jsi. Každý kurz má jasnou úroveň: začátečník, středně pokročilý, pokročilý."
         },
         "risk": {
           "title": "Riziko na prvním místě",
-          "description": "Ztráty k tradingu patří. Řízení rizika učíme od úplně první lekce."
+          "description": "O ztrátách mluvíme dřív než o ziscích. Ne proto, že bychom byli pesimisti – ale protože ztráty přijdou. Jde o to, aby byly malé."
         }
       }
     },
     "levels": {
       "title": "Vyber si úroveň",
-      "description": "Každý kurz má svou úroveň, takže snadno najdeš správný začátek.",
+      "description": "Ať jsi ještě nikdy neviděl svíčkový graf, nebo už máš za sebou první spálené prsty.",
       "beginner": {
         "name": "Začátečník",
-        "description": "Krypto i trading jsou pro tebe nové.",
+        "description": "Krypto je pro tebe nové a chceš vědět, do čeho jdeš.",
         "topics": [
-          "Co je blockchain a kryptoměny",
-          "Burzy, peněženky a bezpečnost účtu",
+          "Co je blockchain a proč kryptoměny vůbec existují",
+          "Burzy, peněženky a jak si nenechat ukrást účet",
           "Čtení prvního svíčkového grafu"
         ]
       },
       "intermediate": {
         "name": "Středně pokročilý",
-        "description": "Znáš základy a chceš obchodovat podle plánu.",
+        "description": "Znáš základy a chceš obchodovat podle plánu, ne podle nálady.",
         "topics": [
-          "Podpora, rezistence a trendy",
-          "Typy příkazů a velikost pozice",
-          "Sestavení jednoduchého obchodního plánu"
+          "Struktura trhu, podpora a rezistence",
+          "Indikátory, typy příkazů a skutečné náklady",
+          "Velikost pozice, obchodní plán a deník"
         ]
       },
       "advanced": {
         "name": "Pokročilý",
-        "description": "Obchoduješ a chceš se zlepšit.",
+        "description": "Obchoduješ a chceš to dělat líp – nebo zjistit, že je lepší přestat.",
         "topics": [
-          "Indikátory a analýza více časových rámců",
-          "Řízení rizika napříč portfoliem",
+          "Analýza více trhů a časových rámců",
+          "Řízení rizika celého portfolia",
           "Testování a vyhodnocování strategie"
         ]
       }
     },
     "curriculum": {
-      "title": "První kurz: Základy kryptoměn",
-      "description": "Pozvolný start pro úplné začátečníky – 18 krátkých lekcí, zdarma.",
-      "badge": "Již brzy",
-      "badgeNew": "Nový",
-      "start": "Začít kurz",
-      "level": "Začátečník",
-      "modules": [
-        "Co je blockchain a kryptoměna",
-        "Bitcoin, Ethereum a jak se liší",
-        "Burzy a peněženky",
-        "Jak ochránit účet a prostředky",
-        "Co je trading – a jaká má rizika"
-      ]
+      "title": "Kurzy",
+      "description": "Krátké lekce, skutečné grafy a kvíz na konci každého modulu. Kávu si vař sám.",
+      "start": "Začít kurz"
     },
     "faq": {
       "title": "Časté dotazy",
       "items": {
         "free": {
           "question": "Je to opravdu zdarma?",
-          "answer": "Ano. Všechny kurzy jsou zdarma a zdarma zůstanou. Za učení nebudeš nic platit ani předplácet."
+          "answer": "Ano. Nemusíš zadávat kartu, e-mail ani jméno svého prvního mazlíčka. Všechny kurzy jsou zdarma a zdarma zůstanou."
+        },
+        "rich": {
+          "question": "Zbohatnu z toho?",
+          "answer": "Upřímně? Nejspíš ne. Většina lidí, kteří tradují, dlouhodobě prodělává. Naučíme tě rozumět trhu, řídit riziko a rozhodovat se s rozmyslem – a taky poznat, kdy je lepší neobchodovat vůbec."
         },
         "advice": {
           "question": "Je to investiční doporučení?",
-          "answer": "Ne. Trading Academy je pouze vzdělávací obsah. Vysvětlujeme, jak trhy fungují a jak řídit riziko – nikdy ti neříkáme, co koupit nebo prodat."
-        },
-        "courses": {
-          "question": "Jaké kurzy jsou k dispozici?",
-          "answer": "Hotový je první kurz, Základy kryptoměn, pro úplné začátečníky. Kurzy pro středně pokročilé a pokročilé připravujeme."
+          "answer": "Ne. Trading Academy je vzdělávací obsah. Vysvětlujeme, jak trhy fungují a jak řídit riziko – nikdy ti neříkáme, co koupit nebo prodat."
         },
         "money": {
           "question": "Potřebuju k učení peníze?",
-          "answer": "Ne. Všechno se můžeš naučit bez rizika vlastních peněz. Až se rozhodneš obchodovat, používej jen peníze, o které si můžeš dovolit přijít."
+          "answer": "Ne. Učit se můžeš bez jediné koruny. Až se rozhodneš obchodovat, používej jen peníze, o které si můžeš dovolit přijít – ne peníze na nájem."
+        },
+        "courses": {
+          "question": "Jaké kurzy jsou k dispozici?",
+          "answer": "Všechny hotové kurzy najdeš v sekci Kurzy výše a na stránce Kurzy. Další – včetně pokročilých – připravujeme."
         },
         "languages": {
           "question": "V jakých jazycích je obsah?",
-          "answer": "V angličtině a češtině. Jazyk můžeš kdykoli přepnout v hlavičce."
+          "answer": "V češtině a angličtině. Jazyk můžeš kdykoli přepnout v hlavičce – lekce zůstane stejná, jen bude mluvit jinak."
         }
       }
     }
@@ -502,6 +503,19 @@
         "label": "Obchodník odpočívá v houpací síti mezi dvěma stromy, zavřený notebook leží v trávě",
         "bubble": "Dnes netraduju.",
         "caption": "Žádná pozice je taky pozice. Nejlepší obchod týdne se někdy odehraje v houpací síti."
+      },
+      "chartCoaster": {
+        "label": "Vozík horské dráhy jede po kolejích ve tvaru grafu, pasažér s rukama nahoře má zapnutý pás s nápisem plán",
+        "belt": "PLÁN",
+        "bubble": "S pásem je to zábava!",
+        "caption": "Kryptoměny umí být horská dráha. Kurzy jsou o tom, jak si zapnout pás."
+      },
+      "guruMegaphone": {
+        "label": "Internetový guru se slunečními brýlemi a zlatým řetězem křičí do megafonu sliby, vedle něj si někdo v klidu čte první lekci o riziku",
+        "bubble": "100× ZA TÝDEN!!!",
+        "book": "LEKCE 1",
+        "bookRisk": "RIZIKO",
+        "caption": "Vlevo slib, vpravo vzdělání. Hádej, kdo z nich ti chce něco prodat."
       }
     }
   },

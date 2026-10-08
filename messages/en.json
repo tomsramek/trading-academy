@@ -37,102 +37,103 @@
   },
   "Home": {
     "hero": {
-      "badge": "New course: Crypto basics",
-      "title": "Learn crypto trading — from your first candle to your own strategy",
-      "description": "A free, structured academy for complete beginners and experienced traders. No hype, no promises of quick profit.",
+      "badge": "Free · English and Czech · no Lambo on the front page",
+      "title": "Learn to trade crypto – before the market teaches you",
+      "description": "The market teaches too, it just charges a lot per lesson. Here it is free: clear lessons from your first candle to your own trading plan, real charts, quizzes – and no “guaranteed signals”.",
       "primaryCta": "Browse the courses",
-      "secondaryCta": "Why Trading Academy"
+      "secondaryCta": "Why here",
+      "carousel": {
+        "slide": "illustration",
+        "position": "Illustration {number} of {total}",
+        "show": "Show illustration {number} of {total}",
+        "pause": "Pause the illustrations",
+        "play": "Play the illustrations"
+      }
     },
     "why": {
-      "title": "Why Trading Academy",
-      "description": "Everything you need to understand crypto markets — and nothing you don't.",
+      "title": "Why here",
+      "description": "Because the internet has more “gurus” than a chart has candles. We are the boring friend who first asks how much you can afford to lose.",
       "items": {
         "free": {
-          "title": "Free for everyone",
-          "description": "All courses are free. No paywall, no upsell, no hidden premium tier."
+          "title": "Free. Really.",
+          "description": "No paywall, no “VIP channel” and no 399-euro course that teaches you to buy a 799-euro course."
         },
         "structured": {
-          "title": "A clear learning path",
-          "description": "Courses build on each other: course → module → lesson, so you always know what comes next."
+          "title": "Step by step",
+          "description": "Course → module → lesson. You always know where you are and what comes next – unlike the price of Bitcoin."
         },
         "levels": {
-          "title": "Beginner to advanced",
-          "description": "Start from zero or jump in at your level — every course is marked Beginner, Intermediate or Advanced."
+          "title": "From zero to your own plan",
+          "description": "Start from the very beginning, or jump in where you are. Every course has a clear level: beginner, intermediate, advanced."
         },
         "risk": {
           "title": "Risk comes first",
-          "description": "Losing money is part of trading. We teach risk management from the very first lesson."
+          "description": "We talk about losses before profits. Not because we are pessimists – but because losses will come. The point is to keep them small."
         }
       }
     },
     "levels": {
       "title": "Pick your level",
-      "description": "Every course has a level, so you can find the right starting point.",
+      "description": "Whether you have never seen a candlestick chart or you have already burned your fingers once.",
       "beginner": {
         "name": "Beginner",
-        "description": "New to crypto and trading.",
+        "description": "Crypto is new to you and you want to know what you are getting into.",
         "topics": [
-          "What blockchain and cryptocurrencies are",
-          "Exchanges, wallets and account security",
+          "What a blockchain is and why cryptocurrencies exist at all",
+          "Exchanges, wallets and how not to get your account stolen",
           "Reading your first candlestick chart"
         ]
       },
       "intermediate": {
         "name": "Intermediate",
-        "description": "You know the basics and want to trade with a plan.",
+        "description": "You know the basics and want to trade by a plan, not by mood.",
         "topics": [
-          "Support, resistance and trends",
-          "Order types and position sizing",
-          "Building a simple trading plan"
+          "Market structure, support and resistance",
+          "Indicators, order types and real costs",
+          "Position size, a trading plan and a journal"
         ]
       },
       "advanced": {
         "name": "Advanced",
-        "description": "You trade and want to sharpen your edge.",
+        "description": "You trade and want to do it better – or find out it is better to stop.",
         "topics": [
-          "Indicators and multi-timeframe analysis",
-          "Risk management across a portfolio",
-          "Testing and reviewing your strategy"
+          "Analysing several markets and timeframes",
+          "Managing the risk of a whole portfolio",
+          "Testing and reviewing a strategy"
         ]
       }
     },
     "curriculum": {
-      "title": "The first course: Crypto basics",
-      "description": "A gentle start for complete beginners — 18 short lessons, free.",
-      "badge": "Coming soon",
-      "badgeNew": "New",
-      "start": "Start the course",
-      "level": "Beginner",
-      "modules": [
-        "What is a blockchain and a cryptocurrency",
-        "Bitcoin, Ethereum and how they differ",
-        "Exchanges and wallets",
-        "Keeping your account and funds safe",
-        "What trading is — and its risks"
-      ]
+      "title": "Courses",
+      "description": "Short lessons, real charts and a quiz at the end of every module. Bring your own coffee.",
+      "start": "Start the course"
     },
     "faq": {
       "title": "Frequently asked questions",
       "items": {
         "free": {
           "question": "Is it really free?",
-          "answer": "Yes. All courses are free and will stay free. You won't need to pay or subscribe to learn."
+          "answer": "Yes. You do not have to enter a card, an e-mail or the name of your first pet. All courses are free and will stay free."
+        },
+        "rich": {
+          "question": "Will it make me rich?",
+          "answer": "Honestly? Probably not. Most people who trade lose money in the long run. We teach you to understand the market, manage risk and decide deliberately – and to recognise when it is better not to trade at all."
         },
         "advice": {
           "question": "Is this financial advice?",
-          "answer": "No. Trading Academy is educational content only. We explain how markets work and how to manage risk — we never tell you what to buy or sell."
-        },
-        "courses": {
-          "question": "Which courses are available?",
-          "answer": "The first course, Crypto basics, for complete beginners is ready. Intermediate and advanced courses are in the works."
+          "answer": "No. Trading Academy is educational content. We explain how markets work and how to manage risk – we never tell you what to buy or sell."
         },
         "money": {
           "question": "Do I need money to start learning?",
-          "answer": "No. You can learn everything without risking any money. When you do decide to trade, only use money you can afford to lose."
+          "answer": "No. You can learn everything without spending a cent. When you do decide to trade, only use money you can afford to lose – not your rent."
+        },
+        "courses": {
+          "question": "Which courses are available?",
+          "answer": "You will find all finished courses in the Courses section above and on the Courses page. More – including advanced ones – are in the works."
         },
         "languages": {
           "question": "Which languages are available?",
-          "answer": "English and Czech. You can switch the language at any time in the header."
+          "answer": "English and Czech. You can switch the language any time in the header – the lesson stays the same, it just speaks differently."
         }
       }
     }
@@ -502,6 +503,19 @@
         "label": "A trader rests in a hammock between two trees, a closed laptop lies on the grass",
         "bubble": "Not trading today.",
         "caption": "No position is also a position. Sometimes the best trade of the week happens in a hammock."
+      },
+      "chartCoaster": {
+        "label": "A rollercoaster cart rides on tracks shaped like a chart, the passenger with arms up wears a seatbelt labelled plan",
+        "belt": "PLAN",
+        "bubble": "With a seatbelt it is fun!",
+        "caption": "Crypto can be a rollercoaster. The courses are about how to fasten your seatbelt."
+      },
+      "guruMegaphone": {
+        "label": "An internet guru in sunglasses and a gold chain shouts promises through a megaphone, next to him someone calmly reads the first lesson about risk",
+        "bubble": "100× IN A WEEK!!!",
+        "book": "LESSON 1",
+        "bookRisk": "RISK",
+        "caption": "On the left a promise, on the right an education. Guess which one wants to sell you something."
       }
     }
   },

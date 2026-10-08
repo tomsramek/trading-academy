@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 import { AnimateOnView } from "./AnimateOnView";
+import { HOME_ILLUSTRATIONS } from "./illustrations/homeIllustrations";
 import { TRADING_PLAN_ILLUSTRATIONS } from "./illustrations/tradingPlanIllustrations";
 
 /*
@@ -2406,6 +2407,7 @@ const ILLUSTRATIONS = {
   parachuteStop: ParachuteStop,
   graduation: Graduation,
   ...TRADING_PLAN_ILLUSTRATIONS,
+  ...HOME_ILLUSTRATIONS,
 } as const;
 
 type IllustrationName = keyof typeof ILLUSTRATIONS;
@@ -2432,13 +2434,21 @@ const ANIMATED: ReadonlySet<IllustrationName> = new Set([
   "graduation",
   // Every illustration of the second course is animated.
   ...(Object.keys(TRADING_PLAN_ILLUSTRATIONS) as IllustrationName[]),
+  ...(Object.keys(HOME_ILLUSTRATIONS) as IllustrationName[]),
 ]);
 
 function isIllustrationName(name: string): name is IllustrationName {
   return Object.hasOwn(ILLUSTRATIONS, name);
 }
 
-export function Illustration({ name }: { name: string }) {
+type IllustrationProps = {
+  name: string;
+  // Without the frame, background and replay button, in the colors of the current theme – for a drawing
+  // that should blend into the page (the home page hero). The drawing itself must not paint a background.
+  frameless?: boolean;
+};
+
+export function Illustration({ name, frameless = false }: IllustrationProps) {
   const t = useTranslations("Lesson.illustration");
 
   // MDX is not type-checked, so an unknown name stops the build here.
@@ -2454,16 +2464,21 @@ export function Illustration({ name }: { name: string }) {
       viewBox="0 0 640 360"
       role="img"
       aria-label={t(`${name}.label`)}
-      className="dark w-full overflow-hidden rounded-lg border border-border"
+      className={cn(
+        "w-full overflow-hidden",
+        !frameless && "dark rounded-lg border border-border",
+      )}
     >
       {/* Each drawing reads its own texts (bubble, labels inside the picture). */}
       <Drawing />
     </svg>
   );
   return (
-    <figure className="not-prose my-8">
+    <figure className={cn("not-prose", !frameless && "my-8")}>
       {ANIMATED.has(name) ? (
-        <AnimateOnView replayLabel={t("replay")}>{drawing}</AnimateOnView>
+        <AnimateOnView replayLabel={t("replay")} replayable={!frameless}>
+          {drawing}
+        </AnimateOnView>
       ) : (
         drawing
       )}
