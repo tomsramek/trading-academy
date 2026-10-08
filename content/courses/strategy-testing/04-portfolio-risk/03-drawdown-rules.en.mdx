@@ -1,0 +1,93 @@
+export const metadata = {
+  title: "Drawdown rules",
+  description:
+    "What drawdown is normal for your strategy, how to step down risk by rules set in advance, and what such a rule costs and gains – in a simulation.",
+};
+
+<Callout title="In this lesson">
+
+- find out what drawdown is normal for your strategy
+- set tiered rules for reducing risk
+- see in a simulation what such a rule costs and what it gains
+
+</Callout>
+
+You know from the previous course that a drawdown is harder to recover than to fall into, and you have
+daily and weekly loss limits. They protect you from one bad day. This lesson is about a worse enemy: a slow
+drawdown over weeks and months, when every single trade looks fine – and the account still keeps falling.
+
+<Illustration name="drawdownStairs" />
+
+## What drawdown is normal
+
+Every strategy has drawdowns. The question is not "whether" but "how big is still normal". A backtest
+gives you the answer, or a simulation like the one in the previous lesson.
+
+Example: a strategy with a 40% win rate, a 2R win and a **2%** risk per trade. In a simulation of 200
+trades, the median largest drawdown is **23%**, and only 5% of runs fall by more than **38%**. The longest
+losing streak tends to be around **9 trades**.
+
+For this strategy, a 20% drawdown is unpleasant but normal. A 45% drawdown is no longer normal – something
+has most likely changed. Without this knowledge you would panic at 20%, or still be waiting at 45%.
+
+## Tiered rules
+
+The rules are set **in advance** and measured from the last peak of the <KeyTerm term="equity-curve">equity curve</KeyTerm>:
+
+| Drawdown from peak    | What you do                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| 10%                   | Halve the risk per trade. Go through your journal: are you following rules?          |
+| 20%                   | Risk down to a quarter. Compare results with the backtest – win rate, wins, streaks. |
+| Beyond the test limit | Stop. The strategy goes back to a forward test without money.                        |
+| New peak              | Full risk back.                                                                      |
+
+The "beyond the test limit" row is the switch-off rule from the forward-testing lesson: for example 1.5
+times the largest drawdown in the backtest.
+
+## What the rule costs and what it gains
+
+A simulation with the same strategy (2% risk, 200 trades, 20,000 runs; only the 10% and 20% steps). Once the strategy works (40% win
+rate), once it has stopped working (33% win rate – the expected value is almost zero):
+
+| Win rate            | Rules  | Account (median) | Drawdown exceeded by only 5% of runs | Chance of a 30%+ drawdown |
+| ------------------- | ------ | ---------------- | ------------------------------------ | ------------------------- |
+| 40% (works)         | none   | 2.04×            | 38%                                  | 19%                       |
+| 40% (works)         | tiered | 1.71×            | 24%                                  | almost none               |
+| 33% (does not work) | none   | 0.89×            | 61%                                  | 75%                       |
+| 33% (does not work) | tiered | 0.90×            | 32%                                  | 10%                       |
+
+The rule is **insurance**: when the strategy works, it costs you part of the profit (2.04× against 1.71×),
+because after a drawdown you recover with smaller positions. When the strategy stops working, it prevents
+the worst – in the worst runs it turns a 61% drawdown into 32%. And as long as you do not know which of the
+two situations you are in, only a rule can decide.
+
+<Callout type="risk" title="A simulation, not a forecast">
+  The numbers are a random simulation of a made-up strategy. They show how the
+  rules work, not how much you will make. A real market also has slippage, price
+  gaps and crashes the simulation does not know about.
+</Callout>
+
+## Why not "just a bit longer"
+
+In a drawdown the brain switches: it wants to win the loss back fast (bigger positions) or not see it (stop
+looking and change nothing). Both are the opposite of what the rule does. That is why you:
+
+- **write the rules in advance** into your trading plan, with numbers,
+- **calculate from the account, not from a feeling** – once a week, note where the account is against its
+  peak,
+- **do not change them during a drawdown.** Make changes only after a review, calmly, and test them.
+
+## Common myths
+
+- **"After a drawdown I have to risk more to catch up."** That is exactly how accounts blow up.
+- **"Cutting risk = admitting the strategy does not work."** No – it is insurance for when you do not know.
+- **"A 20% drawdown? The strategy is broken."** It depends on what is normal for it. Find out in advance.
+
+<Callout title="Summary">
+
+- Find out from a backtest or simulation what drawdown is normal for your strategy.
+- Step down risk by rules set in advance: say half at 10%, a quarter at 20%, stop beyond the test limit.
+- The rule costs part of the profit when everything works and saves the account when it does not.
+- Do not change the rules during a drawdown.
+
+</Callout>

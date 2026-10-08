@@ -1,0 +1,92 @@
+import inSample from "./backtest-in-sample.json";
+
+export const metadata = {
+  title: "Strategy metrics",
+  description:
+    "Why total return is not enough: maximum drawdown, profit factor, the average trade, the number of trades and a comparison with simply holding.",
+};
+
+<Callout title="In this lesson">
+
+- get to know the metrics a strategy is judged by
+- see why a single number (total return) misleads
+- learn why few trades mean little certainty
+
+</Callout>
+
+"The strategy made 1,747%." That sounds great – and says almost nothing. Over how many years? With what
+drawdowns? From how many trades? And how much would simply holding have made? This lesson is about the
+numbers you always need to see together.
+
+<Illustration name="dashboardPilot" />
+
+## Metrics you always calculate
+
+- **Annual return** – the average gain per year, so tests of different lengths can be compared.
+- **Maximum <KeyTerm term="drawdown">drawdown</KeyTerm>** – the biggest fall from a previous peak. This
+  is what you will actually live through.
+- **<KeyTerm term="profit-factor">Profit factor</KeyTerm>** – the sum of profits divided by the sum of
+  losses. Above 1 the strategy is in profit; the higher, the better.
+- **Win rate and average win and loss** – the strategy's character from the previous module.
+- **Number of trades** – how much evidence is behind the result.
+- **Comparison with simply holding** – a strategy that does not beat "buy and hold" is not worth the
+  effort.
+
+## Our strategy in numbers
+
+A 40-day average on Bitcoin in 2019–2021 (the period in which we chose the average length):
+
+| Metric             | Strategy (40-day average) | Buy and hold |
+| ------------------ | ------------------------- | ------------ |
+| Total return       | +1,747%                   | +1,148%      |
+| Annual return      | +164%                     | +132%        |
+| Maximum drawdown   | −48%                      | −63%         |
+| Number of trades   | 29                        | 1            |
+| Win rate           | 31%                       | –            |
+| Average win / loss | +61% / −3.6%              | –            |
+| Profit factor      | 7.6                       | –            |
+
+<LineChart
+  data={inSample}
+  label="Equity curve from 2019 to 2021: the 40-day average strategy ends at about 18 times the start, buy and hold at about 12 times"
+  caption="The period in which the average length was chosen. Here the strategy looks great – which is exactly why it cannot be trusted."
+  lines={[
+    { key: "sma40", label: "Strategy (40-day average)" },
+    { key: "buyHold", label: "Buy and hold" },
+  ]}
+  logarithmic
+/>
+
+## What the numbers really tell you
+
+**Three trades did most of the work.** Of 29 trades, the three biggest brought 75% of all profits. Had one
+of them failed, the result would look completely different.
+
+**29 trades are few.** With such a small sample you cannot tell a good strategy from a lucky accident. From
+the lesson on expected value you know a more reliable picture comes from a hundred or more trades.
+
+**A −48% drawdown is reality.** Even a "great" strategy would have cost you almost half the account in the
+test. Would you sit through it – with real money, not knowing it would end well?
+
+<Callout type="warning" title="Total return is the least important number">
+  Two strategies with the same return can be completely different: one with a
+  20% drawdown and hundreds of trades, the other with a 60% drawdown and ten
+  trades. Always judge the whole table, not one number.
+</Callout>
+
+## Common myths
+
+- **"It made more than buy and hold, so it is better."** Look at the drawdown and the number of trades
+  first.
+- **"A profit factor of 7.6 is great."** From 29 trades carried by three – lucky, more likely.
+- **"I can handle the drawdown."** On paper, everyone can.
+
+<Callout title="Summary">
+
+- Judge a strategy by a table: annual return, maximum drawdown, profit factor, win rate, number of trades
+  and a comparison with holding.
+- Few trades = little certainty; a few big trades can make up most of the result.
+- Maximum drawdown is what you will actually live through.
+- The result on the data you tuned the strategy on is always too optimistic.
+
+</Callout>

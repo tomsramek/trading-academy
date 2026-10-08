@@ -1,0 +1,80 @@
+export const metadata = {
+  title: "Když strategie přestane fungovat",
+  slug: "kdyz-strategie-prestane-fungovat",
+  description:
+    "Proč výhoda strategie časem slábne, jak odlišit smůlu od rozbité strategie pomocí počtu obchodů a co dělat, když už je jasno.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, proč strategie časem přestávají fungovat
+- odlišíš smůlu od rozbité strategie podle počtu obchodů
+- dostaneš postup, co dělat, když strategie selhává
+
+</Callout>
+
+Každá strategie, která vydělává, má nějakou <KeyTerm term="edge">výhodu</KeyTerm> – důvod, proč by měla
+vydělávat víc, než prodělává. Výhody ale nejsou věčné. Trh se mění, ostatní obchodníci se učí a co
+fungovalo před třemi lety, dnes může jen platit poplatky.
+
+<Illustration name="crowdedPond" />
+
+## Proč výhoda slábne
+
+- **Trh se změnil.** Z první lekce víš, že medián denního ATR Bitcoinu klesl z 6,1 % v roce 2021 na 2,9 %
+  v roce 2025. Strategie postavená na divokých pohybech má v klidnějším trhu méně příležitostí a poplatky
+  z nich ukrojí větší díl.
+- **Výhodu objevili ostatní.** Když stejný signál obchoduje hodně lidí, vstupují dřív a cena se pohne
+  dřív, než se k ní dostaneš.
+- **Výhoda nikdy nebyla skutečná.** Nejčastější případ. Strategie byla přeučená na minulost – jako
+  náš průměr 40 dní, který měl při ladění profit factor 7,6 a mimo vzorek 2,4.
+
+## Smůla, nebo rozbitá strategie?
+
+Tady pomůže počet obchodů. Řekněme, že backtest slibuje úspěšnost 40 % a ty máš jen 30 %. Jak velká je
+šance, že je to jen smůla a strategie je v pořádku?
+
+| Počet obchodů | Úspěšnost 30 % a méně jen smůlou |
+| ------------- | -------------------------------- |
+| 20            | 25 %                             |
+| 50            | 10 %                             |
+| 100           | 2,5 %                            |
+
+Po 20 obchodech se úspěšnost 30 % a méně stane jednou ze čtyř – to je normální výkyv. Po 100 obchodech už jen
+ve 2,5 % případů. Tam je mnohem pravděpodobnější, že se něco změnilo.
+
+Totéž platí pro další čísla z vyhodnocení: průměrný zisk, propad, délku sérií ztrát. Jedno číslo mimo
+rozmezí je varování. Několik čísel mimo rozmezí po desítkách obchodů je signál.
+
+## Postup, když strategie selhává
+
+1. **Obchoduješ ji podle pravidel?** Podívej se do deníku. Když ne, problém není ve strategii.
+2. **Je propad v rozmezí z backtestu?** Když ano, je to nejspíš normální období – drž se pravidel pro
+   drawdown.
+3. **Jsou čísla po dostatku obchodů mimo rozmezí?** Když ano, strategii vypni podle předem daného
+   pravidla.
+4. **Změnil se trh?** Hledej vysvětlení – jiný režim, nižší volatilita, vyšší náklady. Pokud žádné
+   nenajdeš, ber to jako varování, že výhoda možná nikdy nebyla skutečná.
+5. **Zpátky do výzkumu.** Upravenou strategii testuješ celou cestou znovu: backtest, mimo vzorek, forward
+   test. Nové pravidlo „opravené“ na posledních ztrátách je jen další přeučení.
+
+<Callout type="warning" title="Nelaď strategii podle posledních obchodů">
+  Po sérii ztrát je lákavé přidat filtr, který by je odfiltroval. Na minulých
+  datech to vždycky vypadá skvěle – právě proto, že ho stavíš podle nich. Je to
+  přeučení v malém.
+</Callout>
+
+## Časté omyly
+
+- **„Strategie fungovala tři roky, bude fungovat dál.“** Výhody slábnou. Hlídej čísla, ne minulost.
+- **„Pět ztrát za sebou, strategie je mrtvá.“** Po pár obchodech je to skoro vždy šum.
+- **„Přidám filtr a bude to zase fungovat.“** Na minulých datech vždycky.
+
+<Callout title="Shrnutí">
+
+- Výhoda strategie slábne: trh se mění, ostatní ji objeví, nebo nikdy nebyla skutečná.
+- O selhání rozhoduje počet obchodů: po 20 obchodech je to šum, po 100 už signál.
+- Postup: dodržuješ pravidla? → propad v rozmezí? → čísla mimo rozmezí? → co se změnilo? → zpět do výzkumu.
+- Upravenou strategii testuj celou cestou znovu.
+
+</Callout>

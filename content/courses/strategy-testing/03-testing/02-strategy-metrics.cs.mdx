@@ -1,0 +1,91 @@
+import inSample from "./backtest-in-sample.json";
+
+export const metadata = {
+  title: "Metriky strategie",
+  slug: "metriky-strategie",
+  description:
+    "Proč celkový výnos nestačí: maximální drawdown, profit factor, průměrný obchod, počet obchodů a srovnání s prostým držením.",
+};
+
+<Callout title="V této lekci">
+
+- poznáš metriky, podle kterých se strategie hodnotí
+- uvidíš, proč jediné číslo (celkový výnos) klame
+- naučíš se, proč málo obchodů znamená málo jistoty
+
+</Callout>
+
+„Strategie vydělala 1 747 %.“ To zní skvěle – a skoro nic to neříká. Za kolik let? S jakými propady?
+Z kolika obchodů? A kolik by vydělalo prosté držení? Tahle lekce je o číslech, která potřebuješ vidět
+vždycky pohromadě.
+
+<Illustration name="dashboardPilot" />
+
+## Metriky, které se počítají vždycky
+
+- **Roční výnos** – průměrné zhodnocení za rok, aby šly porovnat testy různé délky.
+- **Maximální <KeyTerm term="drawdown">drawdown</KeyTerm>** – největší pokles od předchozího maxima.
+  Tohle budeš ve skutečnosti prožívat.
+- **<KeyTerm term="profit-factor">Profit factor</KeyTerm>** – součet zisků děleno součtem ztrát. Nad
+  1 je strategie v plusu; čím víc, tím lépe.
+- **Úspěšnost a průměrný zisk a ztráta** – charakter strategie z minulého modulu.
+- **Počet obchodů** – kolik důkazů za výsledkem je.
+- **Srovnání s prostým držením** – strategie, která neporazí „kup a drž“, za námahu nestojí.
+
+## Naše strategie v číslech
+
+Průměr 40 dní na Bitcoinu v letech 2019–2021 (období, ve kterém jsme délku průměru vybrali):
+
+| Metrika                | Strategie (průměr 40) | Kup a drž |
+| ---------------------- | --------------------- | --------- |
+| Celkový výnos          | +1 747 %              | +1 148 %  |
+| Roční výnos            | +164 %                | +132 %    |
+| Maximální drawdown     | −48 %                 | −63 %     |
+| Počet obchodů          | 29                    | 1         |
+| Úspěšnost              | 31 %                  | –         |
+| Průměrný zisk / ztráta | +61 % / −3,6 %        | –         |
+| Profit factor          | 7,6                   | –         |
+
+<LineChart
+  data={inSample}
+  label="Křivka kapitálu v letech 2019 až 2021: strategie s průměrem 40 dní končí na zhruba 18násobku, kup a drž na zhruba 12násobku"
+  caption="Období, ve kterém byla délka průměru vybraná. Tady strategie vypadá skvěle – právě proto se jí nedá věřit."
+  lines={[
+    { key: "sma40", label: "Strategie (průměr 40 dní)" },
+    { key: "buyHold", label: "Kup a drž" },
+  ]}
+  logarithmic
+/>
+
+## Co z čísel opravdu vyčteš
+
+**Tři obchody udělaly většinu práce.** Z 29 obchodů tři největší přinesly 75 % všech zisků. Kdyby se
+jeden z nich nepovedl, vypadal by výsledek úplně jinak.
+
+**29 obchodů je málo.** Při tak malém vzorku nedokážeš odlišit dobrou strategii od šťastné náhody.
+Z lekce o očekávané hodnotě víš, že spolehlivější obraz dává sto a víc obchodů.
+
+**Drawdown −48 % je realita.** I „skvělá“ strategie by tě v testu nechala přijít o skoro polovinu účtu.
+Vydržel bys to – se skutečnými penězi, bez vědomí, že to dopadne dobře?
+
+<Callout type="warning" title="Celkový výnos je nejméně důležité číslo">
+  Dvě strategie se stejným výnosem můžou být úplně jiné: jedna s propadem 20 % a
+  stovkami obchodů, druhá s propadem 60 % a deseti obchody. Hodnoť vždycky celou
+  tabulku, ne jedno číslo.
+</Callout>
+
+## Časté omyly
+
+- **„Vydělala víc než kup a drž, je lepší.“** Nejdřív se podívej na drawdown a počet obchodů.
+- **„Profit factor 7,6 je skvělý.“** Z 29 obchodů, které táhnou tři – spíš šťastný.
+- **„Drawdown zvládnu.“** Na papíře ho zvládne každý.
+
+<Callout title="Shrnutí">
+
+- Strategii hodnoť tabulkou: roční výnos, maximální drawdown, profit factor, úspěšnost, počet obchodů
+  a srovnání s držením.
+- Málo obchodů = málo jistoty; pár velkých obchodů může tvořit většinu výsledku.
+- Maximální drawdown je to, co budeš ve skutečnosti prožívat.
+- Výsledek na datech, na kterých jsi strategii ladil, je vždycky příliš optimistický.
+
+</Callout>

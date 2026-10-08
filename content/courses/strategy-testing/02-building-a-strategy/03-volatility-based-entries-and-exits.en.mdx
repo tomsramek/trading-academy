@@ -1,0 +1,85 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Volatility-based entries and exits",
+  description:
+    "A stop-loss and trailing stop from ATR, a position size that adapts to the market, and an honest example of when it did not work out.",
+};
+
+<Callout title="In this lesson">
+
+- set a stop-loss by volatility instead of a fixed percentage
+- work out a position size that keeps the risk the same
+- see a trailing stop from ATR – and its weak spot
+
+</Callout>
+
+A stop-loss of "always 5%" is simple but dumb: in a calm market it is needlessly far away, in a wild one
+needlessly close. ATR from the first lesson gives you a yardstick that adapts to the market by itself.
+
+## A stop-loss by ATR
+
+A common rule: a stop-loss **1.5 to 3 ATR** from the entry. The price then has room for its usual daily
+move, and the stop-loss only triggers when something unusual happens.
+
+Example: on 14 October 2024 Bitcoin closed at 66,084 and ATR was 2,116 (3.2% of the price). A stop-loss
+2 ATR below the entry: 66,084 − 2 × 2,116 = **61,852**, that is 6.4% below the entry.
+
+## A position size that adapts
+
+Now the formula from the previous course: **position size = risk ÷ distance to the stop-loss**. With 20
+euros at risk and a 6.4% stop-loss, the position is about **310 euros**.
+
+If ATR were 5.9% – as in April 2024 – a 2 ATR stop-loss would be almost 12% below the entry and the
+position would shrink to about **170 euros**. The risk in money stays the same, only the position breathes
+with the market: smaller in a wild market, bigger in a calm one. This is called <KeyTerm term="volatility-sizing">volatility-based position sizing</KeyTerm>.
+
+<Illustration name="breathingStop" />
+
+## A trailing stop from ATR
+
+A stop-loss can follow the price: for example **3 ATR below the highest price since the entry**. When the
+price rises, the stop moves up; when the price jumps and volatility with it, the stop gives more room.
+
+And now, honestly, how our trade turned out:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with ATR in a panel below: an entry on 14 October 2024 at 66,084, a stop-loss 2 ATR away at 61,852, an exit by a 3 ATR trailing stop on 4 November at about 67,200, two days before the breakout above 73,800"
+  caption="An example trade – an explanation, not a recommendation. The trailing stop took the trade out with a profit on 4 November, two days before a big rally."
+  indicators={{ atr: true }}
+  levels={[
+    { price: 66084, kind: "entry" },
+    { price: 61852, kind: "stopLoss", label: "Stop 2 ATR" },
+  ]}
+  markers={[
+    { time: "2024-10-14", kind: "buy" },
+    { time: "2024-11-04", kind: "sell", label: "Trailing stop" },
+  ]}
+/>
+
+The price climbed as high as 73,620, then came back, and on 4 November the trailing stop closed the trade
+at about 67,200 – with a small profit. Two days later came the breakout above 73,800 and by the end of the month the price rose to almost 100,000. The trailing stop did exactly what it was supposed to – and that
+day would still have stung a lot.
+
+<Callout type="warning" title="There is no perfect stop-loss">
+  A tight stop throws you out of good trades, a loose one lets losses grow. ATR
+  gives a sensible yardstick, not perfect timing. That is why the stop-loss is
+  chosen in advance and judged over hundreds of trades, not one.
+</Callout>
+
+## Common myths
+
+- **"A 2 ATR stop is the right one."** It is a sensible start, not a magic number.
+- **"Wild market = bigger position, I will make more."** The opposite: higher volatility, smaller
+  position.
+- **"The trailing stop threw me out just before a rally, so it is bad."** One trade proves nothing.
+
+<Callout title="Summary">
+
+- A stop-loss by ATR (1.5–3 ATR) adapts to the market's volatility.
+- Position size = risk ÷ distance to the stop: smaller in a wild market, bigger in a calm one.
+- A trailing stop from ATR follows the price and gives room according to volatility.
+- No stop-loss method is perfect – it is judged over many trades.
+
+</Callout>

@@ -1,0 +1,93 @@
+import weekly from "@content/market-data/btcusdt-1w-2018-2025.json";
+
+export const metadata = {
+  title: "Cykly a makro bez věštění",
+  slug: "cykly-a-makro",
+  description:
+    "Halving, úrokové sazby, likvidita a ETF: co o nich opravdu víme, co je jen příběh a proč tři cykly nejsou statistika.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, co se říká o čtyřletém cyklu Bitcoinu a proč tomu nevěřit slepě
+- pochopíš, jak na kryptoměny působí úrokové sazby a likvidita
+- naučíš se používat makro jako kontext, ne jako předpověď
+
+</Callout>
+
+Kryptotrh nežije ve vakuu. Ovlivňují ho centrální banky, nálada na akciových trzích i velké
+události, jako bylo schválení bitcoinových ETF. A pak je tu oblíbený „čtyřletý cyklus“. Tahle lekce
+je o tom, jak s tím vším pracovat, aniž by ses stal věštcem.
+
+## Čtyřletý cyklus
+
+Každé čtyři roky (přesně každých 210 000 bloků) se sníží odměna za blok na polovinu – halving. Halvingy
+byly v listopadu 2012, v červenci 2016, v květnu 2020 a v dubnu 2024. Po těch předchozích přišel
+zhruba do roka a půl velký růst a pak hluboký propad. Z toho vznikla teorie čtyřletého cyklu.
+
+<Illustration name="cycleAstrologer" />
+
+Proč opatrně:
+
+- **Tři až čtyři cykly nejsou statistika.** Ze čtyř hodů mincí nepoznáš, jestli je falešná.
+- **Trh se mění.** S ETF, institucemi a jinou velikostí trhu nemusí staré vzorce platit.
+- **Když vzorec znají všichni, chovají se podle něj dřív** – a tím ho mění.
+
+## Úrokové sazby a likvidita
+
+Když jsou peníze levné (nízké úrokové sazby, centrální banky tisknou), hledají investoři vyšší
+výnos a rizikovější aktiva rostou. Když se peníze zdražují, rizikovější aktiva trpí nejvíc.
+
+Rok 2022 je učebnicový příklad: americká centrální banka (Fed) začala v březnu 2022 zvyšovat sazby
+z téměř nuly a v červenci 2023 skončila na 5,25–5,5 %. Bitcoin v roce 2022 ztratil zhruba dvě třetiny hodnoty. První snížení sazeb přišlo v září 2024.
+
+<CandleChart
+  data={weekly}
+  label="Týdenní graf Bitcoinu 2018–2025 s vyznačenými událostmi: halving v květnu 2020, začátek zvyšování sazeb v březnu 2022, schválení bitcoinových ETF v lednu 2024, halving v dubnu 2024 a první snížení sazeb v září 2024"
+  caption="Události vyznačené na grafu. Všimni si, jak často se cena k události chovala jinak, než by „příběh“ čekal."
+  markers={[
+    { time: "2020-05-11", kind: "event", label: "Halving" },
+    { time: "2022-03-14", kind: "event", label: "Fed zvyšuje sazby" },
+    { time: "2024-01-08", kind: "event", label: "ETF" },
+    { time: "2024-04-15", kind: "event", label: "Halving" },
+    { time: "2024-09-16", kind: "event", label: "Fed snižuje" },
+  ]}
+/>
+
+## ETF a velcí hráči
+
+V lednu 2024 americký regulátor SEC schválil první spotové bitcoinové ETF – fondy obchodované na
+burze, přes které si Bitcoin koupí i klasický investor. Do Bitcoinu tak přitekly peníze, které by
+na kryptoburzu nikdy nešly. Na druhou stranu je teď Bitcoin víc propojený s tradičními trhy: když
+velcí investoři snižují riziko, prodávají i ETF.
+
+## Jak makro používat
+
+- **Jako kontext, ne jako spoušť.** „Sazby rostou“ neznamená „zítra prodej“. Znamená „buď opatrnější
+  s velikostí pozic“.
+- **Hlídej kalendář.** Rozhodnutí centrálních bank a důležitá data o inflaci hýbou trhem – v ty dny
+  je rozumné riskovat méně nebo neobchodovat (viz poslední lekce minulého kurzu).
+- **Neplať za věštby.** Kdo s jistotou ví, kdy přijde vrchol cyklu, by na tom zbohatl, ne prodával
+  kurzy.
+
+<Callout type="warning" title="Příběh je vždycky jasný zpětně">
+  Po každém velkém pohybu se najde vysvětlení, které zní logicky. Předem stejně
+  jasné nebylo. Makro a cykly ti pomohou pochopit prostředí, ne předpovědět
+  cenu.
+</Callout>
+
+## Časté omyly
+
+- **„Po halvingu cena vždycky vyroste.“** Zatím to tak párkrát vypadalo. Čtyři pokusy nejsou zákon.
+- **„Fed sníží sazby, takže koupím.“** Trh to často „zaplatí“ dopředu – a reakce bývá opačná.
+- **„Znám cyklus, vím, kdy prodat.“** Kdyby to šlo, dělali by to všichni.
+
+<Callout title="Shrnutí">
+
+- Čtyřletý cyklus podle halvingů je zajímavý vzorec, ale ze tří až čtyř opakování nejde dělat jisté
+  závěry.
+- Levné peníze pomáhají rizikovým aktivům, drahé jim škodí – rok 2022 to ukázal naplno.
+- ETF propojila Bitcoin s tradičními trhy.
+- Makro používej jako kontext pro velikost rizika, ne jako předpověď.
+
+</Callout>

@@ -1,0 +1,82 @@
+export const metadata = {
+  title: "When a strategy stops working",
+  description:
+    "Why a strategy's edge fades over time, how to tell bad luck from a broken strategy using the number of trades, and what to do once it is clear.",
+};
+
+<Callout title="In this lesson">
+
+- understand why strategies stop working over time
+- tell bad luck from a broken strategy by the number of trades
+- get a procedure for what to do when a strategy is failing
+
+</Callout>
+
+Every strategy that makes money has some <KeyTerm term="edge">edge</KeyTerm> – a reason why it should
+make more than it loses. But edges are not forever. The market changes, other traders learn, and what
+worked three years ago may today only pay fees.
+
+<Illustration name="crowdedPond" />
+
+## Why an edge fades
+
+- **The market has changed.** You know from the first lesson that Bitcoin's median daily ATR fell from
+  6.1% in 2021 to 2.9% in 2025. A strategy built on wild moves has fewer opportunities in a calmer market,
+  and fees take a bigger bite out of them.
+- **Others have found the edge.** When many people trade the same signal, they get in earlier and the
+  price moves before you get to it.
+- **The edge was never real.** The most common case. The strategy was overfitted to the past – like our
+  40-day average, which had a profit factor of 7.6 during tuning and 2.4 out of sample.
+
+## Bad luck or a broken strategy?
+
+This is where the number of trades helps. Say the backtest promises a 40% win rate and you have only 30%.
+How likely is it that this is just bad luck and the strategy is fine?
+
+| Number of trades | A win rate of 30% or less by bad luck alone |
+| ---------------- | ------------------------------------------- |
+| 20               | 25%                                         |
+| 50               | 10%                                         |
+| 100              | 2.5%                                        |
+
+After 20 trades, a win rate of 30% or less happens one time in four – a normal swing. After 100 trades only in 2.5% of
+cases. There it is much more likely that something has changed.
+
+The same goes for the other numbers from your review: the average win, the drawdown, the length of losing
+streaks. One number out of range is a warning. Several numbers out of range after dozens of trades are a
+signal.
+
+## What to do when a strategy is failing
+
+1. **Are you trading it by the rules?** Look at your journal. If not, the problem is not the strategy.
+2. **Is the drawdown within the backtest range?** If so, it is most likely a normal period – stick to your
+   drawdown rules.
+3. **Are the numbers out of range after enough trades?** If so, switch the strategy off by the rule set in
+   advance.
+4. **Has the market changed?** Look for an explanation – a different regime, lower volatility, higher
+   costs. If you find none, take it as a warning that the edge may never have been real.
+5. **Back to research.** You test a modified strategy all the way again: backtest, out of sample, forward
+   test. A new rule "fixed" on the latest losses is just more overfitting.
+
+<Callout type="warning" title="Do not tune the strategy to your latest trades">
+  After a losing streak it is tempting to add a filter that would have filtered
+  them out. On past data it always looks great – precisely because you build it
+  from that data. It is overfitting in miniature.
+</Callout>
+
+## Common myths
+
+- **"The strategy worked for three years, it will keep working."** Edges fade. Watch the numbers, not the
+  past.
+- **"Five losses in a row, the strategy is dead."** After a few trades it is almost always noise.
+- **"I will add a filter and it will work again."** On past data, it always does.
+
+<Callout title="Summary">
+
+- A strategy's edge fades: the market changes, others find it, or it was never real.
+- The number of trades decides: after 20 trades it is noise, after 100 a signal.
+- Procedure: following the rules? → drawdown in range? → numbers out of range? → what changed? → back to
+  research.
+- Test a modified strategy all the way again.
+
+</Callout>

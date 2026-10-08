@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What does ATR measure?",
+          "options": [
+            "The direction of the trend",
+            "The average daily range of the price, i.e. volatility",
+            "The number of trades on an exchange"
+          ],
+          "explanation": "ATR is the average true daily range over the last 14 days. As a percentage of the price it shows how much the market usually moves in a day – not in which direction."
+        },
+        "cs": {
+          "question": "Co měří ATR?",
+          "options": [
+            "Směr trendu",
+            "Průměrné denní rozpětí ceny, tedy volatilitu",
+            "Počet obchodů na burze"
+          ],
+          "explanation": "ATR je průměr skutečného denního rozpětí za posledních 14 dní. V procentech ceny ukazuje, jak moc se trh obvykle pohne za den – ne kterým směrem."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The correlation of Bitcoin and Ether came out at 0.80. What does it mean?",
+          "options": [
+            "Ether always makes 80% of what Bitcoin makes",
+            "Ether and Bitcoin are unrelated",
+            "On most days they move in the same direction"
+          ],
+          "explanation": "A correlation close to 1 means they move together. It does not say by how much – in downturns Ether usually loses more than Bitcoin."
+        },
+        "cs": {
+          "question": "Korelace Bitcoinu a Etheru vyšla 0,80. Co to znamená?",
+          "options": [
+            "Ether vždy vydělá 80 % toho, co Bitcoin",
+            "Ether a Bitcoin spolu nesouvisí",
+            "Ve většině dnů se pohybují stejným směrem"
+          ],
+          "explanation": "Korelace blízko 1 znamená, že se pohybují spolu. Neříká, o kolik – Ether v propadech obvykle ztrácí víc než Bitcoin."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why take the four-year halving “cycle” with a pinch of salt?",
+          "options": [
+            "We have only a few cycles – too few cases to verify a pattern",
+            "Because halvings will never happen again",
+            "Because one exchange controls it"
+          ],
+          "explanation": "There have been only a few halvings, and each came with changes in the macro economy and the market. Three or four repetitions are more a story than statistics."
+        },
+        "cs": {
+          "question": "Proč brát „čtyřletý cyklus“ halvingů s rezervou?",
+          "options": [
+            "Máme jen pár cyklů – na tak málo případech se zákonitost nedá ověřit",
+            "Protože halving už nikdy nenastane",
+            "Protože ho ovládá jedna burza"
+          ],
+          "explanation": "Halvingů bylo jen několik a s každým se zároveň měnila makroekonomika i trh. Tři nebo čtyři opakování jsou spíš příběh než statistika."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The funding rate stays strongly positive for a long time. What does it suggest?",
+          "options": [
+            "Shorts dominate the market",
+            "Many traders hold leveraged longs and the market may be overheated",
+            "The exchange is in trouble"
+          ],
+          "explanation": "Positive funding means longs pay shorts. When it stays high, the market is full of leveraged longs – and in a decline they can trigger a cascade of liquidations."
+        },
+        "cs": {
+          "question": "Funding rate je dlouhodobě vysoko kladný. Co to naznačuje?",
+          "options": [
+            "Na trhu převažují shorty",
+            "Hodně obchodníků drží longy na páku a trh může být přehřátý",
+            "Burza je v potížích"
+          ],
+          "explanation": "Kladný funding platí longy shortům. Když je vysoký dlouho, je trh plný pákových longů – a ty můžou při poklesu spustit kaskádu likvidací."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How should you use market context in trading?",
+          "options": [
+            "As a precise entry signal",
+            "Not at all, the chart is enough",
+            "As a filter: when and with what position size to trade the strategy"
+          ],
+          "explanation": "Regime, volatility, correlation and derivatives data do not say exactly when to buy. They help decide whether the strategy suits the market and how much risk to take."
+        },
+        "cs": {
+          "question": "Jak používat tržní kontext v obchodování?",
+          "options": [
+            "Jako přesný signál ke vstupu",
+            "Vůbec, stačí graf",
+            "Jako filtr: kdy a jak velkou pozicí strategii obchodovat"
+          ],
+          "explanation": "Režim, volatilita, korelace i data z derivátů neříkají, kdy přesně koupit. Pomáhají rozhodnout, jestli strategie do trhu sedí a jak velké riziko vzít."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

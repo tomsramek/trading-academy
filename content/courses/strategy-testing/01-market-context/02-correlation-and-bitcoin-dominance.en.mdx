@@ -1,0 +1,107 @@
+import crash from "./crash-2022.json";
+
+export const metadata = {
+  title: "Correlation and Bitcoin dominance",
+  description:
+    "Why cryptocurrencies move together, how much more altcoins fall than Bitcoin and what that means for choosing trades.",
+};
+
+<Callout title="In this lesson">
+
+- understand what correlation is and how to read it
+- see how closely altcoins move with Bitcoin
+- find out why "diversification" across cryptocurrencies protects less than it seems
+
+</Callout>
+
+You hold five different cryptocurrencies and feel diversified. Then a bad week comes and all five fall
+at once. It is not bad luck – it is <KeyTerm term="correlation">correlation</KeyTerm>.
+
+## What correlation is
+
+Correlation measures how much two things move together, on a scale from −1 to +1:
+
+- **+1** – they always move in the same direction,
+- **0** – they are unrelated,
+- **−1** – they always move in opposite directions.
+
+It is calculated from daily price changes, not from the prices themselves. Two coins that both rise in
+the long run need not be highly correlated if they move differently day by day.
+
+## Cryptocurrencies move with Bitcoin
+
+From daily changes on Binance between January 2021 and September 2025:
+
+| Pair      | Correlation of daily changes |
+| --------- | ---------------------------- |
+| BTC – ETH | 0.80                         |
+| BTC – SOL | 0.60                         |
+| ETH – SOL | 0.64                         |
+
+And correlation is not constant. Between Bitcoin and Solana it was only 0.40 in 2021 – in the 2022
+crash already 0.79. **Correlations rise under stress**: when the market panics, everything is sold at
+once.
+
+On days when Bitcoin fell by more than 5% (there were eighty such days since 2021), it fell 7.3% on
+average. Ethereum fell 8.6% on the same days and Solana 8.3%.
+
+<Illustration name="followTheLeader" />
+
+## When Bitcoin falls, altcoins fall harder
+
+The decline after the November 2021 peak:
+
+- **Bitcoin** from 69,000 to 15,476 – **down 78%**,
+- **Ethereum** from 4,868 to 882 – **down 82%**,
+- **Solana** from 260 to 8 – **down 97%**.
+
+<LineChart
+  data={crash}
+  label="Bitcoin, Ethereum and Solana from 10 November 2021 to the end of 2023, rebased to 100 at the start: Bitcoin and Ethereum fell to roughly a quarter, Solana to 4"
+  caption="All three start at 100. Of a hundred euros in Solana, about four were left in December 2022."
+  lines={[
+    { key: "btc", label: "Bitcoin" },
+    { key: "eth", label: "Ethereum" },
+    { key: "sol", label: "Solana" },
+  ]}
+/>
+
+## Bitcoin dominance
+
+So-called <KeyTerm term="bitcoin-dominance">Bitcoin dominance</KeyTerm> is Bitcoin's share
+of the market value of all cryptocurrencies. When it rises, money is pulling
+back into Bitcoin (often out of fear). When it falls, traders move money into
+altcoins (often in euphoria). It is a useful gauge of market mood – but not a
+trading signal: dominance can rise or fall for months.
+
+## What follows
+
+- **Five altcoins are not five bets.** With correlations around 0.6–0.9 it is more like one big bet
+  on crypto.
+- **An altcoin is Bitcoin with leverage.** It loses more in crashes – and does not always make it back
+  in rallies.
+- **Watch Bitcoin even if you trade something else.** Altcoins rarely hold up against a strong BTC
+  move.
+
+<Callout type="warning" title="Correlation changes">
+  The numbers above hold for one period and one exchange. Correlation changes
+  and almost always rises under stress – exactly when you would need
+  diversification most.
+</Callout>
+
+## Common myths
+
+- **"I have ten coins, I am diversified."** If they are all crypto, not much.
+- **"This altcoin is independent of Bitcoin."** Until the first proper crash.
+- **"A correlation of 0.8 means they move together on 80% of days."** No – it measures the strength of
+  the joint movement, not a number of days.
+
+<Callout title="Summary">
+
+- Correlation (−1 to +1) measures how much two things move together; it is calculated from daily
+  changes.
+- Large cryptocurrencies correlate with Bitcoin at roughly 0.6–0.8, and it rises under stress.
+- In crashes altcoins fall harder than Bitcoin – in 2021–2022 by 82 to 97% against 78%.
+- Bitcoin dominance shows market mood; it is not a trading signal.
+
+</Callout>

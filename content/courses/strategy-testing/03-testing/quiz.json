@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "A backtest showed 100% winning trades and a return of over 24,000%. What is most likely?",
+          "options": [
+            "You found a great strategy",
+            "There is a bug in the test – such as look-ahead",
+            "The market was unusually calm in that period"
+          ],
+          "explanation": "That is exactly what our test gave when it decided in the morning based on that day's close. Miraculous numbers usually mean a mistake."
+        },
+        "cs": {
+          "question": "Backtest ukázal 100 % ziskových obchodů a výnos přes 24 000 %. Co je nejpravděpodobnější?",
+          "options": [
+            "Našel jsi skvělou strategii",
+            "V testu je chyba – třeba pohled do budoucnosti",
+            "Trh byl v tom období výjimečně klidný"
+          ],
+          "explanation": "Přesně takový výsledek dal náš test, který už ráno rozhodoval podle dnešní zavírací ceny. Zázračná čísla obvykle znamenají chybu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is survivorship bias?",
+          "options": [
+            "Testing only on coins that exist today, without those that died",
+            "When a strategy survives a crash",
+            "When a backtest ignores fees"
+          ],
+          "explanation": "Coins like LUNA are missing from today's lists. A test on survivors only looks better than reality would have."
+        },
+        "cs": {
+          "question": "Co je zkreslení přeživších?",
+          "options": [
+            "Testování jen na mincích, které existují dnes, bez těch, které zanikly",
+            "Když strategie přežije krach",
+            "Když backtest nepočítá s poplatky"
+          ],
+          "explanation": "Mince jako LUNA v dnešních seznamech chybí. Test jen na přeživších vypadá lépe, než by vypadala skutečnost."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "A strategy made 1,747% from 29 trades, and three of them brought 75% of the profit. What follows?",
+          "options": [
+            "It is a great strategy, the three big trades are its edge",
+            "A profit factor of 7.6 is proof",
+            "The sample is small and the result may be largely luck"
+          ],
+          "explanation": "With 29 trades you cannot tell a good strategy from a lucky accident. If one of the three big trades had failed, the result would look completely different."
+        },
+        "cs": {
+          "question": "Strategie vydělala 1 747 % z 29 obchodů a tři z nich přinesly 75 % zisku. Co z toho plyne?",
+          "options": [
+            "Je to skvělá strategie, tři velké obchody jsou její výhoda",
+            "Profit factor 7,6 je důkaz",
+            "Vzorek je malý a výsledek může být hodně dílem náhody"
+          ],
+          "explanation": "Na 29 obchodech se dobrá strategie od šťastné náhody rozlišit nedá. Kdyby jeden ze tří velkých obchodů nevyšel, výsledek by vypadal úplně jinak."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why is an out-of-sample test done only once?",
+          "options": [
+            "Because it is expensive",
+            "Anyone who adjusts the rules by the result and tests again has turned it into tuning data",
+            "Because out-of-sample data is deleted after the test"
+          ],
+          "explanation": "Out-of-sample data is meant to simulate the future. Once you tune on it, it is no longer “unseen”."
+        },
+        "cs": {
+          "question": "Proč se test mimo vzorek dělá jen jednou?",
+          "options": [
+            "Protože je drahý",
+            "Kdo podle výsledku upraví pravidla a testuje znovu, udělal z nich data na ladění",
+            "Protože data mimo vzorek se po testu smažou"
+          ],
+          "explanation": "Data mimo vzorek mají simulovat budoucnost. Jakmile podle nich ladíš, už nejsou „neviděná“."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "When should you switch a strategy off?",
+          "options": [
+            "By a rule set in advance – say when the drawdown exceeds 1.5 times the backtest maximum",
+            "When it really starts to hurt",
+            "Never, every strategy comes back eventually"
+          ],
+          "explanation": "In a bad period, emotions decide. That is why the switch-off rule is set in advance, based on the drawdown and losing streaks from the backtest."
+        },
+        "cs": {
+          "question": "Kdy strategii vypnout?",
+          "options": [
+            "Podle pravidla stanoveného předem – třeba když propad přesáhne 1,5násobek maxima z backtestu",
+            "Až to začne opravdu bolet",
+            "Nikdy, každá strategie se jednou vrátí"
+          ],
+          "explanation": "Ve špatném období rozhodují emoce. Proto se pravidlo pro vypnutí stanoví předem, podle propadu a sérií ztrát z backtestu."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

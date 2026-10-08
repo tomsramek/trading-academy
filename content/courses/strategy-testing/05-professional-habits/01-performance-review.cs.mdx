@@ -1,0 +1,94 @@
+export const metadata = {
+  title: "Vyhodnocení vlastního výkonu",
+  slug: "vyhodnoceni-vykonu",
+  description:
+    "Jak jednou za měsíc poctivě vyhodnotit obchodování: výsledky v R, porovnání s backtestem, chyby v provedení a rozdíl mezi dobrým rozhodnutím a dobrým výsledkem.",
+};
+
+<Callout title="V této lekci">
+
+- naučíš se pravidelné vyhodnocení, které zabere hodinu měsíčně
+- porovnáš skutečné výsledky s backtestem
+- oddělíš chyby v provedení od výkyvů strategie
+
+</Callout>
+
+Deník z minulého kurzu je surovina. Sám o sobě nic nezlepší – zlepšuje až pravidelné vyhodnocení. Profesionální
+obchodníci ho dělají jako účetní uzávěrku: v pevný den, podle stejné šablony, bez ohledu na to, jestli byl měsíc
+dobrý, nebo špatný.
+
+<Illustration name="reportCard" />
+
+## Čísla: porovnej se s backtestem
+
+Jednou měsíčně spočítej stejné metriky jako v modulu o testování a dej je vedle sebe:
+
+| Ukázkový měsíc         | Backtest    | Skutečnost    |
+| ---------------------- | ----------- | ------------- |
+| Počet obchodů          | 8 za měsíc  | 11            |
+| Úspěšnost              | 40 %        | 36 %          |
+| Průměrný zisk / ztráta | +2,0R / −1R | +1,8R / −1,2R |
+| Výsledek za měsíc      | –           | −1,2R         |
+
+_Ukázková čísla, ne skutečné obchody._
+
+Co z tabulky čteš:
+
+- **Víc obchodů, než by mělo být.** Strategie dává zhruba 8 signálů měsíčně. Odkud jsou ty tři navíc?
+- **Ztráty jsou větší než 1R.** Průměrná ztráta −1,2R znamená, že stop-lossy proklouzávají – skluzem,
+  nebo tím, že je posouváš.
+- **Úspěšnost 36 % proti 40 %** při 11 obchodech nic neznamená. Na tak malém vzorku je to šum.
+
+Výsledků v <KeyTerm term="r-multiple">R</KeyTerm> si všímej víc než korun. Koruny se mění s velikostí účtu, R ukazuje, jak dobře obchoduješ.
+
+## Chyby v provedení
+
+Každý obchod v deníku označ jednou otázkou: **dodržel jsem pravidla?** Pak výsledky rozděl:
+
+- **obchody podle pravidel** – ty hodnotí strategii,
+- **obchody mimo pravidla** – ty hodnotí tebe.
+
+Když obchody mimo pravidla prodělávají (a obvykle prodělávají), nemáš problém se strategií. Máš problém
+s disciplínou, a ten se řeší jinak – limity, méně času u grafu, jasnější pravidla.
+
+## Rozhodnutí není výsledek
+
+Dobré rozhodnutí může skončit ztrátou a špatné ziskem. Proto si u každého obchodu dej dvě známky:
+
+|                    | Zisk              | Ztráta                  |
+| ------------------ | ----------------- | ----------------------- |
+| **Podle pravidel** | zasloužená odměna | normální cena za obchod |
+| **Mimo pravidla**  | nebezpečné štěstí | zasloužená lekce        |
+
+Nejnebezpečnější je levé dolní pole: porušil jsi pravidla a vydělal. Mozek si zapamatuje, že to
+funguje – a příště to zkusí s větší pozicí.
+
+## Šablona měsíčního vyhodnocení
+
+1. **Čísla:** počet obchodů, úspěšnost, průměrný zisk a ztráta v R, výsledek, propad od vrcholu.
+2. **Porovnání s backtestem:** jsou čísla v očekávaném rozmezí?
+3. **Disciplína:** kolik obchodů bylo mimo pravidla a jak dopadly?
+4. **Náklady:** poplatky a skluz proti tomu, s čím počítal backtest.
+5. **Jedna změna:** nejvýš jedna úprava na další měsíc – v chování, ne ve strategii.
+
+<Callout type="warning" title="Neměň strategii po každém měsíci">
+  Měsíc je na hodnocení strategie příliš krátký – je to 5 až 20 obchodů. Měsíční
+  vyhodnocení hlídá hlavně tebe. O strategii rozhoduješ až po desítkách obchodů
+  – o tom je příští lekce.
+</Callout>
+
+## Časté omyly
+
+- **„Měsíc byl ziskový, vyhodnocení nepotřebuju.“** Ziskový měsíc s porušenými pravidly je varování, ne
+  úspěch.
+- **„Hodnotím v korunách, to je přece to, co chci.“** Koruny míchají velikost účtu s kvalitou obchodování.
+- **„Špatný měsíc = špatná strategie.“** Nejdřív se podívej, jestli jsi ji vůbec obchodoval.
+
+<Callout title="Shrnutí">
+
+- Vyhodnocuj pravidelně, podle stejné šablony, ať byl měsíc jakýkoli.
+- Porovnej skutečná čísla v R s backtestem – počet obchodů, úspěšnost, zisky, ztráty, náklady.
+- Odděl obchody podle pravidel (hodnotí strategii) od obchodů mimo pravidla (hodnotí tebe).
+- Dobré rozhodnutí není totéž co dobrý výsledek.
+
+</Callout>

@@ -1,0 +1,97 @@
+import funding from "./btc-funding.json";
+
+export const metadata = {
+  title: "Derivatives data as information",
+  description:
+    "Funding, open interest and liquidation cascades: how to read the mood of the leveraged market even if you never trade with leverage.",
+};
+
+<Callout title="In this lesson">
+
+- learn to read funding as a mood thermometer
+- understand what open interest shows
+- find out how a liquidation cascade happens
+
+</Callout>
+
+In the previous course we said that leveraged futures are not for beginners. That still holds. But the
+leveraged market is huge and its data is public – and it reveals how overheated the market is, even if
+you only trade on spot.
+
+## Funding as a thermometer
+
+A reminder: <KeyTerm term="funding-rate">funding</KeyTerm> is paid between perpetual futures traders
+to keep the contract price close to spot. When the contract trades above spot (more demand for longs),
+longs pay shorts.
+
+What interests us is **how high funding is**. Annualised, it shows how much people are willing to pay
+to bet on a rise with leverage:
+
+- The median daily funding for Bitcoin since 2021 comes to roughly **9% a year**.
+- In February 2021 the weekly average was over **120% a year** – the market was full of leverage.
+- In March 2024, around the high at the time, around **50% a year**.
+- After the collapse of the FTX exchange in November 2022, funding was **negative** – more people were
+  betting on a fall.
+
+<LineChart
+  data={funding}
+  label="Weekly average of Bitcoin funding on Binance, annualised, from January 2021 to September 2025: over 120% in February 2021, around 50% in March 2024 and negative in November 2022"
+  caption="Funding (weekly average, % a year). High funding = crowded longs, negative = fear."
+  lines={[{ key: "funding", label: "BTC funding (% a year)" }]}
+  percent
+/>
+
+<Illustration name="feverThermometer" />
+
+## Open interest
+
+The indicator <KeyTerm term="open-interest">open interest</KeyTerm> is the number of open
+contracts – how much leveraged money is in the market right now. It is read
+together with the price:
+
+- **price rises and open interest rises** – new leverage is flowing in; the rally has fuel, and risk,
+- **price rises and open interest falls** – shorts are closing positions, often a short-lived spike,
+- **price falls and open interest drops sharply** – positions are being closed or liquidated.
+
+## A liquidation cascade
+
+When there is a lot of leverage in the market, a smaller move is enough to start liquidations. The
+exchange sells liquidated longs at market – which pushes the price down, which triggers more
+liquidations. A cascade forms that throws the price far beyond a "reasonable" level for a few hours.
+That is where the long wicks on daily candles come from – like on 5 March 2024 or 5 August 2024.
+
+## How to use it
+
+- **Extremely high funding = caution.** It does not say the price will fall tomorrow. It says the
+  market is crowded and a fall could be sharp.
+- **Negative funding in a crash = fear.** A market full of shorts can shoot up quickly once the shorts
+  start covering.
+- **Derivatives data is context**, just like macro. It is part of your picture of the market, not a
+  trading signal.
+
+<Callout
+  type="warning"
+  title="An overheated market can stay overheated for a long time"
+>
+  High funding can last for weeks while the price keeps rising. Anyone betting
+  against the market because of it pays just like someone who sells only because
+  RSI is above 70.
+</Callout>
+
+## Common myths
+
+- **"Funding is high, so I am shorting."** A crowded market can rise for longer than you can hold out.
+- **"Open interest is rising, so the price will rise."** Only the amount of leverage is rising – on
+  both sides.
+- **"I do not trade futures, so it does not concern me."** Liquidations on futures move the spot price
+  too.
+
+<Callout title="Summary">
+
+- Annualised funding shows how much people pay for leverage on a rise; extremes signal overheating or
+  fear.
+- Open interest = the amount of leverage in the market; read it together with the price.
+- Liquidation cascades turn smaller moves into sharp drops and long wicks.
+- Derivatives data is context, not a trading signal.
+
+</Callout>

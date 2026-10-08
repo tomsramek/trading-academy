@@ -1,0 +1,101 @@
+import outOfSample from "./backtest-out-of-sample.json";
+
+export const metadata = {
+  title: "Out-of-sample testing and walk-forward",
+  description:
+    "How to test a strategy on data it has never seen, what happened to our “best” setting and how walk-forward works.",
+};
+
+<Callout title="In this lesson">
+
+- understand why to test on data you did not tune the strategy on
+- see how the "winner" of the last test did on new data
+- learn the walk-forward method
+
+</Callout>
+
+In the last lesson the 40-day average strategy looked great. But we chose that length precisely from that
+data – so the test really only showed that we can find the best number in the past. The real question
+is: **how would it have done on data it has never seen?**
+
+## Two piles of data
+
+The data is split in advance, before the very first test:
+
+- **in-sample** – where you invent and tune the strategy (for us 2019–2021),
+- **<KeyTerm term="out-of-sample">out-of-sample</KeyTerm>** – you must not touch it until the rules are
+  finished (for us January 2022 to September 2025).
+
+The out-of-sample test is done **once**. Anyone who looks at the result, adjusts the rules and tests again
+has turned "out-of-sample" into more tuning data.
+
+<Illustration name="examCheat" />
+
+## How the winner did
+
+| 2022 – Sep 2025  | 40-day average (winner of 2019–2021) | 200-day average | Buy and hold |
+| ---------------- | ------------------------------------ | --------------- | ------------ |
+| Total return     | +166%                                | +234%           | +147%        |
+| Maximum drawdown | −47%                                 | −32%            | −67%         |
+| Number of trades | 47                                   | 13              | 1            |
+| Profit factor    | 2.4                                  | 9.8             | –            |
+
+<LineChart
+  data={outOfSample}
+  label="Equity curve from January 2022 to September 2025: buy and hold ends at about 2.5 times with a drop of over 60% in 2022, the 40-day average strategy at about 2.7 times, the 200-day average at about 3.3 times"
+  caption="Data the strategy did not see during tuning. The past winner ended up in the middle here – and even the 200-day average is no proof, it has only 13 trades."
+  lines={[
+    { key: "sma40", label: "40-day average" },
+    { key: "sma200", label: "200-day average" },
+    { key: "buyHold", label: "Buy and hold" },
+  ]}
+/>
+
+What happened:
+
+- The "best" 40-day average **slightly beat simply holding** on the new data and had smaller drawdowns –
+  but among the 30 tested lengths it came only **20th**. Its brilliance in 2019–2021 was largely chance.
+- The 200-day average did better. Does that prove it is better? **No.** It has only 13 trades, and we have
+  just chosen it – based on the out-of-sample data. If we started using it, we would overfit again, just
+  on different years.
+
+## Walk-forward
+
+The <KeyTerm term="walk-forward">walk-forward</KeyTerm> method repeats the split step by
+step, the way a real trader would:
+
+1. Pick the best average length on the last three years.
+2. Trade with it for the following year.
+3. Move forward a year and repeat.
+
+| Year          | Chosen length | Strategy | Buy and hold |
+| ------------- | ------------- | -------- | ------------ |
+| 2022          | 40            | −44%     | −64%         |
+| 2023          | 40            | +136%    | +156%        |
+| 2024          | 110           | +93%     | +121%        |
+| 2025 (to Sep) | 170           | −1%      | +22%         |
+
+In total **+153%** against **+147%** for simply holding. The strategy lost less in the 2022 crash and made
+less in the rallies. No miracle – and that is valuable information.
+
+<Callout type="warning" title="An honest result tends to be boring">
+  When a strategy passes an out-of-sample and walk-forward test and comes out
+  "roughly like simply holding, with smaller drawdowns", that is a realistic
+  result. Miraculous numbers usually mean a mistake in the test.
+</Callout>
+
+## Common myths
+
+- **"It did not work out of sample, so I will tune it."** That turns it into tuning data.
+- **"The 200-day average did best, I will use it."** You chose it by its result – the same trap again.
+- **"Walk-forward only matched holding, the strategy is useless."** Smaller drawdowns can be worth
+  something.
+
+<Callout title="Summary">
+
+- Split the data in advance: for tuning (in-sample) and for a single final test (out-of-sample).
+- Our winner of 2019–2021 ended up in the middle of the field on new data.
+- Walk-forward simulates real trading: it picks parameters only from the past.
+- A realistic result tends to be modest; miracles usually mean a mistake.
+
+</Callout>

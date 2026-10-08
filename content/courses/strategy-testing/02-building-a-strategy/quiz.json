@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What turns an idea into a strategy?",
+          "options": [
+            "Precise rules for entry, exit, stop-loss and position size",
+            "A good feeling about the chart",
+            "A tip from an experienced trader"
+          ],
+          "explanation": "The rules must be precise enough for two people to apply them the same way. Only then can the strategy be tested."
+        },
+        "cs": {
+          "question": "Co dělá z nápadu strategii?",
+          "options": [
+            "Přesná pravidla pro vstup, výstup, stop-loss a velikost pozice",
+            "Dobrý pocit z grafu",
+            "Doporučení od zkušeného obchodníka"
+          ],
+          "explanation": "Pravidla musí být tak přesná, aby je dva lidé použili stejně. Jen tak se strategie dá otestovat."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "A trend-following strategy has a 31% win rate. Is that a problem?",
+          "options": [
+            "Yes, below 50% a strategy always loses",
+            "Yes, the win rate must be at least 60%",
+            "Not necessarily – the ratio of average win to loss matters too"
+          ],
+          "explanation": "Trend following often loses, but wins are much bigger than losses. In our test, an average win of +61% against an average loss of −3.6%."
+        },
+        "cs": {
+          "question": "Strategie sledování trendu má úspěšnost 31 %. Je to problém?",
+          "options": [
+            "Ano, pod 50 % strategie vždycky prodělává",
+            "Ano, úspěšnost musí být aspoň 60 %",
+            "Ne nutně – rozhoduje i poměr průměrného zisku ke ztrátě"
+          ],
+          "explanation": "Sledování trendu často prohrává, ale zisky jsou mnohem větší než ztráty. V našem testu průměrný zisk +61 % proti průměrné ztrátě −3,6 %."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why set a stop-loss by ATR instead of a fixed 5%?",
+          "options": [
+            "Because the exchange will not accept it otherwise",
+            "It adapts to volatility – closer in a calm market, further in a wild one",
+            "Because it guarantees a profit"
+          ],
+          "explanation": "A fixed percentage is too far in a calm market and too close in a wild one. A stop-loss of 1.5–3 ATR gives the price room for its usual moves."
+        },
+        "cs": {
+          "question": "Proč dávat stop-loss podle ATR místo pevných 5 %?",
+          "options": [
+            "Protože ho burza jinak nepřijme",
+            "Přizpůsobí se volatilitě – v klidném trhu je blíž, v divokém dál",
+            "Protože zaručí zisk"
+          ],
+          "explanation": "Pevné procento je v klidném trhu zbytečně daleko a v divokém zbytečně blízko. Stop-loss 1,5–3 ATR dává ceně prostor pro její obvyklý pohyb."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Volatility doubles. What happens to a volatility-sized position?",
+          "options": [
+            "It gets smaller, so the risk in money stays the same",
+            "It gets bigger, because there are more opportunities",
+            "It does not change"
+          ],
+          "explanation": "Position size = risk ÷ stop distance. A wider stop means a smaller position – the risk in money stays the same."
+        },
+        "cs": {
+          "question": "Volatilita se zdvojnásobí. Co se stane s pozicí při velikosti podle volatility?",
+          "options": [
+            "Zmenší se, aby riziko v penězích zůstalo stejné",
+            "Zvětší se, protože je víc příležitostí",
+            "Nezmění se"
+          ],
+          "explanation": "Velikost pozice = riziko ÷ vzdálenost stopu. Vzdálenější stop znamená menší pozici – riziko v penězích zůstane stejné."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "A trailing stop took you out with a profit two days before a big rally. What follows?",
+          "options": [
+            "Trailing stops do not work",
+            "Next time I will move the stop further by hand",
+            "One trade proves nothing – the method is judged over many trades"
+          ],
+          "explanation": "That is exactly what happened with our trade in November 2024. It hurts, but hundreds of trades decide about a method, not one."
+        },
+        "cs": {
+          "question": "Trailing stop tě vyhodil se ziskem dva dny před velkým růstem. Co z toho plyne?",
+          "options": [
+            "Trailing stopy nefungují",
+            "Příště stop posunu ručně dál",
+            "Jeden obchod nic nedokazuje – metoda se hodnotí na mnoha obchodech"
+          ],
+          "explanation": "Přesně tak to dopadlo s naším obchodem v listopadu 2024. Bolí to, ale o metodě rozhodují stovky obchodů, ne jeden."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

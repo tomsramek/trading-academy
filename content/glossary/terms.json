@@ -25,6 +25,45 @@
     },
     "related": ["memecoin", "stablecoin"]
   },
+  "atr": {
+    "text": {
+      "en": {
+        "term": "ATR (Average True Range)",
+        "definition": "The average daily range of the price over the last 14 days, counting gaps. As a percentage of the price it shows how much the market usually moves in a day."
+      },
+      "cs": {
+        "term": "ATR (průměrné skutečné rozpětí)",
+        "definition": "Průměrné denní rozpětí ceny za posledních 14 dní, včetně mezer. V procentech ceny ukazuje, o kolik se trh za den obvykle pohne."
+      }
+    },
+    "related": ["market-regime", "stop-loss"]
+  },
+  "backtest": {
+    "text": {
+      "en": {
+        "term": "Backtest",
+        "definition": "Testing exact trading rules on historical data, including costs. It shows how the rules would have done in the past – not how they will do."
+      },
+      "cs": {
+        "term": "Backtest",
+        "definition": "Test přesných obchodních pravidel na historických datech, včetně nákladů. Ukáže, jak by si pravidla vedla v minulosti – ne jak si povedou."
+      }
+    },
+    "related": ["overfitting", "trading-rules"]
+  },
+  "bitcoin-dominance": {
+    "text": {
+      "en": {
+        "term": "Bitcoin dominance",
+        "definition": "Bitcoin's share of the market value of all cryptocurrencies. Rising dominance often means fear, falling dominance euphoria – a mood gauge, not a signal."
+      },
+      "cs": {
+        "term": "Dominance Bitcoinu",
+        "definition": "Podíl Bitcoinu na tržní hodnotě všech kryptoměn. Rostoucí dominance často znamená strach, klesající euforii – ukazatel nálady, ne signál."
+      }
+    },
+    "related": ["correlation", "altcoin"]
+  },
   "blockchain": {
     "text": {
       "en": {
@@ -103,6 +142,19 @@
     },
     "related": ["loss-aversion", "trading-journal"]
   },
+  "correlation": {
+    "text": {
+      "en": {
+        "term": "Correlation",
+        "definition": "How much two assets move together, from −1 (always opposite) to +1 (always together), calculated from daily changes. In crypto it rises under stress."
+      },
+      "cs": {
+        "term": "Korelace",
+        "definition": "Jak moc se dvě aktiva hýbou spolu, od −1 (vždy opačně) po +1 (vždy spolu), počítá se z denních změn. V kryptu ve stresu roste."
+      }
+    },
+    "related": ["bitcoin-dominance", "altcoin"]
+  },
   "cryptocurrency": {
     "text": {
       "en": {
@@ -167,6 +219,19 @@
     },
     "related": ["smart-contract", "stablecoin"]
   },
+  "diversification": {
+    "text": {
+      "en": {
+        "term": "Diversification",
+        "definition": "Spreading money across investments or strategies whose results do not move together, so that one loss does not hit everything at once. Positions that are strongly correlated – such as most cryptocurrencies – spread the risk only a little."
+      },
+      "cs": {
+        "term": "Diverzifikace",
+        "definition": "Rozložení peněz mezi investice nebo strategie, jejichž výsledky se nepohybují spolu, aby jedna ztráta nezasáhla všechno najednou. Silně korelované pozice – jako většina kryptoměn – riziko rozloží jen málo."
+      }
+    },
+    "related": ["correlation", "drawdown"]
+  },
   "double-spending": {
     "text": {
       "en": {
@@ -192,6 +257,32 @@
       }
     },
     "related": ["r-multiple"]
+  },
+  "edge": {
+    "text": {
+      "en": {
+        "term": "Edge",
+        "definition": "A reason why a strategy should make more than it loses over many trades – for example a pattern in the market that others overlook. Edges fade over time, and many turn out never to have been real."
+      },
+      "cs": {
+        "term": "Výhoda (edge)",
+        "definition": "Důvod, proč by strategie měla na mnoha obchodech vydělat víc, než prodělá – třeba vzorec v chování trhu, který ostatní přehlížejí. Výhody časem slábnou a mnohé se ukážou jako nikdy neexistující."
+      }
+    },
+    "related": ["expected-value", "overfitting", "backtest"]
+  },
+  "equity-curve": {
+    "text": {
+      "en": {
+        "term": "Equity curve",
+        "definition": "A chart of how the value of an account or strategy changes over time. Its drops from the last peak are drawdowns."
+      },
+      "cs": {
+        "term": "Křivka kapitálu",
+        "definition": "Graf toho, jak se v čase mění hodnota účtu nebo strategie. Její poklesy od posledního vrcholu jsou drawdowny."
+      }
+    },
+    "related": ["drawdown", "backtest"]
   },
   "exchange": {
     "text": {
@@ -231,6 +322,19 @@
       }
     },
     "related": ["revenge-trading", "trading-plan"]
+  },
+  "forward-test": {
+    "text": {
+      "en": {
+        "term": "Forward test",
+        "definition": "Trading a strategy's rules in real time – first without money, then with small amounts – to check the backtest and whether you can follow the rules."
+      },
+      "cs": {
+        "term": "Forward test",
+        "definition": "Obchodování podle pravidel strategie v reálném čase – nejdřív bez peněz, pak s malými částkami – kvůli ověření backtestu i toho, jestli pravidla zvládneš dodržovat."
+      }
+    },
+    "related": ["backtest", "trading-journal"]
   },
   "funding-rate": {
     "text": {
@@ -322,6 +426,19 @@
       }
     },
     "related": ["cold-wallet", "wallet"]
+  },
+  "kelly-criterion": {
+    "text": {
+      "en": {
+        "term": "Kelly criterion",
+        "definition": "A formula for the share of capital to risk per trade that maximises long-term growth: f = p − (1 − p) ÷ b, where p is the win rate and b the ratio of average win to average loss. In practice only a fraction of it is used, because full Kelly brings huge drawdowns."
+      },
+      "cs": {
+        "term": "Kellyho vzorec",
+        "definition": "Vzorec pro podíl kapitálu, který riskovat na obchod, aby účet dlouhodobě rostl nejrychleji: f = p − (1 − p) ÷ b, kde p je úspěšnost a b poměr průměrného zisku k průměrné ztrátě. V praxi se používá jen jeho zlomek, protože plný Kelly přináší obrovské propady."
+      }
+    },
+    "related": ["expected-value", "risk-of-ruin", "r-multiple"]
   },
   "kyc": {
     "text": {
@@ -427,6 +544,19 @@
     },
     "related": ["limit-order", "slippage", "spread"]
   },
+  "market-regime": {
+    "text": {
+      "en": {
+        "term": "Market regime",
+        "definition": "The state of the market described by direction (trend or range) and volatility (calm or wild). Each regime favours a different type of strategy."
+      },
+      "cs": {
+        "term": "Tržní režim",
+        "definition": "Stav trhu popsaný směrem (trend, nebo pásmo) a volatilitou (klid, nebo bouře). Každý režim přeje jinému typu strategie."
+      }
+    },
+    "related": ["atr", "trend"]
+  },
   "market-structure": {
     "text": {
       "en": {
@@ -439,6 +569,19 @@
       }
     },
     "related": ["break-of-structure", "trend", "support"]
+  },
+  "mean-reversion": {
+    "text": {
+      "en": {
+        "term": "Mean reversion",
+        "definition": "A type of strategy betting that a price far from its average will return to it. High win rate, small profits and an occasional big loss; suffers in trends and crashes."
+      },
+      "cs": {
+        "term": "Návrat k průměru",
+        "definition": "Typ strategie, která sází na to, že se cena vzdálená od průměru k němu vrátí. Vysoká úspěšnost, malé zisky a občas velká ztráta; trpí v trendu a krachu."
+      }
+    },
+    "related": ["trend-following", "market-regime"]
   },
   "memecoin": {
     "text": {
@@ -531,6 +674,19 @@
     },
     "related": ["take-profit", "stop-loss"]
   },
+  "open-interest": {
+    "text": {
+      "en": {
+        "term": "Open interest",
+        "definition": "The number of open futures contracts – how much leveraged money is in the market. Read together with the price."
+      },
+      "cs": {
+        "term": "Open interest",
+        "definition": "Počet otevřených futures kontraktů – kolik peněz s pákou je v trhu. Čte se spolu s cenou."
+      }
+    },
+    "related": ["funding-rate", "futures", "liquidation"]
+  },
   "order-book": {
     "text": {
       "en": {
@@ -543,6 +699,19 @@
       }
     },
     "related": ["limit-order", "spread"]
+  },
+  "out-of-sample": {
+    "text": {
+      "en": {
+        "term": "Out-of-sample",
+        "definition": "Data set aside before testing and used only once for the final test – it shows how a strategy does on data it was not tuned on."
+      },
+      "cs": {
+        "term": "Mimo vzorek",
+        "definition": "Data odložená před testováním a použitá jen jednou na závěrečný test – ukáže, jak si strategie vede na datech, na kterých nebyla laděná."
+      }
+    },
+    "related": ["walk-forward", "overfitting", "backtest"]
   },
   "overbought": {
     "text": {
@@ -595,6 +764,19 @@
       }
     },
     "related": ["seed-phrase", "wallet"]
+  },
+  "profit-factor": {
+    "text": {
+      "en": {
+        "term": "Profit factor",
+        "definition": "The sum of all profits divided by the sum of all losses. Above 1 a strategy is in profit – but with few trades even a high profit factor can be luck."
+      },
+      "cs": {
+        "term": "Profit factor",
+        "definition": "Součet všech zisků dělený součtem všech ztrát. Nad 1 je strategie v plusu – ale při malém počtu obchodů může být i vysoký profit factor štěstí."
+      }
+    },
+    "related": ["expected-value", "drawdown"]
   },
   "proof-of-stake": {
     "text": {
@@ -660,6 +842,19 @@
       }
     },
     "related": ["fomo", "trading-plan"]
+  },
+  "risk-of-ruin": {
+    "text": {
+      "en": {
+        "term": "Risk of ruin",
+        "definition": "The chance that a series of losses wipes out an account or shrinks it so much that you have to stop trading. It grows quickly with the size of the risk per trade."
+      },
+      "cs": {
+        "term": "Riziko krachu",
+        "definition": "Pravděpodobnost, že série ztrát účet zničí nebo zmenší tak, že musíš přestat obchodovat. S velikostí rizika na obchod rychle roste."
+      }
+    },
+    "related": ["kelly-criterion", "drawdown"]
   },
   "role-reversal": {
     "text": {
@@ -817,6 +1012,19 @@
     },
     "related": ["resistance", "stop-loss"]
   },
+  "survivorship-bias": {
+    "text": {
+      "en": {
+        "term": "Survivorship bias",
+        "definition": "Testing only on what survived – such as today's top coins – while the failures (like LUNA) are missing. It makes results look better than reality."
+      },
+      "cs": {
+        "term": "Zkreslení přeživších",
+        "definition": "Testování jen na tom, co přežilo – třeba na dnešních největších mincích –, zatímco ty zkrachovalé (jako LUNA) chybějí. Výsledky pak vypadají lépe než realita."
+      }
+    },
+    "related": ["backtest", "overfitting"]
+  },
   "take-profit": {
     "text": {
       "en": {
@@ -882,6 +1090,19 @@
     },
     "related": ["trading-journal", "r-multiple"]
   },
+  "trading-rules": {
+    "text": {
+      "en": {
+        "term": "Trading rules",
+        "definition": "An exact description of a strategy: what, on which timeframe, entry, exit, stop-loss, position size and costs – so precise that two people would make the same trades."
+      },
+      "cs": {
+        "term": "Obchodní pravidla",
+        "definition": "Přesný popis strategie: co, na jakém rámci, vstup, výstup, stop-loss, velikost pozice a náklady – tak přesně, že by dva lidé udělali stejné obchody."
+      }
+    },
+    "related": ["trading-plan", "backtest"]
+  },
   "trailing-stop": {
     "text": {
       "en": {
@@ -908,6 +1129,32 @@
     },
     "related": ["support", "resistance", "timeframe"]
   },
+  "trend-following": {
+    "text": {
+      "en": {
+        "term": "Trend following",
+        "definition": "A type of strategy that holds a position while a trend lasts. Low win rate, a few big profits pay for many small losses; suffers in a range."
+      },
+      "cs": {
+        "term": "Sledování trendu",
+        "definition": "Typ strategie, která drží pozici, dokud trvá trend. Nízká úspěšnost, pár velkých zisků zaplatí hodně malých ztrát; trpí v pásmu."
+      }
+    },
+    "related": ["mean-reversion", "market-regime"]
+  },
+  "volatility-sizing": {
+    "text": {
+      "en": {
+        "term": "Volatility-based position sizing",
+        "definition": "Setting the stop-loss in ATR and sizing the position from it: smaller in a wild market, bigger in a calm one, with the same risk in money."
+      },
+      "cs": {
+        "term": "Velikost pozice podle volatility",
+        "definition": "Stop-loss nastavený v ATR a z něj spočítaná velikost pozice: v divokém trhu menší, v klidném větší, se stejným rizikem v penězích."
+      }
+    },
+    "related": ["atr", "stop-loss"]
+  },
   "volume": {
     "text": {
       "en": {
@@ -920,6 +1167,19 @@
       }
     },
     "related": ["break-of-structure", "support"]
+  },
+  "walk-forward": {
+    "text": {
+      "en": {
+        "term": "Walk-forward",
+        "definition": "A test that repeatedly picks parameters from the past and trades them on the next period – the way a real trader would."
+      },
+      "cs": {
+        "term": "Walk-forward",
+        "definition": "Test, který opakovaně vybírá parametry jen z minulosti a obchoduje s nimi následující období – jako by to dělal skutečný obchodník."
+      }
+    },
+    "related": ["out-of-sample", "backtest"]
   },
   "wallet": {
     "text": {

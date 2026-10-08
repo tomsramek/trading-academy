@@ -1,0 +1,96 @@
+import weekly from "@content/market-data/btcusdt-1w-2018-2025.json";
+
+export const metadata = {
+  title: "Cycles and macro without fortune-telling",
+  description:
+    "Halving, interest rates, liquidity and ETFs: what we really know, what is just a story and why three cycles are not statistics.",
+};
+
+<Callout title="In this lesson">
+
+- find out what is said about Bitcoin's four-year cycle and why not to trust it blindly
+- understand how interest rates and liquidity affect crypto
+- learn to use macro as context, not as a forecast
+
+</Callout>
+
+The crypto market does not live in a vacuum. It is moved by central banks, the mood in stock markets
+and big events such as the approval of bitcoin ETFs. And then there is the popular "four-year cycle".
+This lesson is about working with all of it without becoming a fortune-teller.
+
+## The four-year cycle
+
+Every four years (exactly every 210,000 blocks) the block reward is cut in half – the halving. Halvings
+took place in November 2012, July 2016, May 2020 and April 2024. After the earlier ones, a big rally
+followed within about a year and a half, and then a deep crash. That is where the four-year cycle
+theory comes from.
+
+<Illustration name="cycleAstrologer" />
+
+Why to be careful:
+
+- **Three or four cycles are not statistics.** Four coin tosses will not tell you whether the coin is
+  rigged.
+- **The market changes.** With ETFs, institutions and a different market size, old patterns may not
+  hold.
+- **When everyone knows a pattern, they act on it earlier** – and so change it.
+
+## Interest rates and liquidity
+
+When money is cheap (low interest rates, central banks printing), investors look for higher returns
+and riskier assets rise. When money gets more expensive, the riskiest assets suffer most.
+
+2022 is a textbook example: the US central bank (the Fed) started raising rates from near zero in
+March 2022 and ended at 5.25–5.5% in July 2023. Bitcoin lost about two thirds of its value in 2022. The first rate cut came in September 2024.
+
+<CandleChart
+  data={weekly}
+  label="Weekly Bitcoin chart 2018–2025 with events marked: the halving in May 2020, the start of rate hikes in March 2022, the approval of bitcoin ETFs in January 2024, the halving in April 2024 and the first rate cut in September 2024"
+  caption="Events marked on the chart. Notice how often the price behaved differently around an event than the “story” would expect."
+  markers={[
+    { time: "2020-05-11", kind: "event", label: "Halving" },
+    { time: "2022-03-14", kind: "event", label: "Fed hikes" },
+    { time: "2024-01-08", kind: "event", label: "ETF" },
+    { time: "2024-04-15", kind: "event", label: "Halving" },
+    { time: "2024-09-16", kind: "event", label: "Fed cuts" },
+  ]}
+/>
+
+## ETFs and big players
+
+In January 2024 the US regulator SEC approved the first spot bitcoin ETFs – exchange-traded funds
+through which even a traditional investor can buy Bitcoin. Money flowed into Bitcoin that would never
+have gone to a crypto exchange. On the other hand, Bitcoin is now more tied to traditional markets:
+when big investors cut risk, they sell ETFs too.
+
+## How to use macro
+
+- **As context, not as a trigger.** "Rates are rising" does not mean "sell tomorrow". It means "be more
+  careful with position size".
+- **Watch the calendar.** Central bank decisions and key inflation data move markets – on those days it
+  is sensible to risk less or not trade (see the last lesson of the previous course).
+- **Do not pay for prophecies.** Anyone who knew for sure when the cycle peak would come would get rich
+  from it, not sell courses.
+
+<Callout type="warning" title="The story is always clear in hindsight">
+  After every big move there is an explanation that sounds logical. It was not
+  as clear beforehand. Macro and cycles help you understand the environment, not
+  predict the price.
+</Callout>
+
+## Common myths
+
+- **"After a halving the price always rises."** So far it has looked like that a few times. Four tries are not a law.
+- **"The Fed will cut rates, so I will buy."** The market often "pays for it" in advance – and the
+  reaction is often the opposite.
+- **"I know the cycle, I know when to sell."** If that worked, everyone would do it.
+
+<Callout title="Summary">
+
+- The four-year cycle based on halvings is an interesting pattern, but three or four repetitions do not
+  allow firm conclusions.
+- Cheap money helps risky assets and expensive money hurts them – 2022 showed it in full.
+- ETFs tied Bitcoin to traditional markets.
+- Use macro as context for the size of your risk, not as a forecast.
+
+</Callout>

@@ -1,0 +1,33 @@
+{
+  "title": {
+    "en": "From idea to tested strategy",
+    "cs": "Od nápadu k otestované strategii"
+  },
+  "description": {
+    "en": "Market context, building and testing a strategy without fooling yourself, the risk of a whole portfolio and the habits of people who trade for years.",
+    "cs": "Tržní kontext, stavba a testování strategie bez sebeklamu, riziko celého portfolia a návyky lidí, kteří obchodují roky."
+  },
+  "audience": {
+    "en": "People who trade with a plan, keep a journal and want to know whether their strategy actually works – or why it does not.",
+    "cs": "Lidé, kteří obchodují podle plánu, vedou deník a chtějí zjistit, jestli jejich strategie opravdu funguje – nebo proč ne."
+  },
+  "outcomes": {
+    "en": [
+      "Read the market regime, volatility and correlations before you trade",
+      "Turn an idea into exact rules and test them without the common traps",
+      "Judge a strategy by the right metrics and on data it has never seen",
+      "Manage the risk of the whole portfolio and know when to stop"
+    ],
+    "cs": [
+      "Číst tržní režim, volatilitu a korelace dřív, než obchoduješ",
+      "Převést nápad na přesná pravidla a otestovat je bez běžných pastí",
+      "Hodnotit strategii správnými metrikami a na datech, která nikdy neviděla",
+      "Řídit riziko celého portfolia a vědět, kdy přestat"
+    ]
+  },
+  "level": "advanced",
+  "order": 1,
+  "slug": {
+    "cs": "od-napadu-k-otestovane-strategii"
+  }
+}

@@ -1,0 +1,100 @@
+import lookAhead from "./backtest-look-ahead.json";
+
+export const metadata = {
+  title: "Backtest a jeho pasti",
+  slug: "backtest-a-jeho-pasti",
+  description:
+    "Jak otestovat strategii na historii a jak se při tom neoklamat: pohled do budoucnosti, přeživší mince, přeučení a náklady.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, co je backtest a co ti doopravdy řekne
+- uvidíš na skutečných datech, jak drobná chyba udělá ze strategie zázrak
+- naučíš se pět nejčastějších pastí a jak se jim vyhnout
+
+</Callout>
+
+Slovo <KeyTerm term="backtest">backtest</KeyTerm> znamená projet přesná pravidla
+strategie přes historická data a podívat se, jak by dopadla. Je to nejlevnější
+způsob, jak zahodit špatný nápad – a zároveň nejlevnější způsob, jak sám sebe
+oklamat. V tomhle modulu budeme testovat jednu jednoduchou strategii na
+skutečných datech Bitcoinu.
+
+<Callout type="risk" title="Ukázka postupu, ne doporučení">
+  Strategie v tomto modulu slouží jen k vysvětlení, jak se testuje a kde se
+  dělají chyby. Není to doporučení k obchodování a výsledky z minulosti
+  nezaručují výsledky v budoucnu.
+</Callout>
+
+## Testovaná strategie
+
+**Drž Bitcoin, když jeho denní uzavírací cena je nad klouzavým průměrem, jinak drž hotovost.**
+Rozhoduje se po uzavření dne, poplatek 0,1 % při každém nákupu i prodeji. Testujeme na denních
+datech BTC/USDT z Binance.
+
+<Illustration name="timeTraveler" />
+
+## Past 1: pohled do budoucnosti
+
+Nejzrádnější chyba je, když test použije informaci, kterou bys v tu chvíli ještě neměl. Třeba: „pokud
+dnes cena zavřela nad průměrem, drž Bitcoin **dnes**“. Jenže dnešní zavírací cenu znáš až na konci
+dne – kdy už je dnešní pohyb za tebou.
+
+Stejná strategie s průměrem 40 dní v letech 2019–2021:
+
+- **správně** (rozhodnutí platí od dalšího dne): **+1 747 %**,
+- **s pohledem do budoucnosti**: **+24 015 %** a **100 % ziskových obchodů**.
+
+<LineChart
+  data={lookAhead}
+  label="Křivka kapitálu stejné strategie v letech 2019 až 2021: správný test končí na zhruba 18násobku, test s pohledem do budoucnosti na zhruba 240násobku"
+  caption="Stejná pravidla, jediný rozdíl v načasování rozhodnutí. Logaritmická osa – jinak by správná křivka nebyla vidět."
+  lines={[
+    { key: "correct", label: "Správný test" },
+    { key: "lookahead", label: "S pohledem do budoucnosti" },
+  ]}
+  logarithmic
+/>
+
+Jakmile backtest vypadá příliš dobře na to, aby byl pravdivý – 100 % ziskových obchodů, žádný
+propad –, skoro jistě v něm je pohled do budoucnosti.
+
+## Past 2: přeživší mince
+
+Když testuješ strategii na kryptoměnách, které jsou dnes v první desítce, testuješ jen na vítězích.
+Mince, které mezitím zkrachovaly – jako LUNA v roce 2022 –, v testu chybějí, a výsledek je proto
+lepší, než by byl ve skutečnosti. Tomu se říká <KeyTerm term="survivorship-bias">zkreslení přeživších</KeyTerm>.
+
+## Past 3: přeučení
+
+Vyzkoušeli jsme délku průměru od 10 do 300 dní. Nejlépe v letech 2019–2021 vyšel průměr **40 dní** –
+lépe než ostatních 29 možností. Jak dopadl na letech, které neviděl, si ukážeme v lekci 10. Spoiler: ne
+tak dobře.
+
+## Past 4: náklady a skluz
+
+Bez poplatků by strategie v letech 2019–2021 vydělala 1 857 % místo 1 747 %. Tady je rozdíl malý,
+protože strategie obchodovala jen 29krát za tři roky. Strategie se stovkami obchodů ročně ale může být
+zisková jen na papíře – kolik stojí obchod, víš z minulého kurzu.
+
+## Past 5: data, která nejsou realita
+
+Test předpokládá, že vždycky koupíš přesně za uzavírací cenu. Ve skutečnosti existuje spread,
+skluz a výpadky burzy. U velkých mincí na denním grafu je to drobnost, u malých mincí a krátkých
+rámců zásadní.
+
+## Časté omyly
+
+- **„Backtest vydělal tisíce procent, jdu do toho.“** Nejdřív hledej chybu. Většinou tam je.
+- **„Testoval jsem na top 10 mincích.“** Tedy na těch, které přežily.
+- **„Poplatky zanedbám, jsou malé.“** Při častém obchodování jsou hlavním výsledkem.
+
+<Callout title="Shrnutí">
+
+- Backtest ukazuje, jak by pravidla dopadla v minulosti – nic víc.
+- Pohled do budoucnosti dělá ze strategie zázrak; 100 % úspěšnost je varovný signál.
+- Zkreslení přeživších, přeučení a chybějící náklady výsledek nafukují.
+- Test předpokládá ideální obchody; realita je dražší.
+
+</Callout>
