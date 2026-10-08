@@ -768,6 +768,87 @@
         "flag": "SOLANA",
         "bubble": "Hotovo! Teď opatrně dolů.",
         "caption": "Kurz máš za sebou. Deset pravidel si vezmi s sebou."
+      },
+      "hotelSafe": {
+        "label": "Hotelový trezor s nápisem tvoje krypto a za recepcí usměvavý recepční, kterému se na prstu houpe náhradní klíč",
+        "safe": "TVOJE KRYPTO",
+        "desk": "RECEPCE BURZA",
+        "bubble": "Klíč mám já, nebojte se.",
+        "caption": "Na burze má klíče burza. Pohodlné – dokud je poctivá a nezavře."
+      },
+      "masterKey": {
+        "label": "Velký zlatý klíč s nápisem seed a tři dveře s nápisy BTC, ETH a SOL, které se otevírají",
+        "seed": "SEED",
+        "btc": "BTC",
+        "eth": "ETH",
+        "sol": "SOL",
+        "bubble": "Jeden klíč, všechny dveře.",
+        "caption": "Seed fráze vytvoří klíče ke všem tvým účtům. Kdo ji má, má všechno."
+      },
+      "walletPockets": {
+        "label": "Telefon s popiskem kapsa, trezor s popiskem úspory a papír, který odlétá ve větru",
+        "phone": "KAPSA",
+        "safe": "ÚSPORY",
+        "paper": "PAPÍR",
+        "bubble": "Na kafe telefon, na úspory trezor.",
+        "caption": "Horká peněženka na drobné, hardwarová na úspory – a papír jen na zálohu."
+      },
+      "trustTheScreen": {
+        "label": "Notebook ukazuje jinou adresu než displej hardwarové peněženky; adresa na notebooku je přeškrtnutá",
+        "laptopAddress": "bc1q…x9w",
+        "deviceAddress": "bc1q…7kd",
+        "bubble": "Věř displeji zařízení!",
+        "caption": "Zavirovaný počítač může lhát. Displej hardwarové peněženky ukazuje, co opravdu podepisuješ."
+      },
+      "sealedBox": {
+        "label": "Z balíku vykukuje karta s předvyplněnou seed frází a překvapená postava zvedá ruku na stop",
+        "card": "TVOJE SEED FRÁZE",
+        "words": "apple banana cat…",
+        "bubble": "Předvyplněná? Ruce pryč!",
+        "caption": "Seed frázi vytváří jen tvoje zařízení. Předvyplněná karta znamená, že ji zná někdo další."
+      },
+      "addressCompare": {
+        "label": "Dvě skoro stejné adresy pod sebou; lupa ukazuje, že se liší uprostřed",
+        "real": "bc1q8f4k…2nvp…9xqm",
+        "fake": "bc1q8f4k…7tzr…9xqm",
+        "bubble": "Kontroluj i prostředek.",
+        "caption": "Otrávená adresa se shoduje na začátku i na konci. Liší se tam, kam se nikdo nedívá."
+      },
+      "fireTest": {
+        "label": "Táborák spaluje papírovou zálohu, vedle leží nepoškozená ocelová destička",
+        "paper": "SEED",
+        "steel": "OCEL",
+        "bubble": "Papír hoří, ocel ne.",
+        "caption": "Nerezová ocel vydrží požár, papír ne. Druhá kopie jinde vydrží i požár celého domu."
+      },
+      "secretDoor": {
+        "label": "Knihovna, ve které se otevírají tajné dveře a za nimi je trezor; vedle stojí spokojená postava",
+        "hint": "PASSPHRASE",
+        "bubble": "Bez hesla jen obývák.",
+        "caption": "Passphrase otevře úplně jinou peněženku. Kdo najde seed frázi, najde jen obývák."
+      },
+      "twoOfThree": {
+        "label": "Truhla se dvěma klíčovými dírkami a tři klíče s čísly 1, 2 a 3; klíče 1 a 2 padají k truhle",
+        "chest": "2 ZE 3",
+        "bubble": "Stačí libovolné dva.",
+        "caption": "Rozdělená záloha: jeden podíl nic neprozradí, dva peníze obnoví."
+      },
+      "letterForFamily": {
+        "label": "Postava píše u stolu dopis s nadpisem pro rodinu",
+        "title": "PRO RODINU",
+        "bubble": "Co, kde a komu zavolat.",
+        "caption": "Dopis říká, kde zálohy najít – ne, co v nich je."
+      },
+      "phishingHookWallet": {
+        "label": "Na rybářském háčku visí e-mail s textem ověřte seed frázi a ustaraná postava ho pozoruje",
+        "email": "URGENTNÍ: ověřte seed frázi",
+        "bubble": "Tohle nespolknu.",
+        "caption": "Seed frázi po tobě nikdo poctivý nechce. Ani výrobce, ani burza, ani podpora."
+      },
+      "securityShield": {
+        "label": "Modrý štít s fajfkou, kolem padají konfety a vedle stojí spokojená postava",
+        "bubble": "Plán je hotový!",
+        "caption": "Jedno odpoledne práce a pár let klidu. A jednou za rok kontrola."
       }
     }
   },

@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 import { AnimateOnView } from "./AnimateOnView";
+import { CUSTODY_ILLUSTRATIONS } from "./illustrations/custodyIllustrations";
 import { HOME_ILLUSTRATIONS } from "./illustrations/homeIllustrations";
 import { SOLANA_ILLUSTRATIONS } from "./illustrations/solanaIllustrations";
 import { STRATEGY_ILLUSTRATIONS } from "./illustrations/strategyIllustrations";
@@ -2412,6 +2413,7 @@ const ILLUSTRATIONS = {
   ...HOME_ILLUSTRATIONS,
   ...STRATEGY_ILLUSTRATIONS,
   ...SOLANA_ILLUSTRATIONS,
+  ...CUSTODY_ILLUSTRATIONS,
 } as const;
 
 type IllustrationName = keyof typeof ILLUSTRATIONS;
@@ -2441,6 +2443,7 @@ const ANIMATED: ReadonlySet<IllustrationName> = new Set([
   ...(Object.keys(HOME_ILLUSTRATIONS) as IllustrationName[]),
   ...(Object.keys(STRATEGY_ILLUSTRATIONS) as IllustrationName[]),
   ...(Object.keys(SOLANA_ILLUSTRATIONS) as IllustrationName[]),
+  ...(Object.keys(CUSTODY_ILLUSTRATIONS) as IllustrationName[]),
 ]);
 
 function isIllustrationName(name: string): name is IllustrationName {
