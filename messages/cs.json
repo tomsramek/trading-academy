@@ -649,6 +649,125 @@
         "alert": "BTC na tvé úrovni",
         "bubble": "Graf počká.",
         "caption": "Upozornění hlídá trh, ty si odpočineš. Trading na roky, ne na týdny."
+      },
+      "speedRace": {
+        "label": "Závodní auto s nápisem SOL uhání horním pruhem, dole se plazí šnek s nápisem blok za 10 minut",
+        "car": "SOL",
+        "snail": "blok za 10 minut",
+        "bubble": "Blok za zlomek sekundy!",
+        "caption": "Solana sází na rychlost. Platí za ni výkonným hardwarem a menším počtem validátorů."
+      },
+      "metronomeChoir": {
+        "label": "Metronom odměřuje čas a tři zpěváci zpívají; prostřední má odznak sólo, protože je podle rozpisu na řadě",
+        "clock": "PROOF OF HISTORY",
+        "solo": "SÓLO",
+        "bubble": "Teď zpívám já, pak ty.",
+        "caption": "Rozpis vedoucích je známý předem a Proof of History jim drží společný rytmus."
+      },
+      "pitStop": {
+        "label": "Závodní auto stojí v boxech, kouří se z něj a vedle stojí cedule restart; ustaraný mechanik volá ostatní",
+        "sign": "RESTART",
+        "bubble": "Všichni naráz, na tři: restart!",
+        "caption": "Po výpadku se síť nerozjede sama – validátoři se musí domluvit na společném restartu."
+      },
+      "bathtubSupply": {
+        "label": "Vana, do které teče voda z kohoutku inflace a odtéká odtokem pálení; na hladině se houpe kachnička SOL",
+        "tap": "INFLACE",
+        "duck": "SOL",
+        "drain": "PÁLENÍ",
+        "bubble": "Přitéká víc, než odtéká!",
+        "caption": "Inflace přidává nové SOL rychleji, než pálení poplatků ubírá. Kohoutek se ale pomalu zavírá."
+      },
+      "tokenMailboxes": {
+        "label": "Stěna poštovních schránek s nápisy SOL, USDC a JUP; nová schránka MEME přistane s cedulkou kauce 0,002 SOL",
+        "sol": "SOL",
+        "usdc": "USDC",
+        "jup": "JUP",
+        "meme": "MEME",
+        "deposit": "kauce 0,002 SOL",
+        "bubble": "Nová schránka? Tak to je kauce.",
+        "caption": "Každý token má v peněžence vlastní účet. Po zavření prázdného účtu se kauce vrátí."
+      },
+      "tollBooth": {
+        "label": "Mýtná brána s nápisem přednost: jedno auto projíždí rychlým pruhem, tři auta stojí ve frontě",
+        "priority": "PŘEDNOST",
+        "bubble": "Za přednost se platí.",
+        "caption": "Prioritní poplatek kupuje místo ve frontě, ne lepší cenu."
+      },
+      "twoKeys": {
+        "label": "Velký token a na háčku dva klíče s nápisy mint a zmrazení",
+        "token": "TOKEN",
+        "mint": "MINT",
+        "freeze": "ZMRAZENÍ",
+        "bubble": "Klíče si nechám, kdyby něco.",
+        "caption": "Kdo má klíč k tiskárně a k mrazáku, rozhoduje o tvých tokenech víc než ty."
+      },
+      "blankCheque": {
+        "label": "Usměvavý cizinec podává k podpisu papír s nadpisem airdrop; drobným písmem stojí poslat všechno",
+        "title": "AIRDROP",
+        "smallPrint": "poslat: VŠECHNO",
+        "bubble": "Jen tady podepiš, je to dárek!",
+        "caption": "Drainer nekrade heslo. Nechá tě podepsat transakci, která vybere všechno."
+      },
+      "stakeCalendar": {
+        "label": "Prasátko pokladnička vedle kalendáře s listy epocha 1, 2 a 3; do prasátka padají mince",
+        "epoch1": "epocha 1",
+        "epoch2": "epocha 2",
+        "epoch3": "epocha 3",
+        "bubble": "Odměna s každou epochou.",
+        "caption": "Odměny ze stakingu přicházejí s každou epochou – a ve stejném rytmu se i odstakovává."
+      },
+      "coatCheck": {
+        "label": "Šatna v divadle: na věšáku visí kabát s nápisem SOL a postava drží lísteček stakovací token",
+        "coat": "SOL",
+        "ticket": "stakovací token",
+        "bubble": "Lísteček se dá i prodat!",
+        "caption": "Liquid staking ti za SOL vydá lísteček. Jen pozor, v panice se prodává se slevou."
+      },
+      "shoppingRobot": {
+        "label": "Robot s nákupním vozíkem jezdí mezi třemi stánky s cenami 151, 150 a 152",
+        "price1": "151",
+        "price2": "150",
+        "price3": "152",
+        "bubble": "Kde je to nejlevnější?",
+        "caption": "Agregátor projde všechny fondy a obchod rozdělí pro nejlepší cenu. Pravost tokenu nekontroluje."
+      },
+      "rocketFactory": {
+        "label": "Řada šesti raket: pět se jen kymácí, jedna zelená poskakuje; nad nimi cedule jedna ze sta",
+        "sign": "1 ZE 100",
+        "bubble": "Tahle poletí, určitě!",
+        "caption": "Z nových memecoinů se dál dostane jen zhruba jeden ze sta. A ani ten nemusí letět."
+      },
+      "tokenDetective": {
+        "label": "Detektiv s kloboukem a lupou prochází kontrolní seznam: mint, zmrazení, držitelé, likvidita",
+        "mint": "Mint",
+        "freeze": "Zmrazení",
+        "holders": "Držitelé",
+        "liquidity": "Likvidita",
+        "bubble": "Kdo má klíč od tiskárny?",
+        "caption": "Deset minut s průzkumníkem blockchainu odhalí většinu pastí. Dobrou investici z tokenu neudělá."
+      },
+      "rollercoaster": {
+        "label": "Horská dráha s cedulemi 260, 8, 296 a 60 na vrcholech a v údolích; vozík s cestujícími na vrcholu",
+        "peak1": "260 $",
+        "low1": "8 $",
+        "peak2": "296 $",
+        "low2": "60 $",
+        "bubble": "Připoutat se!",
+        "caption": "Skutečné vrcholy a dna SOL. Jízda pokračuje – a nikdo neví kam."
+      },
+      "dogOnLeash": {
+        "label": "Postava s nápisem BTC venčí psa s nápisem SOL, který na vodítku pobíhá dopředu a dozadu",
+        "owner": "BTC",
+        "dog": "SOL",
+        "bubble": "Kam já, tam ty.",
+        "caption": "SOL občas utíká napřed, občas zaostává – ale většinou jde tam, kam Bitcoin."
+      },
+      "solanaSummit": {
+        "label": "Turista s batohem stojí na vrcholu hory s vlajkou Solana, kolem padají konfety",
+        "flag": "SOLANA",
+        "bubble": "Hotovo! Teď opatrně dolů.",
+        "caption": "Kurz máš za sebou. Deset pravidel si vezmi s sebou."
       }
     }
   },
