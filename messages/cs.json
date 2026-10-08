@@ -946,5 +946,11 @@
     "description": "Hledaná stránka neexistuje – možná se přesunula, nebo je v adrese překlep. Profesor Knot to nese těžce, ale kurzy stojí pevně.",
     "courses": "Zpátky na kurzy",
     "home": "Na úvodní stránku"
+  },
+  "CourseFinished": {
+    "title": "Hotovo! Kurz {course} máš za sebou.",
+    "description": "Profesor Knot vyhazuje čepici do vzduchu. Teď je čas naučené věci vyzkoušet – nejdřív bez peněz, pak po malých krocích.",
+    "nextStep": "Další krok: {course}",
+    "catalog": "Vybrat další kurz"
   }
 }
