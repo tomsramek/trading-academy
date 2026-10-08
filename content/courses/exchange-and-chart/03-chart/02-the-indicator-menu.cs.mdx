@@ -1,0 +1,123 @@
+import mainMenu from "./binance-indicators-main.webp";
+import subMenu from "./binance-indicators-sub.webp";
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Menu indikátorů: co zapnout a co ne",
+  slug: "menu-indikatoru",
+  description:
+    "MA, EMA, BOLL, SAR, VWAP, VOL, MACD, RSI, KDJ, StochRSI, OBV… Co každá zkratka v menu znamená jednou větou, které tři stačí na začátek a proč víc čar neznamená víc peněz.",
+};
+
+<Callout title="V této lekci">
+
+- rozluštíš každou zkratku v menu indikátorů jednou větou
+- zjistíš, co se kreslí přes svíčky a co do panelu pod grafem
+- vybereš si tři indikátory na začátek – a ostatní necháš vypnuté
+
+</Callout>
+
+Menu indikátorů je jako bufet: dvacet mís a všechno vypadá lákavě. Kdo si nabere od všeho, má na grafu
+tolik čar, že pod nimi nevidí svíčky. Profesor Knot tomu říká indikátorová polévka – a nedoporučuje ji.
+
+<Illustration name="indicatorSoup" />
+
+## Dva druhy indikátorů
+
+- **Přes svíčky** (hlavní graf) – čáry, které mají stejné jednotky jako cena: průměry, pásma.
+- **Pod grafem** (panel) – vlastní stupnice: objem, oscilátory, momentum.
+
+## Kde je menu na Binance
+
+Na Binance otevřeš indikátory ikonkou nad grafem. Dialog má dvě záložky: **Main Indicator** (přes svíčky)
+a **Sub Indicator** (pod grafem). U každého indikátoru nastavíš délku, barvu a tloušťku čáry.
+
+<Figure
+  src={mainMenu}
+  alt="Dialog indikátorů na Binance, záložka Main Indicator: seznam MA, EMA, WMA, BOLL, VWAP, AVL, TRIX, SAR, SUPER a nastavení MA1 = 7, MA2 = 25, MA3 = 99"
+  caption="Binance, Main Indicator (8. 10. 2026): zapnutý MA s délkami 7, 25 a 99 – výchozí nastavení."
+/>
+
+<Figure
+  src={subMenu}
+  alt="Dialog indikátorů na Binance, záložka Sub Indicator: seznam VOL, MACD, RSI, MFI, KDJ, OBV, CCI, StochRSI, WR a nastavení objemu s průměry 7 a 14"
+  caption="Binance, Sub Indicator (8. 10. 2026): zapnutý jen VOL (objem) s průměry objemu 7 a 14."
+/>
+
+<Video
+  src="/videos/binance-indicators.mp4"
+  poster="/videos/binance-indicators.webp"
+  label="Video: na Binance se otevře dialog indikátorů, přepne se na záložku Sub Indicator, zaškrtne se RSI, klikne se na Save a pod grafem se objeví panel RSI"
+  caption="Video (19 s): jak na Binance zapnout RSI – ikona indikátorů, záložka Sub Indicator, zaškrtnout RSI, Save."
+/>
+
+## Přes svíčky
+
+| Zkratka   | Co to je jednou větou                                                                                                          |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **MA**    | <KeyTerm term="moving-average">klouzavý průměr</KeyTerm> – průměrná cena za posledních N svíček; vyhlazuje šum a ukazuje směr  |
+| **EMA**   | exponenciální průměr – jako MA, ale novější svíčky mají větší váhu, takže reaguje rychleji                                     |
+| **BOLL**  | <KeyTerm term="bollinger-bands">Bollingerova pásma</KeyTerm> – průměr a dvě pásma kolem něj; čím divočejší trh, tím jsou širší |
+| **SAR**   | tečky nad nebo pod svíčkami, které „dotahují“ cenu; když přeskočí na druhou stranu, trend se možná otáčí                       |
+| **VWAP**  | průměrná cena vážená objemem – kolik v průměru platili ti, kdo obchodovali                                                     |
+| **WMA**   | vážený průměr – novější svíčky váží víc, podobně jako EMA                                                                      |
+| **AVL**   | průměrná cena dne – čára průměrné ceny obchodů                                                                                 |
+| **TRIX**  | trojitě vyhlazený průměr ukazující tempo trendu                                                                                |
+| **SUPER** | Supertrend – čára pod cenou v růstu a nad ní v poklesu, odvozená z ATR                                                         |
+
+## Pod grafem
+
+| Zkratka      | Co to je jednou větou                                                                                                     |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| **VOL**      | <KeyTerm term="volume">objem</KeyTerm> – kolik se zobchodovalo v každé svíčce                                             |
+| **MACD**     | <KeyTerm term="macd">MACD</KeyTerm> – rozdíl dvou průměrů a jeho signální čára; ukazuje sílu a otáčení trendu             |
+| **RSI**      | <KeyTerm term="rsi">RSI</KeyTerm> – síla růstů proti poklesům na stupnici 0–100; nad 70 „překoupeno“, pod 30 „přeprodáno“ |
+| **StochRSI** | RSI z RSI – ještě citlivější a ještě víc kmitá                                                                            |
+| **KDJ**      | příbuzný stochastického oscilátoru – kde je cena v rozpětí posledních svíček                                              |
+| **OBV**      | objem, který se přičítá při růstu a odečítá při poklesu                                                                   |
+| **ATR**      | průměrné rozpětí svíčky – měří volatilitu (v menu Binance není; staví na něm Supertrend)                                  |
+| **MFI**      | jako RSI, ale zohledňuje i objem                                                                                          |
+| **CCI**      | jak daleko je cena od svého průměru                                                                                       |
+| **WR**       | Williams %R – kde je zavírací cena v rozpětí posledních svíček                                                            |
+
+## Tři na začátek
+
+Na mnoha burzách je po otevření grafu zapnutá trojice průměrů **MA(7), MA(25) a MA(99)** – číslo v závorce
+je počet svíček. Takhle vypadá s objemem a RSI na denním grafu Bitcoinu:
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od října 2023 do prosince 2024 s klouzavými průměry 7, 25 a 99 dní, objemem a RSI v panelech pod grafem"
+  caption="Výchozí sada mnoha burz: MA(7), MA(25), MA(99) přes svíčky, objem a RSI pod grafem. Víc na začátek nepotřebuješ."
+  indicators={{ sma: [7, 25, 99], volume: true, rsi: true }}
+/>
+
+Na začátek stačí:
+
+1. **VOL** – ukáže, jestli pohyb má za sebou zájem.
+2. **Jeden nebo dva průměry** – výchozí MA, nebo delší (50 a 200 dní) pro směr trendu.
+3. **RSI** – jestli trh neběží příliš rychle jedním směrem.
+
+Ostatní si zapni, až budeš vědět, k čemu je potřebuješ. Jak indikátory používat do hloubky, učí kurz
+[Obchodování podle plánu](/kurzy/obchodovani-podle-planu).
+
+<Callout type="warning" title="Indikátor nevidí budoucnost">
+  Všechny indikátory se počítají z minulých cen. Žádný neví, kam se cena pohne
+  zítra. Víc indikátorů nedává víc jistoty – jen víc čar, které si můžou
+  odporovat.
+</Callout>
+
+## Časté omyly
+
+- **„Čím víc indikátorů, tím přesnější signál.“** Většina měří totéž jinou rovnicí – a navzájem si odporují.
+- **„RSI nad 70 = prodej.“** Silný trend může být „překoupený“ celé týdny.
+- **„Výchozí nastavení je to nejlepší.“** Je to jen výchozí nastavení, ne doporučení.
+
+<Callout title="Shrnutí">
+
+- Přes svíčky: MA, EMA, BOLL, SAR, VWAP. Pod grafem: VOL, MACD, RSI, StochRSI, KDJ, OBV, ATR.
+- Číslo v závorce (MA(7)) je počet svíček, ze kterých se indikátor počítá.
+- Na začátek stačí objem, jeden až dva průměry a RSI.
+- Indikátory se počítají z minulosti; víc čar neznamená víc jistoty.
+
+</Callout>

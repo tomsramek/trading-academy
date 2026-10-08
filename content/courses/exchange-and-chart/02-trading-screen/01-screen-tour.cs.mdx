@@ -1,0 +1,91 @@
+import screen from "./binance-screen.webp";
+
+export const metadata = {
+  title: "Prohlídka obrazovky obchodování",
+  slug: "prohlidka-obrazovky",
+  description:
+    "Šest částí obrazovky, kterou má skoro každá burza: obchodní pár a čísla za 24 hodin, graf, kniha objednávek, poslední obchody, panel příkazů a přehled tvých příkazů.",
+};
+
+<Callout title="V této lekci">
+
+- projdeš šest částí obrazovky, kterou má skoro každá burza
+- naučíš se číst obchodní pár a čísla za posledních 24 hodin
+- budeš vědět, kde hledat své otevřené příkazy
+
+</Callout>
+
+Poprvé otevřená obrazovka obchodování vypadá jako kokpit letadla: čísla blikají, zelená střídá červenou
+a tlačítek je víc než v kuchyni. Dobrá zpráva: skoro všechny burzy mají stejné rozložení. Naučíš se ho
+jednou a vyznáš se všude.
+
+<Illustration name="screenTour" />
+
+## Takhle to vypadá na Binance
+
+<Figure
+  src={screen}
+  alt="Obrazovka spotového obchodování na Binance pro pár BTC/USDT s očíslovanými částmi: 1 obchodní pár a údaje za 24 hodin, 2 graf, 3 kniha objednávek, 4 poslední obchody, 5 panel příkazů, 6 tvoje příkazy"
+  caption="Binance, spotové obchodování BTC/USDT (8. 10. 2026, bez přihlášení). Čísla odpovídají oddílům této lekce. Rozložení se časem mění, části zůstávají."
+/>
+
+## 1. Obchodní pár a čísla za 24 hodin
+
+Nahoře je <KeyTerm term="trading-pair">obchodní pár</KeyTerm>, třeba **BTC/EUR**. První měna je to, co
+kupuješ, druhá to, čím platíš. Cena 60 000 u páru BTC/EUR znamená, že jeden bitcoin stojí 60 000 eur.
+
+Vedle páru uvidíš:
+
+- **poslední cenu** – za kolik proběhl poslední obchod,
+- **změnu za 24 h** – o kolik procent se cena změnila za posledních 24 hodin (ne od půlnoci),
+- **24h max a min** – nejvyšší a nejnižší cenu za 24 hodin,
+- **objem za 24 h** – kolik se zobchodovalo.
+
+V EU uvidíš hlavně páry s eurem a se stablecoinem USDC. Stablecoin USDT kvůli pravidlům MiCA mnohé burzy
+pro zákazníky z EU stáhly.
+
+## 2. Graf
+
+Největší část obrazovky. Časové rámce, indikátory a kreslení mají celý třetí modul.
+
+## 3. Kniha objednávek
+
+Takzvaná <KeyTerm term="order-book">kniha objednávek</KeyTerm> ukazuje, kdo chce za kolik koupit
+a prodat. **Nahoře červeně** prodejní nabídky, **dole zeleně** nákupní, uprostřed poslední cena. Podrobně
+v lekci 12.
+
+## 4. Poslední obchody
+
+Seznam obchodů, které právě proběhly: cena, množství a čas. Zelené jsou nákupy za tržní cenu, červené
+prodeje.
+
+## 5. Panel příkazů
+
+Tady nakupuješ a prodáváš: záložky **Koupit / Prodat**, typ příkazu (**Limit, Trh, Stop**), pole pro
+cenu a množství, posuvník procent z tvého zůstatku a velké tlačítko. Jak ho vyplnit, ukáže lekce 7.
+
+## 6. Tvoje příkazy
+
+Dole pod grafem: **otevřené příkazy** (ty, které čekají), **historie příkazů** a **historie obchodů**.
+Když limitní příkaz „zmizel“, nejspíš tady čeká na svou cenu.
+
+<Callout type="warning" title="Pozor na záložky Futures a Margin">
+  Na mnoha burzách je hned vedle spotového obchodování přepínač na futures nebo
+  margin – obchody na páku. Vypadají skoro stejně. Zkontroluj, že jsi na záložce
+  **Spot**. Proč, vysvětlí lekce 13.
+</Callout>
+
+## Časté omyly
+
+- **„Změna za 24 h je změna za dnešní den.“** Je to posledních 24 hodin, ne od půlnoci.
+- **„Můj příkaz se ztratil.“** Limitní příkaz čeká v otevřených příkazech, dokud cena nedorazí.
+- **„BTC/EUR a EUR/BTC je totéž.“** Ne – první měna je to, co kupuješ.
+
+<Callout title="Shrnutí">
+
+- Obchodní pár BTC/EUR: kupuješ bitcoin, platíš eury; nahoře poslední cena a čísla za 24 hodin.
+- Uprostřed graf, vedle kniha objednávek a poslední obchody.
+- Panel příkazů: Koupit/Prodat, typ příkazu, cena, množství.
+- Dole otevřené příkazy a historie – a vždycky zkontroluj, že jsi na záložce Spot.
+
+</Callout>

@@ -1,0 +1,126 @@
+import mainMenu from "./binance-indicators-main.webp";
+import subMenu from "./binance-indicators-sub.webp";
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "The indicator menu: what to turn on and what not",
+  description:
+    "MA, EMA, BOLL, SAR, VWAP, VOL, MACD, RSI, KDJ, StochRSI, OBV… What every abbreviation in the menu means in one sentence, which three are enough to start with and why more lines do not mean more money.",
+};
+
+<Callout title="In this lesson">
+
+- decode every abbreviation in the indicator menu in one sentence
+- find out what is drawn over the candles and what goes into the panel below
+- choose three indicators to start with – and leave the rest off
+
+</Callout>
+
+The indicator menu is like a buffet: twenty dishes and everything looks tempting. Whoever takes some of
+everything ends up with so many lines on the chart that the candles disappear under them. Professor Wick
+calls it indicator soup – and does not recommend it.
+
+<Illustration name="indicatorSoup" />
+
+## Two kinds of indicators
+
+- **Over the candles** (main chart) – lines in the same units as the price: averages, bands.
+- **Below the chart** (panel) – their own scale: volume, oscillators, momentum.
+
+## Where the menu is on Binance
+
+On Binance you open the indicators with an icon above the chart. The dialog has two tabs: **Main Indicator**
+(over the candles) and **Sub Indicator** (below the chart). For each indicator you set the length, colour
+and line width.
+
+<Figure
+  src={mainMenu}
+  alt="The Binance indicator dialog, Main Indicator tab: a list of MA, EMA, WMA, BOLL, VWAP, AVL, TRIX, SAR, SUPER and settings MA1 = 7, MA2 = 25, MA3 = 99"
+  caption="Binance, Main Indicator (8 Oct 2026): MA switched on with lengths 7, 25 and 99 – the default."
+/>
+
+<Figure
+  src={subMenu}
+  alt="The Binance indicator dialog, Sub Indicator tab: a list of VOL, MACD, RSI, MFI, KDJ, OBV, CCI, StochRSI, WR and volume settings with averages of 7 and 14"
+  caption="Binance, Sub Indicator (8 Oct 2026): only VOL (volume) switched on, with volume averages of 7 and 14."
+/>
+
+<Video
+  src="/videos/binance-indicators.mp4"
+  poster="/videos/binance-indicators.webp"
+  label="Video: on Binance the indicator dialog opens, switches to the Sub Indicator tab, RSI is ticked, Save is clicked and an RSI panel appears below the chart"
+  caption="Video (19 s): how to turn on RSI on Binance – the indicator icon, the Sub Indicator tab, tick RSI, Save."
+/>
+
+## Over the candles
+
+| Abbreviation | What it is in one sentence                                                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **MA**       | <KeyTerm term="moving-average">moving average</KeyTerm> – the average price over the last N candles; smooths out noise and shows direction |
+| **EMA**      | exponential average – like MA, but recent candles weigh more, so it reacts faster                                                          |
+| **BOLL**     | <KeyTerm term="bollinger-bands">Bollinger Bands</KeyTerm> – an average with two bands around it; the wilder the market, the wider they get |
+| **SAR**      | dots above or below the candles that "trail" the price; when they flip to the other side, the trend may be turning                         |
+| **VWAP**     | volume-weighted average price – what those who traded paid on average                                                                      |
+| **WMA**      | weighted average – recent candles weigh more, similar to EMA                                                                               |
+| **AVL**      | the day's average price – a line of the average trade price                                                                                |
+| **TRIX**     | a triple-smoothed average showing the pace of the trend                                                                                    |
+| **SUPER**    | Supertrend – a line below the price in a rise and above it in a fall, derived from ATR                                                     |
+
+## Below the chart
+
+| Abbreviation | What it is in one sentence                                                                                                           |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **VOL**      | <KeyTerm term="volume">volume</KeyTerm> – how much was traded in each candle                                                         |
+| **MACD**     | <KeyTerm term="macd">MACD</KeyTerm> – the difference of two averages and its signal line; shows the strength and turning of a trend  |
+| **RSI**      | <KeyTerm term="rsi">RSI</KeyTerm> – the strength of rises against falls on a 0–100 scale; above 70 "overbought", below 30 "oversold" |
+| **StochRSI** | the RSI of the RSI – even more sensitive and even more jumpy                                                                         |
+| **KDJ**      | a relative of the stochastic oscillator – where the price is within the range of the last candles                                    |
+| **OBV**      | volume added on up candles and subtracted on down candles                                                                            |
+| **ATR**      | the average range of a candle – measures volatility (not in Binance's menu; Supertrend is built from it)                             |
+| **MFI**      | like RSI, but also takes volume into account                                                                                         |
+| **CCI**      | how far the price is from its average                                                                                                |
+| **WR**       | Williams %R – where the close sits within the range of the last candles                                                              |
+
+## Three to start with
+
+On many exchanges the chart opens with a trio of averages, **MA(7), MA(25) and MA(99)** – the number in
+brackets is the number of candles. Here is how it looks with volume and RSI on Bitcoin's daily chart:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with 7, 25 and 99-day moving averages, volume and RSI in panels below the chart"
+  caption="The default set of many exchanges: MA(7), MA(25), MA(99) over the candles, volume and RSI below. You do not need more to start."
+  indicators={{ sma: [7, 25, 99], volume: true, rsi: true }}
+/>
+
+To start, this is enough:
+
+1. **VOL** – shows whether a move has interest behind it.
+2. **One or two averages** – the default MAs, or longer ones (50 and 200 days) for the direction of the
+   trend.
+3. **RSI** – whether the market is running too fast in one direction.
+
+Turn the others on once you know what you need them for. How to use indicators in depth is taught in the
+[Trading with a plan](/courses/trading-with-a-plan) course.
+
+<Callout type="warning" title="An indicator does not see the future">
+  All indicators are calculated from past prices. None knows where the price
+  will go tomorrow. More indicators do not give more certainty – just more lines
+  that can contradict each other.
+</Callout>
+
+## Common myths
+
+- **"The more indicators, the more accurate the signal."** Most measure the same thing with a different
+  equation – and contradict each other.
+- **"RSI above 70 = sell."** A strong trend can stay "overbought" for weeks.
+- **"The default settings are the best."** They are just the defaults, not a recommendation.
+
+<Callout title="Summary">
+
+- Over the candles: MA, EMA, BOLL, SAR, VWAP. Below the chart: VOL, MACD, RSI, StochRSI, KDJ, OBV, ATR.
+- The number in brackets (MA(7)) is the number of candles the indicator is calculated from.
+- Volume, one or two averages and RSI are enough to start.
+- Indicators are calculated from the past; more lines do not mean more certainty.
+
+</Callout>

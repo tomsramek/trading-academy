@@ -1,0 +1,105 @@
+import book from "./binance-order-book.webp";
+import depth from "./binance-depth.webp";
+export const metadata = {
+  title: "Kniha objednávek a hloubka trhu",
+  slug: "kniha-objednavek-a-hloubka",
+  description:
+    "Jak číst červené a zelené řádky knihy objednávek, co je spread, proč velký tržní nákup zaplatí víc než poslední cena, co ukazuje graf hloubky a proč „zdi“ nemusí být skutečné.",
+};
+
+<Callout title="V této lekci">
+
+- naučíš se číst knihu objednávek a spread
+- spočítáš, za kolik doopravdy nakoupí tržní příkaz
+- pochopíš graf hloubky a proč nevěřit každé „zdi“
+
+</Callout>
+
+Poslední cena v záhlaví je jen poslední obchod. Kolik zaplatíš ty, rozhoduje kniha objednávek: seznam
+všech, kdo právě teď čekají, že od nich někdo koupí nebo jim prodá.
+
+<Illustration name="depthMountains" />
+
+## Jak kniha vypadá
+
+| Strana            | Cena (EUR) | Množství (BTC) |
+| ----------------- | ---------- | -------------- |
+| prodej            | 60 050     | 3,0            |
+| prodej            | 60 020     | 1,2            |
+| prodej            | 60 010     | 0,5            |
+| **poslední cena** | **60 000** |                |
+| nákup             | 59 990     | 0,8            |
+| nákup             | 59 980     | 1,5            |
+| nákup             | 59 950     | 2,5            |
+
+_Ukázková kniha – skutečná je mnohem delší._
+
+- **Červené řádky nahoře** – prodejci a za kolik nejméně prodají. Nejnižší z nich (60 010) je cena, za
+  kterou hned koupíš.
+- **Zelené řádky dole** – kupující a kolik nejvíc zaplatí. Nejvyšší (59 990) je cena, za kterou hned
+  prodáš.
+- Rozdíl mezi nimi je <KeyTerm term="spread">spread</KeyTerm> – tady 20 eur. Čím je trh likvidnější,
+  tím je spread menší.
+
+## Za kolik nakoupí tržní příkaz
+
+Skutečná kniha objednávek na Binance:
+
+<Figure
+  src={book}
+  alt="Kniha objednávek na Binance pro BTC/USDT: nahoře červené prodejní nabídky s cenou, množstvím a celkem, uprostřed poslední cena 81 052,05, dole zelené nákupní nabídky a pod nimi poměr nákupů a prodejů"
+  caption="Binance, kniha objednávek BTC/USDT (8. 10. 2026): červené prodeje nahoře, zelené nákupy dole, poslední cena uprostřed. Vpravo nahoře volba zaokrouhlení 0,01."
+/>
+
+Tržní nákup bere nabídky odspodu červené části, dokud nemá celé množství:
+
+| Nákup   | Průměrná cena | Za 1 BTC navíc proti poslední ceně |
+| ------- | ------------- | ---------------------------------- |
+| 0,1 BTC | 60 010        | +10 €                              |
+| 1 BTC   | 60 015        | +15 €                              |
+| 2 BTC   | 60 022        | +22 €                              |
+
+Čím větší nákup, tím hlouběji do knihy sáhne a tím víc zaplatí – to je <KeyTerm term="slippage">skluz</KeyTerm>. U bitcoinu na velké burze je zanedbatelný. U malých altcoinů
+s řídkou knihou může jeden nákup posunout cenu o procenta.
+
+## Graf hloubky
+
+Přepínač **Hloubka** nebo **Depth** ukáže knihu jako dvě hory: zelenou vlevo (nákupy) a červenou vpravo
+(prodeje). Výška hory je součet všech nabídek až k dané ceně – takzvaná <KeyTerm term="market-depth">hloubka trhu</KeyTerm>. Strmá hora znamená hodně nabídek blízko ceny; mezera
+uprostřed je spread.
+
+<Figure
+  src={depth}
+  alt="Graf hloubky na Binance: zelená plocha nákupních nabídek vlevo stoupá směrem od ceny, červená plocha prodejních nabídek vpravo, uprostřed svislá čára u ceny kolem 80 982"
+  caption="Binance, graf hloubky BTC/USDT (8. 10. 2026): vlevo zelené nákupy, vpravo červené prodeje. Výška = součet nabídek až k dané ceně."
+/>
+
+<Video
+  src="/videos/binance-depth.mp4"
+  poster="/videos/binance-depth.webp"
+  label="Video: na Binance se graf přepne na zobrazení Depth, kurzor přejede po zelené a červené hoře a graf se vrátí na Original"
+  caption="Video (18 s): přepnutí na graf hloubky (Depth) na Binance a zpět na Original."
+/>
+
+Tlačítko se zaokrouhlením (0,01 / 0,1 / 1 / 10) seskupí ceny do kroků, aby byla kniha přehlednější.
+
+<Callout type="warning" title="Zdi nemusí být skutečné">
+  Obří nabídka na jedné ceně – „zeď“ – vypadá jako pevná podpora. Někdo ji ale
+  může během vteřiny stáhnout. Vytvářet falešné nabídky, které nikdo nehodlá
+  vyplnit, je na regulovaných trzích zakázaná manipulace, a přesto se děje.
+</Callout>
+
+## Časté omyly
+
+- **„Koupím za poslední cenu.“** Koupíš za nejnižší prodejní nabídku – a u větší částky i dráž.
+- **„Velká zeď cenu zastaví.“** Dokud tam je. Zdi se umí ztratit.
+- **„Spread je poplatek burzy.“** Spread je rozdíl mezi kupujícími a prodávajícími, poplatek se platí navíc.
+
+<Callout title="Shrnutí">
+
+- Kniha objednávek: červené prodeje nahoře, zelené nákupy dole; rozdíl nejlepších je spread.
+- Tržní nákup bere nabídky postupně – čím větší, tím vyšší průměrná cena (skluz).
+- Graf hloubky ukazuje knihu jako dvě hory; strmé hory = hodně nabídek blízko ceny.
+- Zdi v knize můžou zmizet – nespoléhej na ně.
+
+</Callout>

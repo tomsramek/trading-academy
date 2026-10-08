@@ -1,0 +1,95 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What does the 1M timeframe mean?",
+          "options": ["One minute", "One month", "One million"],
+          "explanation": "A lowercase m is a minute, an uppercase M a month – a factor of roughly 43,000 between them."
+        },
+        "cs": {
+          "question": "Co znamená časový rámec 1M?",
+          "options": ["Jedna minuta", "Jeden měsíc", "Jeden milion"],
+          "explanation": "Malé m je minuta, velké M měsíc – mezi nimi je zhruba 43 000násobný rozdíl."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does C mean for a candle?",
+          "options": ["The closing price", "The daily change", "Capital"],
+          "explanation": "O is the open, H the high, L the low and C the close of the candle."
+        },
+        "cs": {
+          "question": "Co znamená C u svíčky?",
+          "options": ["Zavírací cenu", "Změnu za den", "Kapitál"],
+          "explanation": "O je otevírací, H nejvyšší, L nejnižší a C zavírací cena svíčky."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is enough from the indicator menu to start with?",
+          "options": [
+            "All of them, so nothing slips by",
+            "None, indicators do not work",
+            "Volume, one or two moving averages and RSI"
+          ],
+          "explanation": "Most indicators measure the same thing with a different equation. More lines give more contradictions, not more certainty."
+        },
+        "cs": {
+          "question": "Co stačí na začátek z menu indikátorů?",
+          "options": [
+            "Všechny, ať nic neuteče",
+            "Žádný, indikátory nefungují",
+            "Objem, jeden až dva klouzavé průměry a RSI"
+          ],
+          "explanation": "Většina indikátorů měří totéž jinou rovnicí. Víc čar nedává víc jistoty, jen víc rozporů."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does a price alert do when the price crosses your level?",
+          "options": [
+            "It buys automatically",
+            "It sends you a message – it buys nothing",
+            "It cancels your orders"
+          ],
+          "explanation": "An alert only informs. Buying or selling is a separate order."
+        },
+        "cs": {
+          "question": "Co udělá cenové upozornění, když cena protne tvou úroveň?",
+          "options": [
+            "Automaticky nakoupí",
+            "Pošle ti zprávu – nic nenakupuje",
+            "Zruší tvé příkazy"
+          ],
+          "explanation": "Upozornění jen informuje. Nákup nebo prodej je zvláštní příkaz."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The best sell offer is 60,010 and the best buy offer 59,990. What is the spread?",
+          "options": ["20", "10", "60,000"],
+          "explanation": "The spread is the gap between the lowest sell and the highest buy offer: 60,010 − 59,990 = 20."
+        },
+        "cs": {
+          "question": "Nejlepší prodejní nabídka je 60 010, nejlepší nákupní 59 990. Kolik je spread?",
+          "options": ["20", "10", "60 000"],
+          "explanation": "Spread je rozdíl mezi nejnižší prodejní a nejvyšší nákupní nabídkou: 60 010 − 59 990 = 20."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

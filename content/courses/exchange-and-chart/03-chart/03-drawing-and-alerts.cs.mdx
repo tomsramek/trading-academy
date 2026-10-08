@@ -1,0 +1,80 @@
+import tradingView from "./binance-tradingview.webp";
+export const metadata = {
+  title: "Kreslení a cenová upozornění",
+  slug: "kresleni-a-upozorneni",
+  description:
+    "Vodorovná čára, trendová čára, obdélník a měřítko: čtyři nástroje z levého panelu, které stačí. A cenové upozornění, díky kterému nemusíš celý den koukat na graf.",
+};
+
+<Callout title="V této lekci">
+
+- poznáš čtyři kreslicí nástroje, které opravdu potřebuješ
+- naučíš se změřit pohyb ceny v procentech
+- nastavíš si cenové upozornění místo koukání do grafu
+
+</Callout>
+
+Vlevo od grafu je svislý panel s ikonkami: tužky, čáry, vidličky, smajlíky a symboly, o kterých nikdo
+neví, co dělají. Dobrá zpráva: z toho všeho potřebuješ čtyři. A pak jeden zvoneček, který ti ušetří
+spoustu času i nervů.
+
+<Illustration name="alarmLine" />
+
+## Čtyři nástroje, které stačí
+
+- **Vodorovná čára** – úroveň, na které se cena v minulosti zastavovala:
+  [podpora nebo rezistence](/kurzy/obchodovani-podle-planu/podpora-a-rezistence-do-hloubky). Nejpoužívanější
+  nástroj vůbec.
+- **Trendová čára** – spojí dvě minima (nebo maxima) a ukáže sklon trendu.
+- **Obdélník** – vyznačí cenovou zónu. Podpora a rezistence bývají spíš pásma než přesné čáry.
+- **Měřítko** – táhneš od jednoho bodu k druhému a graf ukáže změnu ceny v procentech a počet svíček.
+
+Na Binance se kreslicí nástroje objeví po přepnutí grafu na **Trading View**:
+
+<Figure
+  src={tradingView}
+  alt="Graf Binance v režimu Trading View: vlevo svislý panel kreslicích nástrojů (kurzor, čára, vodorovné čáry, tvary, text, měřítko, lupa), nahoře O, H, L, C a průměry MA 7, 25, 99, dole objem a vpravo dole přepínače %, log a auto"
+  caption="Binance v režimu Trading View (8. 10. 2026): vlevo kreslicí nástroje, vpravo dole přepínače %, log a auto, vedle nich čas v pásmu UTC+2."
+/>
+
+<Video
+  src="/videos/binance-drawing.mp4"
+  poster="/videos/binance-drawing.webp"
+  label="Video: v režimu Trading View na Binance se klávesovou zkratkou Alt+H nakreslí vodorovná čára a nástrojem trendová čára spojnice dvou bodů"
+  caption="Video (18 s): vodorovná čára (zkratka Alt+H, na Macu Option+H, u kurzoru) a trendová čára ze dvou kliknutí v režimu Trading View na Binance."
+/>
+
+Šikovné drobnosti: **magnet** přitáhne čáru přesně k cenám svíček a **koš** smaže všechny nákresy
+najednou.
+
+## Cenové upozornění
+
+Upozornění (zvoneček u grafu nebo v nabídce) ti pošle zprávu, až cena protne zvolenou úroveň:
+
+1. Zvol pár a cenu – třeba úroveň, kterou sis nakreslil.
+2. Zvol směr: **protne nahoru**, **protne dolů**, nebo **jakkoli**.
+3. Zvol, kam přijde zpráva: do aplikace, e-mailem nebo obojí.
+
+Upozornění tě nic nestojí a nic nenakoupí – jen dá vědět. Místo deseti pohledů do grafu denně stačí
+nastavit dvě úrovně a jít žít.
+
+<Callout type="warning" title="Nákresy se můžou ztratit">
+  Na některých burzách se nákresy ukládají jen v prohlížeči nebo jen pro jedno
+  zobrazení grafu. Po přepnutí zařízení nebo typu grafu je nemusíš najít.
+  Důležité úrovně si proto poznamenej i do deníku.
+</Callout>
+
+## Časté omyly
+
+- **„Čím víc čar, tím lepší analýza.“** Graf přeplněný čarami ukáže jen to, co chceš vidět.
+- **„Upozornění za mě nakoupí.“** Upozornění jen informuje. Nákup nebo prodej je zvláštní příkaz.
+- **„Úroveň musí sedět na dolar přesně.“** Kresli raději zóny – cena se k úrovni málokdy vrátí přesně.
+
+<Callout title="Shrnutí">
+
+- Stačí čtyři nástroje: vodorovná čára, trendová čára, obdélník a měřítko.
+- Magnet přitáhne čáru k cenám svíček, koš smaže všechny nákresy.
+- Cenové upozornění dá vědět, až cena protne úroveň – nic nenakupuje.
+- Důležité úrovně si zapiš i mimo graf, nákresy se můžou ztratit.
+
+</Callout>

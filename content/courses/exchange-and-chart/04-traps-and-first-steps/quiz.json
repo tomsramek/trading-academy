@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "Why are futures dangerous for a beginner?",
+          "options": [
+            "They have a higher deposit fee",
+            "They cannot be traded in euros",
+            "Leverage means even a small price move can lead to liquidation and losing your stake"
+          ],
+          "explanation": "With 10x leverage, a 10% drop wipes out your stake. And the futures screen looks almost like spot."
+        },
+        "cs": {
+          "question": "Proč jsou futures pro začátečníka nebezpečné?",
+          "options": [
+            "Mají vyšší poplatek za vklad",
+            "Nedají se obchodovat v eurech",
+            "Páka znamená, že i malý pohyb ceny může vést k likvidaci a ztrátě vložených peněz"
+          ],
+          "explanation": "S 10násobnou pákou stačí pokles o 10 % a vložené peníze jsou pryč. Obrazovka futures přitom vypadá skoro jako spot."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What should you watch with Earn on an exchange?",
+          "options": [
+            "What the exchange does with your coins and whether you can withdraw any time",
+            "Nothing, it is like an insured savings account",
+            "Only the interest rate"
+          ],
+          "explanation": "Earn has no deposit insurance, and the exchange lends or stakes the coins. Celsius froze withdrawals and went bankrupt in 2022."
+        },
+        "cs": {
+          "question": "Co je potřeba hlídat u Earn na burze?",
+          "options": [
+            "Co burza s tvými mincemi dělá a jestli je můžeš kdykoli vybrat",
+            "Nic, je to jako spořicí účet s pojištěním",
+            "Jen výši úroku"
+          ],
+          "explanation": "Earn nemá pojištění vkladů a mince burza půjčuje nebo stakuje. Celsius v roce 2022 zmrazil výběry a zkrachoval."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What matters most to check when withdrawing crypto from an exchange?",
+          "options": [
+            "The colour of the button",
+            "The network and the whole address – and send a small amount first",
+            "The exchange rate of your currency"
+          ],
+          "explanation": "A wrong network or address can mean lost coins. A small test amount checks both."
+        },
+        "cs": {
+          "question": "Co je při výběru kryptoměn z burzy nejdůležitější zkontrolovat?",
+          "options": [
+            "Barvu tlačítka",
+            "Síť a celou adresu – a poprvé poslat malou částku",
+            "Kurz koruny"
+          ],
+          "explanation": "Špatná síť nebo adresa můžou znamenat ztracené mince. Malá zkušební částka ověří obojí."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "When you withdraw, the exchange asks whether the destination address is yours. What does it mean?",
+          "options": [
+            "It is a scam, fill in nothing",
+            "The exchange wants to forbid the withdrawal",
+            "It is normal – European rules require finding out who receives a transfer"
+          ],
+          "explanation": "For larger amounts the exchange may want proof, such as a signed message. It does so directly in its app, not an \"agent\" in a chat."
+        },
+        "cs": {
+          "question": "Burza se při výběru ptá, jestli je cílová adresa tvoje. Co to znamená?",
+          "options": [
+            "Je to podvod, nic nevyplňuj",
+            "Burza ti chce výběr zakázat",
+            "Je to normální – evropská pravidla vyžadují zjistit příjemce převodu"
+          ],
+          "explanation": "U větších částek může burza chtít i důkaz, třeba podepsanou zprávu. Dělá to přímo v aplikaci, ne „agent“ v chatu."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is Professor Wick's rule for tempting buttons?",
+          "options": [
+            "If you do not know exactly what a button does, do not touch it",
+            "Try everything once",
+            "Click if there is a bonus"
+          ],
+          "explanation": "The shiniest buttons lead to leverage, fees and risk. First master spot with money you can afford to lose."
+        },
+        "cs": {
+          "question": "Jaké je pravidlo Profesora Knota pro lákavá tlačítka?",
+          "options": [
+            "Když nevíš přesně, co tlačítko dělá, nesahej na něj",
+            "Zkus všechno jednou",
+            "Klikni, když je tam bonus"
+          ],
+          "explanation": "Nejzářivější tlačítka vedou k páce, poplatkům a riziku. Nejdřív si osvoj spot s penězi, o které můžeš přijít."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

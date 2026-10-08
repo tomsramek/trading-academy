@@ -1,0 +1,75 @@
+export const metadata = {
+  title: "Poplatky maker a taker",
+  slug: "poplatky-maker-a-taker",
+  description:
+    "Proč limitní příkaz bývá levnější než tržní, jak číst ceník burzy, co jsou objemové úrovně a proč pevný poplatek za výběr bolí hlavně u malých částek.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, kdy jsi maker a kdy taker
+- naučíš se číst ceník burzy
+- zjistíš, proč se vyplatí vybírat kryptoměny méně často
+
+</Callout>
+
+Trh je jako tržnice. Někdo vyloží zboží na pult a čeká na zákazníka – to je **maker**. Někdo přijde
+a zboží z pultu rovnou odnese – to je **taker**. Burza má tržnici ráda plnou, a proto ty, kdo zboží
+vykládají, odměňuje nižším poplatkem.
+
+<Illustration name="makerTaker" />
+
+## Maker, nebo taker?
+
+- **Maker** – tvůj příkaz se nevyplní hned a čeká v knize objednávek. Typicky limitní příkaz pod
+  aktuální cenou při nákupu nebo nad ní při prodeji. Přidáváš trhu <KeyTerm term="liquidity">likviditu</KeyTerm>.
+- **Taker** – tvůj příkaz se vyplní okamžitě proti příkazům, které už v knize jsou. Tržní příkaz
+  a limitní příkaz za cenu, která se dá hned vyplnit. Likviditu bereš.
+
+Podrobně o všech nákladech obchodu je lekce [Kolik tě stojí obchod](/kurzy/obchodovani-podle-planu/kolik-te-stoji-obchod).
+
+## Jak číst ceník
+
+Ceník (**Poplatky** nebo **Fee schedule**) bývá tabulka podle objemu za posledních 30 dní:
+
+| Objem za 30 dní | Maker  | Taker  |
+| --------------- | ------ | ------ |
+| do 10 000 €     | 0,10 % | 0,20 % |
+| 10 000–50 000 € | 0,08 % | 0,16 % |
+| nad 50 000 €    | 0,06 % | 0,12 % |
+
+_Ukázková tabulka – skutečné sazby se liší podle burzy._
+
+Obchod za 1 000 € tě při těchto sazbách stojí 1 € jako maker a 2 € jako taker. Při nákupu i prodeji
+se poplatek platí znovu.
+
+Některé burzy nabízejí slevu na poplatcích, když je platíš jejich vlastním tokenem. Sleva je hezká, ale
+musíš token držet – a jeho cena může spadnout víc, než kolik ušetříš.
+
+## Poplatek za výběr
+
+Kromě obchodních poplatků platíš i za výběr kryptoměn z burzy. Bývá to **pevná částka** podle sítě,
+ne procento. Pevný poplatek odpovídající třeba 2 eurům je u výběru 20 eur 10 % – u výběru 2 000 eur jen
+0,1 %. Vybírej proto méně často a větší částky.
+
+<Callout type="warning" title="Nejdražší je zbytečný obchod">
+  Nižší poplatek tě láká obchodovat víc. Jenže deset zbytečných obchodů s nízkým
+  poplatkem stojí víc než jeden promyšlený s vyšším. Nejlevnější obchod je ten,
+  který neuděláš.
+</Callout>
+
+## Časté omyly
+
+- **„Limitní příkaz je vždycky maker.“** Jen když se nevyplní hned. Limitní nákup nad aktuální cenou je taker.
+- **„0,1 % je zanedbatelné.“** Při častém obchodování se sčítá – a platí se při nákupu i prodeji.
+- **„Výběr malé částky je zadarmo, když je poplatek malý.“** Pevný poplatek je u malých částek
+  procentuálně nejvyšší.
+
+<Callout title="Shrnutí">
+
+- Maker přidává příkaz do knihy a platí méně, taker bere z knihy a platí víc.
+- Ceník se řídí objemem za 30 dní; poplatek platíš při nákupu i prodeji.
+- Sleva za platbu vlastním tokenem burzy znamená držet další rizikové aktivum.
+- Poplatek za výběr bývá pevný – vybírej méně často a větší částky.
+
+</Callout>
