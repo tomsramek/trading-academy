@@ -83,6 +83,8 @@ type Candle = {
   high: number;
   low: number;
   close: number;
+  // Traded amount of the base asset (BTC in BTCUSDT), rounded to whole units.
+  volume: number;
 };
 
 // Daily candles → weekly ones, Monday 00:00 UTC to Sunday (the way exchanges count weeks).
@@ -96,6 +98,7 @@ function toWeekly(daily: Candle[]): Candle[] {
       week.high = Math.max(week.high, day.high);
       week.low = Math.min(week.low, day.low);
       week.close = day.close;
+      week.volume += day.volume;
     } else {
       weeks.set(monday, { ...day, time: monday });
     }
@@ -129,18 +132,28 @@ try {
     // Each zip contains one CSV: open time, open, high, low, close, volume, close time, …
     const csv = execFileSync("unzip", ["-p", zipPath], { encoding: "utf8" });
     for (const line of csv.trim().split("\n")) {
-      const [openTime, open, high, low, close] = line.split(",").map(Number);
+      const [openTime, open, high, low, close, volume] = line
+        .split(",")
+        .map(Number);
       if (
         openTime === undefined ||
         open === undefined ||
         high === undefined ||
         low === undefined ||
         close === undefined ||
+        volume === undefined ||
         Number.isNaN(openTime)
       ) {
         continue; // header line or empty line
       }
-      candles.push({ time: toSeconds(openTime), open, high, low, close });
+      candles.push({
+        time: toSeconds(openTime),
+        open,
+        high,
+        low,
+        close,
+        volume,
+      });
     }
     console.log(`✓ ${name}`);
   }
@@ -155,6 +168,11 @@ if (until) {
 if (interval === "1w") {
   candles = toWeekly(candles);
 }
+// Whole units are precise enough for a volume chart and keep the files small.
+candles = candles.map((candle) => ({
+  ...candle,
+  volume: Math.round(candle.volume),
+}));
 
 const dataset = {
   source: "Binance Vision",

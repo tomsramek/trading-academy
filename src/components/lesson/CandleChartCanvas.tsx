@@ -2,9 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { useLocale } from "next-intl";
+import { cva } from "class-variance-authority";
 import {
   CandlestickSeries,
   ColorType,
+  HistogramSeries,
+  LineSeries,
   createChart,
   createSeriesMarkers,
   LineStyle,
@@ -21,6 +24,7 @@ import {
 
 import type {
   ChartAnnotations,
+  ChartIndicators,
   LevelKind,
   MarkerKind,
 } from "@/lib/content/chart";
@@ -32,7 +36,22 @@ type CandleChartCanvasProps = {
   // What the chart shows, for screen readers (the chart itself is a picture drawn on a canvas).
   label: string;
   annotations: ChartAnnotations;
+  indicators: ChartIndicators;
 };
+
+// Taller when volume or RSI get their own panels under the price.
+const chartHeight = cva(
+  "relative overflow-hidden rounded-lg border border-border bg-card",
+  {
+    variants: {
+      panels: {
+        0: "h-80 sm:h-96",
+        1: "h-96 sm:h-112",
+        2: "h-112 sm:h-128",
+      },
+    },
+  },
+);
 
 // Token of each level: green for levels below the price that hold it up, red for the ones that stop it.
 const LEVEL_TOKENS: Record<LevelKind, string> = {
@@ -47,6 +66,8 @@ const MARKER_STYLES = {
   buy: { position: "belowBar", shape: "arrowUp" },
   sell: { position: "aboveBar", shape: "arrowDown" },
   event: { position: "aboveBar", shape: "circle" },
+  high: { position: "aboveBar", shape: "circle" },
+  low: { position: "belowBar", shape: "circle" },
 } as const satisfies Record<
   MarkerKind,
   { position: SeriesMarkerPosition; shape: SeriesMarkerShape }
@@ -56,6 +77,8 @@ const MARKER_TOKENS: Record<MarkerKind, string> = {
   buy: "--bull",
   sell: "--bear",
   event: "--primary",
+  high: "--chart-3",
+  low: "--chart-3",
 };
 
 // The interactive part of <CandleChart>: pinch or drag the axes to zoom, drag to move, hover for values.
@@ -64,6 +87,7 @@ export function CandleChartCanvas({
   candles,
   label,
   annotations,
+  indicators,
 }: CandleChartCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const zonesRef = useRef<HTMLDivElement>(null);
@@ -122,6 +146,58 @@ export function CandleChartCanvas({
     );
     const markers = createSeriesMarkers(series);
 
+    // Average lines over the candles; no labels on the price axis, the legend names them.
+    const lineOptions = {
+      lineWidth: 2,
+      priceLineVisible: false,
+      lastValueVisible: false,
+      crosshairMarkerVisible: false,
+    } as const;
+    const averageLines = indicators.lines.map((line) => {
+      const lineSeries = chart.addSeries(LineSeries, lineOptions);
+      lineSeries.setData(
+        line.points.map((point) => ({
+          time: point.time as UTCTimestamp,
+          value: point.value,
+        })),
+      );
+      return lineSeries;
+    });
+
+    // Volume and RSI each get a panel under the price (panel 0); the price keeps most of the height.
+    let panel = 0;
+    const volumeSeries = indicators.volume
+      ? chart.addSeries(
+          HistogramSeries,
+          {
+            priceFormat: { type: "volume" },
+            priceLineVisible: false,
+            lastValueVisible: false,
+          },
+          ++panel,
+        )
+      : undefined;
+    const rsiSeries = indicators.rsi
+      ? chart.addSeries(LineSeries, lineOptions, ++panel)
+      : undefined;
+    rsiSeries?.setData(
+      (indicators.rsi ?? []).map((point) => ({
+        time: point.time as UTCTimestamp,
+        value: point.value,
+      })),
+    );
+    const rsiLines = [70, 30].map((value) =>
+      rsiSeries?.createPriceLine({
+        price: value,
+        lineWidth: 1,
+        lineStyle: LineStyle.Dashed,
+        axisLabelVisible: true,
+      }),
+    );
+    chart.panes().forEach((pane, index) => {
+      pane.setStretchFactor(index === 0 ? 3 : 1);
+    });
+
     // Zones are HTML boxes over the canvas, so their colors come from CSS; only their position is
     // computed from the time scale – on every zoom, move and resize. Subscribed before the first
     // layout, so the initial size and range are not missed.
@@ -134,6 +210,24 @@ export function CandleChartCanvas({
       const color = tokenReader(container);
       applyColors(color, chart, series);
       colorAnnotations(color, annotations, priceLines, markers);
+      averageLines.forEach((lineSeries, index) => {
+        const line = indicators.lines[index];
+        if (line) {
+          lineSeries.applyOptions({ color: color(`--chart-${line.color}`) });
+        }
+      });
+      // Bars take the candle color, softened so they do not compete with the candles.
+      volumeSeries?.setData(
+        (indicators.volume ?? []).map((bar) => ({
+          time: bar.time as UTCTimestamp,
+          value: bar.value,
+          color: withAlpha(color(bar.up ? "--bull" : "--bear"), 0.5),
+        })),
+      );
+      rsiSeries?.applyOptions({ color: color("--chart-5") });
+      rsiLines.forEach((line) =>
+        line?.applyOptions({ color: color("--muted-foreground") }),
+      );
     };
     paint();
     chart.timeScale().fitContent();
@@ -152,13 +246,15 @@ export function CandleChartCanvas({
       chart.timeScale().unsubscribeSizeChange(placeZones);
       chart.remove();
     };
-  }, [candles, annotations, locale]);
+  }, [candles, annotations, indicators, locale]);
 
   return (
     <div
       role="img"
       aria-label={label}
-      className="relative h-80 overflow-hidden rounded-lg border border-border bg-card sm:h-96"
+      className={chartHeight({
+        panels: panelCount(indicators),
+      })}
     >
       <div ref={containerRef} className="absolute inset-0" />
       <div
@@ -186,6 +282,17 @@ export function CandleChartCanvas({
 
 type ColorOf = (token: string) => string;
 
+function panelCount(indicators: ChartIndicators): 0 | 1 | 2 {
+  const count =
+    Number(Boolean(indicators.volume)) + Number(Boolean(indicators.rsi));
+  return count === 2 ? 2 : count === 1 ? 1 : 0;
+}
+
+// "rgba(22, 163, 74, 1)" → "rgba(22, 163, 74, 0.5)"
+function withAlpha(rgba: string, alpha: number): string {
+  return rgba.replace(/,\s*[\d.]+\)$/, `, ${alpha})`);
+}
+
 function applyColors(
   color: ColorOf,
   chart: IChartApi,
@@ -195,6 +302,11 @@ function applyColors(
     layout: {
       background: { type: ColorType.Solid, color: color("--card") },
       textColor: color("--muted-foreground"),
+      // Lines between the price, volume and RSI panels.
+      panes: {
+        separatorColor: color("--border"),
+        separatorHoverColor: color("--border"),
+      },
     },
     grid: {
       vertLines: { color: color("--border") },
@@ -242,8 +354,8 @@ function placeZoneBoxes(
 ) {
   const timeScale = chart.timeScale();
   const width = timeScale.width();
-  // The boxes cover the price area only, not the dates below it.
-  const height = layer.clientHeight - timeScale.height();
+  // The boxes cover the price panel only – not the volume or RSI panels, nor the dates.
+  const height = chart.paneSize(0).height;
   const boxes = layer.querySelectorAll<HTMLElement>("[data-zone]");
 
   zones.forEach((zone, index) => {

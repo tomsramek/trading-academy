@@ -2,6 +2,7 @@ import chart from "./sample-chart.png";
 import chartLight from "./sample-chart-light.png";
 import illustrative from "./sample-candles.json";
 import btc from "@content/market-data/btcusdt-1d-2024-h1.json";
+import btcLong from "@content/market-data/btcusdt-1d-2022-04-2024-01.json";
 
 Every lesson starts with a short introduction. It says what you will learn and why it matters
 before you put any money at risk.
@@ -37,6 +38,14 @@ four values: _open_, _high_, _low_ and _close_. Read more in the
 <CandleChart
   data={illustrative}
   label="Illustrative daily chart: the price rises, then falls back"
+/>
+
+<CandleChart
+  data={btcLong}
+  label="Bitcoin daily chart, April 2022 to January 2024, with the 50- and 200-day moving averages, volume and RSI"
+  caption="Indicators: moving averages over the price, volume and RSI in their own panels."
+  indicators={{ sma: [50, 200], ema: [21], volume: true, rsi: true }}
+  markers={[{ time: "2023-02-07", kind: "event", label: "Golden cross" }]}
 />
 
 ### Parts of a candle
