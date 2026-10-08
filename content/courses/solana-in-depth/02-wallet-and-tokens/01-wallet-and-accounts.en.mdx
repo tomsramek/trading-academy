@@ -1,0 +1,81 @@
+export const metadata = {
+  title: "Wallet and accounts",
+  description:
+    "How Solana stores data in accounts, why every token in your wallet has its own account, what account rent is and why you should always keep a little SOL for fees.",
+};
+
+<Callout title="In this lesson">
+
+- understand that on Solana everything is an account
+- find out why every token in your wallet has its own account and what account rent is
+- learn what to watch out for when withdrawing from an exchange
+
+</Callout>
+
+On Solana everything is an account: your address, your tokens, every program and its data. Like a big
+apartment block where every flat has a number and every tenant pays a deposit. Once you understand that,
+you stop being surprised by the small amounts of SOL that "disappear" the first time you receive a new
+token.
+
+<Illustration name="tokenMailboxes" />
+
+## Address and seed phrase
+
+A Solana address is a long string of letters and digits (32 to 44 characters), such as `7xKX…9fQm`. It is
+your public key – you can give it to anyone who wants to send you money.
+
+The wallet is backed up by a [seed phrase](/courses/crypto-basics/wallets) of 12 or 24 words, just like on
+other networks. Whoever knows it controls all your funds. Solana wallets exist as browser extensions,
+mobile apps and hardware wallets – for example Phantom, Solflare or Ledger, mentioned only as examples.
+
+## Every token has its own account
+
+On Ethereum, your address has just a row in a table for each token. On Solana, every token in your wallet
+has **its own account** – a so-called <KeyTerm term="token-account">token account</KeyTerm> owned by your
+address. It is created the first time you receive a new token. Like a new mailbox in the apartment block
+for each kind of letter.
+
+## Account rent
+
+Every account takes up space in the memory of all validators, so it has to hold a deposit in SOL. This is
+called <KeyTerm term="account-rent">account rent</KeyTerm>, although it is really a refundable deposit:
+
+- A token account needs about **0.002 SOL**. Whoever creates the account pays the deposit – usually the
+  sender, or you yourself when buying.
+- When you empty a token account and **close** it, the deposit comes back to you.
+- The address itself must hold either zero or at least a small minimum (about 0.0009 SOL). A transaction
+  that would leave less will fail.
+
+Closing empty accounts is offered by wallets and by various websites – and scams often hide behind such
+"clean-up services". Only clean up in a wallet you trust.
+
+## Withdrawing from an exchange
+
+- **Pick the right network.** Send SOL and Solana tokens over the Solana network. A token sent over a
+  different network may not be recoverable at all.
+- **Send a small amount first.** You verify the address and the network for the price of one fee.
+- **Keep a little SOL.** Without SOL for fees you cannot even send the tokens you hold.
+
+<Callout type="warning" title="Check the whole address">
+  Scammers send tiny amounts from addresses whose beginning and end match those
+  you usually transact with. If you then copy an address from your history, you
+  send the money to them. Always take the address from the source, not from your
+  history.
+</Callout>
+
+## Common myths
+
+- **"0.002 SOL disappeared from my wallet."** Most likely a token account was created. Close it and the
+  deposit comes back.
+- **"A Solana seed phrase works in only one wallet."** The same phrase loads in other Solana wallets too –
+  which is why you never type it anywhere unless you need to.
+- **"If I have tokens, I can pay fees with them."** Fees are paid in SOL.
+
+<Callout title="Summary">
+
+- On Solana everything is an account; your address is a public key, the seed phrase controls it.
+- Every token has its own token account in the wallet, with a refundable deposit of about 0.002 SOL.
+- An empty token account can be closed and the deposit returned – only in a trusted wallet.
+- Withdraw from an exchange over the Solana network, send a small amount first and keep SOL for fees.
+
+</Callout>

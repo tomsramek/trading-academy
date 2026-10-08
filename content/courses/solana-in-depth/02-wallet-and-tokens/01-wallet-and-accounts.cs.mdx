@@ -1,0 +1,80 @@
+export const metadata = {
+  title: "Peněženka a účty",
+  slug: "penezenka-a-ucty",
+  description:
+    "Jak Solana ukládá data do účtů, proč má každý token v peněžence vlastní účet, co je nájem za účet a proč si vždycky nechat trochu SOL na poplatky.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, že na Solaně je všechno účet
+- zjistíš, proč má každý token v peněžence vlastní účet a co je nájem za účet
+- naučíš se, na co si dát pozor při vybírání z burzy
+
+</Callout>
+
+Na Solaně je všechno účet: tvoje adresa, tvoje tokeny, každý program i jeho data. Jako velký panelák,
+kde má každý byt číslo a každý nájemník platí zálohu. Když tomu rozumíš, přestanou tě překvapovat malé
+částky SOL, které se ti „ztrácejí“ při prvním přijetí nového tokenu.
+
+<Illustration name="tokenMailboxes" />
+
+## Adresa a seed fráze
+
+Adresa na Solaně je dlouhý řetězec písmen a číslic (32 až 44 znaků), třeba `7xKX…9fQm`. Je to tvůj
+veřejný klíč – můžeš ho dát komukoli, kdo ti chce poslat peníze.
+
+Peněženku zálohuje [seed fráze](/kurzy/zaklady-kryptomen/penezenky) o 12 nebo 24 slovech, stejně jako
+u jiných sítí. Kdo ji zná, ovládá všechny tvoje prostředky. Peněženky pro Solanu existují jako rozšíření
+prohlížeče, mobilní aplikace i hardwarové peněženky – třeba Phantom, Solflare nebo Ledger, uvedené jen
+jako příklady.
+
+## Každý token má vlastní účet
+
+Na Ethereu má tvoje adresa u každého tokenu jen řádek v tabulce. Na Solaně má každý token v tvé peněžence
+**vlastní účet** – takzvaný <KeyTerm term="token-account">tokenový účet</KeyTerm>, který patří tvé
+adrese. Vznikne, když poprvé dostaneš nový token. Jako nová poštovní schránka v paneláku pro každý druh
+dopisů.
+
+## Nájem za účet
+
+Každý účet zabírá místo v paměti všech validátorů, a proto musí mít uloženou zálohu v SOL. Tomu se říká <KeyTerm term="account-rent">nájem za účet</KeyTerm>, i když jde spíš o vratnou
+kauci:
+
+- Tokenový účet potřebuje zhruba **0,002 SOL**. Kdo účet zakládá, ten kauci platí – obvykle odesílatel
+  nebo ty sám při nákupu.
+- Když tokenový účet vyprázdníš a **zavřeš**, kauce se ti vrátí.
+- Samotná adresa musí mít buď nulu, nebo aspoň malé minimum (zhruba 0,0009 SOL). Transakce, která by
+  nechala méně, neprojde.
+
+Zavírání prázdných účtů nabízejí peněženky i různé stránky – a právě za takové „úklidové služby“ se
+často schovávají podvody. Úklid dělej jen v peněžence, které věříš.
+
+## Vybírání z burzy
+
+- **Vyber správnou síť.** SOL i tokeny na Solaně posílej přes síť Solana. Token poslaný přes jinou síť
+  se nemusí vůbec dát zachránit.
+- **Pošli nejdřív malou částku.** Ověříš adresu i síť za cenu jednoho poplatku.
+- **Nech si trochu SOL.** Bez SOL na poplatky nepošleš ani tokeny, které na adrese máš.
+
+<Callout type="warning" title="Kontroluj celou adresu">
+  Podvodníci posílají drobné částky z adres, které se na začátku a na konci
+  shodují s těmi, se kterými běžně obchoduješ. Když pak kopíruješ adresu z
+  historie, pošleš peníze jim. Adresu vždy ber ze zdroje, ne z historie.
+</Callout>
+
+## Časté omyly
+
+- **„Z peněženky mi zmizelo 0,002 SOL.“** Nejspíš se založil tokenový účet. Po zavření se kauce vrátí.
+- **„Seed fráze ze Solany funguje jen v jedné peněžence.“** Stejnou frázi načteš i v jiné solanové
+  peněžence – a proto ji nikdy nikam nezadávej, když ji nepotřebuješ.
+- **„Když mám tokeny, poplatky zaplatím z nich.“** Poplatky se platí v SOL.
+
+<Callout title="Shrnutí">
+
+- Na Solaně je všechno účet; tvoje adresa je veřejný klíč, seed fráze ji ovládá.
+- Každý token má v peněžence vlastní tokenový účet s vratnou kaucí zhruba 0,002 SOL.
+- Prázdný tokenový účet jde zavřít a kauce se vrátí – jen v důvěryhodné peněžence.
+- Z burzy vybírej přes síť Solana, nejdřív malou částku, a nech si SOL na poplatky.
+
+</Callout>

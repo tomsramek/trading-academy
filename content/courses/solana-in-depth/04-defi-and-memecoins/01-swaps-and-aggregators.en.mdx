@@ -1,0 +1,81 @@
+export const metadata = {
+  title: "Swaps and aggregators",
+  description:
+    "How a liquidity pool works, why a big purchase in a small pool pushes the price up, what an aggregator does and how a sandwich attack takes your money.",
+};
+
+<Callout title="In this lesson">
+
+- understand how a liquidity pool works and where the price comes from
+- calculate how much a big purchase in a small pool raises the price
+- learn to set slippage so that bots do not take your money
+
+</Callout>
+
+On an exchange like Binance you buy from an order book – another person or company stands on the other
+side. On a decentralised exchange there is often no counterparty at all. There is a pool with two piles of
+tokens and a formula that calculates the price from them.
+
+<Illustration name="shoppingRobot" />
+
+## The liquidity pool
+
+A decentralised exchange – a <KeyTerm term="dex">DEX</KeyTerm> – runs as a program on the blockchain. Most
+swaps on Solana go through a so-called <KeyTerm term="amm">automated market maker</KeyTerm>: a pool holding
+two tokens, such as SOL and USDC. Whoever wants SOL puts USDC into the pool and takes SOL out. In the simplest pools, the price follows a rule that **the product of the two piles stays the same**.
+
+Example: the pool holds 1,000 SOL and 150,000 USDC – so the price is 150 USDC per SOL.
+
+| Purchase for | You get   | Average price | How much more |
+| ------------ | --------- | ------------- | ------------- |
+| 150 USDC     | 0.999 SOL | 150.15        | 0.1%          |
+| 1,500 USDC   | 9.90 SOL  | 151.50        | 1%            |
+| 15,000 USDC  | 90.9 SOL  | 165.00        | 10%           |
+
+_Sample pool, without fees._
+
+The bigger the purchase relative to the pool, the worse the price. This is called price impact. With
+little-known tokens and small pools, one larger purchase can push the price up by tens of percent – and a
+sale can push it down just as much.
+
+## The aggregator
+
+The same token pair often sits in several pools on different exchanges. An aggregator (on Solana, for
+example Jupiter, mentioned as an example) goes through all of them and splits the trade so the final price
+is as good as possible. That is why most wallets use an aggregator directly.
+
+## Slippage and the sandwich attack
+
+Between sending a transaction and its execution, the price can move. That is why you set a slippage
+tolerance – how much worse a price you are willing to accept.
+
+- **Slippage too low** – the transaction fails in a moving market.
+- **Slippage too high** – you invite bots. A so-called <KeyTerm term="sandwich-attack">sandwich attack</KeyTerm> works like this: a
+  bot sees your transaction, buys just before you (the price jumps), you buy
+  higher, right up to your slippage limit, and the bot sells immediately. You
+  pay the difference.
+
+A sensible default for big tokens is a fraction of a percent. Small tokens need more slippage, so the risk
+is higher too. Some wallets and aggregators offer sandwich protection – turn it on.
+
+<Callout type="warning" title="An aggregator does not check what you buy">
+  An aggregator finds the best price even for a fake token with the same name.
+  Always verify the mint address – lesson 13 shows how.
+</Callout>
+
+## Common myths
+
+- **"The price on the chart is the price I will pay."** In a pool, the size of the purchase relative to the
+  liquidity matters.
+- **"High slippage = a guarantee the purchase goes through."** And an invitation for bots.
+- **"A DEX has no fees."** Pools take a fee on every swap, plus the network fee and the priority fee.
+
+<Callout title="Summary">
+
+- A DEX on Solana usually trades through liquidity pools with a formula, not with a counterparty.
+- A big purchase in a small pool makes the price much worse (price impact).
+- An aggregator splits the trade across pools for the best price but does not check whether a token is
+  genuine.
+- Keep slippage sensibly low – high slippage invites sandwich attacks.
+
+</Callout>

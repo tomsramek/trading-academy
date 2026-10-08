@@ -1,0 +1,72 @@
+export const metadata = {
+  title: "Liquid staking and its risks",
+  description:
+    "How a staking token works, why its rate to SOL rises, what a discount to fair value is and why building leverage on staked tokens is playing with fire.",
+};
+
+<Callout title="In this lesson">
+
+- understand how a staking token works and why its rate to SOL rises
+- find out how to turn it back into SOL – fast or cheap
+- learn the risks that native staking does not have
+
+</Callout>
+
+Native staking has one downside: your SOL is locked and you wait days to get it back. Liquid staking
+promises both – the staking yield and the option to sell at any time. It works like a theatre cloakroom:
+you hand in your coat and get a ticket. And the ticket can be sold, lent or put somewhere else.
+
+<Illustration name="coatCheck" />
+
+## How it works
+
+With <KeyTerm term="liquid-staking">liquid staking</KeyTerm> you put SOL into a stake pool (a protocol).
+The pool spreads it across validators and gives you a **staking token** – on Solana, for example jitoSOL
+or mSOL, mentioned only as examples.
+
+The number of staking tokens you hold does not change. What rises is their **rate to SOL**, because the
+pool keeps receiving rewards. Example: you deposit 10 SOL at a rate of 1 token = 1.20 SOL and get 8.33
+tokens. A year later the rate might be 1.27 SOL, and your 8.33 tokens are worth 10.58 SOL. _Sample
+numbers._
+
+## The way back to SOL
+
+- **Fast:** you sell the staking token for SOL on an exchange. Immediately, but at the market price –
+  usually a little below fair value, and with slippage.
+- **Cheap:** you ask the pool to unstake and wait until the end of the epoch. You get the fair value but
+  wait just like with native staking.
+
+## The extra risks
+
+- **A bug in the contract.** The pool is a program. A bug or an attack can put all deposited SOL at risk.
+- **A discount to fair value.** In a panic everyone wants out at once and the staking token sells at a
+  discount on exchanges. It happened on Ethereum in June 2022: staked ETH traded about 6% below ETH. Whoever
+  had to sell right away sold at a loss.
+- **Pool fees.** The pool takes a percentage of the rewards – on top of the validators' commission.
+- **Leverage on leverage.** A staking token can be posted as collateral, SOL borrowed against it, that SOL
+  staked again, and so on. The yield multiplies – and so does the risk. When the staking token falls below
+  fair value, liquidation can follow.
+- **Concentration.** Big pools concentrate stake with selected validators. That may not be good for the
+  network's decentralisation.
+
+<Callout type="risk" title="Layers of yield = layers of risk">
+  Every extra layer – a staking token, a loan, more staking – adds yield and
+  another place where something can go wrong. A higher percentage on the screen
+  does not mean you will get more. It means more can go wrong.
+</Callout>
+
+## Common myths
+
+- **"A staking token is always worth SOL plus rewards."** On an exchange it can sell at a discount.
+- **"Liquid staking is safer because I can sell any time."** You can sell, but not always at a fair price
+  – and contract risk is added.
+- **"A leveraged staking loop is free extra yield."** It is leverage with everything that comes with it.
+
+<Callout title="Summary">
+
+- Liquid staking: you put SOL into a pool and get a staking token whose rate to SOL rises.
+- Back to SOL fast (sell on an exchange at a discount) or cheap (unstake and wait).
+- Extra risks: contract bugs, discounts in a panic, pool fees, leverage and concentration.
+- Every layer of yield adds a layer of risk.
+
+</Callout>

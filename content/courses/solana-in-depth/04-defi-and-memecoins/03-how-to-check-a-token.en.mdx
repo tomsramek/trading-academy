@@ -1,0 +1,70 @@
+export const metadata = {
+  title: "How to check a token",
+  description:
+    "A checklist before buying a token on Solana: mint address, authorities, token extensions, holders, liquidity and a test sale.",
+};
+
+<Callout title="In this lesson">
+
+- get a checklist you can go through in ten minutes
+- learn to find authorities, holders and liquidity in a block explorer
+- find out which signals mean "hands off"
+
+</Callout>
+
+No check turns a token into a good investment. But it can expose tokens built to take your money. Ten
+minutes with a block explorer saves a lot of money – and above all teaches you to look under the lid.
+
+<Illustration name="tokenDetective" />
+
+## Where to look
+
+A so-called <KeyTerm term="block-explorer">block explorer</KeyTerm> is a website where you can look up any
+address, token or transaction. For Solana, for example Solscan or Solana Explorer (mentioned as examples).
+You paste the mint address and see everything recorded about the token.
+
+## The checklist
+
+| What you check   | Warning sign                                                                 |
+| ---------------- | ---------------------------------------------------------------------------- |
+| Mint address     | you got it from a link in a chat or an ad, not from an official source       |
+| Mint authority   | not revoked – the creator can mint more tokens                               |
+| Freeze authority | not revoked on an unknown token – it can freeze your account                 |
+| Token extensions | a transfer fee, a permanent delegate or a custom program run on transfer     |
+| Top holders      | the ten largest addresses hold a big share of supply (excluding the pool)    |
+| Liquidity        | a small pool relative to market value; pool shares neither burned nor locked |
+| Age and trading  | the token is a few hours old, volume comes mainly from a few addresses       |
+
+## What to watch for
+
+- **Holders.** Do not count the liquidity pool and burn addresses among the "top holders". Check whether a
+  group of new wallets got their SOL from the same source – that is what a creator hiding behind several
+  accounts looks like.
+- **Liquidity.** If the creator can withdraw the liquidity from the pool at any time, they can rug pull at
+  any time. Burned or locked pool shares lower the risk but do not remove it.
+- **Test sale.** Buy for a few cents and try to sell. If the sale fails, you are in a trap you can only buy
+  into. It costs two fees – cheap insurance.
+- **Automatic checks.** There are tools that rate tokens with a "traffic light". They are useful as a first
+  filter, but scammers know them and can get around them.
+
+<Callout type="warning" title="A green check is not a recommendation">
+  A token that passes every check can still lose 99% of its value – just more
+  slowly and "honestly". The checklist protects you from a scam, not from a bad
+  investment.
+</Callout>
+
+## Common myths
+
+- **"The mint authority is revoked, so the token is safe."** Freezing, extensions, holders and liquidity
+  remain.
+- **"Many holders = a healthy token."** A thousand addresses can belong to one person.
+- **"The checking tool showed green."** It is a first filter, not a guarantee.
+
+<Callout title="Summary">
+
+- Always start with a verified mint address from an official source.
+- In the explorer, check the mint and freeze authorities and the token extensions.
+- Check the top holders (excluding the liquidity pool) and the size and locking of the liquidity.
+- A test sale exposes a trap; but even a clean token is not automatically a good investment.
+
+</Callout>

@@ -1,0 +1,73 @@
+export const metadata = {
+  title: "Nativní staking",
+  slug: "nativni-staking",
+  description:
+    "Jak na Solaně funguje stakovací účet, proč se čeká na konec epochy, podle čeho vybrat validátora a co znamená provize a MEV.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, jak funguje nativní staking a stakovací účet
+- pochopíš, proč staking začíná a končí s epochou
+- naučíš se vybrat validátora podle provize, spolehlivosti a velikosti
+
+</Callout>
+
+Staking na Solaně není spořicí účet v bance. Je to spíš hlasovací lístek, který svěříš validátorovi: on
+s ním hlasuje a zapisuje bloky, ty dostáváš podíl na odměně. Tvoje SOL přitom zůstávají na tvém účtu –
+validátor je nemůže utratit.
+
+<Illustration name="stakeCalendar" />
+
+## Jak to funguje
+
+1. V peněžence vytvoříš <KeyTerm term="stake-account">stakovací účet</KeyTerm> a vložíš do něj SOL.
+2. Účet **deleguješ** validátorovi – SOL dál patří tobě, validátor jen získá jejich váhu hlasu.
+3. Na začátku další epochy (s kratšími sloty od října 2026 zhruba do jednoho dne) se stake **aktivuje** a začne vydělávat.
+4. Odměny přicházejí každou epochu přímo do stakovacího účtu a samy se dál stakují.
+5. Když chceš SOL zpátky, stake **deaktivuješ**. Na konci epochy ho můžeš vybrat.
+
+Když se najednou chtějí odstakovat velké objemy v celé síti, může čekání trvat i několik epoch. Se
+stakovanými SOL tedy nemůžeš reagovat okamžitě – při prudkém pádu ceny je neprodáš hned.
+
+## Podle čeho vybrat validátora
+
+- **Provize.** Validátor si bere procento z odměn – obvykle 0 až 10 %. Pozor na validátory, kteří
+  provizi nečekaně zvednou na 100 %; pak nedostaneš nic. Hlídej ji i po delegaci.
+- **Spolehlivost.** Validátor, který vypadává nebo pomalu hlasuje, vydělá méně – a ty s ním.
+- **MEV.** Uživatelé platí validátorům tipy za přednostní zařazení transakcí. Tomu se říká <KeyTerm term="mev">MEV</KeyTerm> (hodnota, kterou lze vytěžit z pořadí
+  transakcí). Část validátorů se o ni se stakery dělí – i tady existuje provize.
+- **Velikost.** Největší validátoři mají nejvíc hlasů. Když svěříš stake menšímu spolehlivému
+  validátorovi, pomáháš decentralizaci.
+
+Přehledy validátorů s provizí, výkonem i historií najdeš na veřejných stránkách s daty o Solaně.
+
+## Rizika
+
+- **Cenové riziko** – staking v SOL nevyrovná pád ceny SOL.
+- **Čekání** – odstakování trvá dny.
+- **Validátor** – v době psaní Solana nemá automatické trestání ztrátou stakeu, jaké znáš z jiných sítí.
+  Se špatným validátorem tedy přicházíš „jen“ o odměny. Pravidla se ale můžou změnit.
+- **Staking na burze** je pohodlný, ale SOL pak drží burza. Když zkrachuje, jako FTX v roce 2022, můžeš
+  o ně přijít.
+
+<Callout type="warning" title="Výnos není zaručený">
+  Výnos ze stakingu (v době psaní kolem 5–6 % ročně) se mění s inflací, počtem
+  stakovaných SOL i provizí validátora. A protože se počítá v SOL, výsledek v
+  korunách záleží hlavně na ceně.
+</Callout>
+
+## Časté omyly
+
+- **„Validátor může utéct s mými SOL.“** Nemůže – stakovací účet ovládáš ty.
+- **„Odstakuju a hned prodám.“** Čekáš do konce epochy, někdy i déle.
+- **„Nejvyšší výnos = nejlepší validátor.“** Hlídej i provizi, spolehlivost a jestli si ji nezvedá.
+
+<Callout title="Shrnutí">
+
+- Nativní staking: stakovací účet delegovaný validátorovi, SOL zůstávají tvoje.
+- Aktivace i deaktivace probíhá na hranici epoch (zhruba jeden den), někdy i déle.
+- Validátora vybírej podle provize, spolehlivosti, sdílení MEV a velikosti.
+- Rizika: cena SOL, čekání, chování validátora a u burz i úschova.
+
+</Callout>

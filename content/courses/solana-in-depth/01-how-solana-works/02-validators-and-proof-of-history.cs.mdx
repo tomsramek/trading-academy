@@ -1,0 +1,93 @@
+export const metadata = {
+  title: "Validátoři, proof of stake a Proof of History",
+  slug: "validatori-a-proof-of-history",
+  description:
+    "Kdo na Solaně zapisuje bloky, proč se ví předem, kdo bude na řadě, k čemu jsou kryptografické hodiny a co přinesou kratší sloty a upgrade Alpenglow.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, kdo na Solaně zapisuje bloky a jak se střídají
+- pochopíš, k čemu jsou „hodiny“ Proof of History
+- uvidíš, kdy je transakce opravdu nevratná
+
+</Callout>
+
+Bitcoin funguje jako loterie: kdo první najde správné číslo, zapíše blok. Na Solaně je to spíš jako sbor
+s rozpisem sólistů. Předem se ví, kdo bude zpívat, a ostatní jen hlídají, jestli zpívá správně.
+
+<Illustration name="metronomeChoir" />
+
+## Proof of stake: kdo má víc v sázce, má víc hlasů
+
+Solana používá <KeyTerm term="proof-of-stake">proof of stake</KeyTerm>. Validátoři mají uzamčené SOL –
+vlastní i svěřené od ostatních držitelů. Čím víc SOL za validátorem stojí, tím větší váhu má jeho hlas
+a tím častěji smí zapisovat bloky.
+
+Validátor hlasuje o každém bloku, který považuje za platný. Hlasy jsou na Solaně běžné transakce
+a stojí poplatek – za den to dělá zhruba jeden SOL i víc. I proto je provoz validátoru drahý.
+
+## Rozpis na celou epochu
+
+Čas se na Solaně dělí na **sloty**. Od spuštění sítě trval slot zhruba 0,4 sekundy. Od srpna 2026 se
+postupně zkracuje (350, 300 a 250 milisekund) a od 9. října 2026 má být 0,2 sekundy. Sloty se skládají do
+takzvané <KeyTerm term="epoch">epochy</KeyTerm> – 432 000 slotů. Dřív to byly zhruba dva dny, s kratšími
+sloty zhruba jeden den.
+
+Pro každou epochu se předem spočítá rozpis vedoucích: kdo kdy smí blok zapsat. Každý vedoucí dostane
+čtyři sloty za sebou a pak předá štafetu dalšímu.
+
+Výhoda: transakce se dají posílat rovnou tomu, kdo bude za chvíli zapisovat, a síť nečeká na loterii.
+Nevýhoda: rozpis je veřejný, takže každý ví, koho by mohl zkusit přetížit.
+
+## Proof of History: kryptografické hodiny
+
+Aby se tisíce počítačů po celém světě shodly na pořadí transakcí, potřebují společný čas. Solana na to
+má <KeyTerm term="proof-of-history">Proof of History</KeyTerm>: vedoucí pořád dokola počítá hash
+z předchozího hashe. Každý krok trvá chvíli a nedá se přeskočit, takže řetěz hashů dokazuje, že mezi
+dvěma událostmi uplynul čas. Transakce se do řetězu vkládají, a tím dostanou pořadí.
+
+Proof of History tedy není způsob, jak se shodnout (to dělá proof of stake). Je to metronom, podle kterého
+se všichni řídí.
+
+## Kdy je transakce nevratná
+
+- **Potvrzená** – pro blok hlasovaly dvě třetiny stakeu. Obvykle do jedné až dvou sekund. Pro běžné
+  platby to stačí.
+- **Finalizovaná** – nad blokem je dalších 31 potvrzených bloků. S původními sloty po 0,4 sekundy to
+  trvalo zhruba 13 sekund, s kratšími sloty úměrně méně. Pak už se blok vrátit nedá.
+
+## Alpenglow: další velká změna
+
+Kód upgradu **Alpenglow** je na hlavní síti od září 2026, ale zatím je vypnutý. Zapnutí se plánuje na
+podzim 2026, přesné datum v době psaní (říjen 2026) potvrzené nebylo. Alpenglow má:
+
+- nahradit Proof of History i dosavadní hlasování novým protokolem,
+- odstranit hlasovací transakce z bloků, takže se uvolní místo pro transakce uživatelů,
+- zkrátit finalitu zhruba na 0,1–0,15 sekundy – potvrzená a finalizovaná transakce pak budou totéž.
+
+Až se Alpenglow zapne, část této lekce bude popisovat historii. Princip – stake určuje váhu hlasu – ale
+zůstane.
+
+<Callout type="warning" title="Technologie se mění rychle">
+  Solana patří k nejrychleji se měnícím blockchainům. Detaily z této lekce –
+  časy, protokoly, poplatky za hlasování – se mění i během několika týdnů.
+  Aktuální stav si ověř na oficiálních stránkách Solany.
+</Callout>
+
+## Časté omyly
+
+- **„Proof of History je náhrada za proof of stake.“** Ne – PoH jsou hodiny, o platnosti rozhoduje stake.
+- **„Transakce je hotová, jakmile vznikne blok.“** Blok je za zlomek sekundy, nevratná je transakce až
+  po finalizaci.
+- **„Validátorem může být každý s notebookem.“** Potřebuješ výkonný server a peníze na hlasování.
+
+<Callout title="Shrnutí">
+
+- Solana používá proof of stake: víc uzamčených SOL = větší váha hlasu a víc zapsaných bloků.
+- Slot se zkracuje z 0,4 na 0,2 sekundy; epocha má 432 000 slotů a s kratšími sloty trvá zhruba den.
+- Proof of History funguje jako kryptografické hodiny, které určují pořadí transakcí.
+- Upgrade Alpenglow (na hlavní síti zatím vypnutý) má nahradit PoH i hlasování a zkrátit finalitu na zlomek
+  sekundy.
+
+</Callout>

@@ -1,0 +1,34 @@
+{
+  "title": {
+    "en": "Solana in depth",
+    "cs": "Solana do hloubky"
+  },
+  "description": {
+    "en": "How Solana works and what makes it different, wallets and tokens, staking, DeFi and memecoins without illusions, and SOL on the market in real data.",
+    "cs": "Jak Solana funguje a čím se liší, peněženka a tokeny, staking, DeFi a memecoiny bez iluzí a SOL na trhu ve skutečných datech."
+  },
+  "audience": {
+    "en": "People who know the crypto basics and want to use Solana – or trade SOL – knowing how it works and where the risks are.",
+    "cs": "Lidé, kteří znají základy kryptoměn a chtějí Solanu používat – nebo obchodovat SOL – s tím, že vědí, jak funguje a kde jsou rizika."
+  },
+  "outcomes": {
+    "en": [
+      "Explain how Solana works and what it trades off for its speed",
+      "Use a Solana wallet safely and read what you are signing",
+      "Understand native and liquid staking and their risks",
+      "Check a token before you buy it and see SOL's market behaviour in real data"
+    ],
+    "cs": [
+      "Vysvětlit, jak Solana funguje a co obětuje za svou rychlost",
+      "Bezpečně používat solanovou peněženku a číst, co podepisuješ",
+      "Rozumět nativnímu i liquid stakingu a jejich rizikům",
+      "Prověřit token dřív, než ho koupíš, a znát chování SOL na trhu ze skutečných dat"
+    ]
+  },
+  "level": "intermediate",
+  "order": 2,
+  "slug": {
+    "cs": "solana-do-hloubky"
+  },
+  "draft": true
+}

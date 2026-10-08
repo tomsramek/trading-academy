@@ -12,6 +12,32 @@
     },
     "related": ["phishing"]
   },
+  "account-rent": {
+    "text": {
+      "en": {
+        "term": "Account rent",
+        "definition": "A deposit in SOL that every Solana account must hold because it takes up space on all validators. When an empty account is closed, the deposit is returned."
+      },
+      "cs": {
+        "term": "Nájem za účet",
+        "definition": "Kauce v SOL, kterou musí mít každý účet na Solaně, protože zabírá místo u všech validátorů. Po zavření prázdného účtu se kauce vrátí."
+      }
+    },
+    "related": ["token-account"]
+  },
+  "airdrop": {
+    "text": {
+      "en": {
+        "term": "Airdrop",
+        "definition": "Free distribution of tokens to wallets, often as a reward for early users. Fake airdrops are a common scam to lure people to malicious sites."
+      },
+      "cs": {
+        "term": "Airdrop",
+        "definition": "Rozdávání tokenů zdarma na peněženky, často jako odměna prvním uživatelům. Falešné airdropy jsou častý trik, jak nalákat lidi na škodlivé stránky."
+      }
+    },
+    "related": ["wallet-drainer", "phishing"]
+  },
   "altcoin": {
     "text": {
       "en": {
@@ -24,6 +50,19 @@
       }
     },
     "related": ["memecoin", "stablecoin"]
+  },
+  "amm": {
+    "text": {
+      "en": {
+        "term": "Automated market maker (AMM)",
+        "definition": "A liquidity pool of two tokens whose price is set by a formula from their amounts. The bigger a trade relative to the pool, the worse the price."
+      },
+      "cs": {
+        "term": "Automatický tvůrce trhu (AMM)",
+        "definition": "Fond likvidity se dvěma tokeny, jehož cenu určuje vzorec z jejich množství. Čím větší obchod vůči fondu, tím horší cena."
+      }
+    },
+    "related": ["dex", "slippage"]
   },
   "atr": {
     "text": {
@@ -51,6 +90,19 @@
     },
     "related": ["overfitting", "trading-rules"]
   },
+  "beta": {
+    "text": {
+      "en": {
+        "term": "Beta",
+        "definition": "How much an asset moves on average when the market moves 1%. A beta of 1.5 against Bitcoin means 1.5% on average when Bitcoin moves 1%. It changes over time."
+      },
+      "cs": {
+        "term": "Beta",
+        "definition": "O kolik se aktivum v průměru pohne, když se trh pohne o 1 %. Beta 1,5 vůči Bitcoinu znamená v průměru 1,5 %, když se Bitcoin pohne o 1 %. V čase se mění."
+      }
+    },
+    "related": ["correlation", "volatility-sizing"]
+  },
   "bitcoin-dominance": {
     "text": {
       "en": {
@@ -64,6 +116,19 @@
     },
     "related": ["correlation", "altcoin"]
   },
+  "block-explorer": {
+    "text": {
+      "en": {
+        "term": "Block explorer",
+        "definition": "A website for looking up any address, token or transaction on a blockchain – who holds a token, its authorities and its history."
+      },
+      "cs": {
+        "term": "Průzkumník blockchainu",
+        "definition": "Web, kde se dá vyhledat jakákoli adresa, token nebo transakce na blockchainu – kdo token drží, jaká má oprávnění a historii."
+      }
+    },
+    "related": ["blockchain", "spl-token"]
+  },
   "blockchain": {
     "text": {
       "en": {
@@ -76,6 +141,19 @@
       }
     },
     "related": ["hash", "node", "decentralization"]
+  },
+  "bonding-curve": {
+    "text": {
+      "en": {
+        "term": "Bonding curve",
+        "definition": "A preset formula on a launchpad by which a new token's price rises as people buy. After a set market value the token moves to a regular exchange pool."
+      },
+      "cs": {
+        "term": "Vazební křivka",
+        "definition": "Předem daný vzorec na launchpadu, podle kterého cena nového tokenu roste s tím, jak lidé nakupují. Po dosažení dané tržní hodnoty se token přesune do fondu na burze."
+      }
+    },
+    "related": ["memecoin", "amm"]
   },
   "break-of-structure": {
     "text": {
@@ -219,6 +297,19 @@
     },
     "related": ["smart-contract", "stablecoin"]
   },
+  "dex": {
+    "text": {
+      "en": {
+        "term": "DEX",
+        "definition": "A decentralised exchange – a program on a blockchain where tokens are swapped directly from your wallet, without an exchange holding your money."
+      },
+      "cs": {
+        "term": "DEX",
+        "definition": "Decentralizovaná burza – program na blockchainu, kde se tokeny vyměňují přímo z tvé peněženky, bez burzy, která by držela tvoje peníze."
+      }
+    },
+    "related": ["amm", "exchange", "defi"]
+  },
   "diversification": {
     "text": {
       "en": {
@@ -270,6 +361,19 @@
       }
     },
     "related": ["expected-value", "overfitting", "backtest"]
+  },
+  "epoch": {
+    "text": {
+      "en": {
+        "term": "Epoch",
+        "definition": "A period on Solana of 432,000 slots – about two days with the original 0.4-second slots, about one day with the shorter slots introduced in 2026. The leader schedule is set for each epoch, and staking starts and ends at epoch boundaries."
+      },
+      "cs": {
+        "term": "Epocha",
+        "definition": "Období na Solaně o 432 000 slotech – s původními sloty po 0,4 sekundy zhruba dva dny, s kratšími sloty zavedenými v roce 2026 zhruba jeden den. Pro každou epochu se určuje rozpis vedoucích validátorů a na jejích hranicích začíná i končí staking."
+      }
+    },
+    "related": ["validator", "stake-account"]
   },
   "equity-curve": {
     "text": {
@@ -335,6 +439,19 @@
       }
     },
     "related": ["backtest", "trading-journal"]
+  },
+  "freeze-authority": {
+    "text": {
+      "en": {
+        "term": "Freeze authority",
+        "definition": "The right to freeze token accounts so their tokens cannot be sent or sold. Common for regulated stablecoins; a warning sign for an unknown memecoin."
+      },
+      "cs": {
+        "term": "Oprávnění ke zmrazení",
+        "definition": "Právo zmrazit tokenové účty, takže tokeny z nich nejde poslat ani prodat. Běžné u regulovaných stablecoinů; u neznámého memecoinu varovný signál."
+      }
+    },
+    "related": ["spl-token", "mint-authority", "stablecoin"]
   },
   "funding-rate": {
     "text": {
@@ -479,6 +596,19 @@
     },
     "related": ["market-order", "order-book"]
   },
+  "liquid-staking": {
+    "text": {
+      "en": {
+        "term": "Liquid staking",
+        "definition": "Staking through a pool that gives you a tradable staking token in return. It adds liquidity but also contract risk and the risk of selling at a discount."
+      },
+      "cs": {
+        "term": "Liquid staking",
+        "definition": "Staking přes fond, který ti na oplátku vydá obchodovatelný stakovací token. Přidává likviditu, ale i riziko chyby v kontraktu a prodeje se slevou."
+      }
+    },
+    "related": ["staking", "stake-account", "defi"]
+  },
   "liquidation": {
     "text": {
       "en": {
@@ -609,6 +739,19 @@
     },
     "related": ["confirmation", "blockchain"]
   },
+  "mev": {
+    "text": {
+      "en": {
+        "term": "MEV",
+        "definition": "Maximal extractable value – profit that can be made from the order of transactions in a block, for example through tips for priority or sandwich attacks."
+      },
+      "cs": {
+        "term": "MEV",
+        "definition": "Hodnota, kterou lze vytěžit z pořadí transakcí v bloku – třeba přes tipy za přednost nebo sendvičové útoky."
+      }
+    },
+    "related": ["sandwich-attack", "validator", "priority-fee"]
+  },
   "mica": {
     "text": {
       "en": {
@@ -635,6 +778,19 @@
     },
     "related": ["proof-of-work", "halving"]
   },
+  "mint-authority": {
+    "text": {
+      "en": {
+        "term": "Mint authority",
+        "definition": "The right to create new units of a token. If a token's creator keeps it, they can print more tokens at any time and dilute holders."
+      },
+      "cs": {
+        "term": "Oprávnění k mintu",
+        "definition": "Právo vytvářet nové kusy tokenu. Když si ho tvůrce tokenu ponechá, může kdykoli dotisknout další tokeny a naředit držitele."
+      }
+    },
+    "related": ["spl-token", "freeze-authority", "rug-pull"]
+  },
   "moving-average": {
     "text": {
       "en": {
@@ -647,6 +803,32 @@
       }
     },
     "related": ["golden-cross", "trend"]
+  },
+  "nakamoto-coefficient": {
+    "text": {
+      "en": {
+        "term": "Nakamoto coefficient",
+        "definition": "The smallest number of validators or miners that together could halt or control a network. The lower it is, the more concentrated the network."
+      },
+      "cs": {
+        "term": "Nakamotův koeficient",
+        "definition": "Nejmenší počet validátorů nebo těžařů, kteří by dohromady mohli síť zastavit nebo ovládnout. Čím je nižší, tím víc je síť soustředěná."
+      }
+    },
+    "related": ["validator", "decentralization"]
+  },
+  "nft": {
+    "text": {
+      "en": {
+        "term": "NFT",
+        "definition": "A non-fungible token – a token that exists as a single unique piece, such as a digital picture or a ticket. Unsolicited NFTs in a wallet are often scam bait."
+      },
+      "cs": {
+        "term": "NFT",
+        "definition": "Nezaměnitelný token – token, který existuje jako jediný unikátní kus, třeba digitální obrázek nebo vstupenka. Nevyžádaná NFT v peněžence bývají návnada podvodníků."
+      }
+    },
+    "related": ["token", "phishing"]
   },
   "node": {
     "text": {
@@ -752,6 +934,19 @@
     },
     "related": ["2fa", "seed-phrase"]
   },
+  "priority-fee": {
+    "text": {
+      "en": {
+        "term": "Priority fee",
+        "definition": "An optional extra fee on Solana: compute units multiplied by an offered price per unit. It buys priority in a block, not a better price."
+      },
+      "cs": {
+        "term": "Prioritní poplatek",
+        "definition": "Volitelný poplatek navíc na Solaně: výpočetní jednotky krát nabídnutá cena za jednotku. Kupuje přednost v bloku, ne lepší cenu."
+      }
+    },
+    "related": ["slippage", "validator"]
+  },
   "private-key": {
     "text": {
       "en": {
@@ -777,6 +972,19 @@
       }
     },
     "related": ["expected-value", "drawdown"]
+  },
+  "proof-of-history": {
+    "text": {
+      "en": {
+        "term": "Proof of History",
+        "definition": "Solana's cryptographic clock: a continuous chain of hashes that proves time has passed and gives transactions an order. It does not decide validity – proof of stake does."
+      },
+      "cs": {
+        "term": "Proof of History",
+        "definition": "Kryptografické hodiny Solany: nepřetržitý řetěz hashů, který dokazuje, že uplynul čas, a dává transakcím pořadí. O platnosti nerozhoduje – to dělá proof of stake."
+      }
+    },
+    "related": ["proof-of-stake", "validator", "hash"]
   },
   "proof-of-stake": {
     "text": {
@@ -882,6 +1090,32 @@
     },
     "related": ["overbought", "moving-average"]
   },
+  "rug-pull": {
+    "text": {
+      "en": {
+        "term": "Rug pull",
+        "definition": "A scam in which a token's creators abandon it and take the money – by selling everything, removing liquidity, minting more tokens or freezing buyers."
+      },
+      "cs": {
+        "term": "Rug pull",
+        "definition": "Podvod, při kterém tvůrci tokenu zmizí s penězi – prodají vše, odeberou likviditu, dotisknou tokeny nebo zmrazí kupující."
+      }
+    },
+    "related": ["memecoin", "mint-authority", "freeze-authority"]
+  },
+  "sandwich-attack": {
+    "text": {
+      "en": {
+        "term": "Sandwich attack",
+        "definition": "A bot buys just before your swap and sells right after it, so you pay a worse price up to your slippage limit and the bot keeps the difference."
+      },
+      "cs": {
+        "term": "Sendvičový útok",
+        "definition": "Bot nakoupí těsně před tvou výměnou a hned po ní prodá, takže zaplatíš horší cenu až po hranici skluzu a rozdíl si nechá bot."
+      }
+    },
+    "related": ["slippage", "mev", "dex"]
+  },
   "satoshi": {
     "text": {
       "en": {
@@ -934,6 +1168,19 @@
     },
     "related": ["gas", "defi"]
   },
+  "spl-token": {
+    "text": {
+      "en": {
+        "term": "SPL token",
+        "definition": "The token standard on Solana. Each token is defined by a mint account that records its supply, decimals and who may mint more or freeze accounts."
+      },
+      "cs": {
+        "term": "Token SPL",
+        "definition": "Standard tokenů na Solaně. Každý token definuje účet mintu, ve kterém je zapsané množství, desetinná místa a kdo smí dotisknout tokeny nebo zmrazit účty."
+      }
+    },
+    "related": ["mint-authority", "freeze-authority", "token-account"]
+  },
   "spread": {
     "text": {
       "en": {
@@ -959,6 +1206,19 @@
       }
     },
     "related": ["token", "defi"]
+  },
+  "stake-account": {
+    "text": {
+      "en": {
+        "term": "Stake account",
+        "definition": "On Solana, an account holding SOL delegated to a validator. The SOL stays under your control; the validator only gains its voting weight."
+      },
+      "cs": {
+        "term": "Stakovací účet",
+        "definition": "Na Solaně účet se SOL delegovanými validátorovi. SOL zůstávají pod tvou kontrolou, validátor získá jen jejich váhu hlasu."
+      }
+    },
+    "related": ["staking", "validator", "epoch"]
   },
   "staking": {
     "text": {
@@ -1064,6 +1324,32 @@
     },
     "related": ["stablecoin", "smart-contract"]
   },
+  "token-account": {
+    "text": {
+      "en": {
+        "term": "Token account",
+        "definition": "On Solana, a separate account that holds one kind of token for one owner. It is created when you first receive a token and requires a small refundable deposit."
+      },
+      "cs": {
+        "term": "Tokenový účet",
+        "definition": "Na Solaně samostatný účet, který drží jeden druh tokenu pro jednoho vlastníka. Vzniká při prvním přijetí tokenu a vyžaduje malou vratnou kauci."
+      }
+    },
+    "related": ["account-rent", "spl-token", "wallet"]
+  },
+  "token-inflation": {
+    "text": {
+      "en": {
+        "term": "Token inflation",
+        "definition": "The creation of new coins of a cryptocurrency over time, usually as rewards for validators and stakers. Holders who do not stake see their share of all coins shrink."
+      },
+      "cs": {
+        "term": "Inflace tokenu",
+        "definition": "Vznik nových kusů kryptoměny v čase, obvykle jako odměna pro validátory a stakery. Držitelům, kteří nestakují, se jejich podíl na všech kusech zmenšuje."
+      }
+    },
+    "related": ["staking", "validator"]
+  },
   "trading-journal": {
     "text": {
       "en": {
@@ -1142,6 +1428,19 @@
     },
     "related": ["mean-reversion", "market-regime"]
   },
+  "validator": {
+    "text": {
+      "en": {
+        "term": "Validator",
+        "definition": "A computer that verifies transactions and writes blocks in a proof-of-stake network. On Solana it needs a powerful server, and its voting weight depends on the SOL staked with it."
+      },
+      "cs": {
+        "term": "Validátor",
+        "definition": "Počítač, který v síti s proof of stake ověřuje transakce a zapisuje bloky. Na Solaně potřebuje výkonný server a jeho váha hlasu závisí na SOL, které jsou u něj stakované."
+      }
+    },
+    "related": ["proof-of-stake", "staking", "epoch"]
+  },
   "volatility-sizing": {
     "text": {
       "en": {
@@ -1193,5 +1492,18 @@
       }
     },
     "related": ["private-key", "hot-wallet", "cold-wallet"]
+  },
+  "wallet-drainer": {
+    "text": {
+      "en": {
+        "term": "Wallet drainer",
+        "definition": "Malicious code behind a fake website that tricks you into signing a transaction which moves everything valuable out of your wallet at once."
+      },
+      "cs": {
+        "term": "Drainer",
+        "definition": "Škodlivý kód za falešnou stránkou, který tě přiměje podepsat transakci, jež z peněženky najednou vybere všechno cenné."
+      }
+    },
+    "related": ["phishing", "airdrop", "wallet"]
   }
 }

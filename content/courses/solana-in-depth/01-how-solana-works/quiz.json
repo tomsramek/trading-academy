@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "By the blockchain trilemma, what did Solana give up for speed?",
+          "options": [
+            "The security of its cryptography",
+            "Part of its decentralisation – a validator needs a powerful, expensive server",
+            "Nothing, it has everything"
+          ],
+          "explanation": "Short blocks and parallel processing require strong hardware. That is why there are far fewer validators than Bitcoin nodes."
+        },
+        "cs": {
+          "question": "Co Solana podle trilematu blockchainu obětovala za rychlost?",
+          "options": [
+            "Bezpečnost kryptografie",
+            "Část decentralizace – validátor potřebuje výkonný a drahý server",
+            "Nic, má všechno"
+          ],
+          "explanation": "Krátké bloky a paralelní zpracování vyžadují silný hardware. Validátorů je proto řádově méně než uzlů Bitcoinu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is Proof of History for?",
+          "options": [
+            "It decides which transactions are valid",
+            "It replaces staking",
+            "It is a cryptographic clock that gives transactions an order"
+          ],
+          "explanation": "PoH is a chain of hashes proving that time has passed. Voting weighted by stake decides whether blocks are valid."
+        },
+        "cs": {
+          "question": "K čemu slouží Proof of History?",
+          "options": [
+            "Rozhoduje, které transakce jsou platné",
+            "Nahrazuje staking",
+            "Je to kryptografický čas, který dává transakcím pořadí"
+          ],
+          "explanation": "PoH je řetěz hashů, který dokazuje, že uplynul čas. O platnosti bloků rozhoduje hlasování podle stakeu."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Who may write a block on Solana at a given moment?",
+          "options": [
+            "Whoever first solves a computing puzzle",
+            "The leader according to a schedule known for the whole epoch in advance",
+            "Anyone who pays the highest fee"
+          ],
+          "explanation": "The leader schedule is calculated in advance for the whole epoch, based on stake. Each leader gets four slots in a row – no lottery as with Bitcoin."
+        },
+        "cs": {
+          "question": "Kdo na Solaně smí v daném okamžiku zapsat blok?",
+          "options": [
+            "Ten, kdo první vyřeší výpočetní úlohu",
+            "Vedoucí podle rozpisu, který je známý na celou epochu dopředu",
+            "Kdokoli, kdo zaplatí nejvyšší poplatek"
+          ],
+          "explanation": "Rozpis vedoucích se počítá předem pro celou epochu podle stakeu. Každý vedoucí dostane čtyři sloty za sebou – žádná loterie jako u Bitcoinu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why does the second client, Firedancer, matter for Solana?",
+          "options": [
+            "It doubles the price of SOL",
+            "With more validator programs, one bug is less likely to stop the whole network",
+            "It removes fees"
+          ],
+          "explanation": "The whole network used to run on one program, so one bug stopped everyone. More clients lower that risk – though the most common client still runs most of the stake."
+        },
+        "cs": {
+          "question": "Proč je druhý klient Firedancer pro Solanu důležitý?",
+          "options": [
+            "Zdvojnásobí cenu SOL",
+            "Když má síť víc programů validátorů, jedna chyba ji spíš nezastaví celou",
+            "Ruší poplatky"
+          ],
+          "explanation": "Dřív běžela celá síť na jednom programu a jedna chyba zastavila všechny. Víc klientů toto riziko snižuje – nejrozšířenější klient ale pořád běží na většině stakeu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why does unstaked SOL lose its share over time?",
+          "options": [
+            "The exchange gradually takes it",
+            "Fee burning deletes it",
+            "Inflation creates new SOL that goes mainly to stakers"
+          ],
+          "explanation": "New SOL goes to validators and stakers. Whoever does not stake has the same number of coins but a smaller share of all SOL."
+        },
+        "cs": {
+          "question": "Proč nestakovaný SOL v čase ztrácí podíl?",
+          "options": [
+            "Burza si ho postupně bere",
+            "Spalování poplatků ho maže",
+            "Inflace vytváří nové SOL a dostávají je hlavně stakeři"
+          ],
+          "explanation": "Nové SOL jdou validátorům a stakerům. Kdo nestakuje, má stejně kusů, ale menší podíl na všech SOL."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

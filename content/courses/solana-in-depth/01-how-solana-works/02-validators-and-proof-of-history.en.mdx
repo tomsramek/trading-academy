@@ -1,0 +1,96 @@
+export const metadata = {
+  title: "Validators, proof of stake and Proof of History",
+  description:
+    "Who writes the blocks on Solana, why everyone knows in advance whose turn it is, what the cryptographic clock is for and what shorter slots and the Alpenglow upgrade will bring.",
+};
+
+<Callout title="In this lesson">
+
+- find out who writes blocks on Solana and how they take turns
+- understand what the Proof of History "clock" is for
+- see when a transaction is truly irreversible
+
+</Callout>
+
+Bitcoin works like a lottery: whoever first finds the right number writes the block. Solana is more like a
+choir with a list of soloists. Everyone knows in advance who will sing, and the others just check that
+they sing correctly.
+
+<Illustration name="metronomeChoir" />
+
+## Proof of stake: more at stake, more votes
+
+Solana uses <KeyTerm term="proof-of-stake">proof of stake</KeyTerm>. Validators have SOL locked up – their
+own and SOL delegated by other holders. The more SOL stands behind a validator, the more weight its vote
+has and the more often it may write blocks.
+
+A validator votes on every block it considers valid. On Solana, votes are ordinary transactions and cost a
+fee – about one SOL a day or more. That is one reason running a validator is expensive.
+
+## A schedule for the whole epoch
+
+Time on Solana is split into **slots**. Since the network launched, a slot lasted about 0.4 seconds. Since
+August 2026 it has been shortened step by step (350, 300 and 250 milliseconds), and from 9 October 2026 it
+is meant to be 0.2 seconds. Slots make up a so-called <KeyTerm term="epoch">epoch</KeyTerm> – 432,000
+slots. That used to be about two days; with the shorter slots it is about one day.
+
+For each epoch a leader schedule is calculated in advance: who may write a block when. Every leader gets
+four slots in a row and then passes the baton to the next.
+
+The upside: transactions can be sent straight to whoever will write next, and the network does not wait
+for a lottery. The downside: the schedule is public, so everyone knows whom they could try to overload.
+
+## Proof of History: a cryptographic clock
+
+For thousands of computers around the world to agree on the order of transactions, they need a shared
+time. Solana uses <KeyTerm term="proof-of-history">Proof of History</KeyTerm> for that: the leader keeps
+computing a hash of the previous hash. Each step takes a moment and cannot be skipped, so the chain of
+hashes proves that time passed between two events. Transactions are inserted into the chain, which gives
+them an order.
+
+So Proof of History is not a way to agree (proof of stake does that). It is the metronome everyone
+follows.
+
+## When a transaction is irreversible
+
+- **Confirmed** – two thirds of the stake voted for the block. Usually within one to two seconds. Enough
+  for everyday payments.
+- **Finalised** – 31 more confirmed blocks sit on top of it. With the original 0.4-second slots that took
+  about 13 seconds, with shorter slots proportionally less. After that the block cannot be reversed.
+
+## Alpenglow: the next big change
+
+The code of the **Alpenglow** upgrade has been on the main network since September 2026, but it is still
+switched off. Activation is planned for autumn 2026; at the time of writing (October 2026) no exact date
+had been confirmed. Alpenglow is meant to:
+
+- replace both Proof of History and the current voting with a new protocol,
+- remove vote transactions from blocks, freeing space for users' transactions,
+- cut finality to about 0.1–0.15 seconds – confirmed and finalised will then mean the same.
+
+Once Alpenglow is switched on, part of this lesson will describe history. The principle – stake sets the
+weight of a vote – will stay.
+
+<Callout type="warning" title="The technology changes fast">
+  Solana is one of the fastest-changing blockchains. Details from this lesson –
+  times, protocols, voting costs – change even within weeks. Check the current
+  state on Solana's official website.
+</Callout>
+
+## Common myths
+
+- **"Proof of History replaces proof of stake."** No – PoH is the clock; stake decides what is valid.
+- **"A transaction is done as soon as the block exists."** A block takes a fraction of a second; the
+  transaction is irreversible only once finalised.
+- **"Anyone with a laptop can be a validator."** You need a powerful server and money for voting.
+
+<Callout title="Summary">
+
+- Solana uses proof of stake: more locked SOL = more voting weight and more blocks written.
+- Slots are being cut from 0.4 to 0.2 seconds; an epoch has 432,000 slots and with shorter slots lasts
+  about a day.
+- Proof of History works as a cryptographic clock that sets the order of transactions.
+- The Alpenglow upgrade (on the main network but still switched off) is meant to replace PoH and voting
+  and cut finality to a fraction of a second.
+
+</Callout>

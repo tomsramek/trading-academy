@@ -1,0 +1,89 @@
+import solBtc from "./sol-vs-btc.json";
+
+export const metadata = {
+  title: "SOL versus BTC and ETH",
+  description:
+    "How closely SOL moves with Bitcoin, why it swings about twice as much, what beta is and what the SOL/BTC ratio shows – on daily data from 2021 to 2026.",
+};
+
+<Callout title="In this lesson">
+
+- find out how closely SOL moves with Bitcoin and Ether
+- understand beta: how much SOL amplifies Bitcoin's moves on average
+- learn to read the SOL/BTC ratio
+
+</Callout>
+
+SOL has its own story – a fast network, memecoins, ETFs. On a chart, though, it mostly behaves like a dog
+on a leash: where Bitcoin goes, SOL goes too. It just jumps around more, sometimes runs ahead and
+sometimes lets itself be dragged.
+
+<Illustration name="dogOnLeash" />
+
+## Year by year
+
+Daily Binance data from January 2021 to September 2026:
+
+| Year          | Correlation with BTC | SOL volatility | BTC volatility | Beta | SOL return | BTC return |
+| ------------- | -------------------- | -------------- | -------------- | ---- | ---------- | ---------- |
+| 2021          | 0.40                 | 162%           | 81%            | 0.79 | +11,167%   | +60%       |
+| 2022          | 0.79                 | 117%           | 64%            | 1.46 | −94%       | −64%       |
+| 2023          | 0.61                 | 99%            | 44%            | 1.38 | +920%      | +156%      |
+| 2024          | 0.74                 | 82%            | 53%            | 1.15 | +86%       | +121%      |
+| 2025          | 0.80                 | 86%            | 42%            | 1.65 | −34%       | −6%        |
+| 2026 (to Sep) | 0.88                 | 64%            | 46%            | 1.22 | −5%        | −5%        |
+
+Volatility is annual, calculated from daily changes. Over the whole period: a correlation of 0.62, SOL
+volatility 109% against 57% for Bitcoin.
+
+What you read from it:
+
+- **Correlation is rising.** In 2021 SOL had a life of its own (0.40); in 2026 it moved with Bitcoin more
+  than ever (0.88). Similarly with Ether – 0.88 in 2026.
+- **SOL swings about twice as much.** On 147 days it moved more than 10% in a day, Bitcoin on only 24.
+- **It does not protect in downturns.** Of the 87 days when Bitcoin fell more than 5%, SOL fell on 79 – by
+  8.3% on average against 7.3% for Bitcoin.
+
+## Beta: the amplifier
+
+The so-called <KeyTerm term="beta">beta</KeyTerm> tells you how much an asset moves on average when the
+market moves 1%. SOL's beta to Bitcoin came out at 1.18 over the whole period, and as high as 1.65 in
+2025: when Bitcoin fell 1%, SOL fell 1.65% on average. But beta changes from year to year – in 2021 it was
+below one.
+
+## The SOL/BTC ratio
+
+If you want to know whether SOL did **better than Bitcoin**, look at the SOL/BTC price ratio. It rises
+when SOL leads and falls when it lags.
+
+<LineChart
+  data={solBtc}
+  label="SOL/BTC price ratio from January 2023 to September 2026, January 2023 = 100: a peak of 428 in March 2024, a fall to 156 in May 2026 and 209 at the end of September 2026"
+  caption="The SOL/BTC ratio (January 2023 = 100). From March 2024 SOL lost ground against Bitcoin – even in periods when its dollar price rose."
+  lines={[{ key: "solBtc", label: "SOL/BTC" }]}
+/>
+
+From January 2023 to March 2024 SOL rose more than fourfold against Bitcoin (index 428). Then the trend
+turned, and in May 2026 the index stood at 156 – SOL had lost more than 60% against Bitcoin from its peak.
+Even when SOL set a dollar record in January 2025, it was already about a fifth below its peak against Bitcoin.
+
+<Callout type="warning" title="An altcoin is not diversification">
+  SOL next to Bitcoin in a portfolio does not spread the risk – it adds a bet on
+  the same market with roughly double the swings. In downturns it falls with
+  Bitcoin, and usually more.
+</Callout>
+
+## Common myths
+
+- **"SOL has its own fundamentals, it is unrelated to Bitcoin."** A correlation of 0.6–0.9 in most years says otherwise.
+- **"SOL went up, so it is doing well."** It may have lost against Bitcoin – look at the SOL/BTC ratio.
+- **"Beta is a fixed number."** It changes from year to year, from 0.79 to 1.65.
+
+<Callout title="Summary">
+
+- SOL moves ever more closely with Bitcoin: correlation from 0.40 in 2021 to 0.88 in 2026.
+- It swings about twice as much and usually falls more than Bitcoin in downturns.
+- Beta (1.18 over the whole period) shows how SOL amplifies Bitcoin's moves; it changes over time.
+- The SOL/BTC ratio shows whether SOL beats Bitcoin; since March 2024 it has lost ground.
+
+</Callout>

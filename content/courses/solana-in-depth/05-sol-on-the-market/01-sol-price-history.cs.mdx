@@ -1,0 +1,83 @@
+import weekly from "./sol-weekly.json";
+
+export const metadata = {
+  title: "Historie ceny SOL",
+  slug: "historie-ceny-sol",
+  description:
+    "Šest let SOL ve skutečných datech: z 3 USD na 260, pád o 97 % na 8 USD, návrat na rekord 296 a další propad o 80 %. Co z toho plyne pro tebe.",
+};
+
+<Callout title="V této lekci">
+
+- projdeš celou cenovou historii SOL na skutečných datech
+- uvidíš, jak velké byly propady a co je spustilo
+- zjistíš, proč se na grafy s velkými pohyby díváš v logaritmickém měřítku
+
+</Callout>
+
+Kdo by v srpnu 2020 koupil SOL za necelé 3 dolary a prodal na vrcholu, zbohatl by. Kdo koupil na vrcholu
+v listopadu 2021, o rok později přišel o 97 %. Obojí je stejný token, jen jiná data na ose. Historie SOL
+je učebnice volatility – a pokory.
+
+<Illustration name="rollercoaster" />
+
+## Šest let v jednom grafu
+
+<LineChart
+  data={weekly}
+  label="Týdenní závěrečné ceny SOL od srpna 2020 do září 2026 v logaritmickém měřítku: růst z 3 USD na zhruba 250 USD v listopadu 2021, pád zhruba na 10 USD na konci roku 2022, návrat nad 250 USD v letech 2024 a 2025 a pád pod 70 USD v červnu 2026"
+  caption="Logaritmické měřítko: stejná vzdálenost na ose = stejná procentní změna. Týdenní závěrečné ceny, takže denní extrémy tu nevidíš."
+  lines={[{ key: "sol", label: "SOL (USD)" }]}
+  logarithmic
+  markers={[
+    { time: "2021-11-01", label: "Vrchol 2021" },
+    { time: "2022-11-07", label: "FTX" },
+    { time: "2025-01-13", label: "TRUMP" },
+    { time: "2025-10-27", label: "ETF" },
+    { time: "2026-06-01", label: "Dno 2026" },
+  ]}
+/>
+
+## Kapitoly
+
+| Období           | Co se stalo                                               | Cena (denní extrémy)                     |
+| ---------------- | --------------------------------------------------------- | ---------------------------------------- |
+| 2020–2021        | uvedení na burzu a obří býčí trh                          | z 1,03 USD (prosinec 2020) na 259,90 USD |
+| listopad 2021–22 | medvědí trh, krach FTX                                    | pád o 97 % na 8 USD                      |
+| 2023–2024        | návrat, memecoiny, rekordy aktivity na síti               | z 8 USD na 264 USD                       |
+| leden 2025       | horečka kolem tokenu TRUMP                                | rekord 295,83 USD (19. 1.)               |
+| 2025–2026        | ochlazení trhu; od října 2025 v USA první spotové SOL ETF | pád o 80 % na 60,13 USD                  |
+
+Konec září 2026: 118 USD.
+
+## Co z toho plyne
+
+- **Propady o 80–97 % nejsou výjimka, ale pravidelnost.** SOL je zažil dvakrát za šest let. Mnoho tokenů
+  z roku 2021 se ale z podobného propadu nevzpamatovalo nikdy – přežití SOL není pravidlo pro ostatní.
+- **Dobré zprávy nezaručují růst.** Spuštění ETF v říjnu 2025 bylo velká událost – a SOL pak klesl na
+  třetinu.
+- **Datum nákupu rozhoduje víc, než si lidé přiznávají.** Kdo koupil za 260 USD v listopadu 2021, byl
+  v září 2026 pořád ve ztrátě – po pěti letech.
+- **Logaritmické měřítko.** Na obyčejném grafu by růst ze 3 na 30 USD vypadal jako rovná čára a pád
+  z 260 na 130 jako katastrofa. Přitom první je +900 % a druhý −50 %.
+
+<Callout type="risk" title="Minulost se nemusí opakovat">
+  To, že se SOL z hlubokého propadu už vracel, neznamená, že se vrátí znovu.
+  Historie ukazuje, jak velké pohyby jsou možné – ne kam se cena pohne.
+</Callout>
+
+## Časté omyly
+
+- **„SOL se vždycky vrátí.“** Zatím se vrátil. To je popis minulosti, ne záruka.
+- **„Po pádu o 80 % už nemůže spadnout víc.“** V roce 2022 spadl o 97 % – z každé ceny se dá spadnout
+  o dalších 50 %.
+- **„ETF = růst.“** Po spuštění ETF SOL klesl na třetinu.
+
+<Callout title="Shrnutí">
+
+- SOL vyrostl z necelých 3 USD na 260, spadl o 97 % na 8 USD, vrátil se na rekord 295,83 a znovu spadl o 80 %.
+- Propady o 80 % a víc jsou u SOL opakovaná zkušenost, ne výjimka.
+- Dobré zprávy (ETF) ani slavná jména (TRUMP) růst nezaručují.
+- Grafy s velkými pohyby čti v logaritmickém měřítku.
+
+</Callout>

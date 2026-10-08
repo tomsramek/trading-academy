@@ -1,0 +1,88 @@
+import solBtc from "./sol-vs-btc.json";
+
+export const metadata = {
+  title: "SOL proti BTC a ETH",
+  slug: "sol-proti-btc-a-eth",
+  description:
+    "Jak moc se SOL pohybuje s Bitcoinem, proč kolísá zhruba dvakrát víc, co je beta a co ukazuje poměr SOL/BTC – na denních datech 2021–2026.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, jak úzce se SOL pohybuje s Bitcoinem a Etherem
+- pochopíš betu: o kolik SOL v průměru zesiluje pohyby Bitcoinu
+- naučíš se číst poměr SOL/BTC
+
+</Callout>
+
+SOL má vlastní příběh – rychlá síť, memecoiny, ETF. Na grafu se ale většinou chová jako pes na vodítku:
+kam jde Bitcoin, tam jde i SOL. Jen víc poskakuje, občas utíká napřed a občas se nechá táhnout.
+
+<Illustration name="dogOnLeash" />
+
+## Rok po roce
+
+Denní data z Binance od ledna 2021 do září 2026:
+
+| Rok            | Korelace s BTC | Volatilita SOL | Volatilita BTC | Beta | Výnos SOL | Výnos BTC |
+| -------------- | -------------- | -------------- | -------------- | ---- | --------- | --------- |
+| 2021           | 0,40           | 162 %          | 81 %           | 0,79 | +11 167 % | +60 %     |
+| 2022           | 0,79           | 117 %          | 64 %           | 1,46 | −94 %     | −64 %     |
+| 2023           | 0,61           | 99 %           | 44 %           | 1,38 | +920 %    | +156 %    |
+| 2024           | 0,74           | 82 %           | 53 %           | 1,15 | +86 %     | +121 %    |
+| 2025           | 0,80           | 86 %           | 42 %           | 1,65 | −34 %     | −6 %      |
+| 2026 (do září) | 0,88           | 64 %           | 46 %           | 1,22 | −5 %      | −5 %      |
+
+Volatilita je roční, počítaná z denních změn. Za celé období: korelace 0,62, volatilita SOL 109 % proti
+57 % u Bitcoinu.
+
+Co z toho čteš:
+
+- **Korelace roste.** V roce 2021 měl SOL vlastní život (0,40), v roce 2026 se s Bitcoinem pohyboval víc
+  než kdy dřív (0,88). S Etherem podobně – 0,88 v roce 2026.
+- **SOL kolísá zhruba dvakrát víc.** V 147 dnech se pohnul o víc než 10 % za den, Bitcoin jen ve 24.
+- **V propadech nechrání.** Z 87 dnů, kdy Bitcoin spadl o víc než 5 %, klesl SOL v 79 – v průměru
+  o 8,3 % proti 7,3 % u Bitcoinu.
+
+## Beta: zesilovač
+
+Takzvaná <KeyTerm term="beta">beta</KeyTerm> říká, o kolik se aktivum v průměru pohne, když se trh pohne
+o 1 %. Beta SOL vůči Bitcoinu vyšla za celé období 1,18, v roce 2025 dokonce 1,65: když Bitcoin klesl
+o 1 %, SOL v průměru o 1,65 %. Beta se ale rok od roku mění – v roce 2021 byla pod jedničkou.
+
+## Poměr SOL/BTC
+
+Když chceš vědět, jestli se SOL dařilo **lépe než Bitcoinu**, dívej se na poměr cen SOL/BTC. Roste, když
+SOL vede, klesá, když zaostává.
+
+<LineChart
+  data={solBtc}
+  label="Poměr cen SOL/BTC od ledna 2023 do září 2026, leden 2023 = 100: vrchol 428 v březnu 2024, pokles na 156 v květnu 2026 a konec září 2026 na 209"
+  caption="Poměr SOL/BTC (leden 2023 = 100). Od března 2024 SOL proti Bitcoinu ztrácel – i v obdobích, kdy jeho cena v dolarech rostla."
+  lines={[{ key: "solBtc", label: "SOL/BTC" }]}
+/>
+
+Od ledna 2023 do března 2024 SOL proti Bitcoinu vyrostl víc než čtyřikrát (index 428). Pak se trend
+otočil a v květnu 2026 byl index na 156 – SOL ztratil proti Bitcoinu přes 60 % ze svého vrcholu. I když
+SOL v lednu 2025 udělal rekord v dolarech, proti Bitcoinu už byl zhruba o pětinu pod vrcholem.
+
+<Callout type="warning" title="Altcoin není diverzifikace">
+  SOL v portfoliu vedle Bitcoinu riziko nerozkládá – přidává sázku na stejný trh
+  se zhruba dvojnásobnými výkyvy. V propadech padá spolu s Bitcoinem a obvykle
+  víc.
+</Callout>
+
+## Časté omyly
+
+- **„SOL má vlastní fundamenty, s Bitcoinem nesouvisí.“** Korelace 0,6–0,9 ve většině let říká opak.
+- **„SOL vyrostl, takže se mu daří.“** Proti Bitcoinu mohl ztrácet – podívej se na poměr SOL/BTC.
+- **„Beta je pevné číslo.“** Mění se rok od roku, od 0,79 do 1,65.
+
+<Callout title="Shrnutí">
+
+- SOL se s Bitcoinem pohybuje stále těsněji: korelace z 0,40 v roce 2021 na 0,88 v roce 2026.
+- Kolísá zhruba dvakrát víc a v propadech padá obvykle víc než Bitcoin.
+- Beta (za celé období 1,18) ukazuje, jak SOL zesiluje pohyby Bitcoinu; v čase se mění.
+- Poměr SOL/BTC ukazuje, jestli SOL Bitcoin poráží; od března 2024 ztrácel.
+
+</Callout>

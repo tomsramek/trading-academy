@@ -1,0 +1,82 @@
+export const metadata = {
+  title: "Outages and decentralisation",
+  description:
+    "How many times Solana stopped, why, what has changed since, and how decentralised a network with fewer than a thousand validators is.",
+};
+
+<Callout title="In this lesson">
+
+- go through Solana's outages and their causes
+- find out what changed after them
+- learn to read the measures of decentralisation: number of validators, the Nakamoto coefficient and
+  clients
+
+</Callout>
+
+Bitcoin has not stopped writing blocks for even an hour since 2013. Solana stopped several times in its
+first four years – for hours, once for almost a whole day. For a network that wants to be "an exchange for
+the whole world" that is serious. And for you it is practical: during an outage you cannot send, sell or
+close a position.
+
+<Illustration name="pitStop" />
+
+## The outages
+
+| Date              | Length (about) | Cause                                               |
+| ----------------- | -------------- | --------------------------------------------------- |
+| 14 September 2021 | 17 hours       | a flood of bot transactions during a new token sale |
+| 30 April 2022     | 7 hours        | bots overwhelmed the network during an NFT mint     |
+| 1 June 2022       | 4.5 hours      | a bug in processing a special type of transaction   |
+| 1 October 2022    | 6 hours        | a misconfigured validator produced duplicate blocks |
+| 25 February 2023  | 19 hours       | a problem spreading large blocks across the network |
+| 6 February 2024   | 5 hours        | a bug in the validator software                     |
+
+After an outage the network does not restart by itself. Validators have to coordinate – off the
+blockchain, in a chat – and restart from the same point. It works, but it shows how much the network
+depends on coordination between operators.
+
+## What has changed
+
+After the waves of bots, Solana got a new way of accepting transactions (the QUIC protocol), priority for
+connections based on stake, and priority fees that ration demand for crowded parts of the network. From
+February 2024 to the time of writing (October 2026) the network has not fully stopped.
+
+A warning came in August 2026, though: a routing fault at one server provider knocked offline almost 29%
+of the stake, according to public reports. The network halts when more than a third is missing. The margin
+was a few percentage points.
+
+## How decentralised Solana is
+
+- **Number of validators.** At the peak in 2023 there were over 2,500; in 2026 around 800–900. Smaller
+  operators leave because running a validator and voting are expensive.
+- **Concentration.** The so-called <KeyTerm term="nakamoto-coefficient">Nakamoto coefficient</KeyTerm> is
+  the smallest number of validators that together could halt the network. For Solana it is around 20.
+- **Clients.** A client is the validator software. For a long time the whole network ran on one program –
+  one bug stopped everyone. Since 2024 a second client, Firedancer, has been spreading. By mid-2026 roughly a fifth to two fifths of the stake ran Firedancer or its hybrid version Frankendancer, depending on the source.
+- **Hosting.** A large share of validators runs at a handful of server providers – the August fault showed
+  why that matters.
+
+<Callout type="warning" title="An outage is your risk too">
+  When the network stops, you cannot sell, move funds or react to price moves on
+  the exchanges where SOL keeps trading. Leveraged or DeFi positions may end up
+  differently after the restart than you expected.
+</Callout>
+
+## Common myths
+
+- **"Solana goes down all the time."** It has not fully stopped since February 2024. The risk has not
+  disappeared, though.
+- **"An outage = stolen money."** No money was lost in the outages; the network just stood still. Damage
+  came mainly from people being unable to act.
+- **"More validators = always better."** It also matters how the stake is spread, how many clients the
+  network runs on and where validators are hosted.
+
+<Callout title="Summary">
+
+- Solana had six full outages in 2021–2024, the longest about 19 hours.
+- Changes to how transactions are accepted and priority fees followed; the network has not stopped since
+  February 2024.
+- Validators are fewer (around 800–900 in 2026) and the Nakamoto coefficient is around 20.
+- The second client, Firedancer, lowers the risk that one bug stops the whole network.
+
+</Callout>

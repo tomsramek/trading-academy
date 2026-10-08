@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "About 0.002 SOL disappeared when you first received a new token. Why?",
+          "options": [
+            "A token account with a refundable deposit was created",
+            "A drainer stole it",
+            "It is the wallet's annual fee"
+          ],
+          "explanation": "Every token has its own account, which needs a deposit (rent). Empty and close the account and it comes back."
+        },
+        "cs": {
+          "question": "Při prvním přijetí nového tokenu ti zmizelo zhruba 0,002 SOL. Proč?",
+          "options": [
+            "Založil se tokenový účet s vratnou kaucí",
+            "Ukradl je drainer",
+            "Je to roční poplatek peněženky"
+          ],
+          "explanation": "Každý token má vlastní účet a ten potřebuje kauci (nájem). Po vyprázdnění a zavření účtu se vrátí."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does a priority fee buy?",
+          "options": [
+            "A better token price",
+            "Protection against scams",
+            "Priority when transactions are put into a block"
+          ],
+          "explanation": "Priority fee = compute units × offered price. It buys a place in line, not a price – and in a rush bots may still get ahead of you."
+        },
+        "cs": {
+          "question": "Co kupuje prioritní poplatek?",
+          "options": [
+            "Lepší cenu tokenu",
+            "Ochranu před podvodem",
+            "Přednost při zařazení do bloku"
+          ],
+          "explanation": "Prioritní poplatek = výpočetní jednotky × nabídnutá cena. Kupuje pořadí, ne cenu – a při návalu tě boti stejně můžou předběhnout."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How do you recognise a genuine token?",
+          "options": [
+            "By its logo and name",
+            "By its mint address from an official source",
+            "By how much of it you have in your wallet"
+          ],
+          "explanation": "Anyone can set a name and logo. The only reliable identity of a token is its mint address."
+        },
+        "cs": {
+          "question": "Podle čeho poznáš pravý token?",
+          "options": [
+            "Podle loga a názvu",
+            "Podle adresy mintu z oficiálního zdroje",
+            "Podle toho, kolik ho máš v peněžence"
+          ],
+          "explanation": "Název a logo si nastaví kdokoli. Jediná spolehlivá identita tokenu je adresa jeho mintu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What can whoever holds a token's freeze authority do?",
+          "options": [
+            "Block your token account so you cannot sell",
+            "Increase your balance",
+            "Nothing, it is a formality"
+          ],
+          "explanation": "A frozen account shows the tokens but does not let you send or sell them. For an unknown memecoin that is a warning sign."
+        },
+        "cs": {
+          "question": "Co může udělat ten, kdo drží oprávnění ke zmrazení tokenu?",
+          "options": [
+            "Zablokovat tvůj tokenový účet, takže tokeny neprodáš",
+            "Zvýšit ti zůstatek",
+            "Nic, jde jen o formalitu"
+          ],
+          "explanation": "Zmrazený účet tokeny ukazuje, ale nedovolí je poslat ani prodat. U neznámého memecoinu je to varovný signál."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "An NFT arrived in your wallet: \"You won 5,000 USDC, claim them at…\". What do you do?",
+          "options": [
+            "Click and sign so I do not miss the prize",
+            "Send a small amount first to verify",
+            "Ignore or hide it and do not click the link"
+          ],
+          "explanation": "It is bait. The link leads to a drainer page that asks you to sign a transaction which empties your wallet."
+        },
+        "cs": {
+          "question": "Do peněženky ti přišlo NFT „Vyhrál jsi 5 000 USDC, vyzvedni si je na…“. Co uděláš?",
+          "options": [
+            "Kliknu a podepíšu, ať o výhru nepřijdu",
+            "Pošlu nejdřív malou částku na ověření",
+            "Ignoruju ho nebo skryju a na odkaz nekliknu"
+          ],
+          "explanation": "Je to návnada. Odkaz vede na stránku s drainerem, který po tobě chce podpis transakce, jež vybere peněženku."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

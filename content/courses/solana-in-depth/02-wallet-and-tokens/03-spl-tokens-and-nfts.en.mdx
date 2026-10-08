@@ -1,0 +1,92 @@
+export const metadata = {
+  title: "SPL tokens and NFTs",
+  description:
+    "How a token is created on Solana, who can mint more or freeze it, why a name and a logo guarantee nothing, and what NFTs and spam NFTs in your wallet are.",
+};
+
+<Callout title="In this lesson">
+
+- find out how a token is created on Solana and what its mint reveals
+- understand the two keys that decide about your tokens: minting and freezing
+- learn why a token's name and logo guarantee nothing
+
+</Callout>
+
+Creating a token on Solana takes a few minutes and costs less than lunch. That is why hundreds of
+thousands of them appear every month. But every token has rules written into it – and a few of them decide
+whether your tokens really belong to you.
+
+<Illustration name="twoKeys" />
+
+## The mint: a token's birth certificate
+
+Tokens on Solana follow the <KeyTerm term="spl-token">SPL</KeyTerm> standard. Every token has one main
+account – the so-called mint. It records:
+
+- the **total number** of tokens in circulation,
+- the **number of decimal places**,
+- **who may mint more tokens**,
+- **who may freeze token accounts**.
+
+The mint address is the only reliable identity of a token. Everything else – name, ticker, logo – anyone
+can set to whatever they like.
+
+## The key to the printer and the key to the freezer
+
+- **The printer.** The so-called <KeyTerm term="mint-authority">mint authority</KeyTerm> – whoever holds
+  it can print new tokens. If a memecoin's creator keeps it, they can print a billion coins at any time
+  and sell them against you.
+- **The freezer.** The so-called <KeyTerm term="freeze-authority">freeze authority</KeyTerm> – whoever
+  holds it can freeze your token account. You then see the tokens but cannot send or sell them. That is
+  exactly how traps you can only buy into work.
+
+Freezing on its own does not mean a scam. Big stablecoins like USDC have it because of the issuer's legal
+obligations. For an unknown memecoin, though, it is a warning sign.
+
+Newer versions of the standard (so-called token extensions) can also add, for example, a fee on every
+transfer or a "permanent delegate" allowed to move or burn tokens from any account. Useful for companies,
+dangerous in a scammer's hands.
+
+## A name and a logo guarantee nothing
+
+Anyone can create a token called "USDC" with the right logo. The real USDC on Solana has the mint:
+
+```
+EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+```
+
+Verify the mint address with the issuer or in a trusted
+overview, not by the picture in your wallet.
+
+## NFTs and spam NFTs
+
+A so-called <KeyTerm term="nft">NFT</KeyTerm> is a token that exists as a single piece and has no decimal
+places. Solana also supports so-called compressed NFTs, which cost a fraction of a cent to create. That is
+why NFTs you never asked for often land in your wallet: "Congratulations, you won 5,000 USDC, claim them
+at …"
+
+That is bait. The link leads to a page that asks you to sign a transaction – and that transaction empties
+your wallet. Ignore or hide spam NFTs and do not click their links. Signing is the topic of the next
+lesson.
+
+<Callout type="risk" title="Unknown token = unknown rules">
+  Before buying a little-known token, find out who holds the mint and freeze
+  authorities. If an anonymous creator holds them, they can mint more tokens or
+  freeze yours. Lesson 13 shows how to check a token.
+</Callout>
+
+## Common myths
+
+- **"The token has the right logo, so it is genuine."** Anyone can set a logo; the mint address decides.
+- **"A freeze authority = always a scam."** It is common for regulated stablecoins; for an anonymous
+  memecoin it is a warning.
+- **"A free NFT in my wallet is a gift."** It is almost always bait.
+
+<Callout title="Summary">
+
+- A Solana token is defined by its mint: supply, decimals, mint and freeze authorities.
+- The mint authority allows printing new tokens, the freeze authority blocking yours.
+- The only reliable identity of a token is its mint address, not its name or logo.
+- Unknown NFTs in your wallet are bait – do not click their links.
+
+</Callout>

@@ -1,0 +1,71 @@
+export const metadata = {
+  title: "Liquid staking a jeho rizika",
+  slug: "liquid-staking",
+  description:
+    "Jak funguje stakovací token, proč jeho kurz k SOL roste, co je odchylka od férové hodnoty a proč stavět páku na stakovaných tokenech je hra s ohněm.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, jak funguje stakovací token a proč jeho kurz k SOL roste
+- zjistíš, jak ho proměnit zpátky na SOL – rychle, nebo levně
+- poznáš rizika, která nativní staking nemá
+
+</Callout>
+
+Nativní staking má jednu nevýhodu: SOL jsou zamčené a čekáš dny, než je dostaneš zpátky. Liquid staking
+slibuje obojí – výnos ze stakingu i možnost kdykoli prodat. Funguje to jako šatna v divadle: kabát
+odevzdáš, dostaneš lísteček. A ten lísteček se dá prodat, půjčit nebo vložit jinam.
+
+<Illustration name="coatCheck" />
+
+## Jak to funguje
+
+Při <KeyTerm term="liquid-staking">liquid stakingu</KeyTerm> vložíš SOL do stakovacího fondu
+(protokolu). Fond je rozdělí mezi validátory a tobě vydá **stakovací token** – na Solaně třeba jitoSOL
+nebo mSOL, uvedené jen jako příklady.
+
+Počet stakovacích tokenů se ti nemění. Roste ale jejich **kurz k SOL**, protože fond dál přijímá
+odměny. Ukázka: vložíš 10 SOL při kurzu 1 token = 1,20 SOL a dostaneš 8,33 tokenu. Za rok je kurz
+třeba 1,27 SOL a tvých 8,33 tokenu má hodnotu 10,58 SOL. _Ukázková čísla._
+
+## Cesta zpátky na SOL
+
+- **Rychle:** prodáš stakovací token na burze za SOL. Hned, ale za tržní cenu – obvykle o kousek nižší,
+  než je férová hodnota, a se skluzem.
+- **Levně:** požádáš fond o odstakování a počkáš do konce epochy. Dostaneš férovou hodnotu, ale čekáš
+  jako u nativního stakingu.
+
+## Rizika navíc
+
+- **Chyba v kontraktu.** Fond je program. Chyba nebo útok může ohrozit všechny vložené SOL.
+- **Odchylka od férové hodnoty.** V panice chtějí všichni ven najednou a stakovací token se na burzách
+  prodává se slevou. Na Ethereu se to stalo v červnu 2022: stakovaný ETH se obchodoval zhruba o 6 % levněji
+  než ETH. Kdo musel prodat hned, prodal se ztrátou.
+- **Poplatky fondu.** Fond si bere procento z odměn – vedle provize validátorů.
+- **Páka na páce.** Stakovací token můžeš vložit jako zástavu, půjčit si proti němu SOL, ty znovu stakovat a tak dál. Výnos se násobí – riziko taky. Když stakovací token klesne pod férovou hodnotu,
+  může přijít likvidace.
+- **Koncentrace.** Velké fondy soustředí stake u vybraných validátorů. Pro decentralizaci sítě to nemusí
+  být dobře.
+
+<Callout type="risk" title="Vrstvy výnosu = vrstvy rizika">
+  Každá další vrstva – stakovací token, půjčka, další staking – přidává výnos i
+  místo, kde se může něco pokazit. Vyšší procento na obrazovce neznamená, že
+  dostaneš víc. Znamená, že se toho víc může pokazit.
+</Callout>
+
+## Časté omyly
+
+- **„Stakovací token má vždycky hodnotu SOL plus odměny.“** Na burze se může prodávat se slevou.
+- **„Liquid staking je bezpečnější, protože můžu kdykoli prodat.“** Prodat můžeš, ale ne vždy za férovou
+  cenu – a přibývá riziko kontraktu.
+- **„Smyčka stakování na páku je zdarma výnos navíc.“** Je to páka se vším, co k ní patří.
+
+<Callout title="Shrnutí">
+
+- Liquid staking: SOL vložíš do fondu a dostaneš stakovací token, jehož kurz k SOL roste.
+- Zpátky na SOL rychle (prodej na burze se slevou) nebo levně (odstakování s čekáním).
+- Rizika navíc: chyba v kontraktu, sleva v panice, poplatky fondu, páka a koncentrace.
+- Každá vrstva výnosu přidává vrstvu rizika.
+
+</Callout>
