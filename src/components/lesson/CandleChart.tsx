@@ -12,10 +12,11 @@ import {
   type LevelKind,
   type MarkerKind,
 } from "@/lib/content/chart";
-import { ema, rsi, sma } from "@/lib/content/indicators";
+import { atrPercent, ema, rsi, sma } from "@/lib/content/indicators";
 import { cn } from "@/lib/utils";
 
 import { CandleChartCanvas } from "./CandleChartCanvas";
+import { ChartSource } from "./ChartSource";
 
 export type Candle = {
   // Start of the period as a Unix timestamp in seconds (UTC).
@@ -35,10 +36,6 @@ export type CandleDataset = {
   license?: string;
   symbol?: string;
   interval?: string;
-};
-
-const LICENSE_URLS: Record<string, string> = {
-  "CC BY-NC-SA 4.0": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
 type CandleChartProps = AnnotationsInput & {
@@ -65,7 +62,6 @@ export function CandleChart({
 }: CandleChartProps) {
   const t = useTranslations("Lesson.chart");
   const locale = useLocale();
-  const licenseUrl = data.license ? LICENSE_URLS[data.license] : undefined;
   const annotations = resolveAnnotations(
     { levels, markers, zones },
     data.candles,
@@ -93,7 +89,7 @@ export function CandleChart({
         indicators={drawn}
       />
       <figcaption className="mt-3 flex flex-col gap-1 text-sm text-muted-foreground">
-        {(drawn.lines.length > 0 || drawn.volume || drawn.rsi) && (
+        {(drawn.lines.length > 0 || drawn.volume || drawn.rsi || drawn.atr) && (
           <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
             {drawn.lines.map((line) => (
               <li key={line.label} className="flex items-center gap-1.5">
@@ -109,6 +105,7 @@ export function CandleChart({
             ))}
             {drawn.volume && <li>{t("volume")}</li>}
             {drawn.rsi && <li>{t("rsi")}</li>}
+            {drawn.atr && <li>{t("atr")}</li>}
           </ul>
         )}
         {caption && <span>{caption}</span>}
@@ -133,37 +130,15 @@ export function CandleChart({
             ))}
           </ul>
         )}
-        <span className="text-xs">
-          {data.symbol && data.interval && (
-            <>
-              {formatSymbol(data.symbol)} · {data.interval.toUpperCase()} ·{" "}
-            </>
-          )}
-          {data.source ? (
-            <>
-              {t("source", { source: data.source })}
-              {data.license && (
-                <>
-                  {" · "}
-                  {licenseUrl ? (
-                    <a
-                      href={licenseUrl}
-                      target="_blank"
-                      rel="noopener noreferrer license"
-                      className="underline underline-offset-2 hover:text-foreground"
-                    >
-                      {data.license}
-                    </a>
-                  ) : (
-                    data.license
-                  )}
-                </>
-              )}
-            </>
-          ) : (
-            t("illustrative")
-          )}
-        </span>
+        <ChartSource
+          source={data.source}
+          license={data.license}
+          prefix={
+            data.symbol && data.interval
+              ? `${formatSymbol(data.symbol)} · ${data.interval.toUpperCase()}`
+              : undefined
+          }
+        />
       </figcaption>
     </figure>
   );
@@ -195,6 +170,7 @@ function resolveIndicators(
     ema: emaPeriods,
     rsi: withRsi,
     volume,
+    atr: withAtr,
   } = result.data;
 
   const averages = [
@@ -231,6 +207,7 @@ function resolveIndicators(
     })),
     volume: volumeBars,
     rsi: withRsi ? rsi(candles) : undefined,
+    atr: withAtr ? atrPercent(candles) : undefined,
   };
 }
 

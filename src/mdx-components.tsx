@@ -10,6 +10,7 @@ import { Illustration } from "@/components/lesson/Illustration";
 import { KeyTerm } from "@/components/lesson/KeyTerm";
 import { LessonHeading } from "@/components/lesson/LessonHeading";
 import { LessonLink } from "@/components/lesson/LessonLink";
+import { LineChart } from "@/components/lesson/LineChart";
 import { OrderBook } from "@/components/lesson/OrderBook";
 import { SharedLedger } from "@/components/lesson/SharedLedger";
 import { TransactionFlow } from "@/components/lesson/TransactionFlow";
@@ -36,6 +37,7 @@ const components: MDXComponents = {
   Figure,
   Illustration,
   KeyTerm,
+  LineChart,
   OrderBook,
   SharedLedger,
   TransactionFlow,

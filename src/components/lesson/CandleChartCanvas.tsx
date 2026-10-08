@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { cva } from "class-variance-authority";
-import { Maximize2Icon, ZoomInIcon, ZoomOutIcon } from "lucide-react";
 import {
   CandlestickSeries,
   ColorType,
@@ -30,9 +29,9 @@ import type {
   MarkerKind,
 } from "@/lib/content/chart";
 
-import { Button } from "@/components/ui/button";
-
 import type { Candle } from "./CandleChart";
+import { tokenReader, withAlpha, type ColorOf } from "./chartColors";
+import { ChartZoomButtons } from "./ChartZoomButtons";
 
 type CandleChartCanvasProps = {
   candles: Candle[];
@@ -51,6 +50,7 @@ const chartHeight = cva(
         0: "h-80 sm:h-96",
         1: "h-96 sm:h-112",
         2: "h-112 sm:h-128",
+        3: "h-128 sm:h-144",
       },
     },
   },
@@ -92,7 +92,6 @@ export function CandleChartCanvas({
   annotations,
   indicators,
 }: CandleChartCanvasProps) {
-  const t = useTranslations("Lesson.chart");
   const containerRef = useRef<HTMLDivElement>(null);
   const zonesRef = useRef<HTMLDivElement>(null);
   // The chart lives outside React (a canvas), the zoom buttons reach it through this ref.
@@ -201,6 +200,22 @@ export function CandleChartCanvas({
         axisLabelVisible: true,
       }),
     );
+    const atrSeries = indicators.atr
+      ? chart.addSeries(
+          LineSeries,
+          {
+            ...lineOptions,
+            priceFormat: { type: "percent", precision: 1, minMove: 0.1 },
+          },
+          ++panel,
+        )
+      : undefined;
+    atrSeries?.setData(
+      (indicators.atr ?? []).map((point) => ({
+        time: point.time as UTCTimestamp,
+        value: point.value,
+      })),
+    );
     chart.panes().forEach((pane, index) => {
       pane.setStretchFactor(index === 0 ? 3 : 1);
     });
@@ -232,6 +247,7 @@ export function CandleChartCanvas({
         })),
       );
       rsiSeries?.applyOptions({ color: color("--chart-5") });
+      atrSeries?.applyOptions({ color: color("--chart-2") });
       rsiLines.forEach((line) =>
         line?.applyOptions({ color: color("--muted-foreground") }),
       );
@@ -256,57 +272,9 @@ export function CandleChartCanvas({
     };
   }, [candles, annotations, indicators, locale]);
 
-  // Zooms around the middle of the visible part: factor < 1 zooms in, > 1 out.
-  const zoom = (factor: number) => {
-    const timeScale = chartRef.current?.timeScale();
-    const range = timeScale?.getVisibleLogicalRange();
-    if (!timeScale || !range) {
-      return;
-    }
-    const center = (range.from + range.to) / 2;
-    // At least 10 candles stay visible, and zooming out stops a little past the whole chart.
-    const half = Math.min(
-      Math.max(((range.to - range.from) / 2) * factor, 5),
-      candles.length * 0.6,
-    );
-    timeScale.setVisibleLogicalRange({
-      from: center - half,
-      to: center + half,
-    });
-  };
-
   return (
     <>
-      {/* Zoom without gestures: not everyone knows about pinching or dragging the axes. */}
-      <div className="mb-2 flex justify-end gap-1">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => zoom(0.6)}
-          aria-label={t("zoomIn")}
-          title={t("zoomIn")}
-        >
-          <ZoomInIcon aria-hidden="true" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => zoom(1 / 0.6)}
-          aria-label={t("zoomOut")}
-          title={t("zoomOut")}
-        >
-          <ZoomOutIcon aria-hidden="true" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => chartRef.current?.timeScale().fitContent()}
-          aria-label={t("zoomReset")}
-          title={t("zoomReset")}
-        >
-          <Maximize2Icon aria-hidden="true" />
-        </Button>
-      </div>
+      <ChartZoomButtons chartRef={chartRef} points={candles.length} />
       <div
         role="img"
         aria-label={label}
@@ -339,17 +307,11 @@ export function CandleChartCanvas({
   );
 }
 
-type ColorOf = (token: string) => string;
-
-function panelCount(indicators: ChartIndicators): 0 | 1 | 2 {
-  const count =
-    Number(Boolean(indicators.volume)) + Number(Boolean(indicators.rsi));
-  return count === 2 ? 2 : count === 1 ? 1 : 0;
-}
-
-// "rgba(22, 163, 74, 1)" → "rgba(22, 163, 74, 0.5)"
-function withAlpha(rgba: string, alpha: number): string {
-  return rgba.replace(/,\s*[\d.]+\)$/, `, ${alpha})`);
+function panelCount(indicators: ChartIndicators): 0 | 1 | 2 | 3 {
+  const panels = [indicators.volume, indicators.rsi, indicators.atr].filter(
+    Boolean,
+  ).length;
+  return Math.min(panels, 3) as 0 | 1 | 2 | 3;
 }
 
 function applyColors(
@@ -443,30 +405,4 @@ function placeZoneBoxes(
     box.style.width = `${end - start}px`;
     box.style.height = `${height}px`;
   });
-}
-
-// Reads a design token (e.g. "--bull") as rgb(), because lightweight-charts does not understand oklch().
-// The browser converts any CSS color when it is drawn on a canvas, so a 1×1 canvas does the conversion.
-function tokenReader(element: HTMLElement): ColorOf {
-  const styles = getComputedStyle(element);
-  const context = document.createElement("canvas").getContext("2d", {
-    willReadFrequently: true,
-  });
-
-  return (token) => {
-    const value = styles.getPropertyValue(token).trim();
-    if (!context) {
-      return value;
-    }
-    context.clearRect(0, 0, 1, 1);
-    context.fillStyle = value;
-    context.fillRect(0, 0, 1, 1);
-    const [red = 0, green = 0, blue = 0, alpha = 255] = context.getImageData(
-      0,
-      0,
-      1,
-      1,
-    ).data;
-    return `rgba(${red}, ${green}, ${blue}, ${alpha / 255})`;
-  };
 }

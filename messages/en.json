@@ -166,7 +166,9 @@
       "rsi": "RSI 14 (panel below the chart, lines at 30 and 70)",
       "zoomIn": "Zoom in",
       "zoomOut": "Zoom out",
-      "zoomReset": "Show the whole chart"
+      "zoomReset": "Show the whole chart",
+      "atr": "ATR 14 – average range as % of price (panel below the chart)",
+      "logarithmic": "Logarithmic axis: equal distance = equal percentage change"
     },
     "pattern": {
       "doji": {

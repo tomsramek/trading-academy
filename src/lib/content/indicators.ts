@@ -71,3 +71,34 @@ export function rsi(candles: Closes, period = 14): IndicatorPoint[] {
   });
   return points;
 }
+
+type Bars = { time: number; high: number; low: number; close: number }[];
+
+/**
+ * Average true range (Wilder) as a percentage of the close: how much the price typically moves in one
+ * period. In percent, so a calm and a wild market can be compared at any price level.
+ */
+export function atrPercent(candles: Bars, period = 14): IndicatorPoint[] {
+  const points: IndicatorPoint[] = [];
+  let average = 0;
+  candles.forEach((candle, index) => {
+    const previous = candles[index - 1];
+    const range = previous
+      ? Math.max(
+          candle.high - candle.low,
+          Math.abs(candle.high - previous.close),
+          Math.abs(candle.low - previous.close),
+        )
+      : candle.high - candle.low;
+    if (index < period) {
+      // The first average is a plain mean of the first `period` ranges.
+      average += range / period;
+    } else {
+      average = (average * (period - 1) + range) / period;
+    }
+    if (index >= period - 1) {
+      points.push({ time: candle.time, value: (average / candle.close) * 100 });
+    }
+  });
+  return points;
+}
