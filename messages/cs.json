@@ -939,5 +939,12 @@
     "wrong": "Špatně.",
     "correctAnswer": "Správná odpověď",
     "yourAnswer": "Tvoje odpověď"
+  },
+  "NotFound": {
+    "metaTitle": "Stránka nenalezena",
+    "title": "Tahle stránka spadla o 100 %",
+    "description": "Hledaná stránka neexistuje – možná se přesunula, nebo je v adrese překlep. Profesor Knot to nese těžce, ale kurzy stojí pevně.",
+    "courses": "Zpátky na kurzy",
+    "home": "Na úvodní stránku"
   }
 }
