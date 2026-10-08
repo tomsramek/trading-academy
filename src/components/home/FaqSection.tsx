@@ -8,7 +8,14 @@ import {
 } from "@/components/ui/accordion";
 import { SectionHeading } from "./SectionHeading";
 
-const QUESTIONS = ["free", "advice", "courses", "money", "languages"] as const;
+const QUESTIONS = [
+  "free",
+  "rich",
+  "advice",
+  "money",
+  "courses",
+  "languages",
+] as const;
 
 export function FaqSection() {
   const t = useTranslations("Home.faq");
@@ -16,8 +23,8 @@ export function FaqSection() {
   return (
     <section id="faq" className="scroll-mt-20 py-16 sm:py-24">
       <Container className="flex flex-col gap-12">
-        <SectionHeading title={t("title")} />
-        <Accordion className="max-w-3xl">
+        <SectionHeading title={t("title")} centered />
+        <Accordion className="mx-auto w-full max-w-3xl">
           {QUESTIONS.map((key) => (
             <AccordionItem key={key} value={key}>
               <AccordionTrigger className="py-5 text-xl">
