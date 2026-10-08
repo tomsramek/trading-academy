@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "Why judge results in R rather than in money?",
+          "options": [
+            "R is a more precise currency",
+            "R shows the quality of trading regardless of account size",
+            "Money cannot be added up"
+          ],
+          "explanation": "A result in money changes with the size of the account and positions. A result in R shows how well you trade."
+        },
+        "cs": {
+          "question": "Proč hodnotit výsledky v R, ne v korunách?",
+          "options": [
+            "R je přesnější měna",
+            "R ukazuje kvalitu obchodování nezávisle na velikosti účtu",
+            "Koruny se nedají sčítat"
+          ],
+          "explanation": "Výsledek v korunách se mění s velikostí účtu i pozic. Výsledek v R ukazuje, jak dobře obchoduješ."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "You broke the rules and the trade ended in profit. How should you judge it?",
+          "options": [
+            "As a deserved reward",
+            "As proof the rules are pointless",
+            "As dangerous luck"
+          ],
+          "explanation": "The brain remembers that breaking the rules “works” – and next time tries it with a bigger position. That is why it is the most dangerous combination."
+        },
+        "cs": {
+          "question": "Porušil jsi pravidla a obchod skončil ziskem. Jak ho hodnotit?",
+          "options": [
+            "Jako zaslouženou odměnu",
+            "Jako důkaz, že pravidla jsou zbytečná",
+            "Jako nebezpečné štěstí"
+          ],
+          "explanation": "Mozek si zapamatuje, že porušení pravidel „funguje“ – a příště to zkusí s větší pozicí. Proto je to nejnebezpečnější kombinace."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The backtest promises a 40% win rate, you have 30% after 20 trades. What does it most likely mean?",
+          "options": [
+            "Probably nothing – such a swing happens about one time in four after 20 trades",
+            "The strategy is definitely broken",
+            "You must raise the risk right away"
+          ],
+          "explanation": "After 20 trades a win rate of 30% or less is ordinary bad luck (about 25%). After 100 trades only in 2.5% of cases – there it is a signal."
+        },
+        "cs": {
+          "question": "Backtest slibuje úspěšnost 40 %, ty máš po 20 obchodech 30 %. Co to nejspíš znamená?",
+          "options": [
+            "Nejspíš nic – takový výkyv se po 20 obchodech stane zhruba jednou ze čtyř",
+            "Strategie je určitě rozbitá",
+            "Musíš hned zvýšit riziko"
+          ],
+          "explanation": "Po 20 obchodech je úspěšnost 30 % a méně běžná smůla (zhruba 25 %). Po 100 obchodech už jen ve 2,5 % případů – tam je to signál."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "After a losing streak you want to add a filter that would have filtered them out. Why is it a trap?",
+          "options": [
+            "Filters never work",
+            "A filter built from the latest losses always looks great on them – it is overfitting",
+            "Because it takes too much time"
+          ],
+          "explanation": "A modified strategy has to be tested all the way again: backtest, out of sample, forward test. Otherwise it is overfitting in miniature."
+        },
+        "cs": {
+          "question": "Po sérii ztrát chceš přidat filtr, který by je odfiltroval. Proč je to past?",
+          "options": [
+            "Filtry nikdy nefungují",
+            "Filtr postavený podle posledních ztrát na nich vždy vypadá skvěle – je to přeučení",
+            "Protože to zabere moc času"
+          ],
+          "explanation": "Upravenou strategii je potřeba otestovat celou cestou znovu: backtest, mimo vzorek, forward test. Jinak jde o přeučení v malém."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What helps you trade for years without burning out?",
+          "options": [
+            "Watching the chart as much as possible so nothing slips by",
+            "Trading at night too, because crypto never sleeps",
+            "Alerts instead of watching the chart, a fixed time for trading and breaks in the plan"
+          ],
+          "explanation": "The crypto market never sleeps, you do. Alerts watch prices, a fixed time watches you, and breaks after a loss limit, under stress or after a big win protect the account."
+        },
+        "cs": {
+          "question": "Co pomáhá obchodovat dlouhodobě bez vyhoření?",
+          "options": [
+            "Sledovat graf co nejvíc, aby ti nic neuteklo",
+            "Obchodovat i v noci, protože krypto nikdy nespí",
+            "Upozornění místo sledování grafu, pevný čas na trading a pauzy v plánu"
+          ],
+          "explanation": "Kryptotrh nikdy nespí, ty ano. Upozornění hlídají ceny, pevný čas hlídá tebe a pauzy po limitu ztrát, ve stresu nebo po velkém zisku chrání účet."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

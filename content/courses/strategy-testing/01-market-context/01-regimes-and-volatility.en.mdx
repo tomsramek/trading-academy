@@ -1,0 +1,92 @@
+import btc from "@content/market-data/btcusdt-1d-2024-03-2025-05.json";
+
+export const metadata = {
+  title: "Market regimes and volatility",
+  description:
+    "Why the same strategy works one time and fails the next, how to tell a trend from a range and how to measure volatility with ATR.",
+};
+
+<Callout title="In this lesson">
+
+- understand what a market regime is and why it matters
+- learn to measure volatility with ATR
+- find out how volatility changes position size and the stop-loss
+
+</Callout>
+
+A strategy that works beautifully for a few months suddenly starts losing. The trader looks for a
+mistake in the rules – while it was the market that changed. A strong trend turned into a range,
+calm turned into a storm. This is called a <KeyTerm term="market-regime">market regime</KeyTerm>,
+and advanced trading starts with being able to recognise it.
+
+## Two axes: direction and volatility
+
+Put simply, a market can be described by two questions:
+
+- **Does it have a direction?** A trend (higher highs and lows, or lower), or a range with no clear
+  direction.
+- **How much does it move?** Calm with small daily moves, or a storm with big ones.
+
+That gives four regimes – a calm trend, a wild trend, a calm range and a wild range. Each favours a
+different type of strategy. A trend-following strategy bleeds on false signals in a range; a strategy
+betting on a return to the middle of a range loses in a strong trend on "cheap" purchases that keep
+getting cheaper.
+
+<Illustration name="regimeWeather" />
+
+## ATR: how much the price usually moves
+
+Volatility is measured by <KeyTerm term="atr">ATR</KeyTerm> (Average True Range). For each day it
+takes the range between the high and the low (also counting any gap from the previous close) and
+averages the last 14 days. The result says how much the price usually moves in a day.
+
+ATR is most useful as a **percentage of the price** – then you can compare a calm and a wild market at
+any price level. For Bitcoin, the median daily ATR was around 6% in 2021, around 3% in 2023 and below
+3% in 2025.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from March 2024 to May 2025 with ATR in a panel below: ATR around 6% in April 2024, around 3% in summer, a jump to 5.8% in the crash on 5 August 2024, around 2.8% in October and 6.4% in March 2025"
+  caption="Same market, different volatility: ATR swings roughly between 2.5 and 7% of the price a day."
+  indicators={{ atr: true }}
+  markers={[
+    { time: "2024-08-05", kind: "event", label: "Panic" },
+    { time: "2025-03-10", kind: "event", label: "ATR 6.4%" },
+  ]}
+/>
+
+On the chart you can see volatility take turns: around 6% in April 2024, around 3% in summer, a jump
+to 5.8% in the August panic, 2.8% in October and in March 2025 another peak –
+6.4%, as high as in March 2024.
+
+## What it means for a trade
+
+When ATR is 2%, a stop-loss 3% below the entry gives the price a little room. When ATR is 6%, the same
+stop-loss throws you out on an ordinary daily move. That is why advanced traders:
+
+- **set the stop-loss by volatility** – for example 1.5 to 2 ATR from the entry (more in module 2),
+- **shrink the position when volatility rises** – so the risk in money stays the same,
+- **adjust expectations** – there are no quick big profits in a calm market, and no calm nerves in a
+  wild one.
+
+<Callout type="warning" title="You only recognise a regime in hindsight">
+  Exactly when a trend ended and a range began only becomes clear a few weeks
+  later. That is why a strategy does not rely on regimes as a certainty – it
+  only adjusts position sizes and expectations to them.
+</Callout>
+
+## Common myths
+
+- **"The strategy stopped working, I have to redo it."** Maybe the regime just changed.
+- **"My stop-loss is always 3%."** In a calm market that is too much, in a wild one too little.
+- **"High volatility = more opportunities."** And just as many quick losses.
+
+<Callout title="Summary">
+
+- Market regime = direction (trend or range) and volatility (calm or storm).
+- Each regime favours a different type of strategy.
+- ATR as a percentage of the price shows how much the price usually moves in a day.
+- The stop-loss and position size are adjusted to volatility; you only recognise a regime reliably in
+  hindsight.
+
+</Callout>

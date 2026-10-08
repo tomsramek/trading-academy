@@ -1,0 +1,71 @@
+export const metadata = {
+  title: "Forward test a přechod na skutečné peníze",
+  slug: "forward-test",
+  description:
+    "Jak strategii vyzkoušet v reálném čase bez peněz, kdy přejít na malé částky a podle jakého předem stanoveného pravidla ji vypnout.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, co je forward test a proč nestačí backtest
+- naučíš se postupně přejít na skutečné peníze
+- nastavíš si předem pravidla, kdy strategii vypnout
+
+</Callout>
+
+Backtest i walk-forward pracují s minulostí, kterou už znáš. Poslední zkouška je budoucnost: obchodovat
+podle pravidel v reálném čase, bez možnosti „podívat se dopředu“. Tomu se říká <KeyTerm term="forward-test">forward test</KeyTerm>.
+
+<Illustration name="testPilot" />
+
+## 1. Forward test bez peněz
+
+Několik měsíců obchoduj podle pravidel na demo účtu nebo jen v deníku. Zapisuj každý signál přesně ve
+chvíli, kdy vznikne – ne zpětně. Hlídáš tím dvě věci:
+
+- **Odpovídají výsledky backtestu?** Ne přesně – ale měly by být v podobném rozmezí (úspěšnost, průměrný
+  zisk a ztráta, drawdown).
+- **Zvládneš pravidla dodržovat?** V backtestu nikdo nezaváhá. Ve skutečnosti ano.
+
+## 2. Malé peníze
+
+Když forward test neukáže nic znepokojivého, přejdi na **malé částky** – tak malé, aby tě ztráta
+nebolela. Skutečné peníze přinesou to, co demo nemá: skluz, výpadky, poplatky za výběr a hlavně emoce.
+
+## 3. Postupné zvětšování
+
+Velikost zvětšuj **po krocích a podle pravidla**, ne podle nálady. Třeba: po každých 30 obchodech, pokud
+jsou výsledky v rozmezí backtestu, zvyš riziko na obchod o čtvrtinu – nejvýš na úroveň z obchodního plánu.
+
+## Pravidlo pro vypnutí
+
+Nejdůležitější rozhodnutí uděláš **předem**: kdy strategii vypneš. Například:
+
+- drawdown přesáhne **1,5násobek** maximálního drawdownu z backtestu,
+- série ztrát je **delší než nejdelší série** v backtestu,
+- trh se zásadně změní tak, že přestane platit hypotéza.
+
+Bez takového pravidla budeš ve špatném období přemýšlet „ještě chvíli“ – a „ještě chvíli“ umí trvat
+dlouho a stát hodně.
+
+<Callout type="risk" title="Úspěšný test není záruka">
+  Ani strategie, která prošla backtestem, walk-forwardem i forward testem,
+  nemusí v budoucnu vydělávat. Testy jen snižují pravděpodobnost, že děláš něco
+  zjevně špatně. Riskuj jen peníze, o které si můžeš dovolit přijít.
+</Callout>
+
+## Časté omyly
+
+- **„Backtest vyšel, jdu rovnou s celým účtem.“** Přeskočil jsi dva nejlevnější kroky.
+- **„Demo není skutečné, nemá smysl.“** Ukáže, jestli pravidla zvládneš dodržovat, a odhalí chyby
+  v pravidlech.
+- **„Kdy to vypnu, rozhodnu, až to přijde.“** Až to přijde, rozhodnou emoce.
+
+<Callout title="Shrnutí">
+
+- Forward test = obchodování podle pravidel v reálném čase, nejdřív bez peněz.
+- Pak malé částky a postupné zvětšování podle pravidla.
+- Pravidlo pro vypnutí strategie si stanov předem – podle drawdownu a sérií ztrát z backtestu.
+- Ani úspěšné testy nezaručují zisk.
+
+</Callout>

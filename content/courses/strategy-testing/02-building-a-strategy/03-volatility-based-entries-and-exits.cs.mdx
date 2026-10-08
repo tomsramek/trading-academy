@@ -1,0 +1,84 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Vstupy a výstupy podle volatility",
+  slug: "vstupy-a-vystupy-podle-volatility",
+  description:
+    "Stop-loss a trailing stop z ATR, velikost pozice, která se přizpůsobí trhu, a poctivý příklad, kdy to nevyšlo.",
+};
+
+<Callout title="V této lekci">
+
+- nastavíš stop-loss podle volatility místo pevného procenta
+- spočítáš velikost pozice, která drží riziko stejné
+- uvidíš trailing stop z ATR – i jeho slabé místo
+
+</Callout>
+
+Stop-loss „vždycky 5 %“ je jednoduchý, ale hloupý: v klidném trhu je zbytečně daleko, v divokém
+zbytečně blízko. ATR z první lekce ti dává měřítko, které se trhu přizpůsobí samo.
+
+## Stop-loss podle ATR
+
+Běžné pravidlo: stop-loss **1,5 až 3 ATR** od vstupu. Cena tak má prostor pro svůj obvyklý denní
+pohyb a stop-loss se spustí až tehdy, když se stane něco neobvyklého.
+
+Příklad: 14. října 2024 zavřel Bitcoin na 66 084 a ATR bylo 2 116 (3,2 % ceny). Stop-loss 2 ATR pod
+vstupem: 66 084 − 2 × 2 116 = **61 852**, tedy 6,4 % pod vstupem.
+
+## Velikost pozice, která se přizpůsobí
+
+Teď vzorec z minulého kurzu: **velikost pozice = riziko ÷ vzdálenost stop-lossu**. Při riziku
+500 Kč a stop-lossu 6,4 % je pozice zhruba **7 800 Kč**.
+
+Kdyby bylo ATR 5,9 % – jako v dubnu 2024 –, stop-loss 2 ATR by byl skoro 12 % pod vstupem a pozice by
+se zmenšila na zhruba **4 200 Kč**. Riziko v korunách zůstane stejné, jen pozice dýchá s trhem:
+v divokém trhu menší, v klidném větší. Tomu se říká <KeyTerm term="volatility-sizing">velikost pozice podle volatility</KeyTerm>.
+
+<Illustration name="breathingStop" />
+
+## Trailing stop z ATR
+
+Stop-loss se dá posouvat za cenou: třeba **3 ATR pod nejvyšší cenou od vstupu**. Když cena roste,
+stop jde nahoru; když se cena prudce zvedne a volatilita s ní, dá stop víc prostoru.
+
+A teď poctivě, jak to dopadlo s naším obchodem:
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od října 2023 do prosince 2024 s ATR v panelu pod grafem: vstup 14. října 2024 za 66 084, stop-loss 2 ATR na 61 852, výstup trailing stopem 3 ATR 4. listopadu za zhruba 67 200, dva dny před průlomem nad 73 800"
+  caption="Ukázkový obchod – vysvětlení, ne doporučení. Trailing stop vyhodil obchod se ziskem 4. listopadu, dva dny před velkým růstem."
+  indicators={{ atr: true }}
+  levels={[
+    { price: 66084, kind: "entry" },
+    { price: 61852, kind: "stopLoss", label: "Stop 2 ATR" },
+  ]}
+  markers={[
+    { time: "2024-10-14", kind: "buy" },
+    { time: "2024-11-04", kind: "sell", label: "Trailing stop" },
+  ]}
+/>
+
+Cena vystoupala až na 73 620, pak se vrátila a 4. listopadu trailing stop obchod zavřel zhruba na
+67 200 – s malým ziskem. O dva dny později přišel průlom nad 73 800 a do konce měsíce cena vyrostla skoro na 100 000. Trailing stop udělal přesně to, co měl – a stejně by tě ten den hodně mrzel.
+
+<Callout type="warning" title="Dokonalý stop-loss neexistuje">
+  Těsný stop tě vyhodí z dobrých obchodů, volný nechá ztráty narůst. ATR dává
+  rozumné měřítko, ne dokonalé načasování. Proto se stop-loss volí předem a
+  hodnotí se na stovkách obchodů, ne na jednom.
+</Callout>
+
+## Časté omyly
+
+- **„Stop 2 ATR je ten správný.“** Je to rozumný začátek, ne magické číslo.
+- **„Divoký trh = větší pozice, víc vydělám.“** Naopak: větší volatilita, menší pozice.
+- **„Trailing stop mě vyhodil těsně před růstem, takže je špatný.“** Jeden obchod nic nedokazuje.
+
+<Callout title="Shrnutí">
+
+- Stop-loss podle ATR (1,5–3 ATR) se přizpůsobí volatilitě trhu.
+- Velikost pozice = riziko ÷ vzdálenost stopu: v divokém trhu menší, v klidném větší.
+- Trailing stop z ATR jde za cenou a dává prostor podle volatility.
+- Žádná metoda stop-lossu není dokonalá – hodnotí se na mnoha obchodech.
+
+</Callout>

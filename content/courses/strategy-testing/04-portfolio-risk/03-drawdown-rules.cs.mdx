@@ -1,0 +1,93 @@
+export const metadata = {
+  title: "Pravidla pro drawdown",
+  slug: "pravidla-pro-drawdown",
+  description:
+    "Jaký propad je pro tvou strategii normální, jak předem odstupňovat snižování rizika a co pravidlo stojí a co přinese – v simulaci.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, jaký propad je pro tvou strategii normální
+- nastavíš odstupňovaná pravidla pro snižování rizika
+- uvidíš v simulaci, co takové pravidlo stojí a co přinese
+
+</Callout>
+
+Z minulého kurzu víš, že propad se dohání hůř, než vzniká, a máš denní a týdenní limity ztrát. Ty tě chrání
+před jedním špatným dnem. Tahle lekce je o horším nepříteli: o pomalém propadu přes týdny a měsíce, kdy
+každý jednotlivý obchod vypadá v pořádku – a účet přesto klesá.
+
+<Illustration name="drawdownStairs" />
+
+## Jaký propad je normální
+
+Každá strategie má propady. Otázka nezní „jestli“, ale „jak velké jsou ještě normální“. Odpověď ti dá
+backtest, nebo simulace jako v minulé lekci.
+
+Příklad: strategie s úspěšností 40 %, ziskem 2R a rizikem **2 %** na obchod. V simulaci 200 obchodů je
+medián největšího propadu **23 %** a jen 5 % průběhů propadne o víc než **38 %**. Nejdelší série ztrát
+bývá kolem **9 obchodů**.
+
+Pro tuhle strategii je tedy propad o 20 % nepříjemný, ale normální. Propad o 45 % už normální není –
+a něco se nejspíš změnilo. Bez téhle znalosti bys u 20 % zpanikařil, nebo u 45 % pořád čekal.
+
+## Odstupňovaná pravidla
+
+Pravidla se nastavují **předem** a měří se od posledního vrcholu <KeyTerm term="equity-curve">křivky kapitálu</KeyTerm>:
+
+| Propad od vrcholu  | Co uděláš                                                                     |
+| ------------------ | ----------------------------------------------------------------------------- |
+| 10 %               | Riziko na obchod na polovinu. Projdi deník: dodržuješ pravidla?               |
+| 20 %               | Riziko na čtvrtinu. Porovnej výsledky s backtestem – úspěšnost, zisky, série. |
+| Za hranicí z testu | Stop. Strategie se vrací do forward testu bez peněz.                          |
+| Nový vrchol        | Plné riziko zpátky.                                                           |
+
+Řádek „za hranicí z testu“ je pravidlo pro vypnutí z lekce o forward testu: třeba 1,5násobek největšího propadu
+z backtestu.
+
+## Co pravidlo stojí a co přinese
+
+Simulace se stejnou strategií (riziko 2 %, 200 obchodů, 20 000 průběhů; jen kroky 10 % a 20 %). Jednou strategie funguje
+(úspěšnost 40 %), jednou přestala fungovat (úspěšnost 33 % – očekávaná hodnota je skoro nulová):
+
+| Úspěšnost        | Pravidla     | Účet (medián) | Propad, který překročí jen 5 % průběhů | Šance na propad 30 % a víc |
+| ---------------- | ------------ | ------------- | -------------------------------------- | -------------------------- |
+| 40 % (funguje)   | bez pravidel | 2,04×         | 38 %                                   | 19 %                       |
+| 40 % (funguje)   | odstupňovaná | 1,71×         | 24 %                                   | skoro žádná                |
+| 33 % (nefunguje) | bez pravidel | 0,89×         | 61 %                                   | 75 %                       |
+| 33 % (nefunguje) | odstupňovaná | 0,90×         | 32 %                                   | 10 %                       |
+
+Pravidlo je **pojistka**: když strategie funguje, stojí tě část zisku (2,04× proti 1,71×), protože po
+propadu dohání ztrátu menšími pozicemi. Když strategie přestane fungovat, zabrání nejhoršímu –
+v nejhorších průbězích z propadu 61 % udělá 32 %. A dokud nevíš, která z těch dvou situací nastala,
+nedá se to rozhodnout jinak než pravidlem.
+
+<Callout type="risk" title="Simulace, ne předpověď">
+  Čísla jsou náhodná simulace vymyšlené strategie. Ukazují, jak pravidla
+  fungují, ne kolik vyděláš. Skutečný trh má navíc skluz, mezery v cenách a
+  krachy, které simulace nezná.
+</Callout>
+
+## Proč ne „ještě chvíli“
+
+V propadu se mozek přepne: chce ztrátu rychle vrátit (zvětšit pozice) nebo ji nevidět (přestat se dívat
+a nic neměnit). Obojí je opak toho, co dělá pravidlo. Proto pravidla:
+
+- **napiš předem** do obchodního plánu, i s čísly,
+- **počítej z účtu, ne z pocitu** – jednou týdně si zapiš, kde je účet proti vrcholu,
+- **neměň je během propadu.** Úpravu udělej až po vyhodnocení, v klidu, a otestuj ji.
+
+## Časté omyly
+
+- **„Po propadu musím riskovat víc, abych to dohnal.“** Přesně tak vznikají krachy účtů.
+- **„Snížit riziko = přiznat, že strategie nefunguje.“** Ne – je to pojistka pro případ, že nevíš.
+- **„20 % propad? Strategie je rozbitá.“** Záleží na tom, co je pro ni normální. Zjisti to předem.
+
+<Callout title="Shrnutí">
+
+- Zjisti z backtestu nebo simulace, jaký propad je pro tvou strategii normální.
+- Odstupňuj snižování rizika předem: třeba při 10 % polovina, při 20 % čtvrtina, za hranicí z testu stop.
+- Pravidlo stojí část zisku, když vše funguje, a zachrání účet, když ne.
+- Pravidla neměň během propadu.
+
+</Callout>

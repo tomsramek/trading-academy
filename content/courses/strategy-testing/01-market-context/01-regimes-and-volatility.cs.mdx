@@ -1,0 +1,88 @@
+import btc from "@content/market-data/btcusdt-1d-2024-03-2025-05.json";
+
+export const metadata = {
+  title: "Tržní režimy a volatilita",
+  slug: "trzni-rezimy-a-volatilita",
+  description:
+    "Proč stejná strategie jednou funguje a jindy ne, jak poznat trend a pásmo a jak měřit volatilitu pomocí ATR.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, co je tržní režim a proč na něm záleží
+- naučíš se měřit volatilitu pomocí ATR
+- zjistíš, jak volatilita mění velikost pozice i stop-loss
+
+</Callout>
+
+Strategie, která pár měsíců skvěle funguje, pak najednou začne prodělávat. Obchodník hledá chybu
+v pravidlech – a přitom se změnil trh. Ze silného trendu bylo pásmo, z klidu bouře. Tomu se říká <KeyTerm term="market-regime">tržní režim</KeyTerm> a pokročilé obchodování začíná tím, že ho
+umíš poznat.
+
+## Dvě osy: směr a volatilita
+
+Trh se dá zjednodušeně popsat dvěma otázkami:
+
+- **Má směr?** Trend (vyšší maxima a minima, nebo nižší), nebo pásmo bez jasného směru.
+- **Jak moc se hýbe?** Klid s malými denními pohyby, nebo bouře s velkými.
+
+Z toho vzniknou čtyři režimy – klidný trend, divoký trend, klidné pásmo a divoké pásmo. Každý
+přeje jinému typu strategie. Strategie sledující trend v pásmu krvácí na falešných signálech,
+strategie hrající na návrat do pásma v silném trendu prodělá na „levných“ nákupech, které zlevňují
+dál.
+
+<Illustration name="regimeWeather" />
+
+## ATR: kolik se cena obvykle hýbe
+
+Volatilitu měří <KeyTerm term="atr">ATR</KeyTerm> (_Average True Range_, průměrné skutečné rozpětí).
+Pro každý den vezme rozpětí mezi maximem a minimem (a počítá i s mezerou proti předchozí zavírací
+ceně), z posledních 14 dní udělá průměr. Výsledek říká, o kolik se cena za den obvykle pohne.
+
+Užitečné je ATR v **procentech ceny** – pak jde porovnat klidný a divoký trh při jakékoli ceně.
+U Bitcoinu se medián denního ATR pohyboval kolem 6 % v roce 2021, kolem 3 % v roce 2023 a pod 3 %
+v roce 2025.
+
+<CandleChart
+  data={btc}
+  label="Denní graf Bitcoinu od března 2024 do května 2025 s ATR v panelu pod grafem: ATR kolem 6 % v dubnu 2024, kolem 3 % v létě, skok na 5,8 % při pádu 5. srpna 2024, kolem 2,8 % v říjnu a 6,4 % v březnu 2025"
+  caption="Stejný trh, jiná volatilita: ATR kolísá zhruba mezi 2,5 a 7 % ceny denně."
+  indicators={{ atr: true }}
+  markers={[
+    { time: "2024-08-05", kind: "event", label: "Panika" },
+    { time: "2025-03-10", kind: "event", label: "ATR 6,4 %" },
+  ]}
+/>
+
+Na grafu vidíš, jak se volatilita střídá: v dubnu 2024 kolem 6 %, v létě kolem 3 %, při srpnové
+panice skok na 5,8 %, v říjnu 2,8 % a v březnu 2025 další vrchol – 6,4 %, stejně jako v březnu 2024.
+
+## Co to znamená pro obchod
+
+Když je ATR 2 %, stop-loss 3 % pod vstupem dává ceně trochu prostoru. Když je ATR 6 %, stejný
+stop-loss tě vyhodí při běžném denním pohybu. Proto pokročilí obchodníci:
+
+- **dávají stop-loss podle volatility** – třeba 1,5 až 2 ATR od vstupu (víc v modulu 2),
+- **zmenšují pozici, když volatilita roste** – riziko v korunách tak zůstane stejné,
+- **mění očekávání** – v klidném trhu neexistují rychlé velké zisky, v divokém zase klidné nervy.
+
+<Callout type="warning" title="Režim poznáš až zpětně">
+  Kdy přesně trend skončil a začalo pásmo, je jasné až po pár týdnech. Proto se
+  strategie na režimy nespoléhá jako na jistotu – jen podle nich upravuje
+  velikost pozic a očekávání.
+</Callout>
+
+## Časté omyly
+
+- **„Strategie přestala fungovat, musím ji předělat.“** Možná se jen změnil režim.
+- **„Stop-loss mám vždycky 3 %.“** V klidném trhu je to moc, v divokém málo.
+- **„Vysoká volatilita = víc příležitostí.“** A stejně tak víc rychlých ztrát.
+
+<Callout title="Shrnutí">
+
+- Tržní režim = směr (trend, nebo pásmo) a volatilita (klid, nebo bouře).
+- Každý režim přeje jinému typu strategie.
+- ATR v procentech ceny ukazuje, o kolik se cena obvykle za den pohne.
+- Podle volatility se upravuje stop-loss i velikost pozice; režim poznáš spolehlivě až zpětně.
+
+</Callout>

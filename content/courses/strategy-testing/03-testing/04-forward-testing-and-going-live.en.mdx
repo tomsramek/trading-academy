@@ -1,0 +1,72 @@
+export const metadata = {
+  title: "Forward testing and going live",
+  description:
+    "How to try a strategy in real time without money, when to move to small amounts and by what rule, set in advance, to switch it off.",
+};
+
+<Callout title="In this lesson">
+
+- find out what a forward test is and why a backtest is not enough
+- learn to move to real money step by step
+- set rules in advance for when to switch the strategy off
+
+</Callout>
+
+A backtest and walk-forward work with a past you already know. The final exam is the future: trading by
+the rules in real time, with no way to "peek ahead". This is called a <KeyTerm term="forward-test">forward test</KeyTerm>.
+
+<Illustration name="testPilot" />
+
+## 1. A forward test without money
+
+For a few months, trade by the rules on a demo account or just in your journal. Record every signal right
+when it appears – not afterwards. You are checking two things:
+
+- **Do the results match the backtest?** Not exactly – but they should be in a similar range (win rate,
+  average win and loss, drawdown).
+- **Can you follow the rules?** In a backtest nobody hesitates. In reality people do.
+
+## 2. Small money
+
+If the forward test shows nothing worrying, move to **small amounts** – so small that a loss does not hurt.
+Real money brings what a demo does not: slippage, outages, withdrawal fees and above all emotions.
+
+## 3. Scaling up step by step
+
+Increase the size **in steps and by a rule**, not by mood. For example: after every 30 trades, if the
+results are within the backtest range, raise the risk per trade by a quarter – at most to the level in your
+trading plan.
+
+## The switch-off rule
+
+You make the most important decision **in advance**: when you will switch the strategy off. For example:
+
+- the drawdown exceeds **1.5 times** the maximum drawdown in the backtest,
+- a losing streak is **longer than the longest streak** in the backtest,
+- the market changes so fundamentally that the hypothesis no longer holds.
+
+Without such a rule, in a bad period you will think "just a bit longer" – and "just a bit longer" can last a
+long time and cost a lot.
+
+<Callout type="risk" title="A successful test is not a guarantee">
+  Even a strategy that passed a backtest, walk-forward and a forward test may
+  not make money in the future. Tests only lower the chance that you are doing
+  something obviously wrong. Risk only money you can afford to lose.
+</Callout>
+
+## Common myths
+
+- **"The backtest worked, I am going straight in with the whole account."** You skipped the two cheapest
+  steps.
+- **"A demo is not real, it is pointless."** It shows whether you can follow the rules and reveals
+  mistakes in them.
+- **"I will decide when to switch it off when the time comes."** When the time comes, emotions will decide.
+
+<Callout title="Summary">
+
+- Forward test = trading by the rules in real time, first without money.
+- Then small amounts and scaling up step by step, by a rule.
+- Set the switch-off rule in advance – based on the drawdown and losing streaks from the backtest.
+- Even successful tests do not guarantee a profit.
+
+</Callout>

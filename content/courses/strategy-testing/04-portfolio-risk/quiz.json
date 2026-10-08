@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "You have open positions on Bitcoin, Ether and Solana, each risking 1%. What is the real risk?",
+          "options": [
+            "1%, because they are spread",
+            "Just under 1%, diversification lowers risk",
+            "Close to one 3% bet – in a downturn all stops often trigger at once"
+          ],
+          "explanation": "Of the 80 days when Bitcoin fell more than 5%, all three coins fell on 72. Correlated positions are one bet."
+        },
+        "cs": {
+          "question": "Máš otevřené pozice na Bitcoin, Ether a Solanu, každou s rizikem 1 %. Jaké je skutečné riziko?",
+          "options": [
+            "1 %, protože jsou rozložené",
+            "Necelé 1 %, diverzifikace riziko snižuje",
+            "Blízko jedné sázky za 3 % – při propadu se často spustí všechny stopy najednou"
+          ],
+          "explanation": "Ze 80 dnů, kdy Bitcoin spadl o víc než 5 %, klesly všechny tři mince v 72 dnech. Korelované pozice jsou jedna sázka."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What happens to crypto correlations in a downturn?",
+          "options": [
+            "They usually rise – spreading disappears when it is needed most",
+            "They drop to zero",
+            "They do not change"
+          ],
+          "explanation": "In 2021 the average correlation of Bitcoin, Ether and Solana was 0.55, in the bear year of 2022 already 0.84."
+        },
+        "cs": {
+          "question": "Co se děje s korelací kryptoměn v propadu?",
+          "options": [
+            "Obvykle roste – rozložení mizí, když je nejvíc potřeba",
+            "Klesá na nulu",
+            "Nemění se"
+          ],
+          "explanation": "V roce 2021 byla průměrná korelace Bitcoinu, Etheru a Solany 0,55, v medvědím roce 2022 už 0,84."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "A 40% win rate, a 2R win, a 1R loss. What does the Kelly criterion give?",
+          "options": ["40%", "10%", "2%"],
+          "explanation": "f = p − (1 − p) ÷ b = 0.4 − 0.6 ÷ 2 = 0.10. That is the ceiling for maximum growth, not a recommended risk – in practice only a fraction is used."
+        },
+        "cs": {
+          "question": "Úspěšnost 40 %, zisk 2R, ztráta 1R. Kolik vychází Kellyho vzorec?",
+          "options": ["40 %", "10 %", "2 %"],
+          "explanation": "f = p − (1 − p) ÷ b = 0,4 − 0,6 ÷ 2 = 0,10. To je strop pro maximální růst, ne doporučené riziko – v praxi se používá jen zlomek."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What happens if you risk twice the Kelly number?",
+          "options": [
+            "The account grows twice as fast",
+            "Growth is the same, just bumpier",
+            "Growth almost stops and drawdowns are huge"
+          ],
+          "explanation": "Beyond the Kelly number, more risk means less money. In the simulation, twice Kelly ended 200 trades almost where it started, with a drawdown of around 98%."
+        },
+        "cs": {
+          "question": "Co se stane, když riskuješ dvojnásobek Kellyho čísla?",
+          "options": [
+            "Účet roste dvakrát rychleji",
+            "Růst je stejný, jen s většími výkyvy",
+            "Růst se skoro zastaví a propady jsou obrovské"
+          ],
+          "explanation": "Za Kellyho číslem víc rizika znamená méně peněz. V simulaci skončil dvojnásobek Kellyho po 200 obchodech skoro tam, kde začal, s propadem kolem 98 %."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does the rule “halve the risk at a 10% drawdown” cost and gain?",
+          "options": [
+            "It costs part of the profit when the strategy works and limits the damage when it stops",
+            "It costs nothing and always raises profit",
+            "It costs a lot and gains nothing"
+          ],
+          "explanation": "In the simulation it lowered the result of a working strategy from 2.04× to 1.71×, but for a broken strategy it cut the worst drawdowns from 61% to 32%. It is insurance."
+        },
+        "cs": {
+          "question": "Co stojí a co přináší pravidlo „při propadu 10 % polovina rizika“?",
+          "options": [
+            "Stojí část zisku, když strategie funguje, a omezí škody, když přestane",
+            "Nestojí nic a vždy zvýší zisk",
+            "Stojí hodně a nic nepřinese"
+          ],
+          "explanation": "V simulaci snížilo výsledek fungující strategie z 2,04× na 1,71×, ale u nefungující strategie zmenšilo nejhorší propady z 61 % na 32 %. Je to pojistka."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

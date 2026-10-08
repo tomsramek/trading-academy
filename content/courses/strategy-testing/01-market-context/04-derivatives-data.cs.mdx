@@ -1,0 +1,89 @@
+import funding from "./btc-funding.json";
+
+export const metadata = {
+  title: "Data z derivátů jako informace",
+  slug: "data-z-derivatu",
+  description:
+    "Funding, open interest a vlny likvidací: jak z trhu s pákou vyčíst náladu, i když s pákou sám neobchoduješ.",
+};
+
+<Callout title="V této lekci">
+
+- naučíš se číst funding jako teploměr nálady
+- pochopíš, co ukazuje open interest
+- zjistíš, jak vzniká vlna likvidací
+
+</Callout>
+
+V minulém kurzu jsme si řekli, že futures s pákou nejsou pro začátečníky. To platí pořád. Ale trh
+s pákou je obrovský a jeho data jsou veřejná – a prozradí, jak moc je trh přehřátý, i když sám
+obchoduješ jen na spotu.
+
+## Funding jako teploměr
+
+Připomenutí: <KeyTerm term="funding-rate">funding</KeyTerm> si platí obchodníci s perpetual futures
+mezi sebou, aby cena kontraktu zůstala u spotu. Když se kontrakt obchoduje nad spotem (víc zájmu
+o longy), platí longy shortům.
+
+Pro nás je zajímavé, **jak vysoký funding je**. Přepočtený na rok ukazuje, kolik jsou lidé ochotni
+platit za to, aby mohli sázet na růst s pákou:
+
+- Medián denního fundingu u Bitcoinu od roku 2021 vychází zhruba na **9 % ročně**.
+- V únoru 2021 byl týdenní průměr přes **120 % ročně** – trh byl plný páky.
+- V březnu 2024, kolem tehdejšího maxima, kolem **50 % ročně**.
+- Po krachu burzy FTX v listopadu 2022 byl funding **záporný** – víc lidí sázelo na pokles.
+
+<LineChart
+  data={funding}
+  label="Týdenní průměr fundingu Bitcoinu na Binance přepočtený na rok, od ledna 2021 do září 2025: přes 120 % v únoru 2021, kolem 50 % v březnu 2024 a záporný v listopadu 2022"
+  caption="Funding (týdenní průměr, % ročně). Vysoký funding = přeplněné longy, záporný = strach."
+  lines={[{ key: "funding", label: "Funding BTC (% ročně)" }]}
+  percent
+/>
+
+<Illustration name="feverThermometer" />
+
+## Open interest
+
+Ukazatel <KeyTerm term="open-interest">open interest</KeyTerm> je počet otevřených
+kontraktů – kolik peněz s pákou je právě v trhu. Čte se spolu s cenou:
+
+- **cena roste a open interest roste** – do trhu přitéká nová páka; růst má palivo i riziko,
+- **cena roste a open interest klesá** – shorty zavírají pozice, často krátkodobý výstřel,
+- **cena padá a open interest prudce klesá** – pozice se zavírají nebo likvidují.
+
+## Vlna likvidací
+
+Když je v trhu hodně páky, stačí menší pohyb, aby začaly likvidace. Burza zlikvidované longy
+prodává za trh – to stlačí cenu, což spustí další likvidace. Vznikne kaskáda, která cenu na pár
+hodin hodí daleko za „rozumnou“ úroveň. Odtud pocházejí dlouhé knoty na denních svíčkách – jako 5. března 2024 nebo 5. srpna 2024.
+
+## Jak to použít
+
+- **Extrémně vysoký funding = opatrnost.** Neříká, že cena spadne zítra. Říká, že je trh přeplněný
+  a pád by mohl být prudký.
+- **Záporný funding v propadu = strach.** Trh plný shortů umí rychle vyletět, když se shorty začnou
+  krýt.
+- **Data z derivátů jsou kontext**, stejně jako makro. Jsou součástí tvého obrazu trhu, ne signálem
+  k obchodu.
+
+<Callout type="warning" title="Přehřátý trh může být přehřátý dlouho">
+  Vysoký funding se může držet týdny, zatímco cena roste dál. Kdo podle něj sází
+  proti trhu, zaplatí stejně jako ten, kdo prodává jen proto, že je RSI nad 70.
+</Callout>
+
+## Časté omyly
+
+- **„Funding je vysoký, takže shortuju.“** Přeplněný trh může růst déle, než vydržíš.
+- **„Open interest roste, takže cena poroste.“** Roste jen množství páky – na obě strany.
+- **„Neobchoduju futures, tak mě to nezajímá.“** Likvidace na futures hýbou i cenou na spotu.
+
+<Callout title="Shrnutí">
+
+- Funding přepočtený na rok ukazuje, kolik lidé platí za páku na růst; extrémy značí přehřátí nebo
+  strach.
+- Open interest = množství páky v trhu; čte se spolu s cenou.
+- Vlny likvidací dělají z menších pohybů prudké propady a dlouhé knoty.
+- Data z derivátů jsou kontext, ne signál k obchodu.
+
+</Callout>

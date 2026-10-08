@@ -1,0 +1,84 @@
+export const metadata = {
+  title: "Korelované pozice jsou jedna sázka",
+  slug: "korelovane-pozice",
+  description:
+    "Proč tři obchody na Bitcoin, Ether a Solanu nejsou tři různá rizika, kolik nezávislých sázek opravdu máš a jak omezit celkové riziko.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, proč tři kryptoměny v portfoliu riziko nerozloží
+- spočítáš, kolik nezávislých sázek ve skutečnosti máš
+- nastavíš si limit pro celkové riziko korelovaných pozic
+
+</Callout>
+
+Riskuješ 1 % na obchod a máš otevřené tři: Bitcoin, Ether a Solanu. Celkem 3 %, ale rozložené – tři různé
+mince, tři různé příběhy. Jenže z druhé lekce víš, že tyhle tři se pohybují hodně podobně. Když trh
+spadne, často se spustí všechny tři stop-lossy najednou. Nemáš tři sázky po 1 %. Máš jednu sázku za 3 %.
+
+<Illustration name="eggsBasket" />
+
+## Co ukazují data
+
+Denní data od ledna 2021 do září 2025 (Binance):
+
+- Ze **80 dnů**, kdy Bitcoin spadl o víc než 5 %, klesly všechny tři mince v **72 dnech**. Portfolio
+  ze všech tří rovným dílem ztratilo v průměru **8,1 %** – víc než samotný Bitcoin.
+- Nejhorší den, 19. května 2021, ztratil Bitcoin 15 %, portfolio ze tří mincí **27 %**.
+- Kolísání (roční volatilita) samotného Bitcoinu bylo 59 %, portfolia ze tří mincí **75 %**.
+
+Přidání dalších kryptoměn tedy riziko nesnížilo, ale zvýšilo: přidal jsi mince, které se pohybují stejným
+směrem a ještě prudčeji.
+
+## Kolik sázek opravdu máš
+
+Skutečná <KeyTerm term="diversification">diverzifikace</KeyTerm> funguje jen u věcí, které se nepohybují
+spolu. Hrubý odhad dává jednoduchý vzorec:
+
+**počet nezávislých sázek ≈ n ÷ (1 + (n − 1) × ρ)**
+
+kde _n_ je počet pozic a _ρ_ průměrná <KeyTerm term="correlation">korelace</KeyTerm> mezi nimi.
+
+| Pozice                             | Průměrná korelace | Nezávislých sázek |
+| ---------------------------------- | ----------------- | ----------------- |
+| 3 nezávislé                        | 0                 | 3                 |
+| Bitcoin, Ether, Solana             | 0,68              | zhruba 1,3        |
+| 10 altcoinů                        | 0,7               | zhruba 1,4        |
+| Bitcoin, Ether, Solana v roce 2022 | 0,84              | zhruba 1,1        |
+
+Deset altcoinů v portfoliu je tedy riziko zhruba jedné a půl pozice, ne deseti. A v propadu, kdy by
+rozložení bylo nejvíc potřeba, korelace roste: v roce 2021 byla mezi těmi třemi mincemi v průměru 0,55,
+v medvědím roce 2022 už 0,84.
+
+## Jak s tím pracovat
+
+1. **Sečti riziko korelovaných pozic.** Všechny dlouhé pozice na kryptoměnách ber jako jednu sázku na
+   kryptotrh.
+2. **Stanov limit na celkové riziko.** Například: jednotlivý obchod nejvýš 1 %, všechny korelované pozice
+   dohromady nejvýš 2 %. Třetí obchod pak buď nevznikne, nebo se všechny zmenší.
+3. **Hledej skutečně jiné zdroje výsledků.** Jiný typ strategie (sledování trendu a návrat k průměru
+   často vydělávají v jiných obdobích), jiný časový rámec, nebo prostě hotovost a stablecoiny, které
+   s trhem nepadají.
+
+<Callout type="warning" title="Krátká pozice není automaticky zajištění">
+  Long na Solanu a short na Bitcoin vypadá jako vyvážená dvojice. Jenže Solana
+  kolísá skoro dvakrát víc – v propadu ztratíš na longu víc, než vyděláš na
+  shortu. Zajištění se musí počítat, ne odhadovat od oka.
+</Callout>
+
+## Časté omyly
+
+- **„Mám deset různých coinů, jsem diverzifikovaný.“** Máš jednu sázku na kryptotrh v deseti obalech.
+- **„Každý obchod má stop-loss 1 %, víc nemůžu ztratit.“** Při propadu se spustí všechny najednou – a se
+  skluzem i hůř.
+- **„Korelace je 0,6, to je málo.“** V klidném trhu možná. V krachu bývá mnohem vyšší.
+
+<Callout title="Shrnutí">
+
+- Kryptoměny se pohybují spolu: tři pozice na hlavních mincích jsou zhruba jedna sázka.
+- Počet nezávislých sázek ≈ n ÷ (1 + (n − 1) × ρ); při korelaci 0,7 nepřekročí zhruba 1,4, ať přidáš pozic kolik chceš.
+- Sčítej riziko korelovaných pozic a stanov pro něj limit.
+- Opravdové rozložení přinese jiný typ strategie, časový rámec nebo hotovost – ne další altcoin.
+
+</Callout>

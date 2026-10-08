@@ -518,6 +518,137 @@
         "book": "LESSON 1",
         "bookRisk": "RISK",
         "caption": "On the left a promise, on the right an education. Guess which one wants to sell you something."
+      },
+      "regimeWeather": {
+        "label": "A weather presenter points at a forecast of four market regimes: calm and wild trend, calm and wild range with a lightning bolt",
+        "calmTrend": "calm trend",
+        "wildTrend": "wild trend",
+        "calmRange": "calm range",
+        "wildRange": "wild range",
+        "bubble": "Range, storms in places.",
+        "caption": "Before you go out, check the weather. Before you open a trade, check the market regime."
+      },
+      "followTheLeader": {
+        "label": "A big duck labelled BTC leads, the ducklings ETH, SOL and MEME follow",
+        "btc": "BTC",
+        "eth": "ETH",
+        "sol": "SOL",
+        "meme": "MEME",
+        "bubble": "Where I go, you go.",
+        "caption": "Altcoins mostly go where Bitcoin goes. And when it stumbles, they fall even harder."
+      },
+      "cycleAstrologer": {
+        "label": "An astrologer in a starry hat points at three dots labelled 2016, 2020 and 2024 joined by a line",
+        "bubble": "Three dots = a law of nature!",
+        "caption": "Three cycles look like a pattern. A statistician would say they are three dots."
+      },
+      "feverThermometer": {
+        "label": "A big thermometer labelled funding shows a high fever, next to it the market lies under a blanket",
+        "bubble": "The market has a fever.",
+        "caption": "High funding is the market's temperature. It does not say when the fever breaks – only that the patient is overheated.",
+        "gauge": "FUNDING"
+      },
+      "recipeChef": {
+        "label": "A recipe with exact steps and a nice cake next to a burnt, smoking cake made by a cook who cooks by eye",
+        "step1": "1. Flour: 200 g",
+        "step2": "2. Oven: 180 °C",
+        "step3": "3. Bake: 25 min",
+        "step4": "4. Take out, even if it smells good",
+        "bubble": "I just do it by eye.",
+        "caption": "With a recipe you can find out why the cake failed. By eye, only that it failed."
+      },
+      "strategyToolbox": {
+        "label": "A toolbox with three tools – trend, mean reversion and breakout – and a person holding a hammer who does not know what to use it on",
+        "trend": "TREND",
+        "meanReversion": "REVERSION",
+        "breakout": "BREAKOUT",
+        "bubble": "Can't I drive screws with a hammer?",
+        "caption": "Each type of strategy is a different tool. A trend hammer will not help in a range."
+      },
+      "breathingStop": {
+        "label": "On the left a big boat on a calm sea, on the right a small boat in a storm with lightning",
+        "calm": "CALM: BIGGER POSITION",
+        "storm": "STORM: SMALLER POSITION",
+        "bubble": "In big waves, a smaller boat.",
+        "caption": "Volatility-based sizing: a bigger boat in calm water, a smaller one in a storm – the risk stays the same."
+      },
+      "timeTraveler": {
+        "label": "A trader steps out of a time machine holding tomorrow's newspaper with the headline BTC plus ten percent",
+        "machine": "TIME MACHINE",
+        "date": "TOMORROW'S EDITION",
+        "headline": "BTC +10%",
+        "bubble": "My backtest is unbeatable!",
+        "caption": "Look-ahead: a test that knows tomorrow's price always wins. You will not know it."
+      },
+      "dashboardPilot": {
+        "label": "A pilot in a cockpit with four gauges – return, drawdown, trades, costs – holding a hand over three of them",
+        "return": "RETURN",
+        "drawdown": "DRAWDOWN",
+        "trades": "TRADES",
+        "costs": "COSTS",
+        "bubble": "One gauge is enough for me.",
+        "caption": "Watching only the return is flying without an altimeter. Metrics are always read together."
+      },
+      "examCheat": {
+        "label": "A surprised student facing a new exam while last year's answers fly away",
+        "sheet": "NEW EXAM",
+        "notes": "LAST YEAR'S ANSWERS",
+        "bubble": "I have never seen these questions!",
+        "caption": "A strategy that learned past data by heart fails the exam it has never seen."
+      },
+      "testPilot": {
+        "label": "A small plane with a test pilot wearing a parachute flies among clouds, the plane labelled demo",
+        "plane": "DEMO",
+        "bubble": "A test flight first.",
+        "caption": "A new plane flies without passengers first. A new strategy trades without money first."
+      },
+      "eggsBasket": {
+        "label": "A figure trips over a banana peel and three eggs labelled BTC, ETH and SOL fall out of a basket – all of them break",
+        "btc": "BTC",
+        "eth": "ETH",
+        "sol": "SOL",
+        "bubble": "But I spread it over three eggs!",
+        "caption": "Three correlated positions are one basket. One peel breaks them all at once."
+      },
+      "kellyGauge": {
+        "label": "A speedometer of risk per trade with green, yellow and red zones; the needle shakes in the red zone beyond the Kelly number and the engine smokes",
+        "small": "1%",
+        "kelly": "Kelly",
+        "double": "2× Kelly",
+        "dial": "RISK PER TRADE",
+        "bubble": "More gas, more money… right?",
+        "caption": "Up to the Kelly number, more risk speeds up growth. Beyond it, only smoke."
+      },
+      "drawdownStairs": {
+        "label": "A figure with a backpack of risk walks down the stairs of a drawdown past signs: half the risk at 10%, a quarter at 20%, stop at the bottom",
+        "half": "−10% → ½",
+        "quarter": "−20% → ¼",
+        "stop": "STOP",
+        "pack": "RISK",
+        "bubble": "The lower I go, the lighter the pack.",
+        "caption": "Drawdown rules are written in advance – on the way down the stairs, thinking gets hard."
+      },
+      "reportCard": {
+        "label": "A happy trader holds their own report card: an A for following the rules, a C for profit",
+        "title": "REPORT CARD",
+        "process": "Followed the rules",
+        "result": "Profit this month",
+        "gradeProcess": "A",
+        "gradeResult": "C",
+        "bubble": "Straight A for discipline!",
+        "caption": "The monthly review grades mainly you. The profit of a single month is largely luck."
+      },
+      "crowdedPond": {
+        "label": "A pond full of fishing rods, the last fish swims away, a worried angler stands next to a sign saying They bit here",
+        "sign": "THEY BIT HERE",
+        "bubble": "It was better last year…",
+        "caption": "When everyone finds the good spot, the fish run out. A strategy's edge fades the same way."
+      },
+      "hammockTrader": {
+        "label": "A trader sleeps in a hammock between trees, a phone with a price alert lies on the grass",
+        "alert": "BTC hit your level",
+        "bubble": "The chart can wait.",
+        "caption": "The alert watches the market while you rest. Trading for years, not weeks."
       }
     }
   },

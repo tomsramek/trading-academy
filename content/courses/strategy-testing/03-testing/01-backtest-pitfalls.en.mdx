@@ -1,0 +1,97 @@
+import lookAhead from "./backtest-look-ahead.json";
+
+export const metadata = {
+  title: "The backtest and its traps",
+  description:
+    "How to test a strategy on history without fooling yourself: look-ahead, survivorship, overfitting and costs.",
+};
+
+<Callout title="In this lesson">
+
+- find out what a backtest is and what it really tells you
+- see on real data how a tiny mistake turns a strategy into a miracle
+- learn the five most common traps and how to avoid them
+
+</Callout>
+
+A <KeyTerm term="backtest">backtest</KeyTerm> means running a strategy's exact rules over historical data
+and seeing how it would have done. It is the cheapest way to throw away a bad idea – and also the
+cheapest way to fool yourself. In this module we test one simple strategy on real Bitcoin data.
+
+<Callout type="risk" title="An example of the method, not a recommendation">
+  The strategy in this module only explains how testing works and where mistakes
+  happen. It is not a trading recommendation, and past results do not guarantee
+  future results.
+</Callout>
+
+## The strategy we test
+
+**Hold Bitcoin while its daily closing price is above a moving average, otherwise hold cash.** The
+decision is made after the day closes, with a 0.1% fee on every purchase and sale. We test on daily
+BTC/USDT data from Binance.
+
+<Illustration name="timeTraveler" />
+
+## Trap 1: look-ahead
+
+The most treacherous mistake is when the test uses information you would not yet have at the time. For
+example: "if the price closed above the average today, hold Bitcoin **today**". But you only know today's
+close at the end of the day – when today's move is already behind you.
+
+The same strategy with a 40-day average in 2019–2021:
+
+- **correctly** (the decision applies from the next day): **+1,747%**,
+- **with look-ahead**: **+24,015%** and **100% winning trades**.
+
+<LineChart
+  data={lookAhead}
+  label="Equity curve of the same strategy from 2019 to 2021: the correct test ends at about 18 times the start, the test with look-ahead at about 240 times"
+  caption="The same rules, the only difference being when the decision is made. A logarithmic axis – otherwise the correct curve would not be visible."
+  lines={[
+    { key: "correct", label: "Correct test" },
+    { key: "lookahead", label: "With look-ahead" },
+  ]}
+  logarithmic
+/>
+
+Whenever a backtest looks too good to be true – 100% winning trades, no drawdown – it almost certainly
+contains look-ahead.
+
+## Trap 2: survivors
+
+When you test a strategy on the cryptocurrencies that are in the top ten today, you only test on the
+winners. Coins that collapsed in the meantime – like LUNA in 2022 – are missing from the test, so the
+result is better than it would have been in reality. This is called <KeyTerm term="survivorship-bias">survivorship bias</KeyTerm>.
+
+## Trap 3: overfitting
+
+We tried average lengths from 10 to 300 days. The best in 2019–2021 was a **40-day** average – better than
+the 29 other options. How it did on the years it had not seen we will see in lesson 10. Spoiler: not as well.
+
+## Trap 4: costs and slippage
+
+Without fees the strategy would have made 1,857% instead of 1,747% in 2019–2021. Here the difference is
+small because the strategy traded only 29 times in three years. A strategy with hundreds of trades a
+year, however, can be profitable only on paper – you know what a trade costs from the previous course.
+
+## Trap 5: data that is not reality
+
+The test assumes you always buy exactly at the closing price. In reality there is the spread, slippage
+and exchange outages. For big coins on a daily chart it is a detail; for small coins and short
+timeframes it is crucial.
+
+## Common myths
+
+- **"The backtest made thousands of percent, I am going for it."** Look for the mistake first. There
+  usually is one.
+- **"I tested on the top 10 coins."** That is, on the ones that survived.
+- **"I will ignore fees, they are small."** With frequent trading they are the main result.
+
+<Callout title="Summary">
+
+- A backtest shows how the rules would have done in the past – nothing more.
+- Look-ahead turns a strategy into a miracle; a 100% win rate is a warning sign.
+- Survivorship bias, overfitting and missing costs inflate the result.
+- The test assumes ideal trades; reality is more expensive.
+
+</Callout>

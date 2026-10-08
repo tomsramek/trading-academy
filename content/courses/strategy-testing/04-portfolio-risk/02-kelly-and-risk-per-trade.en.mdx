@@ -1,0 +1,105 @@
+export const metadata = {
+  title: "How much to risk: the Kelly criterion",
+  description:
+    "What the Kelly criterion says about the ideal bet size, why professionals use only a fraction of it and what happens when you overestimate your strategy.",
+};
+
+<Callout title="In this lesson">
+
+- calculate the Kelly criterion for your strategy
+- see in a simulation what too little and too much risk do to an account
+- understand why in practice only a fraction of the Kelly number is used
+
+</Callout>
+
+In the previous course you risked 1% per trade, and in the lesson on volatility-based entries the
+position size adapted to the market. One question remains: why 1%? Why not 5% – if the strategy has a
+positive expected value, will it not make more? The answer is mathematical, and a little surprising.
+
+<Illustration name="kellyGauge" />
+
+## The Kelly criterion
+
+In 1956 Bell Labs researcher John Kelly worked out what share of capital to bet so that an account grows
+fastest in the long run. For a strategy with a fixed ratio of win to loss, the <KeyTerm term="kelly-criterion">Kelly criterion</KeyTerm> says:
+
+**f = p − (1 − p) ÷ b**
+
+- _f_ – what share of the account to risk per trade,
+- _p_ – the win rate (share of winning trades),
+- _b_ – how many times bigger the average win is than the average loss.
+
+Example: a 40% win rate and a win twice the loss (2R against 1R). f = 0.4 − 0.6 ÷ 2 = **0.10**, so risk
+10% of the account per trade. That sounds like a lot – and it is.
+
+## What a simulation shows
+
+The same strategy (40% win rate, 2R win, 1R loss), 200 trades, 20,000 random runs. The only thing that
+changes is the risk per trade:
+
+| Risk per trade | Account after 200 trades (median) | Largest drawdown (median) | Chance of a 50%+ drawdown |
+| -------------- | --------------------------------- | ------------------------- | ------------------------- |
+| 1%             | 1.5×                              | 12%                       | almost none               |
+| 2.5% (¼ Kelly) | 2.4×                              | 28%                       | 3%                        |
+| 5% (½ Kelly)   | 4.4×                              | 50%                       | 50%                       |
+| 10% (Kelly)    | 7.0×                              | 79%                       | 99%                       |
+| 20% (2× Kelly) | 1.2×                              | 98%                       | 100%                      |
+
+Three things follow from the table:
+
+- **Full Kelly really grows fastest** – but with a drawdown of around 80%. Who would keep trusting and
+  trading a strategy on the way from 10,000 down to 2,000?
+- **Beyond the Kelly number, growth falls.** Twice Kelly risks far more and still ends up almost where it
+  started. Here, more risk means less money.
+- **Small risk is slow but calm.** A 12% drawdown is livable, an 80% one is not.
+
+## The biggest trap: an overestimated strategy
+
+The Kelly criterion needs the win rate and the win-to-loss ratio. But you do not know them – you only have
+an estimate from a backtest, and you know from the testing module how optimistic that tends to be. What if
+the real win rate is not 40% but 35%?
+
+Then the Kelly number is only **2.5%**. Anyone still risking 10% bets four times more than they should.
+The simulation: a median account after 200 trades of **0.39×** – 100,000 shrinks to 39,000 – and **70%** of
+runs end in a loss. Yet the strategy still has a positive expected value. It was ruined by the bet size,
+not by the strategy.
+
+With the same overestimated strategy and a 1% risk, the median ends at **1.08×**: not much, but the
+account survives and you have time to spot the mistake.
+
+<Callout type="risk" title="A simulation, not a forecast">
+  The numbers in the table are a random simulation of a made-up strategy, not
+  results of real trading. They show a principle: bets that are too big ruin
+  even a good strategy. Risk only money you can afford to lose.
+</Callout>
+
+## How to use the Kelly criterion in practice
+
+1. **Calculate the Kelly number** from honest results – out of sample or from a forward test, not from
+   tuning.
+2. **Treat it as a ceiling, not a target.** Professionals usually use a quarter to a half of the Kelly
+   number, often less.
+3. **Remember correlations.** The Kelly number applies to the total risk, not to each position separately
+   – three correlated trades are one bet.
+4. **If the Kelly number comes out zero or negative,** your data says the strategy has no edge. Do not
+   trade it.
+
+That is why in practice traders stick to 0.5–2% per trade: far below half of the Kelly number from the
+example, with a margin for estimation error. The so-called <KeyTerm term="risk-of-ruin">risk of ruin</KeyTerm>
+– the chance that a drawdown wipes out the account or forces you to stop – is then small.
+
+## Common myths
+
+- **"Kelly is optimal, I will bet full Kelly."** Optimal for growth, not for your nerves and not for
+  overestimated inputs.
+- **"Positive expected value = I cannot lose the account."** You can – with bets that are too big.
+- **"More risk = more money."** Only up to the Kelly number. Beyond it, more risk means less money.
+
+<Callout title="Summary">
+
+- The Kelly criterion f = p − (1 − p) ÷ b gives the risk that maximises long-term growth.
+- Full Kelly brings huge drawdowns; beyond the Kelly number growth falls.
+- Backtest estimates tend to be optimistic – an overestimated strategy with full Kelly ruins the account.
+- In practice, a fraction of the Kelly number, usually 0.5–2% per trade.
+
+</Callout>

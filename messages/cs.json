@@ -518,6 +518,137 @@
         "book": "LEKCE 1",
         "bookRisk": "RIZIKO",
         "caption": "Vlevo slib, vpravo vzdělání. Hádej, kdo z nich ti chce něco prodat."
+      },
+      "regimeWeather": {
+        "label": "Moderátorka počasí ukazuje na předpověď čtyř tržních režimů: klidný a divoký trend, klidné a divoké pásmo s bleskem",
+        "calmTrend": "klidný trend",
+        "wildTrend": "divoký trend",
+        "calmRange": "klidné pásmo",
+        "wildRange": "divoké pásmo",
+        "bubble": "Pásmo, místy bouřky.",
+        "caption": "Než vyrazíš ven, podívej se na počasí. Než otevřeš obchod, na tržní režim."
+      },
+      "followTheLeader": {
+        "label": "Velká kachna s nápisem BTC vede, za ní jdou kachňátka ETH, SOL a MEME",
+        "btc": "BTC",
+        "eth": "ETH",
+        "sol": "SOL",
+        "meme": "MEME",
+        "bubble": "Kam já, tam vy.",
+        "caption": "Altcoiny většinou chodí tam, kam Bitcoin. A když zakopne, padají ještě hůř."
+      },
+      "cycleAstrologer": {
+        "label": "Astrolog ve hvězdném klobouku ukazuje na tři body s roky 2016, 2020 a 2024 spojené čárou",
+        "bubble": "Tři body = zákon vesmíru!",
+        "caption": "Tři cykly vypadají jako vzorec. Statistik by řekl, že jsou to tři body."
+      },
+      "feverThermometer": {
+        "label": "Velký teploměr s nápisem funding ukazuje vysokou horečku, vedle leží trh pod dekou",
+        "bubble": "Trh má horečku.",
+        "caption": "Vysoký funding je teplota trhu. Neříká, kdy horečka spadne – jen že je pacient přehřátý.",
+        "gauge": "FUNDING"
+      },
+      "recipeChef": {
+        "label": "Recept s přesnými kroky a pěkný dort vedle připáleného kouřícího dortu kuchaře, který vaří podle oka",
+        "step1": "1. Mouka: 200 g",
+        "step2": "2. Trouba: 180 °C",
+        "step3": "3. Péct: 25 min",
+        "step4": "4. Vyndat, i když voní",
+        "bubble": "Já to dělám podle oka.",
+        "caption": "Podle receptu jde zjistit, proč dort nevyšel. Podle oka jen to, že nevyšel."
+      },
+      "strategyToolbox": {
+        "label": "Kufr s nářadím se třemi nástroji – trend, návrat k průměru a průlom – a člověk s kladivem, který neví, na co ho použít",
+        "trend": "TREND",
+        "meanReversion": "NÁVRAT",
+        "breakout": "PRŮLOM",
+        "bubble": "Kladivem se šroubovat nedá?",
+        "caption": "Každý typ strategie je jiný nástroj. Na pásmo kladivo trendu nepomůže."
+      },
+      "breathingStop": {
+        "label": "Vlevo velká loď na klidném moři, vpravo malá loďka v bouři s bleskem",
+        "calm": "KLID: VĚTŠÍ POZICE",
+        "storm": "BOUŘE: MENŠÍ POZICE",
+        "bubble": "Ve vlnách menší loď.",
+        "caption": "Velikost pozice podle volatility: v klidu větší loď, v bouři menší – riziko zůstává stejné."
+      },
+      "timeTraveler": {
+        "label": "Obchodník vystoupil z časostroje a drží zítřejší noviny s titulkem BTC plus deset procent",
+        "machine": "ČASOSTROJ",
+        "date": "ZÍTŘEJŠÍ VYDÁNÍ",
+        "headline": "BTC +10 %",
+        "bubble": "Můj backtest je neporazitelný!",
+        "caption": "Pohled do budoucnosti: test, který zná zítřejší cenu, vyhraje vždycky. Ty ji znát nebudeš."
+      },
+      "dashboardPilot": {
+        "label": "Pilot v kokpitu se čtyřmi budíky – výnos, drawdown, počet obchodů, náklady – a ruku drží přes tři z nich",
+        "return": "VÝNOS",
+        "drawdown": "DRAWDOWN",
+        "trades": "OBCHODY",
+        "costs": "NÁKLADY",
+        "bubble": "Mně stačí jeden budík.",
+        "caption": "Kdo sleduje jen výnos, letí bez výškoměru. Metriky se čtou vždycky všechny najednou."
+      },
+      "examCheat": {
+        "label": "Překvapený student nad novým testem, zatímco mu loňské odpovědi odlétají pryč",
+        "sheet": "NOVÝ TEST",
+        "notes": "LOŇSKÉ ODPOVĚDI",
+        "bubble": "Tyhle otázky jsem neviděl!",
+        "caption": "Strategie naučená nazpaměť na minulých datech propadne u testu, který neviděla."
+      },
+      "testPilot": {
+        "label": "Malé letadlo se zkušebním pilotem s padákem letí mezi mraky, na letadle nápis demo",
+        "plane": "DEMO",
+        "bubble": "Nejdřív zkušební let.",
+        "caption": "I nové letadlo létá nejdřív bez cestujících. I nová strategie nejdřív bez peněz."
+      },
+      "eggsBasket": {
+        "label": "Postava zakopla o slupku od banánu a z košíku vypadla tři vejce s nápisy BTC, ETH a SOL – všechna se rozbila",
+        "btc": "BTC",
+        "eth": "ETH",
+        "sol": "SOL",
+        "bubble": "Vždyť jsem to rozložil do tří vajec!",
+        "caption": "Tři korelované pozice jsou jeden košík. Jedna slupka rozbije všechno najednou."
+      },
+      "kellyGauge": {
+        "label": "Tachometr rizika na obchod se zelenou, žlutou a červenou zónou; ručička se třese v červené zóně za Kellyho číslem a z motoru se kouří",
+        "small": "1 %",
+        "kelly": "Kelly",
+        "double": "2× Kelly",
+        "dial": "RIZIKO NA OBCHOD",
+        "bubble": "Víc plynu, víc peněz… ne?",
+        "caption": "Do Kellyho čísla víc rizika zrychluje růst. Za ním už jen kouř."
+      },
+      "drawdownStairs": {
+        "label": "Postava s batohem rizika schází po schodech propadu kolem cedulí: při 10 % polovina rizika, při 20 % čtvrtina, dole stop",
+        "half": "−10 % → ½",
+        "quarter": "−20 % → ¼",
+        "stop": "STOP",
+        "pack": "RIZIKO",
+        "bubble": "Čím níž, tím lehčí batoh.",
+        "caption": "Pravidla pro drawdown se píšou předem – na schodech dolů už se špatně přemýšlí."
+      },
+      "reportCard": {
+        "label": "Spokojený obchodník drží vlastní vysvědčení: za dodržení pravidel jednička, za zisk trojka",
+        "title": "VYSVĚDČENÍ",
+        "process": "Dodržení pravidel",
+        "result": "Zisk za měsíc",
+        "gradeProcess": "1",
+        "gradeResult": "3",
+        "bubble": "Za chování jednička!",
+        "caption": "Měsíční vyhodnocení známkuje hlavně tebe. Zisk za jeden měsíc je z velké části náhoda."
+      },
+      "crowdedPond": {
+        "label": "Rybník plný rybářských prutů, poslední ryba odplouvá, ustaraný rybář stojí u cedule s nápisem Tady braly",
+        "sign": "TADY BRALY",
+        "bubble": "Loni to tu bylo lepší…",
+        "caption": "Když dobré místo objeví všichni, ryb ubývá. Stejně slábne výhoda strategie."
+      },
+      "hammockTrader": {
+        "label": "Obchodník spí v houpací síti mezi stromy, na trávě leží telefon s upozorněním na cenu",
+        "alert": "BTC na tvé úrovni",
+        "bubble": "Graf počká.",
+        "caption": "Upozornění hlídá trh, ty si odpočineš. Trading na roky, ne na týdny."
       }
     }
   },

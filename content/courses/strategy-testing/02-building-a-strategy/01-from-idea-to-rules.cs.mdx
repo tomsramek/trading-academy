@@ -1,0 +1,78 @@
+export const metadata = {
+  title: "Od nápadu k pravidlům",
+  slug: "od-napadu-k-pravidlum",
+  description:
+    "Jak z pocitu „tohle by mohlo fungovat“ udělat hypotézu a přesná pravidla, která jde otestovat.",
+};
+
+<Callout title="V této lekci">
+
+- naučíš se formulovat obchodní nápad jako hypotézu
+- převedeš ho na přesná pravidla bez prostoru pro „podle oka“
+- zjistíš, proč je méně pravidel často víc
+
+</Callout>
+
+„Kupuju, když to vypadá silně, a prodám, až to přestane.“ Takhle obchoduje spousta lidí – a nikdy
+nezjistí, jestli to funguje, protože „vypadá silně“ znamená každý den něco jiného. Testovat jde jen
+to, co je napsané tak přesně, že by to zvládl i počítač.
+
+<Illustration name="recipeChef" />
+
+## 1. Hypotéza: proč by to mělo fungovat
+
+Každá strategie začíná větou „trh má tendenci…“. Třeba: **„Když je Bitcoin dlouhodobě v rostoucím
+trendu, má tendenci v něm pokračovat.“** A hned k tomu: **proč**? Protože lidé reagují na zprávy
+pomalu, trendy přitahují další kupující, velcí hráči nakupují postupně.
+
+Hypotéza bez vysvětlení je nebezpečná. Když najdeš vzorec, který nedává smysl („v úterý po úplňku
+roste“), nejspíš jsi našel náhodu, která se nebude opakovat.
+
+## 2. Pravidla: přesně a úplně
+
+Hypotézu teď převedeš na <KeyTerm term="trading-rules">obchodní pravidla</KeyTerm>. Musí
+odpovědět na všechno, co se v obchodu rozhoduje:
+
+| Otázka              | Příklad přesného pravidla                |
+| ------------------- | ---------------------------------------- |
+| Co obchoduju?       | BTC/USDT, spot                           |
+| Na jakém rámci?     | denní svíčky, rozhodnutí po uzavření dne |
+| Kdy vstoupím?       | uzavírací cena nad SMA 200               |
+| Kdy vystoupím?      | uzavírací cena pod SMA 200               |
+| Kde je stop-loss?   | 2 ATR pod vstupem                        |
+| Jak velká pozice?   | riziko 1 % účtu                          |
+| Kolik stojí obchod? | poplatek 0,1 % při nákupu i prodeji      |
+
+Test pravidel: dej je dvěma lidem a nech je projít stejný graf. Pokud udělají jiné obchody, pravidla
+nejsou dost přesná.
+
+## 3. Méně je víc
+
+Každé další pravidlo a každé číslo, které se dá ladit (délka průměru, hranice RSI, procento
+stop-lossu), dává strategii víc příležitostí „naučit se“ minulost nazpaměť. Tomu jsme v minulém kurzu
+říkali přeučení.
+
+- Začni s **co nejméně pravidly**, která ještě dávají smysl.
+- Preferuj **kulatá, běžná čísla** (20, 50, 200) před „objevy“ typu 137.
+- Každé pravidlo navíc musí mít **důvod**, ne jen lepší výsledek v testu.
+
+<Callout type="warning" title="Pravidla nejsou slib">
+  Přesná pravidla ti nezaručí zisk. Zaručí ti jen to, že jde poctivě zjistit,
+  jestli strategie v minulosti fungovala – a že víš, co přesně děláš, když
+  obchoduješ.
+</Callout>
+
+## Časté omyly
+
+- **„Pravidla mám v hlavě.“** Pak je nejde otestovat a mění se podle nálady.
+- **„Přidám filtr, výsledky se zlepší.“** V testu skoro vždy. Ve skutečnosti často ne.
+- **„Proč to funguje, je jedno, hlavně že to funguje.“** Bez důvodu nepoznáš, kdy to fungovat přestane.
+
+<Callout title="Shrnutí">
+
+- Strategie začíná hypotézou: co trh dělá a proč.
+- Pravidla musí přesně říct, co, kdy, kolik a za kolik – tak, aby je dva lidé použili stejně.
+- Méně pravidel a běžná čísla znamenají menší riziko přeučení.
+- Přesná pravidla jsou podmínkou testu, ne zárukou zisku.
+
+</Callout>

@@ -1,0 +1,86 @@
+export const metadata = {
+  title: "Correlated positions are one bet",
+  description:
+    "Why three trades on Bitcoin, Ether and Solana are not three different risks, how many independent bets you really have and how to cap the total risk.",
+};
+
+<Callout title="In this lesson">
+
+- find out why three cryptocurrencies in a portfolio do not spread the risk
+- calculate how many independent bets you really have
+- set a cap on the total risk of correlated positions
+
+</Callout>
+
+You risk 1% per trade and have three open: Bitcoin, Ether and Solana. 3% in total, but spread out – three
+different coins, three different stories. Except you know from the second lesson that these three move
+very similarly. When the market falls, all three stop-losses often trigger at once. You do not have three
+bets of 1%. You have one bet of 3%.
+
+<Illustration name="eggsBasket" />
+
+## What the data shows
+
+Daily data from January 2021 to September 2025 (Binance):
+
+- Of the **80 days** when Bitcoin fell more than 5%, all three coins fell on **72**. A portfolio of all
+  three in equal parts lost **8.1%** on average – more than Bitcoin alone.
+- On the worst day, 19 May 2021, Bitcoin lost 15%, the three-coin portfolio **27%**.
+- The annual volatility of Bitcoin alone was 59%, of the three-coin portfolio **75%**.
+
+Adding more cryptocurrencies did not lower the risk, it raised it: you added coins that move in the same
+direction, only more sharply.
+
+## How many bets you really have
+
+Real <KeyTerm term="diversification">diversification</KeyTerm> only works with things that do not move
+together. A simple formula gives a rough estimate:
+
+**number of independent bets ≈ n ÷ (1 + (n − 1) × ρ)**
+
+where _n_ is the number of positions and _ρ_ the average <KeyTerm term="correlation">correlation</KeyTerm>
+between them.
+
+| Positions                      | Average correlation | Independent bets |
+| ------------------------------ | ------------------- | ---------------- |
+| 3 independent                  | 0                   | 3                |
+| Bitcoin, Ether, Solana         | 0.68                | about 1.3        |
+| 10 altcoins                    | 0.7                 | about 1.4        |
+| Bitcoin, Ether, Solana in 2022 | 0.84                | about 1.1        |
+
+Ten altcoins in a portfolio are therefore the risk of about one and a half positions, not ten. And in a
+downturn, when spreading would be needed most, correlation rises: in 2021 it averaged 0.55 between these
+three coins, in the bear year of 2022 already 0.84.
+
+## How to work with it
+
+1. **Add up the risk of correlated positions.** Treat all long crypto positions as one bet on the crypto
+   market.
+2. **Set a cap on the total risk.** For example: a single trade at most 1%, all correlated positions
+   together at most 2%. The third trade then either does not happen, or all of them get smaller.
+3. **Look for genuinely different sources of results.** A different type of strategy (trend following and
+   mean reversion often make money in different periods), a different timeframe, or simply cash and
+   stablecoins that do not fall with the market.
+
+<Callout type="warning" title="A short position is not automatically a hedge">
+  A long on Solana and a short on Bitcoin look like a balanced pair. But Solana
+  swings almost twice as much – in a downturn you lose more on the long than you
+  make on the short. A hedge has to be calculated, not eyeballed.
+</Callout>
+
+## Common myths
+
+- **"I have ten different coins, I am diversified."** You have one bet on the crypto market in ten
+  wrappers.
+- **"Every trade has a 1% stop-loss, I cannot lose more."** In a crash they all trigger at once – and with
+  slippage, it is worse.
+- **"A correlation of 0.6 is low."** In a calm market, maybe. In a crash it tends to be much higher.
+
+<Callout title="Summary">
+
+- Cryptocurrencies move together: three positions on the major coins are roughly one bet.
+- Number of independent bets ≈ n ÷ (1 + (n − 1) × ρ); at a correlation of 0.7 it never exceeds about 1.4, however many positions you add.
+- Add up the risk of correlated positions and set a cap for it.
+- Real spreading comes from a different type of strategy, timeframe or cash – not another altcoin.
+
+</Callout>

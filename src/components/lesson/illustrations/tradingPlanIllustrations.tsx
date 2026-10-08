@@ -2,99 +2,14 @@ import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
 
+import { Bubble } from "./Bubble";
+import { Person } from "./Person";
+
 /*
  * Fun illustrations of the course "Trading with a plan" (content/courses/trading-with-a-plan).
  * Same rules as in ../Illustration.tsx, which shows them: a 640×360 drawing, colors from the design
  * tokens, the dark theme, texts from messages (Lesson.illustration.<name>) and short animations.
  */
-
-type BubbleProps = {
-  x: number;
-  y: number;
-  width: number;
-  text: string;
-  // Which corner the tail points from: towards the speaker on the left or right below the bubble.
-  tail: "left" | "right";
-  // When the bubble pops up, in ms after the animation starts.
-  delay?: number;
-};
-
-// Speech bubble that pops up after the rest of the scene has moved.
-function Bubble({ x, y, width, text, tail, delay = 800 }: BubbleProps) {
-  const tailX = tail === "left" ? x + 30 : x + width - 30;
-  return (
-    <g
-      className="origin-center transform-fill motion-safe:group-data-playing/anim:animate-bubble-pop"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      <rect
-        x={x}
-        y={y}
-        width={width}
-        height="48"
-        rx="24"
-        className="fill-card stroke-border"
-        strokeWidth="2"
-      />
-      <path
-        d={`M${tailX - 10} ${y + 46} l10 22 l10 -22 z`}
-        className="fill-card"
-      />
-      <text
-        x={x + width / 2}
-        y={y + 31}
-        textAnchor="middle"
-        className="fill-foreground text-lg font-semibold"
-      >
-        {text}
-      </text>
-    </g>
-  );
-}
-
-type PersonProps = {
-  x: number;
-  // The line the person stands on.
-  ground: number;
-  mood?: "happy" | "worried" | "surprised";
-};
-
-// Simple figure in the style of the other lesson illustrations: round head, rounded body.
-function Person({ x, ground, mood = "happy" }: PersonProps) {
-  const headY = ground - 105;
-  const mouths = {
-    happy: `M${x - 10} ${headY + 8} q10 10 20 0`,
-    worried: `M${x - 10} ${headY + 12} q10 -8 20 0`,
-    surprised: "",
-  };
-  return (
-    <g>
-      <path
-        d={`M${x - 45} ${ground} q0 -70 45 -70 q45 0 45 70 z`}
-        className="fill-foreground"
-      />
-      <circle cx={x} cy={headY} r="28" className="fill-foreground" />
-      <circle cx={x - 9} cy={headY - 6} r="3.5" className="fill-background" />
-      <circle cx={x + 9} cy={headY - 6} r="3.5" className="fill-background" />
-      {mood === "surprised" ? (
-        <ellipse
-          cx={x}
-          cy={headY + 11}
-          rx="5"
-          ry="7"
-          className="fill-background"
-        />
-      ) : (
-        <path
-          d={mouths[mood]}
-          className="fill-none stroke-background"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-      )}
-    </g>
-  );
-}
 
 // Market structure: a shopper walks down the stairs of lower highs and lows, sure it is a bargain.
 function StairsDown() {

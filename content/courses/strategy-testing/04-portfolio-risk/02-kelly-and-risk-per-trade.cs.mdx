@@ -1,0 +1,102 @@
+export const metadata = {
+  title: "Kolik riskovat: Kellyho vzorec",
+  slug: "kellyho-vzorec",
+  description:
+    "Co říká Kellyho vzorec o ideální velikosti sázky, proč z něj profesionálové používají jen zlomek a co se stane, když přeceníš svou strategii.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš Kellyho vzorec pro svou strategii
+- uvidíš v simulaci, co dělá s účtem příliš malé a příliš velké riziko
+- pochopíš, proč se v praxi používá jen zlomek Kellyho čísla
+
+</Callout>
+
+V minulém kurzu jsi riskoval 1 % na obchod a v lekci o vstupech podle volatility se velikost pozice
+přizpůsobovala trhu. Zbývá otázka: proč zrovna 1 %? Proč ne 5 % – když má strategie kladnou očekávanou
+hodnotu, nevydělá víc? Odpověď má matematika, a je trochu překvapivá.
+
+<Illustration name="kellyGauge" />
+
+## Kellyho vzorec
+
+Výzkumník Bell Labs John Kelly v roce 1956 spočítal, jakou část kapitálu sázet, aby účet dlouhodobě rostl
+nejrychleji. Pro strategii s pevným poměrem zisku a ztráty platí <KeyTerm term="kelly-criterion">Kellyho vzorec</KeyTerm>:
+
+**f = p − (1 − p) ÷ b**
+
+- _f_ – jakou část účtu riskovat na obchod,
+- _p_ – úspěšnost (podíl ziskových obchodů),
+- _b_ – kolikrát je průměrný zisk větší než průměrná ztráta.
+
+Příklad: úspěšnost 40 % a zisk dvojnásobek ztráty (2R proti 1R). f = 0,4 − 0,6 ÷ 2 = **0,10**, tedy
+riskovat 10 % účtu na obchod. To zní hodně – a taky to hodně je.
+
+## Co ukazuje simulace
+
+Stejná strategie (úspěšnost 40 %, zisk 2R, ztráta 1R), 200 obchodů, 20 000 náhodných průběhů. Jediné, co
+se mění, je riziko na obchod:
+
+| Riziko na obchod  | Účet po 200 obchodech (medián) | Největší propad (medián) | Šance na propad o 50 % a víc |
+| ----------------- | ------------------------------ | ------------------------ | ---------------------------- |
+| 1 %               | 1,5×                           | 12 %                     | skoro žádná                  |
+| 2,5 % (¼ Kellyho) | 2,4×                           | 28 %                     | 3 %                          |
+| 5 % (½ Kellyho)   | 4,4×                           | 50 %                     | 50 %                         |
+| 10 % (Kelly)      | 7,0×                           | 79 %                     | 99 %                         |
+| 20 % (2× Kelly)   | 1,2×                           | 98 %                     | 100 %                        |
+
+Tři věci, které z tabulky plynou:
+
+- **Plný Kelly opravdu roste nejrychleji** – ale s propadem kolem 80 %. Kdo by po cestě z 10 000 Kč na
+  2 000 Kč dál věřil strategii a obchodoval podle ní?
+- **Za Kellyho číslem růst padá.** Dvojnásobek Kellyho riskuje mnohem víc, a přesto skončí skoro tam,
+  kde začal. Víc rizika tu znamená méně peněz.
+- **Malé riziko je pomalé, ale klidné.** S propadem 12 % se dá žít, s 80 % ne.
+
+## Největší past: přeceněná strategie
+
+Kellyho vzorec potřebuje úspěšnost a poměr zisku ke ztrátě. Ty ale neznáš – máš jen odhad z backtestu,
+a z modulu o testování víš, jak optimistický bývá. Co když skutečná úspěšnost není 40 %, ale 35 %?
+
+Pak je Kellyho číslo jen **2,5 %**. Kdo dál riskuje 10 %, sází čtyřikrát víc, než by měl. Simulace:
+medián účtu po 200 obchodech **0,39×** – ze 100 000 zbude 39 000 – a v **70 %** průběhů skončí ve ztrátě.
+Strategie přitom pořád má kladnou očekávanou hodnotu. Zničila ji velikost sázek, ne strategie.
+
+Se stejnou přeceněnou strategií a rizikem 1 % skončí medián na **1,08×**: málo, ale účet přežije
+a máš čas chybu odhalit.
+
+<Callout type="risk" title="Simulace, ne předpověď">
+  Čísla v tabulce jsou náhodná simulace s vymyšlenou strategií, ne výsledky
+  skutečného obchodování. Ukazují princip: příliš velké sázky zničí i dobrou
+  strategii. Riskuj jen peníze, o které si můžeš dovolit přijít.
+</Callout>
+
+## Jak Kellyho vzorec použít v praxi
+
+1. **Spočítej Kellyho číslo** z poctivých výsledků – mimo vzorek nebo z forward testu, ne z ladění.
+2. **Ber ho jako strop, ne jako cíl.** Profesionálové obvykle používají čtvrtinu až polovinu Kellyho
+   čísla, často i méně.
+3. **Pamatuj na korelace.** Kellyho číslo platí pro celkové riziko, ne pro každou pozici zvlášť – tři
+   korelované obchody jsou jedna sázka.
+4. **Když vyjde Kellyho číslo nulové nebo záporné,** strategie podle tvých dat nemá výhodu. Neobchoduj ji.
+
+Proto se v praxi drží 0,5–2 % na obchod: hluboko pod polovinou Kellyho čísla z příkladu, s rezervou
+pro chybu v odhadu. Takzvané <KeyTerm term="risk-of-ruin">riziko krachu</KeyTerm> – tedy šance, že
+propad účet zničí nebo tě donutí skončit – je pak malé.
+
+## Časté omyly
+
+- **„Kelly je optimální, budu sázet plného Kellyho.“** Optimální pro růst, ne pro tvé nervy a ne pro
+  přeceněné odhady.
+- **„Kladná očekávaná hodnota = nemůžu přijít o účet.“** Můžeš – s příliš velkými sázkami.
+- **„Víc rizika = víc peněz.“** Jen do Kellyho čísla. Za ním víc rizika znamená méně peněz.
+
+<Callout title="Shrnutí">
+
+- Kellyho vzorec f = p − (1 − p) ÷ b říká, jaké riziko maximalizuje dlouhodobý růst.
+- Plný Kelly přináší obrovské propady; za Kellyho číslem růst klesá.
+- Odhady z backtestu bývají optimistické – přeceněná strategie s plným Kellym účet zničí.
+- V praxi zlomek Kellyho čísla, obvykle 0,5–2 % na obchod.
+
+</Callout>

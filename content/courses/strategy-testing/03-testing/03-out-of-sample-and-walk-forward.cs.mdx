@@ -1,0 +1,102 @@
+import outOfSample from "./backtest-out-of-sample.json";
+
+export const metadata = {
+  title: "Testování mimo vzorek a walk-forward",
+  slug: "testovani-mimo-vzorek",
+  description:
+    "Jak strategii otestovat na datech, která nikdy neviděla, co se stalo s naším „nejlepším“ nastavením a jak funguje walk-forward.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, proč testovat na datech, na kterých jsi strategii neladil
+- uvidíš, jak „vítěz“ minulého testu dopadl na nových datech
+- naučíš se postup walk-forward
+
+</Callout>
+
+V minulé lekci vypadala strategie s průměrem 40 dní skvěle. Jenže tu délku jsme vybrali právě podle
+těch dat – takže test vlastně jen ukázal, že umíme najít nejlepší číslo v minulosti. Skutečná otázka
+zní: **jak by dopadla na datech, která nikdy neviděla?**
+
+## Dvě hromádky dat
+
+Data se rozdělí předem, ještě před prvním testem:
+
+- **ve vzorku** (_in-sample_) – na nich strategii vymýšlíš a ladíš (u nás 2019–2021),
+- **<KeyTerm term="out-of-sample">mimo vzorek</KeyTerm>** – na ně nesmíš sáhnout, dokud nemáš
+  pravidla hotová (u nás leden 2022 až září 2025).
+
+Test mimo vzorek se dělá **jednou**. Kdo se podívá na výsledek, upraví pravidla a otestuje znovu, udělal
+ze „mimo vzorek“ další data na ladění.
+
+<Illustration name="examCheat" />
+
+## Jak dopadl vítěz
+
+| 2022 – září 2025   | Průměr 40 (vítěz z let 2019–2021) | Průměr 200 | Kup a drž |
+| ------------------ | --------------------------------- | ---------- | --------- |
+| Celkový výnos      | +166 %                            | +234 %     | +147 %    |
+| Maximální drawdown | −47 %                             | −32 %      | −67 %     |
+| Počet obchodů      | 47                                | 13         | 1         |
+| Profit factor      | 2,4                               | 9,8        | –         |
+
+<LineChart
+  data={outOfSample}
+  label="Křivka kapitálu od ledna 2022 do září 2025: kup a drž končí na zhruba 2,5násobku s propadem přes 60 % v roce 2022, strategie s průměrem 40 dní na zhruba 2,7násobku, s průměrem 200 dní na zhruba 3,3násobku"
+  caption="Data, která strategie při ladění neviděla. Vítěz z minulosti tu skončil uprostřed pole – a ani průměr 200 dní není důkaz, má jen 13 obchodů."
+  lines={[
+    { key: "sma40", label: "Průměr 40 dní" },
+    { key: "sma200", label: "Průměr 200 dní" },
+    { key: "buyHold", label: "Kup a drž" },
+  ]}
+/>
+
+Co se stalo:
+
+- „Nejlepší“ průměr 40 dní na nových datech **mírně porazil prosté držení** a měl menší propady – ale
+  mezi 30 testovanými délkami skončil až na **20. místě**. Jeho výjimečnost z let 2019–2021 byla
+  z velké části náhoda.
+- Průměr 200 dní dopadl lépe. Je to důkaz, že je lepší? **Ne.** Má jen 13 obchodů a my jsme ho teď
+  vybrali – podle dat mimo vzorek. Kdybychom ho začali používat, přeučili bychom se znovu, jen na jiných
+  letech.
+
+## Walk-forward
+
+Metoda <KeyTerm term="walk-forward">walk-forward</KeyTerm> opakuje rozdělení dat
+postupně, tak jak by to dělal skutečný obchodník:
+
+1. Na posledních třech letech vyber nejlepší délku průměru.
+2. Obchoduj s ní následující rok.
+3. Posuň se o rok a opakuj.
+
+| Rok            | Vybraná délka | Strategie | Kup a drž |
+| -------------- | ------------- | --------- | --------- |
+| 2022           | 40            | −44 %     | −64 %     |
+| 2023           | 40            | +136 %    | +156 %    |
+| 2024           | 110           | +93 %     | +121 %    |
+| 2025 (do září) | 170           | −1 %      | +22 %     |
+
+Dohromady **+153 %** proti **+147 %** u prostého držení. Strategie méně ztratila v propadu roku 2022
+a méně vydělala v růstech. Žádný zázrak – a to je cenná informace.
+
+<Callout type="warning" title="Poctivý výsledek bývá nudný">
+  Když strategie projde testem mimo vzorek a walk-forward a vyjde „zhruba jako
+  prosté držení, s menšími propady“, je to realistický výsledek. Zázračná čísla
+  obvykle znamenají chybu v testu.
+</Callout>
+
+## Časté omyly
+
+- **„Na datech mimo vzorek to nevyšlo, tak to doladím.“** Tím jsi z nich udělal data na ladění.
+- **„Průměr 200 vyšel nejlíp, budu ho používat.“** Vybral jsi ho podle výsledku – stejná past znovu.
+- **„Walk-forward vyšel jen jako držení, strategie je k ničemu.“** Menší propady můžou mít hodnotu.
+
+<Callout title="Shrnutí">
+
+- Data rozděl předem: na ladění (ve vzorku) a na jediný závěrečný test (mimo vzorek).
+- Náš vítěz z let 2019–2021 skončil na nových datech uprostřed pole.
+- Walk-forward simuluje skutečné obchodování: vybírá parametry jen z minulosti.
+- Realistický výsledek bývá skromný; zázraky obvykle znamenají chybu.
+
+</Callout>
