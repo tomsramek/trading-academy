@@ -1,0 +1,86 @@
+import panel from "./binance-order-panel.webp";
+
+export const metadata = {
+  title: "Příkazy v praxi",
+  slug: "prikazy-v-praxi",
+  description:
+    "Jak vyplnit limitní, tržní a stop-limit příkaz krok za krokem, co znamenají pole Cena, Množství a Celkem a jaké chyby stojí začátečníky nejvíc peněz.",
+};
+
+<Callout title="V této lekci">
+
+- vyplníš limitní, tržní a stop-limit příkaz krok za krokem
+- pochopíš, jak spolu souvisí pole Cena, Množství a Celkem
+- vyhneš se chybám, které stojí začátečníky nejvíc
+
+</Callout>
+
+Teorii příkazů najdeš v lekci [Typy příkazů do hloubky](/kurzy/obchodovani-podle-planu/typy-prikazu-do-hloubky).
+Tady je praxe: panel příkazů má jen pár polí, ale jedna nula navíc nebo záměna dvou tlačítek tě může
+stát hodně peněz. Profesor Knot proto radí: pomalu, a dvakrát se podívat, než klikneš.
+
+<Illustration name="orderForm" />
+
+<Figure
+  src={panel}
+  alt="Panel příkazů na Binance se záložkami Spot, Cross, Isolated a Grid, typy příkazů Limit, Market a Stop Limit, poli Price a Amount a posuvníkem procent; vlevo nákup, vpravo prodej"
+  caption="Panel příkazů na Binance (8. 10. 2026): nahoře Spot; Cross a Isolated jsou obchody na marži, Grid je obchodní bot. Pod nimi Limit, Market a Stop Limit, vlevo nákup, vpravo prodej. Bez přihlášení jsou místo tlačítek Buy a Sell tlačítka Log In."
+/>
+
+## Limitní příkaz: „koupím, až to bude za tolik“
+
+Bitcoin stojí 60 000 eur a ty chceš koupit, až spadne na 58 000.
+
+1. Záložka **Spot**, tlačítko **Koupit**, typ **Limit**.
+2. **Cena:** 58 000 – nejvyšší cena, kterou jsi ochoten zaplatit.
+3. **Množství:** 0,002 BTC – nebo vyplň **Celkem:** 116 EUR. Pole jsou propojená: cena × množství =
+   celkem.
+4. Zkontroluj souhrn a potvrď.
+
+Příkaz se objeví v **otevřených příkazech** a čeká. Když cena na 58 000 nikdy nedorazí, nikdy se
+neprovede. Když ho už nechceš, zruš ho.
+
+## Tržní příkaz: „koupím hned, za kolik to půjde“
+
+Typ **Trh** nemá pole pro cenu. Zadáš jen množství nebo částku a nakoupíš okamžitě za nejlepší nabídky
+v knize objednávek. Je to rychlé, ale cenu předem neznáš přesně – hlavně u málo obchodovaných párů
+a velkých částek tě může stát <KeyTerm term="slippage">skluz</KeyTerm>.
+
+## Stop-limit: „prodej, kdyby to padalo“
+
+Máš bitcoin koupený za 60 000 a chceš ho prodat, kdyby cena spadla pod 55 000.
+
+1. **Prodat**, typ **Stop-limit**.
+2. **Stop (spouštěcí cena):** 55 000 – až obchod proběhne za tuhle cenu, příkaz se aktivuje.
+3. **Limit:** 54 500 – nejnižší cena, za kterou jsi ochoten prodat. Nech mezi stopem a limitem trochu
+   místa, jinak se v prudkém pádu příkaz nemusí provést.
+4. **Množství:** kolik prodáváš.
+
+## Chyby, které stojí nejvíc
+
+- **Nula navíc nebo chybějící.** 5 800 místo 58 000 u prodeje znamená prodat za desetinu ceny.
+  Limitní prodej pod aktuální cenou se provede hned za nejlepší nákupní nabídky.
+- **Koupit místo Prodat.** Tlačítka jsou vedle sebe a liší se jen barvou.
+- **Posuvník na 100 %.** Jedním tahem vsadíš celý zůstatek.
+- **Futures místo Spot.** Viz lekce 13.
+
+<Callout type="warning" title="Náhled před potvrzením">
+  Většina burz před odesláním ukáže souhrn: cenu, množství, celkovou částku a
+  poplatek. Přečti si ho. Je to poslední chvíle, kdy jde chyba zadarmo opravit.
+</Callout>
+
+## Časté omyly
+
+- **„Limitní nákup nad aktuální cenou počká.“** Neprovede se za tvou vyšší cenu, ale okamžitě za nejlepší
+  nabídky z knihy – i tak tě ale může stát víc, než jsi chtěl.
+- **„Stop-limit mě vždycky ochrání.“** Při prudkém pádu přes tvůj limit se prodej neprovede.
+- **„Tržní příkaz je nejlevnější, protože je okamžitý.“** Platíš vyšší poplatek a případně skluz.
+
+<Callout title="Shrnutí">
+
+- Limit: zadáš cenu a množství, příkaz čeká v otevřených příkazech.
+- Trh: zadáš jen množství, provede se hned za nejlepší nabídky – se skluzem.
+- Stop-limit: spouštěcí cena + limit s rezervou pro prudký pohyb.
+- Před potvrzením si přečti souhrn – nula navíc nebo záměna Koupit/Prodat je nejdražší chyba.
+
+</Callout>

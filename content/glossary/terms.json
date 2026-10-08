@@ -77,6 +77,19 @@
     },
     "related": ["dex", "slippage"]
   },
+  "anti-phishing-code": {
+    "text": {
+      "en": {
+        "term": "Anti-phishing code",
+        "definition": "A word you choose that an exchange puts into every email it sends you. An email without your code is not from the exchange."
+      },
+      "cs": {
+        "term": "Anti-phishingový kód",
+        "definition": "Slovo, které si zvolíš a které burza vkládá do každého e-mailu, který ti pošle. E-mail bez tvého kódu od burzy nepochází."
+      }
+    },
+    "related": ["phishing", "2fa"]
+  },
   "atr": {
     "text": {
       "en": {
@@ -180,6 +193,19 @@
       }
     },
     "related": ["hash", "node", "decentralization"]
+  },
+  "bollinger-bands": {
+    "text": {
+      "en": {
+        "term": "Bollinger Bands",
+        "definition": "A moving average with a band above and below it, usually two standard deviations away. The bands widen when the market is volatile and narrow when it is calm."
+      },
+      "cs": {
+        "term": "Bollingerova pásma",
+        "definition": "Klouzavý průměr s pásmem nad ním a pod ním, obvykle ve vzdálenosti dvou směrodatných odchylek. Pásma se rozšiřují, když je trh divoký, a zužují, když je klidný."
+      }
+    },
+    "related": ["moving-average", "atr"]
   },
   "bonding-curve": {
     "text": {
@@ -687,6 +713,19 @@
     },
     "related": ["margin", "leverage", "futures"]
   },
+  "liquidity": {
+    "text": {
+      "en": {
+        "term": "Liquidity",
+        "definition": "How easily you can buy or sell without moving the price. A liquid market has many orders near the price and a small spread."
+      },
+      "cs": {
+        "term": "Likvidita",
+        "definition": "Jak snadno se dá nakoupit nebo prodat, aniž by se pohnula cena. Likvidní trh má hodně příkazů blízko ceny a malý spread."
+      }
+    },
+    "related": ["spread", "order-book", "slippage"]
+  },
   "loss-aversion": {
     "text": {
       "en": {
@@ -699,6 +738,19 @@
       }
     },
     "related": ["fomo", "confirmation-bias"]
+  },
+  "macd": {
+    "text": {
+      "en": {
+        "term": "MACD",
+        "definition": "Moving Average Convergence Divergence – the difference between two exponential averages, plotted with its signal line below the chart. It shows the strength and turning of a trend."
+      },
+      "cs": {
+        "term": "MACD",
+        "definition": "Rozdíl dvou exponenciálních průměrů zobrazený se signální čárou pod grafem. Ukazuje sílu trendu a jeho otáčení."
+      }
+    },
+    "related": ["moving-average", "rsi"]
   },
   "maker-taker": {
     "text": {
@@ -725,6 +777,19 @@
       }
     },
     "related": ["leverage", "liquidation"]
+  },
+  "market-depth": {
+    "text": {
+      "en": {
+        "term": "Market depth",
+        "definition": "How many buy and sell orders are waiting in the order book at each price. A depth chart shows it as two mountains, green for buys and red for sells."
+      },
+      "cs": {
+        "term": "Hloubka trhu",
+        "definition": "Kolik nákupních a prodejních příkazů čeká v knize objednávek na jednotlivých cenách. Graf hloubky ji ukazuje jako dvě hory – zelenou pro nákupy a červenou pro prodeje."
+      }
+    },
+    "related": ["order-book", "liquidity"]
   },
   "market-order": {
     "text": {
@@ -999,6 +1064,19 @@
     },
     "related": ["moving-average", "rsi"]
   },
+  "passkey": {
+    "text": {
+      "en": {
+        "term": "Passkey",
+        "definition": "A modern way to sign in without a password, stored on your phone or computer and confirmed with your fingerprint or face. It cannot be phished on a fake website."
+      },
+      "cs": {
+        "term": "Přístupový klíč (passkey)",
+        "definition": "Moderní způsob přihlášení bez hesla, uložený v telefonu nebo počítači a potvrzený otiskem prstu nebo obličejem. Na falešném webu ho nejde vylákat."
+      }
+    },
+    "related": ["2fa", "phishing"]
+  },
   "passphrase": {
     "text": {
       "en": {
@@ -1259,6 +1337,19 @@
     },
     "related": ["private-key", "seed-phrase", "hardware-wallet"]
   },
+  "sepa": {
+    "text": {
+      "en": {
+        "term": "SEPA",
+        "definition": "The euro payment system for bank transfers within Europe. A SEPA transfer to an exchange is usually the cheapest way to deposit euros; an instant SEPA payment arrives within seconds."
+      },
+      "cs": {
+        "term": "SEPA",
+        "definition": "Evropský systém bankovních převodů v eurech. Převod SEPA na burzu bývá nejlevnější způsob, jak vložit eura; okamžitá platba SEPA dorazí během pár sekund."
+      }
+    },
+    "related": ["exchange", "kyc"]
+  },
   "shamir-backup": {
     "text": {
       "en": {
@@ -1506,6 +1597,19 @@
     },
     "related": ["trading-plan"]
   },
+  "trading-pair": {
+    "text": {
+      "en": {
+        "term": "Trading pair",
+        "definition": "Two currencies traded against each other, such as BTC/EUR. The first is what you buy, the second what you pay with; the price says how much of the second one unit of the first costs."
+      },
+      "cs": {
+        "term": "Obchodní pár",
+        "definition": "Dvě měny, které se obchodují proti sobě, třeba BTC/EUR. První je to, co kupuješ, druhá to, čím platíš; cena říká, kolik druhé měny stojí jedna jednotka první."
+      }
+    },
+    "related": ["order-book", "exchange"]
+  },
   "trading-plan": {
     "text": {
       "en": {
@@ -1648,6 +1752,19 @@
       }
     },
     "related": ["phishing", "airdrop", "wallet"]
+  },
+  "withdrawal-whitelist": {
+    "text": {
+      "en": {
+        "term": "Withdrawal whitelist",
+        "definition": "A list of addresses you have approved in advance; the exchange then lets you withdraw crypto only to them. A new address usually works only after a waiting period."
+      },
+      "cs": {
+        "term": "Povolené adresy pro výběr",
+        "definition": "Seznam adres, které jsi předem schválil; burza pak dovolí vybírat kryptoměny jen na ně. Nová adresa obvykle funguje až po čekací době."
+      }
+    },
+    "related": ["2fa", "exchange"]
   },
   "wrench-attack": {
     "text": {

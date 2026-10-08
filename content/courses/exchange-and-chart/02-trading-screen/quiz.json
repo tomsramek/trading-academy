@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What does the trading pair BTC/EUR at a price of 60,000 mean?",
+          "options": [
+            "One bitcoin costs 60,000 euros",
+            "One euro costs 60,000 bitcoins",
+            "60,000 bitcoins were traded in 24 hours"
+          ],
+          "explanation": "The first currency is what you buy, the second what you pay with."
+        },
+        "cs": {
+          "question": "Co znamená obchodní pár BTC/EUR s cenou 60 000?",
+          "options": [
+            "Jeden bitcoin stojí 60 000 eur",
+            "Jedno euro stojí 60 000 bitcoinů",
+            "Za 24 hodin se zobchodovalo 60 000 bitcoinů"
+          ],
+          "explanation": "První měna je to, co kupuješ, druhá to, čím platíš."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why is \"Buy crypto\" usually more expensive than spot?",
+          "options": [
+            "Because it buys faster",
+            "Because it buys a different coin",
+            "A markup (spread) is hidden in the price, sometimes plus a fee"
+          ],
+          "explanation": "Quick buy tempts with a \"zero fee\", but a markup in the price is a fee too – and you pay it on buying and selling."
+        },
+        "cs": {
+          "question": "Proč bývá „Koupit krypto“ dražší než spot?",
+          "options": [
+            "Protože nakupuje rychleji",
+            "Protože kupuje jinou kryptoměnu",
+            "V ceně je schovaná přirážka (spread), někdy i poplatek"
+          ],
+          "explanation": "Rychlý nákup láká „nulovým poplatkem“, ale přirážka v ceně je taky poplatek – a platíš ji při nákupu i prodeji."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "You place a limit buy at 58,000, but the price is 60,000. What happens?",
+          "options": [
+            "You buy right away at 60,000",
+            "The order waits in open orders until the price falls to 58,000",
+            "The order is cancelled"
+          ],
+          "explanation": "A limit order executes only at your price or better. Until then it waits – and if the price never arrives, it never executes."
+        },
+        "cs": {
+          "question": "Zadáš limitní nákup za 58 000, ale cena je 60 000. Co se stane?",
+          "options": [
+            "Nakoupíš hned za 60 000",
+            "Příkaz čeká v otevřených příkazech, dokud cena nespadne na 58 000",
+            "Příkaz se zruší"
+          ],
+          "explanation": "Limitní příkaz se provede jen za tvou cenu nebo lepší. Do té doby čeká – a když cena nedorazí, neprovede se nikdy."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why leave some room between the stop and the limit in a stop-limit order?",
+          "options": [
+            "So the order executes at all in a sharp fall",
+            "So the fee is lower",
+            "Because the law requires it"
+          ],
+          "explanation": "If the price jumps past your limit in a fall, the sale does not execute. A gap between stop and limit helps prevent that."
+        },
+        "cs": {
+          "question": "Proč u stop-limit příkazu nechat mezi stopem a limitem trochu místa?",
+          "options": [
+            "Aby se příkaz při prudkém pádu vůbec provedl",
+            "Aby byl poplatek nižší",
+            "Protože to vyžaduje zákon"
+          ],
+          "explanation": "Když cena při pádu přeskočí tvůj limit, prodej se neprovede. Rezerva mezi stopem a limitem tomu pomáhá předejít."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "When are you a taker paying the higher fee?",
+          "options": [
+            "When your limit order waits in the book",
+            "When you trade at night",
+            "When your order fills immediately against offers in the book"
+          ],
+          "explanation": "A taker takes liquidity from the book – a market order or a limit order at a price that fills right away. A maker adds a waiting order and pays less."
+        },
+        "cs": {
+          "question": "Kdy jsi taker a platíš vyšší poplatek?",
+          "options": [
+            "Když tvůj limitní příkaz čeká v knize",
+            "Když obchoduješ v noci",
+            "Když se tvůj příkaz vyplní okamžitě proti nabídkám v knize"
+          ],
+          "explanation": "Taker bere likviditu z knihy – tržní příkaz nebo limitní za cenu, která se dá hned vyplnit. Maker přidává čekající příkaz a platí méně."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

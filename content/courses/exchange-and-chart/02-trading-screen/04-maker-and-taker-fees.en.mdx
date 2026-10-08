@@ -1,0 +1,76 @@
+export const metadata = {
+  title: "Maker and taker fees",
+  description:
+    "Why a limit order tends to be cheaper than a market order, how to read an exchange's price list, what volume tiers are and why a fixed withdrawal fee hurts mostly on small amounts.",
+};
+
+<Callout title="In this lesson">
+
+- understand when you are a maker and when a taker
+- learn to read an exchange's price list
+- find out why it pays to withdraw crypto less often
+
+</Callout>
+
+A market is like a marketplace. Someone puts goods on the counter and waits for a customer – that is the
+**maker**. Someone comes and takes the goods straight off the counter – that is the **taker**. The exchange
+likes a full marketplace, so it rewards those who put goods out with a lower fee.
+
+<Illustration name="makerTaker" />
+
+## Maker or taker?
+
+- **Maker** – your order does not fill straight away and waits in the order book. Typically a limit
+  order below the current price when buying, or above it when selling. You add <KeyTerm term="liquidity">liquidity</KeyTerm> to the market.
+- **Taker** – your order fills immediately against orders already in the book. A market order, and a
+  limit order at a price that can be filled right away. You take liquidity.
+
+All the costs of a trade are covered in the lesson
+[What a trade costs](/courses/trading-with-a-plan/what-a-trade-costs).
+
+## How to read the price list
+
+The price list (**Fees** or **Fee schedule**) is usually a table by volume over the last 30 days:
+
+| 30-day volume   | Maker | Taker |
+| --------------- | ----- | ----- |
+| up to 10,000 €  | 0.10% | 0.20% |
+| 10,000–50,000 € | 0.08% | 0.16% |
+| over 50,000 €   | 0.06% | 0.12% |
+
+_A sample table – real rates differ by exchange._
+
+At these rates a 1,000 € trade costs you 1 € as a maker and 2 € as a taker. You pay the fee again both
+when buying and when selling.
+
+Some exchanges offer a discount on fees if you pay them with their own token. The discount is nice, but
+you have to hold the token – and its price may fall by more than you save.
+
+## The withdrawal fee
+
+Besides trading fees, you pay for withdrawing crypto from the exchange. It is usually a **fixed amount**
+depending on the network, not a percentage. A fixed fee worth, say, 2 euros is 10% of a 20-euro
+withdrawal – but only 0.1% of a 2,000-euro one. So withdraw less often and in larger amounts.
+
+<Callout type="warning" title="The most expensive trade is an unnecessary one">
+  A lower fee tempts you to trade more. But ten unnecessary trades with a low
+  fee cost more than one well-thought-out trade with a higher one. The cheapest
+  trade is the one you do not make.
+</Callout>
+
+## Common myths
+
+- **"A limit order is always a maker."** Only if it does not fill straight away. A limit buy above the
+  current price is a taker.
+- **"0.1% is negligible."** It adds up with frequent trading – and you pay it on both buying and selling.
+- **"Withdrawing a small amount is free if the fee is small."** A fixed fee is highest in percentage terms
+  on small amounts.
+
+<Callout title="Summary">
+
+- A maker adds an order to the book and pays less; a taker takes from the book and pays more.
+- The price list follows 30-day volume; you pay the fee on both buying and selling.
+- A discount for paying with the exchange's own token means holding another risky asset.
+- The withdrawal fee is usually fixed – withdraw less often and in larger amounts.
+
+</Callout>

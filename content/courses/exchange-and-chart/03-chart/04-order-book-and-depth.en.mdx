@@ -1,0 +1,105 @@
+import book from "./binance-order-book.webp";
+import depth from "./binance-depth.webp";
+export const metadata = {
+  title: "The order book and market depth",
+  description:
+    'How to read the red and green rows of the order book, what the spread is, why a big market buy pays more than the last price, what the depth chart shows and why "walls" may not be real.',
+};
+
+<Callout title="In this lesson">
+
+- learn to read the order book and the spread
+- work out what a market order really pays
+- understand the depth chart and why not to trust every "wall"
+
+</Callout>
+
+The last price in the header is just the last trade. What you pay is decided by the order book: a list of
+everyone who is waiting right now for someone to buy from them or sell to them.
+
+<Illustration name="depthMountains" />
+
+## What the book looks like
+
+| Side           | Price (EUR) | Amount (BTC) |
+| -------------- | ----------- | ------------ |
+| sell           | 60,050      | 3.0          |
+| sell           | 60,020      | 1.2          |
+| sell           | 60,010      | 0.5          |
+| **last price** | **60,000**  |              |
+| buy            | 59,990      | 0.8          |
+| buy            | 59,980      | 1.5          |
+| buy            | 59,950      | 2.5          |
+
+_A sample book – a real one is much longer._
+
+- **Red rows at the top** – sellers and the least they will sell for. The lowest of them (60,010) is the
+  price you buy at right away.
+- **Green rows at the bottom** – buyers and the most they will pay. The highest (59,990) is the price you
+  sell at right away.
+- The difference between them is the <KeyTerm term="spread">spread</KeyTerm> – 20 euros here. The more
+  liquid the market, the smaller the spread.
+
+## What a market order pays
+
+A real order book on Binance:
+
+<Figure
+  src={book}
+  alt="The Binance order book for BTC/USDT: red sell offers at the top with price, amount and total, the last price of 81,052.05 in the middle, green buy offers at the bottom and the buy/sell ratio below them"
+  caption="Binance, BTC/USDT order book (8 Oct 2026): red sells at the top, green buys at the bottom, the last price in the middle. The 0.01 rounding choice is at the top right."
+/>
+
+A market buy takes the offers from the bottom of the red part until it has the whole amount:
+
+| Purchase | Average price | Per BTC vs the last price |
+| -------- | ------------- | ------------------------- |
+| 0.1 BTC  | 60,010        | +10 €                     |
+| 1 BTC    | 60,015        | +15 €                     |
+| 2 BTC    | 60,022        | +22 €                     |
+
+The bigger the purchase, the deeper it reaches into the book and the more it pays – that is <KeyTerm term="slippage">slippage</KeyTerm>. For bitcoin on a big exchange it is negligible. For small
+altcoins with a thin book, one purchase can move the price by several percent.
+
+## The depth chart
+
+The **Depth** switch shows the book as two mountains: green on the left (buys) and red on the right
+(sells). The height of a mountain is the total of all offers up to that price – the so-called <KeyTerm term="market-depth">market depth</KeyTerm>. A steep mountain means many offers near the price;
+the gap in the middle is the spread.
+
+<Figure
+  src={depth}
+  alt="The Binance depth chart: a green area of buy offers on the left rising away from the price, a red area of sell offers on the right, a vertical line in the middle at a price of about 80,982"
+  caption="Binance, BTC/USDT depth chart (8 Oct 2026): green buys on the left, red sells on the right. Height = the total of offers up to that price."
+/>
+
+<Video
+  src="/videos/binance-depth.mp4"
+  poster="/videos/binance-depth.webp"
+  label="Video: on Binance the chart switches to the Depth view, the cursor moves over the green and red mountains and the chart returns to Original"
+  caption="Video (18 s): switching to the depth chart (Depth) on Binance and back to Original."
+/>
+
+The rounding button (0.01 / 0.1 / 1 / 10) groups prices into steps to make the book easier to read.
+
+<Callout type="warning" title="Walls may not be real">
+  A huge offer at one price – a "wall" – looks like solid support. But someone
+  can pull it within a second. Placing fake offers nobody intends to fill is
+  banned manipulation on regulated markets, and it still happens.
+</Callout>
+
+## Common myths
+
+- **"I will buy at the last price."** You buy at the lowest sell offer – and with a bigger amount, higher.
+- **"A big wall will stop the price."** As long as it is there. Walls can vanish.
+- **"The spread is the exchange's fee."** The spread is the gap between buyers and sellers; the fee is paid
+  on top.
+
+<Callout title="Summary">
+
+- The order book: red sells at the top, green buys at the bottom; the gap between the best is the spread.
+- A market buy takes offers step by step – the bigger it is, the higher the average price (slippage).
+- The depth chart shows the book as two mountains; steep mountains = many offers near the price.
+- Walls in the book can disappear – do not rely on them.
+
+</Callout>

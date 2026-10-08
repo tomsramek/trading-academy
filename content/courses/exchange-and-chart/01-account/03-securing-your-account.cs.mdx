@@ -1,0 +1,75 @@
+export const metadata = {
+  title: "Zabezpečení účtu na burze",
+  slug: "zabezpeceni-uctu-na-burze",
+  description:
+    "Pět přepínačů v nastavení zabezpečení, které stojí za to zapnout hned: dvoufázové ověření (nejlépe přístupovým klíčem), anti-phishingový kód, povolené adresy pro výběr, přehled zařízení a zabezpečený e-mail k účtu.",
+};
+
+<Callout title="V této lekci">
+
+- najdeš v nastavení burzy pět věcí, které stojí za to zapnout hned
+- zjistíš, proč SMS jako jediné ověření nestačí
+- naučíš se poznat pravý e-mail od burzy podle anti-phishingového kódu
+
+</Callout>
+
+Obecná pravidla bezpečnosti znáš ze [Základů kryptoměn](/kurzy/zaklady-kryptomen/zabezpeceni-uctu).
+Tady je praktická verze: otevři na burze **Profil → Zabezpečení** (název se mezi burzami liší jen
+málo) a projdi s námi pět přepínačů. Zabere to čtvrt hodiny a dělá z účtu pevnost místo stanu.
+
+<Illustration name="securityToggles" />
+
+## 1. Dvoufázové ověření
+
+Kromě hesla potřebuješ druhý důkaz – kód nebo potvrzení.
+
+- **Nejlepší:** <KeyTerm term="passkey">přístupový klíč</KeyTerm> (passkey) nebo bezpečnostní klíč.
+  Nedá se odposlechnout ani vylákat na falešném webu.
+- **Dobré:** ověřovací aplikace, která generuje šestimístné kódy.
+- **Nouzové:** SMS. Lepší než nic, ale podvodník může tvoje číslo převést na jinou SIM kartu. Nenechávej ji
+  jako jedinou metodu.
+
+## 2. Anti-phishingový kód
+
+Burza ti dovolí nastavit vlastní slovo – třeba „modrypapousek“. Takzvaný <KeyTerm term="anti-phishing-code">anti-phishingový kód</KeyTerm> pak burza vkládá do každého e-mailu,
+který ti pošle. **E-mail bez tvého kódu nepochází od burzy**, ať vypadá sebevěrohodněji.
+
+## 3. Povolené adresy pro výběr
+
+Na seznamu <KeyTerm term="withdrawal-whitelist">povolených adres pro výběr</KeyTerm> jsou jen adresy,
+které jsi sám schválil – třeba tvoje hardwarová peněženka. Když se k účtu dostane útočník, nepošle
+peníze na svou adresu. Nová adresa se obvykle dá použít až po čekací době, často 24 hodin.
+
+## 4. Zařízení a přihlášení
+
+V přehledu zařízení vidíš, odkud se kdo přihlašoval. Neznámé zařízení odhlas a změň heslo. Zapni si
+upozornění na každé nové přihlášení.
+
+## 5. E-mail k účtu
+
+Kdo ovládne tvůj e-mail, resetuje si heslo k burze. E-mail, na který je burza registrovaná, proto
+zabezpeč stejně dobře: silné heslo a dvoufázové ověření.
+
+<Callout
+  type="warning"
+  title="Po změně zabezpečení se výběry na chvíli zablokují"
+>
+  Když změníš heslo, 2FA nebo e-mail, burza obvykle na 24–48 hodin zablokuje
+  výběry. Není to chyba, ale ochrana: kdyby změnu udělal útočník, máš čas
+  zasáhnout.
+</Callout>
+
+## Časté omyly
+
+- **„SMS kód stačí.“** Jako jediná metoda ne – SIM kartu jde převést.
+- **„E-mail má logo burzy, je pravý.“** Logo zkopíruje každý. Rozhoduje tvůj anti-phishingový kód.
+- **„Povolené adresy jsou zbytečná komplikace.“** Je to nejlevnější pojistka proti vybílení účtu.
+
+<Callout title="Shrnutí">
+
+- Dvoufázové ověření: přístupový klíč nebo aplikace, SMS jen jako záloha.
+- Anti-phishingový kód odliší pravé e-maily od burzy od podvodných.
+- Seznam povolených adres zabrání výběru na cizí adresu.
+- Hlídej přihlášená zařízení a zabezpeč i e-mail k účtu.
+
+</Callout>

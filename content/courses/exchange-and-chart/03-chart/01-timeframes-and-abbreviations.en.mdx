@@ -1,0 +1,136 @@
+import toolbar from "./binance-chart-toolbar.webp";
+import timeframes from "./binance-timeframes.webp";
+import hourly from "@content/market-data/btcusdt-1h-2024-03-w2.json";
+import daily from "@content/market-data/btcusdt-1d-2024-h1.json";
+
+export const metadata = {
+  title: "Timeframes and chart abbreviations",
+  description:
+    "What 1m, 15m, 1H, 4H, 1D and 1M mean, why 1m is not 1M, what O, H, L, C and Vol above the chart are, when the daily candle closes and what the log and % switches in the corner do.",
+};
+
+<Callout title="In this lesson">
+
+- decode the timeframe abbreviations and the figures above the chart
+- see the same week on an hourly and a daily chart
+- find out when the daily candle closes and what the switches in the chart's corner are for
+
+</Callout>
+
+Above the chart is a row of buttons that looks like a safe combination: 1m, 15m, 1H, 4H, 1D, 1W, 1M. And
+when you hover over a candle, O, H, L, C, Vol and a few numbers pop up. None of it is secret – just
+abbreviated so it fits.
+
+<Illustration name="timeframeZoom" />
+
+## Timeframes
+
+The so-called <KeyTerm term="timeframe">timeframe</KeyTerm> says how long a period one candle summarises:
+
+| Abbreviation | One candle = |
+| ------------ | ------------ |
+| 1m           | 1 minute     |
+| 15m          | 15 minutes   |
+| 1H (1h)      | 1 hour       |
+| 4H           | 4 hours      |
+| 1D           | 1 day        |
+| 1W           | 1 week       |
+| 1M           | 1 month      |
+
+On Binance a row of timeframes sits right above the chart, and more are in the arrow next to them:
+
+<Figure
+  src={timeframes}
+  alt="The expanded timeframe menu on Binance: pinned Time, 1s, 15m, 1H, 4H, 1D, 1W and more available 1m, 3m, 5m, 30m, 2H, 6H, 8H, 12H and 1M"
+  caption="Binance (8 Oct 2026): pinned timeframes and a menu of more. The Edit button pins the ones you use."
+/>
+
+Watch out for **1m and 1M**: a lowercase m is a minute, an uppercase M a month. There is a factor of
+roughly 43,000 between them.
+
+<Video
+  src="/videos/binance-timeframes.mp4"
+  poster="/videos/binance-timeframes.webp"
+  label="Video: the Binance chart switches through the 1H, 4H and 1W timeframes and back to 1D, redrawing each time"
+  caption="Video (18 s): switching timeframes on Binance – 1H, 4H, 1W and back to 1D. The yellow ring shows where to click."
+/>
+
+## The same week, two charts
+
+The week from 4 to 10 March 2024 on an hourly chart:
+
+<CandleChart
+  data={hourly}
+  label="Hourly Bitcoin chart from 4 to 10 March 2024: on 5 March the price climbed to 69,000 and within a few hours fell as low as 59,005, then returned to 69,000 during the week"
+  caption="Hourly chart (1H): each candle is one hour. You can see the price falling almost 15% during the afternoon and evening of 5 March."
+  indicators={{ volume: true }}
+/>
+
+And the same period on a daily chart, as part of half a year:
+
+<CandleChart
+  data={daily}
+  label="Daily Bitcoin chart for the first half of 2024 with the week from 4 to 10 March highlighted; 5 March is one candle with a long lower wick"
+  caption="Daily chart (1D): the whole fall of 5 March is one candle with a long lower wick."
+  zones={[{ from: "2024-03-04", to: "2024-03-10", label: "That week" }]}
+/>
+
+On the hourly chart, 5 March looks like a disaster. On the daily chart it is one long wick in an uptrend.
+That is why traders start with a longer timeframe – it shows the direction – and use shorter ones only for
+timing.
+
+## The figures above the chart
+
+When you hover over a candle, you see:
+
+- **O** (open) – the candle's opening price,
+- **H** (high) – the highest price,
+- **L** (low) – the lowest price,
+- **C** (close) – the closing price,
+- **Vol** – volume, how much was traded,
+- **Change** – how many percent the close is away from the open.
+
+The values after indicator names, such as **MA(7): 67,210**, show where that line is at that moment.
+Indicators have the next lesson.
+
+On Binance the line above the chart looks like this:
+
+<Figure
+  src={toolbar}
+  alt="The top of the chart on Binance: timeframes Time, 1s, 15m, 1H, 4H, 1D, 1W, the Original, Trading View and Depth switches and a line with the date, Open, High, Low, Close, CHANGE, Range and the values of MA(7), MA(25), MA(99)"
+  caption="Binance (8 Oct 2026): timeframes and view switches at the top; below them Open, High, Low, Close, CHANGE (change in %) and Range (the candle's range in %); further down the values of the MA(7), MA(25) and MA(99) averages."
+/>
+
+## When the daily candle closes
+
+Exchanges usually count the day in world time, UTC. So the daily candle closes at **midnight UTC** – in
+Central Europe that is 1:00 in winter and 2:00 in summer, not at local midnight.
+
+## The switches in the chart's corner
+
+- **log** – logarithmic scale: the same distance on the axis is the same percentage change. Useful for long
+  charts where the price grew many times over.
+- **%** – the axis in percent from the start of the visible period.
+- **auto** – the chart fits itself to the height of the visible candles.
+
+<Callout type="warning" title="Shorter timeframe, more noise">
+  On minute charts the price twitches constantly and every move looks important.
+  Beginners do better with daily and four-hour charts – fewer signals, fewer
+  emotions, fewer unnecessary trades.
+</Callout>
+
+## Common myths
+
+- **"1m is a month."** A lowercase m is a minute; a month is an uppercase M.
+- **"The daily candle closes at midnight."** Usually in UTC, which is not your local midnight.
+- **"The hourly chart is more precise, so it is better."** It is more detailed, not better – and you see
+  more noise in it.
+
+<Callout title="Summary">
+
+- Timeframe = the length of one candle; lowercase m is a minute, uppercase M a month.
+- O, H, L, C are the open, high, low and close; Vol is volume.
+- The daily candle usually closes by UTC.
+- Start with a longer timeframe for direction; log and % in the corner change the axis scale.
+
+</Callout>

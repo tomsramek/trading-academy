@@ -1,0 +1,134 @@
+import toolbar from "./binance-chart-toolbar.webp";
+import timeframes from "./binance-timeframes.webp";
+import hourly from "@content/market-data/btcusdt-1h-2024-03-w2.json";
+import daily from "@content/market-data/btcusdt-1d-2024-h1.json";
+
+export const metadata = {
+  title: "Časové rámce a zkratky v grafu",
+  slug: "casove-ramce-a-zkratky",
+  description:
+    "Co znamenají 1m, 15m, 1H, 4H, 1D a 1M, proč není 1m totéž co 1M, co je O, H, L, C a Vol nad grafem, kdy se zavírá denní svíčka a co dělají přepínače log a % v rohu.",
+};
+
+<Callout title="V této lekci">
+
+- rozluštíš zkratky časových rámců i čísla nad grafem
+- uvidíš stejný týden na hodinovém a denním grafu
+- zjistíš, kdy se zavírá denní svíčka a k čemu jsou přepínače v rohu grafu
+
+</Callout>
+
+Nad grafem je řada tlačítek, která vypadá jako kód k trezoru: 1m, 15m, 1H, 4H, 1D, 1W, 1M. A když
+najedeš myší na svíčku, vyskočí O, H, L, C, Vol a pár čísel. Nic z toho není tajné – jen zkrácené, aby
+se to vešlo.
+
+<Illustration name="timeframeZoom" />
+
+## Časové rámce
+
+Takzvaný <KeyTerm term="timeframe">časový rámec</KeyTerm> říká, jak dlouhé období shrnuje jedna svíčka:
+
+| Zkratka | Jedna svíčka = |
+| ------- | -------------- |
+| 1m      | 1 minuta       |
+| 15m     | 15 minut       |
+| 1H (1h) | 1 hodina       |
+| 4H      | 4 hodiny       |
+| 1D      | 1 den          |
+| 1W      | 1 týden        |
+| 1M      | 1 měsíc        |
+
+Na Binance je řada časových rámců přímo nad grafem a další jsou pod šipkou vedle nich:
+
+<Figure
+  src={timeframes}
+  alt="Rozbalená nabídka časových rámců na Binance: připnuté Time, 1s, 15m, 1H, 4H, 1D, 1W a další dostupné 1m, 3m, 5m, 30m, 2H, 6H, 8H, 12H a 1M"
+  caption="Binance (8. 10. 2026): připnuté časové rámce a nabídka dalších. Tlačítko Edit si připne ty, které používáš."
+/>
+
+Pozor na **1m a 1M**: malé m je minuta, velké M měsíc. Mezi nimi je zhruba 43 000násobný rozdíl.
+
+<Video
+  src="/videos/binance-timeframes.mp4"
+  poster="/videos/binance-timeframes.webp"
+  label="Video: na grafu Binance se postupně přepínají časové rámce 1H, 4H, 1W a zpět na 1D a graf se pokaždé překreslí"
+  caption="Video (18 s): přepínání časových rámců na Binance – 1H, 4H, 1W a zpět na 1D. Žlutý kroužek ukazuje, kam se kliká."
+/>
+
+## Stejný týden, dva grafy
+
+Týden od 4. do 10. března 2024 na hodinovém grafu:
+
+<CandleChart
+  data={hourly}
+  label="Hodinový graf Bitcoinu od 4. do 10. března 2024: 5. března cena vystoupala na 69 000 a během několika hodin spadla až na 59 005, pak se během týdne vrátila k 69 000"
+  caption="Hodinový graf (1H): každá svíčka je jedna hodina. Je vidět, jak 5. března během odpoledne a večera cena spadla skoro o 15 %."
+  indicators={{ volume: true }}
+/>
+
+A stejné období na denním grafu jako součást půl roku:
+
+<CandleChart
+  data={daily}
+  label="Denní graf Bitcoinu za první pololetí 2024 s vyznačeným týdnem od 4. do 10. března; 5. března je jedna svíčka s dlouhým spodním knotem"
+  caption="Denní graf (1D): celý pád z 5. března je jedna svíčka s dlouhým spodním knotem."
+  zones={[{ from: "2024-03-04", to: "2024-03-10", label: "Ten týden" }]}
+/>
+
+Na hodinovém grafu vypadá 5. březen jako katastrofa. Na denním je to jeden dlouhý knot v rostoucím trendu.
+Proto obchodníci začínají delším rámcem – ukáže směr – a kratší používají až na načasování.
+
+## Čísla nad grafem
+
+Když najedeš na svíčku, uvidíš:
+
+- **O** (open) – otevírací cena svíčky,
+- **H** (high) – nejvyšší cena,
+- **L** (low) – nejnižší cena,
+- **C** (close) – zavírací cena,
+- **Vol** – objem, kolik se zobchodovalo,
+- **Změna / Change** – o kolik procent je zavírací cena jinde než otevírací.
+
+Hodnoty za názvy indikátorů, třeba **MA(7): 67 210**, ukazují, kde je v tu chvíli daná čára. Indikátory
+mají další lekci.
+
+Na Binance vypadá řádek nad grafem takhle:
+
+<Figure
+  src={toolbar}
+  alt="Horní část grafu na Binance: časové rámce Time, 1s, 15m, 1H, 4H, 1D, 1W, přepínače Original, Trading View a Depth a řádek s datem, Open, High, Low, Close, CHANGE, Range a hodnotami MA(7), MA(25), MA(99)"
+  caption="Binance (8. 10. 2026): nahoře časové rámce a přepínače zobrazení, pod nimi Open, High, Low, Close, CHANGE (změna v %) a Range (rozpětí svíčky v %), ještě níž hodnoty průměrů MA(7), MA(25) a MA(99)."
+/>
+
+## Kdy se zavírá denní svíčka
+
+Burzy obvykle počítají den podle světového času UTC. Denní svíčka se tak zavírá v **1:00 v zimě
+a ve 2:00 v létě** našeho času – ne o půlnoci.
+
+## Přepínače v rohu grafu
+
+- **log** – logaritmické měřítko: stejná vzdálenost na ose je stejná procentní změna. Hodí se na dlouhé
+  grafy, kde cena vyrostla mnohonásobně.
+- **%** – osa v procentech od začátku zobrazeného období.
+- **auto** – graf se sám přizpůsobí výšce viditelných svíček.
+
+<Callout type="warning" title="Kratší rámec, víc šumu">
+  Na minutových grafech se cena pořád cuká a každý pohyb vypadá důležitě.
+  Začátečníkům se vyplatí denní a čtyřhodinový graf – míň signálů, míň emocí,
+  míň zbytečných obchodů.
+</Callout>
+
+## Časté omyly
+
+- **„1m je měsíc.“** Malé m je minuta, měsíc je velké M.
+- **„Denní svíčka se zavírá o půlnoci.“** Obvykle podle času UTC, tedy v 1:00 nebo ve 2:00 našeho času.
+- **„Hodinový graf je přesnější, takže lepší.“** Je podrobnější, ne lepší – a víc v něm vidíš šum.
+
+<Callout title="Shrnutí">
+
+- Časový rámec = délka jedné svíčky; malé m je minuta, velké M měsíc.
+- O, H, L, C jsou otevírací, nejvyšší, nejnižší a zavírací cena, Vol je objem.
+- Denní svíčka se obvykle zavírá podle času UTC.
+- Začni delším rámcem pro směr; log a % v rohu mění měřítko osy.
+
+</Callout>

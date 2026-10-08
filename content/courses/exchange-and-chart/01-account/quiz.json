@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "Since 1 July 2026, what matters most when choosing an exchange in the EU?",
+          "options": [
+            "The exchange's size and number of users",
+            "A MiCA licence – checked in the national or ESMA register",
+            "The size of the sign-up bonus"
+          ],
+          "explanation": "Since the transitional period ended, only licensed firms may offer crypto services to people in the EU. Binance did not get one, so it does not accept new EU customers or deposits."
+        },
+        "cs": {
+          "question": "Co je od 1. července 2026 nejdůležitější při výběru burzy v EU?",
+          "options": [
+            "Velikost burzy a počet uživatelů",
+            "Licence MiCA – ověřená v registru ČNB nebo ESMA",
+            "Výše bonusu za registraci"
+          ],
+          "explanation": "Od konce přechodného období smí kryptoslužby lidem v EU nabízet jen firmy s licencí. Binance ji nezískala, a proto v EU nepřijímá nové zákazníky ani vklady."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Which of these does an honest exchange never ask for at sign-up?",
+          "options": [
+            "A photo of your ID and a selfie in the app",
+            "Questions about the source of your money",
+            "Your seed phrase or an \"account activation\" fee"
+          ],
+          "explanation": "Documents and questions about the source of money are legal requirements (KYC). A seed phrase, password, 2FA code or an activation payment are always a scam."
+        },
+        "cs": {
+          "question": "Co z toho po tobě poctivá burza při registraci nikdy nechce?",
+          "options": [
+            "Fotku dokladu a selfie v aplikaci",
+            "Otázky na původ peněz",
+            "Seed frázi nebo poplatek za „aktivaci účtu“"
+          ],
+          "explanation": "Doklady a otázky na původ peněz jsou zákonné (KYC). Seed fráze, heslo, kód z 2FA nebo platba za aktivaci jsou vždy podvod."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "An email \"from the exchange\" has its logo but not your anti-phishing code. What does it mean?",
+          "options": [
+            "The email is not from the exchange",
+            "The exchange sometimes forgets the code",
+            "The logo matters more than the code"
+          ],
+          "explanation": "The exchange puts your anti-phishing code into every email. Anyone can copy a logo."
+        },
+        "cs": {
+          "question": "Přišel e-mail „od burzy“ s jejím logem, ale bez tvého anti-phishingového kódu. Co to znamená?",
+          "options": [
+            "E-mail od burzy nepochází",
+            "Burza kód někdy zapomene",
+            "Logo je důležitější než kód"
+          ],
+          "explanation": "Burza vkládá tvůj anti-phishingový kód do každého e-mailu. Logo zkopíruje kdokoli."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Which way of depositing is usually cheapest?",
+          "options": [
+            "A payment card",
+            "A SEPA transfer in euros from an account in your name",
+            "A payment from a friend's account"
+          ],
+          "explanation": "SEPA is often free or a few tens of cents; a card usually costs 1.5–3.5%. The exchange returns or blocks payments from someone else's account."
+        },
+        "cs": {
+          "question": "Který způsob vkladu bývá nejlevnější?",
+          "options": [
+            "Platební karta",
+            "Bankovní převod SEPA v eurech z účtu na tvoje jméno",
+            "Platba z účtu kamaráda"
+          ],
+          "explanation": "SEPA bývá zdarma nebo za pár desítek centů, karta stojí obvykle 1,5–3,5 %. Platbu z cizího účtu burza vrátí nebo zablokuje."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why are withdrawals blocked for a while after changing your password or 2FA?",
+          "options": [
+            "It is an exchange bug",
+            "The exchange is punishing you",
+            "It is protection – if an attacker made the change, you have time to step in"
+          ],
+          "explanation": "Withdrawals are usually blocked for 24–48 hours after a security change precisely to protect your money."
+        },
+        "cs": {
+          "question": "Proč se po změně hesla nebo 2FA na chvíli zablokují výběry?",
+          "options": [
+            "Je to chyba burzy",
+            "Burza tě trestá",
+            "Je to ochrana – kdyby změnu udělal útočník, máš čas zasáhnout"
+          ],
+          "explanation": "Výběry bývají po změně zabezpečení zablokované 24–48 hodin právě kvůli ochraně tvých peněz."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

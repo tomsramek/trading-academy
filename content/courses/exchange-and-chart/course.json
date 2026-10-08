@@ -1,0 +1,34 @@
+{
+  "title": {
+    "en": "Exchange and chart step by step",
+    "cs": "Burza a graf krok za krokem"
+  },
+  "description": {
+    "en": "How to choose a licensed exchange, set up and secure your account, find your way around the trading screen, fill in orders and understand every abbreviation and indicator on the chart – with a pinch of humour.",
+    "cs": "Jak vybrat burzu s licencí, nastavit a zabezpečit účet, vyznat se na obrazovce obchodování, vyplnit příkazy a rozumět každé zkratce a indikátoru v grafu – s trochou humoru."
+  },
+  "audience": {
+    "en": "Beginners who know the crypto basics and are opening an exchange account for the first time – or who opened one and feel lost among all the buttons.",
+    "cs": "Začátečníci, kteří znají základy kryptoměn a poprvé si zakládají účet na burze – nebo už ho mají a ztrácejí se mezi všemi tlačítky."
+  },
+  "outcomes": {
+    "en": [
+      "Check that an exchange has a MiCA licence and set up a secure account",
+      "Find your way around the trading screen and know where you pay more",
+      "Fill in limit, market and stop orders without mistakes",
+      "Read the chart's abbreviations and choose a few indicators instead of all of them"
+    ],
+    "cs": [
+      "Ověřit, že burza má licenci MiCA, a nastavit si bezpečný účet",
+      "Vyznat se na obrazovce obchodování a vědět, kde platíš víc",
+      "Bez chyb vyplnit limitní, tržní i stop příkaz",
+      "Číst zkratky v grafu a vybrat si pár indikátorů místo všech"
+    ]
+  },
+  "level": "beginner",
+  "order": 3,
+  "slug": {
+    "cs": "burza-a-graf"
+  },
+  "draft": true
+}
