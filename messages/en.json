@@ -649,6 +649,125 @@
         "alert": "BTC hit your level",
         "bubble": "The chart can wait.",
         "caption": "The alert watches the market while you rest. Trading for years, not weeks."
+      },
+      "speedRace": {
+        "label": "A race car labelled SOL speeds along the top lane, below it a snail labelled a block every 10 minutes crawls",
+        "car": "SOL",
+        "snail": "a block every 10 minutes",
+        "bubble": "A block in a fraction of a second!",
+        "caption": "Solana bets on speed. It pays for it with powerful hardware and fewer validators."
+      },
+      "metronomeChoir": {
+        "label": "A metronome keeps time and three singers sing; the middle one wears a solo badge because the schedule says it is their turn",
+        "clock": "PROOF OF HISTORY",
+        "solo": "SOLO",
+        "bubble": "I sing now, then you.",
+        "caption": "The leader schedule is known in advance, and Proof of History keeps them in a shared rhythm."
+      },
+      "pitStop": {
+        "label": "A race car stands in the pit smoking, next to a restart sign; a worried mechanic calls the others",
+        "sign": "RESTART",
+        "bubble": "All together, on three: restart!",
+        "caption": "After an outage the network does not restart by itself – validators have to agree on a joint restart."
+      },
+      "bathtubSupply": {
+        "label": "A bathtub filling from an inflation tap and emptying through a burn drain; a SOL rubber duck bobs on the water",
+        "tap": "INFLATION",
+        "duck": "SOL",
+        "drain": "BURN",
+        "bubble": "More flows in than out!",
+        "caption": "Inflation adds new SOL faster than fee burning removes it. But the tap is slowly closing."
+      },
+      "tokenMailboxes": {
+        "label": "A wall of mailboxes labelled SOL, USDC and JUP; a new MEME mailbox lands with a tag saying 0.002 SOL deposit",
+        "sol": "SOL",
+        "usdc": "USDC",
+        "jup": "JUP",
+        "meme": "MEME",
+        "deposit": "0.002 SOL deposit",
+        "bubble": "A new mailbox? That is a deposit.",
+        "caption": "Every token has its own account in your wallet. Close an empty account and the deposit comes back."
+      },
+      "tollBooth": {
+        "label": "A toll booth marked priority: one car drives through the fast lane, three cars wait in a queue",
+        "priority": "PRIORITY",
+        "bubble": "Priority costs extra.",
+        "caption": "A priority fee buys a place in the queue, not a better price."
+      },
+      "twoKeys": {
+        "label": "A big token and two keys on a hook labelled mint and freeze",
+        "token": "TOKEN",
+        "mint": "MINT",
+        "freeze": "FREEZE",
+        "bubble": "I will keep the keys, just in case.",
+        "caption": "Whoever holds the keys to the printer and the freezer decides more about your tokens than you do."
+      },
+      "blankCheque": {
+        "label": "A smiling stranger hands over a paper titled airdrop to sign; the small print says send everything",
+        "title": "AIRDROP",
+        "smallPrint": "send: EVERYTHING",
+        "bubble": "Just sign here, it is a gift!",
+        "caption": "A drainer does not steal a password. It gets you to sign a transaction that takes everything."
+      },
+      "stakeCalendar": {
+        "label": "A piggy bank next to a calendar with pages epoch 1, 2 and 3; coins drop into the piggy bank",
+        "epoch1": "epoch 1",
+        "epoch2": "epoch 2",
+        "epoch3": "epoch 3",
+        "bubble": "A reward every epoch.",
+        "caption": "Staking rewards arrive with every epoch – and unstaking follows the same rhythm."
+      },
+      "coatCheck": {
+        "label": "A theatre cloakroom: a coat labelled SOL hangs on a rail and a figure holds a ticket labelled staking token",
+        "coat": "SOL",
+        "ticket": "staking token",
+        "bubble": "I can even sell the ticket!",
+        "caption": "Liquid staking gives you a ticket for your SOL. Just note that in a panic it sells at a discount."
+      },
+      "shoppingRobot": {
+        "label": "A robot with a shopping cart moves between three stalls priced 151, 150 and 152",
+        "price1": "151",
+        "price2": "150",
+        "price3": "152",
+        "bubble": "Where is it cheapest?",
+        "caption": "An aggregator checks every pool and splits the trade for the best price. It does not check whether a token is genuine."
+      },
+      "rocketFactory": {
+        "label": "A row of six rockets: five only wobble, one green one jumps; above them a sign saying one in a hundred",
+        "sign": "1 IN 100",
+        "bubble": "This one will fly, for sure!",
+        "caption": "Only about one in a hundred new memecoins makes it further. And even that one may not fly."
+      },
+      "tokenDetective": {
+        "label": "A detective in a hat with a magnifying glass goes through a checklist: mint, freeze, holders, liquidity",
+        "mint": "Mint",
+        "freeze": "Freeze",
+        "holders": "Holders",
+        "liquidity": "Liquidity",
+        "bubble": "Who has the printer key?",
+        "caption": "Ten minutes with a block explorer exposes most traps. It does not turn a token into a good investment."
+      },
+      "rollercoaster": {
+        "label": "A rollercoaster with signs 260, 8, 296 and 60 at its peaks and troughs; a cart with riders at the top",
+        "peak1": "$260",
+        "low1": "$8",
+        "peak2": "$296",
+        "low2": "$60",
+        "bubble": "Buckle up!",
+        "caption": "The real peaks and troughs of SOL. The ride goes on – and nobody knows where."
+      },
+      "dogOnLeash": {
+        "label": "A figure labelled BTC walks a dog labelled SOL that runs back and forth on its leash",
+        "owner": "BTC",
+        "dog": "SOL",
+        "bubble": "Where I go, you go.",
+        "caption": "SOL sometimes runs ahead and sometimes lags – but mostly goes where Bitcoin goes."
+      },
+      "solanaSummit": {
+        "label": "A hiker with a backpack stands on a mountain top with a Solana flag, confetti falling around",
+        "flag": "SOLANA",
+        "bubble": "Done! Now carefully down.",
+        "caption": "You have finished the course. Take the ten rules with you."
       }
     }
   },
