@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What should a fire-resistant backup be made of?",
+          "options": ["Aluminium", "Stainless steel", "Laminated paper"],
+          "explanation": "Stainless steel melts at around 1,400 °C, aluminium already at around 660 °C. A house fire usually does not destroy stainless steel."
+        },
+        "cs": {
+          "question": "Z čeho udělat zálohu odolnou proti požáru?",
+          "options": ["Z hliníku", "Z nerezové oceli", "Z laminovaného papíru"],
+          "explanation": "Nerezová ocel se taví kolem 1 400 °C, hliník už kolem 660 °C. Požár v domě nerezovou ocel obvykle nezničí."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How many copies of the backup, and where?",
+          "options": [
+            "Two copies in two different places",
+            "One copy, so nobody finds it",
+            "Five copies all over the flat"
+          ],
+          "explanation": "One copy does not survive a fire or a flood; too many copies raise the risk of being found. Two places are a sensible compromise."
+        },
+        "cs": {
+          "question": "Kolik kopií zálohy a kde?",
+          "options": [
+            "Dvě kopie na dvou různých místech",
+            "Jedna kopie, ať ji nikdo nenajde",
+            "Pět kopií po celém bytě"
+          ],
+          "explanation": "Jedna kopie nepřežije požár ani povodeň, příliš mnoho kopií zvyšuje riziko nálezu. Dvě místa jsou rozumný kompromis."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "You entered your passphrase and the wallet is empty. What is most likely?",
+          "options": [
+            "Someone robbed you",
+            "The manufacturer blocked the wallet",
+            "You entered a different passphrase, perhaps with a typo – each one opens a different wallet"
+          ],
+          "explanation": "The wallet never says \"wrong password\". Every passphrase opens a different, most likely empty, wallet."
+        },
+        "cs": {
+          "question": "Zadal jsi passphrase a peněženka je prázdná. Co je nejpravděpodobnější?",
+          "options": [
+            "Někdo tě okradl",
+            "Výrobce peněženku zablokoval",
+            "Zadal jsi jinou passphrase, třeba s překlepem – každá otevře jinou peněženku"
+          ],
+          "explanation": "Peněženka nikdy neřekne „špatné heslo“. Každá passphrase otevře jinou, nejspíš prázdnou peněženku."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why not cut a seed phrase into two halves?",
+          "options": [
+            "It is forbidden",
+            "Losing either half means losing everything, and a found half makes guessing the rest easier",
+            "Halves cannot be written on metal"
+          ],
+          "explanation": "If you want to split your backup, use a proper split backup (e.g. 2 of 3), where one share reveals nothing."
+        },
+        "cs": {
+          "question": "Proč nestříhat seed frázi na dvě půlky?",
+          "options": [
+            "Je to zakázané",
+            "Ztráta kterékoli půlky znamená ztrátu všeho a nalezená půlka usnadní hádání zbytku",
+            "Půlky nejdou zapsat na kov"
+          ],
+          "explanation": "Chceš-li zálohu rozdělit, použij k tomu určenou rozdělenou zálohu (např. 2 ze 3), kde jeden podíl nic neprozradí."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "With multisig, what must you back up besides the keys?",
+          "options": [
+            "The wallet description – which keys belong to it and how many signatures are needed",
+            "Nothing, the keys are enough",
+            "Your email password"
+          ],
+          "explanation": "Without the wallet description, recovery is hard or impossible – with only two keys you cannot find the money at all. That is why multisig is needlessly complex for most people."
+        },
+        "cs": {
+          "question": "Co musíš u multisigu zálohovat navíc kromě klíčů?",
+          "options": [
+            "Popis peněženky – které klíče k ní patří a kolik podpisů je potřeba",
+            "Nic, klíče stačí",
+            "Heslo k e-mailu"
+          ],
+          "explanation": "Bez popisu peněženky je obnova obtížná nebo nemožná – jen se dvěma klíči peníze nenajdeš vůbec. Proto je multisig pro většinu lidí zbytečně složitý."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+export const metadata = {
+  title: "Keys, seed phrase and address",
+  description:
+    "How a private key, an address and a seed phrase relate, why one phrase opens all your accounts and what exactly you have to back up.",
+};
+
+<Callout title="In this lesson">
+
+- understand how a private key, an address and a seed phrase relate
+- find out why one phrase opens all your accounts on many blockchains
+- know exactly what you back up – and what not
+
+</Callout>
+
+People worry about dropping their hardware wallet in water. Yet the device is replaceable – you buy a new
+one and restore it. Only one piece of paper is irreplaceable: the seed phrase. To see why, let us look at
+what is actually in it.
+
+<Illustration name="masterKey" />
+
+## Key and address
+
+- A so-called <KeyTerm term="private-key">private key</KeyTerm> is a huge secret number. Whoever knows it can sign
+  a transaction, i.e. send coins.
+- From the private key a **public key** is calculated mathematically, and from that an **address** – what
+  you give people so they can send you money.
+- The path goes one way only. A private key cannot be calculated from an address, so feel free to show
+  your address to anyone.
+
+## The seed phrase: one key to every door
+
+If you had to back up every private key separately, you would go mad. That is why wallets use a <KeyTerm term="seed-phrase">seed phrase</KeyTerm>: 12 or 24 words from a list of 2,048 words under the <KeyTerm term="bip39">BIP39</KeyTerm> standard. All your keys are calculated
+from it – for Bitcoin, Ethereum, Solana and other networks, and for any number
+of accounts.
+
+What follows from that:
+
+- **Whoever has the seed phrase has everything.** They do not need your device, password or PIN.
+- **A lost device does not matter, a lost phrase does.** With a backup of the phrase you restore
+  everything on a new device.
+- **The phrase works in other wallets too.** If the manufacturer goes bust, you restore it elsewhere.
+  Some wallets, though, calculate keys by a slightly different path – if you do not see your balance
+  after restoring, nothing may be lost.
+
+## Why nobody can guess it
+
+Twelve words out of 2,048 give so many combinations that all the computers in the world could not try
+them all in billions of years. The weak spot is not the mathematics but the person: a photo on a phone, a
+file in the cloud, paper in a drawer, a "technician" who asks for the phrase.
+
+## What matters
+
+- **Word order.** The same words in a different order are a completely different wallet.
+- **Spelling.** The words come from a list, and each can be identified from its first four letters alone
+  – which is why metal plates often have only those stamped.
+- **The last word** contains a checksum. So do not invent your own phrase – let the device generate it.
+
+<Callout type="risk" title="Never put a seed phrase into a computer or phone">
+  No photos, notes, emails, cloud or password manager on a device connected to
+  the internet. Anyone who wants you to type your seed phrase on a website or
+  read it out over the phone is a scammer – always.
+</Callout>
+
+## Common myths
+
+- **"The coins are in the device."** They are on the blockchain. The device only holds keys – and those
+  can be restored from the phrase.
+- **"I must keep my address secret."** An address is public. You must keep the seed phrase and private
+  keys secret.
+- **"A seed phrase is for one cryptocurrency only."** One phrase usually opens accounts on many networks.
+
+<Callout title="Summary">
+
+- A private key signs transactions; the public key and address are calculated from it, not the other way.
+- A seed phrase (12 or 24 words, BIP39) creates all your keys on many networks.
+- The device is replaceable, the seed phrase is not – it is what you back up.
+- Word order and spelling matter; let the device generate the phrase.
+
+</Callout>

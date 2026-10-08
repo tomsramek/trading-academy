@@ -1,0 +1,81 @@
+export const metadata = {
+  title: "How a hardware wallet works",
+  description:
+    "Why the key never leaves the device, why you trust only its screen, what the PIN and the secure chip do and what is known about physical attacks.",
+};
+
+<Callout title="In this lesson">
+
+- understand how a hardware wallet signs transactions without the key leaving the device
+- find out why the device's screen is the only source of truth
+- learn what the PIN and the secure chip do – and where their limits are
+
+</Callout>
+
+A hardware wallet is basically a safe with a little window. You can pass a paper in to be signed, and a
+signed paper comes out. But the key used for signing never leaves the safe – even if the office around it
+is full of thieves.
+
+<Illustration name="trustTheScreen" />
+
+## How signing works
+
+1. **An app on your computer or phone** prepares the transaction: to whom, how much and with what fee.
+2. **The device** receives it and shows it on **its own screen**.
+3. **You** check the address and amount and confirm with a button or a touch.
+4. **The device** signs the transaction inside and sends back only the signature.
+5. **The app** broadcasts the signed transaction to the network.
+
+The private key was created inside the device and has never left it. Even an infected computer only gets
+a signed transaction, not the key.
+
+## The screen is the only source of truth
+
+An infected computer can show a different address on its screen from the one it sends to the device. The
+hardware wallet's screen, though, shows what is really being signed. So:
+
+- always check the address and amount **on the device's screen**, not on the monitor,
+- if anything differs, reject the transaction.
+
+## The PIN and wiping
+
+The device is protected by a PIN. After a set number of wrong attempts (3 on some models, 16 on others) it wipes itself – so a thief cannot keep
+trying PINs forever. For you this means: without a backup of the seed phrase, a wiped device would mean
+lost coins.
+
+## The secure chip and physical attacks
+
+Many models have a so-called <KeyTerm term="secure-element">secure element</KeyTerm>, a chip designed so
+that secrets cannot be extracted from it even in a lab. For older models without one, security researchers
+have shown that with physical access to the device and special equipment the seed phrase can be
+recovered. The defence is a passphrase, which is the topic of lesson eight.
+
+Trust in the manufacturer is another question. The device's software – the so-called <KeyTerm term="firmware">firmware</KeyTerm> – was written by the manufacturer, and you trust it not to send
+the key anywhere. That is why open code that independent experts can check is valued.
+
+<Callout
+  type="warning"
+  title="The device is the strongest link, the person the weakest"
+>
+  Hardware wallets are rarely broken in practice. People lose money mainly by
+  revealing their seed phrase, signing a fraudulent transaction or losing their
+  backup.
+</Callout>
+
+## Common myths
+
+- **"If the computer is infected, a hardware wallet is useless."** It still protects the key – you just
+  have to check the screen.
+- **"A stolen wallet = stolen money."** Without the PIN and passphrase a thief normally cannot get to
+  the money.
+- **"I do not need to update the firmware."** Updates fix bugs – just install them from the official app.
+
+<Callout title="Summary">
+
+- A hardware wallet signs transactions inside; the key never leaves it.
+- Check the address and amount on the device's screen – the computer monitor can lie.
+- The PIN stops guessing; after wrong attempts the device wipes itself, which is why you need a backup.
+- A secure chip makes physical attacks harder; trust in the firmware rests on the manufacturer and open
+  code.
+
+</Callout>

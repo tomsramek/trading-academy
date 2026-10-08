@@ -1,0 +1,83 @@
+export const metadata = {
+  title: "Rozdělená záloha a multisig",
+  slug: "rozdelena-zaloha-a-multisig",
+  description:
+    "Proč nestříhat seed frázi na půlky, jak funguje záloha rozdělená na podíly, co je multisig a kdy se složitost vyplatí – a kdy je sama rizikem.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, proč nestříhat seed frázi na půlky
+- pochopíš rozdělenou zálohu „2 ze 3“ a multisig
+- rozhodneš se, jestli se ti složitější řešení vyplatí
+
+</Callout>
+
+Jedna seed fráze je jedno místo, kde se může něco pokazit: najde ji zloděj, nebo shoří. Rozdělit
+zodpovědnost mezi víc kusů zní lákavě. Udělat to špatně je ale horší než to nedělat vůbec.
+
+<Illustration name="twoOfThree" />
+
+## Proč nestříhat frázi na půlky
+
+Rozdělit 24 slov na dvě poloviny a uložit je na dvě místa vypadá chytře. Ve skutečnosti:
+
+- **ztráta kterékoli půlky = ztráta všeho** – riziko ztráty se zdvojnásobí,
+- **nalezená půlka výrazně usnadní hádání zbytku** – hlavně u kratší fráze z 12 slov.
+
+Jestli chceš zálohu rozdělit, použij k tomu určený postup.
+
+## Záloha rozdělená na podíly
+
+Některé peněženky umí takzvanou <KeyTerm term="shamir-backup">rozdělenou zálohu</KeyTerm> podle
+standardu SLIP-39. Místo jedné fráze vytvoří třeba **tři podíly, z nichž stačí libovolné dva**:
+
+- jeden podíl sám o sobě neprozradí **nic**,
+- ztráta jednoho podílu nevadí, zbylé dva peníze obnoví,
+- podíly můžeš uložit doma, u rodiny a v bankovní schránce.
+
+Háček: takovou zálohu obnovíš jen v peněžence, která standard SLIP-39 podporuje. Běžná fráze BIP39
+funguje skoro všude, rozdělená záloha ne.
+
+## Multisig
+
+Takzvaný <KeyTerm term="multisig">multisig</KeyTerm> jde ještě dál. Místo jednoho klíče máš několik
+samostatných klíčů na samostatných zařízeních – třeba tři – a každá transakce potřebuje podpisy dvou
+z nich.
+
+- **Výhoda:** ukradené nebo napadené jedno zařízení nestačí. Žádné jediné místo selhání.
+- **Nevýhoda:** složitost. Kromě tří záloh musíš uchovat i popis samotné peněženky (které klíče k ní
+  patří a kolik podpisů je potřeba). Bez něj peníze se dvěma klíči nenajdeš a i se všemi třemi je obnova obtížná.
+
+Na Bitcoinu je multisig součást sítě, na Ethereu a dalších se řeší chytrým kontraktem. A pozor: ani
+multisig nechrání před podepisováním naslepo. Hack Bybitu z šesté lekce proběhl právě na peněžence
+s více podpisy.
+
+## Kdy se to vyplatí
+
+| Situace                                      | Rozumné řešení                                          |
+| -------------------------------------------- | ------------------------------------------------------- |
+| většina lidí                                 | jedna seed fráze, dvě dobré zálohy, případně passphrase |
+| velké úspory, obava z jediného místa selhání | rozdělená záloha 2 ze 3                                 |
+| velmi velké částky, firma, víc lidí          | multisig s promyšleným návodem                          |
+
+<Callout type="warning" title="Složitost je taky riziko">
+  Každý další krok je místo, kde můžeš udělat chybu – a kde se v ní nevyznají
+  tvoji dědicové. Jednoduché řešení, které opravdu zvládneš, je bezpečnější než
+  dokonalé řešení, kterému nerozumíš.
+</Callout>
+
+## Časté omyly
+
+- **„Rozstřihnu frázi na dvě půlky, to je bezpečnější.“** Je to horší – ztráta půlky znamená ztrátu všeho.
+- **„Jeden podíl rozdělené zálohy je skoro celá fráze.“** Sám o sobě neprozradí nic.
+- **„Multisig vyřeší všechno.“** Přidá bezpečnost i složitost a neochrání před podvodnou transakcí.
+
+<Callout title="Shrnutí">
+
+- Seed frázi nestříhej na půlky – zvyšuje to riziko ztráty i prozrazení.
+- Rozdělená záloha (SLIP-39) vytvoří místo jedné fráze podíly, např. 2 ze 3; jeden podíl neprozradí nic.
+- Multisig používá několik samostatných klíčů a více podpisů; vyžaduje i zálohu popisu peněženky.
+- Pro většinu lidí stačí jedna fráze se dvěma dobrými zálohami.
+
+</Callout>

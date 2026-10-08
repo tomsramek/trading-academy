@@ -1,0 +1,79 @@
+export const metadata = {
+  title: "Jak funguje hardwarová peněženka",
+  slug: "jak-funguje-hardwarova-penezenka",
+  description:
+    "Proč klíč nikdy neopustí zařízení, proč věřit jen jeho displeji, co dělá PIN a bezpečnostní čip a co se ví o fyzických útocích.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, jak hardwarová peněženka podepisuje transakce, aniž by klíč opustil zařízení
+- zjistíš, proč je displej zařízení jediný zdroj pravdy
+- dozvíš se, co dělá PIN a bezpečnostní čip – a kde jsou jejich hranice
+
+</Callout>
+
+Hardwarová peněženka je v podstatě trezor s okýnkem. Dovnitř se dá podat papír k podpisu, ven přijde
+podepsaný papír. Klíč, kterým se podepisuje, ale z trezoru nikdy nevyjde – ani když je kancelář kolem plná
+zlodějů.
+
+<Illustration name="trustTheScreen" />
+
+## Jak probíhá podpis
+
+1. **Aplikace v počítači nebo telefonu** připraví transakci: komu, kolik a s jakým poplatkem.
+2. **Zařízení** ji přijme a zobrazí na **vlastním displeji**.
+3. **Ty** zkontroluješ adresu a částku a potvrdíš tlačítkem nebo dotykem.
+4. **Zařízení** transakci podepíše uvnitř a pošle zpátky jen podpis.
+5. **Aplikace** podepsanou transakci odešle do sítě.
+
+Soukromý klíč vznikl uvnitř zařízení a nikdy ho neopustil. I zavirovaný počítač dostane jen podepsanou
+transakci, ne klíč.
+
+## Displej je jediný zdroj pravdy
+
+Zavirovaný počítač může na obrazovce ukázat jinou adresu, než kterou pošle do zařízení. Displej
+hardwarové peněženky ale ukazuje to, co se opravdu podepisuje. Proto:
+
+- adresu a částku vždy kontroluj **na displeji zařízení**, ne na monitoru,
+- když se něco liší, transakci zamítni.
+
+## PIN a vymazání
+
+Zařízení chrání PIN. Po určitém počtu chybných pokusů (u některých modelů 3, u jiných 16) se samo vymaže – zloděj tak nemůže zkoušet PIN donekonečna.
+Pro tebe to znamená: bez zálohy seed fráze by vymazané zařízení znamenalo ztracené mince.
+
+## Bezpečnostní čip a fyzické útoky
+
+Řada modelů má takzvaný <KeyTerm term="secure-element">bezpečnostní čip</KeyTerm>, který je navržený
+tak, aby z něj nešlo tajemství vytáhnout ani v laboratoři. U starších modelů bez něj bezpečnostní
+výzkumníci ukázali, že s fyzickým přístupem k zařízení a speciálním vybavením lze seed frázi získat. Obranou
+je passphrase, o které je osmá lekce.
+
+Jiná otázka je důvěra ve výrobce. Software zařízení – takzvaný <KeyTerm term="firmware">firmware</KeyTerm> –
+napsal výrobce, a ty mu věříš, že klíč nikam neposílá. Proto se cení otevřený kód, který si můžou
+zkontrolovat nezávislí odborníci.
+
+<Callout
+  type="warning"
+  title="Nejsilnější článek je zařízení, nejslabší člověk"
+>
+  Hardwarové peněženky se v praxi prolamují zřídka. Lidé přicházejí o peníze
+  hlavně tím, že prozradí seed frázi, podepíšou podvodnou transakci nebo ztratí
+  zálohu.
+</Callout>
+
+## Časté omyly
+
+- **„Když je počítač zavirovaný, hardwarová peněženka je k ničemu.“** Klíč chrání dál – jen musíš kontrolovat displej.
+- **„Ukradená peněženka = ukradené peníze.“** Bez PINu a passphrase se zloděj k penězům běžně nedostane.
+- **„Firmware nemusím aktualizovat.“** Aktualizace opravují chyby – jen je instaluj z oficiální aplikace.
+
+<Callout title="Shrnutí">
+
+- Hardwarová peněženka podepisuje transakce uvnitř; klíč ji nikdy neopustí.
+- Adresu a částku kontroluj na displeji zařízení – monitor počítače může lhát.
+- PIN brání zkoušení hesel; po chybných pokusech se zařízení vymaže, proto potřebuješ zálohu.
+- Bezpečnostní čip ztěžuje fyzické útoky; důvěra ve firmware stojí na výrobci a otevřenosti kódu.
+
+</Callout>

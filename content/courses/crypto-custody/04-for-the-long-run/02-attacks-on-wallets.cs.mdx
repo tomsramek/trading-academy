@@ -1,0 +1,83 @@
+export const metadata = {
+  title: "Útoky na peněženky",
+  slug: "utoky-na-penezenky",
+  description:
+    "Phishing po únicích dat výrobců, falešné aplikace, výměna SIM karty a fyzické vydírání: jak útoky na držitele kryptoměn vypadají a jak se jim bránit.",
+};
+
+<Callout title="V této lekci">
+
+- poznáš nejčastější útoky na držitele kryptoměn
+- zjistíš, proč úniky zákaznických dat výrobců znamenají riziko i pro tebe
+- nastavíš si obranu proti výměně SIM karty a fyzickému vydírání
+
+</Callout>
+
+Útočníci málokdy lámou hardwarovou peněženku. Je to drahé a pomalé. Mnohem snazší je přesvědčit majitele,
+aby jim klíče dal sám – e-mailem, falešnou aplikací, telefonátem, nebo v nejhorším případě násilím.
+
+<Illustration name="phishingHookWallet" />
+
+## Phishing po únicích dat
+
+Výrobci peněženek i obchody, přes které prodávají, už měli úniky zákaznických dat:
+
+- **Ledger (2020)** – unikla jména, telefony a poštovní adresy zhruba 272 000 zákazníků.
+- **Trezor (2024)** – útočníci se dostali k systému zákaznické podpory a ke kontaktům zhruba 66 000 lidí.
+
+Samotné peněženky ohrožené nebyly. Lidé z uniklých seznamů ale dostávali přesvědčivé e-maily a SMS:
+„bezpečnostní incident, ověřte seed frázi“, „aktualizujte zařízení na tomto odkazu“. Pravidlo z celého kurzu
+platí i tady: **seed frázi po tobě nikdo poctivý nechce, nikdy.**
+
+Při nákupu peněženky proto zvaž doručení na výdejní místo namísto domácí adresy.
+
+## Falešné aplikace a stránky
+
+- **Falešné aplikace** v obchodech s aplikacemi a falešná rozšíření prohlížeče, které vypadají jako ty
+  oficiální.
+- **Reklamy ve vyhledávači**, které vedou na kopii webu výrobce.
+
+Obrana: aplikace stahuj jen přes odkaz z oficiálního webu, adresu webu piš ručně nebo si ji ulož do záložek.
+
+## Výměna SIM karty
+
+Při útoku zvaném <KeyTerm term="sim-swap">SIM swap</KeyTerm> útočník přesvědčí operátora, aby jeho SIM
+kartě přidělil tvoje číslo. Pak mu chodí tvoje SMS – včetně kódů pro obnovu hesla na burze.
+
+- Ke dvoufázovému ověření používej **aplikaci nebo bezpečnostní klíč**, ne SMS.
+- U operátora si nastav **PIN nebo heslo** pro změny na čísle.
+- Na burze zapni **seznam povolených adres pro výběr**, pokud ho nabízí.
+
+## Fyzické vydírání
+
+Nejtemnější podoba je násilí. Anglicky se mu říká wrench attack, česky <KeyTerm term="wrench-attack">útok francouzským klíčem</KeyTerm> – podle vtipu, že kryptografii
+neprolomíš, ale majitele zastrašíš. V lednu 2025 byl ve Francii unesen spoluzakladatel Ledgeru
+a únosci po něm chtěli výkupné v kryptoměnách. V dalších měsících přibylo podobných případů.
+
+Obrana stojí hlavně na nenápadnosti:
+
+- **nechlub se** – ani na sociálních sítích, ani v hospodě,
+- **neukazuj zůstatky a adresy** spojené s tvým jménem,
+- velké úspory drž tak, aby se k nim nedalo dostat **okamžitě** – třeba multisig s klíči na různých místech, kdy k přesunu potřebuješ víc míst nebo lidí.
+
+<Callout type="risk" title="Tvoje bezpečí je víc než peníze">
+  Při přímém ohrožení nehrdinuj. Peníze se dají ztratit, zdraví a život ne.
+  Prevence – nenápadnost a soukromí – je mnohem účinnější než cokoli, co uděláš
+  ve chvíli útoku.
+</Callout>
+
+## Časté omyly
+
+- **„E-mail je od výrobce, má jeho logo i moje jméno.“** Po únicích dat mají útočníci obojí.
+- **„SMS kód je dostatečné zabezpečení.“** Číslo jde převést na jinou SIM kartu.
+- **„Na mě nikdo nepůjde, nejsem milionář.“** Útočníci často cílí podle toho, kdo se chlubí, ne podle toho,
+  kdo má nejvíc.
+
+<Callout title="Shrnutí">
+
+- Po únicích dat výrobců chodí přesvědčivý phishing – seed frázi nechce nikdo poctivý.
+- Aplikace stahuj jen přes oficiální web; pozor na reklamy a falešná rozšíření.
+- Proti výměně SIM karty: 2FA přes aplikaci nebo klíč, PIN u operátora, povolené adresy pro výběr.
+- Proti fyzickému vydírání pomáhá hlavně nenápadnost a úspory, ke kterým se nedá dostat okamžitě.
+
+</Callout>

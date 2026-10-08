@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What do you really have when you hold crypto on an exchange?",
+          "options": [
+            "Private keys in your own wallet",
+            "A claim against the exchange, which holds the keys",
+            "A copy of the seed phrase"
+          ],
+          "explanation": "On an exchange, the exchange holds the keys. If it goes bankrupt or blocks you, you only have a claim against a company – like FTX customers in 2022."
+        },
+        "cs": {
+          "question": "Co skutečně máš, když držíš kryptoměny na burze?",
+          "options": [
+            "Soukromé klíče ve své peněžence",
+            "Nárok vůči burze, která drží klíče",
+            "Kopii seed fráze"
+          ],
+          "explanation": "Na burze má klíče burza. Když zkrachuje nebo tě zablokuje, máš jen nárok vůči firmě – jako zákazníci FTX v roce 2022."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is the most sensible split?",
+          "options": [
+            "Everything on an exchange, it is more convenient",
+            "Everything in your own wallet, even if I cannot back it up",
+            "A small trading amount on a licensed exchange, savings in your own wallet"
+          ],
+          "explanation": "Whatever you would not want to lose if the exchange closed tomorrow, take with you – but only once you know how to back it up."
+        },
+        "cs": {
+          "question": "Co je nejrozumnější rozdělení?",
+          "options": [
+            "Všechno na burze, je to pohodlnější",
+            "Všechno ve vlastní peněžence, i když neumím zálohovat",
+            "Malou částku na obchodování na licencované burze, úspory ve vlastní peněžence"
+          ],
+          "explanation": "Co bys nechtěl ztratit, kdyby burza zítra zavřela, si vezmi k sobě – ale až když umíš zálohovat."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Your hardware wallet fell into water. What now?",
+          "options": [
+            "Buy a new device and restore the wallet from the seed phrase",
+            "The coins are lost forever",
+            "Contact the manufacturer to give you the coins back"
+          ],
+          "explanation": "The coins are on the blockchain; the device only holds keys. With a backup of the seed phrase you restore them on a new device."
+        },
+        "cs": {
+          "question": "Hardwarová peněženka ti spadla do vody. Co teď?",
+          "options": [
+            "Koupíš nové zařízení a obnovíš peněženku ze seed fráze",
+            "Mince jsou navždy ztracené",
+            "Musíš kontaktovat výrobce, aby ti mince vrátil"
+          ],
+          "explanation": "Mince jsou na blockchainu, zařízení drží jen klíče. Se zálohou seed fráze je obnovíš v novém zařízení."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why not invent your own seed phrase?",
+          "options": [
+            "Your own phrase is too long",
+            "The last word contains a checksum and people choose words predictably",
+            "Wallets ban your own phrase by law"
+          ],
+          "explanation": "Let the device generate the phrase: it is random and the checksum in the last word is correct."
+        },
+        "cs": {
+          "question": "Proč si nevymýšlet vlastní seed frázi?",
+          "options": [
+            "Vlastní fráze je moc dlouhá",
+            "Poslední slovo obsahuje kontrolní součet a lidé vybírají slova předvídatelně",
+            "Peněženky vlastní frázi zakazují zákonem"
+          ],
+          "explanation": "Frázi nech vygenerovat zařízení: je náhodná a kontrolní součet v posledním slově sedí."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why do we no longer recommend a paper wallet?",
+          "options": [
+            "Paper is expensive",
+            "It cannot receive crypto",
+            "It is easy to make mistakes with and you still have to type the key into a device"
+          ],
+          "explanation": "Today paper serves as a backup of the seed phrase, not as a wallet."
+        },
+        "cs": {
+          "question": "Proč dnes nedoporučujeme papírovou peněženku?",
+          "options": [
+            "Papír je drahý",
+            "Neumí přijímat kryptoměny",
+            "Snadno se s ní chybuje a klíč musíš stejně zadat do nějakého zařízení"
+          ],
+          "explanation": "Papír dnes slouží jako záloha seed fráze, ne jako peněženka."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

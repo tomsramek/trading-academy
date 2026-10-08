@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What belongs in the letter for your loved ones?",
+          "options": [
+            "The seed phrase and passphrase",
+            "Nothing, the family will find it",
+            "What you own, where the backups are and whom to contact – without the seed phrase itself"
+          ],
+          "explanation": "The letter says what, where and how. The words themselves stay in the backups, so the letter alone is not enough for a thief."
+        },
+        "cs": {
+          "question": "Co patří do dopisu pro blízké?",
+          "options": [
+            "Seed fráze a passphrase",
+            "Nic, rodina si to najde",
+            "Co máš, kde jsou zálohy a komu se ozvat – bez samotné seed fráze"
+          ],
+          "explanation": "Dopis říká co, kde a jak. Samotná slova zůstávají v zálohách, aby dopis nestačil zloději."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why does a seed phrase not belong in a will?",
+          "options": [
+            "A will is read by several people – a notary, a court, other heirs",
+            "A will must not contain numbers",
+            "A seed phrase stops working after death"
+          ],
+          "explanation": "A will should only say that crypto exists and that the instructions are kept elsewhere."
+        },
+        "cs": {
+          "question": "Proč seed fráze nepatří do závěti?",
+          "options": [
+            "Závěť čte víc lidí – notář, soud, ostatní dědicové",
+            "Závěť nesmí obsahovat čísla",
+            "Seed fráze po smrti přestane platit"
+          ],
+          "explanation": "Do závěti patří jen to, že kryptoměny existují a že je návod uložený jinde."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "You get an email from your wallet's manufacturer: \"security incident, verify your seed phrase\". What do you do?",
+          "options": [
+            "Verify it, it has the logo and my name",
+            "Ignore it – no honest party asks for my seed phrase",
+            "Reply and send only half the words"
+          ],
+          "explanation": "After data leaks, attackers have customers' names and addresses. No manufacturer or exchange ever asks for your seed phrase."
+        },
+        "cs": {
+          "question": "Přišel ti e-mail od výrobce peněženky: „bezpečnostní incident, ověřte seed frázi“. Co uděláš?",
+          "options": [
+            "Ověřím ji, je tam logo i moje jméno",
+            "Ignoruju ho – seed frázi po mně nikdo poctivý nechce",
+            "Odpovím a pošlu jen polovinu slov"
+          ],
+          "explanation": "Po únicích dat mají útočníci jména i adresy zákazníků. Žádný výrobce ani burza po tobě seed frázi nikdy nechce."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What protects best against a SIM swap?",
+          "options": [
+            "A longer email password",
+            "Switching the phone off at night",
+            "2FA via an app or security key and a PIN with your operator"
+          ],
+          "explanation": "In a SIM swap the attacker receives your text messages. Codes from an app or a security key do not depend on your number."
+        },
+        "cs": {
+          "question": "Co nejlépe chrání před výměnou SIM karty?",
+          "options": [
+            "Delší heslo k e-mailu",
+            "Vypnutý telefon v noci",
+            "2FA přes aplikaci nebo bezpečnostní klíč a PIN u operátora"
+          ],
+          "explanation": "Při SIM swapu dostane útočník tvoje SMS. Kódy z aplikace nebo bezpečnostní klíč na čísle nezávisí."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is the most effective defence against physical extortion?",
+          "options": [
+            "Staying low-key – no bragging and no linking balances to your name",
+            "Carrying your hardware wallet with you at all times",
+            "Announcing that everything is on an exchange"
+          ],
+          "explanation": "Attackers target people known to hold crypto. Prevention is more effective than anything at the moment of an attack."
+        },
+        "cs": {
+          "question": "Co je nejúčinnější obrana proti fyzickému vydírání?",
+          "options": [
+            "Nenápadnost – nechlubit se a nespojovat zůstatky se svým jménem",
+            "Nosit hardwarovou peněženku pořád u sebe",
+            "Zveřejnit, že mám všechno na burze"
+          ],
+          "explanation": "Útočníci cílí na ty, o kterých se ví, že mají kryptoměny. Prevence je účinnější než cokoli ve chvíli útoku."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

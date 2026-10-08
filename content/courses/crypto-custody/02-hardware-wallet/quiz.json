@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "The address on your monitor differs from the one on the hardware wallet's screen. What do you do?",
+          "options": [
+            "Reject the transaction – I trust the device's screen",
+            "Confirm it, the monitor is bigger",
+            "Restart the computer and confirm"
+          ],
+          "explanation": "An infected computer can show a different address from the one it sends to the device. The device's screen shows what is really being signed."
+        },
+        "cs": {
+          "question": "Adresa na monitoru se liší od adresy na displeji hardwarové peněženky. Co uděláš?",
+          "options": [
+            "Transakci zamítnu – věřím displeji zařízení",
+            "Potvrdím ji, monitor je větší",
+            "Restartuju počítač a potvrdím"
+          ],
+          "explanation": "Zavirovaný počítač může ukázat jinou adresu, než kterou posílá do zařízení. Displej zařízení ukazuje, co se opravdu podepisuje."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The box of your new wallet contains a card with a seed phrase already written on it. What does it mean?",
+          "options": [
+            "The manufacturer saved you some work",
+            "It is a normal backup card",
+            "Someone else knows the phrase – do not use the device"
+          ],
+          "explanation": "Only your device creates the seed phrase during setup. A pre-filled phrase is a sign of a tampered device."
+        },
+        "cs": {
+          "question": "V krabici s novou peněženkou je karta s už napsanou seed frází. Co to znamená?",
+          "options": [
+            "Výrobce ti ušetřil práci",
+            "Je to běžná záložní karta",
+            "Frázi zná někdo další – zařízení nepoužívej"
+          ],
+          "explanation": "Seed frázi vytváří jen tvoje zařízení při nastavení. Předvyplněná fráze je znak podvrženého zařízení."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why test a recovery before sending your savings?",
+          "options": [
+            "The law requires it",
+            "You only find a typo or missing word in your backup by testing",
+            "A recovery raises returns"
+          ],
+          "explanation": "A backup you have never tested is only a hope. A test with a small amount takes a few minutes."
+        },
+        "cs": {
+          "question": "Proč si vyzkoušet obnovu dřív, než pošleš úspory?",
+          "options": [
+            "Vyžaduje to zákon",
+            "Překlep nebo chybějící slovo v záloze zjistíš jen zkouškou",
+            "Obnova zvýší výnos"
+          ],
+          "explanation": "Záloha, kterou nikdy nevyzkoušíš, je jen naděje. Zkouška na malé částce stojí pár minut."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is blind signing?",
+          "options": [
+            "Approving a transaction whose details the device cannot display readably",
+            "Signing a transaction without internet",
+            "Signing without a PIN"
+          ],
+          "explanation": "You approve something you cannot see. In the 2025 Bybit hack, employees signed a transaction that looked like an ordinary transfer."
+        },
+        "cs": {
+          "question": "Co je podepisování naslepo?",
+          "options": [
+            "Schválení transakce, jejíž podrobnosti zařízení neumí srozumitelně zobrazit",
+            "Podpis transakce bez internetu",
+            "Podpis bez PINu"
+          ],
+          "explanation": "Schvaluješ něco, co nevidíš. Při hacku Bybitu v roce 2025 podepsali zaměstnanci transakci, která vypadala jako běžný převod."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How do you defend against address poisoning?",
+          "options": [
+            "Copy the address from your transaction history",
+            "Check only the first and last characters",
+            "Take the address from the source and check all of it, the middle too, on the device's screen"
+          ],
+          "explanation": "A poisoned address matches at the start and the end. It differs in the middle – where nobody looks."
+        },
+        "cs": {
+          "question": "Jak se bránit otrávené adrese?",
+          "options": [
+            "Kopírovat adresu z historie transakcí",
+            "Kontrolovat jen první a poslední znaky",
+            "Brát adresu ze zdroje a kontrolovat celou, i prostředek, na displeji zařízení"
+          ],
+          "explanation": "Otrávená adresa se shoduje na začátku i na konci. Liší se uprostřed – tam, kam se nikdo nedívá."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

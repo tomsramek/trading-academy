@@ -1,0 +1,78 @@
+export const metadata = {
+  title: "Passphrase („25. slovo“)",
+  slug: "passphrase",
+  description:
+    "Co je passphrase k seed frázi, před čím chrání, proč s ní chybu nikdo neohlásí a proč ji zálohovat odděleně od seed fráze.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, co passphrase dělá se seed frází
+- zjistíš, před čím chrání a jakou novou past přináší
+- rozhodneš se, jestli ji vůbec potřebuješ
+
+</Callout>
+
+Představ si dům, kde klíč od hlavních dveří otevře obývák s pár drobnostmi. Opravdový trezor je ale za
+tajnými dveřmi v knihovně – a ty otevře jen heslo, které znáš ty. Přesně tak funguje passphrase.
+
+<Illustration name="secretDoor" />
+
+## Co passphrase dělá
+
+Takzvaná <KeyTerm term="passphrase">passphrase</KeyTerm> je volitelné heslo, které se přidá k seed
+frázi. Standard BIP39 ji umožňuje a podporuje ji většina hardwarových peněženek. Říká se jí i „25. slovo“,
+i když může jít o libovolný text.
+
+- **Seed fráze + passphrase = úplně jiná peněženka.** Jiné klíče, jiné adresy.
+- **Každá passphrase otevře jinou peněženku** – i ta s překlepem.
+- **Peněženka nikdy neřekne „špatné heslo“.** Prostě ukáže jinou, nejspíš prázdnou peněženku.
+
+## Před čím chrání
+
+- **Před tím, kdo najde zálohu seed fráze.** Bez passphrase se k hlavním penězům nedostane.
+- **Před fyzickým útokem na zařízení.** I kdyby někdo ze starší peněženky seed frázi vytáhl, passphrase
+  v zařízení uložená není.
+- **Před vydíráním – částečně.** Někteří lidé nechávají na peněžence bez passphrase malou částku jako
+  návnadu. Pomoct to může, ale nespoléhej na to.
+
+## Nová past: zapomenutí
+
+Passphrase nikdo neobnoví. Když ji zapomeneš nebo uděláš překlep a nevíš jaký, peníze jsou pryč – stejně
+jako při ztrátě seed fráze. Proto:
+
+- **Zálohuj ji zvlášť**, na jiném místě než seed frázi. Kdo najde jedno, nemá druhé.
+- **Pozor na velká a malá písmena, mezery a diakritiku.** „Kocka“ a „kočka“ jsou dvě různé peněženky.
+- **Vyzkoušej obnovu** se seed frází i passphrase dřív, než pošleš úspory.
+- **Mysli na dědice.** Bez passphrase se k penězům nedostanou ani oni.
+
+## Potřebuješ ji?
+
+| Situace                                            | Doporučení                                   |
+| -------------------------------------------------- | -------------------------------------------- |
+| začínáš, menší částky                              | zatím ne – nejdřív zvládni zálohu seed fráze |
+| větší úspory, umíš pečlivě zálohovat               | dává smysl                                   |
+| obava, že někdo najde zálohu nebo ukradne zařízení | dává smysl                                   |
+
+<Callout type="risk" title="Passphrase zvyšuje bezpečnost i riziko ztráty">
+  S passphrase máš dvě věci, které musíš uchovat. Ztráta kterékoli z nich
+  znamená ztrátu peněz. Přidej ji, jen když máš zálohu promyšlenou a
+  vyzkoušenou.
+</Callout>
+
+## Časté omyly
+
+- **„Zadal jsem passphrase a peněženka je prázdná – někdo mě okradl.“** Spíš jsi zadal jinou passphrase,
+  třeba s překlepem.
+- **„Passphrase napíšu na stejný papír jako seed frázi.“** Pak neochrání vůbec nic.
+- **„Čím delší a složitější, tím lepší.“** Jen pokud si ji spolehlivě zálohuješ. Nezapamatovatelná
+  passphrase bez zálohy je časovaná bomba.
+
+<Callout title="Shrnutí">
+
+- Passphrase je volitelné heslo k seed frázi; každá passphrase otevře jinou peněženku.
+- Chrání před nálezcem zálohy a fyzickým útokem na zařízení.
+- Nikdo ji neobnoví a peněženka chybu neohlásí – zálohuj ji zvlášť a vyzkoušej obnovu.
+- Pro začátečníky s menšími částkami zatím není nutná.
+
+</Callout>

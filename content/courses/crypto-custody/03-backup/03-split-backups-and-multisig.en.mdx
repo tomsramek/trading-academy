@@ -1,0 +1,86 @@
+export const metadata = {
+  title: "Split backups and multisig",
+  description:
+    "Why not to cut a seed phrase in half, how a backup split into shares works, what multisig is and when the complexity pays off – and when it is a risk in itself.",
+};
+
+<Callout title="In this lesson">
+
+- find out why not to cut a seed phrase in half
+- understand a "2 of 3" split backup and multisig
+- decide whether a more complex setup is worth it for you
+
+</Callout>
+
+One seed phrase is one place where something can go wrong: a thief finds it, or it burns. Splitting the
+responsibility across several pieces sounds tempting. But doing it badly is worse than not doing it at
+all.
+
+<Illustration name="twoOfThree" />
+
+## Why not cut the phrase in half
+
+Splitting 24 words into two halves and storing them in two places looks clever. In reality:
+
+- **losing either half = losing everything** – the risk of loss doubles,
+- **a found half makes guessing the rest much easier** – especially with a shorter 12-word phrase.
+
+If you want to split your backup, use a method designed for it.
+
+## A backup split into shares
+
+Some wallets support a so-called <KeyTerm term="shamir-backup">split backup</KeyTerm> under the SLIP-39
+standard. Instead of one phrase, it creates for example **three shares, any two of which are enough**:
+
+- one share on its own reveals **nothing**,
+- losing one share does not matter; the other two recover the money,
+- you can store the shares at home, with family and in a bank safe deposit box.
+
+The catch: you can restore such a backup only in a wallet that supports SLIP-39. An ordinary BIP39 phrase
+works almost everywhere; a split backup does not.
+
+## Multisig
+
+So-called <KeyTerm term="multisig">multisig</KeyTerm> goes even further. Instead of one key you have
+several separate keys on separate devices – say three – and every transaction needs signatures from two of
+them.
+
+- **The upside:** one stolen or compromised device is not enough. No single point of failure.
+- **The downside:** complexity. Besides three backups, you also have to keep a description of the wallet
+  itself (which keys belong to it and how many signatures are needed). Without it, two keys are not enough to find the money, and even with all three, recovery is hard.
+
+On Bitcoin multisig is part of the network; on Ethereum and others it is done with a smart contract. And
+note: multisig does not protect against blind signing either. The Bybit hack from lesson six happened on
+exactly such a multi-signature wallet.
+
+## When it pays off
+
+| Situation                                            | Sensible setup                                          |
+| ---------------------------------------------------- | ------------------------------------------------------- |
+| most people                                          | one seed phrase, two good backups, perhaps a passphrase |
+| large savings, worry about a single point of failure | a 2-of-3 split backup                                   |
+| very large amounts, a company, several people        | multisig with well-thought-out instructions             |
+
+<Callout type="warning" title="Complexity is a risk too">
+  Every extra step is a place where you can make a mistake – and where your
+  heirs will get lost. A simple setup you can really handle is safer than a
+  perfect setup you do not understand.
+</Callout>
+
+## Common myths
+
+- **"I will cut the phrase into two halves, that is safer."** It is worse – losing a half means losing
+  everything.
+- **"One share of a split backup is almost the whole phrase."** On its own it reveals nothing.
+- **"Multisig solves everything."** It adds security and complexity, and it does not protect against a
+  fraudulent transaction.
+
+<Callout title="Summary">
+
+- Do not cut a seed phrase in half – it raises the risk of both loss and exposure.
+- A split backup (SLIP-39) creates shares instead of one phrase, e.g. 2 of 3; one share reveals nothing.
+- Multisig uses several separate keys and multiple signatures; it also needs a backup of the wallet
+  description.
+- For most people one phrase with two good backups is enough.
+
+</Callout>

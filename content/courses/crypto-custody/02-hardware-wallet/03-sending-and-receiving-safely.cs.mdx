@@ -1,0 +1,75 @@
+export const metadata = {
+  title: "Bezpečné posílání a přijímání",
+  slug: "bezpecne-posilani-a-prijimani",
+  description:
+    "Jak ověřit adresu na displeji, proč posílat zkušební platbu, co je otrávená adresa a proč nikdy nepodepisovat naslepo – na příkladu hacku Bybitu.",
+};
+
+<Callout title="V této lekci">
+
+- naučíš se ověřit adresu pro příjem i odeslání na displeji zařízení
+- zjistíš, kdy se vyplatí zkušební platba
+- pochopíš, proč je podepisování naslepo nebezpečné i pro velké firmy
+
+</Callout>
+
+Většina ztrát při posílání nevzniká hackem, ale omylem: špatná adresa, špatná síť, podvržená transakce.
+Dobrá zpráva je, že proti všem třem pomáhá stejný návyk – podívat se na displej zařízení a nespěchat.
+
+<Illustration name="addressCompare" />
+
+## Přijímání
+
+1. V aplikaci si nech zobrazit adresu pro příjem.
+2. Zvol **zobrazit na zařízení** a porovnej adresu na displeji s tou na monitoru.
+3. Teprve pak ji pošli tomu, kdo ti platí.
+
+Zavirovaný počítač by ti mohl ukázat adresu útočníka. Displej zařízení ukáže tvou skutečnou adresu.
+
+## Posílání
+
+- **Adresu ber ze zdroje**, ne z historie transakcí. Útok zvaný <KeyTerm term="address-poisoning">otrávená adresa</KeyTerm> spočívá v tom, že ti někdo pošle drobnou
+  částku z adresy, která se na začátku a na konci shoduje s tvými obvyklými adresami.
+- **Pozor na schránku.** Některé škodlivé programy v počítači nenápadně vymění zkopírovanou adresu za
+  jinou. Proto kontroluj adresu po vložení – a hlavně na displeji zařízení.
+- **Zkontroluj síť.** Stejný token může existovat na více sítích; poslaný přes špatnou síť se nemusí dát
+  zachránit.
+- **Zkušební platba.** Novému příjemci a u velkých částek pošli nejdřív malou částku a počkej na potvrzení.
+  Stojí jeden poplatek navíc.
+
+## Nikdy nepodepisuj naslepo
+
+U jednoduchého převodu displej ukáže adresu a částku. U složitějších transakcí – třeba v aplikacích na
+blockchainu – ale některá zařízení ukážou jen nesrozumitelný řetězec znaků. Podepsat takovou transakci se
+říká <KeyTerm term="blind-signing">podepisování naslepo</KeyTerm>: schvaluješ něco, co nevidíš.
+
+V únoru 2025 přišla burza Bybit zhruba o 1,5 miliardy dolarů v Etheru. Útočníci podvrhli rozhraní, takže
+zaměstnanci, kteří transakci schvalovali, viděli běžný převod. Ve skutečnosti podepsali změnu, která
+útočníkům předala kontrolu nad peněženkou. Šlo o jednu z největších krádeží v historii kryptoměn.
+
+Pro tebe z toho plyne:
+
+- podepisování naslepo v zařízení nech **vypnuté** a zapínej ho jen výjimečně a vědomě,
+- když nerozumíš tomu, co displej ukazuje, **transakci zamítni**,
+- u aplikací na blockchainu dávej přednost zařízením a aplikacím, které transakci zobrazí srozumitelně.
+
+<Callout type="warning" title="Povolení k utrácení tokenů">
+  Na Ethereu a podobných sítích dáváš aplikacím povolení utrácet tvoje tokeny –
+  často neomezené. Takové povolení platí, dokud ho nezrušíš. Jednou za čas je
+  zkontroluj a nepotřebná zruš.
+</Callout>
+
+## Časté omyly
+
+- **„Adresu stačí zkontrolovat na začátku a na konci.“** Přesně na to spoléhá otrávená adresa. Kontroluj i střed.
+- **„Mám hardwarovou peněženku, nemusím nic číst.“** Chrání jen tehdy, když čteš její displej.
+- **„Zkušební platba je zbytečný poplatek.“** Je to nejlevnější pojistka, jaká existuje.
+
+<Callout title="Shrnutí">
+
+- Adresu pro příjem i odeslání vždy ověř na displeji zařízení.
+- Adresu ber ze zdroje, ne z historie; hlídej síť a novému příjemci pošli nejdřív zkušební částku.
+- Podepisování naslepo nech vypnuté – hack Bybitu ukázal, kam vede schvalování toho, co nevidíš.
+- Na Ethereu a podobných sítích kontroluj a ruš povolení k utrácení tokenů.
+
+</Callout>
