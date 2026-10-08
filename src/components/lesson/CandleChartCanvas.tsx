@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { cva } from "class-variance-authority";
+import { Maximize2Icon, ZoomInIcon, ZoomOutIcon } from "lucide-react";
 import {
   CandlestickSeries,
   ColorType,
@@ -28,6 +29,8 @@ import type {
   LevelKind,
   MarkerKind,
 } from "@/lib/content/chart";
+
+import { Button } from "@/components/ui/button";
 
 import type { Candle } from "./CandleChart";
 
@@ -89,8 +92,11 @@ export function CandleChartCanvas({
   annotations,
   indicators,
 }: CandleChartCanvasProps) {
+  const t = useTranslations("Lesson.chart");
   const containerRef = useRef<HTMLDivElement>(null);
   const zonesRef = useRef<HTMLDivElement>(null);
+  // The chart lives outside React (a canvas), the zoom buttons reach it through this ref.
+  const chartRef = useRef<IChartApi | null>(null);
   // Prices and dates follow the language of the page: 59 572,83 in Czech, 59,572.83 in English.
   const locale = useLocale();
 
@@ -122,6 +128,7 @@ export function CandleChartCanvas({
       handleScroll: { mouseWheel: false, vertTouchDrag: false },
       handleScale: { mouseWheel: false },
     });
+    chartRef.current = chart;
     const series = chart.addSeries(CandlestickSeries, { borderVisible: false });
     // lightweight-charts marks timestamps with its own type; our data stores plain numbers.
     series.setData(
@@ -244,39 +251,91 @@ export function CandleChartCanvas({
       observer.disconnect();
       chart.timeScale().unsubscribeVisibleLogicalRangeChange(placeZones);
       chart.timeScale().unsubscribeSizeChange(placeZones);
+      chartRef.current = null;
       chart.remove();
     };
   }, [candles, annotations, indicators, locale]);
 
+  // Zooms around the middle of the visible part: factor < 1 zooms in, > 1 out.
+  const zoom = (factor: number) => {
+    const timeScale = chartRef.current?.timeScale();
+    const range = timeScale?.getVisibleLogicalRange();
+    if (!timeScale || !range) {
+      return;
+    }
+    const center = (range.from + range.to) / 2;
+    // At least 10 candles stay visible, and zooming out stops a little past the whole chart.
+    const half = Math.min(
+      Math.max(((range.to - range.from) / 2) * factor, 5),
+      candles.length * 0.6,
+    );
+    timeScale.setVisibleLogicalRange({
+      from: center - half,
+      to: center + half,
+    });
+  };
+
   return (
-    <div
-      role="img"
-      aria-label={label}
-      className={chartHeight({
-        panels: panelCount(indicators),
-      })}
-    >
-      <div ref={containerRef} className="absolute inset-0" />
-      <div
-        ref={zonesRef}
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10"
-      >
-        {annotations.zones.map((zone) => (
-          <div
-            key={`${zone.from}-${zone.to}`}
-            data-zone
-            className="absolute top-0 border-x border-primary/40 bg-primary/10"
-          >
-            {zone.label && (
-              <span className="absolute top-1 left-1.5 text-xs font-medium whitespace-nowrap text-foreground">
-                {zone.label}
-              </span>
-            )}
-          </div>
-        ))}
+    <>
+      {/* Zoom without gestures: not everyone knows about pinching or dragging the axes. */}
+      <div className="mb-2 flex justify-end gap-1">
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => zoom(0.6)}
+          aria-label={t("zoomIn")}
+          title={t("zoomIn")}
+        >
+          <ZoomInIcon aria-hidden="true" />
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => zoom(1 / 0.6)}
+          aria-label={t("zoomOut")}
+          title={t("zoomOut")}
+        >
+          <ZoomOutIcon aria-hidden="true" />
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => chartRef.current?.timeScale().fitContent()}
+          aria-label={t("zoomReset")}
+          title={t("zoomReset")}
+        >
+          <Maximize2Icon aria-hidden="true" />
+        </Button>
       </div>
-    </div>
+      <div
+        role="img"
+        aria-label={label}
+        className={chartHeight({
+          panels: panelCount(indicators),
+        })}
+      >
+        <div ref={containerRef} className="absolute inset-0" />
+        <div
+          ref={zonesRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-10"
+        >
+          {annotations.zones.map((zone) => (
+            <div
+              key={`${zone.from}-${zone.to}`}
+              data-zone
+              className="absolute top-0 border-x border-primary/40 bg-primary/10"
+            >
+              {zone.label && (
+                <span className="absolute top-1 left-1.5 text-xs font-medium whitespace-nowrap text-foreground">
+                  {zone.label}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 
