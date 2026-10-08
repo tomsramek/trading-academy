@@ -25,6 +25,19 @@
     },
     "related": ["token-account"]
   },
+  "address-poisoning": {
+    "text": {
+      "en": {
+        "term": "Address poisoning",
+        "definition": "A scam in which an attacker sends you a tiny amount from an address that looks like one you use, hoping you will later copy it from your history and send money to it."
+      },
+      "cs": {
+        "term": "Otrávená adresa",
+        "definition": "Podvod, při kterém ti útočník pošle drobnou částku z adresy podobné té, kterou používáš, a doufá, že ji později zkopíruješ z historie a pošleš na ni peníze."
+      }
+    },
+    "related": ["phishing", "wallet"]
+  },
   "airdrop": {
     "text": {
       "en": {
@@ -103,6 +116,19 @@
     },
     "related": ["correlation", "volatility-sizing"]
   },
+  "bip39": {
+    "text": {
+      "en": {
+        "term": "BIP39",
+        "definition": "The standard by which a wallet turns a seed phrase of 12 or 24 words from a list of 2,048 into all its keys. Thanks to it, one phrase can be restored in many different wallets."
+      },
+      "cs": {
+        "term": "BIP39",
+        "definition": "Standard, podle kterého peněženka z 12 nebo 24 slov ze seznamu 2 048 slov vytvoří všechny své klíče. Díky němu jde jednu frázi obnovit v mnoha různých peněženkách."
+      }
+    },
+    "related": ["seed-phrase", "passphrase"]
+  },
   "bitcoin-dominance": {
     "text": {
       "en": {
@@ -115,6 +141,19 @@
       }
     },
     "related": ["correlation", "altcoin"]
+  },
+  "blind-signing": {
+    "text": {
+      "en": {
+        "term": "Blind signing",
+        "definition": "Approving a transaction whose details the wallet cannot display in readable form. You are signing something you cannot see – keep it switched off."
+      },
+      "cs": {
+        "term": "Podepisování naslepo",
+        "definition": "Schválení transakce, jejíž podrobnosti peněženka nedokáže zobrazit srozumitelně. Podepisuješ něco, co nevidíš – nech ho vypnuté."
+      }
+    },
+    "related": ["hardware-wallet", "smart-contract"]
   },
   "block-explorer": {
     "text": {
@@ -414,6 +453,19 @@
     },
     "related": ["r-multiple"]
   },
+  "firmware": {
+    "text": {
+      "en": {
+        "term": "Firmware",
+        "definition": "The software inside a device such as a hardware wallet. Update it only from the manufacturer's official app; open-source firmware can be checked by independent experts."
+      },
+      "cs": {
+        "term": "Firmware",
+        "definition": "Software uvnitř zařízení, třeba hardwarové peněženky. Aktualizuj ho jen z oficiální aplikace výrobce; otevřený firmware můžou zkontrolovat nezávislí odborníci."
+      }
+    },
+    "related": ["hardware-wallet", "secure-element"]
+  },
   "fomo": {
     "text": {
       "en": {
@@ -517,6 +569,19 @@
       }
     },
     "related": ["mining", "satoshi"]
+  },
+  "hardware-wallet": {
+    "text": {
+      "en": {
+        "term": "Hardware wallet",
+        "definition": "A small device that keeps private keys inside and signs transactions itself, so the keys never touch an internet-connected computer. You confirm every transaction on its screen."
+      },
+      "cs": {
+        "term": "Hardwarová peněženka",
+        "definition": "Malé zařízení, které drží soukromé klíče uvnitř a samo podepisuje transakce, takže se klíče nikdy nedostanou do počítače připojeného k internetu. Každou transakci potvrzuješ na jeho displeji."
+      }
+    },
+    "related": ["cold-wallet", "secure-element", "seed-phrase"]
   },
   "hash": {
     "text": {
@@ -804,6 +869,19 @@
     },
     "related": ["golden-cross", "trend"]
   },
+  "multisig": {
+    "text": {
+      "en": {
+        "term": "Multisig",
+        "definition": "A wallet that needs signatures from several separate keys – for example two of three – to send money. It removes a single point of failure but adds complexity."
+      },
+      "cs": {
+        "term": "Multisig",
+        "definition": "Peněženka, která k odeslání peněz potřebuje podpisy několika samostatných klíčů – třeba dvou ze tří. Odstraní jediné místo selhání, ale přidá složitost."
+      }
+    },
+    "related": ["shamir-backup", "private-key"]
+  },
   "nakamoto-coefficient": {
     "text": {
       "en": {
@@ -920,6 +998,19 @@
       }
     },
     "related": ["moving-average", "rsi"]
+  },
+  "passphrase": {
+    "text": {
+      "en": {
+        "term": "Passphrase",
+        "definition": "An optional password added to a seed phrase that creates a completely different wallet. It protects against someone who finds your backup, but nobody can recover it if you forget it."
+      },
+      "cs": {
+        "term": "Passphrase",
+        "definition": "Volitelné heslo přidané k seed frázi, které vytvoří úplně jinou peněženku. Chrání před tím, kdo najde zálohu, ale když ho zapomeneš, nikdo ho neobnoví."
+      }
+    },
+    "related": ["seed-phrase", "bip39"]
   },
   "phishing": {
     "text": {
@@ -1129,6 +1220,19 @@
     },
     "related": ["halving"]
   },
+  "secure-element": {
+    "text": {
+      "en": {
+        "term": "Secure element",
+        "definition": "A chip designed to keep secrets such as private keys even against physical attacks in a lab. Many newer hardware wallets use one."
+      },
+      "cs": {
+        "term": "Bezpečnostní čip",
+        "definition": "Čip navržený tak, aby udržel tajemství, jako jsou soukromé klíče, i proti fyzickým útokům v laboratoři. Používá ho řada novějších hardwarových peněženek."
+      }
+    },
+    "related": ["hardware-wallet", "firmware"]
+  },
   "seed-phrase": {
     "text": {
       "en": {
@@ -1141,6 +1245,45 @@
       }
     },
     "related": ["private-key", "cold-wallet", "phishing"]
+  },
+  "self-custody": {
+    "text": {
+      "en": {
+        "term": "Self-custody",
+        "definition": "Holding the keys to your crypto yourself, in your own wallet, instead of leaving them with an exchange. Nobody can easily freeze your coins (though issuers of some tokens, such as stablecoins, can) – but nobody can recover them if you lose the keys."
+      },
+      "cs": {
+        "term": "Vlastní úschova",
+        "definition": "Držení klíčů ke kryptoměnám ve vlastní peněžence místo na burze. Nikdo ti mince jen tak nezablokuje (vydavatelé některých tokenů, třeba stablecoinů, to ale umí) – ale nikdo ti je ani nevrátí, když klíče ztratíš."
+      }
+    },
+    "related": ["private-key", "seed-phrase", "hardware-wallet"]
+  },
+  "shamir-backup": {
+    "text": {
+      "en": {
+        "term": "Split backup (SLIP-39)",
+        "definition": "A backup that splits a wallet's secret into several shares, for example three, any two of which can restore it. One share alone reveals nothing. It works only in wallets that support it."
+      },
+      "cs": {
+        "term": "Rozdělená záloha (SLIP-39)",
+        "definition": "Záloha, která rozdělí tajemství peněženky na několik podílů, třeba tři, z nichž k obnově stačí libovolné dva. Jeden podíl sám nic neprozradí. Funguje jen v peněženkách, které ji podporují."
+      }
+    },
+    "related": ["seed-phrase", "multisig"]
+  },
+  "sim-swap": {
+    "text": {
+      "en": {
+        "term": "SIM swap",
+        "definition": "An attack in which a criminal gets your phone number moved to their SIM card and then receives your text-message codes. Use an app or security key for 2FA instead of SMS."
+      },
+      "cs": {
+        "term": "SIM swap",
+        "definition": "Útok, při kterém zločinec dosáhne převodu tvého telefonního čísla na svou SIM kartu a pak mu chodí tvoje kódy z SMS. Pro 2FA používej aplikaci nebo bezpečnostní klíč místo SMS."
+      }
+    },
+    "related": ["2fa", "phishing"]
   },
   "slippage": {
     "text": {
@@ -1505,5 +1648,18 @@
       }
     },
     "related": ["phishing", "airdrop", "wallet"]
+  },
+  "wrench-attack": {
+    "text": {
+      "en": {
+        "term": "Wrench attack",
+        "definition": "Physical violence or threats used to force a crypto holder to hand over their coins. The best defence is staying low-key about what you own."
+      },
+      "cs": {
+        "term": "Útok francouzským klíčem",
+        "definition": "Fyzické násilí nebo vyhrožování, kterým útočník nutí držitele kryptoměn, aby mu je vydal. Nejlepší obranou je nechlubit se tím, co vlastníš."
+      }
+    },
+    "related": ["self-custody", "multisig"]
   }
 }

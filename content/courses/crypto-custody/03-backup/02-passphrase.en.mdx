@@ -1,0 +1,80 @@
+export const metadata = {
+  title: 'Passphrase (the "25th word")',
+  description:
+    "What a seed phrase passphrase is, what it protects against, why no one will report a mistake with it and why to back it up separately from the seed phrase.",
+};
+
+<Callout title="In this lesson">
+
+- understand what a passphrase does to a seed phrase
+- find out what it protects against and what new trap it brings
+- decide whether you need one at all
+
+</Callout>
+
+Imagine a house where the front door key opens a living room with a few trinkets. The real safe, though,
+is behind a secret door in the bookshelf – and only a password you know opens it. That is exactly how a
+passphrase works.
+
+<Illustration name="secretDoor" />
+
+## What a passphrase does
+
+A so-called <KeyTerm term="passphrase">passphrase</KeyTerm> is an optional password added to the seed
+phrase. The BIP39 standard allows it and most hardware wallets support it. It is also called the "25th
+word", although it can be any text.
+
+- **Seed phrase + passphrase = a completely different wallet.** Different keys, different addresses.
+- **Every passphrase opens a different wallet** – even one with a typo.
+- **The wallet never says "wrong password".** It simply shows a different, most likely empty, wallet.
+
+## What it protects against
+
+- **Someone who finds your seed phrase backup.** Without the passphrase they cannot reach the main money.
+- **A physical attack on the device.** Even if someone extracted the seed phrase from an older wallet, the
+  passphrase is not stored in the device.
+- **Extortion – partly.** Some people leave a small amount in the wallet without a passphrase as a decoy.
+  It may help, but do not rely on it.
+
+## A new trap: forgetting
+
+Nobody can recover a passphrase. If you forget it or make a typo and do not know which, the money is gone
+– just as if you lost the seed phrase. So:
+
+- **Back it up separately**, in a different place from the seed phrase. Whoever finds one does not have
+  the other.
+- **Watch upper and lower case, spaces and accents.** "Cat" and "cat" are two different wallets.
+- **Test a recovery** with both the seed phrase and the passphrase before sending your savings.
+- **Think of your heirs.** Without the passphrase, they cannot reach the money either.
+
+## Do you need one?
+
+| Situation                                                | Recommendation                                    |
+| -------------------------------------------------------- | ------------------------------------------------- |
+| you are starting out, smaller amounts                    | not yet – first master backing up the seed phrase |
+| larger savings, you can back up carefully                | makes sense                                       |
+| worry that someone finds the backup or steals the device | makes sense                                       |
+
+<Callout type="risk" title="A passphrase raises security and the risk of loss">
+  With a passphrase you have two things to keep. Losing either of them means
+  losing the money. Add one only when your backup is well thought out and
+  tested.
+</Callout>
+
+## Common myths
+
+- **"I entered my passphrase and the wallet is empty – I have been robbed."** More likely you entered a
+  different passphrase, perhaps with a typo.
+- **"I will write the passphrase on the same paper as the seed phrase."** Then it protects nothing at all.
+- **"The longer and more complex, the better."** Only if you back it up reliably. An unmemorable passphrase
+  without a backup is a time bomb.
+
+<Callout title="Summary">
+
+- A passphrase is an optional password for the seed phrase; every passphrase opens a different wallet.
+- It protects against someone finding your backup and against physical attacks on the device.
+- Nobody can recover it and the wallet does not report mistakes – back it up separately and test a
+  recovery.
+- For beginners with smaller amounts it is not necessary yet.
+
+</Callout>

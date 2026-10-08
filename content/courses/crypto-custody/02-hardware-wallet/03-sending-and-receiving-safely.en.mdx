@@ -1,0 +1,80 @@
+export const metadata = {
+  title: "Sending and receiving safely",
+  description:
+    "How to verify an address on the screen, why to send a test payment, what a poisoned address is and why never to sign blind – using the Bybit hack as an example.",
+};
+
+<Callout title="In this lesson">
+
+- learn to verify a receiving and sending address on the device's screen
+- find out when a test payment is worth it
+- understand why blind signing is dangerous even for big companies
+
+</Callout>
+
+Most losses when sending do not come from hacks but from mistakes: a wrong address, a wrong network, a
+substituted transaction. The good news is that one habit helps against all three – look at the device's
+screen and do not rush.
+
+<Illustration name="addressCompare" />
+
+## Receiving
+
+1. In the app, display your receiving address.
+2. Choose **show on device** and compare the address on its screen with the one on your monitor.
+3. Only then send it to whoever is paying you.
+
+An infected computer could show you an attacker's address. The device's screen shows your real address.
+
+## Sending
+
+- **Take the address from the source**, not from your transaction history. An attack called <KeyTerm term="address-poisoning">address poisoning</KeyTerm> means someone sends you a tiny amount from
+  an address whose beginning and end match the addresses you usually use.
+- **Watch the clipboard.** Some malicious programs on a computer quietly swap a copied address for another.
+  So check the address after pasting – and above all on the device's screen.
+- **Check the network.** The same token may exist on several networks; sent over the wrong one, it may not
+  be recoverable.
+- **Test payment.** For a new recipient and for large amounts, send a small amount first and wait for
+  confirmation. It costs one extra fee.
+
+## Never sign blind
+
+For a simple transfer the screen shows the address and amount. For more complex transactions, though –
+for example in blockchain apps – some devices show only an incomprehensible string of characters. Signing
+such a transaction is called <KeyTerm term="blind-signing">blind signing</KeyTerm>: you approve something
+you cannot see.
+
+In February 2025 the Bybit exchange lost about 1.5 billion dollars in Ether. The attackers tampered with
+the interface, so the employees approving the transaction saw an ordinary transfer. In reality they
+signed a change that handed the attackers control of the wallet. It was one of the biggest thefts in the
+history of crypto.
+
+What follows for you:
+
+- keep blind signing **switched off** on the device and turn it on only rarely and deliberately,
+- if you do not understand what the screen shows, **reject the transaction**,
+- for blockchain apps, prefer devices and apps that display the transaction in readable form.
+
+<Callout type="warning" title="Permission to spend tokens">
+  On Ethereum and similar networks you give apps permission to spend your tokens
+  – often without limit. Such a permission stays valid until you revoke it.
+  Check them from time to time and revoke the ones you do not need.
+</Callout>
+
+## Common myths
+
+- **"Checking the beginning and end of the address is enough."** That is exactly what address poisoning
+  relies on. Check the middle too.
+- **"I have a hardware wallet, I do not need to read anything."** It only protects you when you read its
+  screen.
+- **"A test payment is a wasted fee."** It is the cheapest insurance there is.
+
+<Callout title="Summary">
+
+- Always verify a receiving and sending address on the device's screen.
+- Take the address from the source, not the history; check the network and send a test amount to a new
+  recipient.
+- Keep blind signing off – the Bybit hack showed where approving what you cannot see leads.
+- On Ethereum and similar networks, check and revoke permissions to spend your tokens.
+
+</Callout>

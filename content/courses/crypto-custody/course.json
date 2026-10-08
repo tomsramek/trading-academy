@@ -1,0 +1,34 @@
+{
+  "title": {
+    "en": "Keeping crypto safe",
+    "cs": "Bezpečná úschova kryptoměn"
+  },
+  "description": {
+    "en": "Who holds your keys, how a hardware wallet works, how to back up a seed phrase so that fire, thieves or forgetting do not take it, and how to plan for the day you are not around.",
+    "cs": "Kdo drží tvoje klíče, jak funguje hardwarová peněženka, jak zálohovat seed frázi, aby ji nevzal oheň, zloděj ani zapomnění, a jak myslet na den, kdy tu nebudeš."
+  },
+  "audience": {
+    "en": "People who own some crypto – or plan to – and want to keep it safe without becoming security experts.",
+    "cs": "Lidé, kteří nějaké kryptoměny mají – nebo plánují mít – a chtějí je bezpečně uschovat, aniž by se z nich museli stát experti na bezpečnost."
+  },
+  "outcomes": {
+    "en": [
+      "Decide what to keep on an exchange and what in your own wallet",
+      "Set up and use a hardware wallet safely",
+      "Back up a seed phrase so it survives fire, water and thieves",
+      "Leave instructions for your family and recognise attacks on wallets"
+    ],
+    "cs": [
+      "Rozhodnout, co nechat na burze a co ve vlastní peněžence",
+      "Bezpečně nastavit a používat hardwarovou peněženku",
+      "Zálohovat seed frázi tak, aby přežila oheň, vodu i zloděje",
+      "Připravit návod pro rodinu a poznat útoky na peněženky"
+    ]
+  },
+  "level": "beginner",
+  "order": 2,
+  "slug": {
+    "cs": "bezpecna-uschova-kryptomen"
+  },
+  "draft": true
+}

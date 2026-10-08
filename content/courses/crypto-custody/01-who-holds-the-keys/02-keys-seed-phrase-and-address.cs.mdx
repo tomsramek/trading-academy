@@ -1,0 +1,76 @@
+export const metadata = {
+  title: "Klíče, seed fráze a adresa",
+  slug: "klice-seed-fraze-a-adresa",
+  description:
+    "Jak spolu souvisí soukromý klíč, adresa a seed fráze, proč jedna fráze otevře všechny tvoje účty a co přesně musíš zálohovat.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, jak spolu souvisí soukromý klíč, adresa a seed fráze
+- zjistíš, proč jedna fráze otevře všechny tvoje účty na mnoha blockchainech
+- budeš vědět, co přesně zálohuješ – a co ne
+
+</Callout>
+
+Lidé se bojí, že jim spadne do vody hardwarová peněženka. Přitom zařízení je nahraditelné – koupíš nové
+a obnovíš ho. Nenahraditelný je jen jeden kus papíru: seed fráze. Abys věděl proč, podíváme se, co v ní
+vlastně je.
+
+<Illustration name="masterKey" />
+
+## Klíč a adresa
+
+- Takzvaný <KeyTerm term="private-key">soukromý klíč</KeyTerm> je obrovské tajné číslo. Kdo ho zná, může podepsat
+  transakci, tedy poslat mince.
+- Ze soukromého klíče se matematicky spočítá **veřejný klíč** a z něj **adresa** – to, co dáváš lidem,
+  aby ti poslali peníze.
+- Cesta vede jen jedním směrem. Z adresy se soukromý klíč spočítat nedá, takže adresu klidně ukaž komukoli.
+
+## Seed fráze: jeden klíč ke všem dveřím
+
+Kdyby sis musel zálohovat každý soukromý klíč zvlášť, zbláznil by ses. Proto peněženky používají <KeyTerm term="seed-phrase">seed frázi</KeyTerm>: 12 nebo 24 slov ze seznamu 2 048 slov podle
+standardu <KeyTerm term="bip39">BIP39</KeyTerm>. Z ní se vypočítají všechny tvoje klíče – pro Bitcoin,
+Ethereum, Solanu i další sítě a pro libovolný počet účtů.
+
+Co z toho plyne:
+
+- **Kdo má seed frázi, má všechno.** Nepotřebuje tvoje zařízení, heslo ani PIN.
+- **Ztracené zařízení nevadí, ztracená fráze ano.** Se zálohou fráze obnovíš všechno v novém zařízení.
+- **Fráze funguje i v jiných peněženkách.** Když výrobce zkrachuje, obnovíš ji jinde. Některé peněženky
+  ale počítají klíče trochu jinou cestou – když po obnově nevidíš zůstatek, nemusí být nic ztracené.
+
+## Proč ji nikdo neuhodne
+
+Dvanáct slov z 2 048 dává tolik kombinací, že by je všechny počítače světa nevyzkoušely ani za miliardy
+let. Slabé místo proto není matematika, ale člověk: fotka v telefonu, soubor v cloudu, papír v šuplíku,
+„technik“, který si o frázi řekne.
+
+## Na čem záleží
+
+- **Pořadí slov.** Stejná slova v jiném pořadí jsou úplně jiná peněženka.
+- **Pravopis.** Slova jsou ze seznamu a každé se dá jednoznačně poznat už podle prvních čtyř písmen –
+  proto se na kovové destičky často ražou jen ta.
+- **Poslední slovo** obsahuje kontrolní součet. Proto si nevymýšlej vlastní frázi – nechej ji vygenerovat
+  zařízení.
+
+<Callout type="risk" title="Seed fráze nikdy do počítače ani telefonu">
+  Žádné fotky, poznámky, e-maily, cloud ani správce hesel na zařízení, které je
+  připojené k internetu. Kdo po tobě chce seed frázi zadat na webu nebo
+  nadiktovat do telefonu, je podvodník – vždycky.
+</Callout>
+
+## Časté omyly
+
+- **„Mince jsou v zařízení.“** Jsou na blockchainu. Zařízení drží jen klíče – a ty jdou obnovit z fráze.
+- **„Adresu musím tajit.“** Adresa je veřejná. Tajit musíš seed frázi a soukromé klíče.
+- **„Seed fráze je jen pro jednu kryptoměnu.“** Jedna fráze obvykle otevře účty na mnoha sítích.
+
+<Callout title="Shrnutí">
+
+- Soukromý klíč podepisuje transakce; z něj se počítá veřejný klíč a adresa, obráceně to nejde.
+- Seed fráze (12 nebo 24 slov, BIP39) vytvoří všechny tvoje klíče na mnoha sítích.
+- Zařízení je nahraditelné, seed fráze ne – zálohuješ hlavně ji.
+- Záleží na pořadí a pravopisu slov; frázi nech vygenerovat zařízení.
+
+</Callout>
