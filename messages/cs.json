@@ -774,8 +774,7 @@
   "Courses": {
     "title": "Kurzy",
     "description": "Strukturované kurzy tradingu kryptoměn pro každou úroveň – zdarma, krok za krokem, od první svíčky po vlastní strategii.",
-    "filterLabel": "Filtrovat kurzy podle úrovně",
-    "all": "Všechny úrovně",
+    "filterLabel": "Zobrazení kurzů",
     "level": {
       "beginner": "Začátečník",
       "intermediate": "Středně pokročilý",
@@ -791,7 +790,19 @@
     },
     "upcoming": {
       "title": "Další kurzy připravujeme",
-      "description": "Pro středně pokročilé a pokročilé: technická analýza, řízení rizika a psychologie tradingu."
+      "description": "Píšeme další kurzy – od Etherea až po DeFi bez iluzí."
+    },
+    "recommended": "Doporučený postup",
+    "step": "Krok {step}",
+    "path": {
+      "main": {
+        "title": "Hlavní cesta",
+        "description": "Začni prvním kurzem a pokračuj v tomhle pořadí – každý navazuje na předchozí."
+      },
+      "electives": {
+        "title": "Doplňkové kurzy",
+        "description": "Můžeš je zařadit kdykoli po kurzu {course}."
+      }
     }
   },
   "Glossary": {

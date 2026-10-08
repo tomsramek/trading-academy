@@ -1,7 +1,7 @@
 import { CheckIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/layout/Container";
-import { Badge } from "@/components/ui/badge";
+import { LevelBadge } from "@/components/courses/LevelBadge";
 import {
   Card,
   CardContent,
@@ -21,23 +21,13 @@ export function LevelsSection() {
       <Container className="flex flex-col gap-12">
         <SectionHeading title={t("title")} description={t("description")} />
         <div className="grid gap-4 md:grid-cols-3">
-          {LEVELS.map((level, index) => {
+          {LEVELS.map((level) => {
             // next-intl returns arrays only through t.raw(); the shape comes from messages/en.json.
             const topics: string[] = t.raw(`${level}.topics`);
             return (
               <Card key={level}>
                 <CardHeader className="gap-3">
-                  <Badge
-                    variant={
-                      index === 2
-                        ? "default"
-                        : index === 1
-                          ? "secondary"
-                          : "outline"
-                    }
-                  >
-                    {t(`${level}.name`)}
-                  </Badge>
+                  <LevelBadge level={level} label={t(`${level}.name`)} />
                   <CardTitle className="sr-only">
                     {t(`${level}.name`)}
                   </CardTitle>

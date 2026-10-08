@@ -49,6 +49,11 @@
   --chart-4: var(--color-red-600);
   --chart-5: var(--color-violet-500);
 
+  /* Course levels: text on a 10% tint of the same color, AA contrast in both themes. */
+  --level-beginner: var(--color-green-800);
+  --level-intermediate: var(--color-blue-700);
+  --level-advanced: var(--color-violet-700);
+
   --sidebar: var(--color-zinc-50);
   --sidebar-foreground: var(--color-zinc-950);
   --sidebar-primary: var(--color-blue-600);
@@ -92,6 +97,10 @@
   --chart-4: var(--color-red-500);
   --chart-5: var(--color-violet-400);
 
+  --level-beginner: var(--color-green-400);
+  --level-intermediate: var(--color-blue-400);
+  --level-advanced: var(--color-violet-400);
+
   --sidebar: var(--color-zinc-900);
   --sidebar-foreground: var(--color-zinc-50);
   --sidebar-primary: var(--color-blue-600);
@@ -134,6 +143,9 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-level-beginner: var(--level-beginner);
+  --color-level-intermediate: var(--level-intermediate);
+  --color-level-advanced: var(--level-advanced);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);

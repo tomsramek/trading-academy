@@ -7,7 +7,7 @@ import { CheckIcon } from "lucide-react";
 import { CourseOutline } from "@/components/courses/CourseOutline";
 import { RiskNotice } from "@/components/legal/RiskNotice";
 import { Container } from "@/components/layout/Container";
-import { Badge } from "@/components/ui/badge";
+import { LevelBadge } from "@/components/courses/LevelBadge";
 import { buttonVariants } from "@/components/ui/button";
 import { alternateLinks } from "@/i18n/alternates";
 import { Link } from "@/i18n/navigation";
@@ -85,9 +85,7 @@ export default async function CoursePage({
             ← {tCourses("title")}
           </Link>
         </nav>
-        <Badge variant="secondary">
-          {tCourses(`level.${course.meta.level}`)}
-        </Badge>
+        <LevelBadge level={course.meta.level} />
         <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
           {course.meta.title[locale]}
         </h1>

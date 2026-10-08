@@ -27,6 +27,7 @@
   },
   "level": "beginner",
   "order": 1,
+  "path": 1,
   "slug": {
     "cs": "zaklady-kryptomen"
   }

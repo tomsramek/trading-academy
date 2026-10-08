@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/Container";
-import { Badge } from "@/components/ui/badge";
+import { LevelBadge } from "@/components/courses/LevelBadge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
@@ -33,9 +33,7 @@ export function CurriculumSection({ courses }: { courses: HomeCourse[] }) {
           {courses.map((course) => (
             <Card key={course.slug} className="gap-6 glass p-6 sm:p-8">
               <div className="flex flex-wrap items-center gap-3">
-                <Badge variant="outline" className="h-auto px-3 py-1 text-sm">
-                  {tCourses(`level.${course.level}`)}
-                </Badge>
+                <LevelBadge level={course.level} size="md" />
                 <span className="text-sm text-muted-foreground">
                   {tCourses("lessons", { count: course.lessons })}
                 </span>

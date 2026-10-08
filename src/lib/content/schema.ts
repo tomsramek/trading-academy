@@ -49,6 +49,9 @@ export const courseSchema = z.strictObject({
   level: levelSchema,
   // Position in the course list within the same level (1 = first).
   order: z.int().positive(),
+  // Step on the recommended main path (1 = start here). A course without it is an elective, listed
+  // under the main path in the catalog.
+  path: z.int().positive().optional(),
   // Cover image path inside public/, e.g. "/courses/crypto-basics.png". Added with the course list (#26).
   image: z.string().startsWith("/").optional(),
   // Work in progress: shown by `yarn dev`, hidden in production until removed.
