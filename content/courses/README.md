@@ -6,7 +6,7 @@ checks everything and stops with a clear error when something is wrong.
 ```
 content/courses/
   crypto-basics/                     ← folder = English URL: /courses/crypto-basics
-    course.json                      ← title, description, audience, outcomes (en, cs), level, order, slug, image, draft
+    course.json                      ← title, description, audience, outcomes (en, cs), level, order, path, slug, image, draft
     01-blockchain/                   ← NN-module: number = order, not part of the URL
       module.json                    ← title (en, cs)
       quiz.json                      ← optional quiz shown after the module's last lesson
@@ -29,6 +29,8 @@ content/courses/
 - The reading time is computed from the text and the charts/diagrams – never written by hand.
 - Schemas: `src/lib/content/schema.ts`. Components for lessons: `src/mdx-components.tsx`.
 - Market data for charts: `content/market-data/` (see its LICENSE.md).
+- `"path": 1` in course.json puts the course on the recommended main path as step 1 (unique across
+  courses). Courses without `path` are electives, listed under the main path in the catalog.
 - `"draft": true` in course.json: the course is visible in `yarn dev` only, never on the website.
 - Markdown inside a component (lists in `<Callout>`) needs an empty line after the opening and
   before the closing tag – otherwise it is read as one paragraph:

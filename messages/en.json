@@ -774,8 +774,7 @@
   "Courses": {
     "title": "Courses",
     "description": "Structured crypto trading courses for every level – free, step by step, from your first candle to your own strategy.",
-    "filterLabel": "Filter courses by level",
-    "all": "All levels",
+    "filterLabel": "Course view",
     "level": {
       "beginner": "Beginner",
       "intermediate": "Intermediate",
@@ -790,8 +789,20 @@
       "hint": "We are writing new lessons – check back soon."
     },
     "upcoming": {
-      "title": "More courses are on the way",
-      "description": "For intermediate and advanced traders: technical analysis, risk management and trading psychology."
+      "title": "More courses on the way",
+      "description": "We are writing more courses – from Ethereum to DeFi without illusions."
+    },
+    "recommended": "Recommended path",
+    "step": "Step {step}",
+    "path": {
+      "main": {
+        "title": "Main path",
+        "description": "Start with the first course and continue in this order – each builds on the previous one."
+      },
+      "electives": {
+        "title": "Elective courses",
+        "description": "Take them any time after the {course} course."
+      }
     }
   },
   "Glossary": {

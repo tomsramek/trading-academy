@@ -311,6 +311,13 @@ export const getCourses = cache(async (): Promise<Course[]> => {
   });
   const courses = await Promise.all(slugs.map(loadCourse));
   assertUniqueSlugs(courses, "course slug", COURSES_DIR);
+  assertUnique(
+    courses.flatMap((course) =>
+      course.meta.path === undefined ? [] : [String(course.meta.path)],
+    ),
+    "path step",
+    COURSES_DIR,
+  );
   return process.env.NODE_ENV === "production"
     ? courses.filter((course) => !course.meta.draft)
     : courses;

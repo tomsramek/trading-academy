@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardDescription,
@@ -11,6 +10,8 @@ import {
 import { Link } from "@/i18n/navigation";
 import type { CourseSummary } from "@/lib/content/course-summary";
 
+import { LevelBadge } from "./LevelBadge";
+
 // One course in the course list. The whole card is a link (the title link covers the card).
 export function CourseCard({ course }: { course: CourseSummary }) {
   const t = useTranslations("Courses");
@@ -18,7 +19,14 @@ export function CourseCard({ course }: { course: CourseSummary }) {
   return (
     <Card className="relative h-full transition-colors focus-within:ring-2 focus-within:ring-ring hover:bg-accent/50">
       <CardHeader className="gap-3">
-        <Badge variant="secondary">{t(`level.${course.level}`)}</Badge>
+        <div className="flex flex-wrap items-center gap-2">
+          <LevelBadge level={course.level} />
+          {course.path !== undefined && (
+            <span className="text-xs font-medium text-muted-foreground">
+              {t("step", { step: course.path })}
+            </span>
+          )}
+        </div>
         <CardTitle className="text-xl">
           <Link
             href={{

@@ -27,6 +27,7 @@
   },
   "level": "advanced",
   "order": 1,
+  "path": 3,
   "slug": {
     "cs": "od-napadu-k-otestovane-strategii"
   }

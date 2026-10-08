@@ -11,6 +11,8 @@ export type CourseSummary = {
   title: string;
   description: string;
   level: Level;
+  // Step on the recommended main path, undefined = elective.
+  path: number | undefined;
   lessons: number;
   minutes: number;
 };
@@ -22,6 +24,7 @@ export function toCourseSummary(course: Course, locale: Locale): CourseSummary {
     title: course.meta.title[locale],
     description: course.meta.description[locale],
     level: course.meta.level,
+    path: course.meta.path,
     lessons: lessons.length,
     minutes: lessons.reduce(
       (sum, lesson) => sum + lesson.meta[locale].minutes,
