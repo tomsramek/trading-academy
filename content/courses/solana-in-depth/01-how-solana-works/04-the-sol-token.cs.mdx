@@ -1,0 +1,85 @@
+import ftx from "@content/market-data/solusdt-1d-2022-10-12.json";
+
+export const metadata = {
+  title: "Token SOL: inflace, pálení poplatků a staking",
+  slug: "token-sol",
+  description:
+    "K čemu SOL slouží, proč jich každý rok přibývá, kolik se jich spálí, proč nestakovaný SOL ztrácí podíl a co s cenou udělal pád FTX.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, k čemu SOL slouží a proč nemá pevný strop
+- pochopíš inflaci, pálení poplatků a skutečný výnos ze stakingu
+- uvidíš, co s cenou SOL udělal pád burzy FTX
+
+</Callout>
+
+SOL je palivo sítě: platí se jím poplatky, uzamyká se ve stakingu a validátorům dává váhu hlasu. Nejmenší jednotka se jmenuje lamport – jeden SOL má miliardu lamportů. Na rozdíl od Bitcoinu ale
+SOL nemá pevný strop počtu kusů.
+
+<Illustration name="bathtubSupply" />
+
+## Inflace: kohoutek, který se pomalu zavírá
+
+Každou epochu vznikají nové SOL a dostávají je validátoři a ti, kdo u nich stakují. Tomu se říká <KeyTerm term="token-inflation">inflace tokenu</KeyTerm>. Začala v roce 2021 na
+8 % ročně a podle původního plánu se každý rok snižovala o 15 % své hodnoty, až
+k dlouhodobému minimu 1,5 %.
+
+V srpnu 2026 validátoři těsně odhlasovali, že se bude snižovat dvakrát rychleji – o 30 % ročně. Minima
+1,5 % má inflace dosáhnout kolem roku 2029. V době psaní (říjen 2026) jsou to necelá 4 % ročně.
+
+## Pálení: odtok ve vaně
+
+Z každého základního poplatku se polovina **spálí** – zmizí navždy. Druhá polovina jde validátorovi,
+stejně jako celé prioritní poplatky. Spálené SOL tedy počet kusů snižují, ale při běžném provozu je to
+mnohem méně, než kolik inflace přidá. Vana se plní rychleji, než odtéká.
+
+## Staking: proč nestakovaný SOL ztrácí podíl
+
+Ve stakingu jsou zhruba dvě třetiny všech SOL a výnos se v době psaní pohybuje kolem 5–6 % ročně. Zní to
+jako úrok, ale velká část toho „výnosu“ je jen podíl na nově vytištěných SOL:
+
+- **Kdo stakuje**, má na konci roku víc SOL a jeho podíl na všech SOL mírně roste.
+- **Kdo nestakuje**, má stejný počet SOL, ale jeho podíl každý rok klesá o inflaci.
+
+Skutečný přírůstek nad inflací je tedy jen zhruba 1–2 % ročně – a to ještě v SOL, ne v korunách. Když cena
+SOL spadne o polovinu, žádný staking to nevyrovná. O stakingu podrobně v modulu 3.
+
+## Kdo SOL vlastní
+
+Při startu sítě připadla velká část SOL zakladatelům, prvním investorům a nadaci. Jedním z největších
+držitelů byly burza FTX a fond Alameda. Když FTX v listopadu 2022 zkrachovala, trh se bál, že její SOL
+skončí na prodej najednou:
+
+<CandleChart
+  data={ftx}
+  label="Denní graf SOL od října do prosince 2022: z maxima 38,79 USD 5. listopadu pád na 12,37 USD 9. listopadu a do konce roku až na 8 USD"
+  caption="Pád FTX: SOL ztratil za čtyři dny 68 % a do konce roku klesl až na 8 USD."
+  markers={[{ time: "2022-11-08", kind: "event", label: "FTX" }]}
+/>
+
+Z maxima 38,79 USD 5. listopadu spadl SOL za čtyři dny na 12,37 USD a do konce roku na 8 USD. Konkurzní
+správa FTX pak v roce 2024 prodala velkou část svých SOL se slevou investičním fondům – s tím, že se
+tokeny uvolňují postupně, aby nezahltily trh.
+
+<Callout type="risk" title="Inflace i velcí držitelé tlačí na cenu">
+  Nové SOL, které denně vznikají, i velké balíky v rukou několika držitelů
+  znamenají potenciální prodejní tlak. Nikdo ti nezaručí, že poptávka bude dost
+  velká, aby ho pokryla.
+</Callout>
+
+## Časté omyly
+
+- **„Staking je bezrizikový úrok 6 %.“** Většina je podíl na inflaci a výsledek v korunách závisí na ceně.
+- **„Spalování poplatků dělá ze SOL deflační měnu.“** Při běžném provozu inflace pálení výrazně převyšuje.
+- **„FTX je minulost, na SOL už nemá vliv.“** Postupně uvolňované tokeny jsou nabídka, se kterou trh počítá.
+
+<Callout title="Shrnutí">
+
+- SOL platí poplatky a zajišťuje síť přes staking; nemá pevný strop počtu kusů.
+- Inflace začala na 8 % a klesá k 1,5 %; hlasování v srpnu 2026 zrychlilo pokles na dvojnásobek; v době psaní necelá 4 %.
+- Polovina základních poplatků se pálí, ale inflace pálení výrazně převyšuje.
+- Staking hlavně chrání tvůj podíl před inflací; cenové riziko nevyrovná.
+
+</Callout>

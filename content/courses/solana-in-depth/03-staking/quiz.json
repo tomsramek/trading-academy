@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "Who controls the SOL in native staking?",
+          "options": [
+            "The validator",
+            "You – the stake account is yours; the validator only gains voting weight",
+            "The exchange"
+          ],
+          "explanation": "The SOL stays in your stake account. The validator cannot spend it, only vote with its weight."
+        },
+        "cs": {
+          "question": "Kdo ovládá SOL při nativním stakingu?",
+          "options": [
+            "Validátor",
+            "Ty – stakovací účet je tvůj, validátor získá jen váhu hlasu",
+            "Burza"
+          ],
+          "explanation": "SOL zůstávají ve tvém stakovacím účtu. Validátor je nemůže utratit, jen s jejich váhou hlasuje."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why can you not sell staked SOL instantly?",
+          "options": [
+            "Deactivation happens only at the end of the epoch – with shorter slots within about a day, sometimes later",
+            "Solana forbids selling",
+            "The validator must agree"
+          ],
+          "explanation": "Stake activates and deactivates at epoch boundaries. So in a sharp price drop you cannot react immediately."
+        },
+        "cs": {
+          "question": "Proč nemůžeš stakovaný SOL prodat okamžitě?",
+          "options": [
+            "Deaktivace proběhne až na konci epochy – s kratšími sloty zhruba za den, někdy i později",
+            "Solana prodej zakazuje",
+            "Validátor musí souhlasit"
+          ],
+          "explanation": "Stake se aktivuje i deaktivuje na hranici epoch. Při prudkém pádu ceny tedy nereaguješ hned."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "A validator unexpectedly raised its commission to 100%. What does it mean for you?",
+          "options": [
+            "You get double",
+            "You lose your stake",
+            "You stop getting rewards – time to redelegate"
+          ],
+          "explanation": "Commission is the share of rewards the validator keeps. At 100% nothing is left for you, but the SOL stays yours."
+        },
+        "cs": {
+          "question": "Validátor nečekaně zvedl provizi na 100 %. Co to pro tebe znamená?",
+          "options": [
+            "Dostaneš dvojnásobek",
+            "Ztratíš svůj stake",
+            "Přestaneš dostávat odměny – je čas předelegovat"
+          ],
+          "explanation": "Provize je podíl z odměn, který si validátor bere. Při 100 % ti nezbude nic, ale SOL zůstávají tvoje."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What extra risk does liquid staking have compared with native staking?",
+          "options": [
+            "None",
+            "A contract bug and selling the staking token at a discount in a panic",
+            "Higher inflation"
+          ],
+          "explanation": "The pool is a program that can have bugs, and in a panic the staking token trades below fair value on exchanges."
+        },
+        "cs": {
+          "question": "Jaké riziko má liquid staking navíc oproti nativnímu?",
+          "options": [
+            "Žádné",
+            "Chybu v kontraktu a prodej stakovacího tokenu se slevou v panice",
+            "Vyšší inflaci"
+          ],
+          "explanation": "Fond je program, který může mít chybu, a v panice se stakovací token na burzách prodává pod férovou hodnotou."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Staking yields around 5–6% a year in SOL. Does it protect you from a fall in SOL's price?",
+          "options": [
+            "No – the yield is in SOL and much of it is a share of inflation",
+            "Yes, the yield is guaranteed in your currency",
+            "Yes, if you stake through an exchange"
+          ],
+          "explanation": "The real gain above inflation is only about 1–2%. If the price of SOL halves, staking does not make up for it."
+        },
+        "cs": {
+          "question": "Staking vynáší kolem 5–6 % ročně v SOL. Ochrání tě to před pádem ceny SOL?",
+          "options": [
+            "Ne – výnos je v SOL a velkou část tvoří podíl na inflaci",
+            "Ano, výnos je garantovaný v korunách",
+            "Ano, pokud stakuješ přes burzu"
+          ],
+          "explanation": "Skutečný přírůstek nad inflací je jen zhruba 1–2 %. Když cena SOL spadne o polovinu, staking to nevyrovná."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

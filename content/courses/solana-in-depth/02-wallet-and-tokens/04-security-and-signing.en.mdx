@@ -1,0 +1,88 @@
+export const metadata = {
+  title: "Security: drainers, signing and fake airdrops",
+  description:
+    "How one signature empties a whole wallet, what your wallet shows you before signing, how to spot a fake airdrop and how to split your wallets.",
+};
+
+<Callout title="In this lesson">
+
+- understand why signing a transaction on Solana is so powerful
+- learn to read the transaction preview in your wallet
+- spot a fake airdrop and set up your wallets so that one mistake does not take everything
+
+</Callout>
+
+On Solana, money is rarely stolen by breaking cryptography. It is stolen with a signature – yours. One
+click on "Approve" on a fake website and within seconds the wallet is empty. And because blocks are
+produced every fraction of a second, there is no time to change your mind.
+
+<Illustration name="blankCheque" />
+
+## One signature, many instructions
+
+A Solana transaction can contain several instructions at once: send SOL, send all tokens, close accounts,
+change the owner. One signature approves them all. That is exactly what a <KeyTerm term="wallet-drainer">drainer</KeyTerm> exploits – a program that slips
+you a transaction which takes everything valuable in one step.
+
+Drainers spread through:
+
+- fake "claim your airdrop" or "mint a new NFT" pages,
+- hacked project accounts on social networks and Discord,
+- search ads that look like a link to a well-known app,
+- spam NFTs and tokens with a link right in their name.
+
+## Read the transaction preview
+
+Good wallets simulate the transaction before you sign and show what happens to your balances. Look for:
+
+- **Outgoing amounts you do not expect.** You want to "claim" a token and the preview shows all your SOL
+  leaving? Close the page.
+- **Wallet warnings.** A message like "this transaction may be malicious" is not excessive caution.
+- **A change of owner or authority.** A legitimate app almost never asks you to transfer ownership of an
+  account.
+- **The simulation failed.** If the wallet cannot compute a preview, do not sign blind.
+
+Signing a message (such as "sign in with this wallet") does not move money. Signing a transaction does.
+Always read which of the two a site is asking for.
+
+## Fake airdrops
+
+Real token giveaways – a so-called <KeyTerm term="airdrop">airdrop</KeyTerm> – do exist. Projects use them
+to reward early users. But fake ones are far more common. Warning signs:
+
+- you received an unsolicited token or NFT with a link,
+- the site rushes you ("10 minutes left"),
+- the site's address differs from the real one by a letter,
+- it asks for your seed phrase – no real project ever does, ever.
+
+## Split your wallets
+
+1. **Vault** – a hardware wallet for savings. You do not connect it to unknown sites.
+2. **Everyday wallet** – for known apps and smaller amounts.
+3. **Experiment wallet** – for new projects and airdrops. Only as much as you can lose.
+
+If a drainer then gets your experiment wallet, your savings stay safe.
+
+<Callout type="risk" title="A signed transaction cannot be undone">
+  There is no cancellation or refund on a blockchain. Money that leaves through
+  a signed transaction is usually gone for good. If you are not sure what you
+  are signing, do not sign.
+</Callout>
+
+## Common myths
+
+- **"I have antivirus, nothing can happen to me."** A drainer is not a virus on your computer – it is a
+  transaction you sign yourself.
+- **"I only connected my wallet, I did not sign anything."** Connecting alone does not move money, but it
+  is the first step. The next window may ask for a signature.
+- **"The airdrop came straight into my wallet, so it is genuine."** Anyone can send a token to anyone.
+
+<Callout title="Summary">
+
+- One signature can approve many instructions at once – that is how drainers work.
+- Read the preview before signing: unexpected outgoing amounts, warnings, a change of owner or a failed
+  simulation = stop.
+- Unsolicited tokens and NFTs with links are bait; no real project asks for your seed phrase.
+- Split your wallets into a vault, an everyday wallet and an experiment wallet.
+
+</Callout>

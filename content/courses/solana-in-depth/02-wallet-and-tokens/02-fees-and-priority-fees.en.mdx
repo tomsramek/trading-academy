@@ -1,0 +1,75 @@
+export const metadata = {
+  title: "Fees and priority fees",
+  description:
+    "What a Solana fee is made of, when and why you pay for priority, why a transaction sometimes fails and why you pay even for a failed one.",
+};
+
+<Callout title="In this lesson">
+
+- find out what a Solana fee is made of
+- understand when and why a priority fee is worth it
+- learn why a transaction sometimes fails – and that you pay even then
+
+</Callout>
+
+Fees on Solana are usually so small you hardly notice them. Until everyone rushes for the same new token.
+Then the motorway turns into a toll booth with a fast lane – and whoever does not pay for priority waits in
+the queue.
+
+<Illustration name="tollBooth" />
+
+## The base fee
+
+Every transaction pays **5,000 lamports per signature**, i.e. 0.000005 SOL. An ordinary transaction has
+one signature. At a SOL price of 150 USD that is less than a tenth of a cent. Half is burned, half goes to
+the validator.
+
+## The priority fee
+
+Every transaction states how much computing it needs – in so-called compute units. On top of that it can
+offer a price per unit. The result is the <KeyTerm term="priority-fee">priority fee</KeyTerm>:
+
+**priority fee = number of compute units × price per unit**
+
+The leader validator that assembles the block favours transactions with higher offers. Wallets usually
+set the priority fee themselves depending on how busy the network is.
+
+## Local fee markets
+
+Solana does not raise prices for the whole network at once. Usually only specific accounts are crowded –
+say the liquidity pool of a new memecoin that thousands of bots are fighting over. Transactions that touch
+those accounts pay a high priority fee. Meanwhile an ordinary SOL transfer goes through for almost
+nothing.
+
+## Why a transaction fails
+
+- **It expired.** Every transaction refers to a recent block and is valid only for about 150 blocks – with the shorter slots from October 2026 that is roughly 40 seconds. If it
+  does not make it into a block by then, it lapses.
+- **It exceeded the slippage.** When swapping tokens you set how far the price may move. If it moves
+  further, the transaction fails – and protects you by doing so.
+- **The priority was too low.** In a rush, those who offered more get ahead of you.
+- **It ran out of compute.** A complex transaction needed more units than it asked for.
+
+Watch out: **a failed transaction that made it into a block pays the fee** – both base and priority. An
+expired transaction that never made it into a block pays nothing.
+
+<Callout type="warning" title="Priority is not a guarantee">
+  Even a high priority fee does not guarantee you buy at the price you see. In a
+  chase for a new token, bots will still get ahead of you – and you pay fees
+  even for the transactions that fail.
+</Callout>
+
+## Common myths
+
+- **"Fees on Solana are always negligible."** Base fees yes, priority fees in a rush no.
+- **"A failed transaction is free."** If it made it into a block, you pay the fee.
+- **"A higher fee = a better price."** A fee buys a place in line, not a price.
+
+<Callout title="Summary">
+
+- The base fee is 0.000005 SOL per signature; half is burned.
+- Priority fee = compute units × offered price; it buys priority in the block.
+- Only crowded accounts get more expensive, not the whole network.
+- A transaction can expire or fail – a failed one in a block still pays the fee.
+
+</Callout>

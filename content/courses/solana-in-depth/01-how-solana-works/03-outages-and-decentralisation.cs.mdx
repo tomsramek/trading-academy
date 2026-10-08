@@ -1,0 +1,78 @@
+export const metadata = {
+  title: "Výpadky a decentralizace",
+  slug: "vypadky-a-decentralizace",
+  description:
+    "Kolikrát se Solana zastavila, proč, co se od té doby změnilo a jak decentralizovaná je síť s necelou tisícovkou validátorů.",
+};
+
+<Callout title="V této lekci">
+
+- projdeš si výpadky Solany a jejich příčiny
+- zjistíš, co se po nich změnilo
+- naučíš se číst ukazatele decentralizace: počet validátorů, Nakamotův koeficient a klienty
+
+</Callout>
+
+Bitcoin od roku 2013 nepřestal zapisovat bloky ani na hodinu. Solana se za první čtyři roky zastavila
+několikrát – na hodiny, jednou skoro na celý den. Pro síť, která chce být „burzou pro celý svět“, je to
+vážná věc. A pro tebe praktická: během výpadku nepošleš, neprodáš ani nezavřeš pozici.
+
+<Illustration name="pitStop" />
+
+## Přehled výpadků
+
+| Datum          | Délka (zhruba) | Příčina                                             |
+| -------------- | -------------- | --------------------------------------------------- |
+| 14. září 2021  | 17 hodin       | záplava transakcí od botů při prodeji nového tokenu |
+| 30. dubna 2022 | 7 hodin        | boti zahltili síť při vydávání NFT                  |
+| 1. června 2022 | 4,5 hodiny     | chyba ve zpracování zvláštního typu transakcí       |
+| 1. října 2022  | 6 hodin        | špatně nastavený validátor vyráběl duplicitní bloky |
+| 25. února 2023 | 19 hodin       | problém se šířením velkých bloků po síti            |
+| 6. února 2024  | 5 hodin        | chyba v softwaru validátorů                         |
+
+Po výpadku se síť nerozjede sama. Validátoři se musí domluvit – mimo blockchain, v chatu – a restartovat
+ze stejného místa. To funguje, ale ukazuje to, jak moc síť závisí na koordinaci provozovatelů.
+
+## Co se změnilo
+
+Po vlnách botů dostala Solana nový způsob přijímání transakcí (protokol QUIC), přednost pro spojení
+podle velikosti stakeu a prioritní poplatky, které rozdělují zájem o přeplněná místa v síti. Od února 2024
+do doby psaní (říjen 2026) se síť úplně nezastavila.
+
+Varování ale přišlo v srpnu 2026: porucha směrování u jednoho poskytovatele serverů odpojila podle
+veřejných zpráv téměř 29 % stakeu. Síť se zastaví, když chybí víc než třetina. Rezerva byla pár
+procentních bodů.
+
+## Jak decentralizovaná Solana je
+
+- **Počet validátorů.** Na vrcholu v roce 2023 jich bylo přes 2 500, v roce 2026 kolem 800–900. Menší
+  provozovatelé odcházejí, protože provoz a hlasování jsou drahé.
+- **Koncentrace.** Takzvaný <KeyTerm term="nakamoto-coefficient">Nakamotův koeficient</KeyTerm> je
+  nejmenší počet validátorů, kteří by dohromady mohli síť zastavit. U Solany je kolem 20.
+- **Klienti.** Klient je software validátoru. Dlouho běžela celá síť na jednom programu – jedna chyba
+  zastavila všechny. Od roku 2024 se postupně rozšiřuje druhý klient Firedancer. V polovině roku 2026 běžela na Firedanceru nebo jeho hybridní verzi Frankendancer zhruba pětina až dvě pětiny stakeu, podle zdroje.
+- **Hosting.** Velká část validátorů běží u několika málo poskytovatelů serverů – srpnová porucha
+  ukázala, proč na tom záleží.
+
+<Callout type="warning" title="Výpadek je i tvoje riziko">
+  Když síť stojí, nemůžeš prodat, přesunout prostředky ani reagovat na pohyb
+  ceny na burzách, kde se SOL dál obchoduje. Pozice na páku nebo v DeFi můžou po
+  restartu skončit jinak, než jsi čekal.
+</Callout>
+
+## Časté omyly
+
+- **„Solana padá pořád.“** Od února 2024 se úplně nezastavila. Riziko ale nezmizelo.
+- **„Výpadek = ukradené peníze.“** Při výpadcích se peníze neztratily, síť jen stála. Škody vznikaly
+  hlavně tím, že lidé nemohli jednat.
+- **„Víc validátorů = vždycky lepší.“** Záleží i na tom, jak je rozdělený stake, na kolika klientech síť běží
+  a u koho validátoři hostují.
+
+<Callout title="Shrnutí">
+
+- Solana měla v letech 2021–2024 šest úplných výpadků, nejdelší zhruba 19 hodin.
+- Po nich přišly změny v příjmu transakcí a prioritní poplatky; od února 2024 se síť nezastavila.
+- Validátorů ubývá (kolem 800–900 v roce 2026) a Nakamotův koeficient je kolem 20.
+- Druhý klient Firedancer snižuje riziko, že jedna chyba zastaví celou síť.
+
+</Callout>

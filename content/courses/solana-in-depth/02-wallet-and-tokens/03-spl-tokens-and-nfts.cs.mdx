@@ -1,0 +1,90 @@
+export const metadata = {
+  title: "Tokeny SPL a NFT",
+  slug: "tokeny-spl-a-nft",
+  description:
+    "Jak na Solaně vzniká token, kdo ho může dotisknout nebo zmrazit, proč název a logo nic nezaručují a co jsou NFT a spamové NFT v peněžence.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, jak na Solaně vzniká token a co o něm prozrazuje jeho mint
+- pochopíš dva klíče, které rozhodují o tvých tokenech: dotisknutí a zmrazení
+- naučíš se, proč název a logo tokenu nic nezaručují
+
+</Callout>
+
+Založit token na Solaně trvá pár minut a stojí méně než oběd. Proto jich vznikají statisíce měsíčně.
+Každý token má ale v sobě zapsaná pravidla – a pár z nich rozhoduje o tom, jestli tvoje tokeny opravdu
+patří tobě.
+
+<Illustration name="twoKeys" />
+
+## Mint: rodný list tokenu
+
+Tokeny na Solaně se řídí standardem <KeyTerm term="spl-token">SPL</KeyTerm>. Každý token má jeden
+hlavní účet – takzvaný mint. V něm je zapsané:
+
+- **celkové množství** tokenů v oběhu,
+- **počet desetinných míst**,
+- **kdo smí tokeny dotisknout**,
+- **kdo smí tokenové účty zmrazit**.
+
+Adresa mintu je jediná spolehlivá identita tokenu. Všechno ostatní – název, zkratka, logo – si může
+kdokoli nastavit libovolně.
+
+## Klíč k tiskárně a klíč k mrazáku
+
+- **Tiskárna.** Takzvané <KeyTerm term="mint-authority">oprávnění k mintu</KeyTerm> – kdo ho má, může tisknout nové tokeny.
+  Když tvůrce memecoinu oprávnění drží, může si kdykoli natisknout miliardu kusů a prodat je proti tobě.
+- **Mrazák.** Takzvané <KeyTerm term="freeze-authority">oprávnění ke zmrazení</KeyTerm> – kdo ho má, může zmrazit tvůj
+  tokenový účet. Pak tokeny vidíš, ale nemůžeš je poslat ani prodat. Přesně tak fungují pasti, ze kterých
+  se dá jen nakoupit.
+
+Zmrazení samo o sobě neznamená podvod. Velké stablecoiny jako USDC ho mají kvůli zákonným povinnostem
+vydavatele. U neznámého memecoinu je to ale varovný signál.
+
+Novější verze standardu (takzvaná rozšíření tokenů) umí navíc třeba poplatek z každého převodu nebo
+„trvalého zástupce“, který smí tokeny z jakéhokoli účtu přesunout nebo spálit. Užitečné pro firmy,
+nebezpečné v rukou podvodníka.
+
+## Název a logo nic nezaručují
+
+Kdokoli může založit token s názvem „USDC“ a správným logem. Pravý USDC na Solaně má mint:
+
+```
+EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+```
+
+Adresu mintu ověřuj u vydavatele nebo v důvěryhodném
+přehledu, ne podle obrázku v peněžence.
+
+## NFT a spamové NFT
+
+Takzvané <KeyTerm term="nft">NFT</KeyTerm> je token, který existuje v jediném kusu a nemá desetinná místa.
+Solana umí i takzvané komprimované NFT, jejichž vytvoření stojí zlomek centu. Proto ti do peněženky
+často přistanou NFT, o které sis neřekl: „Gratulujeme, vyhrál jsi 5 000 USDC, vyzvedni si je na …“
+
+To je návnada. Odkaz vede na stránku, která po tobě chce podepsat transakci – a ta ti peněženku vybílí.
+Spamové NFT ignoruj nebo skryj a na odkazy neklikej. O podepisování je příští lekce.
+
+<Callout type="risk" title="Neznámý token = neznámá pravidla">
+  Než koupíš málo známý token, zjisti, kdo má oprávnění k mintu a ke zmrazení.
+  Pokud je má anonymní tvůrce, může tokeny dotisknout nebo tvé zmrazit. Jak
+  token prověřit, ukáže lekce 13.
+</Callout>
+
+## Časté omyly
+
+- **„Token má správné logo, je pravý.“** Logo si nastaví kdokoli; rozhoduje adresa mintu.
+- **„Oprávnění ke zmrazení = vždycky podvod.“** U regulovaných stablecoinů je běžné; u anonymního
+  memecoinu je to varování.
+- **„NFT zdarma v peněžence je dárek.“** Je to skoro vždy návnada.
+
+<Callout title="Shrnutí">
+
+- Token na Solaně definuje jeho mint: množství, desetinná místa, oprávnění k mintu a ke zmrazení.
+- Oprávnění k mintu dovolí tisknout nové tokeny, oprávnění ke zmrazení zablokovat tvoje.
+- Jediná spolehlivá identita tokenu je adresa mintu, ne název ani logo.
+- Neznámá NFT v peněžence jsou návnada – neklikej na jejich odkazy.
+
+</Callout>

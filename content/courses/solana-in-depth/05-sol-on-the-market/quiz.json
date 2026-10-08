@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "How far did SOL fall from its November 2021 peak to its December 2022 low?",
+          "options": ["By 50%", "By 97%, from 259.90 to 8 USD", "By 20%"],
+          "explanation": "The bear market and the FTX collapse knocked SOL from 259.90 USD to 8 USD. Many other tokens never recovered from a similar fall."
+        },
+        "cs": {
+          "question": "O kolik spadl SOL z vrcholu v listopadu 2021 na dno v prosinci 2022?",
+          "options": ["O 50 %", "O 97 %, z 259,90 na 8 USD", "O 20 %"],
+          "explanation": "Medvědí trh a krach FTX srazily SOL z 259,90 USD na 8 USD. Mnoho jiných tokenů se z podobného pádu nevzpamatovalo nikdy."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The launch of SOL ETFs in October 2025 meant…",
+          "options": [
+            "A guaranteed price rise",
+            "The end of volatility",
+            "A big event – and SOL still fell to about a third afterwards"
+          ],
+          "explanation": "From about 194 USD on launch day SOL fell to 60 USD by June 2026. Good news does not guarantee a rise."
+        },
+        "cs": {
+          "question": "Spuštění SOL ETF v říjnu 2025 znamenalo…",
+          "options": [
+            "Garantovaný růst ceny",
+            "Konec volatility",
+            "Velkou událost – a SOL pak přesto klesl zhruba na třetinu"
+          ],
+          "explanation": "Z kolem 194 USD v den spuštění klesl SOL do června 2026 na 60 USD. Dobré zprávy růst nezaručují."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "SOL's beta to Bitcoin came out at 1.65 in 2025. What does it mean?",
+          "options": [
+            "When Bitcoin fell 1%, SOL fell 1.65% on average",
+            "SOL is 65% more expensive",
+            "SOL and Bitcoin are unrelated"
+          ],
+          "explanation": "Beta measures how much an asset amplifies market moves. It changes over time – in 2021 it was below one."
+        },
+        "cs": {
+          "question": "Beta SOL vůči Bitcoinu vyšla v roce 2025 1,65. Co to znamená?",
+          "options": [
+            "Když Bitcoin klesl o 1 %, SOL v průměru o 1,65 %",
+            "SOL je o 65 % dražší",
+            "SOL a Bitcoin spolu nesouvisí"
+          ],
+          "explanation": "Beta měří, jak aktivum zesiluje pohyby trhu. V čase se mění – v roce 2021 byla pod jedničkou."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What does the SOL/BTC ratio show?",
+          "options": [
+            "How much SOL exists",
+            "Whether SOL does better or worse than Bitcoin",
+            "The level of fees"
+          ],
+          "explanation": "The ratio rises when SOL leads and falls when it lags. From March 2024 to May 2026 SOL lost more than 60% against Bitcoin."
+        },
+        "cs": {
+          "question": "Co ukazuje poměr SOL/BTC?",
+          "options": [
+            "Kolik SOL existuje",
+            "Jestli se SOL daří lépe, nebo hůř než Bitcoinu",
+            "Výši poplatků"
+          ],
+          "explanation": "Poměr roste, když SOL vede, a klesá, když zaostává. Od března 2024 do května 2026 SOL proti Bitcoinu ztratil přes 60 %."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why does SOL next to Bitcoin in a portfolio not spread the risk?",
+          "options": [
+            "Because SOL is a stablecoin",
+            "Because it cannot be bought on an exchange",
+            "It moves with Bitcoin (correlation 0.6–0.9) and swings about twice as much"
+          ],
+          "explanation": "Of the 87 days when Bitcoin fell more than 5%, SOL fell on 79, on average more than Bitcoin. It is a bet on the same market."
+        },
+        "cs": {
+          "question": "Proč SOL vedle Bitcoinu v portfoliu riziko nerozkládá?",
+          "options": [
+            "Protože SOL je stablecoin",
+            "Protože ho nejde koupit na burze",
+            "Pohybuje se s Bitcoinem (korelace 0,6–0,9) a kolísá zhruba dvakrát víc"
+          ],
+          "explanation": "Ze 87 dnů, kdy Bitcoin spadl o víc než 5 %, klesl SOL v 79, v průměru víc než Bitcoin. Je to sázka na stejný trh."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

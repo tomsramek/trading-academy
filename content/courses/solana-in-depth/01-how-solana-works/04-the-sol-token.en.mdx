@@ -1,0 +1,88 @@
+import ftx from "@content/market-data/solusdt-1d-2022-10-12.json";
+
+export const metadata = {
+  title: "The SOL token: inflation, fee burning and staking",
+  description:
+    "What SOL is for, why more of it appears every year, how much gets burned, why unstaked SOL loses its share and what the FTX collapse did to the price.",
+};
+
+<Callout title="In this lesson">
+
+- find out what SOL is for and why it has no fixed cap
+- understand inflation, fee burning and the real staking yield
+- see what the collapse of the FTX exchange did to the price of SOL
+
+</Callout>
+
+SOL is the fuel of the network: it pays fees, it is locked up in staking and it gives validators their
+voting weight. The smallest unit is called a lamport – one SOL has a billion lamports. Unlike Bitcoin,
+though, SOL has no fixed cap on the number of coins.
+
+<Illustration name="bathtubSupply" />
+
+## Inflation: a tap that slowly closes
+
+Every epoch new SOL is created and goes to validators and to those who stake with them. That is called <KeyTerm term="token-inflation">token inflation</KeyTerm>. It started in 2021 at
+8% a year and under the original plan fell by 15% of its value every year, down
+to a long-term floor of 1.5%.
+
+In August 2026 validators narrowly voted to make it fall twice as fast – by 30% a year. Inflation is now
+expected to reach the 1.5% floor around 2029. At the time of writing (October 2026) it is just under 4% a year.
+
+## Burning: the drain in the bathtub
+
+Half of every base fee is **burned** – gone forever. The other half goes to the validator, as do all
+priority fees. Burned SOL lowers the number of coins, but in normal operation it is far less than what
+inflation adds. The bathtub fills faster than it drains.
+
+## Staking: why unstaked SOL loses its share
+
+About two thirds of all SOL is staked, and at the time of writing the yield is around 5–6% a year. It
+sounds like interest, but much of that "yield" is just a share of newly printed SOL:
+
+- **Whoever stakes** has more SOL at the end of the year and their share of all SOL rises slightly.
+- **Whoever does not stake** has the same number of SOL, but their share falls by the inflation rate
+  every year.
+
+The real gain above inflation is only about 1–2% a year – and that is in SOL, not in your own currency.
+If the price of SOL halves, no staking makes up for it. Module 3 covers staking in detail.
+
+## Who owns SOL
+
+At the network's launch a large share of SOL went to the founders, early investors and the foundation.
+One of the biggest holders was the FTX exchange together with the Alameda fund. When FTX went bankrupt in
+November 2022, the market feared its SOL would all be sold at once:
+
+<CandleChart
+  data={ftx}
+  label="Daily SOL chart from October to December 2022: from a high of 38.79 USD on 5 November a fall to 12.37 USD on 9 November and down to 8 USD by the end of the year"
+  caption="The FTX collapse: SOL lost 68% in four days and fell as low as 8 USD by the end of the year."
+  markers={[{ time: "2022-11-08", kind: "event", label: "FTX" }]}
+/>
+
+From a high of 38.79 USD on 5 November, SOL fell to 12.37 USD in four days and to 8 USD by the end of the
+year. In 2024 the FTX bankruptcy estate then sold a large part of its SOL at a discount to investment
+funds – on terms that release the tokens gradually so they do not flood the market.
+
+<Callout type="risk" title="Inflation and large holders weigh on the price">
+  The new SOL created every day and large blocks held by a few owners both mean
+  potential selling pressure. Nobody can guarantee that demand will be big
+  enough to absorb it.
+</Callout>
+
+## Common myths
+
+- **"Staking is risk-free 6% interest."** Most of it is a share of inflation, and the result in your own
+  currency depends on the price.
+- **"Fee burning makes SOL deflationary."** In normal operation inflation is far bigger than burning.
+- **"FTX is history, it no longer affects SOL."** Gradually released tokens are supply the market has to
+  absorb.
+
+<Callout title="Summary">
+
+- SOL pays fees and secures the network through staking; it has no fixed cap.
+- Inflation started at 8% and falls towards 1.5%; a vote in August 2026 doubled the pace; just under 4% at the time of writing.
+- Half of base fees are burned, but inflation is far bigger than burning.
+- Staking mainly protects your share from inflation; it does not offset price risk.
+
+</Callout>

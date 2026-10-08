@@ -1,0 +1,70 @@
+export const metadata = {
+  title: "Jak prověřit token",
+  slug: "jak-proverit-token",
+  description:
+    "Kontrolní seznam před nákupem tokenu na Solaně: adresa mintu, oprávnění, rozšíření tokenu, držitelé, likvidita a zkušební prodej.",
+};
+
+<Callout title="V této lekci">
+
+- dostaneš kontrolní seznam, který projdeš za deset minut
+- naučíš se najít v průzkumníku blockchainu oprávnění, držitele a likviditu
+- zjistíš, které signály znamenají „ruce pryč“
+
+</Callout>
+
+Žádná kontrola z tokenu neudělá dobrou investici. Umí ale odhalit tokeny, které jsou postavené tak, aby
+tě obraly. Deset minut práce s průzkumníkem blockchainu ušetří spoustu peněz – a hlavně tě naučí dívat
+se pod pokličku.
+
+<Illustration name="tokenDetective" />
+
+## Kde hledat
+
+Takzvaný <KeyTerm term="block-explorer">průzkumník blockchainu</KeyTerm> je web, kde se dá podívat na
+jakoukoli adresu, token nebo transakci. Pro Solanu třeba Solscan nebo Solana Explorer (uvedené jako
+příklady). Vložíš adresu mintu a uvidíš všechno, co je o tokenu zapsané.
+
+## Kontrolní seznam
+
+| Co kontroluješ        | Varovný signál                                                          |
+| --------------------- | ----------------------------------------------------------------------- |
+| Adresa mintu          | máš ji z odkazu v chatu nebo z reklamy, ne z oficiálního zdroje         |
+| Oprávnění k mintu     | není zrušené – tvůrce může dotisknout tokeny                            |
+| Oprávnění ke zmrazení | není zrušené u neznámého tokenu – může zmrazit tvůj účet                |
+| Rozšíření tokenu      | poplatek z převodu, trvalý zástupce nebo vlastní program při převodu    |
+| Největší držitelé     | deset největších adres drží velkou část zásoby (mimo fond likvidity)    |
+| Likvidita             | malý fond vůči tržní hodnotě; tokeny z fondu nejsou spálené ani zamčené |
+| Stáří a obchodování   | token je pár hodin starý, objem tvoří hlavně pár adres                  |
+
+## Na co si dát pozor
+
+- **Držitelé.** Fond likvidity a adresy pro spálení do „největších držitelů“ nepočítej. Dívej se, jestli
+  skupina nových peněženek nedostala SOL ze stejného zdroje – tak vypadá tvůrce schovaný za víc účtů.
+- **Likvidita.** Když tvůrce může likviditu z fondu kdykoli vybrat, může kdykoli udělat rug pull.
+  Spálené nebo zamčené podíly na fondu riziko snižují, ale neruší.
+- **Zkušební prodej.** Kup za pár korun a zkus prodat. Když prodej neprojde, jsi v pasti, ze které se dá
+  jen nakoupit. Stojí to dva poplatky – levná pojistka.
+- **Automatické kontroly.** Existují nástroje, které tokeny hodnotí „semaforem“. Jsou užitečné jako první
+  filtr, ale podvodníci je znají a umí je obejít.
+
+<Callout type="warning" title="Zelená kontrola není doporučení">
+  Token, který projde všemi kontrolami, pořád může ztratit 99 % hodnoty – jen
+  pomaleji a „poctivě“. Seznam chrání před podvodem, ne před špatnou investicí.
+</Callout>
+
+## Časté omyly
+
+- **„Oprávnění k mintu je zrušené, takže je token bezpečný.“** Zbývá zmrazení, rozšíření, držitelé
+  a likvidita.
+- **„Hodně držitelů = zdravý token.“** Tisíc adres může patřit jednomu člověku.
+- **„Kontrolní nástroj ukázal zelenou.“** Je to první filtr, ne záruka.
+
+<Callout title="Shrnutí">
+
+- Vždy začni ověřenou adresou mintu z oficiálního zdroje.
+- V průzkumníku zkontroluj oprávnění k mintu a ke zmrazení a rozšíření tokenu.
+- Prověř největší držitele (bez fondu likvidity) a velikost a zamčení likvidity.
+- Zkušební prodej odhalí past; ani čistý token ale není dobrá investice automaticky.
+
+</Callout>

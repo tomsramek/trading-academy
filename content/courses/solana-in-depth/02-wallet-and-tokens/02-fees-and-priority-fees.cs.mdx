@@ -1,0 +1,74 @@
+export const metadata = {
+  title: "Poplatky a prioritní poplatek",
+  slug: "poplatky-a-prioritni-poplatek",
+  description:
+    "Z čeho se skládá poplatek na Solaně, kdy a proč se platí přednost, proč transakce někdy neprojde a proč se platí i za neúspěšnou.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, z čeho se skládá poplatek na Solaně
+- pochopíš, kdy a proč se vyplatí prioritní poplatek
+- naučíš se, proč transakce někdy selže – a že se platí i tehdy
+
+</Callout>
+
+Poplatky na Solaně jsou většinou tak malé, že je skoro nevnímáš. Až do chvíle, kdy se všichni vrhnou na
+stejný nový token. Pak se z dálnice stane mýtná brána s rychlým pruhem – a kdo nezaplatí za přednost,
+stojí ve frontě.
+
+<Illustration name="tollBooth" />
+
+## Základní poplatek
+
+Každá transakce platí **5 000 lamportů za podpis**, tedy 0,000005 SOL. Běžná transakce má jeden podpis.
+Při ceně 150 USD za SOL je to necelá desetina centu. Polovina se spálí, polovina jde validátorovi.
+
+## Prioritní poplatek
+
+Každá transakce si řekne, kolik výpočetního výkonu potřebuje – v takzvaných výpočetních jednotkách.
+Navíc může nabídnout cenu za jednotku. Výsledek je <KeyTerm term="priority-fee">prioritní poplatek</KeyTerm>:
+
+**prioritní poplatek = počet výpočetních jednotek × cena za jednotku**
+
+Vedoucí validátor, který skládá blok, dává přednost transakcím s vyšší nabídkou. Peněženky prioritní
+poplatek obvykle nastaví samy podle toho, jak je síť vytížená.
+
+## Místní trhy s poplatky
+
+Solana nezdražuje celou síť najednou. Přeplněné bývají jen konkrétní účty – třeba fond likvidity nového
+memecoinu, o který se perou tisíce botů. Transakce, které na ty účty sahají, platí vysokou přednost.
+Obyčejný převod SOL mezitím projde za skoro nic.
+
+## Proč transakce neprojde
+
+- **Vypršela.** Každá transakce obsahuje odkaz na nedávný blok a platí jen zhruba 150 bloků – s kratšími sloty od října 2026 to je asi 40 sekund. Když se do té doby
+  nedostane do bloku, propadne.
+- **Překročila skluz.** Při výměně tokenů si nastavuješ, o kolik se smí cena pohnout. Když se pohne víc,
+  transakce selže – a chrání tě tím.
+- **Nízká přednost.** V návalu tě předběhnou ti, kdo nabídli víc.
+- **Došel výpočetní limit.** Složitá transakce potřebovala víc jednotek, než si řekla.
+
+Pozor: **neúspěšná transakce, která se dostala do bloku, platí poplatek** – základní i prioritní.
+Vypršelá transakce, která se do bloku vůbec nedostala, neplatí nic.
+
+<Callout type="warning" title="Přednost není záruka">
+  Ani vysoký prioritní poplatek nezaručí, že koupíš za cenu, kterou vidíš. Při
+  honičce za novým tokenem tě stejně předběhnou boti – a ty zaplatíš poplatek i
+  za transakce, které selžou.
+</Callout>
+
+## Časté omyly
+
+- **„Poplatky na Solaně jsou vždycky zanedbatelné.“** Základní ano, prioritní při návalu ne.
+- **„Neúspěšná transakce je zadarmo.“** Když se dostala do bloku, poplatek zaplatíš.
+- **„Vyšší poplatek = lepší cena.“** Poplatek kupuje pořadí, ne cenu.
+
+<Callout title="Shrnutí">
+
+- Základní poplatek je 0,000005 SOL za podpis; polovina se pálí.
+- Prioritní poplatek = výpočetní jednotky × nabídnutá cena; kupuje přednost v bloku.
+- Zdražují se jen přeplněné účty, ne celá síť.
+- Transakce může vypršet nebo selhat – neúspěšná v bloku poplatek platí.
+
+</Callout>

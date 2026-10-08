@@ -1,0 +1,88 @@
+export const metadata = {
+  title: "Bezpečnost: drainery, podepisování a falešné airdropy",
+  slug: "bezpecnost-a-podepisovani",
+  description:
+    "Jak jeden podpis vybílí celou peněženku, co ti peněženka ukáže před podpisem, jak poznat falešný airdrop a jak si peněženky rozdělit.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, proč je podpis transakce na Solaně tak mocný
+- naučíš se číst náhled transakce v peněžence
+- poznáš falešný airdrop a nastavíš si peněženky tak, aby jedna chyba nebrala všechno
+
+</Callout>
+
+Na Solaně se peníze většinou nekradou prolomením kryptografie. Kradou se podpisem – tvým. Stačí jedno
+kliknutí na „Schválit“ na falešné stránce a za pár sekund je peněženka prázdná. A protože bloky vznikají
+každý zlomek sekundy, není čas si to rozmyslet.
+
+<Illustration name="blankCheque" />
+
+## Jeden podpis, mnoho příkazů
+
+Transakce na Solaně může obsahovat několik příkazů najednou: poslat SOL, poslat všechny tokeny, zavřít
+účty, změnit vlastníka. Jedním podpisem schválíš všechny. Přesně toho využívá <KeyTerm term="wallet-drainer">drainer</KeyTerm> – program, který ti podstrčí
+transakci, jež v jednom kroku vybere všechno cenné.
+
+Drainery se šíří přes:
+
+- falešné stránky „vyzvedni si airdrop“ nebo „mint nového NFT“,
+- napadené účty projektů na sociálních sítích a v Discordu,
+- reklamy ve vyhledávači, které vypadají jako odkaz na známou aplikaci,
+- spamová NFT a tokeny s odkazem přímo v názvu.
+
+## Čti náhled transakce
+
+Dobré peněženky transakci před podpisem nasimulují a ukážou, co se stane se zůstatky. Hledej:
+
+- **Odchozí částky, které nečekáš.** Chceš si „vyzvednout“ token a náhled ukazuje, že odejdou všechny tvoje SOL?
+  Zavři stránku.
+- **Varování peněženky.** Hláška typu „transakce může být škodlivá“ není přehnaná opatrnost.
+- **Změnu vlastníka nebo oprávnění.** Legitimní aplikace po tobě skoro nikdy nechce převést vlastnictví
+  účtu.
+- **Simulace selhala.** Pokud peněženka náhled spočítat neumí, nepodepisuj naslepo.
+
+Podepsání zprávy (třeba „přihlas se touto peněženkou“) peníze nepřesouvá. Podepsání transakce ano.
+Vždycky si přečti, které z toho po tobě stránka chce.
+
+## Falešné airdropy
+
+Skutečné rozdávání tokenů – takzvaný <KeyTerm term="airdrop">airdrop</KeyTerm> – existuje. Projekty
+tak odměňují první uživatele. Falešných je ale mnohem víc. Varovné signály:
+
+- přišel ti nevyžádaný token nebo NFT s odkazem,
+- stránka spěchá („zbývá 10 minut“),
+- adresa stránky se o písmeno liší od pravé,
+- po tobě chce seed frázi – to nechce žádný skutečný projekt, nikdy.
+
+## Rozděl si peněženky
+
+1. **Trezor** – hardwarová peněženka pro úspory. Nepřipojuješ ji k neznámým stránkám.
+2. **Běžná peněženka** – pro známé aplikace a menší částky.
+3. **Peněženka na pokusy** – pro nové projekty a airdropy. Jen tolik, kolik můžeš ztratit.
+
+Když pak drainer dostane peněženku na pokusy, úspory zůstanou v bezpečí.
+
+<Callout type="risk" title="Podepsaná transakce se nedá vrátit">
+  Na blockchainu neexistuje storno ani reklamace. Peníze, které odejdou
+  podepsanou transakcí, jsou obvykle pryč navždy. Když si nejsi jistý, co
+  podepisuješ, nepodepisuj.
+</Callout>
+
+## Časté omyly
+
+- **„Mám antivir, nic se mi nestane.“** Drainer není virus v počítači – je to transakce, kterou sám
+  podepíšeš.
+- **„Jen jsem připojil peněženku, nic jsem nepodepsal.“** Samotné připojení peníze nepřesouvá, ale je to
+  první krok. Další okno už může chtít podpis.
+- **„Airdrop přišel přímo do peněženky, takže je pravý.“** Poslat token může komukoli kdokoli.
+
+<Callout title="Shrnutí">
+
+- Jeden podpis může schválit mnoho příkazů najednou – tak fungují drainery.
+- Před podpisem čti náhled: nečekané odchozí částky, varování, změna vlastníka, neúspěšná simulace = stop.
+- Nevyžádané tokeny a NFT s odkazy jsou návnada; seed frázi nechce žádný skutečný projekt.
+- Rozděl si peněženky na trezor, běžnou a na pokusy.
+
+</Callout>

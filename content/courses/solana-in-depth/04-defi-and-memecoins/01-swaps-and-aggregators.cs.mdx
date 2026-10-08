@@ -1,0 +1,78 @@
+export const metadata = {
+  title: "Výměny a agregátory",
+  slug: "vymeny-a-agregatory",
+  description:
+    "Jak funguje fond likvidity, proč velký nákup v malém fondu prodraží cenu, co dělá agregátor a jak tě obere sendvičový útok.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, jak funguje fond likvidity a odkud se bere cena
+- spočítáš, o kolik velký nákup v malém fondu prodraží cenu
+- naučíš se nastavit skluz tak, aby tě neobrali boti
+
+</Callout>
+
+Na burze jako Binance nakupuješ z knihy objednávek – na druhé straně stojí jiný člověk nebo firma. Na
+decentralizované burze často žádný protějšek nestojí. Stojí tam fond se dvěma hromádkami tokenů a vzorec,
+který z nich počítá cenu.
+
+<Illustration name="shoppingRobot" />
+
+## Fond likvidity
+
+Decentralizovaná burza – <KeyTerm term="dex">DEX</KeyTerm> – běží jako program na blockchainu. Většina
+výměn na Solaně probíhá přes takzvaný <KeyTerm term="amm">automatický tvůrce trhu</KeyTerm>: fond, ve
+kterém leží dva tokeny, třeba SOL a USDC. Kdo chce SOL, vloží do fondu USDC a SOL si odebere. V nejjednodušších fondech se cena řídí pravidlem, že **součin obou hromádek zůstává stejný**.
+
+Příklad: ve fondu je 1 000 SOL a 150 000 USDC – cena je tedy 150 USDC za SOL.
+
+| Nákup za    | Dostaneš  | Průměrná cena | O kolik dráž |
+| ----------- | --------- | ------------- | ------------ |
+| 150 USDC    | 0,999 SOL | 150,15        | 0,1 %        |
+| 1 500 USDC  | 9,90 SOL  | 151,50        | 1 %          |
+| 15 000 USDC | 90,9 SOL  | 165,00        | 10 %         |
+
+_Ukázkový fond, bez poplatků._
+
+Čím větší nákup vůči velikosti fondu, tím horší cena. Tomu se říká dopad na cenu. U málo známých tokenů
+s malými fondy může jeden větší nákup cenu vyhnat o desítky procent – a stejně tak prodej.
+
+## Agregátor
+
+Stejný pár tokenů bývá ve více fondech na různých burzách. Agregátor (na Solaně třeba Jupiter, uvedený
+jako příklad) projde všechny a obchod rozdělí tak, aby výsledná cena byla co nejlepší. Proto většina
+peněženek používá agregátor rovnou.
+
+## Skluz a sendvičový útok
+
+Mezi tím, kdy transakci odešleš, a tím, kdy se provede, se cena může pohnout. Proto nastavuješ toleranci
+skluzu – o kolik horší cenu jsi ochoten přijmout.
+
+- **Příliš nízký skluz** – transakce v pohyblivém trhu selže.
+- **Příliš vysoký skluz** – pozveš boty. Takzvaný <KeyTerm term="sandwich-attack">sendvičový útok</KeyTerm> funguje takhle: bot
+  uvidí tvou transakci, nakoupí těsně před tebou (cena vyskočí), ty koupíš draž
+  až na hranici svého skluzu a bot hned prodá. Rozdíl zaplatíš ty.
+
+Rozumná výchozí hodnota u velkých tokenů je zlomek procenta. U malých tokenů je skluz vyšší, a proto je
+i riziko vyšší. Některé peněženky a agregátory nabízejí ochranu proti sendvičům – zapni ji.
+
+<Callout type="warning" title="Agregátor nekontroluje, co kupuješ">
+  Agregátor najde nejlepší cenu i pro falešný token se stejným názvem. Vždy ověř
+  adresu mintu – jak, ukáže lekce 13.
+</Callout>
+
+## Časté omyly
+
+- **„Cena na grafu je cena, za kterou koupím.“** Ve fondu záleží na velikosti nákupu vůči likviditě.
+- **„Vysoký skluz = jistota, že nákup projde.“** A taky pozvánka pro boty.
+- **„DEX nemá poplatky.“** Fondy si berou poplatek z každé výměny, plus poplatek sítě a prioritní poplatek.
+
+<Callout title="Shrnutí">
+
+- DEX na Solaně obvykle obchoduje přes fondy likvidity se vzorcem, ne s protistranou.
+- Velký nákup v malém fondu výrazně zhorší cenu (dopad na cenu).
+- Agregátor rozdělí obchod mezi fondy pro nejlepší cenu, ale nekontroluje, jestli je token pravý.
+- Skluz nastav rozumně nízko – vysoký skluz zve sendvičové útoky.
+
+</Callout>

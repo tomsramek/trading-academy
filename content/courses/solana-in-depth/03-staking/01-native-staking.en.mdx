@@ -1,0 +1,77 @@
+export const metadata = {
+  title: "Native staking",
+  description:
+    "How a stake account works on Solana, why you wait for the end of an epoch, how to choose a validator and what commission and MEV mean.",
+};
+
+<Callout title="In this lesson">
+
+- find out how native staking and a stake account work
+- understand why staking starts and ends with an epoch
+- learn to choose a validator by commission, reliability and size
+
+</Callout>
+
+Staking on Solana is not a bank savings account. It is more like a ballot you entrust to a validator: it
+votes with it and writes blocks, and you get a share of the reward. Your SOL stays in your account all the
+while – the validator cannot spend it.
+
+<Illustration name="stakeCalendar" />
+
+## How it works
+
+1. In your wallet you create a <KeyTerm term="stake-account">stake account</KeyTerm> and put SOL into it.
+2. You **delegate** the account to a validator – the SOL still belongs to you; the validator only gains
+   its voting weight.
+3. At the start of the next epoch (with the shorter slots from October 2026, within about a day) the stake **activates** and starts earning.
+4. Rewards arrive every epoch straight into the stake account and are staked automatically.
+5. When you want the SOL back, you **deactivate** the stake. At the end of the epoch you can withdraw it.
+
+When large amounts across the network want to unstake at once, the wait can take several epochs. So you
+cannot react instantly with staked SOL – in a sharp price drop you cannot sell it right away.
+
+## How to choose a validator
+
+- **Commission.** The validator takes a percentage of the rewards – usually 0 to 10%. Watch out for
+  validators that unexpectedly raise their commission to 100%; then you get nothing. Keep an eye on it
+  after delegating too.
+- **Reliability.** A validator that drops out or votes slowly earns less – and you with it.
+- **MEV.** Users pay validators tips to get their transactions ordered first. That is called <KeyTerm term="mev">MEV</KeyTerm> (value that can be extracted from the order
+  of transactions). Some validators share it with stakers – there is a
+  commission here too.
+- **Size.** The biggest validators have the most votes. Delegating to a smaller reliable validator helps
+  decentralisation.
+
+Overviews of validators with their commission, performance and history are on public Solana data sites.
+
+## Risks
+
+- **Price risk** – staking in SOL does not offset a fall in the price of SOL.
+- **Waiting** – unstaking takes days.
+- **The validator** – at the time of writing Solana has no automatic penalty that takes away stake, as you
+  may know from other networks. With a bad validator you "only" lose rewards. The rules may change,
+  though.
+- **Staking on an exchange** is convenient, but the exchange then holds your SOL. If it goes bankrupt, like
+  FTX in 2022, you can lose it.
+
+<Callout type="warning" title="The yield is not guaranteed">
+  The staking yield (around 5–6% a year at the time of writing) changes with
+  inflation, the amount of staked SOL and the validator's commission. And since
+  it is counted in SOL, the result in your own currency depends mainly on the
+  price.
+</Callout>
+
+## Common myths
+
+- **"The validator can run off with my SOL."** It cannot – you control the stake account.
+- **"I will unstake and sell right away."** You wait until the end of the epoch, sometimes longer.
+- **"Highest yield = best validator."** Also watch the commission, reliability and whether it gets raised.
+
+<Callout title="Summary">
+
+- Native staking: a stake account delegated to a validator; the SOL stays yours.
+- Activation and deactivation happen at epoch boundaries (about a day), sometimes longer.
+- Choose a validator by commission, reliability, MEV sharing and size.
+- Risks: the price of SOL, waiting, the validator's behaviour and, on exchanges, custody.
+
+</Callout>

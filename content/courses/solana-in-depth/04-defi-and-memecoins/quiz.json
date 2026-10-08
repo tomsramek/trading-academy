@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "A pool holds 1,000 SOL and 150,000 USDC. Why does a 15,000 USDC purchase cost more than 150 USDC per SOL?",
+          "options": [
+            "Because of the priority fee",
+            "The exchange adds a margin",
+            "A big purchase relative to the pool moves the price – you pay 165 USDC on average"
+          ],
+          "explanation": "The product of the piles stays the same, so the more SOL you take out, the more each next one costs."
+        },
+        "cs": {
+          "question": "Ve fondu je 1 000 SOL a 150 000 USDC. Proč nákup za 15 000 USDC vyjde dráž než 150 USDC za SOL?",
+          "options": [
+            "Kvůli prioritnímu poplatku",
+            "Burza si přirazí marži",
+            "Velký nákup vůči fondu posune cenu – průměrně zaplatíš 165 USDC"
+          ],
+          "explanation": "Součin hromádek zůstává stejný, takže čím víc SOL z fondu odebereš, tím dráž každý další stojí."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why is a high slippage setting dangerous?",
+          "options": [
+            "It invites a sandwich attack – a bot buys before you and you pay up to your slippage limit",
+            "The transaction then always fails",
+            "It raises the base fee"
+          ],
+          "explanation": "The bot sees how much worse a price you will accept and takes exactly that much."
+        },
+        "cs": {
+          "question": "Proč je vysoko nastavený skluz nebezpečný?",
+          "options": [
+            "Zve sendvičový útok – bot nakoupí před tebou a ty zaplatíš až po hranici skluzu",
+            "Transakce pak vždy selže",
+            "Zvyšuje základní poplatek"
+          ],
+          "explanation": "Bot vidí, jak horší cenu jsi ochoten přijmout, a přesně o tolik tě obere."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "According to public data, how many new launchpad tokens make it from the bonding curve to an exchange?",
+          "options": [
+            "About half",
+            "About 1% or fewer",
+            "All of them, if you wait"
+          ],
+          "explanation": "In April 2026 more than 760,000 tokens were created on a single launchpad, and roughly one in 120 made it further. Even those mostly lose value."
+        },
+        "cs": {
+          "question": "Kolik nových tokenů na launchpadu se podle veřejných dat dostane z vazební křivky na burzu?",
+          "options": [
+            "Zhruba polovina",
+            "Zhruba 1 % nebo méně",
+            "Všechny, když se na ně počká"
+          ],
+          "explanation": "V dubnu 2026 vzniklo na jediném launchpadu přes 760 000 tokenů a dál se dostal zhruba jeden ze 120. I ty pak většinou ztratí hodnotu."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Which of these steps is NOT a form of rug pull?",
+          "options": [
+            "The creator removes the liquidity from the pool",
+            "The creator mints more tokens using the mint authority",
+            "The creator revokes both the mint and freeze authorities"
+          ],
+          "explanation": "Revoking the authorities lowers the risk. A rug pull is the creator selling, removing liquidity, minting more or freezing buyers."
+        },
+        "cs": {
+          "question": "Který z těchto kroků NENÍ podoba rug pullu?",
+          "options": [
+            "Tvůrce odebere likviditu z fondu",
+            "Tvůrce dotiskne tokeny díky oprávnění k mintu",
+            "Tvůrce zruší oprávnění k mintu i ke zmrazení"
+          ],
+          "explanation": "Zrušení oprávnění riziko naopak snižuje. Rug pull je prodej tvůrce, odebrání likvidity, dotisknutí nebo zmrazení kupujících."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is a test sale of a small amount for?",
+          "options": [
+            "It exposes a trap you can only buy into",
+            "It raises the token's price",
+            "It guarantees the token is a good investment"
+          ],
+          "explanation": "If the sale fails, you are in a trap. It costs two fees. Even a successful sale does not mean the token is a good investment, though."
+        },
+        "cs": {
+          "question": "K čemu je zkušební prodej malé částky?",
+          "options": [
+            "Odhalí past, ze které se dá jen nakoupit",
+            "Zvýší cenu tokenu",
+            "Zaručí, že token je dobrá investice"
+          ],
+          "explanation": "Když prodej neprojde, jsi v pasti. Stojí to dva poplatky. Ani úspěšný prodej ale neznamená, že je token dobrá investice."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}
