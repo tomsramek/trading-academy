@@ -14,6 +14,7 @@ import { LineChart } from "@/components/lesson/LineChart";
 import { OrderBook } from "@/components/lesson/OrderBook";
 import { SharedLedger } from "@/components/lesson/SharedLedger";
 import { TransactionFlow } from "@/components/lesson/TransactionFlow";
+import { Video } from "@/components/lesson/Video";
 import { WalletKeys } from "@/components/lesson/WalletKeys";
 
 // Required by @next/mdx: components used for MDX content (lessons).
@@ -41,6 +42,7 @@ const components: MDXComponents = {
   OrderBook,
   SharedLedger,
   TransactionFlow,
+  Video,
   WalletKeys,
 };
 
