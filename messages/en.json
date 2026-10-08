@@ -162,7 +162,10 @@
       },
       "zone": "Highlighted period",
       "volume": "Volume (panel below the chart)",
-      "rsi": "RSI 14 (panel below the chart, lines at 30 and 70)"
+      "rsi": "RSI 14 (panel below the chart, lines at 30 and 70)",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "zoomReset": "Show the whole chart"
     },
     "pattern": {
       "doji": {

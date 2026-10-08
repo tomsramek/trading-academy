@@ -162,7 +162,10 @@
       },
       "zone": "Zvýrazněné období",
       "volume": "Objem (panel pod grafem)",
-      "rsi": "RSI 14 (panel pod grafem, čáry 30 a 70)"
+      "rsi": "RSI 14 (panel pod grafem, čáry 30 a 70)",
+      "zoomIn": "Přiblížit graf",
+      "zoomOut": "Oddálit graf",
+      "zoomReset": "Zobrazit celý graf"
     },
     "pattern": {
       "doji": {
