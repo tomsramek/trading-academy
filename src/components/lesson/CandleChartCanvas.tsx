@@ -25,6 +25,8 @@ import {
 import type {
   ChartAnnotations,
   ChartIndicators,
+  ChartSeries,
+  ChartToken,
   LevelKind,
   MarkerKind,
 } from "@/lib/content/chart";
@@ -41,7 +43,7 @@ type CandleChartCanvasProps = {
   indicators: ChartIndicators;
 };
 
-// Taller when volume or RSI get their own panels under the price.
+// Taller when indicators get their own panels under the price.
 const chartHeight = cva(
   "relative overflow-hidden rounded-lg border border-border bg-card",
   {
@@ -152,70 +154,41 @@ export function CandleChartCanvas({
     );
     const markers = createSeriesMarkers(series);
 
-    // Average lines over the candles; no labels on the price axis, the legend names them.
-    const lineOptions = {
-      lineWidth: 2,
-      priceLineVisible: false,
-      lastValueVisible: false,
-      crosshairMarkerVisible: false,
-    } as const;
-    const averageLines = indicators.lines.map((line) => {
-      const lineSeries = chart.addSeries(LineSeries, lineOptions);
-      lineSeries.setData(
-        line.points.map((point) => ({
-          time: point.time as UTCTimestamp,
-          value: point.value,
+    // Indicator lines over the candles (pane 0) and in panels under them (pane 1, 2, 3); the price
+    // keeps most of the height. No labels on the price axis, the legend names them.
+    const drawn = [
+      ...indicators.overlays.flatMap((overlay) =>
+        overlay.series.map((definition) => ({
+          definition,
+          pane: 0,
+          format: undefined,
         })),
+      ),
+      ...indicators.panels.flatMap((panel, index) =>
+        panel.series.map((definition) => ({
+          definition,
+          pane: index + 1,
+          format: panel.format,
+        })),
+      ),
+    ].map(({ definition, pane, format }) => ({
+      definition,
+      series: addIndicatorSeries(chart, definition, pane, format),
+    }));
+    // Dashed reference lines (RSI 30 and 70…) hang on the first series of their panel.
+    const guides = indicators.panels.flatMap((panel) => {
+      const first = drawn.find(
+        (item) => item.definition === panel.series[0],
+      )?.series;
+      return panel.guides.map((value) =>
+        first?.createPriceLine({
+          price: value,
+          lineWidth: 1,
+          lineStyle: LineStyle.Dashed,
+          axisLabelVisible: true,
+        }),
       );
-      return lineSeries;
     });
-
-    // Volume and RSI each get a panel under the price (panel 0); the price keeps most of the height.
-    let panel = 0;
-    const volumeSeries = indicators.volume
-      ? chart.addSeries(
-          HistogramSeries,
-          {
-            priceFormat: { type: "volume" },
-            priceLineVisible: false,
-            lastValueVisible: false,
-          },
-          ++panel,
-        )
-      : undefined;
-    const rsiSeries = indicators.rsi
-      ? chart.addSeries(LineSeries, lineOptions, ++panel)
-      : undefined;
-    rsiSeries?.setData(
-      (indicators.rsi ?? []).map((point) => ({
-        time: point.time as UTCTimestamp,
-        value: point.value,
-      })),
-    );
-    const rsiLines = [70, 30].map((value) =>
-      rsiSeries?.createPriceLine({
-        price: value,
-        lineWidth: 1,
-        lineStyle: LineStyle.Dashed,
-        axisLabelVisible: true,
-      }),
-    );
-    const atrSeries = indicators.atr
-      ? chart.addSeries(
-          LineSeries,
-          {
-            ...lineOptions,
-            priceFormat: { type: "percent", precision: 1, minMove: 0.1 },
-          },
-          ++panel,
-        )
-      : undefined;
-    atrSeries?.setData(
-      (indicators.atr ?? []).map((point) => ({
-        time: point.time as UTCTimestamp,
-        value: point.value,
-      })),
-    );
     chart.panes().forEach((pane, index) => {
       pane.setStretchFactor(index === 0 ? 3 : 1);
     });
@@ -232,23 +205,10 @@ export function CandleChartCanvas({
       const color = tokenReader(container);
       applyColors(color, chart, series);
       colorAnnotations(color, annotations, priceLines, markers);
-      averageLines.forEach((lineSeries, index) => {
-        const line = indicators.lines[index];
-        if (line) {
-          lineSeries.applyOptions({ color: color(`--chart-${line.color}`) });
-        }
-      });
-      // Bars take the candle color, softened so they do not compete with the candles.
-      volumeSeries?.setData(
-        (indicators.volume ?? []).map((bar) => ({
-          time: bar.time as UTCTimestamp,
-          value: bar.value,
-          color: withAlpha(color(bar.up ? "--bull" : "--bear"), 0.5),
-        })),
+      drawn.forEach(({ definition, series: indicatorSeries }) =>
+        paintIndicator(color, definition, indicatorSeries),
       );
-      rsiSeries?.applyOptions({ color: color("--chart-5") });
-      atrSeries?.applyOptions({ color: color("--chart-2") });
-      rsiLines.forEach((line) =>
+      guides.forEach((line) =>
         line?.applyOptions({ color: color("--muted-foreground") }),
       );
     };
@@ -308,10 +268,68 @@ export function CandleChartCanvas({
 }
 
 function panelCount(indicators: ChartIndicators): 0 | 1 | 2 | 3 {
-  const panels = [indicators.volume, indicators.rsi, indicators.atr].filter(
-    Boolean,
-  ).length;
-  return Math.min(panels, 3) as 0 | 1 | 2 | 3;
+  return Math.min(indicators.panels.length, 3) as 0 | 1 | 2 | 3;
+}
+
+type IndicatorSeries = ISeriesApi<"Line"> | ISeriesApi<"Histogram">;
+
+// Adds one indicator series in its pane: a line, dots (Parabolic SAR) or bars (volume, MACD).
+function addIndicatorSeries(
+  chart: IChartApi,
+  definition: ChartSeries,
+  pane: number,
+  format: ChartIndicators["panels"][number]["format"],
+): IndicatorSeries {
+  const priceFormat =
+    format === "percent"
+      ? ({ type: "percent", precision: 1, minMove: 0.1 } as const)
+      : format === "volume"
+        ? ({ type: "volume" } as const)
+        : undefined;
+  const common = {
+    priceLineVisible: false,
+    lastValueVisible: false,
+    ...(priceFormat && { priceFormat }),
+  };
+  if (definition.kind === "histogram") {
+    return chart.addSeries(HistogramSeries, common, pane);
+  }
+  return chart.addSeries(
+    LineSeries,
+    {
+      ...common,
+      crosshairMarkerVisible: false,
+      lineWidth: definition.dashed || definition.kind === "dots" ? 1 : 2,
+      lineStyle: definition.dashed ? LineStyle.Dashed : LineStyle.Solid,
+      lineVisible: definition.kind === "line",
+      pointMarkersVisible: definition.kind === "dots",
+      pointMarkersRadius: 1.5,
+    },
+    pane,
+  );
+}
+
+// Sets the data with the current theme's colors.
+function paintIndicator(
+  color: ColorOf,
+  definition: ChartSeries,
+  series: IndicatorSeries,
+) {
+  // Bars are softened so they do not compete with the candles.
+  const pointColor = (token: ChartToken) =>
+    definition.kind === "histogram"
+      ? withAlpha(color(token), 0.5)
+      : color(token);
+  series.applyOptions({ color: color(definition.color) });
+  series.setData(
+    definition.points.map((point) => ({
+      time: point.time as UTCTimestamp,
+      value: point.value,
+      ...(point.hidden
+        ? { color: "transparent" }
+        : point.color && { color: pointColor(point.color) }),
+    })),
+  );
 }
 
 function applyColors(

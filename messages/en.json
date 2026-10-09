@@ -162,13 +162,27 @@
         "low": "Low"
       },
       "zone": "Highlighted period",
-      "volume": "Volume (panel below the chart)",
-      "rsi": "RSI 14 (panel below the chart, lines at 30 and 70)",
       "zoomIn": "Zoom in",
       "zoomOut": "Zoom out",
       "zoomReset": "Show the whole chart",
-      "atr": "ATR 14 – average range as % of price (panel below the chart)",
-      "logarithmic": "Logarithmic axis: equal distance = equal percentage change"
+      "logarithmic": "Logarithmic axis: equal distance = equal percentage change",
+      "legend": {
+        "bollinger": "Bollinger Bands 20, 2 (the middle line is SMA 20)",
+        "vwap": "VWAP – volume-weighted average price, from midnight UTC",
+        "sar": "Parabolic SAR 0.02 / 0.2 – green dots below the price, red above it",
+        "supertrend": "Supertrend 10, 3 – green below the price, red above it",
+        "volume": "Volume (panel below the chart)",
+        "rsi": "RSI 14 (panel below the chart, lines at 30 and 70)",
+        "atr": "ATR 14 – average range as % of price (panel below the chart)",
+        "macd": "MACD 12, 26, 9 (panel below the chart: MACD in blue, signal in yellow, histogram)",
+        "stochRsi": "StochRSI 14, 14, 3, 3 (panel below the chart: %K in blue, %D in yellow, lines at 20 and 80)",
+        "stochastic": "Stochastic 14, 1, 3 (panel below the chart: %K in blue, %D in yellow, lines at 20 and 80)",
+        "kdj": "KDJ 9, 3, 3 (panel below the chart: K in blue, D in yellow, J in purple, lines at 20 and 80)",
+        "williamsR": "Williams %R 14 (panel below the chart, lines at −20 and −80)",
+        "cci": "CCI 20 (panel below the chart, lines at +100 and −100)",
+        "obv": "OBV – cumulative volume (panel below the chart)",
+        "mfi": "MFI 14 (panel below the chart, lines at 20 and 80)"
+      }
     },
     "pattern": {
       "doji": {

@@ -1,7 +1,5 @@
 import { z } from "zod";
 
-import type { IndicatorPoint } from "./indicators";
-
 /*
  * Annotations of a lesson chart, written in MDX:
  *   levels={[{ price: 73000, kind: "resistance" }]}
@@ -61,34 +59,100 @@ export const annotationsSchema = z.strictObject({
 
 export type AnnotationsInput = z.input<typeof annotationsSchema>;
 
+// Indicators drawn in their own panel under the price, in the order the panels are stacked.
+export const PANEL_INDICATORS = [
+  "volume",
+  "rsi",
+  "atr",
+  "macd",
+  "stochRsi",
+  "stochastic",
+  "kdj",
+  "williamsR",
+  "cci",
+  "obv",
+  "mfi",
+] as const;
+export type PanelIndicator = (typeof PANEL_INDICATORS)[number];
+
 // Indicators of a lesson chart, written in MDX: indicators={{ sma: [50, 200], volume: true }}.
-// At most three average lines, so the chart stays readable.
+// At most three average lines and three panels under the price, so the chart stays readable.
 const period = z.int().min(2).max(400);
 export const indicatorsSchema = z
   .strictObject({
     sma: z.array(period).max(3).default([]),
     ema: z.array(period).max(3).default([]),
-    // RSI 14 in its own panel under the chart, with the 30 and 70 lines.
-    rsi: z.boolean().default(false),
-    // Traded volume as bars in its own panel; the data must contain `volume`.
+    wma: z.array(period).max(3).default([]),
+    // Over the candles, with Binance's default settings.
+    bollinger: z.boolean().default(false),
+    // Restarts every day at 00:00 UTC – meant for hourly and shorter charts.
+    vwap: z.boolean().default(false),
+    sar: z.boolean().default(false),
+    supertrend: z.boolean().default(false),
+    // Each of these gets its own panel under the chart.
+    // Traded volume as bars; the data must contain `volume` (so must VWAP, OBV and MFI).
     volume: z.boolean().default(false),
-    // ATR 14 as a percentage of the price, in its own panel: how much the price typically moves a day.
+    // RSI 14 with the 30 and 70 lines.
+    rsi: z.boolean().default(false),
+    // ATR 14 as a percentage of the price: how much the price typically moves a day.
     atr: z.boolean().default(false),
+    macd: z.boolean().default(false),
+    stochRsi: z.boolean().default(false),
+    stochastic: z.boolean().default(false),
+    kdj: z.boolean().default(false),
+    williamsR: z.boolean().default(false),
+    cci: z.boolean().default(false),
+    obv: z.boolean().default(false),
+    mfi: z.boolean().default(false),
   })
   .refine(
-    (indicators) => indicators.sma.length + indicators.ema.length <= 3,
+    (indicators) =>
+      indicators.sma.length + indicators.ema.length + indicators.wma.length <=
+      3,
     "at most three moving averages in one chart",
+  )
+  .refine(
+    (indicators) =>
+      PANEL_INDICATORS.filter((name) => indicators[name]).length <= 3,
+    "at most three panels under one chart",
   );
 
 export type IndicatorsInput = z.input<typeof indicatorsSchema>;
 
-// Indicators ready for drawing.
+// Design tokens the indicator lines are drawn in.
+export type ChartToken =
+  | "--chart-1"
+  | "--chart-2"
+  | "--chart-3"
+  | "--chart-4"
+  | "--chart-5"
+  | "--bull"
+  | "--bear";
+
+// One drawn series. A point with its own color overrides the series color (volume and MACD bars,
+// SAR dots, Supertrend); a hidden point hides the line segment that leads to it.
+export type ChartSeries = {
+  kind: "line" | "dots" | "histogram";
+  color: ChartToken;
+  dashed?: boolean;
+  points: {
+    time: number;
+    value: number;
+    color?: ChartToken;
+    hidden?: boolean;
+  }[];
+};
+
+// Indicators ready for drawing: lines over the candles and panels under them, each with a legend label.
 export type ChartIndicators = {
-  // Average lines over the candles; `color` is the index of the --chart-N token (1–5).
-  lines: { label: string; color: 1 | 3 | 5; points: IndicatorPoint[] }[];
-  volume?: { time: number; value: number; up: boolean }[];
-  rsi?: IndicatorPoint[];
-  atr?: IndicatorPoint[];
+  overlays: { label: string; color: ChartToken; series: ChartSeries[] }[];
+  panels: {
+    label: string;
+    series: ChartSeries[];
+    // Dashed reference lines, e.g. RSI 30 and 70.
+    guides: number[];
+    format?: "percent" | "volume";
+  }[];
 };
 
 // Annotations ready for drawing: dates as Unix seconds, every label filled in.
