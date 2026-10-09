@@ -18,6 +18,7 @@ import {
   type SeriesMarkerPosition,
   type SeriesMarkerShape,
   type Logical,
+  type LogicalRange,
   type Time,
   type UTCTimestamp,
 } from "lightweight-charts";
@@ -98,6 +99,8 @@ export function CandleChartCanvas({
   const zonesRef = useRef<HTMLDivElement>(null);
   // The chart lives outside React (a canvas), the zoom buttons reach it through this ref.
   const chartRef = useRef<IChartApi | null>(null);
+  // The zoom survives a redraw (e.g. a new period from a slider): the visible range is kept here.
+  const rangeRef = useRef<LogicalRange | null>(null);
   // Prices and dates follow the language of the page: 59 572,83 in Czech, 59,572.83 in English.
   const locale = useLocale();
 
@@ -213,7 +216,15 @@ export function CandleChartCanvas({
       );
     };
     paint();
-    chart.timeScale().fitContent();
+    if (rangeRef.current) {
+      chart.timeScale().setVisibleLogicalRange(rangeRef.current);
+    } else {
+      chart.timeScale().fitContent();
+    }
+    const keepRange = (range: LogicalRange | null) => {
+      rangeRef.current = range;
+    };
+    chart.timeScale().subscribeVisibleLogicalRangeChange(keepRange);
 
     // The chart is drawn on a canvas, so CSS cannot recolor it. Watch the `dark` class that next-themes
     // sets on <html> and repaint with the new token colors – the zoom and position stay as they are.
@@ -226,6 +237,7 @@ export function CandleChartCanvas({
     return () => {
       observer.disconnect();
       chart.timeScale().unsubscribeVisibleLogicalRangeChange(placeZones);
+      chart.timeScale().unsubscribeVisibleLogicalRangeChange(keepRange);
       chart.timeScale().unsubscribeSizeChange(placeZones);
       chartRef.current = null;
       chart.remove();

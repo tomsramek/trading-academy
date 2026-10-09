@@ -1012,6 +1012,18 @@
         "obvDown": "the candle closed lower ({close} vs {previousClose}), so its volume is subtracted: {previous} − {volume} = {value}.",
         "obvFlat": "the candle closed at the same price as the one before, so OBV does not change: {value}."
       }
+    },
+    "indicatorPeriod": {
+      "period": "Period of {line}",
+      "standard": "Binance default: {period}",
+      "reset": "Back to default",
+      "crosses": "The price crossed the line {count}×.",
+      "outside": "The price broke out of the bands {count}×.",
+      "zones": "The line entered the overbought or oversold zone {count}×.",
+      "range": "Average daily range: {average}%.",
+      "tempoFaster": "A shorter period: the line reacts faster and gives more signals – false ones included.",
+      "tempoSlower": "A longer period: the line is calmer with fewer false signals, but it reacts late.",
+      "tempoStandard": "Binance's default setting – try moving the slider both ways."
     }
   },
   "Courses": {
