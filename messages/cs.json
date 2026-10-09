@@ -168,7 +168,7 @@
       "logarithmic": "Logaritmická osa: stejná vzdálenost = stejná změna v procentech",
       "legend": {
         "bollinger": "Bollingerova pásma 20, 2 (prostřední čára je SMA 20)",
-        "vwap": "VWAP – průměrná cena vážená objemem, od půlnoci UTC",
+        "vwap": "VWAP 14 – průměrná cena vážená objemem za posledních 14 svíček",
         "sar": "Parabolic SAR 0,02 / 0,2 – zelené tečky pod cenou, červené nad ní",
         "supertrend": "Supertrend 10, 3 – zelená pod cenou, červená nad ní",
         "volume": "Objem (panel pod grafem)",

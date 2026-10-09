@@ -118,14 +118,14 @@ describe("bollinger", () => {
 });
 
 describe("vwap", () => {
-  it("weighs typical prices by volume and restarts every UTC day", () => {
+  it("weighs typical prices by volume over the last `period` candles, as on Binance", () => {
     const candles = [
       { time: 0, high: 3, low: 1, close: 2, volume: 1 },
       { time: 3_600, high: 5, low: 3, close: 4, volume: 3 },
       { time: 86_400, high: 11, low: 9, close: 10, volume: 5 },
     ];
-    // (2 · 1 + 4 · 3) / 4 = 3.5; the next day starts again from its own typical price.
-    expect(values(vwap(candles))).toEqual([2, 3.5, 10]);
+    // Period 2: (2 · 1 + 4 · 3) / 4 = 3.5, then (4 · 3 + 10 · 5) / 8 = 7.75 – no daily restart.
+    expect(values(vwap(candles, 2))).toEqual([3.5, 7.75]);
   });
 });
 
