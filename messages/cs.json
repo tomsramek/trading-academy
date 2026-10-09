@@ -978,6 +978,139 @@
         "wallet": "MOJE PENĚŽENKA",
         "bubble": "Nejdřív malou zkušební.",
         "caption": "Správná síť, celá adresa, malá zkušební částka – a mince jsou doma."
+      },
+      "candleRecipe": {
+        "label": "Profesor Knot hází svíčky do hrnce a z hrnce vychází hladká modrá čára",
+        "line": "indikátor",
+        "bubble": "Svíčky dovnitř, čára ven.",
+        "caption": "Každý indikátor je recept: vezme svíčky, provede výpočet a vydá čáru. Nic víc, nic míň."
+      },
+      "threeFamilies": {
+        "label": "Tři dveře s nápisy trend, oscilátor a objem",
+        "trend": "TREND",
+        "oscillator": "OSCILÁTOR",
+        "volume": "OBJEM",
+        "bubble": "Tři rodiny, jeden graf.",
+        "caption": "Skoro každý indikátor z menu patří do jedné ze tří rodin."
+      },
+      "periodKnob": {
+        "label": "Velký knoflík periody s hodnotami 7, 25 a 99 a vedle Profesor Knot",
+        "period": "PERIODA",
+        "bubble": "Točit opatrně.",
+        "caption": "Perioda je nejdůležitější nastavení: určuje, kolik svíček indikátor bere v úvahu."
+      },
+      "slidingWindow": {
+        "label": "Čárkovaný rámeček se posouvá po svíčkách, každá svíčka v něm má váhu 1×",
+        "bubble": "Všechny svíčky váží stejně.",
+        "caption": "SMA je okno, které se posouvá po grafu. Uvnitř je každá svíčka stejně důležitá."
+      },
+      "averageRace": {
+        "label": "Tři čáry EMA, WMA a SMA závodí za cenou, EMA je nejblíž",
+        "ema": "EMA",
+        "wma": "WMA",
+        "sma": "SMA",
+        "bubble": "EMA zatáčí první.",
+        "caption": "Čím víc váhy mají nové svíčky, tím dřív průměr zareaguje – a tím častěji se splete."
+      },
+      "bollingerTube": {
+        "label": "Fialová pásma kolem svíček jsou v klidu úzká a v divokém trhu široká",
+        "calm": "klid",
+        "wild": "divočina",
+        "bubble": "Divoký trh, široká pásma.",
+        "caption": "Bollingerova pásma se nafukují a splaskávají podle toho, jak divoce se cena hýbe."
+      },
+      "vwapBalance": {
+        "label": "Váha: na jedné misce pět malých mincí, na druhé jedna velká mince BTC, která převažuje",
+        "small": "malé obchody",
+        "big": "velký obchod",
+        "bubble": "Velké obchody váží víc.",
+        "caption": "VWAP počítá průměrnou cenu tak, že velké obchody mají větší slovo než malé."
+      },
+      "sarHop": {
+        "label": "Zelené tečky pod rostoucími svíčkami, pak přeskočí nad klesající svíčky jako červené",
+        "flip": "skok!",
+        "bubble": "Tečky mění stranu.",
+        "caption": "Parabolic SAR dotahuje cenu tečkami. Když ho cena předběhne, tečky přeskočí na druhou stranu."
+      },
+      "supertrendRail": {
+        "label": "Zelené schodovité zábradlí pod rostoucími svíčkami a nad ním radostný Profesor Knot",
+        "bubble": "Zábradlí jde jen nahoru.",
+        "caption": "Supertrend se v růstu posouvá jen nahoru. Dolů skočí, až když se cena skutečně otočí."
+      },
+      "rsiThermometer": {
+        "label": "Teploměr RSI ukazuje nad 70 a vedle se potí Profesor Knot",
+        "bubble": "Horko ≠ prodej.",
+        "caption": "RSI nad 70 znamená, že trh běží rychle nahoru. Neznamená, že musí hned spadnout."
+      },
+      "doubleEspresso": {
+        "label": "Divoce kmitající čára mezi 20 a 80 a vedle dva šálky kávy s nápisem RSI",
+        "bubble": "RSI po dvou espressech.",
+        "caption": "Stochastic RSI je RSI z RSI – citlivější, rychlejší a hodně neklidný."
+      },
+      "rangeElevator": {
+        "label": "Výtah v šachtě mezi zeleným maximem a červeným minimem, kabina s nápisem zavření je blízko maxima",
+        "high": "maximum",
+        "low": "minimum",
+        "close": "zavření",
+        "bubble": "Které patro?",
+        "caption": "Stochastic a KDJ se ptají: ve kterém patře mezi minimem a maximem zavřela cena?"
+      },
+      "upsideDown": {
+        "label": "Profesor Knot visí hlavou dolů ze stropu, vedle stupnice od 0 nahoře po −100 dole",
+        "bubble": "Totéž, jen vzhůru nohama.",
+        "caption": "Williams %R je stochastic obrácený naruby: 0 je u maxima, −100 u minima."
+      },
+      "rubberBand": {
+        "label": "Gumička natažená od modré čárkované čáry průměru až k bodu +180",
+        "average": "průměr",
+        "bubble": "Jak daleko od normálu?",
+        "caption": "CCI měří, jak daleko je cena od svého průměru – v násobcích obvyklé odchylky."
+      },
+      "twoTrains": {
+        "label": "Rychlý modrý vlak předjíždí pomalý žlutý, pod nimi rostou zelené sloupce rozdílu",
+        "fast": "EMA 12",
+        "slow": "EMA 26",
+        "gap": "rozdíl →",
+        "bubble": "Pozor na mezeru.",
+        "caption": "MACD sleduje dva vlaky – rychlou a pomalou EMA – a měří mezeru mezi nimi."
+      },
+      "volumeCrowd": {
+        "label": "Rostoucí svíčky a pod nimi zelené sloupce objemu, které ke konci rychle rostou",
+        "bubble": "Kdo za tím pohybem stojí?",
+        "caption": "Objem ukazuje, kolik lidí se do pohybu zapojilo. Růst s davem za zády je silnější."
+      },
+      "piggyBank": {
+        "label": "Prasátko: tři mince s plusem padají dovnitř, jedna s minusem vypadává ven",
+        "up": "růst = +",
+        "down": "pokles = −",
+        "bubble": "Přičíst, odečíst.",
+        "caption": "OBV je kasička: objem dnů s růstem přičte, objem dnů s poklesem odečte."
+      },
+      "moneyPipes": {
+        "label": "Krabice MFI se zelenou trubkou, kterou peníze přitékají, a červenou, kterou odtékají",
+        "in": "přítok",
+        "out": "odtok",
+        "bubble": "RSI, které má peněženku.",
+        "caption": "MFI je jako RSI, ale počítá peníze: cenu krát objem."
+      },
+      "cleanDesk": {
+        "label": "Čistý graf s jedním průměrem a jedním oscilátorem, vedle odsunuté štítky MACD, KDJ, CCI a WR",
+        "bubble": "Od každé rodiny jeden.",
+        "caption": "Čistá sestava: jeden trendový indikátor, jeden oscilátor, objem. Zbytek pryč."
+      },
+      "divergenceArrows": {
+        "label": "Zelená šipka ceny stoupá a červená šipka indikátoru pod ní klesá, Profesor Knot se diví",
+        "price": "cena",
+        "indicator": "indikátor",
+        "bubble": "Cena nahoru, síla dolů?",
+        "caption": "Divergence: cena dělá nová maxima, ale indikátor už ne. Varování, ne povel."
+      },
+      "tugOfWar": {
+        "label": "Dva indikátory přetahují lano, uprostřed stojí Profesor Knot",
+        "left": "MACD",
+        "right": "RSI",
+        "bubble": "Když se nedohodnou…",
+        "caption": "Indikátory si často odporují. Pak rozhoduje plán – ne ten, který zrovna říká, co chceš slyšet."
       }
     },
     "indicatorSteps": {

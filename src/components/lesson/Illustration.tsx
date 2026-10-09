@@ -6,6 +6,7 @@ import { AnimateOnView } from "./AnimateOnView";
 import { CUSTODY_ILLUSTRATIONS } from "./illustrations/custodyIllustrations";
 import { EXCHANGE_ILLUSTRATIONS } from "./illustrations/exchangeIllustrations";
 import { HOME_ILLUSTRATIONS } from "./illustrations/homeIllustrations";
+import { INDICATOR_ILLUSTRATIONS } from "./illustrations/indicatorIllustrations";
 import { SOLANA_ILLUSTRATIONS } from "./illustrations/solanaIllustrations";
 import { STRATEGY_ILLUSTRATIONS } from "./illustrations/strategyIllustrations";
 import { TRADING_PLAN_ILLUSTRATIONS } from "./illustrations/tradingPlanIllustrations";
@@ -2416,6 +2417,7 @@ const ILLUSTRATIONS = {
   ...SOLANA_ILLUSTRATIONS,
   ...CUSTODY_ILLUSTRATIONS,
   ...EXCHANGE_ILLUSTRATIONS,
+  ...INDICATOR_ILLUSTRATIONS,
 } as const;
 
 type IllustrationName = keyof typeof ILLUSTRATIONS;
@@ -2447,6 +2449,7 @@ const ANIMATED: ReadonlySet<IllustrationName> = new Set([
   ...(Object.keys(SOLANA_ILLUSTRATIONS) as IllustrationName[]),
   ...(Object.keys(CUSTODY_ILLUSTRATIONS) as IllustrationName[]),
   ...(Object.keys(EXCHANGE_ILLUSTRATIONS) as IllustrationName[]),
+  ...(Object.keys(INDICATOR_ILLUSTRATIONS) as IllustrationName[]),
 ]);
 
 function isIllustrationName(name: string): name is IllustrationName {

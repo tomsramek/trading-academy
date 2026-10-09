@@ -978,6 +978,139 @@
         "wallet": "MY WALLET",
         "bubble": "A small test first.",
         "caption": "The right network, the whole address, a small test amount – and the coins are home."
+      },
+      "candleRecipe": {
+        "label": "Professor Wick throws candles into a pot and a smooth blue line comes out",
+        "line": "indicator",
+        "bubble": "Candles in, line out.",
+        "caption": "Every indicator is a recipe: it takes candles, does a calculation and gives a line. Nothing more, nothing less."
+      },
+      "threeFamilies": {
+        "label": "Three doors labelled trend, oscillator and volume",
+        "trend": "TREND",
+        "oscillator": "OSCILLATOR",
+        "volume": "VOLUME",
+        "bubble": "Three families, one chart.",
+        "caption": "Almost every indicator in the menu belongs to one of three families."
+      },
+      "periodKnob": {
+        "label": "A big period knob with the values 7, 25 and 99 and Professor Wick next to it",
+        "period": "PERIOD",
+        "bubble": "Turn it gently.",
+        "caption": "The period is the most important setting: it decides how many candles the indicator takes into account."
+      },
+      "slidingWindow": {
+        "label": "A dashed frame slides over the candles; every candle in it weighs 1×",
+        "bubble": "Every candle weighs the same.",
+        "caption": "SMA is a window that slides along the chart. Inside it, every candle is equally important."
+      },
+      "averageRace": {
+        "label": "Three lines, EMA, WMA and SMA, race after the price; EMA is the closest",
+        "ema": "EMA",
+        "wma": "WMA",
+        "sma": "SMA",
+        "bubble": "EMA turns first.",
+        "caption": "The more weight new candles get, the sooner the average reacts – and the more often it is wrong."
+      },
+      "bollingerTube": {
+        "label": "Purple bands around the candles are narrow when calm and wide in a wild market",
+        "calm": "calm",
+        "wild": "wild",
+        "bubble": "Wild market, wide bands.",
+        "caption": "Bollinger Bands inflate and deflate with how wildly the price moves."
+      },
+      "vwapBalance": {
+        "label": "A balance: five small coins on one pan, one big BTC coin on the other outweighs them",
+        "small": "small trades",
+        "big": "big trade",
+        "bubble": "Big trades weigh more.",
+        "caption": "VWAP computes the average price so that big trades have more say than small ones."
+      },
+      "sarHop": {
+        "label": "Green dots below rising candles, then they jump above the falling candles as red ones",
+        "flip": "jump!",
+        "bubble": "The dots switch sides.",
+        "caption": "Parabolic SAR chases the price with dots. When the price overtakes them, the dots jump to the other side."
+      },
+      "supertrendRail": {
+        "label": "A green stair-step handrail under rising candles and a happy Professor Wick above it",
+        "bubble": "The rail only goes up.",
+        "caption": "In a rise, Supertrend only moves up. It jumps down only when the price really turns."
+      },
+      "rsiThermometer": {
+        "label": "An RSI thermometer reads above 70 and Professor Wick sweats next to it",
+        "bubble": "Hot ≠ sell.",
+        "caption": "RSI above 70 means the market is running up fast. It does not mean it has to fall right away."
+      },
+      "doubleEspresso": {
+        "label": "A wildly swinging line between 20 and 80 and two coffee cups labelled RSI",
+        "bubble": "RSI after two espressos.",
+        "caption": "Stochastic RSI is the RSI of RSI – more sensitive, faster and very restless."
+      },
+      "rangeElevator": {
+        "label": "A lift in a shaft between a green high and a red low; the car labelled close is near the high",
+        "high": "high",
+        "low": "low",
+        "close": "close",
+        "bubble": "Which floor?",
+        "caption": "Stochastic and KDJ ask: on which floor between the low and the high did the price close?"
+      },
+      "upsideDown": {
+        "label": "Professor Wick hangs upside down from the ceiling next to a scale from 0 at the top to −100 at the bottom",
+        "bubble": "Same thing, upside down.",
+        "caption": "Williams %R is the stochastic turned upside down: 0 at the high, −100 at the low."
+      },
+      "rubberBand": {
+        "label": "A rubber band stretched from the blue dashed average line up to a point at +180",
+        "average": "average",
+        "bubble": "How far from normal?",
+        "caption": "CCI measures how far the price is from its average – in multiples of the usual deviation."
+      },
+      "twoTrains": {
+        "label": "A fast blue train overtakes a slow yellow one; green bars of the gap grow below them",
+        "fast": "EMA 12",
+        "slow": "EMA 26",
+        "gap": "gap →",
+        "bubble": "Mind the gap.",
+        "caption": "MACD watches two trains – a fast and a slow EMA – and measures the gap between them."
+      },
+      "volumeCrowd": {
+        "label": "Rising candles with green volume bars below that grow fast towards the end",
+        "bubble": "Who is behind the move?",
+        "caption": "Volume shows how many people joined a move. A rise with a crowd behind it is stronger."
+      },
+      "piggyBank": {
+        "label": "A piggy bank: three plus coins fall in, one minus coin falls out",
+        "up": "rise = +",
+        "down": "fall = −",
+        "bubble": "Add, subtract.",
+        "caption": "OBV is a piggy bank: it adds the volume of up days and subtracts the volume of down days."
+      },
+      "moneyPipes": {
+        "label": "An MFI box with a green pipe where money flows in and a red one where it flows out",
+        "in": "inflow",
+        "out": "outflow",
+        "bubble": "An RSI with a wallet.",
+        "caption": "MFI is like RSI, but it counts money: price times volume."
+      },
+      "cleanDesk": {
+        "label": "A clean chart with one average and one oscillator; MACD, KDJ, CCI and WR labels pushed aside",
+        "bubble": "One from each family.",
+        "caption": "A clean setup: one trend indicator, one oscillator, volume. Everything else goes."
+      },
+      "divergenceArrows": {
+        "label": "The green price arrow climbs while the red indicator arrow below it falls; Professor Wick is puzzled",
+        "price": "price",
+        "indicator": "indicator",
+        "bubble": "Price up, power down?",
+        "caption": "Divergence: the price makes new highs, but the indicator does not. A warning, not an order."
+      },
+      "tugOfWar": {
+        "label": "Two indicators play tug of war with Professor Wick in the middle",
+        "left": "MACD",
+        "right": "RSI",
+        "bubble": "When they disagree…",
+        "caption": "Indicators often disagree. Then your plan decides – not the one that says what you want to hear."
       }
     },
     "indicatorSteps": {
