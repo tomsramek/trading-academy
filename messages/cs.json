@@ -1012,6 +1012,18 @@
         "obvDown": "svíčka zavřela níž ({close} proti {previousClose}), takže se její objem odečte: {previous} − {volume} = {value}.",
         "obvFlat": "svíčka zavřela na stejné ceně jako předchozí, OBV se nemění: {value}."
       }
+    },
+    "indicatorPeriod": {
+      "period": "Perioda {line}",
+      "standard": "výchozí na Binance: {period}",
+      "reset": "Vrátit výchozí",
+      "crosses": "Cena překřížila čáru {count}×.",
+      "outside": "Cena vyskočila z pásem {count}×.",
+      "zones": "Čára vstoupila do zóny překoupenosti nebo přeprodanosti {count}×.",
+      "range": "Průměrné denní rozpětí: {average} %.",
+      "tempoFaster": "Kratší perioda: čára reaguje rychleji a dá víc signálů – i těch falešných.",
+      "tempoSlower": "Delší perioda: čára je klidnější a falešných signálů je méně, ale na pohyb reaguje pozdě.",
+      "tempoStandard": "Výchozí nastavení Binance – zkus posuvník posunout na obě strany."
     }
   },
   "Courses": {
