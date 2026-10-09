@@ -7,6 +7,7 @@ import { CandleChart } from "@/components/lesson/CandleChart";
 import { CandlePattern } from "@/components/lesson/CandlePattern";
 import { Figure } from "@/components/lesson/Figure";
 import { Illustration } from "@/components/lesson/Illustration";
+import { IndicatorSteps } from "@/components/lesson/IndicatorSteps";
 import { KeyTerm } from "@/components/lesson/KeyTerm";
 import { LessonHeading } from "@/components/lesson/LessonHeading";
 import { LessonLink } from "@/components/lesson/LessonLink";
@@ -34,6 +35,7 @@ const components: MDXComponents = {
   Callout,
   CandleAnatomy,
   CandleChart,
+  IndicatorSteps,
   CandlePattern,
   Figure,
   Illustration,
