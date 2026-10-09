@@ -1167,7 +1167,7 @@
       "right": "Right!",
       "wrong": "Not this one.",
       "answerOne": "The right candle is {date} (green).",
-      "answerRange": "The right candles are from {from} to {to} (green)."
+      "answerRange": "Any candle from {from} to {to} counts (green)."
     },
     "orderSimulator": {
       "intro": "A practice BTC/EUR market – no exchange, no real money. Try the orders from the lesson and the mistakes that cost the most.",
