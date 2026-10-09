@@ -246,6 +246,19 @@
     },
     "related": ["timeframe", "trend"]
   },
+  "cci": {
+    "text": {
+      "en": {
+        "term": "CCI",
+        "definition": "Commodity Channel Index: how far the typical price is from its average, measured in multiples of the usual deviation. ±100 are the usual reference lines."
+      },
+      "cs": {
+        "term": "CCI",
+        "definition": "Commodity Channel Index: jak daleko je typická cena od svého průměru, měřeno v násobcích obvyklé odchylky. Obvyklé vodicí čáry jsou ±100."
+      }
+    },
+    "related": ["oscillator", "moving-average"]
+  },
   "cold-wallet": {
     "text": {
       "en": {
@@ -375,6 +388,19 @@
     },
     "related": ["amm", "exchange", "defi"]
   },
+  "divergence": {
+    "text": {
+      "en": {
+        "term": "Divergence",
+        "definition": "When the price and an indicator go different ways – for example the price makes a higher high while RSI makes a lower one. A warning that a move is losing strength, not a signal on its own."
+      },
+      "cs": {
+        "term": "Divergence",
+        "definition": "Když cena a indikátor jdou každý jinam – třeba cena udělá vyšší maximum a RSI nižší. Varování, že pohyb slábne, ne signál sám o sobě."
+      }
+    },
+    "related": ["rsi", "macd"]
+  },
   "diversification": {
     "text": {
       "en": {
@@ -426,6 +452,19 @@
       }
     },
     "related": ["expected-value", "overfitting", "backtest"]
+  },
+  "ema": {
+    "text": {
+      "en": {
+        "term": "EMA",
+        "definition": "Exponential moving average: an average of closing prices in which newer candles weigh more, so it reacts to a turn sooner than a simple average – and is fooled more often."
+      },
+      "cs": {
+        "term": "EMA",
+        "definition": "Exponenciální klouzavý průměr: průměr zavíracích cen, ve kterém mají novější svíčky větší váhu. Na obrat reaguje dřív než prostý průměr – a častěji se nechá napálit."
+      }
+    },
+    "related": ["moving-average", "wma"]
   },
   "epoch": {
     "text": {
@@ -634,6 +673,19 @@
       }
     },
     "related": ["cold-wallet", "wallet"]
+  },
+  "kdj": {
+    "text": {
+      "en": {
+        "term": "KDJ",
+        "definition": "A variant of the stochastic oscillator: K and D are the smoothed lines and J = 3K − 2D runs ahead of them and can leave the 0–100 range."
+      },
+      "cs": {
+        "term": "KDJ",
+        "definition": "Varianta stochastického oscilátoru: K a D jsou vyhlazené čáry, J = 3K − 2D běží před nimi a může opustit pásmo 0–100."
+      }
+    },
+    "related": ["stochastic", "oscillator"]
   },
   "kelly-criterion": {
     "text": {
@@ -882,6 +934,19 @@
     },
     "related": ["sandwich-attack", "validator", "priority-fee"]
   },
+  "mfi": {
+    "text": {
+      "en": {
+        "term": "MFI",
+        "definition": "Money Flow Index: an RSI that counts money (typical price × volume) instead of price changes, 0–100."
+      },
+      "cs": {
+        "term": "MFI",
+        "definition": "Money Flow Index: RSI, které místo změn ceny počítá peníze (typická cena × objem), 0–100."
+      }
+    },
+    "related": ["rsi", "volume"]
+  },
   "mica": {
     "text": {
       "en": {
@@ -986,6 +1051,19 @@
     },
     "related": ["blockchain", "decentralization"]
   },
+  "obv": {
+    "text": {
+      "en": {
+        "term": "OBV",
+        "definition": "On-balance volume: a running total that adds the volume of candles closing higher and subtracts it on candles closing lower."
+      },
+      "cs": {
+        "term": "OBV",
+        "definition": "On-balance volume: průběžný součet, který přičítá objem svíček zavírajících výš a odečítá objem svíček zavírajících níž."
+      }
+    },
+    "related": ["volume"]
+  },
   "oco": {
     "text": {
       "en": {
@@ -1025,6 +1103,19 @@
     },
     "related": ["limit-order", "spread"]
   },
+  "oscillator": {
+    "text": {
+      "en": {
+        "term": "Oscillator",
+        "definition": "An indicator that swings within a range (often 0–100) in its own panel below the chart – it shows the speed of a move, not the price."
+      },
+      "cs": {
+        "term": "Oscilátor",
+        "definition": "Indikátor, který kmitá v pásmu (často 0–100) ve vlastním panelu pod grafem. Ukazuje rychlost pohybu, ne cenu."
+      }
+    },
+    "related": ["rsi", "overbought"]
+  },
   "out-of-sample": {
     "text": {
       "en": {
@@ -1063,6 +1154,19 @@
       }
     },
     "related": ["moving-average", "rsi"]
+  },
+  "parabolic-sar": {
+    "text": {
+      "en": {
+        "term": "Parabolic SAR",
+        "definition": "Stop and reverse: dots below the price in an uptrend and above it in a downtrend that move closer every candle. When the price crosses them, they jump to the other side."
+      },
+      "cs": {
+        "term": "Parabolic SAR",
+        "definition": "Stop and reverse: tečky pod cenou v růstu a nad ní v poklesu, které se každou svíčkou přibližují. Když je cena protne, přeskočí na druhou stranu."
+      }
+    },
+    "related": ["trailing-stop", "trend"]
   },
   "passkey": {
     "text": {
@@ -1193,6 +1297,19 @@
       }
     },
     "related": ["stop-loss", "expected-value"]
+  },
+  "repainting": {
+    "text": {
+      "en": {
+        "term": "Repainting",
+        "definition": "When an indicator's past values change after new candles arrive. On a closed candle a standard indicator no longer changes; on the unfinished last candle every indicator still moves."
+      },
+      "cs": {
+        "term": "Překreslování",
+        "definition": "Když se minulé hodnoty indikátoru změní po příchodu nových svíček. Na uzavřené svíčce se běžný indikátor už nemění; na nedokončené poslední svíčce se hýbe každý."
+      }
+    },
+    "related": ["candlestick"]
   },
   "resistance": {
     "text": {
@@ -1467,6 +1584,32 @@
     },
     "related": ["proof-of-stake"]
   },
+  "stochastic": {
+    "text": {
+      "en": {
+        "term": "Stochastic oscillator",
+        "definition": "Shows where the close sits in the high–low range of the last N candles, 0–100. Above 80 the close is near the top of the range, below 20 near the bottom."
+      },
+      "cs": {
+        "term": "Stochastic (stochastický oscilátor)",
+        "definition": "Ukazuje, kde leží zavírací cena v rozpětí maxim a minim posledních N svíček, 0–100. Nad 80 je u horního okraje, pod 20 u dolního."
+      }
+    },
+    "related": ["oscillator", "kdj"]
+  },
+  "stochastic-rsi": {
+    "text": {
+      "en": {
+        "term": "Stochastic RSI",
+        "definition": "The stochastic oscillator applied to RSI instead of the price: where RSI sits in its own recent range. Very sensitive – it swings much more than RSI."
+      },
+      "cs": {
+        "term": "Stochastic RSI",
+        "definition": "Stochastický oscilátor použitý na RSI místo na cenu: kde leží RSI ve svém nedávném rozpětí. Velmi citlivý – kmitá mnohem víc než RSI."
+      }
+    },
+    "related": ["rsi", "stochastic"]
+  },
   "stop-limit": {
     "text": {
       "en": {
@@ -1492,6 +1635,19 @@
       }
     },
     "related": ["take-profit", "slippage", "leverage"]
+  },
+  "supertrend": {
+    "text": {
+      "en": {
+        "term": "Supertrend",
+        "definition": "A trend line set a multiple of ATR below the price in a rise (or above it in a fall). It only moves with the trend and flips when the close crosses it."
+      },
+      "cs": {
+        "term": "Supertrend",
+        "definition": "Trendová čára posazená několik ATR pod cenu v růstu (nebo nad ni v poklesu). Posouvá se jen s trendem a otočí se, když ji protne zavírací cena."
+      }
+    },
+    "related": ["atr", "trend", "trailing-stop"]
   },
   "support": {
     "text": {
@@ -1714,6 +1870,19 @@
     },
     "related": ["break-of-structure", "support"]
   },
+  "vwap": {
+    "text": {
+      "en": {
+        "term": "VWAP",
+        "definition": "Volume-weighted average price: the average price of the day's trades, where big trades count more. It usually starts again every day."
+      },
+      "cs": {
+        "term": "VWAP",
+        "definition": "Průměrná cena vážená objemem: průměrná cena obchodů za den, ve které mají velké obchody větší váhu. Obvykle se každý den počítá znovu."
+      }
+    },
+    "related": ["volume", "moving-average"]
+  },
   "walk-forward": {
     "text": {
       "en": {
@@ -1753,6 +1922,19 @@
     },
     "related": ["phishing", "airdrop", "wallet"]
   },
+  "williams-r": {
+    "text": {
+      "en": {
+        "term": "Williams %R",
+        "definition": "The stochastic oscillator turned upside down: 0 when the close is at the high of the last N candles, −100 at the low."
+      },
+      "cs": {
+        "term": "Williams %R",
+        "definition": "Stochastický oscilátor obrácený vzhůru nohama: 0, když je zavírací cena u maxima posledních N svíček, −100 u minima."
+      }
+    },
+    "related": ["stochastic", "oscillator"]
+  },
   "withdrawal-whitelist": {
     "text": {
       "en": {
@@ -1765,6 +1947,19 @@
       }
     },
     "related": ["2fa", "exchange"]
+  },
+  "wma": {
+    "text": {
+      "en": {
+        "term": "WMA",
+        "definition": "Weighted moving average: the newest close weighs N times, the oldest once. It sits between a simple average and an EMA in speed."
+      },
+      "cs": {
+        "term": "WMA",
+        "definition": "Vážený klouzavý průměr: nejnovější zavírací cena má váhu N, nejstarší 1. Rychlostí je mezi prostým průměrem a EMA."
+      }
+    },
+    "related": ["moving-average", "ema"]
   },
   "wrench-attack": {
     "text": {
