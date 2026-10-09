@@ -126,18 +126,49 @@ describe("simulate", () => {
       stop: 55_000,
       price: 54_500,
       amount: 0.01,
+      direction: "down",
     });
+    expect(result.warnings).toEqual([]);
     expect(result.balances.base).toBeCloseTo(0.04);
   });
 
-  it("a stop-limit sell above the price would trigger at once – rejected", () => {
+  it("a stop-limit sell above the price waits for a rise, as on Binance", () => {
+    const result = run({
+      side: "sell",
+      type: "stopLimit",
+      stop: 62_000,
+      price: 61_900,
+      amount: 0.01,
+    });
+    expect(result.pending).toEqual({
+      stop: 62_000,
+      price: 61_900,
+      amount: 0.01,
+      direction: "up",
+    });
+    expect(kinds(result)).toContain("oppositeStop");
+  });
+
+  it("a stop-limit buy below the price waits for a fall", () => {
+    const result = run({
+      side: "buy",
+      type: "stopLimit",
+      stop: 58_000,
+      price: 58_100,
+      amount: 0.01,
+    });
+    expect(result.pending?.direction).toBe("down");
+    expect(kinds(result)).toContain("oppositeStop");
+  });
+
+  it("a stop exactly at the last price would trigger at once – rejected", () => {
     expect(
       simulate(
         {
           side: "sell",
           type: "stopLimit",
-          stop: 61_000,
-          price: 60_900,
+          stop: 60_000,
+          price: 59_900,
           amount: 0.01,
         },
         START_BOOK,
@@ -187,13 +218,24 @@ describe("simulate", () => {
 
 describe("stopLimitOutcomes", () => {
   it("a crash that gaps past the limit leaves the sale unfilled", () => {
-    expect(stopLimitOutcomes("sell", { stop: 55_000, price: 54_500 })).toEqual({
+    const stop = { stop: 55_000, price: 54_500, direction: "down" } as const;
+    expect(stopLimitOutcomes("sell", stop)).toEqual({
       jumpPrice: 52_250,
       jumpFills: false,
     });
     expect(
-      stopLimitOutcomes("sell", { stop: 55_000, price: 52_000 }).jumpFills,
+      stopLimitOutcomes("sell", { ...stop, price: 52_000 }).jumpFills,
     ).toBe(true);
+  });
+
+  it("a sale triggered by a rise fills even when the price jumps higher", () => {
+    expect(
+      stopLimitOutcomes("sell", {
+        stop: 62_000,
+        price: 61_900,
+        direction: "up",
+      }),
+    ).toEqual({ jumpPrice: 65_100, jumpFills: true });
   });
 });
 

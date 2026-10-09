@@ -110,13 +110,19 @@ export type Warning =
   // A stop-limit with no room between the stop and the limit.
   | { kind: "noRoom" }
   // The book ran out before the market order was filled.
-  | { kind: "bookExhausted" };
+  | { kind: "bookExhausted" }
+  // A stop on the other side of the price: a sale that triggers on a rise (taking profit, no
+  // protection from a fall) or a purchase that triggers on a fall.
+  | { kind: "oppositeStop" };
 
 export type SimulationError =
   | "notEnoughQuote"
   | "notEnoughBase"
-  // A stop on the wrong side of the price would trigger at once; exchanges reject it.
+  // A stop exactly at the last price would trigger at once; exchanges reject it.
   | "stopWouldTrigger";
+
+// Which way the price must move to reach the stop.
+export type StopDirection = "up" | "down";
 
 export type Simulation = {
   fills: Fill[];
@@ -128,7 +134,12 @@ export type Simulation = {
   // The part of a limit order that waits in the book.
   resting?: Fill;
   // A stop-limit waiting for its trigger.
-  pending?: { stop: number; price: number; amount: number };
+  pending?: {
+    stop: number;
+    price: number;
+    amount: number;
+    direction: StopDirection;
+  };
   warnings: Warning[];
   book: Book;
   balances: Balances;
@@ -192,10 +203,13 @@ export function simulate(
 
   if (order.type === "stopLimit") {
     const { stop = 0, price = 0, amount = 0 } = order;
-    const wrongSide =
-      order.side === "sell" ? stop >= book.last : stop <= book.last;
-    if (wrongSide) {
+    if (stop === book.last) {
       return { error: "stopWouldTrigger" };
+    }
+    // Binance accepts a stop on either side of the price and triggers it when the price gets there.
+    const direction: StopDirection = stop > book.last ? "up" : "down";
+    if ((order.side === "sell") === (direction === "up")) {
+      warnings.push({ kind: "oppositeStop" });
     }
     if (stop === price) {
       warnings.push({ kind: "noRoom" });
@@ -211,7 +225,7 @@ export function simulate(
       fills: [],
       filled: 0,
       fee: 0,
-      pending: { stop, price, amount },
+      pending: { stop, price, amount, direction },
       warnings,
       book,
       balances: reserve(order.side, amount, price * amount),
@@ -349,14 +363,14 @@ function insertLevel(levels: Level[], order: Fill, side: "asks" | "bids") {
 }
 
 /**
- * What a stop-limit would do in a calm move and in a jump that gaps 5 % past the stop: a sell in a
- * crash, a buy in a spike. The limit order fills only if the jump stays within its limit.
+ * What a stop-limit would do if the price jumped 5 % past the stop in the direction it was moving.
+ * The limit order fills only if that price is still within its limit.
  */
 export function stopLimitOutcomes(
   side: Side,
-  pending: { stop: number; price: number },
+  pending: { stop: number; price: number; direction: StopDirection },
 ) {
-  const jumpPrice = pending.stop * (side === "sell" ? 0.95 : 1.05);
+  const jumpPrice = pending.stop * (pending.direction === "down" ? 0.95 : 1.05);
   return {
     jumpPrice,
     jumpFills:

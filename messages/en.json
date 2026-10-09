@@ -1075,14 +1075,14 @@
       "refused": {
         "notEnoughQuote": "You do not have enough euros for this purchase (the fee counts too).",
         "notEnoughBase": "You do not have that much bitcoin.",
-        "stopWouldTrigger": "The trigger price is on the wrong side of the current price – the order would trigger at once and the exchange rejects it. For a sale put the stop below the current price, for a purchase above it."
+        "stopWouldTrigger": "The stop is exactly at the last price – the order would trigger at once and the exchange rejects it. Put the stop above or below the current price."
       },
       "previewTitle": "Preview before sending",
       "summary": {
         "fills": "You {side, select, buy {buy} other {sell}} {amount} BTC at an average price of {average} – across {levels, plural, one {# price level} other {# price levels}} of the book. Taker fee {fee}.",
         "slippage": "Slippage against the best price: {slippage}%.",
         "rests": "{amount} BTC {side, select, buy {to buy} other {to sell}} at {price} will wait in the book. When it fills, you pay the maker fee of {fee}%.",
-        "stop": "When the price {side, select, buy {rises} other {falls}} to {stop}, a limit order to {side, select, buy {buy} other {sell}} {amount} BTC at {price} is created.",
+        "stop": "When the price {direction, select, up {rises} other {falls}} to {stop}, a limit order to {side, select, buy {buy} other {sell}} {amount} BTC at {price} is created.",
         "jumpFills": "Even if the price jumped past the stop to {jump}, the limit would still fill.",
         "jumpMisses": "Careful: if the price jumped past the stop straight to {jump}, the limit would not fill and you would stay in the trade."
       },
@@ -1091,7 +1091,8 @@
         "crossesSpread": "The limit is past the best offer on the other side, so the order executes now – at the book's prices, not at yours – and you pay the taker fee.",
         "wholeBalance": "This order bets your whole balance.",
         "noRoom": "The stop and the limit are the same. In a sharp move the limit then easily fails to fill – leave some room between them.",
-        "bookExhausted": "There are not enough offers in the book – only part will fill."
+        "bookExhausted": "There are not enough offers in the book – only part will fill.",
+        "oppositeStop": "{side, select, sell {The stop is above the current price, so the sale triggers only on a rise – it takes profit, but does not protect you from a fall.} other {The stop is below the current price, so the purchase triggers only on a fall – “I will buy when it drops”.}}"
       },
       "confirm": "Confirm",
       "edit": "Edit",

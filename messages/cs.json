@@ -1075,14 +1075,14 @@
       "refused": {
         "notEnoughQuote": "Na tenhle nákup nemáš dost eur (počítá se i poplatek).",
         "notEnoughBase": "Tolik bitcoinu nemáš.",
-        "stopWouldTrigger": "Spouštěcí cena je na špatné straně aktuální ceny – příkaz by se spustil hned, burza ho odmítne. U prodeje dej stop pod aktuální cenu, u nákupu nad ni."
+        "stopWouldTrigger": "Stop je přesně na poslední ceně – příkaz by se spustil hned a burza ho odmítne. Dej stop nad, nebo pod aktuální cenu."
       },
       "previewTitle": "Náhled před odesláním",
       "summary": {
         "fills": "{side, select, buy {Koupíš} other {Prodáš}} {amount} BTC za průměrnou cenu {average} – rozloženo do {levels, plural, one {# cenové úrovně} other {# cenových úrovní}} knihy. Poplatek taker {fee}.",
         "slippage": "Skluz proti nejlepší ceně: {slippage} %.",
         "rests": "{amount} BTC {side, select, buy {ke koupi} other {k prodeji}} za {price} zůstane čekat v knize. Až se provede, zaplatíš poplatek maker {fee} %.",
-        "stop": "Až cena {side, select, buy {vystoupá} other {klesne}} na {stop}, vznikne limitní příkaz {side, select, buy {koupit} other {prodat}} {amount} BTC za {price}.",
+        "stop": "Až cena {direction, select, up {vystoupá} other {klesne}} na {stop}, vznikne limitní příkaz {side, select, buy {koupit} other {prodat}} {amount} BTC za {price}.",
         "jumpFills": "I kdyby cena za stopem skočila až na {jump}, limit by se ještě provedl.",
         "jumpMisses": "Pozor: kdyby cena za stopem skočila rovnou na {jump}, limit se neprovede a zůstaneš v obchodu."
       },
@@ -1091,7 +1091,8 @@
         "crossesSpread": "Limitní cena je za nejlepší nabídkou protistrany, takže se příkaz provede hned – za ceny z knihy, ne za tvou cenu – a platíš poplatek taker.",
         "wholeBalance": "Tímhle příkazem sázíš celý zůstatek.",
         "noRoom": "Stop a limit jsou stejné. V prudkém pohybu se pak limit snadno neprovede – nech mezi nimi trochu místa.",
-        "bookExhausted": "V knize není dost nabídek – provede se jen část."
+        "bookExhausted": "V knize není dost nabídek – provede se jen část.",
+        "oppositeStop": "{side, select, sell {Stop je nad aktuální cenou, takže prodej se spustí až při růstu – vybírá zisk, ale před pádem tě nechrání.} other {Stop je pod aktuální cenou, takže nákup se spustí až při poklesu – „koupím, až to spadne“.}}"
       },
       "confirm": "Potvrdit",
       "edit": "Upravit",
