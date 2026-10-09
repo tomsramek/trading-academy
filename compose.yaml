@@ -1,0 +1,24 @@
+# Local development services. Start: docker compose up -d · Stop: docker compose down
+# Production runs its own database in Coolify – nothing here is deployed.
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: academy
+      POSTGRES_PASSWORD: academy
+      POSTGRES_DB: academy
+    ports:
+      # Only reachable from this computer, not from the local network.
+      - "127.0.0.1:5432:5432"
+    volumes:
+      # PostgreSQL 18+ images keep their data under /var/lib/postgresql.
+      - db-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U academy -d academy"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  db-data:

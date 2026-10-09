@@ -7312,6 +7312,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postgres@npm:^3.4.9":
+  version: 3.4.9
+  resolution: "postgres@npm:3.4.9"
+  checksum: 10c0/b767dd2258df0f6523ce1ec0bce0a87e93c6fb961c97be0059f8ea2bc4c57c6057689258361a0988f0bb61d636483d35f0c591620566218f7083c78ab7955862
+  languageName: node
+  linkType: hard
+
 "powershell-utils@npm:^0.2.0, powershell-utils@npm:^0.2.1":
   version: 0.2.1
   resolution: "powershell-utils@npm:0.2.1"
@@ -8610,6 +8617,7 @@ __metadata:
     next: "npm:16.3.8"
     next-intl: "npm:^4.14.9"
     next-themes: "npm:^0.4.6"
+    postgres: "npm:^3.4.9"
     prettier: "npm:^3.9.9"
     prettier-plugin-tailwindcss: "npm:^0.8.1"
     react: "npm:^19.3.0"
