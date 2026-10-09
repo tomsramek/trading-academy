@@ -1,7 +1,10 @@
 import "server-only";
 
+import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import { z } from "zod";
+
+import * as schema from "./schema";
 
 /*
  * The connection to PostgreSQL. Server-only: importing this file from a client component stops the
@@ -14,7 +17,7 @@ const envSchema = z.object({
 });
 
 // Read lazily on first use: pages that never touch the database keep working without DATABASE_URL.
-function databaseUrl(): string {
+export function databaseUrl(): string {
   const result = envSchema.safeParse(process.env);
   if (!result.success) {
     throw new Error(
@@ -24,14 +27,18 @@ function databaseUrl(): string {
   return result.data.DATABASE_URL;
 }
 
+export type Database = PostgresJsDatabase<typeof schema>;
+
 // In development every file change reloads the modules; keeping the client on globalThis stops each
 // reload from opening a new pool of connections.
-const globalForDb = globalThis as { sql?: postgres.Sql };
+const globalForDb = globalThis as { database?: Database };
 
-export function db(): postgres.Sql {
-  globalForDb.sql ??= postgres(databaseUrl(), {
+/** The database with typed queries over the tables in ./schema. */
+export function db(): Database {
+  globalForDb.database ??= drizzle({
     // A small pool: one app instance on a small server.
-    max: 10,
+    client: postgres(databaseUrl(), { max: 10 }),
+    schema,
   });
-  return globalForDb.sql;
+  return globalForDb.database;
 }
