@@ -49,7 +49,8 @@ export const INDICATOR_NAMES: Record<PeriodIndicator, string> = {
   atr: "ATR",
 };
 
-// Binance's defaults – the slider marks them.
+// The common defaults (as in Binance's Trading View mode) – the slider marks them. Binance's
+// Original mode differs for some: RSI 6/12/24, CCI 9.
 export const DEFAULT_PERIODS: Record<PeriodIndicator, number> = {
   sma: 25,
   ema: 25,
