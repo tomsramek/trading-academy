@@ -11,6 +11,7 @@ export const metadata = {
 - fill in a limit, market and stop-limit order step by step
 - understand how the Price, Amount and Total fields relate
 - avoid the mistakes that cost beginners the most
+- try the orders and the most expensive mistakes on a practice panel
 
 </Callout>
 
@@ -25,6 +26,13 @@ Wick advises: slowly, and look twice before you click.
   src={panel}
   alt="Binance order panel with Spot, Cross, Isolated and Grid tabs, Limit, Market and Stop Limit order types, Price and Amount fields and a percentage slider; buying on the left, selling on the right"
   caption="The Binance order panel (8 Oct 2026): Spot at the top; Cross and Isolated are margin trading, Grid is a trading bot. Below it Limit, Market and Stop Limit, buying on the left and selling on the right. Logged out, Log In buttons replace Buy and Sell."
+/>
+
+<Video
+  src="/videos/binance-order-form.mp4"
+  poster="/videos/binance-order-form.webp"
+  label="Video: in Binance's order panel a limit buy at 80,000 for 0.001 BTC is filled in, then the Market tab, and finally a Stop Limit sale: stop 78,000, limit 77,500"
+  caption="Video (34 s): a limit buy (price 80,000, amount 0.001 BTC), the Market tab – with a Total field instead of the price – and a stop-limit sale with a stop of 78,000 and a limit of 77,500. Logged out, nothing is sent (9 Oct 2026)."
 />
 
 ## A limit order: "I will buy when it is at that price"
@@ -67,6 +75,18 @@ You bought bitcoin at 60,000 and want to sell it if the price falls below 55,000
   Most exchanges show a summary before sending: price, amount, total and fee.
   Read it. It is the last moment a mistake can be fixed for free.
 </Callout>
+
+## Try it yourself
+
+The practice panel below is a simulation: no exchange, no real money. The order book is deliberately thin
+near the price, so you can see what a big market order does. Try:
+
+1. **A limit buy at 58,000.** Where does the order go, and what happens to your balance?
+2. **A sale at 5,800 instead of 58,000.** What does the preview tell you before you confirm?
+3. **A market buy of 0.03 BTC.** How many price levels of the book does it go through, and what is the slippage?
+4. **A stop-limit sale with both the stop and the limit at 55,000.** Why does the simulator warn you?
+
+<OrderSimulator label="Practice order panel: a BTC/EUR market with an order book, an order form and a preview before confirming" />
 
 ## Common myths
 

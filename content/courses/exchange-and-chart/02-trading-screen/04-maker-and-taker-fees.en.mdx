@@ -9,6 +9,7 @@ export const metadata = {
 - understand when you are a maker and when a taker
 - learn to read an exchange's price list
 - find out why it pays to withdraw crypto less often
+- see on a practice panel when you pay the maker fee and when the taker fee
 
 </Callout>
 
@@ -57,6 +58,17 @@ withdrawal – but only 0.1% of a 2,000-euro one. So withdraw less often and in 
   fee cost more than one well-thought-out trade with a higher one. The cheapest
   trade is the one you do not make.
 </Callout>
+
+## Try it: maker or taker?
+
+The practice panel uses the same fees as the table above: maker 0.10%, taker 0.20%. The last price is
+60,000 euros.
+
+1. Enter a **limit buy at 59,000**. The order waits in the book – when it fills, you are the maker.
+2. Enter a **limit buy at 60,100**. It executes at once at the book's offers – you are the taker, even with a limit.
+3. Enter a **market buy**. The preview shows the taker fee in euros.
+
+<OrderSimulator label="Practice order panel for comparing maker and taker fees" />
 
 ## Common myths
 

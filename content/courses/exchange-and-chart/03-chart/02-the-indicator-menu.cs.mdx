@@ -107,6 +107,32 @@ Ostatní si zapni, až budeš vědět, k čemu je potřebuješ. Jak indikátory 
   odporovat.
 </Callout>
 
+## Vyzkoušej si
+
+Proč zrovna 7, 25 a 99? Posuň periodu klouzavého průměru a sleduj, jak často ho cena překříží. Krátký
+průměr se drží ceny a dá spoustu signálů, dlouhý je klidný a pozdní.
+
+<IndicatorPeriod
+  data={btc}
+  indicator="sma"
+  min={3}
+  max={100}
+  value={25}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s klouzavým průměrem, jehož periodu měníš posuvníkem"
+/>
+
+A teď to zkus na grafu sám:
+
+<ChartQuiz
+  data={btc}
+  from="2024-07-01"
+  question="Klikni na svíčku, kde rychlá MA 7 (modrá) překřížila pomalejší MA 25 (žlutou) zespodu nahoru."
+  answer={["2024-07-15", "2024-07-17"]}
+  explanation="MA 7 se dostala nad MA 25 až 16. července 2024 – když už cena vyrostla z minima 53 486 (5. července) na 65 000. Průměry potvrzují pohyb vždycky se zpožděním."
+  indicators={{ sma: [7, 25] }}
+  label="Kvíz: najdi překřížení MA 7 a MA 25 na denním grafu bitcoinu v červenci 2024"
+/>
+
 ## Časté omyly
 
 - **„Čím víc indikátorů, tím přesnější signál.“** Většina měří totéž jinou rovnicí – a navzájem si odporují.
