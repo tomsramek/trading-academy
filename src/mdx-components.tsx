@@ -4,6 +4,7 @@ import { BlockchainDiagram } from "@/components/lesson/BlockchainDiagram";
 import { Callout } from "@/components/lesson/Callout";
 import { CandleAnatomy } from "@/components/lesson/CandleAnatomy";
 import { CandleChart } from "@/components/lesson/CandleChart";
+import { ChartQuiz } from "@/components/lesson/ChartQuiz";
 import { CandlePattern } from "@/components/lesson/CandlePattern";
 import { Figure } from "@/components/lesson/Figure";
 import { Illustration } from "@/components/lesson/Illustration";
@@ -36,6 +37,7 @@ const components: MDXComponents = {
   Callout,
   CandleAnatomy,
   CandleChart,
+  ChartQuiz,
   IndicatorPeriod,
   IndicatorSteps,
   CandlePattern,

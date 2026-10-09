@@ -29,9 +29,9 @@ type MiniChartProps = {
   focus?: number;
   // Horizontal lines over the window, e.g. the highest high and the lowest low.
   levels?: { price: number; kind: "high" | "low" }[];
-  // Chart quiz: the chosen candle and, after checking, the right one.
+  // Chart quiz: the chosen candle and, after checking, the first and last right candle.
   selected?: number;
-  answer?: number;
+  answer?: [number, number];
   onCandleClick?: (index: number) => void;
 };
 
@@ -161,11 +161,11 @@ export function MiniChart({
     );
   };
 
-  const outline = (index: number, className: string) => (
+  const outline = (from: number, to: number, className: string) => (
     <rect
-      x={x(index) - slot / 2 + 1}
+      x={x(from) - slot / 2 + 1}
       y={PADDING / 2}
-      width={slot - 2}
+      width={slot * (to - from + 1) - 2}
       height={PRICE_HEIGHT - PADDING}
       rx={4}
       className={cn("fill-none", className)}
@@ -292,12 +292,13 @@ export function MiniChart({
       )}
 
       {selected !== undefined &&
-        selected !== answer &&
+        !(answer && selected >= answer[0] && selected <= answer[1]) &&
         outline(
+          selected,
           selected,
           answer === undefined ? "stroke-primary" : "stroke-bear",
         )}
-      {answer !== undefined && outline(answer, "stroke-bull")}
+      {answer && outline(answer[0], answer[1], "stroke-bull")}
 
       {onCandleClick &&
         candles.map((candle, index) => (
