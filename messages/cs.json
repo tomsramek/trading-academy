@@ -1035,6 +1035,74 @@
       "wrong": "Tahle to není.",
       "answerOne": "Správná svíčka je {date} (zeleně).",
       "answerRange": "Správné jsou svíčky od {from} do {to} (zeleně)."
+    },
+    "orderSimulator": {
+      "intro": "Cvičný trh BTC/EUR – žádná burza, žádné skutečné peníze. Zkus si příkazy z lekce i chyby, které stojí nejvíc.",
+      "book": "Kniha objednávek",
+      "asks": "Nabídky prodávajících",
+      "bids": "Nabídky kupujících",
+      "priceEur": "Cena (EUR)",
+      "amountBtc": "Množství (BTC)",
+      "lastPrice": "poslední cena",
+      "pickPrice": "Použít cenu {price} EUR",
+      "sideLabel": "Směr obchodu",
+      "typeLabel": "Typ příkazu",
+      "side": {
+        "buy": "Koupit",
+        "sell": "Prodat"
+      },
+      "type": {
+        "limit": "Limit",
+        "market": "Trh",
+        "stopLimit": "Stop-limit"
+      },
+      "field": {
+        "price": "Cena",
+        "stop": "Stop (spouštěcí cena)",
+        "amount": "Množství",
+        "total": "Celkem"
+      },
+      "error": {
+        "required": "Vyplň toto pole.",
+        "positive": "Zadej kladné číslo."
+      },
+      "marketPrice": "Cena: nejlepší nabídky v knize (tržní příkaz)",
+      "available": "K dispozici: {eur} a {btc} BTC",
+      "submit": {
+        "buy": "Koupit BTC",
+        "sell": "Prodat BTC"
+      },
+      "refused": {
+        "notEnoughQuote": "Na tenhle nákup nemáš dost eur (počítá se i poplatek).",
+        "notEnoughBase": "Tolik bitcoinu nemáš.",
+        "stopWouldTrigger": "Spouštěcí cena je na špatné straně aktuální ceny – příkaz by se spustil hned, burza ho odmítne. U prodeje dej stop pod aktuální cenu, u nákupu nad ni."
+      },
+      "previewTitle": "Náhled před odesláním",
+      "summary": {
+        "fills": "{side, select, buy {Koupíš} other {Prodáš}} {amount} BTC za průměrnou cenu {average} – rozloženo do {levels, plural, one {# cenové úrovně} other {# cenových úrovní}} knihy. Poplatek taker {fee}.",
+        "slippage": "Skluz proti nejlepší ceně: {slippage} %.",
+        "rests": "{amount} BTC {side, select, buy {ke koupi} other {k prodeji}} za {price} zůstane čekat v knize. Až se provede, zaplatíš poplatek maker {fee} %.",
+        "stop": "Až cena {side, select, buy {vystoupá} other {klesne}} na {stop}, vznikne limitní příkaz {side, select, buy {koupit} other {prodat}} {amount} BTC za {price}.",
+        "jumpFills": "I kdyby cena za stopem skočila až na {jump}, limit by se ještě provedl.",
+        "jumpMisses": "Pozor: kdyby cena za stopem skočila rovnou na {jump}, limit se neprovede a zůstaneš v obchodu."
+      },
+      "warning": {
+        "farFromPrice": "Cena je o {percent} % {direction, select, below {pod} other {nad}} poslední cenou. Nechybí, nebo nepřebývá nula?",
+        "crossesSpread": "Limitní cena je za nejlepší nabídkou protistrany, takže se příkaz provede hned – za ceny z knihy, ne za tvou cenu – a platíš poplatek taker.",
+        "wholeBalance": "Tímhle příkazem sázíš celý zůstatek.",
+        "noRoom": "Stop a limit jsou stejné. V prudkém pohybu se pak limit snadno neprovede – nech mezi nimi trochu místa.",
+        "bookExhausted": "V knize není dost nabídek – provede se jen část."
+      },
+      "confirm": "Potvrdit",
+      "edit": "Upravit",
+      "doneTitle": "Příkaz odeslán (v simulaci)",
+      "balanceNow": "Zůstatek teď: {eur} a {btc} BTC.",
+      "openOrders": "Otevřené příkazy",
+      "openLimit": "{side, select, buy {Koupit} other {Prodat}} {amount} BTC za {price}",
+      "openStop": "Stop {stop} → {side, select, buy {koupit} other {prodat}} {amount} BTC za {price}",
+      "cancel": "Zrušit",
+      "fees": "Ilustrativní poplatky: maker {maker} %, taker {taker} %.",
+      "restart": "Začít znovu"
     }
   },
   "Courses": {

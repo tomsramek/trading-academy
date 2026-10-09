@@ -1035,6 +1035,74 @@
       "wrong": "Not this one.",
       "answerOne": "The right candle is {date} (green).",
       "answerRange": "The right candles are from {from} to {to} (green)."
+    },
+    "orderSimulator": {
+      "intro": "A practice BTC/EUR market – no exchange, no real money. Try the orders from the lesson and the mistakes that cost the most.",
+      "book": "Order book",
+      "asks": "Sellers' offers",
+      "bids": "Buyers' bids",
+      "priceEur": "Price (EUR)",
+      "amountBtc": "Amount (BTC)",
+      "lastPrice": "last price",
+      "pickPrice": "Use the price {price} EUR",
+      "sideLabel": "Trade direction",
+      "typeLabel": "Order type",
+      "side": {
+        "buy": "Buy",
+        "sell": "Sell"
+      },
+      "type": {
+        "limit": "Limit",
+        "market": "Market",
+        "stopLimit": "Stop-limit"
+      },
+      "field": {
+        "price": "Price",
+        "stop": "Stop (trigger price)",
+        "amount": "Amount",
+        "total": "Total"
+      },
+      "error": {
+        "required": "Fill in this field.",
+        "positive": "Enter a positive number."
+      },
+      "marketPrice": "Price: the best offers in the book (market order)",
+      "available": "Available: {eur} and {btc} BTC",
+      "submit": {
+        "buy": "Buy BTC",
+        "sell": "Sell BTC"
+      },
+      "refused": {
+        "notEnoughQuote": "You do not have enough euros for this purchase (the fee counts too).",
+        "notEnoughBase": "You do not have that much bitcoin.",
+        "stopWouldTrigger": "The trigger price is on the wrong side of the current price – the order would trigger at once and the exchange rejects it. For a sale put the stop below the current price, for a purchase above it."
+      },
+      "previewTitle": "Preview before sending",
+      "summary": {
+        "fills": "You {side, select, buy {buy} other {sell}} {amount} BTC at an average price of {average} – across {levels, plural, one {# price level} other {# price levels}} of the book. Taker fee {fee}.",
+        "slippage": "Slippage against the best price: {slippage}%.",
+        "rests": "{amount} BTC {side, select, buy {to buy} other {to sell}} at {price} will wait in the book. When it fills, you pay the maker fee of {fee}%.",
+        "stop": "When the price {side, select, buy {rises} other {falls}} to {stop}, a limit order to {side, select, buy {buy} other {sell}} {amount} BTC at {price} is created.",
+        "jumpFills": "Even if the price jumped past the stop to {jump}, the limit would still fill.",
+        "jumpMisses": "Careful: if the price jumped past the stop straight to {jump}, the limit would not fill and you would stay in the trade."
+      },
+      "warning": {
+        "farFromPrice": "The price is {percent}% {direction, select, below {below} other {above}} the last price. Is a zero missing, or one too many?",
+        "crossesSpread": "The limit is past the best offer on the other side, so the order executes now – at the book's prices, not at yours – and you pay the taker fee.",
+        "wholeBalance": "This order bets your whole balance.",
+        "noRoom": "The stop and the limit are the same. In a sharp move the limit then easily fails to fill – leave some room between them.",
+        "bookExhausted": "There are not enough offers in the book – only part will fill."
+      },
+      "confirm": "Confirm",
+      "edit": "Edit",
+      "doneTitle": "Order sent (in the simulation)",
+      "balanceNow": "Balance now: {eur} and {btc} BTC.",
+      "openOrders": "Open orders",
+      "openLimit": "{side, select, buy {Buy} other {Sell}} {amount} BTC at {price}",
+      "openStop": "Stop {stop} → {side, select, buy {buy} other {sell}} {amount} BTC at {price}",
+      "cancel": "Cancel",
+      "fees": "Illustrative fees: maker {maker}%, taker {taker}%.",
+      "restart": "Start again"
     }
   },
   "Courses": {
