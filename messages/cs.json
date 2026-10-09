@@ -1148,7 +1148,7 @@
     },
     "indicatorPeriod": {
       "period": "Perioda {line}",
-      "standard": "výchozí na Binance: {period}",
+      "standard": "běžné výchozí: {period}",
       "reset": "Vrátit výchozí",
       "crosses": "Cena překřížila čáru {count}×.",
       "outside": "Cena vyskočila z pásem {count}×.",
@@ -1156,7 +1156,7 @@
       "range": "Průměrné denní rozpětí: {average} %.",
       "tempoFaster": "Kratší perioda: čára reaguje rychleji a dá víc signálů – i těch falešných.",
       "tempoSlower": "Delší perioda: čára je klidnější a falešných signálů je méně, ale na pohyb reaguje pozdě.",
-      "tempoStandard": "Výchozí nastavení Binance – zkus posuvník posunout na obě strany."
+      "tempoStandard": "Běžné výchozí nastavení – zkus posuvník posunout na obě strany."
     },
     "chartQuiz": {
       "pick": "Vyber svíčku – klikni do grafu, nebo použij posuvník (i šipkami na klávesnici).",

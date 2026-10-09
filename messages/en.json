@@ -1148,7 +1148,7 @@
     },
     "indicatorPeriod": {
       "period": "Period of {line}",
-      "standard": "Binance default: {period}",
+      "standard": "common default: {period}",
       "reset": "Back to default",
       "crosses": "The price crossed the line {count}×.",
       "outside": "The price broke out of the bands {count}×.",
@@ -1156,7 +1156,7 @@
       "range": "Average daily range: {average}%.",
       "tempoFaster": "A shorter period: the line reacts faster and gives more signals – false ones included.",
       "tempoSlower": "A longer period: the line is calmer with fewer false signals, but it reacts late.",
-      "tempoStandard": "Binance's default setting – try moving the slider both ways."
+      "tempoStandard": "The common default setting – try moving the slider both ways."
     },
     "chartQuiz": {
       "pick": "Pick a candle – click the chart or use the slider (arrow keys work too).",
