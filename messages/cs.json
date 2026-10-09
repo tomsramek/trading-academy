@@ -979,6 +979,39 @@
         "bubble": "Nejdřív malou zkušební.",
         "caption": "Správná síť, celá adresa, malá zkušební částka – a mince jsou doma."
       }
+    },
+    "indicatorSteps": {
+      "previous": "Předchozí",
+      "next": "Další",
+      "play": "Přehrát",
+      "pause": "Pozastavit",
+      "restart": "Znovu od začátku",
+      "progress": "Krok {current} z {total}",
+      "legend": {
+        "sma": "SMA {period} (modrá). Zvýrazněné svíčky = z nich se počítá aktuální hodnota.",
+        "ema": "EMA {period} (žlutá). Zvýrazněné svíčky = z nich se počítá aktuální hodnota.",
+        "bollinger": "Bollingerova pásma {period}, 2: prostřední čárkovaná čára je SMA {period}, horní a dolní pásmo leží dvě směrodatné odchylky od ní.",
+        "rsi": "RSI {period} v panelu pod grafem, čáry 70 a 30. Zvýrazněné svíčky = změna ceny, se kterou se právě počítá.",
+        "macd": "Nad svíčkami EMA 12 (modrá) a EMA 26 (žlutá). V panelu MACD (modrá), signální čára (žlutá) a histogram.",
+        "stochastic": "Stochastic %K {period} v panelu, čáry 80 a 20. Čárkovaně maximum (zelená) a minimum (červená) zvýrazněných svíček.",
+        "atr": "ATR {period} v panelu pod grafem – v USDT, ne v procentech.",
+        "obv": "OBV v panelu pod grafem: průběžný součet objemu."
+      },
+      "explain": {
+        "sma": "sečteme zavírací ceny posledních {period} svíček – dohromady {sum}. Vydělíme {period} a SMA = {value}.",
+        "emaFirst": "EMA musí od něčeho začít. První hodnota je obyčejný průměr prvních {period} zavíracích cen: {value}.",
+        "ema": "EMA udělá krok {weight} cesty k nové ceně: {previous} + {weight} × ({close} − {previous}) = {value}.",
+        "bollinger": "průměr posledních {period} cen je {middle} a ceny se od něj odchylují typicky o {deviation}. Horní pásmo = {middle} + 2 × {deviation} = {upper}, dolní = {lower}.",
+        "rsiFirst": "první RSI. Za posledních {period} svíček byl průměrný růst {gain} a průměrný pokles {loss}. Poměr {strength}, takže RSI = 100 − 100 / (1 + {strength}) = {value}.",
+        "rsi": "cena se změnila o {change}. Průměrný růst a pokles se k té změně posunou o 1/{period}: růst {gain}, pokles {loss}. Poměr {strength}, takže RSI = {value}.",
+        "macd": "rychlá EMA 12 = {fast}, pomalá EMA 26 = {slow}. MACD je jejich rozdíl: {macd}. Signální čára (EMA 9 z MACD) = {signal}, sloupec histogramu = MACD − signál = {histogram}.",
+        "stochastic": "za posledních {period} svíček bylo maximum {high} a minimum {low}. Zavírací cena {close} leží v tomto rozpětí na {value} % – (close − minimum) / (maximum − minimum) × 100.",
+        "atrFirst": "první ATR je obyčejný průměr skutečných rozpětí posledních {period} svíček: {value}.",
+        "atr": "skutečné rozpětí je největší z: maximum − minimum ({range}), skok nahoru od včerejšího zavření ({upGap}) a skok dolů ({downGap}), tedy {trueRange}. ATR = ({previous} × {periodMinusOne} + {trueRange}) / {period} = {value}.",
+        "obvUp": "svíčka zavřela výš ({close} proti {previousClose}), takže se její objem přičte: {previous} + {volume} = {value}.",
+        "obvDown": "svíčka zavřela níž ({close} proti {previousClose}), takže se její objem odečte: {previous} − {volume} = {value}.",
+        "obvFlat": "svíčka zavřela na stejné ceně jako předchozí, OBV se nemění: {value}."
+      }
     }
   },
   "Courses": {

@@ -979,6 +979,39 @@
         "bubble": "A small test first.",
         "caption": "The right network, the whole address, a small test amount – and the coins are home."
       }
+    },
+    "indicatorSteps": {
+      "previous": "Previous",
+      "next": "Next",
+      "play": "Play",
+      "pause": "Pause",
+      "restart": "Start again",
+      "progress": "Step {current} of {total}",
+      "legend": {
+        "sma": "SMA {period} (blue). Highlighted candles = the ones the current value is computed from.",
+        "ema": "EMA {period} (yellow). Highlighted candles = the ones the current value is computed from.",
+        "bollinger": "Bollinger Bands {period}, 2: the dashed middle line is SMA {period}; the upper and lower bands lie two standard deviations from it.",
+        "rsi": "RSI {period} in the panel below the chart, lines at 70 and 30. Highlighted candles = the price change being counted.",
+        "macd": "Over the candles EMA 12 (blue) and EMA 26 (yellow). In the panel MACD (blue), the signal line (yellow) and the histogram.",
+        "stochastic": "Stochastic %K {period} in the panel, lines at 80 and 20. Dashed: the high (green) and low (red) of the highlighted candles.",
+        "atr": "ATR {period} in the panel below the chart – in USDT, not in percent.",
+        "obv": "OBV in the panel below the chart: a running total of volume."
+      },
+      "explain": {
+        "sma": "add up the closes of the last {period} candles – {sum} in total. Divide by {period} and SMA = {value}.",
+        "emaFirst": "EMA has to start somewhere. Its first value is a plain average of the first {period} closes: {value}.",
+        "ema": "EMA moves {weight} of the way to the new price: {previous} + {weight} × ({close} − {previous}) = {value}.",
+        "bollinger": "the average of the last {period} prices is {middle}, and prices typically deviate from it by {deviation}. Upper band = {middle} + 2 × {deviation} = {upper}, lower = {lower}.",
+        "rsiFirst": "the first RSI. Over the last {period} candles the average rise was {gain} and the average fall {loss}. The ratio is {strength}, so RSI = 100 − 100 / (1 + {strength}) = {value}.",
+        "rsi": "the price changed by {change}. The average rise and fall move 1/{period} of the way towards that change: rise {gain}, fall {loss}. The ratio is {strength}, so RSI = {value}.",
+        "macd": "fast EMA 12 = {fast}, slow EMA 26 = {slow}. MACD is their difference: {macd}. The signal line (EMA 9 of MACD) = {signal}, the histogram bar = MACD − signal = {histogram}.",
+        "stochastic": "over the last {period} candles the high was {high} and the low {low}. The close {close} sits at {value}% of that range – (close − low) / (high − low) × 100.",
+        "atrFirst": "the first ATR is a plain average of the true ranges of the last {period} candles: {value}.",
+        "atr": "the true range is the largest of: high − low ({range}), the jump up from yesterday's close ({upGap}) and the jump down ({downGap}) – so {trueRange}. ATR = ({previous} × {periodMinusOne} + {trueRange}) / {period} = {value}.",
+        "obvUp": "the candle closed higher ({close} vs {previousClose}), so its volume is added: {previous} + {volume} = {value}.",
+        "obvDown": "the candle closed lower ({close} vs {previousClose}), so its volume is subtracted: {previous} − {volume} = {value}.",
+        "obvFlat": "the candle closed at the same price as the one before, so OBV does not change: {value}."
+      }
     }
   },
   "Courses": {
