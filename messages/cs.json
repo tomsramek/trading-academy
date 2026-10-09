@@ -1167,7 +1167,7 @@
       "right": "Správně!",
       "wrong": "Tahle to není.",
       "answerOne": "Správná svíčka je {date} (zeleně).",
-      "answerRange": "Správné jsou svíčky od {from} do {to} (zeleně)."
+      "answerRange": "Platí kterákoli svíčka od {from} do {to} (zeleně)."
     },
     "orderSimulator": {
       "intro": "Cvičný trh BTC/EUR – žádná burza, žádné skutečné peníze. Zkus si příkazy z lekce i chyby, které stojí nejvíc.",
