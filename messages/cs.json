@@ -1024,6 +1024,17 @@
       "tempoFaster": "Kratší perioda: čára reaguje rychleji a dá víc signálů – i těch falešných.",
       "tempoSlower": "Delší perioda: čára je klidnější a falešných signálů je méně, ale na pohyb reaguje pozdě.",
       "tempoStandard": "Výchozí nastavení Binance – zkus posuvník posunout na obě strany."
+    },
+    "chartQuiz": {
+      "pick": "Vyber svíčku – klikni do grafu, nebo použij posuvník (i šipkami na klávesnici).",
+      "nothing": "Zatím není vybraná žádná svíčka.",
+      "candle": "Vybraná svíčka {date}: otevření {open}, maximum {high}, minimum {low}, zavření {close}.",
+      "check": "Zkontrolovat",
+      "retry": "Zkusit znovu",
+      "right": "Správně!",
+      "wrong": "Tahle to není.",
+      "answerOne": "Správná svíčka je {date} (zeleně).",
+      "answerRange": "Správné jsou svíčky od {from} do {to} (zeleně)."
     }
   },
   "Courses": {

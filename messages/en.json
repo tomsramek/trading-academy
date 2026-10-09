@@ -1024,6 +1024,17 @@
       "tempoFaster": "A shorter period: the line reacts faster and gives more signals – false ones included.",
       "tempoSlower": "A longer period: the line is calmer with fewer false signals, but it reacts late.",
       "tempoStandard": "Binance's default setting – try moving the slider both ways."
+    },
+    "chartQuiz": {
+      "pick": "Pick a candle – click the chart or use the slider (arrow keys work too).",
+      "nothing": "No candle picked yet.",
+      "candle": "Picked candle {date}: open {open}, high {high}, low {low}, close {close}.",
+      "check": "Check",
+      "retry": "Try again",
+      "right": "Right!",
+      "wrong": "Not this one.",
+      "answerOne": "The right candle is {date} (green).",
+      "answerRange": "The right candles are from {from} to {to} (green)."
     }
   },
   "Courses": {
