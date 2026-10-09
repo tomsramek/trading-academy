@@ -400,7 +400,9 @@ export function OrderSimulatorPanel({
                       percent: percent.format(Math.abs(warning.percent)),
                       direction: warning.percent < 0 ? "below" : "above",
                     })
-                  : t(`warning.${warning.kind}`)}
+                  : t(`warning.${warning.kind}`, {
+                      side: preview.order.side,
+                    })}
               </p>
             ))}
             <div className="flex flex-wrap gap-2">
@@ -482,6 +484,7 @@ export function OrderSimulatorPanel({
       const outcomes = stopLimitOutcomes(order.side, simulation.pending);
       return `${t("summary.stop", {
         side: order.side,
+        direction: simulation.pending.direction,
         amount: btc.format(simulation.pending.amount),
         stop: eur.format(simulation.pending.stop),
         price: eur.format(simulation.pending.price),
