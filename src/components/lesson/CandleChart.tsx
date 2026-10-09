@@ -3,16 +3,15 @@ import { z } from "zod";
 
 import {
   annotationsSchema,
-  indicatorsSchema,
   toTimestamp,
   type AnnotationsInput,
   type ChartAnnotations,
-  type ChartIndicators,
+  type ChartToken,
   type IndicatorsInput,
   type LevelKind,
   type MarkerKind,
 } from "@/lib/content/chart";
-import { atrPercent, ema, rsi, sma } from "@/lib/content/indicators";
+import { buildIndicators } from "@/lib/content/chart-indicators";
 import { cn } from "@/lib/utils";
 
 import { CandleChartCanvas } from "./CandleChartCanvas";
@@ -40,7 +39,7 @@ export type CandleDataset = {
 
 type CandleChartProps = AnnotationsInput & {
   data: CandleDataset;
-  // Moving averages, RSI and volume: indicators={{ sma: [50, 200], volume: true }}
+  // Averages, bands and panels under the chart: indicators={{ sma: [50, 200], volume: true }}
   indicators?: IndicatorsInput;
   // What the chart shows – read by screen readers instead of the drawing.
   label: string;
@@ -68,7 +67,12 @@ export function CandleChart({
     label,
     (kind) => t(`kind.${kind}`),
   );
-  const drawn = resolveIndicators(indicators, data.candles, label);
+  const drawn = buildIndicators(
+    indicators,
+    data.candles,
+    (key) => t(`legend.${key}`),
+    label,
+  );
   const hasAnnotations =
     annotations.levels.length +
       annotations.markers.length +
@@ -89,23 +93,23 @@ export function CandleChart({
         indicators={drawn}
       />
       <figcaption className="mt-3 flex flex-col gap-1 text-sm text-muted-foreground">
-        {(drawn.lines.length > 0 || drawn.volume || drawn.rsi || drawn.atr) && (
+        {(drawn.overlays.length > 0 || drawn.panels.length > 0) && (
           <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
-            {drawn.lines.map((line) => (
-              <li key={line.label} className="flex items-center gap-1.5">
+            {drawn.overlays.map((overlay) => (
+              <li key={overlay.label} className="flex items-center gap-1.5">
                 <span
                   aria-hidden="true"
                   className={cn(
                     "h-0.5 w-4 rounded-full",
-                    LINE_SWATCH[line.color],
+                    LINE_SWATCH[overlay.color],
                   )}
                 />
-                {line.label}
+                {overlay.label}
               </li>
             ))}
-            {drawn.volume && <li>{t("volume")}</li>}
-            {drawn.rsi && <li>{t("rsi")}</li>}
-            {drawn.atr && <li>{t("atr")}</li>}
+            {drawn.panels.map((panel) => (
+              <li key={panel.label}>{panel.label}</li>
+            ))}
           </ul>
         )}
         {caption && <span>{caption}</span>}
@@ -144,72 +148,16 @@ export function CandleChart({
   );
 }
 
-// Swatch next to each average line in the legend – the same --chart-N token as the line.
-const LINE_SWATCH = {
-  1: "bg-chart-1",
-  3: "bg-chart-3",
-  5: "bg-chart-5",
-} as const;
-
-const LINE_COLORS = [1, 3, 5] as const;
-
-// Validates the indicators written in MDX and computes their values from the candles.
-function resolveIndicators(
-  input: IndicatorsInput | undefined,
-  candles: Candle[],
-  chartLabel: string,
-): ChartIndicators {
-  const result = indicatorsSchema.safeParse(input ?? {});
-  if (!result.success) {
-    throw new Error(
-      `Invalid indicators in <CandleChart label="${chartLabel}">:\n${z.prettifyError(result.error)}`,
-    );
-  }
-  const {
-    sma: smaPeriods,
-    ema: emaPeriods,
-    rsi: withRsi,
-    volume,
-    atr: withAtr,
-  } = result.data;
-
-  const averages = [
-    ...smaPeriods.map((period) => ({
-      label: `SMA ${period}`,
-      points: sma(candles, period),
-    })),
-    ...emaPeriods.map((period) => ({
-      label: `EMA ${period}`,
-      points: ema(candles, period),
-    })),
-  ];
-
-  let volumeBars: ChartIndicators["volume"];
-  if (volume) {
-    volumeBars = candles.map((candle) => {
-      if (candle.volume === undefined) {
-        throw new Error(
-          `Invalid indicators in <CandleChart label="${chartLabel}">: the data has no volume – fetch it again with yarn content:fetch-candles`,
-        );
-      }
-      return {
-        time: candle.time,
-        value: candle.volume,
-        up: candle.close >= candle.open,
-      };
-    });
-  }
-
-  return {
-    lines: averages.map((average, index) => ({
-      ...average,
-      color: LINE_COLORS[index] ?? 1,
-    })),
-    volume: volumeBars,
-    rsi: withRsi ? rsi(candles) : undefined,
-    atr: withAtr ? atrPercent(candles) : undefined,
-  };
-}
+// Swatch next to each line in the legend – the same token as the line.
+const LINE_SWATCH: Record<ChartToken, string> = {
+  "--chart-1": "bg-chart-1",
+  "--chart-2": "bg-chart-2",
+  "--chart-3": "bg-chart-3",
+  "--chart-4": "bg-chart-4",
+  "--chart-5": "bg-chart-5",
+  "--bull": "bg-bull",
+  "--bear": "bg-bear",
+};
 
 // Validates the annotations written in MDX and prepares them for drawing.
 // An invalid annotation throws, which stops `yarn build` with the chart label in the message.

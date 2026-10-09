@@ -162,13 +162,27 @@
         "low": "Minimum"
       },
       "zone": "Zvýrazněné období",
-      "volume": "Objem (panel pod grafem)",
-      "rsi": "RSI 14 (panel pod grafem, čáry 30 a 70)",
       "zoomIn": "Přiblížit graf",
       "zoomOut": "Oddálit graf",
       "zoomReset": "Zobrazit celý graf",
-      "atr": "ATR 14 – průměrné rozpětí v % ceny (panel pod grafem)",
-      "logarithmic": "Logaritmická osa: stejná vzdálenost = stejná změna v procentech"
+      "logarithmic": "Logaritmická osa: stejná vzdálenost = stejná změna v procentech",
+      "legend": {
+        "bollinger": "Bollingerova pásma 20, 2 (prostřední čára je SMA 20)",
+        "vwap": "VWAP – průměrná cena vážená objemem, od půlnoci UTC",
+        "sar": "Parabolic SAR 0,02 / 0,2 – zelené tečky pod cenou, červené nad ní",
+        "supertrend": "Supertrend 10, 3 – zelená pod cenou, červená nad ní",
+        "volume": "Objem (panel pod grafem)",
+        "rsi": "RSI 14 (panel pod grafem, čáry 30 a 70)",
+        "atr": "ATR 14 – průměrné rozpětí v % ceny (panel pod grafem)",
+        "macd": "MACD 12, 26, 9 (panel pod grafem: MACD modře, signál žlutě, histogram)",
+        "stochRsi": "StochRSI 14, 14, 3, 3 (panel pod grafem: %K modře, %D žlutě, čáry 20 a 80)",
+        "stochastic": "Stochastic 14, 1, 3 (panel pod grafem: %K modře, %D žlutě, čáry 20 a 80)",
+        "kdj": "KDJ 9, 3, 3 (panel pod grafem: K modře, D žlutě, J fialově, čáry 20 a 80)",
+        "williamsR": "Williams %R 14 (panel pod grafem, čáry −20 a −80)",
+        "cci": "CCI 20 (panel pod grafem, čáry +100 a −100)",
+        "obv": "OBV – kumulovaný objem (panel pod grafem)",
+        "mfi": "MFI 14 (panel pod grafem, čáry 20 a 80)"
+      }
     },
     "pattern": {
       "doji": {
