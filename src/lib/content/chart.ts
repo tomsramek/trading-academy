@@ -85,7 +85,7 @@ export const indicatorsSchema = z
     wma: z.array(period).max(3).default([]),
     // Over the candles, with Binance's default settings.
     bollinger: z.boolean().default(false),
-    // Restarts every day at 00:00 UTC – meant for hourly and shorter charts.
+    // Over the last 14 candles, as on Binance.
     vwap: z.boolean().default(false),
     sar: z.boolean().default(false),
     supertrend: z.boolean().default(false),

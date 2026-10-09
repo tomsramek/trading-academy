@@ -168,7 +168,7 @@
       "logarithmic": "Logarithmic axis: equal distance = equal percentage change",
       "legend": {
         "bollinger": "Bollinger Bands 20, 2 (the middle line is SMA 20)",
-        "vwap": "VWAP – volume-weighted average price, from midnight UTC",
+        "vwap": "VWAP 14 – volume-weighted average price over the last 14 candles",
         "sar": "Parabolic SAR 0.02 / 0.2 – green dots below the price, red above it",
         "supertrend": "Supertrend 10, 3 – green below the price, red above it",
         "volume": "Volume (panel below the chart)",

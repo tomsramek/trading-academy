@@ -240,27 +240,28 @@ export function bollinger(candles: Closes, period = 20, multiplier = 2) {
   };
 }
 
-const DAY = 86_400;
-
 /**
- * Volume-weighted average price, restarted every day at 00:00 UTC: the average price paid that day,
- * each trade weighted by its size. Made for intraday charts – on a daily chart every candle is its
- * own day, so the line is just the candle's typical price.
+ * Volume-weighted average price over the last `period` candles: the average price paid, each trade
+ * weighted by its size. Binance computes it over a rolling window (14 by default); some platforms
+ * restart it every day instead.
  */
-export function vwap(candles: OhlcVolume[]): IndicatorPoint[] {
-  let day = -1;
-  let priceVolume = 0;
-  let volume = 0;
-  const values = candles.map((candle) => {
-    const candleDay = Math.floor(candle.time / DAY);
-    if (candleDay !== day) {
-      day = candleDay;
-      priceVolume = 0;
-      volume = 0;
+export function vwap(candles: OhlcVolume[], period = 14): IndicatorPoint[] {
+  const values = candles.map((_, index) => {
+    if (index < period - 1) {
+      return undefined;
     }
-    priceVolume += typicalPrice(candle) * candle.volume;
-    volume += candle.volume;
-    return volume === 0 ? typicalPrice(candle) : priceVolume / volume;
+    const window = candles.slice(index - period + 1, index + 1);
+    const volume = window.reduce((sum, candle) => sum + candle.volume, 0);
+    const paid = window.reduce(
+      (sum, candle) => sum + typicalPrice(candle) * candle.volume,
+      0,
+    );
+    const last = window.at(-1);
+    if (volume === 0 && last) {
+      // No trades in the window – the last candle's typical price is all there is.
+      return typicalPrice(last);
+    }
+    return paid / volume;
   });
   return toPoints(candles, values);
 }
