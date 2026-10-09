@@ -109,6 +109,32 @@ Turn the others on once you know what you need them for. How to use indicators i
   that can contradict each other.
 </Callout>
 
+## Try it yourself
+
+Why 7, 25 and 99? Move the period of the moving average and watch how often the price crosses it. A short
+average hugs the price and gives lots of signals; a long one is calm and late.
+
+<IndicatorPeriod
+  data={btc}
+  indicator="sma"
+  min={3}
+  max={100}
+  value={25}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with a moving average whose period you change with a slider"
+/>
+
+Now try it on the chart yourself:
+
+<ChartQuiz
+  data={btc}
+  from="2024-07-01"
+  question="Click the candle where the fast MA 7 (blue) crossed the slower MA 25 (yellow) from below."
+  answer={["2024-07-15", "2024-07-17"]}
+  explanation="MA 7 got above MA 25 only on 16 July 2024 – when the price had already risen from the low of 53,486 (5 July) to 65,000. Averages always confirm a move late."
+  indicators={{ sma: [7, 25] }}
+  label="Quiz: find the crossing of MA 7 and MA 25 on the daily Bitcoin chart in July 2024"
+/>
+
 ## Common myths
 
 - **"The more indicators, the more accurate the signal."** Most measure the same thing with a different

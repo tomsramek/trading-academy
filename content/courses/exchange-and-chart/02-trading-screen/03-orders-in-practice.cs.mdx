@@ -12,6 +12,7 @@ export const metadata = {
 - vyplníš limitní, tržní a stop-limit příkaz krok za krokem
 - pochopíš, jak spolu souvisí pole Cena, Množství a Celkem
 - vyhneš se chybám, které stojí začátečníky nejvíc
+- vyzkoušíš si příkazy i nejdražší chyby na cvičném panelu
 
 </Callout>
 
@@ -25,6 +26,13 @@ stát hodně peněz. Profesor Knot proto radí: pomalu, a dvakrát se podívat, 
   src={panel}
   alt="Panel příkazů na Binance se záložkami Spot, Cross, Isolated a Grid, typy příkazů Limit, Market a Stop Limit, poli Price a Amount a posuvníkem procent; vlevo nákup, vpravo prodej"
   caption="Panel příkazů na Binance (8. 10. 2026): nahoře Spot; Cross a Isolated jsou obchody na marži, Grid je obchodní bot. Pod nimi Limit, Market a Stop Limit, vlevo nákup, vpravo prodej. Bez přihlášení jsou místo tlačítek Buy a Sell tlačítka Log In."
+/>
+
+<Video
+  src="/videos/binance-order-form.mp4"
+  poster="/videos/binance-order-form.webp"
+  label="Video: v panelu příkazů na Binance se vyplní limitní nákup za 80 000 a 0,001 BTC, pak se přepne na Market a nakonec na Stop Limit s prodejem: stop 78 000, limit 77 500"
+  caption="Video (34 s): limitní nákup (cena 80 000, množství 0,001 BTC), záložka Market – místo ceny je tam pole Total – a prodejní stop-limit se stopem 78 000 a limitem 77 500. Bez přihlášení se nic neodešle (9. 10. 2026)."
 />
 
 ## Limitní příkaz: „koupím, až to bude za tolik“
@@ -68,6 +76,18 @@ Máš bitcoin koupený za 60 000 a chceš ho prodat, kdyby cena spadla pod 55 00
   Většina burz před odesláním ukáže souhrn: cenu, množství, celkovou částku a
   poplatek. Přečti si ho. Je to poslední chvíle, kdy jde chyba zadarmo opravit.
 </Callout>
+
+## Vyzkoušej si to
+
+Cvičný panel níže je simulace: žádná burza, žádné skutečné peníze. Kniha objednávek je u ceny schválně
+tenká, aby bylo vidět, co dělá velký tržní příkaz. Zkus:
+
+1. **Limitní nákup za 58 000.** Kam se příkaz zařadí a co se stane s tvým zůstatkem?
+2. **Prodej za 5 800 místo 58 000.** Co ti řekne náhled před potvrzením?
+3. **Tržní nákup 0,03 BTC.** Kolika cenovými úrovněmi knihy projde a jaký bude skluz?
+4. **Stop-limit pro prodej se stopem i limitem 55 000.** Proč tě simulátor varuje?
+
+<OrderSimulator label="Cvičný panel příkazů: trh BTC/EUR s knihou objednávek, formulářem a náhledem před potvrzením" />
 
 ## Časté omyly
 

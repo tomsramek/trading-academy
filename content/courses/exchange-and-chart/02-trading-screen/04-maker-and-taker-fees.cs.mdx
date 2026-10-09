@@ -10,6 +10,7 @@ export const metadata = {
 - pochopíš, kdy jsi maker a kdy taker
 - naučíš se číst ceník burzy
 - zjistíš, proč se vyplatí vybírat kryptoměny méně často
+- na cvičném panelu uvidíš, kdy platíš poplatek maker a kdy taker
 
 </Callout>
 
@@ -57,6 +58,17 @@ ne procento. Pevný poplatek odpovídající třeba 2 eurům je u výběru 20 eu
   poplatkem stojí víc než jeden promyšlený s vyšším. Nejlevnější obchod je ten,
   který neuděláš.
 </Callout>
+
+## Vyzkoušej: maker, nebo taker?
+
+V cvičném panelu jsou stejné poplatky jako v tabulce výše: maker 0,10 %, taker 0,20 %. Poslední cena je
+60 000 eur.
+
+1. Zadej **limitní nákup za 59 000**. Příkaz čeká v knize – až se provede, budeš maker.
+2. Zadej **limitní nákup za 60 100**. Provede se hned za nabídky z knihy – jsi taker, i když je to limit.
+3. Zadej **tržní nákup**. Náhled ti ukáže poplatek taker v eurech.
+
+<OrderSimulator label="Cvičný panel příkazů pro porovnání poplatků maker a taker" />
 
 ## Časté omyly
 
