@@ -1,0 +1,103 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Objem: VOL",
+  slug: "objem-vol",
+  description:
+    "Co znamená sloupec objemu pod svíčkou, k čemu jsou na Binance dvě čáry MAVOL 7 a 14, jak objem potvrzuje průlomy a proč objem jedné burzy není objem celého trhu.",
+};
+
+<Callout title="V této lekci">
+
+- zjistíš, co přesně ukazuje jeden sloupec objemu
+- zapneš a nastavíš VOL na Binance včetně průměrů MAVOL
+- naučíš se poznat pohyb, za kterým stojí dav – a pohyb, za kterým nestojí nikdo
+
+</Callout>
+
+Cena ti řekne, kam se trh pohnul. Objem ti řekne, kolik lidí u toho bylo. Je to rozdíl mezi zprávou
+„na náměstí se něco děje“ a fotkou, na které je vidět, jestli tam stojí tři lidi, nebo třicet tisíc.
+Profesor Knot má na objem jednoduché pravidlo: nejdřív se podívej, kdo za tím pohybem stojí.
+
+<Illustration name="volumeCrowd" />
+
+## Co je jeden sloupec
+
+Takzvaný <KeyTerm term="volume">objem</KeyTerm> je množství, které se v dané svíčce
+zobchodovalo. Na Binance u páru BTC/USDT se počítá v bitcoinech: sloupec 40 000
+pod denní svíčkou znamená, že se ten den na této burze vyměnilo 40 000 BTC.
+Každý obchod má kupujícího i prodávajícího, takže objem neříká, jestli víc lidí
+kupovalo, nebo prodávalo – jen kolik se obchodovalo.
+
+Barva sloupce jen kopíruje svíčku: zelený pod svíčkou, která zavřela výš, než otevřela, červený pod tou,
+která zavřela níž.
+
+## VOL na Binance
+
+V režimu Original otevři ikonku indikátorů nad grafem a záložku **Sub Indicator**. **VOL** bývá zapnutý
+hned po otevření grafu. V jeho nastavení jsou dvě čáry: **MAVOL1 = 7** a **MAVOL2 = 14**. Binance je
+popisuje jako sečtení objemu za dané období a vydělení počtem svíček – tedy obyčejný <KeyTerm term="moving-average">klouzavý průměr</KeyTerm>, jen z objemu místo z ceny.
+
+<Video
+  src="/videos/binance-ind-vol.mp4"
+  poster="/videos/binance-ind-vol.webp"
+  label="Video: na Binance se otevře dialog indikátorů, záložka Sub Indicator, a zobrazí se nastavení VOL s průměry objemu MAVOL1 = 7 a MAVOL2 = 14"
+  caption="Video (22 s): nastavení VOL v záložce Sub Indicator – dva průměry objemu, MAVOL 7 a 14 (Binance, 9. 10. 2026)."
+/>
+
+Průměry objemu odpovídají na otázku, jestli je dnešní sloupec **neobvykle** vysoký. Sloupec nad oběma
+čarami znamená, že se dnes obchodovalo víc než v posledních dnech.
+
+## Kdy je objem důležitý
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s klouzavým průměrem 25 dní a objemem v panelu pod grafem; nejvyšší sloupce jsou 5. března a 5. srpna 2024"
+  caption="Objem je většinu času nenápadný. Vyskočí ve chvílích, kdy se trh rozhoduje – 5. 3. 2024, 5. 8. 2024 nebo po 6. 11. 2024."
+  indicators={{ sma: [25], volume: true }}
+  markers={[
+    { time: "2024-03-05", kind: "event", label: "5. 3." },
+    { time: "2024-08-05", kind: "event", label: "5. 8." },
+    { time: "2024-11-06", kind: "event", label: "6. 11." },
+  ]}
+/>
+
+Tři příklady z grafu:
+
+- **5. března 2024** cena otevřela na 68 246, spadla až na 59 005 a zavřela na 63 724. Zobchodovalo se
+  132 697 BTC – asi **2,9× víc** než průměr předchozích 20 dní (46 120 BTC). Pád i odraz měly za sebou dav.
+- **5. srpna 2024** byl objem nejvyšší za celé období: 162 066 BTC, skoro **6× víc** než průměr
+  předchozích 20 dní (28 032 BTC). Cena ten den spadla z 58 161 na 54 019.
+- **6. listopadu 2024** cena vyskočila z 69 372 na 75 572 a prorazila nad dosavadní maxima. Objem
+  104 127 BTC byl asi **4× vyšší** než průměr. Průlom s davem za zády.
+
+Obecně platí: průlom přes důležitou úroveň s vysokým objemem je přesvědčivější než průlom, kterého si
+skoro nikdo nevšiml. A pohyb na nízkém objemu se snáz vrátí. Víc o tom v lekci
+[Objem: potvrzení pohybu](/kurzy/obchodovani-podle-planu/objem).
+
+## Objem jedné burzy není celý trh
+
+Binance ukazuje jen obchody na Binance. Bitcoin se obchoduje na desítkách burz a objem se mezi nimi liší
+– i podle toho, kde zrovna běží akce na nulové poplatky. Proto porovnávej objem **v čase na stejné
+burze**, ne čísla z různých burz mezi sebou.
+
+<Callout type="warning" title="Objem neříká směr">
+  Vysoký objem znamená, že se hodně obchodovalo – ne že se hodně nakupovalo. Ke
+  každému nákupu patří prodej. Velký zelený sloupec po dlouhém růstu může být
+  stejně dobře nadšení jako výprodej těch, kdo vybírají zisky.
+</Callout>
+
+## Časté omyly
+
+- **„Zelený sloupec = kupovali víc lidí.“** Barva jen kopíruje svíčku. Kupujících a prodávajících je vždy stejně.
+- **„Vysoký objem = cena půjde dál stejným směrem.“** Vrchol objemu často přichází na konci pohybu – při panice nebo euforii.
+- **„Objem z jedné burzy je objem bitcoinu.“** Je to objem té jedné burzy. Porovnávej ho jen se sebou samým.
+
+<Callout title="Shrnutí">
+
+- Sloupec objemu = kolik se v dané svíčce zobchodovalo (u BTC/USDT v bitcoinech); barva kopíruje svíčku.
+- Na Binance je VOL v záložce Sub Indicator s průměry MAVOL 7 a 14.
+- Objem nad průměrem ukazuje, kdy se trh rozhoduje: 5. 3. 2024 byl 2,9×, 5. 8. 2024 skoro 6× nad průměrem.
+- Objem neříká směr a objem jedné burzy není celý trh.
+
+</Callout>

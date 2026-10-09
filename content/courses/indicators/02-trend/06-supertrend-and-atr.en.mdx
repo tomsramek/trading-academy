@@ -1,0 +1,111 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Supertrend and ATR",
+  description:
+    "ATR measures how big a move is normal for the market. Supertrend builds a line from it below or above the price that only moves with the trend. How both are computed and how to set Supertrend on Binance.",
+};
+
+<Callout title="In this lesson">
+
+- compute the true range and ATR step by step
+- understand how the Supertrend line is built from ATR
+- see when Supertrend flips, and switch it on in Binance
+
+</Callout>
+
+Supertrend is a handrail on a staircase: in a rise it runs below the price and only moves up, never
+down. As long as the price holds on to it, you can keep climbing. When the price drops through it, the
+handrail moves above it. Professor Wick says it is the most honest line in the menu – it never backs
+down.
+
+<Illustration name="supertrendRail" />
+
+## ATR: how big a normal move is
+
+Before we get to Supertrend we need its engine – <KeyTerm term="atr">ATR</KeyTerm> (average true range).
+A candle's true range is the **largest** of three numbers:
+
+- the candle's high − low,
+- the jump up from yesterday's close (high − yesterday's close),
+- the jump down from yesterday's close (yesterday's close − low).
+
+Thanks to the jumps, gaps between candles count too. ATR is then Wilder's average of the true ranges over
+N candles: every day 1/N of the new range is added to it. Go through it:
+
+<IndicatorSteps
+  data={btc}
+  indicator="atr"
+  from="2024-02-25"
+  label="Computing ATR 14 in USDT on the daily Bitcoin chart from late February 2024, step by step"
+/>
+
+ATR has price units, so for Bitcoin at 60,000 it comes out differently than at 20,000. In this course's
+charts we therefore also show it as a percentage of the price: on 10 June 2024 ATR 14 was only 2.8% of
+the price, on 5 August 2024, during the fall to 49,000, already 5.8%. Move the period:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="atr"
+  min={3}
+  max={60}
+  value={14}
+  label="Daily Bitcoin chart with ATR as a percentage of the price, whose period you change with a slider"
+/>
+
+## Supertrend: a handrail made of ATR
+
+The <KeyTerm term="supertrend">Supertrend</KeyTerm> takes the middle of the candle,
+(high + low) / 2, and subtracts or adds a multiple of ATR – on Binance **3 × ATR
+10**:
+
+- **in a rise** the line lies 3 ATR below the middle of the candle and moves **only up**,
+- **in a fall** it lies 3 ATR above it and moves **only down**,
+- when the **close** crosses the line, the trend flips and the line jumps to the other side.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with Supertrend 10, 3 over the candles and ATR 14 in percent below the chart"
+  caption="Supertrend 10, 3 (green below the price, red above it) and ATR 14 as a percentage of the price below the chart. In 2024 Supertrend flipped 11 times; the last flip down came on 23 Dec 2024."
+  indicators={{ supertrend: true, atr: true }}
+/>
+
+Notice that when the market is wild (ATR high), the handrail is further from the price and survives
+bigger swings. In a calm market it comes closer and a smaller move is enough.
+
+## On Binance
+
+**Original** mode → indicator icon → **Main Indicator** → **SUPER**. You set the ATR length (ATR Length,
+default 10), the multiplier (Factor, default 3), the colours for up and down and the background fill.
+ATR itself is not in Binance's menu – it lives inside Supertrend:
+
+<Video
+  src="/videos/binance-ind-super.mp4"
+  poster="/videos/binance-ind-super.webp"
+  label="Video: in Binance's indicator dialog MA is switched off and SUPER is ticked with ATR Length 10 and Factor 3; after saving a filled green line runs below the candles"
+  caption="Video (22 s): MA off, SUPER on (ATR Length 10, Factor 3), Save (Binance, 9 Oct 2026)."
+/>
+
+A higher Factor gives the handrail more room – fewer flips, a later exit. A lower one pulls it in – more
+flips.
+
+<Callout type="warning" title="Supertrend flips only after the move">
+  Supertrend flips only when the close crosses a line several ATRs away. That
+  means an exit based on it comes only after a fall of several "normal" daily
+  moves. In a sideways market it flips often, and late every time.
+</Callout>
+
+## Common myths
+
+- **"A green Supertrend = the price will rise."** Green only means the line below the price has not been crossed yet.
+- **"ATR shows the direction."** ATR measures the size of a move, not its direction – it rises in a crash and in a rocket rally alike.
+- **"Supertrend is never wrong because it never backs down."** It does not back down, but it can flip – and in a chop it flips often.
+
+<Callout title="Summary">
+
+- True range = the largest of (high − low, jump up, jump down); ATR is its Wilder average.
+- Supertrend = middle of the candle ∓ 3 × ATR 10; it moves only with the trend.
+- It flips when the close crosses the line.
+- On Binance: Original → indicator icon → Main Indicator → SUPER (10, 3).
+
+</Callout>

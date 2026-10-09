@@ -1,0 +1,103 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "MACD: two trains and the gap between them",
+  description:
+    "MACD is the difference of a fast and a slow EMA, plus a signal line and a histogram. How 12, 26, 9 is computed, how to switch it on on Binance, what a cross with the signal line means – and why bitcoin made 28 of them in a year.",
+};
+
+<Callout title="In this lesson">
+
+- compute MACD, the signal line and the histogram step by step
+- switch on MACD 12, 26, 9 on Binance and read its panel
+- see how many crosses are real signals and how many are noise
+
+</Callout>
+
+Two trains run in the same direction: a fast one and a slow one. When the fast one pulls away, the gap
+grows – the trend is speeding up. When the slow one catches up, the gap shrinks. <KeyTerm term="macd">MACD</KeyTerm> measures exactly that gap. Professor Wick stands on the platform and
+announces: "Mind the gap."
+
+<Illustration name="twoTrains" />
+
+## How it is computed
+
+MACD stands on two <KeyTerm term="ema">exponential moving averages</KeyTerm> of the closing price:
+
+1. **MACD** = EMA 12 − EMA 26. A positive number: the fast average is above the slow one, the market has
+   sped up upwards recently.
+2. **Signal line** = EMA 9 of the MACD values – a smoothed version of the first line.
+3. **Histogram** = MACD − signal line. The bars show whether the gap is growing or shrinking.
+
+That is why MACD is drawn in a panel like an oscillator, even though it is made from averages. Walk
+through it:
+
+<IndicatorSteps
+  data={btc}
+  indicator="macd"
+  from="2024-07-01"
+  label="Computing MACD 12, 26, 9 on the daily Bitcoin chart from July 2024, step by step"
+/>
+
+## Where to find it on Binance
+
+In **Original** mode: the indicator icon, the **Sub Indicator** tab, tick **MACD**, **Save**. The legend
+shows **MACD(12, 26, 9)**, and both lines with the histogram appear below the chart.
+
+<Video
+  src="/videos/binance-ind-macd.mp4"
+  poster="/videos/binance-ind-macd.webp"
+  label="Video: on Binance MACD is ticked on the Sub Indicator tab, and after saving a MACD panel with two lines and a histogram appears below the chart"
+  caption="Video (20 s): switching on MACD on Binance – Sub Indicator, MACD 12, 26, 9, Save (Binance, 9 Oct 2026)."
+/>
+
+On the chart below both trains run right over the candles (EMA 12 and EMA 26) and their gap is in the
+panel below:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with EMA 12 and EMA 26 over the candles and MACD 12, 26, 9 in a panel below"
+  caption="EMA 12 (blue) and EMA 26 (yellow) over the candles; below, MACD (blue), the signal line (yellow) and the histogram. When the averages drift apart, the histogram grows."
+  indicators={{ ema: [12, 26], macd: true }}
+/>
+
+## Crosses: signal or noise?
+
+The best-known use: MACD crosses the signal line from below (bullish) or from above (bearish). On
+12 July 2024 MACD rose above the signal line with a close of 57,889, and on 29 July the price was at
+66,785. Nice. But over the period shown – about 13 months – MACD crossed the signal line **28 times**.
+Some crosses came within a day or two of each other (11 and 12 May, 26 and 28 October).
+
+<ChartQuiz
+  data={btc}
+  from="2024-06-25"
+  question="Click the candle on which MACD (blue) crossed the signal line (yellow) from below."
+  answer={["2024-07-11", "2024-07-13"]}
+  explanation="On 12 July 2024 MACD rose from −2,072 above the signal line (−2,083). The price closed at 57,889 then and climbed above 66,000 by the end of the month – but not every cross ends like this."
+  indicators={{ panel: "macd" }}
+  label="Quiz: find the bullish cross of MACD and its signal line on the daily Bitcoin chart in July 2024"
+/>
+
+A cross always comes **after** the move – MACD is built from averages, and they lag. In a market without
+a trend the lines intertwine and every cross is just more noise.
+
+<Callout type="warning" title="28 crosses are not 28 trades">
+  Anyone trading every MACD cross without another filter would pay fees and
+  slippage for dozens of false signals. A cross is information about a change of
+  pace, not an order to buy or sell.
+</Callout>
+
+## Common myths
+
+- **"MACD predicts a reversal."** It confirms one – and late, because it stands on averages.
+- **"MACD above zero = buy."** It only means EMA 12 is above EMA 26.
+- **"The histogram is volume."** The histogram is the difference of MACD and the signal line; it has nothing to do with volume.
+
+<Callout title="Summary">
+
+- MACD = EMA 12 − EMA 26; signal line = EMA 9 of MACD; histogram = their difference.
+- On Binance MACD(12, 26, 9) is under the Sub Indicator tab.
+- A cross with the signal line shows a change of pace – always late.
+- 28 crosses in 13 months: without context most of them are noise.
+
+</Callout>

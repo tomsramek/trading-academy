@@ -1,0 +1,83 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Co je indikátor",
+  slug: "co-je-indikator",
+  description:
+    "Indikátor je vzorec, který ze svíček spočítá čáru. Proč vždycky trochu zaostává za cenou, proč se jeho poslední hodnota hýbe, dokud se svíčka nezavře, a co od něj čekat a co ne.",
+};
+
+<Callout title="V této lekci">
+
+- uvidíš, jak indikátor vzniká ze svíček – krok za krokem
+- pochopíš, proč každý indikátor zaostává za cenou
+- zjistíš, co je překreslování a proč poslední svíčka lže
+
+</Callout>
+
+V menu grafu je přes dvacet indikátorů a každý vypadá jako tajná zbraň. Dobrá zpráva: žádný z nich není
+kouzlo. Každý je obyčejný recept – vezme pár posledních svíček, něco s jejich cenami spočítá a nakreslí
+výsledek jako čáru. Profesor Knot tomu říká kuchařka: svíčky dovnitř, čára ven.
+
+<Illustration name="candleRecipe" />
+
+## Recept na čáru
+
+Nejjednodušší indikátor je <KeyTerm term="moving-average">klouzavý průměr</KeyTerm>: sečti zavírací
+ceny posledních N svíček a vyděl je N. Výsledek je jeden bod. Pak se okno posune o svíčku a počítá se
+znovu. Bod po bodu vznikne čára. Klikej na **Další** a sleduj, jak čára roste:
+
+<IndicatorSteps
+  data={btc}
+  indicator="sma"
+  period={5}
+  from="2024-02-20"
+  label="Výpočet prostého klouzavého průměru 5 svíček na denním grafu bitcoinu od února 2024, krok za krokem"
+/>
+
+Všimni si dvou věcí. Čára vzniká jen z **minulých** svíček – žádná informace o zítřku v ní není. A je
+**hladší** než cena: jeden divoký den se v průměru pěti dnů rozpustí.
+
+## Každý indikátor zaostává
+
+Protože průměr počítá i se staršími svíčkami, otočí se až poté, co se otočí cena. Říká se tomu zpoždění
+(anglicky lag). Čím víc svíček indikátor bere, tím je hladší – a tím víc zaostává:
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s klouzavými průměry 7 a 50 dní; průměr 50 dní se otáčí znatelně později"
+  caption="SMA 7 (modrá) se drží těsně u ceny, SMA 50 (žlutá) se otáčí o týdny později. Hladkost a rychlost nejdou mít zároveň."
+  indicators={{ sma: [7, 50] }}
+/>
+
+To není chyba, to je cena za hladkost. Rychlý indikátor dá signál brzy, ale často planý. Pomalý se
+splete méně, ale přijde pozdě. Celý tenhle kurz se k tomu bude vracet.
+
+## Překreslování: poslední svíčka lže
+
+Poslední svíčka na grafu ještě není hotová – cena se v ní pořád hýbe. A s ní se hýbe i poslední hodnota
+každého indikátoru. Signál, který vidíš uprostřed dne, může do půlnoci zmizet. Tomu se říká <KeyTerm term="repainting">překreslování</KeyTerm>.
+
+Běžné indikátory z menu burzy už **uzavřenou** svíčku nepřepisují. Pravidlo je proto jednoduché: signál
+platí, až když se svíčka zavře.
+
+<Callout type="warning" title="Indikátor nevidí budoucnost">
+  Indikátor je jiný pohled na stejné minulé ceny. Nepřidává žádnou novou
+  informaci a neví, co cena udělá zítra. Může ti pomoct uspořádat graf a hlídat
+  pravidla – ne předpovídat.
+</Callout>
+
+## Časté omyly
+
+- **„Indikátor ví něco, co cena ne.“** Počítá se jen z ceny (a případně objemu). Je to jiná brýle, ne jiný svět.
+- **„Rychlejší indikátor je lepší.“** Je rychlejší – a víc se plete. Pomalejší je klidnější – a pozdější.
+- **„Signál na rozjeté svíčce platí.“** Platí až po zavření svíčky. Do té doby se může změnit.
+
+<Callout title="Shrnutí">
+
+- Indikátor je vzorec: ze svíček spočítá bod, posune se o svíčku a počítá znovu.
+- Počítá se jen z minulosti, proto vždy zaostává za cenou.
+- Delší perioda = hladší čára a větší zpoždění.
+- Poslední, nedokončená svíčka se překresluje; signál platí po jejím zavření.
+
+</Callout>

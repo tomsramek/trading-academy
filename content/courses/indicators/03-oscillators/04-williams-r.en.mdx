@@ -1,0 +1,88 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Williams %R: the stochastic upside down",
+  description:
+    "Williams %R measures the same as the stochastic, just on a scale from 0 to −100. How it is computed, how to switch it on on Binance, why its levels are −20 and −80 and why next to the stochastic it says nothing new.",
+};
+
+<Callout title="In this lesson">
+
+- compute Williams %R and recognise the flipped stochastic in it
+- switch it on on Binance and make sense of the negative numbers
+- see why two "different" oscillators draw the same line
+
+</Callout>
+
+Larry Williams took the stochastic, turned it upside down and gave it negative numbers. The result is
+called <KeyTerm term="williams-r">Williams %R</KeyTerm>, and on Binance you find it as **WR**. Professor
+Wick studies it hanging by his feet – he says it is clearer that way.
+
+<Illustration name="upsideDown" />
+
+## How it is computed
+
+1. Find the highest high and the lowest low of the last 14 candles.
+2. %R = (high − close) / (high − low) × (−100).
+
+When the price closes at the high of the range, %R is **0**. At the low it is **−100**. The levels are
+therefore written as negatives: above **−20** the close is near the top of the range (like the
+stochastic above 80), below **−80** near the bottom (like below 20).
+
+And here is the punchline: %R + 100 = the unsmoothed stochastic %K. It is exactly the same number,
+shifted by a hundred. On the last day of our data %R was −86.4 and the stochastic 13.6.
+
+## Where to find it on Binance
+
+In **Original** mode: the indicator icon, the **Sub Indicator** tab, tick **WR**, **Save**. The legend
+in the panel shows **Wm %R(14)** – a period of 14 candles.
+
+<Video
+  src="/videos/binance-ind-wr.mp4"
+  poster="/videos/binance-ind-wr.webp"
+  label="Video: on Binance WR is ticked on the Sub Indicator tab, and after saving a Williams %R panel with a scale from 0 to −100 appears below the chart"
+  caption="Video (20 s): switching on Williams %R on Binance – Sub Indicator, WR 14, Save (Binance, 9 Oct 2026)."
+/>
+
+## Twins
+
+Put %R and the stochastic one under the other and you see the same shape – just labelled differently
+and smoothed a little differently:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with the stochastic oscillator and Williams %R in two panels below"
+  caption="Top: the stochastic (levels 80 and 20), bottom: Williams %R (levels −20 and −80). Same peaks, same troughs – one piece of information twice."
+  indicators={{ stochastic: true, williamsR: true }}
+/>
+
+Try the period. It behaves just like the stochastic – a short one jumps, a long one drags:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="williamsR"
+  min={3}
+  max={50}
+  label="Daily Bitcoin chart with Williams %R whose period you change with a slider"
+/>
+
+<Callout type="warning" title="Two oscillators, one piece of information">
+  Williams %R and the stochastic are not two independent confirmations. When
+  both agree on "oversold", you still know only one thing: the price is near the
+  bottom of the recent range. A second opinion only comes from another family.
+</Callout>
+
+## Common myths
+
+- **"−90 is terribly low, the market is dead."** It only means the close is near the low of the last 14 candles.
+- **"%R is better than the stochastic."** It is the same calculation with a different scale.
+- **"A negative number = the price is falling."** The whole scale is negative; −20 is near the top.
+
+<Callout title="Summary">
+
+- %R = (high − close) / (high − low) × (−100) over the last N candles.
+- 0 is at the high of the range, −100 at the low; the levels are −20 and −80.
+- %R + 100 = the unsmoothed stochastic %K.
+- On Binance it is WR, with the legend Wm %R(14).
+
+</Callout>

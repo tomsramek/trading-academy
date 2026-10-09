@@ -1,0 +1,106 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Volume: VOL",
+  description:
+    "What a volume bar under a candle means, what the two MAVOL 7 and 14 lines on Binance are for, how volume confirms breakouts and why one exchange's volume is not the whole market's.",
+};
+
+<Callout title="In this lesson">
+
+- find out what exactly one volume bar shows
+- switch on and set VOL on Binance, including the MAVOL averages
+- learn to tell a move with a crowd behind it from a move with nobody behind it
+
+</Callout>
+
+The price tells you where the market moved. Volume tells you how many people were there. It is the
+difference between the news "something is happening in the square" and a photo that shows whether three
+people stand there or thirty thousand. Professor Wick has a simple rule for volume: first look at who is
+behind the move.
+
+<Illustration name="volumeCrowd" />
+
+## What one bar is
+
+Trading <KeyTerm term="volume">volume</KeyTerm> is the amount traded in a given candle.
+On Binance, for the BTC/USDT pair it is counted in bitcoin: a bar of 40,000
+under a daily candle means 40,000 BTC changed hands on this exchange that day.
+Every trade has a buyer and a seller, so volume does not say whether more people
+bought or sold – only how much was traded.
+
+The colour of the bar just copies the candle: green under a candle that closed higher than it opened,
+red under one that closed lower.
+
+## VOL on Binance
+
+In Original mode, open the indicator icon above the chart and the **Sub Indicator** tab. **VOL** is
+usually on as soon as you open the chart. Its settings have two lines: **MAVOL1 = 7** and
+**MAVOL2 = 14**. Binance describes them as adding up the volume over a period and dividing by the number
+of candles – an ordinary <KeyTerm term="moving-average">moving average</KeyTerm>, just of volume instead
+of price.
+
+<Video
+  src="/videos/binance-ind-vol.mp4"
+  poster="/videos/binance-ind-vol.webp"
+  label="Video: on Binance the indicator dialog opens on the Sub Indicator tab and shows the VOL settings with the volume averages MAVOL1 = 7 and MAVOL2 = 14"
+  caption="Video (22 s): the VOL settings in the Sub Indicator tab – two volume averages, MAVOL 7 and 14 (Binance, 9 Oct 2026)."
+/>
+
+The volume averages answer whether today's bar is **unusually** high. A bar above both lines means
+more was traded today than in recent days.
+
+## When volume matters
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with a 25-day moving average and volume in a panel below the chart; the tallest bars are on 5 March and 5 August 2024"
+  caption="Volume is quiet most of the time. It jumps when the market is making up its mind – on 5 Mar 2024, 5 Aug 2024 or after 6 Nov 2024."
+  indicators={{ sma: [25], volume: true }}
+  markers={[
+    { time: "2024-03-05", kind: "event", label: "5 Mar" },
+    { time: "2024-08-05", kind: "event", label: "5 Aug" },
+    { time: "2024-11-06", kind: "event", label: "6 Nov" },
+  ]}
+/>
+
+Three examples from the chart:
+
+- **On 5 March 2024** the price opened at 68,246, fell as low as 59,005 and closed at 63,724. 132,697
+  BTC were traded – about **2.9 times** the average of the previous 20 days (46,120 BTC). Both the fall
+  and the bounce had a crowd behind them.
+- **On 5 August 2024** volume was the highest of the whole period: 162,066 BTC, almost **6 times** the
+  average of the previous 20 days (28,032 BTC). The price fell from 58,161 to 54,019 that day.
+- **On 6 November 2024** the price jumped from 69,372 to 75,572 and broke above the previous highs.
+  Volume of 104,127 BTC was about **4 times** the average. A breakout with a crowd behind it.
+
+In general: a breakout through an important level on high volume is more convincing than one hardly
+anyone noticed. And a move on low volume reverses more easily. More in the lesson
+[Volume: confirming the move](/courses/trading-with-a-plan/volume).
+
+## One exchange's volume is not the whole market
+
+Binance shows only trades on Binance. Bitcoin trades on dozens of exchanges and volume differs between
+them – even depending on where a zero-fee promotion is running. So compare volume **over time on the
+same exchange**, not numbers from different exchanges with each other.
+
+<Callout type="warning" title="Volume does not tell the direction">
+  High volume means a lot was traded – not that a lot was bought. Every purchase
+  has a sale on the other side. A big green bar after a long rise can just as
+  well be enthusiasm as people taking profits.
+</Callout>
+
+## Common myths
+
+- **"A green bar = more people bought."** The colour only copies the candle. There are always as many buyers as sellers.
+- **"High volume = the price will keep going the same way."** The volume peak often comes at the end of a move – in panic or euphoria.
+- **"Volume on one exchange is Bitcoin's volume."** It is that one exchange's volume. Compare it only with itself.
+
+<Callout title="Summary">
+
+- A volume bar = how much was traded in that candle (in bitcoin for BTC/USDT); the colour copies the candle.
+- On Binance, VOL is in the Sub Indicator tab with the MAVOL 7 and 14 averages.
+- Volume above its average shows when the market is deciding: 5 Mar 2024 was 2.9×, 5 Aug 2024 almost 6× the average.
+- Volume does not tell the direction, and one exchange's volume is not the whole market.
+
+</Callout>

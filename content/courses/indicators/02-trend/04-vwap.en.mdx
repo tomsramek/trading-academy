@@ -1,0 +1,98 @@
+import hourly from "@content/market-data/btcusdt-1h-2024-03-w2.json";
+
+export const metadata = {
+  title: "VWAP: the volume-weighted average price",
+  description:
+    "Why big trades have more say in the average price, how Binance computes VWAP (a window of 14 candles) and how others do (from the start of the day) and why it suits hourly and shorter charts.",
+};
+
+<Callout title="In this lesson">
+
+- see on three trades why VWAP is not an ordinary average
+- find out how Binance computes VWAP and how other platforms do
+- see VWAP on an hourly chart and switch it on in Binance
+
+</Callout>
+
+An ordinary average is like a vote where everyone has one voice. VWAP is a shareholders' vote: whoever
+brought more money decides more. Professor Wick protested for a while – then he found out that a whale
+with two bitcoins simply outvotes ten small traders with fractions.
+
+<Illustration name="vwapBalance" />
+
+## Three trades, two averages
+
+The <KeyTerm term="vwap">VWAP</KeyTerm> (volume-weighted average price) multiplies
+each price by how much was traded at it. Picture three trades:
+
+| Trade | Price  | Amount  | Price × amount |
+| ----- | ------ | ------- | -------------- |
+| 1     | 60,000 | 0.1 BTC | 6,000          |
+| 2     | 61,000 | 0.1 BTC | 6,100          |
+| 3     | 59,000 | 2 BTC   | 118,000        |
+
+- **Ordinary average:** (60,000 + 61,000 + 59,000) / 3 = **60,000**.
+- **VWAP:** (6,000 + 6,100 + 118,000) / 2.2 BTC = **59,136**.
+
+The big trade at 59,000 pulled VWAP almost all the way to itself. VWAP therefore answers: **how much,
+on average, did the people who actually traded pay?** On a chart, instead of individual trades it uses
+each candle's typical price (high + low + close) / 3 and its <KeyTerm term="volume">volume</KeyTerm>.
+
+## A window or a day?
+
+This is where platforms differ:
+
+- **Binance** computes VWAP from the last **14 candles** (the Length 14 setting) – the window moves like
+  a moving average's.
+- **Many other platforms** compute VWAP from the start of the day (session VWAP) and start again at
+  midnight.
+
+Both versions are honest; they just answer a different question: "what was paid over the last 14
+candles" versus "what was paid today". On a daily chart mainly the first makes sense – and even so,
+VWAP is at home on hourly and shorter charts.
+
+## On an hourly chart
+
+<CandleChart
+  data={hourly}
+  label="Hourly Bitcoin chart from 4 to 10 March 2024 with VWAP 14 over the candles and volume below the chart"
+  caption="VWAP 14 (yellow) on an hourly chart. On 5 March at 19:00 UTC, on the candle with the week's biggest volume, VWAP moved by 911 USDT in a single hour – big trades have a big say."
+  indicators={{ vwap: true, volume: true }}
+/>
+
+When the price is above VWAP, those who bought over the last 14 hours are on average in profit; below
+it, at a loss. That is why mainly short-term traders watch it as the "fair price" of the last few hours.
+
+## On Binance
+
+**Original** mode → indicator icon → **Main Indicator** → **VWAP**. It has one setting: the length
+(Length, default 14). In the video the chart switches to **1H**, MA is switched off and VWAP on:
+
+<Video
+  src="/videos/binance-ind-vwap.mp4"
+  poster="/videos/binance-ind-vwap.webp"
+  label="Video: on Binance's hourly chart MA is switched off in the indicator dialog and VWAP with length 14 is ticked; after saving a yellow VWAP line runs over the candles"
+  caption="Video (22 s): 1H chart, MA off, VWAP on (Length 14), Save (Binance, 9 Oct 2026)."
+/>
+
+<Callout type="warning" title="VWAP is not price support">
+  VWAP shows the average price at which people traded recently – nothing more.
+  The price can cross it back and forth several times a day. And since Binance
+  and others compute it differently, the same chart can show two different
+  "VWAP" lines.
+</Callout>
+
+## Common myths
+
+- **"VWAP is just another moving average."** An average counts every candle the same; VWAP counts by volume.
+- **"VWAP is the same everywhere."** Binance uses a window of 14 candles, other platforms start from zero every day.
+- **"VWAP suits a weekly chart."** On long timeframes it loses its meaning – it is a tool for hours, not months.
+
+<Callout title="Summary">
+
+- VWAP = sum of (typical price × volume) / sum of volume; big trades weigh more.
+- Binance computes VWAP from the last 14 candles, other platforms often from the start of the day.
+- It suits hourly and shorter charts best.
+- On Binance: Original → indicator icon → Main Indicator → VWAP (Length 14).
+
+</Callout>

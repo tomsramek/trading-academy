@@ -1,0 +1,98 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "CCI: how far from normal",
+  description:
+    "The Commodity Channel Index measures how far the price is from its average – in multiples of the usual deviation. How it is computed, why it has a period of 9 on Binance and 20 elsewhere, and what the ±100 levels mean.",
+};
+
+<Callout title="In this lesson">
+
+- compute CCI from the typical price, its average and the mean deviation
+- find out why Binance's Original mode has CCI 9 while elsewhere it is CCI 20
+- understand why CCI has no upper or lower limit
+
+</Callout>
+
+Stretch a rubber band from the average price. The further the price moves from the average, the more the
+band stretches – and that is exactly what <KeyTerm term="cci">CCI</KeyTerm> measures. Unlike RSI it has
+no ceiling: the band stretches to +300 just as well as to +100. Professor Wick advises not to stand
+right in front of it.
+
+<Illustration name="rubberBand" />
+
+## How it is computed
+
+1. The **typical price** of each candle = (high + low + close) / 3.
+2. Compute its average over the last N candles.
+3. Compute the **mean deviation**: how much the typical price differs from that average on average
+   (ignoring the sign).
+4. CCI = (typical price − average) / (0.015 × mean deviation).
+
+Its author Donald Lambert chose the 0.015 constant so that roughly 70–80% of values fall between −100
+and +100. That holds for "well-behaved" markets. Bitcoin is not well behaved: in 2023–2024 only about
+56% of CCI 20 values fell within ±100.
+
+## Where to find it on Binance
+
+In **Original** mode: the indicator icon, the **Sub Indicator** tab, tick **CCI**, **Save**. The legend
+shows **CCI(9)** – in this mode Binance's default period is 9. In Trading View mode and in most
+textbooks CCI 20 is used; the course charts draw the same.
+
+<Video
+  src="/videos/binance-ind-cci.mp4"
+  poster="/videos/binance-ind-cci.webp"
+  label="Video: on Binance CCI is ticked on the Sub Indicator tab, and after saving a CCI panel with a period of 9 appears below the chart"
+  caption="Video (20 s): switching on CCI on Binance – Sub Indicator, CCI, Save; legend CCI(9) (Binance, 9 Oct 2026)."
+/>
+
+## 9 or 20?
+
+The slider starts at a period of 9 as on Binance. Move it to 20 and compare how often the line breaks
+through ±100:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="cci"
+  min={5}
+  max={50}
+  value={9}
+  label="Daily Bitcoin chart with CCI whose period you change with a slider; it starts at a period of 9 as on Binance"
+/>
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with CCI 20 in a panel below and levels at +100 and −100"
+  caption="CCI 20 below the chart. Above +100 the price is unusually far above its average, below −100 unusually far below. It has no ceiling and no floor."
+  indicators={{ cci: true }}
+/>
+
+## How to read CCI
+
+- **Above +100**: the price has moved unusually far above the average. In a strong rise CCI can stay there a long time.
+- **Below −100**: the same downwards.
+- **Within ±100**: the price stays in its usual band around the average.
+
+Lambert invented CCI for commodities with cycles – hence "Commodity" in the name. On crypto it works like
+any oscillator: it describes how stretched a move is, not where it goes.
+
+<Callout type="warning" title="No ceiling, no certainty">
+  CCI +200 does not mean "now it has to fall". Strong trends stretch the band
+  further than you would expect. Trading just because CCI is "too high" is a bet
+  against the trend.
+</Callout>
+
+## Common myths
+
+- **"CCI runs from 0 to 100 like RSI."** It has no limits; ±100 are only guide lines.
+- **"CCI 9 and CCI 20 show the same thing."** The shorter period swings more and breaks ±100 more often.
+- **"It is an indicator for commodities, it does not work on crypto."** It works just as well – and just as limitedly – as other oscillators.
+
+<Callout title="Summary">
+
+- CCI = (typical price − its average) / (0.015 × mean deviation).
+- ±100 are guide lines; beyond them the price is unusually far from its average.
+- Binance (Original) defaults to CCI 9; CCI 20 is common elsewhere.
+- CCI has no upper or lower limit.
+
+</Callout>

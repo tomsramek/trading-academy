@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What does a green volume bar mean?",
+          "options": [
+            "More people bought than sold",
+            "The candle above it closed higher than it opened",
+            "Volume was above average"
+          ],
+          "explanation": "The bar's colour only copies the candle. Every purchase has a sale, so volume does not say who prevailed."
+        },
+        "cs": {
+          "question": "Co znamená zelený sloupec objemu?",
+          "options": [
+            "Že víc lidí kupovalo než prodávalo",
+            "Že svíčka nad ním zavřela výš, než otevřela",
+            "Že objem byl nad průměrem"
+          ],
+          "explanation": "Barva sloupce jen kopíruje svíčku. Ke každému nákupu patří prodej, takže objem neříká, kdo převažoval."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What are the MAVOL 7 and 14 lines on Binance's volume for?",
+          "options": [
+            "They show the price over 7 and 14 days",
+            "They compute RSI from volume",
+            "They are volume averages – they show whether today's bar is unusually high"
+          ],
+          "explanation": "MAVOL is a moving average of volume. A bar above both lines means more was traded than in recent days."
+        },
+        "cs": {
+          "question": "K čemu jsou na Binance čáry MAVOL 7 a 14 u objemu?",
+          "options": [
+            "Ukazují cenu za 7 a 14 dní",
+            "Počítají RSI z objemu",
+            "Jsou to průměry objemu – ukazují, jestli je dnešní sloupec neobvykle vysoký"
+          ],
+          "explanation": "MAVOL je klouzavý průměr objemu. Sloupec nad oběma čarami znamená, že se obchodovalo víc než v posledních dnech."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "OBV is 1.2 million today. What does that say?",
+          "options": [
+            "Nothing on its own – it depends on where the calculation started; the line's direction matters",
+            "That the market is strong",
+            "That 1.2 million BTC were traded today"
+          ],
+          "explanation": "OBV is a running total from the start of the data. A different start shifts the whole line. Only its direction and the comparison with the price make sense."
+        },
+        "cs": {
+          "question": "OBV je dnes 1,2 milionu. Co to říká?",
+          "options": [
+            "Samo o sobě nic – záleží jen na tom, kde výpočet začal; důležitý je směr čáry",
+            "Že trh je silný",
+            "Že se dnes zobchodovalo 1,2 milionu BTC"
+          ],
+          "explanation": "OBV je průběžný součet od začátku dat. Jiný začátek posune celou čáru. Smysl má jen její směr a srovnání s cenou."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "In December 2024 the price was 45% higher than in March, but OBV was lower. How to read it?",
+          "options": [
+            "As a sure sell signal",
+            "As a divergence – the new highs did not come with as much volume; a warning, not an order",
+            "As an indicator error"
+          ],
+          "explanation": "A divergence warns that the move has weaker support. It does not say when or whether the market turns."
+        },
+        "cs": {
+          "question": "Cena v prosinci 2024 byla o 45 % výš než v březnu, OBV ale níž. Jak to číst?",
+          "options": [
+            "Jako jistý signál k prodeji",
+            "Jako divergenci – nová maxima nepřišla s tolika objemem; varování, ne povel",
+            "Jako chybu indikátoru"
+          ],
+          "explanation": "Divergence upozorňuje, že pohyb má slabší podporu. Neříká kdy ani jestli se trh otočí."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How does MFI differ from RSI?",
+          "options": [
+            "It has no bounds",
+            "It counts only volume and ignores the price",
+            "Instead of price changes it adds up money flows – the typical price times volume"
+          ],
+          "explanation": "MFI = 100 − 100 / (1 + inflows / outflows). Days with big volume weigh more in it – on 5 Aug 2024 MFI fell to 11.5, RSI only to 26.7."
+        },
+        "cs": {
+          "question": "Čím se MFI liší od RSI?",
+          "options": [
+            "Nemá žádné hranice",
+            "Počítá jen s objemem a cenu ignoruje",
+            "Místo změn ceny sčítá toky peněz – typickou cenu krát objem"
+          ],
+          "explanation": "MFI = 100 − 100 / (1 + přítoky / odtoky). Dny s velkým objemem v něm váží víc – 5. 8. 2024 kleslo MFI na 11,5, RSI jen na 26,7."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

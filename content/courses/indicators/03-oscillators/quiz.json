@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "RSI 14 is 50. What does it mean?",
+          "options": [
+            "The market is oversold",
+            "The average rises and falls over 14 candles are equally large",
+            "The price is exactly at its average"
+          ],
+          "explanation": "RSI = 100 − 100 / (1 + RS). When the average rise equals the average fall, RS = 1 and RSI = 50."
+        },
+        "cs": {
+          "question": "RSI 14 je 50. Co to znamená?",
+          "options": [
+            "Trh je přeprodaný",
+            "Průměrné růsty a poklesy za 14 svíček jsou stejně velké",
+            "Cena je přesně na svém průměru"
+          ],
+          "explanation": "RSI = 100 − 100 / (1 + RS). Když je průměrný růst stejný jako průměrný pokles, RS = 1 a RSI = 50."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why does Binance's Original mode show three lines in the RSI panel?",
+          "options": [
+            "They are three different coins",
+            "One is RSI, one MACD, one volume",
+            "It is RSI with three periods: 6, 12 and 24"
+          ],
+          "explanation": "Binance draws RSI 6, 12 and 24 – one measure with three periods. It is one piece of information three times, not three signals."
+        },
+        "cs": {
+          "question": "Proč má Binance v režimu Original v panelu RSI tři čáry?",
+          "options": [
+            "Jsou to tři různé kryptoměny",
+            "Jedna je RSI, druhá MACD, třetí objem",
+            "Je to RSI se třemi periodami: 6, 12 a 24"
+          ],
+          "explanation": "Binance kreslí RSI 6, 12 a 24 – jednu veličinu se třemi periodami. Je to jedna informace třikrát, ne tři signály."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The stochastic %K 14 is 3. What exactly does it say?",
+          "options": [
+            "The close is almost at the low of the last 14 candles",
+            "The price cannot fall any further",
+            "The market has bottomed and it is time to buy"
+          ],
+          "explanation": "%K shows where the close sits in the range of the last candles. On 2 August 2024 %K was 3 – and three days later the price was down at 49,000."
+        },
+        "cs": {
+          "question": "Stochastic %K 14 je 3. Co přesně to říká?",
+          "options": [
+            "Zavření je skoro na minimu posledních 14 svíček",
+            "Cena už nemůže klesnout",
+            "Trh je na dně a je čas kupovat"
+          ],
+          "explanation": "%K ukazuje polohu zavření v rozpětí posledních svíček. 2. srpna 2024 byl %K 3 – a o tři dny později byla cena dole na 49 000."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Williams %R is −15, and the unsmoothed stochastic with the same period is…",
+          "options": ["15", "85", "−85"],
+          "explanation": "%R + 100 = the unsmoothed stochastic %K. −15 + 100 = 85: the close is near the top of the range."
+        },
+        "cs": {
+          "question": "Williams %R je −15 a stochastic (bez vyhlazení) se stejnou periodou je…",
+          "options": ["15", "85", "−85"],
+          "explanation": "%R + 100 = nevyhlazený stochastic %K. −15 + 100 = 85: zavření je u horního okraje rozpětí."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "MACD crossed its signal line from below. What does it mean?",
+          "options": [
+            "The price will rise tomorrow",
+            "Volume jumped",
+            "The gap between EMA 12 and EMA 26 started growing faster than its average – the pace turns up, with a lag"
+          ],
+          "explanation": "MACD stands on averages, so a cross comes after the move. Bitcoin made 28 of them in 13 months – without context most are noise."
+        },
+        "cs": {
+          "question": "MACD překřížil signální čáru zespodu nahoru. Co to znamená?",
+          "options": [
+            "Cena zítra vzroste",
+            "Objem prudce stoupl",
+            "Rozdíl EMA 12 a EMA 26 začal růst rychleji než jeho průměr – tempo se otáčí nahoru, se zpožděním"
+          ],
+          "explanation": "MACD stojí na průměrech, takže křížení přichází po pohybu. Za 13 měsíců jich bitcoin udělal 28 – bez kontextu je většina šum."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Three families of indicators",
+  description:
+    "Trend indicators over the candles, oscillators in a panel below the chart and volume indicators. What each family measures, where you find it in the menu and why two indicators from the same family are not a double confirmation.",
+};
+
+<Callout title="In this lesson">
+
+- sort the indicators in the menu into three families
+- find out what each family measures and where it is drawn
+- understand why two indicators from the same family are not two independent confirmations
+
+</Callout>
+
+If indicators held a family reunion, they would sit at three tables. At the first sit those who follow
+the direction. At the second those who measure speed and keep fidgeting. And at the third those who
+count people. Almost every indicator in the menu has a seat at one of them.
+
+<Illustration name="threeFamilies" />
+
+## Trend: where it is going
+
+Trend indicators have the same units as the price, so they are drawn **over the candles** – on Binance
+under the **Main Indicator** tab. They include averages (MA, EMA, WMA), Bollinger Bands (BOLL), VWAP,
+Parabolic SAR and Supertrend. They answer: **which way is the market moving and where is the "normal"
+price?**
+
+## Oscillators: how fast
+
+An <KeyTerm term="oscillator">oscillator</KeyTerm> swings within a range, often 0 to 100, and has its
+own panel **below the chart** (the **Sub Indicator** tab). It includes RSI, StochRSI, KDJ, Williams %R,
+CCI and MACD. They answer: **how fast and how "stretched" is the move?**
+
+## Volume: how many people
+
+Volume indicators count how much was traded: VOL, OBV and MFI (which is half an oscillator). They
+answer: **is there a crowd behind the move, or a few random trades?**
+
+Here is one member of each family on one chart:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024: a 25-day moving average over the candles, volume and RSI below the chart"
+  caption="Trend (SMA 25 over the candles), volume and the RSI oscillator below the chart. Three different questions, three different answers."
+  indicators={{ sma: [25], volume: true, rsi: true }}
+/>
+
+## Same family = same answer
+
+RSI, StochRSI, KDJ and Williams %R compute almost the same thing – just with a different equation. When
+all four show "overbought", you do not have four confirmations. You have one piece of information four
+times. It is like asking four people the way when they all look at the same map.
+
+A real second opinion only comes from an indicator of **another** family: trend asks about direction,
+an oscillator about speed, volume about participation.
+
+<Callout type="warning" title="More lines ≠ more certainty">
+  Every extra indicator adds another chance of a contradiction – and with it the
+  temptation to pick the one that says what you want to hear. Fewer lines are
+  easier and more honest to read.
+</Callout>
+
+## Common myths
+
+- **"When RSI and KDJ say the same thing, it is certain."** They measure the same thing, so they almost always agree.
+- **"MACD is a trend indicator, so it belongs over the candles."** MACD follows averages, but it is drawn in a panel like an oscillator.
+- **"Volume is boring."** Volume is the only common indicator that does not stand on the price alone.
+
+<Callout title="Summary">
+
+- Trend (over the candles): MA, EMA, WMA, BOLL, VWAP, SAR, Supertrend – where it is going.
+- Oscillators (panel below the chart): RSI, StochRSI, KDJ, Williams %R, CCI, MACD – how fast.
+- Volume: VOL, OBV, MFI – how many people take part.
+- Two indicators from the same family are not two independent confirmations.
+
+</Callout>

@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "How is a simple moving average of 7 candles computed?",
+          "options": [
+            "The latest close times 7",
+            "The sum of the last 7 closes divided by 7",
+            "The difference between the high and low over 7 candles"
+          ],
+          "explanation": "SMA adds up the closes in the window and divides by their number. Every candle in the window weighs the same."
+        },
+        "cs": {
+          "question": "Jak se počítá prostý klouzavý průměr 7 svíček?",
+          "options": [
+            "Nejnovější zavírací cena krát 7",
+            "Součet posledních 7 zavíracích cen děleno 7",
+            "Rozdíl mezi maximem a minimem za 7 svíček"
+          ],
+          "explanation": "SMA sečte zavírací ceny v okně a vydělí je jejich počtem. Každá svíčka v okně váží stejně."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why does an EMA react to a turn sooner than an SMA with the same period?",
+          "options": [
+            "Newer candles weigh more in it",
+            "It also uses future candles",
+            "It uses volume"
+          ],
+          "explanation": "An EMA takes a step of 2 / (N + 1) of the way to the new price every day, so new candles move it more. It reacts to turns sooner – real and false ones."
+        },
+        "cs": {
+          "question": "Proč EMA zareaguje na obrat dřív než SMA se stejnou periodou?",
+          "options": [
+            "Novější svíčky v ní mají větší váhu",
+            "Počítá i z budoucích svíček",
+            "Používá objem"
+          ],
+          "explanation": "EMA každý den udělá krok 2 / (N + 1) cesty k nové ceně, takže nové svíčky ji ovlivní víc. Na obrat reaguje dřív – na skutečný i planý."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The Bollinger Bands narrowed sharply (a squeeze). What does it mean?",
+          "options": [
+            "The price will rise soon",
+            "The price will fall soon",
+            "The market is unusually calm and a big move often follows – the bands do not say which way"
+          ],
+          "explanation": "In June 2024 the bands were the narrowest of the whole period, then the price fell to 53,486. A squeeze announces a move, not its direction."
+        },
+        "cs": {
+          "question": "Bollingerova pásma se výrazně zúžila (squeeze). Co to znamená?",
+          "options": [
+            "Cena brzy poroste",
+            "Cena brzy spadne",
+            "Trh je neobvykle klidný a často po tom přijde velký pohyb – směr pásma neřeknou"
+          ],
+          "explanation": "V červnu 2024 byla pásma nejužší za celé období a pak cena spadla až na 53 486. Squeeze ohlašuje pohyb, ne jeho směr."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "How does Binance compute VWAP?",
+          "options": [
+            "From the start of the day, restarting at midnight",
+            "From the last 14 candles (the Length 14 setting)",
+            "As a simple average without volume"
+          ],
+          "explanation": "Binance computes VWAP over a rolling window of 14 candles. Many other platforms compute it from the start of the day – so the lines can differ."
+        },
+        "cs": {
+          "question": "Jak počítá VWAP Binance?",
+          "options": [
+            "Od začátku dne, o půlnoci začne znovu",
+            "Z posledních 14 svíček (nastavení Length 14)",
+            "Jako prostý průměr bez objemu"
+          ],
+          "explanation": "Binance počítá VWAP v klouzavém okně 14 svíček. Mnoho jiných platforem ho počítá od začátku dne – proto se čáry mohou lišit."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "When does Supertrend flip from a rise to a fall?",
+          "options": [
+            "When the close crosses the line below the price",
+            "When ATR falls",
+            "Every Friday"
+          ],
+          "explanation": "In a rise Supertrend only moves up. It flips when the close crosses its line – that is, after a fall of several ATRs."
+        },
+        "cs": {
+          "question": "Kdy se otočí Supertrend z růstu do poklesu?",
+          "options": [
+            "Když zavírací cena protne čáru pod cenou",
+            "Když ATR klesne",
+            "Každý pátek"
+          ],
+          "explanation": "Supertrend se v růstu posouvá jen nahoru. Otočí se, až když zavírací cena protne jeho čáru – tedy po poklesu o několik ATR."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

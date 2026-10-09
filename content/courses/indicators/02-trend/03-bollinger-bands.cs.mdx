@@ -1,0 +1,115 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Bollingerova pásma",
+  slug: "bollingerova-pasma",
+  description:
+    "Průměr 20 svíček a dvě pásma dvě směrodatné odchylky od něj. Jak se pásma počítají, proč se nafukují a splaskávají, co znamená zúžení (squeeze) a proč dotek horního pásma není povel k prodeji.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš Bollingerova pásma krok za krokem
+- pochopíš, co je směrodatná odchylka a proč se pásma rozšiřují
+- najdeš v grafu zúžení (squeeze) a zjistíš, co po něm přišlo
+
+</Callout>
+
+Bollingerova pásma jsou gumová hadice kolem ceny. Když je trh klidný, hadice splaskne a obepne svíčky.
+Když se rozdivočí, nafoukne se. Profesor Knot do ní kdysi zkusil strčit celý graf – vešlo se tam
+skoro devět svíček z deseti, víc ne.
+
+<Illustration name="bollingerTube" />
+
+## Jak se počítají
+
+Takzvaná <KeyTerm term="bollinger-bands">Bollingerova pásma</KeyTerm> mají tři čáry:
+
+- **prostřední** (MB) – prostý průměr 20 zavíracích cen,
+- **horní** (UP) – prostřední + 2 × směrodatná odchylka,
+- **dolní** (DN) – prostřední − 2 × směrodatná odchylka.
+
+Směrodatná odchylka měří, jak daleko od průměru ceny v okně typicky leží. Když se cena hýbe divoce, je
+velká a pásma se rozestoupí. Když stojí, je malá a pásma se přiblíží. Projdi si výpočet:
+
+<IndicatorSteps
+  data={btc}
+  indicator="bollinger"
+  from="2024-03-01"
+  candles={40}
+  label="Výpočet Bollingerových pásem 20, 2 na denním grafu bitcoinu od března 2024, krok za krokem"
+/>
+
+## Na celém grafu
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s Bollingerovými pásmy 20, 2"
+  caption="Bollingerova pásma 20, 2. Za celé období zavřela cena mimo pásma 60 dní ze 439 (13,7 %) – v silném růstu v únoru 2024 nad horním pásmem devětkrát."
+  indicators={{ bollinger: true }}
+/>
+
+Všimni si dvou věcí. V silném trendu cena „jede po pásmu“ – zavírá u horního okraje nebo nad ním den po
+dni. A pásma nejsou zeď: na denním grafu bitcoinu cena mimo ně skončila zhruba každý sedmý den.
+
+## Zúžení: ticho před pohybem
+
+Když jsou pásma velmi úzká, trh je neobvykle klidný. Takovému zúžení se říká squeeze a často po něm
+přijde velký pohyb. Najdi ho:
+
+<ChartQuiz
+  data={btc}
+  from="2024-05-20"
+  question="Klikni na svíčku, kde jsou Bollingerova pásma nejužší."
+  answer={["2024-06-08", "2024-06-12"]}
+  explanation="10. června 2024 byla pásma široká jen 5,9 % ceny – nejméně za celé období. Pak cena spadla: 24. června na 58 402 a 5. července až na 53 486. Zúžení ohlásilo pohyb, ne jeho směr."
+  indicators={{ bollinger: true }}
+  label="Kvíz: najdi nejužší místo Bollingerových pásem na denním grafu bitcoinu v červnu 2024"
+/>
+
+## Co dělá nastavení
+
+Délka mění, z kolika svíček se počítá průměr i odchylka; násobitel (Multiplier) mění, jak daleko jsou
+pásma. S násobitelem 2 jich je víc uvnitř než s 1, ale nikdy ne všechny. Posuň délku:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="bollinger"
+  min={5}
+  max={60}
+  value={20}
+  label="Denní graf bitcoinu s Bollingerovými pásmy, jejichž délku měníš posuvníkem"
+/>
+
+## Na Binance
+
+Režim **Original** → ikona indikátorů → **Main Indicator** → **BOLL**. Nastavíš délku (Length, výchozí
+20), násobitel (Multiplier, výchozí 2), výplň mezi pásmy a barvy čar UP, MB a DN:
+
+<Video
+  src="/videos/binance-ind-boll.mp4"
+  poster="/videos/binance-ind-boll.webp"
+  label="Video: v dialogu indikátorů na Binance se vypne MA, zaškrtne se BOLL s délkou 20 a násobitelem 2 a po uložení se kolem svíček objeví pásma s výplní"
+  caption="Video (22 s): MA vypnout, BOLL zapnout (Length 20, Multiplier 2), Save (Binance, 9. 10. 2026)."
+/>
+
+<Callout type="warning" title="Dotek pásma není signál">
+  Cena u horního pásma neznamená „drahé, prodej“ a u dolního „levné, kup“. V
+  silném trendu se cena pásma drží celé týdny. Pásma ukazují, jak divoký je trh,
+  ne kam půjde.
+</Callout>
+
+## Časté omyly
+
+- **„95 % cen leží uvnitř pásem.“** To platí pro normální rozdělení, které ceny nemají. Na bitcoinu mimo skončil skoro každý sedmý den.
+- **„Squeeze ukáže směr.“** Ukáže jen, že se něco chystá. Směr musíš hledat jinde.
+- **„Dotek dolního pásma je levný nákup.“** V propadu cena po dolním pásmu klidně klouže dál.
+
+<Callout title="Shrnutí">
+
+- Prostřední čára = SMA 20, pásma = ± 2 směrodatné odchylky.
+- Divoký trh pásma rozšíří, klidný zúží.
+- Squeeze ohlašuje pohyb, ne jeho směr.
+- Na Binance: Original → ikona indikátorů → Main Indicator → BOLL (20, 2).
+
+</Callout>

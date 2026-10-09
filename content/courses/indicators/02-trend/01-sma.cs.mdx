@@ -1,0 +1,123 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+import btcLong from "@content/market-data/btcusdt-1d-2022-04-2024-01.json";
+
+export const metadata = {
+  title: "SMA: prostý klouzavý průměr",
+  slug: "sma-prosty-prumer",
+  description:
+    "Jak se počítá prostý klouzavý průměr, proč v něm každá svíčka váží stejně, co znamenají MA(7), MA(25) a MA(99) na Binance a proč golden cross není zaručený signál.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš prostý klouzavý průměr svíčku po svíčce
+- vyzkoušíš, co dělá perioda, a nastavíš průměry 50 a 200 dní na Binance
+- najdeš v grafu golden cross a zjistíš, proč není zárukou
+
+</Callout>
+
+Prostý klouzavý průměr je nejstarší a nejskromnější indikátor v menu. Nic si nemyslí, nikoho
+neupřednostňuje – každé svíčce v okně dá přesně stejný hlas. Profesor Knot ho má rád právě proto: je to
+nejdemokratičtější čára na grafu.
+
+<Illustration name="slidingWindow" />
+
+## Jak se počítá
+
+Takzvaný <KeyTerm term="moving-average">klouzavý průměr</KeyTerm> (SMA, na Binance prostě **MA**)
+sečte zavírací ceny posledních N svíček a vydělí je N. S novou svíčkou se okno posune: nejstarší cena
+vypadne, nejnovější přibude. Klikej na **Další** a sleduj okno 7 svíček:
+
+<IndicatorSteps
+  data={btc}
+  indicator="sma"
+  period={7}
+  from="2024-03-01"
+  label="Výpočet prostého klouzavého průměru 7 svíček na denním grafu bitcoinu od března 2024, krok za krokem"
+/>
+
+Všimni si, že každá svíčka v okně váží **stejně** – ta týden stará stejně jako včerejší. Když z okna
+vypadne velký pohyb, průměr sebou trhne, i když se dnes nic nestalo. Tomu se říká efekt vypadnutí.
+
+## Co dělá perioda
+
+Perioda je počet svíček v okně. Krátká drží čáru u ceny, dlouhá ji vyhladí. Posuň periodu a sleduj, jak
+často cena průměr překříží:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="sma"
+  min={3}
+  max={200}
+  value={25}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s prostým klouzavým průměrem, jehož periodu měníš posuvníkem"
+/>
+
+Na Binance jsou po otevření grafu zapnuté tři průměry: **MA(7), MA(25) a MA(99)**. Dlouhodobí
+obchodníci často používají 50 a 200 dní – i proto, že je sledují ostatní.
+
+## Nastavení na Binance
+
+V režimu **Original** klikni na ikonu indikátorů nad grafem, záložka **Main Indicator**, řádek **MA**.
+Každá z až šesti čar má vlastní délku, zdroj ceny (obvykle Close), styl a barvu:
+
+<Video
+  src="/videos/binance-ind-sma.mp4"
+  poster="/videos/binance-ind-sma.webp"
+  label="Video: v dialogu indikátorů na Binance se u MA přepíše MA1 ze 7 na 50 a MA2 z 25 na 200, MA3 se vypne a po uložení jsou v grafu dvě dlouhé čáry"
+  caption="Video (26 s): MA1 = 50, MA2 = 200, MA3 vypnutá, Save (Binance, 9. 10. 2026)."
+/>
+
+## Golden cross a death cross
+
+Když průměr 50 dní překříží průměr 200 dní zespodu nahoru, říká se tomu <KeyTerm term="golden-cross">golden cross</KeyTerm>. Opačné překřížení je death cross. Na grafu 2022–2024
+jsou tři:
+
+<CandleChart
+  data={btcLong}
+  label="Denní graf bitcoinu od dubna 2022 do ledna 2024 s průměry 50 a 200 dní; golden cross v únoru a říjnu 2023, death cross v září 2023"
+  caption="SMA 50 (modrá) a SMA 200 (žlutá). Golden cross 7. 2. 2023 při ceně 23 240, death cross 12. 9. 2023 při 25 840 a další golden cross 30. 10. 2023 při 34 475."
+  indicators={{ sma: [50, 200] }}
+  markers={[
+    { time: "2023-02-07", kind: "event", label: "Golden cross" },
+    { time: "2023-09-12", kind: "event", label: "Death cross" },
+    { time: "2023-10-30", kind: "event", label: "Golden cross" },
+  ]}
+/>
+
+Mezi prvním golden crossem a death crossem cena vyrostla jen z 23 240 na 25 840 – a mezitím byla i výš i
+níž. Překřížení dvou pomalých průměrů přijde vždycky až po pohybu. Zkus ho najít sám:
+
+<ChartQuiz
+  data={btcLong}
+  from="2023-10-15"
+  question="Klikni na svíčku, kde rychlejší SMA 50 (modrá) překřížila pomalejší SMA 200 (žlutou) zespodu nahoru."
+  answer={["2023-10-29", "2023-10-31"]}
+  explanation="Golden cross přišel 30. října 2023 při ceně 34 475 – cena v té době už byla o víc než 20 % výš než o dva týdny dřív. Pomalé průměry potvrzují pohyb, který už proběhl."
+  indicators={{ sma: [50, 200] }}
+  label="Kvíz: najdi golden cross průměrů 50 a 200 dní na denním grafu bitcoinu v říjnu 2023"
+/>
+
+Jak průměry používat v obchodním plánu, rozebírá lekce
+[Klouzavé průměry](/kurzy/obchodovani-podle-planu/klouzave-prumery).
+
+<Callout type="warning" title="Golden cross není povel k nákupu">
+  Golden cross jen říká, že průměrná cena posledních 50 dní je nad průměrem
+  posledních 200 dní. Neříká nic o tom, co bude zítra. V roce 2023 po prvním
+  golden crossu přišel do sedmi měsíců death cross při ceně jen o 11 % vyšší.
+</Callout>
+
+## Časté omyly
+
+- **„Průměr 200 dní je podpora, od které se cena odrazí.“** Někdy ano, někdy jím projde jako nůž máslem.
+- **„Golden cross = začátek býčího trhu.“** Je to zpožděné potvrzení, ne předpověď – a v bočním trhu přichází jeden za druhým.
+- **„Čím víc průměrů, tím líp.“** Tři průměry s podobnou periodou ukazují skoro totéž.
+
+<Callout title="Shrnutí">
+
+- SMA = součet posledních N zavíracích cen děleno N; každá svíčka v okně váží stejně.
+- Krátká perioda drží čáru u ceny, dlouhá ji vyhladí a zpozdí.
+- Na Binance: Original → ikona indikátorů → Main Indicator → MA (výchozí 7, 25, 99).
+- Golden cross a death cross jsou zpožděná potvrzení, ne signály do budoucna.
+
+</Callout>

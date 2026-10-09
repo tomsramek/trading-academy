@@ -1,0 +1,100 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "When indicators disagree",
+  description:
+    "MACD says sell, RSI says overbought, the average says up. A real conflict from February 2024, how to decide in advance who has the final word, why the market regime matters – and what you take away from the whole course.",
+};
+
+<Callout title="In this lesson">
+
+- see a real conflict between indicators on the Bitcoin chart from February 2024
+- decide in advance which indicator has the final word
+- understand why the market regime matters and why rules need testing
+
+</Callout>
+
+Sooner or later it happens: one indicator shouts "sell", another "buy" and a third shrugs. Professor Wick
+stands between them like the referee at a tug of war. Good news: you do not have to decide in that
+moment. You should have decided earlier.
+
+<Illustration name="tugOfWar" />
+
+## A real conflict: February 2024
+
+On 23 February 2024 the <KeyTerm term="macd">MACD</KeyTerm> line crossed below its signal line (2,176
+vs 2,206) – a classic "sell" signal. Three days later, on 26 February, RSI 14 stood at **76.6**, i.e.
+"overbought". Two oscillators, two reasons to sell.
+
+But the price (50,744 on 23 February) was far **above** the 50-day moving average (45,242), and the
+average was pointing up. The trend said clearly: it is rising.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with a 50-day moving average, RSI and MACD; the conflict between indicators in late February 2024 and the high of 14 March 2024 are marked"
+  caption="In late February 2024 MACD crossed below its signal and RSI was above 70, but the price was far above a rising SMA 50. By 14 March it had climbed to 73,777."
+  indicators={{ sma: [50], rsi: true, macd: true }}
+  markers={[
+    { time: "2024-02-23", kind: "event", label: "MACD down" },
+    { time: "2024-03-14", kind: "high", label: "73,777" },
+  ]}
+  zones={[{ from: "2024-02-20", to: "2024-02-27", label: "Conflict" }]}
+/>
+
+Whoever listened to the oscillators sold around 51,000. On 27 February MACD crossed back above its
+signal, RSI jumped to 81.4 – and on 14 March the price made a high of **73,777**. In a strong <KeyTerm term="trend">trend</KeyTerm>, oscillators stay "overbought" for a long time.
+
+It does not always work out like this. Another time the same conflict would end in a fall. That is
+exactly why the question is not which indicator is "right", but which rule you set in advance.
+
+## Who has the final word
+
+1. **Trend as a filter.** First ask the trend line which way you are trading at all. Above a rising SMA 50 you look only for buys, below a falling one only for sells – or nothing.
+2. **Oscillator for timing.** In the direction of the trend, an oscillator can help you pick the moment – for example buying when RSI dips to 40 in a rise and turns up.
+3. **Volume as a check.** Take a move without volume with a pinch of salt.
+4. **When they disagree, do nothing.** No trade is a decision too – often the cheapest one.
+
+## The market regime matters
+
+Each indicator suits a different <KeyTerm term="market-regime">market regime</KeyTerm>. In a trend,
+averages and <KeyTerm term="trend-following">trend following</KeyTerm> work better; oscillators there
+report "overbought" for weeks. In a sideways market it is the other way round: averages keep crossing,
+and <KeyTerm term="mean-reversion">mean reversion</KeyTerm> tends to pay – buying near the lower edge,
+selling near the upper one. The same signal helps in one regime and hurts in the other.
+
+## Test your rules
+
+The rule "the trend filters, the oscillator times" sounds sensible – but whether it really works on your
+market and timeframe only shows in a test over many trades. How to turn an idea into exact rules is
+shown in the lesson [From idea to rules](/courses/strategy-testing/from-idea-to-rules), and what to watch
+out for when testing in [Backtest pitfalls](/courses/strategy-testing/backtest-pitfalls).
+
+<Callout type="warning" title="Do not pick an indicator by your mood">
+  When they disagree, it is tempting to listen to the one that says what you
+  want to hear. That is not analysis, it is looking for an excuse. Write down
+  the order of your indicators and what you do in a conflict before you open the
+  chart.
+</Callout>
+
+## What you take away from the course
+
+- Every indicator is a formula from past prices – which is why it lags.
+- Indicators belong to three families: trend, oscillators, volume. Two from the same family are not two confirmations.
+- The period decides between speed and calm; a fast indicator is wrong more often.
+- You know Binance's default settings and how to change them – but you change them by your plan, not by the chart.
+- Divergences and conflicts are warnings, not orders. The rule you set in advance decides.
+
+## Common myths
+
+- **"One of them is always right, I just do not know which."** None is always right. The rule decides, not the indicator.
+- **"I will add a third indicator to break the tie."** That only adds another voice to the argument.
+- **"An overbought market has to fall."** In a strong trend it can stay overbought for weeks.
+
+<Callout title="Summary">
+
+- February 2024: MACD down and RSI above 70, but the price above a rising SMA 50 – and three weeks later a high of 73,777.
+- The trend filters the direction, the oscillator times the entry, volume checks; in a conflict, "nothing" is a decision too.
+- Different indicators work in a trend and in a sideways market.
+- Set the order of your indicators and your rules in advance – and test them.
+
+</Callout>

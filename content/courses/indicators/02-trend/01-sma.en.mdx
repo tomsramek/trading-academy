@@ -1,0 +1,125 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+import btcLong from "@content/market-data/btcusdt-1d-2022-04-2024-01.json";
+
+export const metadata = {
+  title: "SMA: the simple moving average",
+  description:
+    "How the simple moving average is computed, why every candle in it weighs the same, what MA(7), MA(25) and MA(99) mean on Binance and why a golden cross is not a guaranteed signal.",
+};
+
+<Callout title="In this lesson">
+
+- compute a simple moving average candle by candle
+- try what the period does and set 50- and 200-day averages on Binance
+- find a golden cross on the chart and see why it is no guarantee
+
+</Callout>
+
+The simple moving average is the oldest and humblest indicator in the menu. It has no opinions and plays
+no favourites – every candle in the window gets exactly the same vote. Professor Wick likes it for that:
+it is the most democratic line on the chart.
+
+<Illustration name="slidingWindow" />
+
+## How it is computed
+
+The <KeyTerm term="moving-average">moving average</KeyTerm> (SMA, on Binance simply **MA**) adds up the
+closing prices of the last N candles and divides by N. With every new candle the window moves: the
+oldest price drops out, the newest comes in. Click **Next** and watch a window of 7 candles:
+
+<IndicatorSteps
+  data={btc}
+  indicator="sma"
+  period={7}
+  from="2024-03-01"
+  label="Computing a simple moving average of 7 candles on the daily Bitcoin chart from March 2024, step by step"
+/>
+
+Notice that every candle in the window weighs **the same** – a week-old one as much as yesterday's.
+When a big move drops out of the window, the average jumps even though nothing happened today. This is
+called the drop-off effect.
+
+## What the period does
+
+The period is the number of candles in the window. A short one keeps the line near the price, a long one
+smooths it. Move the period and watch how often the price crosses the average:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="sma"
+  min={3}
+  max={200}
+  value={25}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with a simple moving average whose period you change with a slider"
+/>
+
+On Binance three averages are on when you open the chart: **MA(7), MA(25) and MA(99)**. Long-term
+traders often use 50 and 200 days – partly because everyone else watches them.
+
+## Setting it on Binance
+
+In **Original** mode click the indicator icon above the chart, the **Main Indicator** tab, the **MA**
+row. Each of up to six lines has its own length, price source (usually Close), style and colour:
+
+<Video
+  src="/videos/binance-ind-sma.mp4"
+  poster="/videos/binance-ind-sma.webp"
+  label="Video: in Binance's indicator dialog MA1 is changed from 7 to 50 and MA2 from 25 to 200, MA3 is switched off, and after saving the chart shows two long lines"
+  caption="Video (26 s): MA1 = 50, MA2 = 200, MA3 off, Save (Binance, 9 Oct 2026)."
+/>
+
+## Golden cross and death cross
+
+When the 50-day average crosses the 200-day average from below, it is called a <KeyTerm term="golden-cross">golden cross</KeyTerm>. The opposite crossing is a death cross. The
+2022–2024 chart has three:
+
+<CandleChart
+  data={btcLong}
+  label="Daily Bitcoin chart from April 2022 to January 2024 with 50- and 200-day averages; golden crosses in February and October 2023, a death cross in September 2023"
+  caption="SMA 50 (blue) and SMA 200 (yellow). Golden cross on 7 Feb 2023 at 23,240, death cross on 12 Sep 2023 at 25,840 and another golden cross on 30 Oct 2023 at 34,475."
+  indicators={{ sma: [50, 200] }}
+  markers={[
+    { time: "2023-02-07", kind: "event", label: "Golden cross" },
+    { time: "2023-09-12", kind: "event", label: "Death cross" },
+    { time: "2023-10-30", kind: "event", label: "Golden cross" },
+  ]}
+/>
+
+Between the first golden cross and the death cross the price rose only from 23,240 to 25,840 – and went
+both higher and lower in between. A crossing of two slow averages always comes after the move. Try to
+find one yourself:
+
+<ChartQuiz
+  data={btcLong}
+  from="2023-10-15"
+  question="Click the candle where the faster SMA 50 (blue) crossed the slower SMA 200 (yellow) from below."
+  answer={["2023-10-29", "2023-10-31"]}
+  explanation="The golden cross came on 30 October 2023 at 34,475 – by then the price was already 27% above where it was two weeks earlier. Slow averages confirm a move that has already happened."
+  indicators={{ sma: [50, 200] }}
+  label="Quiz: find the golden cross of the 50- and 200-day averages on the daily Bitcoin chart in October 2023"
+/>
+
+How to use averages in a trading plan is covered in the lesson
+[Moving averages](/courses/trading-with-a-plan/moving-averages).
+
+<Callout type="warning" title="A golden cross is not an order to buy">
+  A golden cross only says that the average price of the last 50 days is above
+  the average of the last 200 days. It says nothing about tomorrow. In 2023 the
+  first golden cross was followed within seven months by a death cross at a
+  price only 11% higher.
+</Callout>
+
+## Common myths
+
+- **"The 200-day average is support the price will bounce off."** Sometimes it does, sometimes it goes through it like a knife through butter.
+- **"Golden cross = the start of a bull market."** It is a late confirmation, not a forecast – and in a sideways market they come one after another.
+- **"The more averages, the better."** Three averages with similar periods show almost the same thing.
+
+<Callout title="Summary">
+
+- SMA = the sum of the last N closes divided by N; every candle in the window weighs the same.
+- A short period keeps the line near the price, a long one smooths and delays it.
+- On Binance: Original → indicator icon → Main Indicator → MA (default 7, 25, 99).
+- Golden and death crosses are late confirmations, not signals about the future.
+
+</Callout>

@@ -1,0 +1,118 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Bollinger Bands",
+  description:
+    "A 20-candle average and two bands two standard deviations away from it. How the bands are computed, why they inflate and deflate, what a squeeze means and why touching the upper band is not an order to sell.",
+};
+
+<Callout title="In this lesson">
+
+- compute Bollinger Bands step by step
+- understand what a standard deviation is and why the bands widen
+- find a squeeze on the chart and see what came after it
+
+</Callout>
+
+Bollinger Bands are a rubber tube around the price. When the market is calm, the tube deflates and hugs
+the candles. When it gets wild, it inflates. Professor Wick once tried to stuff the whole chart into it –
+almost nine candles out of ten fit, no more.
+
+<Illustration name="bollingerTube" />
+
+## How they are computed
+
+The <KeyTerm term="bollinger-bands">Bollinger Bands</KeyTerm> have three lines:
+
+- **middle** (MB) – the simple average of 20 closes,
+- **upper** (UP) – middle + 2 × standard deviation,
+- **lower** (DN) – middle − 2 × standard deviation.
+
+The standard deviation measures how far from the average the prices in the window typically are. When
+the price moves wildly it is large and the bands spread apart. When the price stands still it is small
+and the bands come together. Go through the calculation:
+
+<IndicatorSteps
+  data={btc}
+  indicator="bollinger"
+  from="2024-03-01"
+  candles={40}
+  label="Computing Bollinger Bands 20, 2 on the daily Bitcoin chart from March 2024, step by step"
+/>
+
+## On the whole chart
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with Bollinger Bands 20, 2"
+  caption="Bollinger Bands 20, 2. Over the whole period the price closed outside the bands on 60 days out of 439 (13.7%) – in the strong rise of February 2024 above the upper band nine times."
+  indicators={{ bollinger: true }}
+/>
+
+Notice two things. In a strong trend the price "walks the band" – it closes at the upper edge or above
+it day after day. And the bands are no wall: on the daily Bitcoin chart the price ended outside them
+roughly one day in seven.
+
+## The squeeze: quiet before a move
+
+When the bands are very narrow, the market is unusually calm. Such a narrowing is called a squeeze, and
+a big move often follows. Find it:
+
+<ChartQuiz
+  data={btc}
+  from="2024-05-20"
+  question="Click the candle where the Bollinger Bands are narrowest."
+  answer={["2024-06-08", "2024-06-12"]}
+  explanation="On 10 June 2024 the bands were only 5.9% of the price wide – the least in the whole period. Then the price fell: to 58,402 on 24 June and as low as 53,486 on 5 July. The squeeze announced a move, not its direction."
+  indicators={{ bollinger: true }}
+  label="Quiz: find the narrowest point of the Bollinger Bands on the daily Bitcoin chart in June 2024"
+/>
+
+## What the settings do
+
+The length changes how many candles the average and the deviation are computed from; the multiplier
+changes how far away the bands are. With a multiplier of 2 more prices stay inside than with 1, but
+never all of them. Move the length:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="bollinger"
+  min={5}
+  max={60}
+  value={20}
+  label="Daily Bitcoin chart with Bollinger Bands whose length you change with a slider"
+/>
+
+## On Binance
+
+**Original** mode → indicator icon → **Main Indicator** → **BOLL**. You set the length (Length, default
+20), the multiplier (Multiplier, default 2), the fill between the bands and the colours of the UP, MB
+and DN lines:
+
+<Video
+  src="/videos/binance-ind-boll.mp4"
+  poster="/videos/binance-ind-boll.webp"
+  label="Video: in Binance's indicator dialog MA is switched off, BOLL is ticked with length 20 and multiplier 2, and after saving filled bands appear around the candles"
+  caption="Video (22 s): MA off, BOLL on (Length 20, Multiplier 2), Save (Binance, 9 Oct 2026)."
+/>
+
+<Callout type="warning" title="Touching a band is not a signal">
+  The price at the upper band does not mean "expensive, sell", and at the lower
+  band "cheap, buy". In a strong trend the price sticks to a band for weeks. The
+  bands show how wild the market is, not where it will go.
+</Callout>
+
+## Common myths
+
+- **"95% of prices lie inside the bands."** That holds for a normal distribution, which prices do not have. On Bitcoin almost one day in seven ended outside.
+- **"A squeeze shows the direction."** It only shows that something is coming. You have to look for the direction elsewhere.
+- **"Touching the lower band is a cheap buy."** In a sell-off the price happily slides further along the lower band.
+
+<Callout title="Summary">
+
+- Middle line = SMA 20, bands = ± 2 standard deviations.
+- A wild market widens the bands, a calm one narrows them.
+- A squeeze announces a move, not its direction.
+- On Binance: Original → indicator icon → Main Indicator → BOLL (20, 2).
+
+</Callout>

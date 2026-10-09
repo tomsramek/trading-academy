@@ -1,0 +1,88 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Parabolic SAR: tečky, které dotahují cenu",
+  slug: "parabolic-sar",
+  description:
+    "Jak se počítají tečky Parabolic SAR, co dělá zrychlovací faktor 0,02 až 0,2, proč se tečky přeskakují na druhou stranu a proč v trhu bez trendu skáčou sem a tam.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš vzorec SAR a zrychlovací faktor
+- zjistíš, kdy tečky přeskočí na druhou stranu ceny
+- uvidíš, proč SAR v bočním trhu kmitá, a zapneš ho na Binance
+
+</Callout>
+
+Parabolic SAR vypadá jako stopy po drobných krůčcích pod svíčkami. Každý den se přiblíží o kousek blíž
+k ceně, a čím déle trend trvá, tím dělá větší kroky. Jakmile ho cena dohoní, tečky přeskočí na druhou
+stranu – jako když Profesor Knot šlápne na hrábě.
+
+<Illustration name="sarHop" />
+
+## Jak se počítá
+
+SAR znamená stop and reverse – zastav a otoč. <KeyTerm term="parabolic-sar">Parabolic SAR</KeyTerm> v
+růstu kreslí tečky pod cenou, v poklesu nad ní. Každou svíčku se tečka posune blíž k extrému trendu
+(nejvyššímu maximu v růstu, nejnižšímu minimu v poklesu):
+
+**nová tečka = tečka + AF × (extrém − tečka)**
+
+AF je zrychlovací faktor. Začíná na **0,02** a s každým novým extrémem trendu vzroste o **0,02** – až na
+maximum **0,2**. Na začátku trendu tedy tečka udělá 2 % zbývající vzdálenosti, po deseti nových maximech
+už 20 %. Proto se tečky k ceně blíží po křivce – odtud „parabolic“.
+
+## Otočka
+
+Když cena protne tečku, trend podle SAR skončil: tečky přeskočí na druhou stranu, začnou od posledního
+extrému a AF se vrátí na 0,02. Tak SAR funguje jako posuvný stop – podobně jako <KeyTerm term="trailing-stop">trailing stop</KeyTerm>, který se dotahuje za cenou.
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s tečkami Parabolic SAR; od června do poloviny srpna 2024 tečky devětkrát přeskočily"
+  caption="Parabolic SAR 0,02 / 0,2: zelené tečky pod cenou, červené nad ní. V roce 2024 se otočil 36krát – jen od června do poloviny srpna devětkrát."
+  indicators={{ sar: true }}
+  zones={[{ from: "2024-06-01", to: "2024-08-15", label: "9 otoček" }]}
+/>
+
+## Silný v trendu, slabý v pilách
+
+V jasném trendu drží SAR obchod dlouho a stop dotahuje rychleji, než by to člověk dělal ručně. V trhu bez
+trendu ale cena tečky protíná tam a zpátky a každá otočka znamená nový signál – většinou planý. Mezi
+červnem a polovinou srpna 2024 se SAR otočil devětkrát, zatímco cena kmitala mezi 49 000 a 72 000 bez jasného směru.
+
+## Na Binance
+
+Režim **Original** → ikona indikátorů → **Main Indicator** → **SAR**. Nastavíš počáteční faktor (Start,
+výchozí 0,02), maximum (Maximum, výchozí 0,2) a barvu teček:
+
+<Video
+  src="/videos/binance-ind-sar.mp4"
+  poster="/videos/binance-ind-sar.webp"
+  label="Video: v dialogu indikátorů na Binance se vypne MA a zaškrtne SAR se Start 0,02 a Maximum 0,2; po uložení se kolem svíček objeví tečky"
+  caption="Video (21 s): MA vypnout, SAR zapnout (Start 0,02, Maximum 0,2), Save (Binance, 9. 10. 2026)."
+/>
+
+Vyšší faktory dotahují tečky rychleji – víc otoček, víc planých signálů. Nižší je zpomalí.
+
+<Callout type="warning" title="SAR je pořád v trhu">
+  SAR nikdy neřekne „stůj stranou“. Vždycky ukazuje buď růst, nebo pokles – i v
+  trhu, který žádný trend nemá. Kdo by obchodoval každou otočku, v bočním trhu
+  by platil poplatky a ztráty za každou z nich.
+</Callout>
+
+## Časté omyly
+
+- **„Otočka SAR je signál k obchodu.“** V bočním trhu je to hlavně šum.
+- **„Tečky jsou úroveň podpory.“** Jsou to vypočtené body podle vzorce, ne místo, kde stojí kupující.
+- **„Vyšší maximum AF = lepší SAR.“** Rychlejší SAR se jen častěji otáčí.
+
+<Callout title="Shrnutí">
+
+- Nová tečka = tečka + AF × (extrém − tečka); AF 0,02, +0,02 s každým novým extrémem, max. 0,2.
+- Když cena tečku protne, tečky přeskočí na druhou stranu a AF začne znovu.
+- V trendu funguje jako posuvný stop, v bočním trhu kmitá.
+- Na Binance: Original → ikona indikátorů → Main Indicator → SAR (0,02 / 0,2).
+
+</Callout>

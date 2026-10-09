@@ -1,0 +1,78 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Tři rodiny indikátorů",
+  slug: "tri-rodiny-indikatoru",
+  description:
+    "Trendové indikátory přes svíčky, oscilátory v panelu pod grafem a objemové indikátory. Co která rodina měří, kde ji najdeš v menu a proč dva indikátory ze stejné rodiny neznamenají dvojí potvrzení.",
+};
+
+<Callout title="V této lekci">
+
+- rozdělíš indikátory z menu do tří rodin
+- zjistíš, co která rodina měří a kde se kreslí
+- pochopíš, proč dva indikátory ze stejné rodiny nejsou dvě nezávislá potvrzení
+
+</Callout>
+
+Kdyby indikátory pořádaly sraz rodiny, sešly by se u tří stolů. U prvního sedí ti, kdo sledují směr. U
+druhého ti, kdo měří rychlost a pořád něco kmitá. A u třetího ti, kdo počítají lidi. Skoro každý
+indikátor z menu má u jednoho z nich své místo.
+
+<Illustration name="threeFamilies" />
+
+## Trend: kam to jde
+
+Trendové indikátory mají stejné jednotky jako cena, a proto se kreslí **přes svíčky** – na Binance v
+záložce **Main Indicator**. Patří sem průměry (MA, EMA, WMA), Bollingerova pásma (BOLL), VWAP, Parabolic
+SAR a Supertrend. Odpovídají na otázku: **jakým směrem se trh hýbe a kde je „normální“ cena?**
+
+## Oscilátory: jak rychle
+
+Takzvaný <KeyTerm term="oscillator">oscilátor</KeyTerm> kmitá v pásmu, často od 0 do 100, a má vlastní
+panel **pod grafem** (záložka **Sub Indicator**). Patří sem RSI, StochRSI, KDJ, Williams %R, CCI a
+MACD. Odpovídají na otázku: **jak rychlý a jak „natažený“ je pohyb?**
+
+## Objem: kolik lidí
+
+Objemové indikátory počítají, kolik se obchodovalo: VOL, OBV a MFI (ten je napůl oscilátor). Odpovídají
+na otázku: **stojí za pohybem dav, nebo pár náhodných obchodů?**
+
+Takhle vypadá jeden zástupce od každé rodiny na jednom grafu:
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024: přes svíčky klouzavý průměr 25 dní, pod grafem objem a RSI"
+  caption="Trend (SMA 25 přes svíčky), objem a oscilátor RSI pod grafem. Tři různé otázky, tři různé odpovědi."
+  indicators={{ sma: [25], volume: true, rsi: true }}
+/>
+
+## Stejná rodina = stejná odpověď
+
+RSI, StochRSI, KDJ a Williams %R počítají skoro totéž – jen jinou rovnicí. Když všechny čtyři ukazují
+„překoupeno“, nemáš čtyři potvrzení. Máš jednu informaci čtyřikrát. Je to jako zeptat se na cestu čtyř
+lidí, kteří se dívají do stejné mapy.
+
+Opravdový druhý názor přinese jen indikátor z **jiné** rodiny: trend se ptá na směr, oscilátor na
+rychlost, objem na účast.
+
+<Callout type="warning" title="Víc čar ≠ víc jistoty">
+  Každý indikátor navíc přidá další šanci, že si něco protiřečí – a tím i
+  pokušení vybrat si ten, který říká, co chceš slyšet. Méně čar se čte snáz a
+  poctivěji.
+</Callout>
+
+## Časté omyly
+
+- **„Když RSI i KDJ ukazují totéž, je to jisté.“** Měří totéž, takže se shodnou skoro vždycky.
+- **„MACD je trendový indikátor, tak patří přes svíčky.“** MACD sice sleduje průměry, ale kreslí se do panelu jako oscilátor.
+- **„Objem je nuda.“** Objem je jediný z běžných indikátorů, který nestojí jen na ceně.
+
+<Callout title="Shrnutí">
+
+- Trend (přes svíčky): MA, EMA, WMA, BOLL, VWAP, SAR, Supertrend – kam to jde.
+- Oscilátory (panel pod grafem): RSI, StochRSI, KDJ, Williams %R, CCI, MACD – jak rychle.
+- Objem: VOL, OBV, MFI – kolik lidí se účastní.
+- Dva indikátory ze stejné rodiny nejsou dvě nezávislá potvrzení.
+
+</Callout>

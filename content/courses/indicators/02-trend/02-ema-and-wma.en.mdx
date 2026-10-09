@@ -1,0 +1,105 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "EMA and WMA: averages that favour the news",
+  description:
+    "The exponential and weighted moving averages give new candles more weight than the simple average. How they are computed, how much sooner they react and why their speed costs more false signals.",
+};
+
+<Callout title="In this lesson">
+
+- compute an EMA step by step and understand its weight of 2 / (N + 1)
+- compare SMA, EMA and WMA with the same period on one chart
+- switch EMA and WMA on in Binance
+
+</Callout>
+
+The simple average gives every candle the same vote. But yesterday usually matters to you more than last
+month. EMA and WMA therefore give new candles more weight. They are like a friend who mostly remembers
+the latest gossip – quick to know what is going on, but sometimes panicking for nothing.
+
+<Illustration name="averageRace" />
+
+## EMA: a bit of the way every day
+
+The <KeyTerm term="ema">EMA</KeyTerm> (exponential average) is not computed from a window but from its
+previous value. Every day it takes a step towards the new close – exactly **2 / (N + 1)** of the way:
+
+- EMA 7: a step of 2 / 8 = **0.25** – a quarter of the way to the new price,
+- EMA 25: a step of 2 / 26 ≈ **0.077**,
+- EMA 99: a step of 2 / 100 = **0.02**.
+
+Older candles never drop out of the calculation completely; their influence just fades fast. The first
+EMA value is a plain average of the first N candles. Go through it:
+
+<IndicatorSteps
+  data={btc}
+  indicator="ema"
+  period={7}
+  from="2024-03-01"
+  label="Computing an exponential moving average of 7 candles on the daily Bitcoin chart from March 2024, step by step"
+/>
+
+## WMA: weights like stairs
+
+The <KeyTerm term="wma">WMA</KeyTerm> (weighted average) is computed from a window like the SMA, but the
+candles in it have weights like stairs: the newest N, the one before N − 1 … the oldest 1. For WMA 7 the
+weights add up to 28, so the newest candle makes 7 / 28 = 25% of the result and the oldest only 1 / 28 ≈
+3.6%. Nothing outside the window has any influence.
+
+## Three averages, one period
+
+Here are SMA, EMA and WMA with the same period of 25 on one chart:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with simple, exponential and weighted 25-day averages"
+  caption="SMA 25 (blue), EMA 25 (yellow) and WMA 25 (purple). At the summer 2024 top WMA and EMA turned down on 1 August, SMA only on 4 August."
+  indicators={{ sma: [25], ema: [25], wma: [25] }}
+/>
+
+The difference is a few days – but in both directions. EMA and WMA show a turn that comes sooner, and
+also a turn that never comes. Move the EMA period and watch how often the price crosses it:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="ema"
+  min={3}
+  max={200}
+  value={25}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with an exponential moving average whose period you change with a slider"
+/>
+
+## On Binance
+
+**Original** mode → indicator icon → **Main Indicator** → the **EMA** and **WMA** rows. Like MA, both
+have up to six lines with default lengths of 7, 25 and 99. In the video MA is switched off and EMA and
+WMA are switched on:
+
+<Video
+  src="/videos/binance-ind-ema.mp4"
+  poster="/videos/binance-ind-ema.webp"
+  label="Video: in Binance's indicator dialog MA is switched off, EMA and WMA with lengths 7, 25 and 99 are ticked and after saving six lines appear on the chart"
+  caption="Video (27 s): MA off, EMA and WMA on, Save (Binance, 9 Oct 2026)."
+/>
+
+<Callout type="warning" title="Faster does not mean more accurate">
+  EMA and WMA know nothing more about the market than SMA. They just split the
+  weight differently among the same past prices. The faster reaction is paid for
+  with more false signals – especially in a market without a trend.
+</Callout>
+
+## Common myths
+
+- **"EMA predicts a turn."** EMA only reacts to a turn sooner – after it, not before it.
+- **"EMA 25 and SMA 25 are completely different indicators."** Most of the time they run close together; they differ mainly at turns.
+- **"WMA is the same as EMA."** WMA forgets everything outside its window; EMA remembers the whole history with fading weight.
+
+<Callout title="Summary">
+
+- EMA takes a step of 2 / (N + 1) of the way to the new price every day; older candles never fully drop out.
+- WMA weighs the candles in its window N, N − 1 … 1; nothing outside the window counts.
+- Both react sooner than SMA – to real and to false turns.
+- On Binance: Original → indicator icon → Main Indicator → EMA and WMA (default 7, 25, 99).
+
+</Callout>
