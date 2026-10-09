@@ -1,0 +1,102 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "OBV: kasička na objem",
+  slug: "obv",
+  description:
+    "On-balance volume přičítá objem dnů s růstem a odečítá objem dnů s poklesem. Jak se počítá krok za krokem, proč samotné číslo nic neznamená a co prozradí, když OBV nejde s cenou.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš OBV svíčku po svíčce
+- pochopíš, proč je důležitý jen směr čáry, ne její hodnota
+- uvidíš na skutečném grafu, co znamená, když cena roste a OBV ne
+
+</Callout>
+
+Indikátor <KeyTerm term="obv">OBV</KeyTerm> je nejjednodušší indikátor v celém menu. Je to
+kasička: když svíčka zavře výš než ta předchozí, hodí do ní celý svůj objem.
+Když zavře níž, celý objem z ní vytáhne. Žádné periody, žádné průměry. Profesor
+Knot ho má rád právě proto – nedá se v něm nic zamotat.
+
+<Illustration name="piggyBank" />
+
+## Jak se počítá
+
+1. Začni na nule (nebo na jakémkoli čísle – uvidíš proč).
+2. Zavřela svíčka výš než předchozí? **Přičti** její objem.
+3. Zavřela níž? **Odečti** její objem.
+4. Zavřela stejně? Nic se nemění.
+
+Celý objem svíčky jde jedním směrem, i když cena vyrostla jen o dolar. Klikej na **Další**:
+
+<IndicatorSteps
+  data={btc}
+  indicator="obv"
+  from="2024-11-01"
+  label="Výpočet OBV na denním grafu bitcoinu od 1. listopadu 2024, svíčku po svíčce"
+/>
+
+## Číslo nic neznamená, směr ano
+
+OBV v našem grafu začíná na nule 1. října 2023, protože tam začínají data. Kdyby začínala o rok dřív,
+celá čára by byla posunutá nahoru nebo dolů. Proto je hodnota OBV sama o sobě k ničemu – „OBV je 1,2
+milionu“ neříká nic. Důležité je, **kam čára míří** a jestli jde s cenou.
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s OBV a objemem v panelech pod grafem; v prosinci 2024 je cena výš než v březnu, ale OBV níž"
+  caption="Cena v prosinci 2024 vysoko nad březnovým maximem, OBV pod ním. Růst se dál zobchodoval na menším „přičteném“ objemu."
+  indicators={{ obv: true, volume: true }}
+  markers={[
+    { time: "2024-03-13", kind: "high", label: "13. 3." },
+    { time: "2024-12-17", kind: "high", label: "17. 12." },
+  ]}
+/>
+
+## Když OBV nejde s cenou
+
+Porovnej dvě data z grafu:
+
+| Den          | Zavírací cena | OBV       |
+| ------------ | ------------- | --------- |
+| 13. 3. 2024  | 73 072        | 1 518 339 |
+| 17. 12. 2024 | 106 134       | 1 222 270 |
+
+Cena je v prosinci o 45 % výš, OBV je nižší. Takovému nesouladu se říká <KeyTerm term="divergence">divergence</KeyTerm>. Znamená, že nová maxima ceny nepřišla s tolika
+„přičteným“ objemem jako dřív. Je to varování, že růst nemá tak silnou podporu – ne povel k prodeji. Po 17. prosinci 2024 cena do konce roku klesla k 93 000, ale stejný nesoulad mohl vydržet i měsíce. Víc o
+divergencích v posledním modulu.
+
+## OBV na Binance
+
+V režimu Original: ikonka indikátorů, záložka **Sub Indicator**, zaškrtnout **OBV** a **Save**. OBV
+nemá žádnou periodu – v legendě je jen „OBV“.
+
+<Video
+  src="/videos/binance-ind-obv.mp4"
+  poster="/videos/binance-ind-obv.webp"
+  label="Video: na Binance se v dialogu indikátorů na záložce Sub Indicator zaškrtne OBV, klikne se na Save a pod grafem se objeví panel OBV"
+  caption="Video (21 s): OBV zaškrtnuté v záložce Sub Indicator, pod grafem nový panel (Binance, 9. 10. 2026)."
+/>
+
+<Callout type="warning" title="Jedna velká svíčka umí OBV převrátit">
+  OBV přičte nebo odečte celý objem svíčky podle jediného porovnání zavíracích
+  cen. Den s obrovským objemem a změnou o pár dolarů posune čáru stejně jako
+  velký pohyb. Ber OBV jako hrubý obrys, ne jako přesné měření.
+</Callout>
+
+## Časté omyly
+
+- **„Vysoké OBV = silný trh.“** Hodnota závisí jen na tom, kde výpočet začal. Rozhoduje směr čáry.
+- **„OBV ukazuje, kdo nakupoval.“** Ukazuje objem svíček, které zavřely výš nebo níž – nevidí do jednotlivých obchodů.
+- **„Divergence OBV = zítra pád.“** Je to varování o slábnoucí podpoře. Načasování neřekne.
+
+<Callout title="Shrnutí">
+
+- OBV přičte celý objem svíčky, která zavřela výš, a odečte objem svíčky, která zavřela níž.
+- Absolutní číslo nic neznamená – záleží na začátku výpočtu. Sleduj směr čáry.
+- Cena nahoru a OBV dolů (13. 3. vs. 17. 12. 2024) je divergence: varování, ne signál.
+- Na Binance je OBV v záložce Sub Indicator a nemá žádnou periodu.
+
+</Callout>

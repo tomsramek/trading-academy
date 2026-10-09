@@ -1,0 +1,104 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "OBV: a piggy bank for volume",
+  description:
+    "On-balance volume adds the volume of up days and subtracts the volume of down days. How it is computed step by step, why the number itself means nothing and what it reveals when OBV does not follow the price.",
+};
+
+<Callout title="In this lesson">
+
+- compute OBV candle by candle
+- understand why only the line's direction matters, not its value
+- see on a real chart what it means when the price rises and OBV does not
+
+</Callout>
+
+The <KeyTerm term="obv">OBV</KeyTerm> is the simplest indicator in the whole menu.
+It is a piggy bank: when a candle closes higher than the one before, it drops
+its whole volume in. When it closes lower, it takes its whole volume out. No
+periods, no averages. Professor Wick likes it for exactly that – there is
+nothing to get tangled in.
+
+<Illustration name="piggyBank" />
+
+## How it is computed
+
+1. Start at zero (or at any number – you will see why).
+2. Did the candle close higher than the previous one? **Add** its volume.
+3. Did it close lower? **Subtract** its volume.
+4. Did it close at the same price? Nothing changes.
+
+The candle's whole volume goes one way, even if the price rose by a single dollar. Click **Next**:
+
+<IndicatorSteps
+  data={btc}
+  indicator="obv"
+  from="2024-11-01"
+  label="Computing OBV on the daily Bitcoin chart from 1 November 2024, candle by candle"
+/>
+
+## The number means nothing, the direction does
+
+OBV in our chart starts at zero on 1 October 2023, because that is where the data starts. Had it started
+a year earlier, the whole line would be shifted up or down. That is why the OBV value on its own is
+useless – "OBV is 1.2 million" says nothing. What matters is **where the line is heading** and whether
+it goes with the price.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with OBV and volume in panels below the chart; in December 2024 the price is higher than in March, but OBV is lower"
+  caption="In December 2024 the price is far above the March high, OBV below it. The rise kept going on less “added” volume."
+  indicators={{ obv: true, volume: true }}
+  markers={[
+    { time: "2024-03-13", kind: "high", label: "13 Mar" },
+    { time: "2024-12-17", kind: "high", label: "17 Dec" },
+  ]}
+/>
+
+## When OBV does not follow the price
+
+Compare two dates from the chart:
+
+| Day         | Close   | OBV       |
+| ----------- | ------- | --------- |
+| 13 Mar 2024 | 73,072  | 1,518,339 |
+| 17 Dec 2024 | 106,134 | 1,222,270 |
+
+The price is 45% higher in December, OBV is lower. Such a mismatch is called a <KeyTerm term="divergence">divergence</KeyTerm>. It means the new price highs did not come with as much
+"added" volume as before. It is a warning that the rise has weaker support – not an order to sell. After
+17 December 2024 the price fell to 93,000 by the end of the year, but the same mismatch could just as
+well have lasted for months. More on divergences in the last module.
+
+## OBV on Binance
+
+In Original mode: the indicator icon, the **Sub Indicator** tab, tick **OBV** and **Save**. OBV has no
+period – the legend shows just "OBV".
+
+<Video
+  src="/videos/binance-ind-obv.mp4"
+  poster="/videos/binance-ind-obv.webp"
+  label="Video: in Binance's indicator dialog, OBV is ticked on the Sub Indicator tab, Save is clicked and an OBV panel appears below the chart"
+  caption="Video (21 s): OBV ticked in the Sub Indicator tab, a new panel below the chart (Binance, 9 Oct 2026)."
+/>
+
+<Callout type="warning" title="One big candle can flip OBV">
+  OBV adds or subtracts a candle's whole volume based on a single comparison of
+  closes. A day with huge volume and a change of a few dollars moves the line as
+  much as a big move. Treat OBV as a rough outline, not a precise measurement.
+</Callout>
+
+## Common myths
+
+- **"High OBV = a strong market."** The value depends only on where the calculation started. The direction of the line is what counts.
+- **"OBV shows who was buying."** It shows the volume of candles that closed higher or lower – it does not see individual trades.
+- **"An OBV divergence = a crash tomorrow."** It is a warning about weakening support. It does not give the timing.
+
+<Callout title="Summary">
+
+- OBV adds the whole volume of a candle that closed higher and subtracts the volume of one that closed lower.
+- The absolute number means nothing – it depends on where the calculation started. Watch the direction.
+- Price up and OBV down (13 Mar vs. 17 Dec 2024) is a divergence: a warning, not a signal.
+- On Binance, OBV is in the Sub Indicator tab and has no period.
+
+</Callout>

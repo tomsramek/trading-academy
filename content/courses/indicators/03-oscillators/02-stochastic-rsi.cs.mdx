@@ -1,0 +1,84 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Stochastic RSI: RSI na kofeinu",
+  slug: "stochasticke-rsi",
+  description:
+    "StochRSI je stochastic spočítaný z RSI místo z ceny. Jak se počítá, co znamená nastavení 14, 14, 3, 3 na Binance a proč kmitá třikrát víc než samotné RSI.",
+};
+
+<Callout title="V této lekci">
+
+- pochopíš, co je RSI z RSI a jak se počítá
+- rozluštíš nastavení StochRSI 14, 14, 3, 3 na Binance
+- uvidíš, proč dává mnohem víc signálů než RSI – a proč to není výhra
+
+</Callout>
+
+Když RSI vypije dvě espressa, vznikne <KeyTerm term="stochastic-rsi">Stochastic RSI</KeyTerm>.
+Nepřináší novou informaci o trhu – jen bere RSI a ukazuje, kde je vůči svému nedávnému rozpětí. Výsledek
+je rychlý, citlivý a neposedný. Profesor Knot ho doporučuje číst vsedě.
+
+<Illustration name="doubleEspresso" />
+
+## Jak se počítá
+
+StochRSI vezme hodnoty RSI a použije na ně vzorec stochastického oscilátoru:
+
+1. Spočítej RSI (na Binance RSI 14).
+2. Najdi nejnižší a nejvyšší RSI za posledních 14 svíček.
+3. Zjisti, kde v tomto rozpětí leží dnešní RSI: (RSI − minimum) / (maximum − minimum) × 100.
+4. Výsledek vyhlaď průměrem 3 svíček – to je čára **%K**. Průměr 3 hodnot %K je čára **%D**.
+
+Příklad: za posledních 14 dní bylo RSI nejníž 40 a nejvýš 70. Dnes je 64. StochRSI je (64 − 40) /
+(70 − 40) × 100 = **80**. RSI 64 by nikoho nevzrušilo – StochRSI 80 už hlásí „horní okraj“.
+
+## Kde ho najdeš na Binance
+
+V režimu **Original**: ikona indikátorů nad grafem, záložka **Sub Indicator**, zaškrtnout **StochRSI**,
+**Save**. Legenda ukáže **StochRSI(14, 14, 3, 3)** – délku RSI, délku stochasticu, vyhlazení %K
+a vyhlazení %D.
+
+<Video
+  src="/videos/binance-ind-stochrsi.mp4"
+  poster="/videos/binance-ind-stochrsi.webp"
+  label="Video: na Binance se na záložce Sub Indicator zaškrtne StochRSI a po uložení se pod grafem objeví panel se dvěma rychle kmitajícími čarami"
+  caption="Video (21 s): zapnutí StochRSI na Binance – Sub Indicator, StochRSI 14, 14, 3, 3, Save (Binance, 9. 10. 2026)."
+/>
+
+## Stejný trh, třikrát víc poplachů
+
+Porovnej oba panely na stejném grafu. RSI se pohybuje kolem středu a zóny 70/30 navštíví zřídka.
+StochRSI lítá od nuly ke stovce a zpátky:
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s RSI 14 a StochRSI 14, 14, 3, 3 ve dvou panelech pod grafem"
+  caption="Nahoře RSI 14, dole StochRSI (%K modře, %D žlutě). Za stejné období vstoupilo RSI do zón 70/30 třináctkrát, %K do zón 80/20 čtyřicetkrát."
+  indicators={{ rsi: true, stochRsi: true }}
+/>
+
+Čtyřicet poplachů za rok není čtyřicet příležitostí. Většina z nich jsou jen drobné výkyvy RSI, které
+StochRSI nafoukne na celou stupnici. Hodí se spíš jako rychlý ukazatel načasování v krátkých
+časových rámcích – a jen tam, kde už máš důvod k obchodu z jiného nástroje.
+
+<Callout type="warning" title="Citlivý neznamená přesný">
+  StochRSI zesiluje šum. Na 80 nebo 20 se dostane i při docela obyčejném dni.
+  Kdo podle něj otevírá obchody bez dalšího filtru, platí hlavně poplatky a
+  skluz.
+</Callout>
+
+## Časté omyly
+
+- **„StochRSI je lepší RSI.“** Je to RSI natažené na celou stupnici – rychlejší, ne chytřejší.
+- **„StochRSI 100 = cena je nahoře.“** Znamená jen, že RSI je na maximu posledních 14 svíček.
+- **„Když se %K a %D kříží, je to signál.“** Kříží se tak často, že bez kontextu je to spíš hod mincí.
+
+<Callout title="Shrnutí">
+
+- StochRSI = (RSI − minimum RSI) / (maximum RSI − minimum RSI) × 100 za posledních N svíček.
+- Na Binance StochRSI(14, 14, 3, 3): délka RSI, délka stochasticu, vyhlazení %K a %D.
+- Kmitá mnohem víc než RSI a nafukuje drobné výkyvy.
+- Hodí se nanejvýš k načasování, ne jako samostatný důvod k obchodu.
+
+</Callout>

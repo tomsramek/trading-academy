@@ -1,0 +1,83 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "What an indicator is",
+  description:
+    "An indicator is a formula that computes a line from candles. Why it always lags behind the price, why its last value keeps moving until the candle closes, and what to expect from it – and what not to.",
+};
+
+<Callout title="In this lesson">
+
+- see how an indicator is made from candles – step by step
+- understand why every indicator lags behind the price
+- find out what repainting is and why the last candle lies
+
+</Callout>
+
+The chart menu has more than twenty indicators, and each looks like a secret weapon. Good news: none of
+them is magic. Each is an ordinary recipe – it takes a few recent candles, computes something from their
+prices and draws the result as a line. Professor Wick calls it a cookbook: candles in, line out.
+
+<Illustration name="candleRecipe" />
+
+## A recipe for a line
+
+The simplest indicator is the <KeyTerm term="moving-average">moving average</KeyTerm>: add up the
+closing prices of the last N candles and divide by N. The result is one point. Then the window moves by
+one candle and you compute again. Point by point, a line appears. Click **Next** and watch it grow:
+
+<IndicatorSteps
+  data={btc}
+  indicator="sma"
+  period={5}
+  from="2024-02-20"
+  label="Computing a simple moving average of 5 candles on the daily Bitcoin chart from February 2024, step by step"
+/>
+
+Notice two things. The line is made only from **past** candles – there is nothing about tomorrow in it.
+And it is **smoother** than the price: one wild day melts away in an average of five.
+
+## Every indicator lags
+
+Because the average also counts older candles, it turns only after the price has turned. This is called
+lag. The more candles an indicator takes, the smoother it is – and the more it lags:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with 7-day and 50-day moving averages; the 50-day average turns noticeably later"
+  caption="SMA 7 (blue) hugs the price, SMA 50 (yellow) turns weeks later. You cannot have smoothness and speed at once."
+  indicators={{ sma: [7, 50] }}
+/>
+
+That is not a bug, it is the price of smoothness. A fast indicator gives a signal early, but often a
+false one. A slow one is wrong less often, but comes late. This whole course keeps coming back to it.
+
+## Repainting: the last candle lies
+
+The last candle on the chart is not finished yet – the price is still moving in it. And with it moves the
+last value of every indicator. A signal you see in the middle of the day can be gone by midnight. This
+is called <KeyTerm term="repainting">repainting</KeyTerm>.
+
+The standard indicators in an exchange's menu no longer change a **closed** candle. So the rule is
+simple: a signal counts once the candle has closed.
+
+<Callout type="warning" title="An indicator does not see the future">
+  An indicator is another view of the same past prices. It adds no new
+  information and does not know what the price will do tomorrow. It can help you
+  organise the chart and keep to your rules – not predict.
+</Callout>
+
+## Common myths
+
+- **"The indicator knows something the price does not."** It is computed only from the price (and maybe volume). Different glasses, not a different world.
+- **"A faster indicator is better."** It is faster – and wrong more often. A slower one is calmer – and later.
+- **"A signal on a running candle counts."** It counts once the candle closes. Until then it can change.
+
+<Callout title="Summary">
+
+- An indicator is a formula: it computes a point from candles, moves one candle on and computes again.
+- It is computed only from the past, so it always lags behind the price.
+- A longer period = a smoother line and more lag.
+- The last, unfinished candle repaints; a signal counts once it closes.
+
+</Callout>

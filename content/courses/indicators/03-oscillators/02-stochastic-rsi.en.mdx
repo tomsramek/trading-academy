@@ -1,0 +1,85 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Stochastic RSI: RSI on caffeine",
+  description:
+    "StochRSI is the stochastic computed from RSI instead of the price. How it is computed, what the 14, 14, 3, 3 setting on Binance means and why it swings three times as much as RSI itself.",
+};
+
+<Callout title="In this lesson">
+
+- understand what the RSI of RSI is and how it is computed
+- decode the StochRSI setting 14, 14, 3, 3 on Binance
+- see why it gives far more signals than RSI – and why that is not a win
+
+</Callout>
+
+When RSI drinks two espressos, you get <KeyTerm term="stochastic-rsi">Stochastic RSI</KeyTerm>. It
+brings no new information about the market – it just takes RSI and shows where it sits within its own
+recent range. The result is fast, sensitive and restless. Professor Wick recommends reading it sitting
+down.
+
+<Illustration name="doubleEspresso" />
+
+## How it is computed
+
+StochRSI takes the RSI values and applies the stochastic oscillator's formula to them:
+
+1. Compute RSI (on Binance RSI 14).
+2. Find the lowest and highest RSI of the last 14 candles.
+3. Find where today's RSI sits in that range: (RSI − low) / (high − low) × 100.
+4. Smooth the result with an average of 3 candles – that is the **%K** line. An average of 3 %K values
+   is the **%D** line.
+
+An example: over the last 14 days RSI was at most 70 and at least 40. Today it is 64. StochRSI is
+(64 − 40) / (70 − 40) × 100 = **80**. RSI 64 would excite nobody – StochRSI 80 already reports "top of
+the range".
+
+## Where to find it on Binance
+
+In **Original** mode: the indicator icon above the chart, the **Sub Indicator** tab, tick **StochRSI**,
+**Save**. The legend shows **StochRSI(14, 14, 3, 3)** – the RSI length, the stochastic length, the %K
+smoothing and the %D smoothing.
+
+<Video
+  src="/videos/binance-ind-stochrsi.mp4"
+  poster="/videos/binance-ind-stochrsi.webp"
+  label="Video: on Binance StochRSI is ticked on the Sub Indicator tab, and after saving a panel with two fast-swinging lines appears below the chart"
+  caption="Video (21 s): switching on StochRSI on Binance – Sub Indicator, StochRSI 14, 14, 3, 3, Save (Binance, 9 Oct 2026)."
+/>
+
+## Same market, three times the alarms
+
+Compare both panels on the same chart. RSI moves around the middle and rarely visits the 70/30 zones.
+StochRSI flies from zero to a hundred and back:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with RSI 14 and StochRSI 14, 14, 3, 3 in two panels below"
+  caption="Top: RSI 14, bottom: StochRSI (%K blue, %D yellow). Over the same period RSI entered the 70/30 zones 13 times, %K the 80/20 zones 40 times."
+  indicators={{ rsi: true, stochRsi: true }}
+/>
+
+Forty alarms a year are not forty opportunities. Most are just small wobbles of RSI that StochRSI blows
+up to the full scale. It is more useful as a quick timing gauge on short timeframes – and only where
+another tool already gives you a reason to trade.
+
+<Callout type="warning" title="Sensitive does not mean accurate">
+  StochRSI amplifies noise. It reaches 80 or 20 on a quite ordinary day. Anyone
+  who opens trades on it without another filter mostly pays fees and slippage.
+</Callout>
+
+## Common myths
+
+- **"StochRSI is a better RSI."** It is RSI stretched to the full scale – faster, not smarter.
+- **"StochRSI 100 = the price is at the top."** It only means RSI is at the high of the last 14 candles.
+- **"When %K and %D cross, it is a signal."** They cross so often that without context it is closer to a coin toss.
+
+<Callout title="Summary">
+
+- StochRSI = (RSI − lowest RSI) / (highest RSI − lowest RSI) × 100 over the last N candles.
+- On Binance StochRSI(14, 14, 3, 3): RSI length, stochastic length, %K and %D smoothing.
+- It swings far more than RSI and blows up small wobbles.
+- It is useful for timing at most, not as a reason to trade on its own.
+
+</Callout>

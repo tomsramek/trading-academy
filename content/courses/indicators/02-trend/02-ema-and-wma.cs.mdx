@@ -1,0 +1,105 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "EMA a WMA: průměry, které dají přednost novinkám",
+  slug: "ema-a-wma",
+  description:
+    "Exponenciální a vážený klouzavý průměr dávají novým svíčkám větší váhu než prostý průměr. Jak se počítají, o kolik dřív zareagují a proč za rychlost platí víc planými signály.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš EMA krok za krokem a pochopíš její váhu 2 / (N + 1)
+- porovnáš SMA, EMA a WMA se stejnou periodou na jednom grafu
+- zapneš EMA a WMA na Binance
+
+</Callout>
+
+Prostý průměr dá každé svíčce stejný hlas. Jenže včerejšek tě obvykle zajímá víc než minulý měsíc.
+EMA a WMA proto novým svíčkám přidají na váze. Jsou jako kamarád, který si pamatuje hlavně poslední
+drby – rychle ví, co se děje, ale občas zpanikaří zbytečně.
+
+<Illustration name="averageRace" />
+
+## EMA: každý den kousek cesty
+
+Takzvaná <KeyTerm term="ema">EMA</KeyTerm> (exponenciální průměr) se nepočítá z okna, ale z předchozí
+hodnoty. Každý den udělá krok směrem k nové zavírací ceně – velký přesně **2 / (N + 1)** cesty:
+
+- EMA 7: krok 2 / 8 = **0,25** – čtvrtinu cesty k nové ceně,
+- EMA 25: krok 2 / 26 ≈ **0,077**,
+- EMA 99: krok 2 / 100 = **0,02**.
+
+Starší svíčky z výpočtu nikdy úplně nevypadnou, jen jejich vliv rychle slábne. První hodnota EMA je
+obyčejný průměr prvních N svíček. Projdi si to:
+
+<IndicatorSteps
+  data={btc}
+  indicator="ema"
+  period={7}
+  from="2024-03-01"
+  label="Výpočet exponenciálního klouzavého průměru 7 svíček na denním grafu bitcoinu od března 2024, krok za krokem"
+/>
+
+## WMA: váhy jako schody
+
+Takzvaná <KeyTerm term="wma">WMA</KeyTerm> (vážený průměr) se počítá z okna jako SMA, ale svíčky v něm
+mají váhy jako schody: nejnovější N, předposlední N − 1 … nejstarší 1. U WMA 7 je součet vah 28, takže
+nejnovější svíčka tvoří 7 / 28 = 25 % výsledku a nejstarší jen 1 / 28 ≈ 3,6 %. Za oknem už nemá žádná
+svíčka vliv.
+
+## Tři průměry, jedna perioda
+
+Takhle vypadají SMA, EMA a WMA se stejnou periodou 25 na jednom grafu:
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s prostým, exponenciálním a váženým průměrem 25 dní"
+  caption="SMA 25 (modrá), EMA 25 (žlutá) a WMA 25 (fialová). Na vrcholu v létě 2024 se WMA i EMA otočily dolů 1. srpna, SMA až 4. srpna."
+  indicators={{ sma: [25], ema: [25], wma: [25] }}
+/>
+
+Rozdíl je pár dní – ale v obou směrech. EMA a WMA dřív ukážou obrat, který přijde, i obrat, který
+nepřijde. Posuň periodu EMA a sleduj, jak často ji cena překříží:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="ema"
+  min={3}
+  max={200}
+  value={25}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s exponenciálním klouzavým průměrem, jehož periodu měníš posuvníkem"
+/>
+
+## Na Binance
+
+Režim **Original** → ikona indikátorů → **Main Indicator** → řádky **EMA** a **WMA**. Obě mají jako MA
+až šest čar s výchozími délkami 7, 25 a 99. Ve videu se vypne MA a zapnou se EMA i WMA:
+
+<Video
+  src="/videos/binance-ind-ema.mp4"
+  poster="/videos/binance-ind-ema.webp"
+  label="Video: v dialogu indikátorů na Binance se vypne MA, zaškrtnou se EMA a WMA s délkami 7, 25 a 99 a po uložení se v grafu objeví šest čar"
+  caption="Video (27 s): MA vypnout, EMA a WMA zapnout, Save (Binance, 9. 10. 2026)."
+/>
+
+<Callout type="warning" title="Rychlejší neznamená přesnější">
+  EMA a WMA nevědí o trhu nic víc než SMA. Jen jinak rozdělují váhu mezi stejné
+  minulé ceny. Rychlejší reakce se platí častějšími planými signály – hlavně v
+  trhu bez trendu.
+</Callout>
+
+## Časté omyly
+
+- **„EMA předpovídá obrat.“** EMA na obrat jen dřív zareaguje – po něm, ne před ním.
+- **„EMA 25 a SMA 25 jsou úplně jiné indikátory.“** Většinu času běží těsně vedle sebe; liší se hlavně v obratech.
+- **„WMA je totéž co EMA.“** WMA zapomíná vše za oknem, EMA si pamatuje celou historii se slábnoucí váhou.
+
+<Callout title="Shrnutí">
+
+- EMA každý den udělá krok 2 / (N + 1) cesty k nové ceně; starší svíčky nikdy úplně nevypadnou.
+- WMA váží svíčky v okně N, N − 1 … 1; za oknem nemá nic vliv.
+- Obě reagují dřív než SMA – na skutečné i plané obraty.
+- Na Binance: Original → ikona indikátorů → Main Indicator → EMA a WMA (výchozí 7, 25, 99).
+
+</Callout>

@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "What is a 7-period moving average on a daily chart computed from?",
+          "options": [
+            "The prices of the last seven hours",
+            "The closes of the last seven days",
+            "A forecast of the next seven days"
+          ],
+          "explanation": "The period is the number of candles on the chosen timeframe. On a daily chart one candle is a day – and the indicator only uses the past."
+        },
+        "cs": {
+          "question": "Z čeho se počítá klouzavý průměr 7 na denním grafu?",
+          "options": [
+            "Z cen posledních sedmi hodin",
+            "Ze zavíracích cen posledních sedmi dní",
+            "Z odhadu ceny na příštích sedm dní"
+          ],
+          "explanation": "Perioda je počet svíček na zvoleném časovém rámci. Na denním grafu je jedna svíčka den – a indikátor počítá jen s minulostí."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why does a longer average react to a turn later?",
+          "options": [
+            "Because the exchange computes it more slowly",
+            "Because it uses different data",
+            "Because more older candles carry weight in it"
+          ],
+          "explanation": "The more candles an indicator takes, the smoother it is – and the more it lags. You cannot have smoothness and speed at once."
+        },
+        "cs": {
+          "question": "Proč delší průměr reaguje na obrat později?",
+          "options": [
+            "Protože ho burza počítá pomaleji",
+            "Protože používá jiná data",
+            "Protože v něm má váhu víc starších svíček"
+          ],
+          "explanation": "Čím víc svíček indikátor bere, tím je hladší – a tím víc zaostává. Hladkost a rychlost nejdou mít zároveň."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "A signal appears on the running candle in the middle of the day. When does it count?",
+          "options": [
+            "Once the candle closes",
+            "Right away, as soon as it appears",
+            "Never, signals on a daily chart do not count"
+          ],
+          "explanation": "The last candle is not finished and the indicator's value moves with it (repainting). The signal may disappear before the close."
+        },
+        "cs": {
+          "question": "Uprostřed dne se na rozjeté svíčce objeví signál. Kdy platí?",
+          "options": [
+            "Až po zavření svíčky",
+            "Hned, jakmile se objeví",
+            "Nikdy, signály na denním grafu neplatí"
+          ],
+          "explanation": "Poslední svíčka ještě není hotová a hodnota indikátoru se s ní hýbe (překreslování). Signál může do zavření zmizet."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "RSI and KDJ both show \"overbought\". What does it mean?",
+          "options": [
+            "Two independent confirmations",
+            "One piece of information twice – both are oscillators measuring a similar thing",
+            "A certain fall"
+          ],
+          "explanation": "Indicators of the same family answer the same question. A real second opinion comes from another family – trend or volume."
+        },
+        "cs": {
+          "question": "RSI a KDJ zároveň ukazují „překoupeno“. Co to znamená?",
+          "options": [
+            "Dvě nezávislá potvrzení",
+            "Jednu informaci dvakrát – oba jsou oscilátory a měří podobnou věc",
+            "Jistý pokles"
+          ],
+          "explanation": "Indikátory ze stejné rodiny odpovídají na stejnou otázku. Opravdový druhý názor přinese indikátor z jiné rodiny – trend nebo objem."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "On Binance you see RSI(6), the lesson shows RSI(14) and the numbers differ. Why?",
+          "options": [
+            "Binance has a bug",
+            "The lesson uses different data",
+            "A different period – the Original mode defaults to RSI 6, 12 and 24, Trading View to 14"
+          ],
+          "explanation": "Binance's chart modes have different defaults. The number in brackets always tells you the indicator's period."
+        },
+        "cs": {
+          "question": "Na Binance vidíš RSI(6), v lekci RSI(14) a čísla se liší. Proč?",
+          "options": [
+            "Binance má chybu",
+            "Lekce používá jiná data",
+            "Jiná perioda – režim Original má výchozí RSI 6, 12 a 24, Trading View 14"
+          ],
+          "explanation": "Režimy grafu na Binance mají různé výchozí hodnoty. Číslo v závorce vždy řekne, jakou periodu indikátor má."
+        }
+      },
+      "answer": 2
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Williams %R: stochastic vzhůru nohama",
+  slug: "williams-r",
+  description:
+    "Williams %R měří totéž co stochastic, jen na stupnici od 0 do −100. Jak se počítá, jak ho zapnout na Binance, proč jsou jeho hladiny −20 a −80 a proč vedle stochasticu nic nového neřekne.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš Williams %R a poznáš v něm převrácený stochastic
+- zapneš ho na Binance a pochopíš záporná čísla na stupnici
+- uvidíš, proč dva „různé“ oscilátory kreslí stejnou čáru
+
+</Callout>
+
+Larry Williams vzal stochastic, otočil ho vzhůru nohama a dal mu záporná čísla. Výsledek se jmenuje <KeyTerm term="williams-r">Williams %R</KeyTerm> a na Binance ho najdeš pod zkratkou **WR**. Profesor
+Knot si ho prohlíží zavěšený za nohy – prý je to tak přehlednější.
+
+<Illustration name="upsideDown" />
+
+## Jak se počítá
+
+1. Najdi nejvyšší maximum a nejnižší minimum posledních 14 svíček.
+2. %R = (maximum − zavření) / (maximum − minimum) × (−100).
+
+Když cena zavře na maximu rozpětí, %R je **0**. Na minimu je **−100**. Hladiny se proto píšou záporně:
+nad **−20** je zavření u horního okraje (obdoba stochasticu nad 80), pod **−80** u dolního (obdoba pod 20).
+
+A teď ta pointa: %R + 100 = stochastic %K bez vyhlazení. Je to přesně stejné číslo, jen posunuté o sto.
+Na posledním dni našich dat byl %R −86,4 a stochastic 13,6.
+
+## Kde ho najdeš na Binance
+
+V režimu **Original**: ikona indikátorů, záložka **Sub Indicator**, zaškrtnout **WR**, **Save**. Legenda
+v panelu ukáže **Wm %R(14)** – perioda 14 svíček.
+
+<Video
+  src="/videos/binance-ind-wr.mp4"
+  poster="/videos/binance-ind-wr.webp"
+  label="Video: na Binance se na záložce Sub Indicator zaškrtne WR a po uložení se pod grafem objeví panel Williams %R se stupnicí od 0 do −100"
+  caption="Video (20 s): zapnutí Williams %R na Binance – Sub Indicator, WR 14, Save (Binance, 9. 10. 2026)."
+/>
+
+## Dvojčata
+
+Polož %R a stochastic pod sebe a uvidíš stejný tvar – jen jinak popsaný a trochu jinak vyhlazený:
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 se stochastickým oscilátorem a Williams %R ve dvou panelech pod grafem"
+  caption="Nahoře stochastic (hladiny 80 a 20), dole Williams %R (hladiny −20 a −80). Stejné vrcholy, stejná dna – jedna informace dvakrát."
+  indicators={{ stochastic: true, williamsR: true }}
+/>
+
+Zkus periodu. Chová se stejně jako stochastic – krátká skáče, dlouhá se vleče:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="williamsR"
+  min={3}
+  max={50}
+  label="Denní graf bitcoinu s Williams %R, jehož periodu měníš posuvníkem"
+/>
+
+<Callout type="warning" title="Dva oscilátory, jedna informace">
+  Williams %R a stochastic nejsou dvě nezávislá potvrzení. Když se oba shodnou
+  na „přeprodáno“, víš pořád jen jednu věc: cena je u dna rozpětí posledních
+  svíček. Druhý názor přinese jen indikátor z jiné rodiny.
+</Callout>
+
+## Časté omyly
+
+- **„−90 je hrozně málo, trh je mrtvý.“** Znamená jen, že zavření je u minima posledních 14 svíček.
+- **„%R je lepší než stochastic.“** Je to tentýž výpočet s jinou stupnicí.
+- **„Záporné číslo = cena klesá.“** Celá stupnice je záporná; −20 je u horního okraje.
+
+<Callout title="Shrnutí">
+
+- %R = (maximum − zavření) / (maximum − minimum) × (−100) za posledních N svíček.
+- 0 je u maxima rozpětí, −100 u minima; hladiny −20 a −80.
+- %R + 100 = nevyhlazený stochastic %K.
+- Na Binance WR, legenda Wm %R(14).
+
+</Callout>

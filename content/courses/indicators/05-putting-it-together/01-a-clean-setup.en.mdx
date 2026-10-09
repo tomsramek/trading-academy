@@ -1,0 +1,88 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "A clean setup",
+  description:
+    "One from each family: a trend line, an oscillator and volume. How to build a readable chart, why RSI and MACD together say half the same thing and why settings belong in your trading plan, not in your mood.",
+};
+
+<Callout title="In this lesson">
+
+- build a chart from one indicator of each family
+- find out why RSI and MACD partly overlap
+- get a checklist for choosing and setting indicators
+
+</Callout>
+
+We have been through the whole indicator menu, and now comes the hardest discipline: switching most of
+them off again. Professor Wick has brought a broom. He keeps on the chart only what answers a different
+question from the rest – and sweeps everything else off the desk.
+
+<Illustration name="cleanDesk" />
+
+## Where we start
+
+When you open a chart, Binance shows three averages, **MA 7, 25 and 99**, and **volume** below the
+chart. Most people then add an oscillator – say RSI, and MACD on top:
+
+<Video
+  src="/videos/binance-ind-setup.mp4"
+  poster="/videos/binance-ind-setup.webp"
+  label="Video: on Binance the indicator dialog opens, RSI and MACD are ticked on the Sub Indicator tab and after clicking Save two panels appear below the chart"
+  caption="Video (24 s): RSI and MACD added to the default MA 7, 25, 99 and volume – the Sub Indicator tab, two ticks, Save (Binance, 9 Oct 2026)."
+/>
+
+It looks professional. But RSI and <KeyTerm term="macd">MACD</KeyTerm> mostly measure one thing: how fast
+the price has been moving lately. When RSI shoots up, MACD usually does too. Two panels, largely one piece
+of information.
+
+## One from each family
+
+A clearer chart comes from picking one member of each family:
+
+1. **Trend** – one line over the candles, say SMA 50 or EMA 25. It answers: which way is it going?
+2. **Oscillator** – one, say <KeyTerm term="rsi">RSI</KeyTerm> 14. It answers: is the move overdone?
+3. **Volume** – the bars below the chart. It answers: is there interest behind the move?
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with a 50-day moving average, volume and RSI 14"
+  caption="A clean setup: SMA 50 for direction, volume for participation, RSI 14 for speed. Three questions, three lines."
+  indicators={{ sma: [50], volume: true, rsi: true }}
+/>
+
+It does not have to be this exact trio. What matters is that the indicators **do not overlap** – and that
+you know which question each one answers.
+
+## A checklist
+
+- **Timeframe.** Settings for a daily chart do not automatically fit an hourly one. Pick a timeframe and stick to it.
+- **One question, one indicator.** If you cannot say in one sentence why you have an indicator, switch it off.
+- **Fixed settings.** Write the periods into your <KeyTerm term="trading-plan">trading plan</KeyTerm> and do not change them to suit the moment.
+- **Rules in advance.** Write down what you will do when an indicator gives a signal – and what when two disagree.
+- **Less is more.** Three lines read in five seconds. Eight lines take half an hour, and then a feeling decides anyway.
+
+How to make indicators part of a whole plan is shown in the course
+[Trading with a plan](/courses/trading-with-a-plan) – and why it pays not to trust them blindly, in the
+lesson [Why indicators mislead](/courses/trading-with-a-plan/why-indicators-mislead).
+
+<Callout type="warning" title="Tuning the settings is a trap">
+  If you keep changing the periods until an indicator fits a past chart
+  "perfectly", you have tuned it to chance. On future prices it usually fails.
+  Choose sensible settings once and judge them over many trades, not one chart.
+</Callout>
+
+## Common myths
+
+- **"RSI and MACD confirm each other."** They largely measure the same thing, so they almost always agree.
+- **"Professionals have ten indicators on their chart."** Many have one or two – and clear rules.
+- **"I will find settings that always work."** There are none. Every setting is a compromise between speed and calm.
+
+<Callout title="Summary">
+
+- One from each family: a trend line, an oscillator, volume.
+- RSI and MACD partly overlap – they are not two independent confirmations.
+- For every indicator, know the question it answers.
+- Settings and rules belong in your trading plan, in advance and fixed.
+
+</Callout>

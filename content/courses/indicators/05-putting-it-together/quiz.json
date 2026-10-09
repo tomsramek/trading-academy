@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "text": {
+        "en": {
+          "question": "Why are RSI and MACD on one chart not two independent confirmations?",
+          "options": [
+            "Because they are computed from volume",
+            "Because both mainly measure how fast the price has been moving",
+            "Because MACD is drawn over the candles"
+          ],
+          "explanation": "RSI and MACD are both oscillators and largely measure the same thing – the speed of the move. When one shoots up, the other usually does too."
+        },
+        "cs": {
+          "question": "Proč RSI a MACD na jednom grafu nejsou dvě nezávislá potvrzení?",
+          "options": [
+            "Protože se počítají z objemu",
+            "Protože oba měří hlavně rychlost nedávného pohybu ceny",
+            "Protože MACD se kreslí přes svíčky"
+          ],
+          "explanation": "RSI i MACD jsou oscilátory a z velké části měří totéž – rychlost pohybu. Když jeden vystřelí, druhý obvykle taky."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is a bearish divergence?",
+          "options": [
+            "The price makes a higher high, but the oscillator a lower peak",
+            "The price makes a lower low, but the oscillator a higher trough",
+            "Both the price and the oscillator make a new high"
+          ],
+          "explanation": "In a bearish divergence the price keeps rising but the oscillator does not – the move is weakening. The opposite at the lows is a bullish divergence."
+        },
+        "cs": {
+          "question": "Co je medvědí divergence?",
+          "options": [
+            "Cena udělá vyšší maximum, ale oscilátor nižší vrchol",
+            "Cena udělá nižší minimum, ale oscilátor vyšší dno",
+            "Cena i oscilátor udělají nové maximum"
+          ],
+          "explanation": "U medvědí divergence cena roste dál, ale oscilátor už ne – pohyb slábne. Opačná situace u minim je býčí divergence."
+        }
+      },
+      "answer": 0
+    },
+    {
+      "text": {
+        "en": {
+          "question": "What is a sensible way to handle a divergence?",
+          "options": [
+            "Open a trade against the trend right away",
+            "Ignore it, divergence never works",
+            "Treat it as a warning and wait for confirmation"
+          ],
+          "explanation": "In a strong trend a divergence can last for weeks. It says a move is weakening, not when or whether it turns."
+        },
+        "cs": {
+          "question": "Jak s divergencí rozumně naložit?",
+          "options": [
+            "Hned otevřít obchod proti trendu",
+            "Ignorovat ji, divergence nikdy nefunguje",
+            "Brát ji jako varování a čekat na potvrzení"
+          ],
+          "explanation": "Divergence může v silném trendu vydržet týdny. Říká, že pohyb slábne, ne kdy a jestli se otočí."
+        }
+      },
+      "answer": 2
+    },
+    {
+      "text": {
+        "en": {
+          "question": "The price is far above a rising SMA 50, RSI is 77 and MACD has just crossed below its signal. What does the rule \"the trend filters, the oscillator times\" suggest?",
+          "options": [
+            "Sell, because two oscillators say sell",
+            "Do not sell against the trend – look only for buys, or do nothing",
+            "Add a third indicator to break the tie"
+          ],
+          "explanation": "The trend sets the direction. In a strong rise oscillators report \"overbought\" for a long time – in February 2024 the price then climbed from 51,000 to 73,777."
+        },
+        "cs": {
+          "question": "Cena je vysoko nad rostoucí SMA 50, RSI je 77 a MACD právě překřížila signál dolů. Co doporučuje pravidlo „trend filtruje, oscilátor časuje“?",
+          "options": [
+            "Prodat, protože dva oscilátory říkají prodej",
+            "Neprodávat proti trendu – hledat jen nákupy, nebo nedělat nic",
+            "Přidat třetí indikátor, aby rozhodl"
+          ],
+          "explanation": "Trend určuje směr. Oscilátory v silném růstu hlásí „překoupeno“ dlouho – v únoru 2024 pak cena vystoupala z 51 000 na 73 777."
+        }
+      },
+      "answer": 1
+    },
+    {
+      "text": {
+        "en": {
+          "question": "Why should you not tune indicator settings until they fit a past chart perfectly?",
+          "options": [
+            "Because you tune them to chance, and they usually fail on future prices",
+            "Because Binance forbids changing settings",
+            "Because longer periods are always better"
+          ],
+          "explanation": "Such tuning is overfitting to the past. Choose sensible settings once, write them into your plan and judge them over many trades."
+        },
+        "cs": {
+          "question": "Proč nastavení indikátorů nemáš ladit tak dlouho, až dokonale sedí na minulý graf?",
+          "options": [
+            "Protože ho tím vyladíš na náhodu a na budoucích cenách obvykle selže",
+            "Protože Binance změny nastavení zakazuje",
+            "Protože delší periody jsou vždycky lepší"
+          ],
+          "explanation": "Takové ladění je přeučení na minulost. Rozumné nastavení zvol jednou, zapiš do plánu a vyhodnocuj na mnoha obchodech."
+        }
+      },
+      "answer": 0
+    }
+  ]
+}

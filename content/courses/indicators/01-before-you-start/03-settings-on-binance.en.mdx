@@ -1,0 +1,98 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "The settings window on Binance",
+  description:
+    "Where to switch indicators on in Binance, what the Period, Close, line style and colour fields mean, why the chart has two modes with different defaults and why to write your settings into your plan.",
+};
+
+<Callout title="In this lesson">
+
+- find the indicator dialog on Binance and understand its fields
+- find out why the same indicator shows different numbers in the Original and Trading View modes
+- try out what changing the period does
+
+</Callout>
+
+Every indicator has knobs. The most important one is the period – how many candles the indicator takes
+into account. Whoever turns the knobs by mood gets a different chart and a different "signal" every
+time. So Professor Wick advises: turn them gently, and once you do, turn them once and for good.
+
+<Illustration name="periodKnob" />
+
+## Where it is
+
+On Binance's trading screen switch the chart to **Original** and click the indicator icon above the
+chart. A dialog with two tabs opens:
+
+- **Main Indicator** – drawn over the candles: MA, EMA, WMA, BOLL, VWAP, AVL, TRIX, SAR, SUPER.
+- **Sub Indicator** – gets its own panel below the chart: VOL, MACD, RSI, MFI, KDJ, OBV, CCI, StochRSI, WR.
+
+The checkbox switches an indicator on, the arrow on the right opens its settings. **Save** saves,
+**Reset** restores the defaults.
+
+<Video
+  src="/videos/binance-ind-settings.mp4"
+  poster="/videos/binance-ind-settings.webp"
+  label="Video: on Binance in Original mode the indicator dialog opens, the first moving average length changes from 7 to 20, the third line is switched off, the Sub Indicator tab is checked and the settings are saved"
+  caption="Video (28 s): the indicator dialog – MA1 from 7 to 20, MA3 off, a look at Sub Indicator and Save. The chart then shows MA(20) and MA(25) (Binance, 9 Oct 2026)."
+/>
+
+## What the fields mean
+
+- **Length (period)** – the number of candles. MA1 = 7 means the average of the last seven candles.
+- **Close** – which price it is computed from. Almost always the close; you can also pick open, high or low.
+- **Line style and colour** – looks only. Averages can have up to six lines at once (MA1 to MA6).
+- **Levels** – reference lines for oscillators, such as 70 and 30 for RSI.
+
+On a daily chart the period is in days, on an hourly chart in hours. MA 7 on an hourly chart is the
+average of the last seven **hours**, not days.
+
+## Two modes, two sets of defaults
+
+Binance has two chart modes, and each has different defaults:
+
+| Indicator | Original (Binance's own chart) | Trading View  |
+| --------- | ------------------------------ | ------------- |
+| RSI       | three lines: 6, 12 and 24      | one line: 14  |
+| CCI       | 9                              | 20            |
+| MFI       | three lines: 7, 14 and 21      | 14            |
+| MA        | 7, 25 and 99                   | as you choose |
+
+The charts in this course use the common values, like the Trading View mode (RSI 14, CCI 20, MFI 14).
+When you see different numbers on Binance, first check which period the indicator has – the number in
+brackets, such as RSI(6), tells you.
+
+## Try the period
+
+Move the period of the moving average and watch how the line changes and how often the price crosses it:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="sma"
+  min={3}
+  max={100}
+  value={7}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with a moving average whose period you change with a slider"
+/>
+
+<Callout type="warning" title="Settings belong in your plan">
+  If you tune the period until the indicator would have looked great in the
+  past, you tune it to chance. Choose the settings in advance, write them into
+  your trading plan and do not change them after every loss.
+</Callout>
+
+## Common myths
+
+- **"RSI on Binance shows 85 but the lesson says 72 – someone is wrong."** You probably have a different period: RSI(6) swings more than RSI(14).
+- **"There is a best setting."** There are common settings. None works all the time.
+- **"The settings are saved to my account."** Logged out, they are remembered only in the browser; clearing the browser data wipes them.
+
+<Callout title="Summary">
+
+- Original → indicator icon → Main Indicator (over the candles) and Sub Indicator (below the chart).
+- The period is the number of candles on the chosen timeframe; Close is the price it is computed from.
+- The Original and Trading View modes have different defaults (RSI 6/12/24 vs. 14, CCI 9 vs. 20).
+- Choose your settings in advance and write them into your plan.
+
+</Callout>

@@ -1,0 +1,99 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Okno nastavení na Binance",
+  slug: "nastaveni-na-binance",
+  description:
+    "Kde na Binance indikátory zapnout, co znamenají pole Perioda, Close, styl čáry a barva, proč má graf dva režimy s jinými výchozími hodnotami a proč si nastavení zapsat do plánu.",
+};
+
+<Callout title="V této lekci">
+
+- najdeš na Binance dialog indikátorů a vyznáš se v jeho polích
+- zjistíš, proč stejný indikátor ukazuje v režimech Original a Trading View jiná čísla
+- vyzkoušíš si, co dělá změna periody
+
+</Callout>
+
+Každý indikátor má knoflíky. Ten nejdůležitější je perioda – kolik svíček indikátor bere v úvahu. Kdo
+knoflíky točí podle nálady, dostane pokaždé jiný graf a pokaždé jiný „signál“. Profesor Knot proto radí:
+točit opatrně, a když už, tak jednou a napořád.
+
+<Illustration name="periodKnob" />
+
+## Kde to je
+
+Na obrazovce obchodování na Binance přepni graf na **Original** a klikni na ikonu indikátorů nad
+grafem. Otevře se dialog se dvěma záložkami:
+
+- **Main Indicator** – co se kreslí přes svíčky: MA, EMA, WMA, BOLL, VWAP, AVL, TRIX, SAR, SUPER.
+- **Sub Indicator** – co dostane vlastní panel pod grafem: VOL, MACD, RSI, MFI, KDJ, OBV, CCI, StochRSI, WR.
+
+Zaškrtávátko indikátor zapne, šipka vpravo otevře jeho nastavení. **Save** uloží, **Reset** vrátí výchozí
+hodnoty.
+
+<Video
+  src="/videos/binance-ind-settings.mp4"
+  poster="/videos/binance-ind-settings.webp"
+  label="Video: na Binance se v režimu Original otevře dialog indikátorů, u klouzavého průměru se první délka změní ze 7 na 20, třetí čára se vypne, nahlédne se do záložky Sub Indicator a nastavení se uloží"
+  caption="Video (28 s): dialog indikátorů – MA1 ze 7 na 20, MA3 vypnutý, pohled do Sub Indicator a Save. Graf pak ukazuje MA(20) a MA(25) (Binance, 9. 10. 2026)."
+/>
+
+## Co znamenají pole
+
+- **Délka (perioda)** – počet svíček. MA1 = 7 znamená průměr posledních sedmi svíček.
+- **Close** – z jaké ceny se počítá. Skoro vždy zavírací cena; lze vybrat i otevírací, maximum nebo minimum.
+- **Styl a barva čáry** – jen vzhled. U průměrů můžeš mít až šest čar najednou (MA1 až MA6).
+- **Hladiny** – u oscilátorů vodicí čáry, třeba 70 a 30 u RSI.
+
+Na denním grafu je perioda ve dnech, na hodinovém v hodinách. MA 7 na hodinovém grafu je tedy průměr
+posledních sedmi **hodin**, ne dní.
+
+## Dva režimy, dvoje výchozí hodnoty
+
+Binance má graf ve dvou režimech a každý má jiné výchozí nastavení:
+
+| Indikátor | Original (vlastní graf Binance) | Trading View   |
+| --------- | ------------------------------- | -------------- |
+| RSI       | tři čáry: 6, 12 a 24            | jedna čára: 14 |
+| CCI       | 9                               | 20             |
+| MFI       | tři čáry: 7, 14 a 21            | 14             |
+| MA        | 7, 25 a 99                      | podle volby    |
+
+Grafy v tomhle kurzu používají běžné hodnoty jako režim Trading View (RSI 14, CCI 20, MFI 14). Až
+uvidíš na Binance jiná čísla, nejdřív se podívej, jakou periodu má indikátor nastavenou – číslo v
+závorce, třeba RSI(6), ti to řekne.
+
+## Vyzkoušej si periodu
+
+Posuň periodu klouzavého průměru a sleduj, jak se čára mění a kolikrát ji cena překříží:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="sma"
+  min={3}
+  max={100}
+  value={7}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s klouzavým průměrem, jehož periodu měníš posuvníkem"
+/>
+
+<Callout type="warning" title="Nastavení patří do plánu">
+  Když periodu ladíš tak dlouho, až by indikátor v minulosti vycházel skvěle,
+  vyladíš ho na náhodu. Vyber nastavení předem, zapiš si ho do obchodního plánu
+  a neměň ho po každé ztrátě.
+</Callout>
+
+## Časté omyly
+
+- **„RSI na Binance ukazuje 85, ale v lekci je 72 – někdo se splete.“** Nejspíš máte jinou periodu: RSI(6) kmitá víc než RSI(14).
+- **„Existuje nejlepší nastavení.“** Existují běžná nastavení. Žádné nefunguje vždycky.
+- **„Nastavení se uloží k účtu.“** Bez přihlášení se pamatuje jen v prohlížeči; po smazání dat prohlížeče je pryč.
+
+<Callout title="Shrnutí">
+
+- Original → ikona indikátorů → Main Indicator (přes svíčky) a Sub Indicator (pod grafem).
+- Perioda je počet svíček na zvoleném časovém rámci; Close je cena, ze které se počítá.
+- Režimy Original a Trading View mají jiné výchozí hodnoty (RSI 6/12/24 vs. 14, CCI 9 vs. 20).
+- Nastavení vyber předem a zapiš do plánu.
+
+</Callout>

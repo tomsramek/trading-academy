@@ -1,0 +1,97 @@
+import hourly from "@content/market-data/btcusdt-1h-2024-03-w2.json";
+
+export const metadata = {
+  title: "VWAP: průměrná cena vážená objemem",
+  slug: "vwap",
+  description:
+    "Proč velké obchody mají v průměrné ceně větší slovo, jak VWAP počítá Binance (okno 14 svíček) a jinde (od začátku dne) a proč se hodí hlavně na hodinové a kratší grafy.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš na třech obchodech, proč VWAP není obyčejný průměr
+- zjistíš, jak VWAP počítá Binance a jak jiné platformy
+- uvidíš VWAP na hodinovém grafu a zapneš ho na Binance
+
+</Callout>
+
+Obyčejný průměr je jako hlasování, kde má každý jeden hlas. VWAP je hlasování akcionářů: kdo přinesl víc
+peněz, ten víc rozhoduje. Profesor Knot proti tomu chvíli protestoval – pak zjistil, že velryba s dvěma
+bitcoiny prostě přehlasuje deset drobných s desetinkami.
+
+<Illustration name="vwapBalance" />
+
+## Tři obchody, dva průměry
+
+Takzvaný <KeyTerm term="vwap">VWAP</KeyTerm> (volume-weighted average price) násobí každou cenu tím,
+kolik se za ni zobchodovalo. Představ si tři obchody:
+
+| Obchod | Cena   | Množství | Cena × množství |
+| ------ | ------ | -------- | --------------- |
+| 1      | 60 000 | 0,1 BTC  | 6 000           |
+| 2      | 61 000 | 0,1 BTC  | 6 100           |
+| 3      | 59 000 | 2 BTC    | 118 000         |
+
+- **Obyčejný průměr:** (60 000 + 61 000 + 59 000) / 3 = **60 000**.
+- **VWAP:** (6 000 + 6 100 + 118 000) / 2,2 BTC = **59 136**.
+
+Velký obchod za 59 000 stáhl VWAP skoro až k sobě. VWAP proto odpovídá na otázku: **kolik v průměru
+zaplatili ti, kdo opravdu obchodovali?** Na grafu se místo jednotlivých obchodů použije typická cena
+svíčky (maximum + minimum + zavření) / 3 a její <KeyTerm term="volume">objem</KeyTerm>.
+
+## Okno, nebo den?
+
+Tady se platformy liší:
+
+- **Binance** počítá VWAP z posledních **14 svíček** (nastavení Length 14) – okno se posouvá jako u
+  klouzavého průměru.
+- **Mnoho jiných platforem** počítá VWAP od začátku dne (session VWAP) a o půlnoci začne znovu.
+
+Obě verze jsou poctivé, jen odpovídají na jinou otázku: „kolik se platilo posledních 14 svíček“ versus
+„kolik se platilo dnes“. Na denním grafu dává smysl hlavně ta první – a i tak je VWAP doma na hodinových
+a kratších grafech.
+
+## Na hodinovém grafu
+
+<CandleChart
+  data={hourly}
+  label="Hodinový graf bitcoinu od 4. do 10. března 2024 s VWAP 14 přes svíčky a objemem pod grafem"
+  caption="VWAP 14 (žlutá) na hodinovém grafu. 5. března v 19:00 UTC, na svíčce s největším objemem týdne, se VWAP posunul o 911 USDT za jedinou hodinu – velké obchody mají velké slovo."
+  indicators={{ vwap: true, volume: true }}
+/>
+
+Když cena stojí nad VWAP, kupující za posledních 14 hodin jsou v průměru v zisku; pod ním ve ztrátě.
+Proto ho sledují hlavně krátkodobí obchodníci jako „spravedlivou cenu“ několika posledních hodin.
+
+## Na Binance
+
+Režim **Original** → ikona indikátorů → **Main Indicator** → **VWAP**. Má jediné nastavení: délku
+(Length, výchozí 14). Ve videu se graf přepne na **1H**, vypne se MA a zapne VWAP:
+
+<Video
+  src="/videos/binance-ind-vwap.mp4"
+  poster="/videos/binance-ind-vwap.webp"
+  label="Video: na hodinovém grafu Binance se v dialogu indikátorů vypne MA a zaškrtne VWAP s délkou 14; po uložení vede přes svíčky žlutá čára VWAP"
+  caption="Video (22 s): graf 1H, MA vypnout, VWAP zapnout (Length 14), Save (Binance, 9. 10. 2026)."
+/>
+
+<Callout type="warning" title="VWAP není cenová podpora">
+  VWAP ukazuje průměrnou cenu, za kterou se nedávno obchodovalo – nic víc. Cena
+  přes něj umí projít tam i zpátky několikrát za den. A protože se na Binance a
+  jinde počítá jinak, stejný graf může ukazovat dvě různé „VWAP“ čáry.
+</Callout>
+
+## Časté omyly
+
+- **„VWAP je jen další klouzavý průměr.“** Průměr počítá každou svíčku stejně, VWAP podle objemu.
+- **„VWAP je všude stejný.“** Binance bere okno 14 svíček, jiné platformy začínají každý den od nuly.
+- **„VWAP se hodí na týdenní graf.“** Na dlouhých časových rámcích ztrácí smysl – je to nástroj na hodiny, ne měsíce.
+
+<Callout title="Shrnutí">
+
+- VWAP = součet (typická cena × objem) / součet objemu; velké obchody váží víc.
+- Binance počítá VWAP z posledních 14 svíček, jiné platformy často od začátku dne.
+- Hodí se hlavně na hodinové a kratší grafy.
+- Na Binance: Original → ikona indikátorů → Main Indicator → VWAP (Length 14).
+
+</Callout>

@@ -1,0 +1,101 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "MACD: dva vlaky a mezera mezi nimi",
+  slug: "macd",
+  description:
+    "MACD je rozdíl rychlé a pomalé EMA, k tomu signální čára a histogram. Jak se počítá 12, 26, 9, jak ho zapnout na Binance, co znamená křížení se signální čárou – a proč ho bitcoin za rok udělal 28krát.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš MACD, signální čáru a histogram krok za krokem
+- zapneš MACD 12, 26, 9 na Binance a přečteš jeho panel
+- uvidíš, kolik křížení je skutečný signál a kolik šum
+
+</Callout>
+
+Dva vlaky jedou stejným směrem: rychlý a pomalý. Když rychlý ujíždí, mezera roste – trend zrychluje. Když
+pomalý dotahuje, mezera se zmenšuje. <KeyTerm term="macd">MACD</KeyTerm> měří přesně tuhle mezeru.
+Profesor Knot stojí na nástupišti a hlásí: „Pozor na mezeru.“
+
+<Illustration name="twoTrains" />
+
+## Jak se počítá
+
+MACD stojí na dvou <KeyTerm term="ema">exponenciálních průměrech</KeyTerm> zavíracích cen:
+
+1. **MACD** = EMA 12 − EMA 26. Kladné číslo: rychlý průměr je nad pomalým, trh v posledních dnech
+   zrychlil nahoru.
+2. **Signální čára** = EMA 9 z hodnot MACD – vyhlazená verze první čáry.
+3. **Histogram** = MACD − signální čára. Sloupce ukazují, jestli se mezera zvětšuje, nebo zmenšuje.
+
+Proto se MACD kreslí do panelu jako oscilátor, i když vzniká z průměrů. Projdi si to:
+
+<IndicatorSteps
+  data={btc}
+  indicator="macd"
+  from="2024-07-01"
+  label="Výpočet MACD 12, 26, 9 na denním grafu bitcoinu od července 2024, krok za krokem"
+/>
+
+## Kde ho najdeš na Binance
+
+V režimu **Original**: ikona indikátorů, záložka **Sub Indicator**, zaškrtnout **MACD**, **Save**.
+Legenda ukáže **MACD(12, 26, 9)** a pod grafem se objeví obě čáry s histogramem.
+
+<Video
+  src="/videos/binance-ind-macd.mp4"
+  poster="/videos/binance-ind-macd.webp"
+  label="Video: na Binance se na záložce Sub Indicator zaškrtne MACD a po uložení se pod grafem objeví panel MACD se dvěma čárami a histogramem"
+  caption="Video (20 s): zapnutí MACD na Binance – Sub Indicator, MACD 12, 26, 9, Save (Binance, 9. 10. 2026)."
+/>
+
+Na grafu níže jsou oba vlaky přímo nad svíčkami (EMA 12 a EMA 26) a jejich mezera v panelu pod nimi:
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s EMA 12 a EMA 26 přes svíčky a MACD 12, 26, 9 v panelu pod grafem"
+  caption="EMA 12 (modrá) a EMA 26 (žlutá) přes svíčky, pod grafem MACD (modrá), signální čára (žlutá) a histogram. Když se průměry rozjíždějí, histogram roste."
+  indicators={{ ema: [12, 26], macd: true }}
+/>
+
+## Křížení: signál, nebo šum?
+
+Nejznámější použití: MACD překříží signální čáru zespodu nahoru (býčí) nebo shora dolů (medvědí). 12. července 2024 se MACD dostalo nad signální čáru při zavření 57 889 a 29. července byla cena na
+66 785. Pěkné. Jenže za sledované období – zhruba 13 měsíců – se MACD se signální čárou překřížilo
+**28krát**. Některá křížení přišla po sobě během jednoho dvou dnů (11. a 12. května, 26. a 28. října).
+
+<ChartQuiz
+  data={btc}
+  from="2024-06-25"
+  question="Klikni na svíčku, na které MACD (modrá) překřížilo signální čáru (žlutou) zespodu nahoru."
+  answer={["2024-07-11", "2024-07-13"]}
+  explanation="12. července 2024 vystoupalo MACD z −2 072 nad signální čáru (−2 083). Cena tehdy zavřela na 57 889 a do konce měsíce vystoupala nad 66 000 – ale ne každé křížení dopadne takhle."
+  indicators={{ panel: "macd" }}
+  label="Kvíz: najdi býčí křížení MACD a signální čáry na denním grafu bitcoinu v červenci 2024"
+/>
+
+Křížení vždy přichází **po** pohybu – MACD je postavené z průměrů, a ty zaostávají. V trhu bez trendu se
+čáry proplétají a každé křížení je jen další šum.
+
+<Callout type="warning" title="28 křížení není 28 obchodů">
+  Kdo by obchodoval každé křížení MACD bez dalšího filtru, platil by poplatky a
+  skluz za desítky planých signálů. Křížení je informace o změně tempa, ne pokyn
+  k nákupu nebo prodeji.
+</Callout>
+
+## Časté omyly
+
+- **„MACD předpovídá obrat.“** Potvrzuje ho – a pozdě, protože stojí na průměrech.
+- **„MACD nad nulou = kupuj.“** Znamená jen, že EMA 12 je nad EMA 26.
+- **„Histogram je objem.“** Histogram je rozdíl MACD a signální čáry, s objemem nemá nic společného.
+
+<Callout title="Shrnutí">
+
+- MACD = EMA 12 − EMA 26; signální čára = EMA 9 z MACD; histogram = jejich rozdíl.
+- Na Binance MACD(12, 26, 9) v záložce Sub Indicator.
+- Křížení se signální čárou ukazuje změnu tempa – vždy se zpožděním.
+- Za 13 měsíců 28 křížení: bez kontextu je většina z nich šum.
+
+</Callout>

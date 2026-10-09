@@ -1,0 +1,34 @@
+{
+  "title": {
+    "en": "Indicators step by step",
+    "cs": "Indikátory krok za krokem"
+  },
+  "description": {
+    "en": "Every indicator in Binance's chart menu taken apart: how it is computed candle by candle, what its settings change, how to switch it on and what it is – and is not – good for. With interactive charts, videos and a pinch of humour.",
+    "cs": "Každý indikátor z menu grafu na Binance rozebraný na součástky: jak se počítá svíčku po svíčce, co mění jeho nastavení, jak ho zapnout a k čemu je – a k čemu není. S interaktivními grafy, videi a trochou humoru."
+  },
+  "audience": {
+    "en": "Traders who know the chart and the basic orders and want to understand the lines on it instead of following them blindly.",
+    "cs": "Obchodníci, kteří znají graf a základní příkazy a chtějí čarám na něm rozumět místo toho, aby je slepě následovali."
+  },
+  "outcomes": {
+    "en": [
+      "Compute and explain SMA, EMA, Bollinger Bands, RSI, MACD, the stochastic and ATR by hand",
+      "Switch on and set every indicator in Binance's menu and know its defaults",
+      "Tell trend indicators, oscillators and volume indicators apart and combine one of each",
+      "Read divergences and conflicting signals without treating any indicator as a crystal ball"
+    ],
+    "cs": [
+      "Spočítat a vysvětlit SMA, EMA, Bollingerova pásma, RSI, MACD, stochastic a ATR ručně",
+      "Zapnout a nastavit každý indikátor z menu Binance a znát jeho výchozí hodnoty",
+      "Rozlišit trendové indikátory, oscilátory a objemové indikátory a zkombinovat od každého jeden",
+      "Číst divergence a protichůdné signály, aniž bys z indikátoru dělal křišťálovou kouli"
+    ]
+  },
+  "level": "intermediate",
+  "order": 3,
+  "slug": {
+    "cs": "indikatory-krok-za-krokem"
+  },
+  "draft": true
+}

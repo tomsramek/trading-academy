@@ -1,0 +1,88 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Parabolic SAR: dots that chase the price",
+  description:
+    "How the Parabolic SAR dots are computed, what the acceleration factor of 0.02 to 0.2 does, why the dots jump to the other side and why they hop back and forth in a market without a trend.",
+};
+
+<Callout title="In this lesson">
+
+- understand the SAR formula and the acceleration factor
+- find out when the dots jump to the other side of the price
+- see why SAR swings in a sideways market, and switch it on in Binance
+
+</Callout>
+
+Parabolic SAR looks like a trail of tiny footsteps under the candles. Every day it gets a bit closer to
+the price, and the longer the trend lasts, the bigger its steps. As soon as the price catches it, the
+dots jump to the other side – like Professor Wick stepping on a rake.
+
+<Illustration name="sarHop" />
+
+## How it is computed
+
+SAR stands for stop and reverse. <KeyTerm term="parabolic-sar">Parabolic SAR</KeyTerm> draws dots below
+the price in a rise and above it in a fall. Every candle the dot moves closer to the trend's extreme (the
+highest high in a rise, the lowest low in a fall):
+
+**new dot = dot + AF × (extreme − dot)**
+
+AF is the acceleration factor. It starts at **0.02** and grows by **0.02** with every new extreme of the
+trend – up to a maximum of **0.2**. At the start of a trend the dot covers 2% of the remaining distance,
+after ten new highs 20%. That is why the dots approach the price along a curve – hence "parabolic".
+
+## The flip
+
+When the price crosses a dot, the trend is over according to SAR: the dots jump to the other side, start
+from the last extreme and AF goes back to 0.02. That is how SAR works as a moving stop – much like a <KeyTerm term="trailing-stop">trailing stop</KeyTerm> that follows the price.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with Parabolic SAR dots; from June to mid-August 2024 the dots flipped nine times"
+  caption="Parabolic SAR 0.02 / 0.2: green dots below the price, red above it. In 2024 it flipped 36 times – nine times from June to mid-August alone."
+  indicators={{ sar: true }}
+  zones={[{ from: "2024-06-01", to: "2024-08-15", label: "9 flips" }]}
+/>
+
+## Strong in a trend, weak in a chop
+
+In a clear trend SAR holds a trade for a long time and tightens the stop faster than a person would by
+hand. In a market without a trend, though, the price crosses the dots back and forth, and every flip is
+a new signal – mostly a false one. Between June and mid-August 2024 SAR flipped nine times while the
+price swung between 49,000 and 72,000 without a clear direction.
+
+## On Binance
+
+**Original** mode → indicator icon → **Main Indicator** → **SAR**. You set the starting factor (Start,
+default 0.02), the maximum (Maximum, default 0.2) and the colour of the dots:
+
+<Video
+  src="/videos/binance-ind-sar.mp4"
+  poster="/videos/binance-ind-sar.webp"
+  label="Video: in Binance's indicator dialog MA is switched off and SAR is ticked with Start 0.02 and Maximum 0.2; after saving dots appear around the candles"
+  caption="Video (21 s): MA off, SAR on (Start 0.02, Maximum 0.2), Save (Binance, 9 Oct 2026)."
+/>
+
+Higher factors pull the dots in faster – more flips, more false signals. Lower ones slow them down.
+
+<Callout type="warning" title="SAR is always in the market">
+  SAR never says "stay out". It always shows either a rise or a fall – even in a
+  market that has no trend at all. Anyone trading every flip would pay fees and
+  losses for each of them in a sideways market.
+</Callout>
+
+## Common myths
+
+- **"A SAR flip is a signal to trade."** In a sideways market it is mostly noise.
+- **"The dots are a support level."** They are points computed by a formula, not a place where buyers stand.
+- **"A higher maximum AF = a better SAR."** A faster SAR just flips more often.
+
+<Callout title="Summary">
+
+- New dot = dot + AF × (extreme − dot); AF 0.02, +0.02 with every new extreme, max. 0.2.
+- When the price crosses a dot, the dots jump to the other side and AF starts again.
+- In a trend it works like a moving stop; in a sideways market it swings.
+- On Binance: Original → indicator icon → Main Indicator → SAR (0.02 / 0.2).
+
+</Callout>

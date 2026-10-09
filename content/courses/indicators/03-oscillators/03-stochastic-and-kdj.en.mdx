@@ -1,0 +1,118 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Stochastic and KDJ",
+  description:
+    "The stochastic oscillator asks on which floor between the low and the high of the last candles the price closed. How %K and %D are computed, what Binance's KDJ adds with its J line and why oversold can get even more oversold.",
+};
+
+<Callout title="In this lesson">
+
+- compute the stochastic %K step by step
+- find out how Binance's KDJ 9, 3, 3 is made from it and what the J line is
+- see in August 2024 that an oversold market can keep falling
+
+</Callout>
+
+Picture a lift in a shaft. The ground floor is the lowest price of the last 14 candles, the roof the
+highest. The <KeyTerm term="stochastic">stochastic oscillator</KeyTerm> asks only one thing: on which
+floor did the price close today? On the roof it is 100, on the ground floor 0. Professor Wick likes
+riding the lift – he just does not know where it goes tomorrow.
+
+<Illustration name="rangeElevator" />
+
+## How %K is computed
+
+1. Find the highest high and the lowest low of the last 14 candles.
+2. %K = (close − low) / (high − low) × 100.
+3. The %D line is the average of the last 3 %K values – calmer and a little behind.
+
+Above 80 the close is near the top of the range, below 20 near the bottom. Walk through the calculation
+– the green and red dashed lines show the window's high and low:
+
+<IndicatorSteps
+  data={btc}
+  indicator="stochastic"
+  from="2024-07-15"
+  label="Computing the stochastic oscillator %K 14 on the daily Bitcoin chart from mid-July 2024, step by step"
+/>
+
+## KDJ: the stochastic with a third line
+
+In Binance's Original-mode menu you will not find a plain stochastic – there is its relative <KeyTerm term="kdj">KDJ</KeyTerm> with the setting **9, 3, 3**. It computes the same "position in the
+range" from 9 candles, but smooths it by thirds:
+
+- **K** = two thirds of the previous K + a third of the new position in the range (it starts at 50),
+- **D** = the same smoothing, this time of K,
+- **J** = 3 × K − 2 × D – it runs ahead of the others and can shoot above 100 or below 0.
+
+On the 2023–2024 Bitcoin chart the J line was above 100 on 39 days and below zero on 11 days. That is not
+a calculation error, that is J.
+
+On Binance you switch it on in **Original** mode: the indicator icon, the **Sub Indicator** tab, tick
+**KDJ**, **Save**.
+
+<Video
+  src="/videos/binance-ind-kdj.mp4"
+  poster="/videos/binance-ind-kdj.webp"
+  label="Video: on Binance KDJ is ticked on the Sub Indicator tab, and after saving a panel with three lines K, D and J appears below the chart"
+  caption="Video (20 s): switching on KDJ on Binance – Sub Indicator, KDJ 9, 3, 3, Save (Binance, 9 Oct 2026)."
+/>
+
+The stochastic and KDJ side by side:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with the stochastic oscillator 14, 1, 3 and KDJ 9, 3, 3 in two panels below"
+  caption="Top: the stochastic (%K blue, %D yellow), bottom: KDJ (K blue, D yellow, J purple). They measure the same thing; J runs past the 0–100 limits."
+  indicators={{ stochastic: true, kdj: true }}
+/>
+
+## The period
+
+A shorter window = a range of a few candles that changes quickly, and the line jumps from edge to edge:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="stochastic"
+  min={3}
+  max={50}
+  label="Daily Bitcoin chart with the stochastic oscillator %K whose period you change with a slider"
+/>
+
+## Oversold can get more oversold
+
+On 2 August 2024 %K fell from 39 to 3 – the close of 61,498 was almost at the bottom of the two-week
+range. "Oversold, buy"? Three days later the price was down at 49,000. The bottom of the range simply
+moved lower.
+
+<ChartQuiz
+  data={btc}
+  from="2024-07-15"
+  question="Click the candle on which the stochastic %K fell below 20."
+  answer={["2024-08-01", "2024-08-03"]}
+  explanation="On 2 August 2024 %K fell from 39.2 to 3.0 with a close of 61,498. But the oversold market kept falling – down to 49,000 on 5 August."
+  indicators={{ panel: "stochastic" }}
+  label="Quiz: find the stochastic's fall below 20 on the daily Bitcoin chart in August 2024"
+/>
+
+<Callout type="warning" title="A position in the range is not a floor">
+  The stochastic shows the position against past candles. When the market breaks
+  down, the new low creates a new range, and an "oversold" oscillator can stay
+  down for days. Buying just because it is below 20 is catching a falling knife.
+</Callout>
+
+## Common myths
+
+- **"%K below 20 = the bottom."** It is the bottom of the last 14 candles, not of the market.
+- **"KDJ and the stochastic are two independent opinions."** They are two versions of the same calculation.
+- **"J above 100 is an error."** J = 3K − 2D, so it has no 0–100 limits. It is the amplified, fastest line.
+
+<Callout title="Summary">
+
+- %K = (close − low) / (high − low) × 100 over the last N candles; %D is its average.
+- Binance offers KDJ 9, 3, 3: K and D smoothed by thirds, J = 3K − 2D.
+- Above 80 the close is near the top of the range, below 20 near the bottom.
+- An oversold market can keep falling – the range moves down with it.
+
+</Callout>

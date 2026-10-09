@@ -1,0 +1,92 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Divergence",
+  slug: "divergence",
+  description:
+    "Cena udělá nové maximum, ale RSI už ne. Co je medvědí a býčí divergence, jak ji najít na skutečném grafu bitcoinu z prosince 2024 a proč je to varování, ne povel k obchodu.",
+};
+
+<Callout title="V této lekci">
+
+- poznáš medvědí a býčí divergenci
+- najdeš skutečnou divergenci na grafu bitcoinu z konce roku 2024
+- zjistíš, proč divergence často selhává a jak s ní zacházet
+
+</Callout>
+
+Cena šplhá na nové maximum, všichni slaví – a oscilátor pod grafem se tváří, jako by se ho to netýkalo.
+Profesor Knot to zná: když běžec sice doběhne dál než minule, ale lapá po dechu víc, příští kolo už
+možná nedá. Tomuhle rozporu se říká <KeyTerm term="divergence">divergence</KeyTerm>.
+
+<Illustration name="divergenceArrows" />
+
+## Medvědí a býčí divergence
+
+- **Medvědí divergence:** cena udělá **vyšší maximum**, ale oscilátor (třeba <KeyTerm term="rsi">RSI</KeyTerm>) jen **nižší vrchol**. Růst pokračuje, ale s menší silou.
+- **Býčí divergence:** cena udělá **nižší minimum**, ale oscilátor **vyšší dno**. Pokles pokračuje, ale prodávajícím dochází dech.
+
+Existuje i takzvaná skrytá divergence: cena udělá vyšší dno, ale oscilátor nižší. Čte se jako náznak, že
+trend pokračuje. Na začátek stačí ta obyčejná.
+
+## Skutečný příklad: prosinec 2024
+
+Bitcoin 22. listopadu 2024 vystoupal na **99 588** a RSI 14 bylo na **82,2**. O necelý měsíc později, 17.
+prosince, udělal nové maximum **108 353** – ale RSI dosáhlo jen **70,1**. Cena výš, síla níž:
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s RSI 14; vyznačená maxima 22. listopadu a 17. prosince 2024, kdy cena udělala vyšší maximum a RSI nižší vrchol"
+  caption="Medvědí divergence: maximum 17. 12. (108 353) je vyšší než 22. 11. (99 588), ale RSI je nižší (70,1 proti 82,2)."
+  indicators={{ rsi: true }}
+  markers={[
+    { time: "2024-11-22", kind: "high", label: "99 588" },
+    { time: "2024-12-17", kind: "high", label: "108 353" },
+  ]}
+  zones={[{ from: "2024-11-22", to: "2024-12-17", label: "Divergence" }]}
+/>
+
+Co přišlo potom: 20. prosince cena během dne spadla až na **92 233** a 30. prosince zavřela na **92 792**.
+Tentokrát varování vyšlo. Teď si to zkus najít sám:
+
+<ChartQuiz
+  data={btc}
+  from="2024-11-10"
+  candles={48}
+  question="Klikni na svíčku, kde cena udělala vyšší maximum než v listopadu, ale RSI už jen nižší vrchol."
+  answer={["2024-12-16", "2024-12-17"]}
+  explanation="16. a 17. prosince vystoupala cena až na 107 793 a 108 353 – výš než listopadových 99 588. RSI ale bylo jen kolem 70, v listopadu přes 82. To je medvědí divergence."
+  indicators={{ panel: "rsi" }}
+  label="Kvíz: najdi medvědí divergenci RSI na denním grafu bitcoinu v prosinci 2024"
+/>
+
+## Proč divergence často selhává
+
+V silném trendu může divergence vydržet týdny. Cena udělá vyšší maximum, pak další a další – a RSI pod
+tím pokaždé o kousek níž. Kdo prodával na první divergenci, přišel o celý zbytek růstu. Divergence
+neříká **kdy** se trend otočí, ani **jestli** vůbec.
+
+Rozumnější je brát ji jako upozornění: zpozorni, utáhni riziko, neotvírej nový obchod po směru slábnoucího
+pohybu. Pokud chceš obchodovat proti trendu, čekej na potvrzení – třeba zavření pod důležitou úrovní nebo
+pod trendovou čárou.
+
+<Callout type="warning" title="Divergence není povel">
+  Divergence je vidět krásně až zpětně. V reálném čase nevíš, jestli už přišlo
+  poslední maximum. Obchodovat jen podle divergence proti silnému trendu je
+  jedna z nejdražších zvyklostí začínajících obchodníků.
+</Callout>
+
+## Časté omyly
+
+- **„Divergence = otočka.“** Často znamená jen zpomalení nebo chvíli do strany.
+- **„Čím víc divergencí za sebou, tím jistější pád.“** Řada divergencí v silném trendu je běžná a trend může jet dál.
+- **„Divergenci najdu na každém grafu.“** Když ji hledáš, najdeš ji skoro všude. Proto si předem urči, co přesně za divergenci považuješ.
+
+<Callout title="Shrnutí">
+
+- Medvědí divergence: vyšší maximum ceny, nižší vrchol oscilátoru. Býčí: nižší minimum ceny, vyšší dno oscilátoru.
+- Prosinec 2024: maximum 108 353 při RSI 70,1 proti 99 588 při RSI 82,2 – a potom pokles k 92 000.
+- Divergence říká, že pohyb slábne, ne kdy a jestli se otočí.
+- Ber ji jako varování a čekej na potvrzení, ne jako signál k obchodu.
+
+</Callout>

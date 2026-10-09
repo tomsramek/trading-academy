@@ -1,0 +1,89 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Čistá sestava",
+  slug: "cista-sestava",
+  description:
+    "Od každé rodiny jeden: trendová čára, oscilátor a objem. Jak si sestavit přehledný graf, proč RSI a MACD zároveň říkají napůl totéž a proč nastavení patří do obchodního plánu, ne do nálady.",
+};
+
+<Callout title="V této lekci">
+
+- sestavíš graf z jednoho indikátoru od každé rodiny
+- zjistíš, proč se RSI a MACD částečně překrývají
+- dostaneš kontrolní seznam, jak indikátory vybírat a nastavit
+
+</Callout>
+
+Prošli jsme celé menu indikátorů a teď přichází nejtěžší disciplína: většinu z nich zase vypnout. Profesor
+Knot vytáhl koště. Na grafu nechá jen to, co odpovídá na jinou otázku než ostatní – a zbytek smete ze
+stolu.
+
+<Illustration name="cleanDesk" />
+
+## Kde začínáme
+
+Binance po otevření grafu ukáže tři průměry **MA 7, 25 a 99** a pod grafem **objem**. Většina lidí pak
+přidá oscilátor – třeba RSI a k němu ještě MACD:
+
+<Video
+  src="/videos/binance-ind-setup.mp4"
+  poster="/videos/binance-ind-setup.webp"
+  label="Video: na Binance se otevře dialog indikátorů, na záložce Sub Indicator se zaškrtne RSI a MACD a po kliknutí na Save přibudou pod grafem dva panely"
+  caption="Video (24 s): k výchozím MA 7, 25, 99 a objemu přibude RSI a MACD – záložka Sub Indicator, dvě zaškrtnutí, Save (Binance, 9. 10. 2026)."
+/>
+
+Vypadá to profesionálně. Jenže RSI i <KeyTerm term="macd">MACD</KeyTerm> měří hlavně jedno: jak rychle se
+cena v poslední době hýbe. Když RSI vystřelí nahoru, MACD obvykle taky. Dva panely, z velké části jedna
+informace.
+
+## Od každé rodiny jeden
+
+Přehlednější graf vznikne, když od každé rodiny vybereš jednoho zástupce:
+
+1. **Trend** – jedna čára přes svíčky, třeba SMA 50 nebo EMA 25. Odpovídá: jakým směrem to jde?
+2. **Oscilátor** – jeden, třeba <KeyTerm term="rsi">RSI</KeyTerm> 14. Odpovídá: není pohyb přehnaný?
+3. **Objem** – sloupce pod grafem. Odpovídá: stojí za pohybem zájem?
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s klouzavým průměrem 50 dní, objemem a RSI 14"
+  caption="Čistá sestava: SMA 50 pro směr, objem pro účast, RSI 14 pro rychlost. Tři otázky, tři čáry."
+  indicators={{ sma: [50], volume: true, rsi: true }}
+/>
+
+Nemusí to být zrovna tahle trojice. Důležité je, aby se indikátory **nepřekrývaly** – a abys u každého
+věděl, na jakou otázku odpovídá.
+
+## Kontrolní seznam
+
+- **Časový rámec.** Nastavení pro denní graf neplatí automaticky pro hodinový. Vyber si rámec a drž se ho.
+- **Jedna otázka, jeden indikátor.** Když nedokážeš jednou větou říct, k čemu indikátor máš, vypni ho.
+- **Pevné nastavení.** Periody zapiš do svého <KeyTerm term="trading-plan">obchodního plánu</KeyTerm> a neměň je podle toho, co se ti zrovna hodí.
+- **Pravidla předem.** Napiš si, co uděláš, když indikátor ukáže signál – a co, když si dva odporují.
+- **Méně je víc.** Tři čáry se čtou za pět vteřin. Osm čar se čte půl hodiny a pak stejně rozhodne pocit.
+
+Jak z indikátorů udělat součást celého plánu, ukazuje kurz
+[Obchodování podle plánu](/kurzy/obchodovani-podle-planu) – a proč je dobré jim nevěřit slepě, lekce
+[Proč indikátory klamou](/kurzy/obchodovani-podle-planu/proc-indikatory-klamou).
+
+<Callout type="warning" title="Ladění nastavení je past">
+  Když měníš periody tak dlouho, až by indikátor „dokonale“ sedl na minulý graf,
+  vyladil jsi ho na náhodu. Na budoucích cenách pak obvykle selže. Zvol rozumné
+  nastavení jednou a vyhodnocuj ho na mnoha obchodech, ne na jednom grafu.
+</Callout>
+
+## Časté omyly
+
+- **„RSI a MACD se navzájem potvrzují.“** Měří z velké části totéž, takže se shodnou skoro vždycky.
+- **„Profesionálové mají na grafu deset indikátorů.“** Mnozí mají jeden nebo dva – a jasná pravidla.
+- **„Najdu nastavení, které funguje vždycky.“** Takové neexistuje. Každé nastavení je kompromis mezi rychlostí a klidem.
+
+<Callout title="Shrnutí">
+
+- Od každé rodiny jeden: trendová čára, oscilátor, objem.
+- RSI a MACD se částečně překrývají – nejsou to dvě nezávislá potvrzení.
+- Ke každému indikátoru znej otázku, na kterou odpovídá.
+- Nastavení a pravidla patří do obchodního plánu, předem a napevno.
+
+</Callout>

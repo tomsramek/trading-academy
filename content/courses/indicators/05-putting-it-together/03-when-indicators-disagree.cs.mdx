@@ -1,0 +1,100 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Když si indikátory odporují",
+  slug: "kdyz-si-indikatory-odporuji",
+  description:
+    "MACD říká prodej, RSI překoupeno, průměr růst. Skutečný rozpor z února 2024, jak si předem určit, kdo má hlavní slovo, proč záleží na tržním režimu – a co sis z celého kurzu odnesl.",
+};
+
+<Callout title="V této lekci">
+
+- uvidíš skutečný rozpor indikátorů na grafu bitcoinu z února 2024
+- určíš si předem, který indikátor má hlavní slovo
+- pochopíš, proč záleží na tržním režimu a proč pravidla testovat
+
+</Callout>
+
+Dřív nebo později to přijde: jeden indikátor křičí „prodej“, druhý „kupuj“ a třetí pokrčí rameny.
+Profesor Knot stojí mezi nimi jako rozhodčí při přetahované. Dobrá zpráva: rozhodnout se nemusíš v té
+chvíli. Rozhodnout ses měl už dřív.
+
+<Illustration name="tugOfWar" />
+
+## Skutečný rozpor: únor 2024
+
+23. února 2024 překřížila linka <KeyTerm term="macd">MACD</KeyTerm> svou signální čáru shora dolů (2 176
+    proti 2 206) – klasický „prodejní“ signál. O tři dny později, 26. února, bylo RSI 14 na **76,6**, tedy
+    „překoupeno“. Dva oscilátory, dva důvody prodat.
+
+Jenže cena (50 744 dne 23. února) byla hluboko **nad** klouzavým průměrem 50 dní (45 242) a ten mířil
+nahoru. Trend říkal jasně: roste se.
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s klouzavým průměrem 50 dní, RSI a MACD; vyznačen rozpor indikátorů koncem února 2024 a maximum 14. března 2024"
+  caption="Koncem února 2024 MACD překřížila signál dolů a RSI bylo nad 70, ale cena byla vysoko nad rostoucí SMA 50. Do 14. března vystoupala na 73 777."
+  indicators={{ sma: [50], rsi: true, macd: true }}
+  markers={[
+    { time: "2024-02-23", kind: "event", label: "MACD dolů" },
+    { time: "2024-03-14", kind: "high", label: "73 777" },
+  ]}
+  zones={[{ from: "2024-02-20", to: "2024-02-27", label: "Rozpor" }]}
+/>
+
+Kdo dal přednost oscilátorům, prodal kolem 51 000. Už 27. února MACD překřížila signál zpátky nahoru, RSI
+vyskočilo na 81,4 – a 14. března udělala cena maximum **73 777**. V silném <KeyTerm term="trend">trendu</KeyTerm> zůstávají oscilátory „překoupené“ dlouho.
+
+Neplatí to vždycky. Jindy by stejný rozpor skončil pádem. Právě proto nejde o to, který indikátor má
+„pravdu“, ale o to, jaké pravidlo sis určil předem.
+
+## Kdo má hlavní slovo
+
+1. **Trend jako filtr.** Nejdřív se zeptej trendové čáry, jakým směrem vůbec obchoduješ. Nad rostoucí SMA 50 hledáš jen nákupy, pod klesající jen prodeje – nebo nic.
+2. **Oscilátor jako načasování.** Ve směru trendu ti oscilátor může pomoct vybrat chvíli – třeba nakoupit, když RSI v růstu klesne k 40 a otočí se.
+3. **Objem jako kontrola.** Pohyb bez objemu ber s rezervou.
+4. **Když se neshodnou, nedělej nic.** Žádný obchod je taky rozhodnutí – často to nejlevnější.
+
+## Záleží na režimu trhu
+
+Každý indikátor se hodí do jiného <KeyTerm term="market-regime">tržního režimu</KeyTerm>. V trendu
+fungují lépe průměry a <KeyTerm term="trend-following">sledování trendu</KeyTerm>; oscilátory tam
+„překoupeno“ hlásí celé týdny. V trhu do strany je to naopak: průměry se pořád kříží a vydělává spíš <KeyTerm term="mean-reversion">návrat k průměru</KeyTerm> – nákup u dolního okraje, prodej u horního.
+Tentýž signál tak v jednom režimu pomáhá a v druhém škodí.
+
+## Pravidla otestuj
+
+Pravidlo „trend filtruje, oscilátor časuje“ zní rozumně – ale jestli na tvém trhu a časovém rámci
+opravdu funguje, ukáže až test na mnoha obchodech. Jak z nápadu udělat přesná pravidla, ukazuje lekce
+[Od nápadu k pravidlům](/kurzy/od-napadu-k-otestovane-strategii/od-napadu-k-pravidlum) a na co si dát
+pozor při testování, lekce
+[Backtest a jeho pasti](/kurzy/od-napadu-k-otestovane-strategii/backtest-a-jeho-pasti).
+
+<Callout type="warning" title="Nevybírej si indikátor podle nálady">
+  Když si odporují, je lákavé poslechnout ten, který říká, co chceš slyšet. To
+  není analýza, to je hledání výmluvy. Pořadí indikátorů a co uděláš při
+  rozporu, si napiš do plánu dřív, než otevřeš graf.
+</Callout>
+
+## Co sis z kurzu odnesl
+
+- Každý indikátor je vzorec z minulých cen – a proto zaostává.
+- Indikátory patří do tří rodin: trend, oscilátory, objem. Dva ze stejné rodiny nejsou dvě potvrzení.
+- Perioda rozhoduje mezi rychlostí a klidem; rychlý indikátor se plete častěji.
+- Výchozí nastavení na Binance znáš a víš, jak ho změnit – ale měníš ho podle plánu, ne podle grafu.
+- Divergence a rozpory jsou varování, ne povely. Rozhoduje pravidlo, které sis určil předem.
+
+## Časté omyly
+
+- **„Jeden z nich má vždycky pravdu, jen nevím který.“** Žádný nemá pravdu vždycky. Rozhoduje pravidlo, ne indikátor.
+- **„Přidám třetí indikátor, aby rozhodl.“** Tím jen přibude další hlas do hádky.
+- **„Překoupený trh musí spadnout.“** V silném trendu může zůstat překoupený týdny.
+
+<Callout title="Shrnutí">
+
+- Únor 2024: MACD dolů a RSI nad 70, ale cena nad rostoucí SMA 50 – a za tři týdny maximum 73 777.
+- Trend filtruje směr, oscilátor časuje vstup, objem kontroluje; při rozporu je i „nic“ rozhodnutí.
+- V trendu fungují jiné indikátory než v trhu do strany.
+- Pořadí indikátorů i pravidla urči předem a otestuj je.
+
+</Callout>

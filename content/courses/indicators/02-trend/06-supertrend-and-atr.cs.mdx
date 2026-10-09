@@ -1,0 +1,109 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Supertrend a ATR",
+  slug: "supertrend-a-atr",
+  description:
+    "ATR měří, jak velký pohyb je pro trh normální. Supertrend z něj staví čáru pod cenou nebo nad ní, která se hýbe jen se směrem trendu. Jak se obojí počítá a jak Supertrend nastavit na Binance.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš skutečné rozpětí a ATR krok za krokem
+- pochopíš, jak z ATR vzniká čára Supertrendu
+- uvidíš, kdy se Supertrend otáčí, a zapneš ho na Binance
+
+</Callout>
+
+Supertrend je zábradlí na schodech: v růstu vede pod cenou a posouvá se jen nahoru, nikdy dolů. Dokud se
+ho cena drží, můžeš klidně stoupat. Když ho cena přeskočí směrem dolů, zábradlí se přestěhuje nad ni.
+Profesor Knot říká, že je to nejpoctivější čára v menu – nikdy necouvá.
+
+<Illustration name="supertrendRail" />
+
+## ATR: kolik je normální pohyb
+
+Než se dostaneme k Supertrendu, potřebujeme jeho motor – <KeyTerm term="atr">ATR</KeyTerm> (average true
+range). Skutečné rozpětí svíčky je **největší** ze tří čísel:
+
+- maximum − minimum svíčky,
+- skok nahoru od včerejšího zavření (maximum − včerejší zavření),
+- skok dolů od včerejšího zavření (včerejší zavření − minimum).
+
+Díky skokům se počítají i mezery mezi svíčkami. ATR je pak Wilderův průměr skutečných rozpětí za N
+svíček: každý den se k němu přidá 1/N nového rozpětí. Projdi si to:
+
+<IndicatorSteps
+  data={btc}
+  indicator="atr"
+  from="2024-02-25"
+  label="Výpočet ATR 14 v USDT na denním grafu bitcoinu od konce února 2024, krok za krokem"
+/>
+
+ATR má jednotky ceny, takže u bitcoinu za 60 000 vyjde jinak než za 20 000. V grafech kurzu ho proto
+ukazujeme i v procentech ceny: 10. června 2024 byl ATR 14 jen 2,8 % ceny, 5. srpna 2024 při pádu na
+49 000 už 5,8 %. Posuň periodu:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="atr"
+  min={3}
+  max={60}
+  value={14}
+  label="Denní graf bitcoinu s ATR v procentech ceny, jehož periodu měníš posuvníkem"
+/>
+
+## Supertrend: zábradlí z ATR
+
+Takzvaný <KeyTerm term="supertrend">Supertrend</KeyTerm> vezme střed svíčky (maximum + minimum) / 2 a
+odečte od něj, nebo k němu přičte, násobek ATR – na Binance **3 × ATR 10**:
+
+- **v růstu** leží čára 3 ATR pod středem svíčky a posouvá se **jen nahoru**,
+- **v poklesu** leží 3 ATR nad ním a posouvá se **jen dolů**,
+- když **zavírací cena** čáru protne, trend se otočí a čára přeskočí na druhou stranu.
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 se Supertrendem 10, 3 přes svíčky a ATR 14 v procentech pod grafem"
+  caption="Supertrend 10, 3 (zeleně pod cenou, červeně nad ní) a ATR 14 v procentech ceny pod grafem. V roce 2024 se Supertrend otočil 11krát; poslední otočka dolů přišla 23. 12. 2024."
+  indicators={{ supertrend: true, atr: true }}
+/>
+
+Všimni si, že když je trh divoký (ATR vysoko), zábradlí je od ceny dál a vydrží větší výkyvy. V klidném
+trhu se přiblíží a stačí mu menší pohyb.
+
+## Na Binance
+
+Režim **Original** → ikona indikátorů → **Main Indicator** → **SUPER**. Nastavíš délku ATR (ATR Length,
+výchozí 10), násobek (Factor, výchozí 3), barvy pro růst a pokles a výplň pozadí. Samotné ATR v menu
+Binance není – žije uvnitř Supertrendu:
+
+<Video
+  src="/videos/binance-ind-super.mp4"
+  poster="/videos/binance-ind-super.webp"
+  label="Video: v dialogu indikátorů na Binance se vypne MA a zaškrtne SUPER s ATR Length 10 a Factor 3; po uložení vede pod svíčkami zelená čára s výplní"
+  caption="Video (22 s): MA vypnout, SUPER zapnout (ATR Length 10, Factor 3), Save (Binance, 9. 10. 2026)."
+/>
+
+Vyšší Factor dá zábradlí víc prostoru – méně otoček, pozdější výstup. Nižší ho přitáhne – víc otoček.
+
+<Callout type="warning" title="Supertrend se otáčí až po pohybu">
+  Supertrend se otočí, až když zavírací cena protne čáru vzdálenou několik ATR.
+  To znamená, že výstup z obchodu podle něj přijde až po poklesu o několik
+  „normálních“ denních pohybů. V bočním trhu se otáčí často a pokaždé pozdě.
+</Callout>
+
+## Časté omyly
+
+- **„Zelený Supertrend = cena poroste.“** Zelený znamená jen, že zatím nebyla protnuta čára pod cenou.
+- **„ATR ukazuje směr.“** ATR měří velikost pohybu, ne jeho směr – roste v propadu i v raketovém růstu.
+- **„Supertrend se nikdy nemýlí, protože necouvá.“** Necouvá, ale otočit se umí – a v pile se otáčí často.
+
+<Callout title="Shrnutí">
+
+- Skutečné rozpětí = největší z (maximum − minimum, skok nahoru, skok dolů); ATR je jeho Wilderův průměr.
+- Supertrend = střed svíčky ∓ 3 × ATR 10, posouvá se jen se směrem trendu.
+- Otočí se, když zavírací cena čáru protne.
+- Na Binance: Original → ikona indikátorů → Main Indicator → SUPER (10, 3).
+
+</Callout>

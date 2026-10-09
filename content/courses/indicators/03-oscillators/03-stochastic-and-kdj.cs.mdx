@@ -1,0 +1,117 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Stochastic a KDJ",
+  slug: "stochastic-a-kdj",
+  description:
+    "Stochastický oscilátor se ptá, ve kterém patře mezi minimem a maximem posledních svíček zavřela cena. Jak se počítá %K a %D, co přidává KDJ na Binance s čarou J a proč přeprodáno může být ještě víc přeprodané.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš stochastic %K krok za krokem
+- zjistíš, jak z něj vzniká KDJ 9, 3, 3 na Binance a co je čára J
+- uvidíš na srpnu 2024, že přeprodaný trh může dál padat
+
+</Callout>
+
+Představ si výtah v šachtě. Přízemí je nejnižší cena posledních 14 svíček, střecha nejvyšší. Takzvaný <KeyTerm term="stochastic">stochastický oscilátor</KeyTerm> se ptá jediné věci: ve kterém patře dnes
+zavřela cena? Na střeše je to 100, v přízemí 0. Profesor Knot jezdí výtahem rád – jen neví, kam pojede
+zítra.
+
+<Illustration name="rangeElevator" />
+
+## Jak se počítá %K
+
+1. Najdi nejvyšší maximum a nejnižší minimum posledních 14 svíček.
+2. %K = (zavření − minimum) / (maximum − minimum) × 100.
+3. Čára %D je průměr posledních 3 hodnot %K – klidnější a o kousek pozadu.
+
+Nad 80 je zavření u horního okraje rozpětí, pod 20 u dolního. Projdi si výpočet – zelená a červená
+čárkovaná čára ukazují maximum a minimum okna:
+
+<IndicatorSteps
+  data={btc}
+  indicator="stochastic"
+  from="2024-07-15"
+  label="Výpočet stochastického oscilátoru %K 14 na denním grafu bitcoinu od poloviny července 2024, krok za krokem"
+/>
+
+## KDJ: stochastic s třetí čárou
+
+V menu Binance v režimu Original čistý stochastic nenajdeš – je tam jeho příbuzný <KeyTerm term="kdj">KDJ</KeyTerm>
+s nastavením **9, 3, 3**. Počítá z 9 svíček stejnou „polohu v rozpětí“, ale vyhlazuje ji po třetinách:
+
+- **K** = dvě třetiny předchozího K + třetina nové polohy v rozpětí (začíná na 50),
+- **D** = stejné vyhlazení, tentokrát z K,
+- **J** = 3 × K − 2 × D – běží před ostatními a může vylétnout nad 100 nebo pod 0.
+
+Na grafu bitcoinu 2023–2024 byla čára J nad 100 celkem 39 dní a pod nulou 11 dní. To není chyba výpočtu,
+to je J.
+
+Na Binance ho zapneš v režimu **Original**: ikona indikátorů, záložka **Sub Indicator**, zaškrtnout
+**KDJ**, **Save**.
+
+<Video
+  src="/videos/binance-ind-kdj.mp4"
+  poster="/videos/binance-ind-kdj.webp"
+  label="Video: na Binance se na záložce Sub Indicator zaškrtne KDJ a po uložení se pod grafem objeví panel se třemi čarami K, D a J"
+  caption="Video (20 s): zapnutí KDJ na Binance – Sub Indicator, KDJ 9, 3, 3, Save (Binance, 9. 10. 2026)."
+/>
+
+Stochastic a KDJ vedle sebe:
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 se stochastickým oscilátorem 14, 1, 3 a KDJ 9, 3, 3 ve dvou panelech pod grafem"
+  caption="Nahoře stochastic (%K modře, %D žlutě), dole KDJ (K modře, D žlutě, J fialově). Měří totéž; J vybíhá za hranice 0–100."
+  indicators={{ stochastic: true, kdj: true }}
+/>
+
+## Perioda
+
+Kratší okno = rozpětí z pár svíček, které se rychle mění, a čára skáče od kraje ke kraji:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="stochastic"
+  min={3}
+  max={50}
+  label="Denní graf bitcoinu se stochastickým oscilátorem %K, jehož periodu měníš posuvníkem"
+/>
+
+## Přeprodané může být ještě přeprodanější
+
+2. srpna 2024 spadl %K ze 39 na 3 – zavření 61 498 bylo skoro na dně dvoutýdenního rozpětí. „Přeprodáno,
+   kupuj“? O tři dny později byla cena dole na 49 000. Dno rozpětí se prostě posunulo níž.
+
+<ChartQuiz
+  data={btc}
+  from="2024-07-15"
+  question="Klikni na svíčku, na které %K stochasticu spadl pod 20."
+  answer={["2024-08-01", "2024-08-03"]}
+  explanation="2. srpna 2024 spadl %K ze 39,2 na 3,0 při zavření 61 498. Přeprodaný trh ale padal dál – 5. srpna až na 49 000."
+  indicators={{ panel: "stochastic" }}
+  label="Kvíz: najdi pád stochasticu pod 20 na denním grafu bitcoinu v srpnu 2024"
+/>
+
+<Callout type="warning" title="Poloha v rozpětí není podlaha">
+  Stochastic ukazuje polohu vůči minulým svíčkám. Když trh prorazí dolů, nové
+  minimum vytvoří nové rozpětí a „přeprodaný“ oscilátor klidně zůstane dole celé
+  dny. Kupovat jen proto, že je pod 20, je chytání padajícího nože.
+</Callout>
+
+## Časté omyly
+
+- **„%K pod 20 = dno.“** Je to dno posledních 14 svíček, ne dno trhu.
+- **„KDJ a stochastic jsou dva nezávislé názory.“** Jsou to dvě úpravy téhož výpočtu.
+- **„J nad 100 je chyba.“** J = 3K − 2D, takže hranice 0–100 nemá. Je to zesílená, nejrychlejší čára.
+
+<Callout title="Shrnutí">
+
+- %K = (zavření − minimum) / (maximum − minimum) × 100 za posledních N svíček; %D je jeho průměr.
+- Binance nabízí KDJ 9, 3, 3: K a D vyhlazené po třetinách, J = 3K − 2D.
+- Nad 80 je zavření u horního okraje rozpětí, pod 20 u dolního.
+- Přeprodaný trh může dál padat – rozpětí se posune s ním.
+
+</Callout>

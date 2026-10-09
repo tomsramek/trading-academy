@@ -1,0 +1,97 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "CCI: jak daleko od normálu",
+  slug: "cci",
+  description:
+    "Commodity Channel Index měří, jak daleko je cena od svého průměru – v násobcích obvyklé odchylky. Jak se počítá, proč má na Binance periodu 9 a jinde 20 a co znamenají hladiny ±100.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš CCI z typické ceny, jejího průměru a průměrné odchylky
+- zjistíš, proč má Binance v režimu Original CCI 9 a jinde je CCI 20
+- pochopíš, proč CCI nemá horní ani dolní hranici
+
+</Callout>
+
+Napni gumičku od průměru ceny. Čím víc se cena od průměru vzdálí, tím víc se gumička natáhne – a právě
+to měří <KeyTerm term="cci">CCI</KeyTerm>. Na rozdíl od RSI nemá strop: gumička se dá natáhnout na +300
+stejně jako na +100. Profesor Knot doporučuje nestát přímo před ní.
+
+<Illustration name="rubberBand" />
+
+## Jak se počítá
+
+1. **Typická cena** každé svíčky = (maximum + minimum + zavření) / 3.
+2. Spočítej její průměr za posledních N svíček.
+3. Spočítej **průměrnou odchylku**: o kolik se typická cena od toho průměru v průměru liší (bez ohledu
+   na znaménko).
+4. CCI = (typická cena − průměr) / (0,015 × průměrná odchylka).
+
+Konstantu 0,015 zvolil autor Donald Lambert tak, aby zhruba 70–80 % hodnot leželo mezi −100 a +100. To
+platí pro „slušně vychované“ trhy. Bitcoin slušně vychovaný není: v letech 2023–2024 leželo mezi ±100 jen
+asi 56 % hodnot CCI 20.
+
+## Kde ho najdeš na Binance
+
+V režimu **Original**: ikona indikátorů, záložka **Sub Indicator**, zaškrtnout **CCI**, **Save**.
+Legenda ukáže **CCI(9)** – v tomhle režimu má Binance výchozí periodu 9. V režimu Trading View a ve
+většině učebnic se používá CCI 20; stejné kreslíme v grafech kurzu.
+
+<Video
+  src="/videos/binance-ind-cci.mp4"
+  poster="/videos/binance-ind-cci.webp"
+  label="Video: na Binance se na záložce Sub Indicator zaškrtne CCI a po uložení se pod grafem objeví panel CCI s periodou 9"
+  caption="Video (20 s): zapnutí CCI na Binance – Sub Indicator, CCI, Save; legenda CCI(9) (Binance, 9. 10. 2026)."
+/>
+
+## 9, nebo 20?
+
+Posuvník začíná na periodě 9 jako na Binance. Posuň ho na 20 a porovnej, jak často čára prorazí ±100:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="cci"
+  min={5}
+  max={50}
+  value={9}
+  label="Denní graf bitcoinu s CCI, jehož periodu měníš posuvníkem; začíná na periodě 9 jako na Binance"
+/>
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s CCI 20 v panelu pod grafem a hladinami +100 a −100"
+  caption="CCI 20 pod grafem. Nad +100 je cena nezvykle vysoko nad průměrem, pod −100 nezvykle nízko. Strop ani dno nemá."
+  indicators={{ cci: true }}
+/>
+
+## Jak se CCI čte
+
+- **Nad +100**: cena se nezvykle vzdálila nad průměr. V silném růstu tam CCI vydrží dlouho.
+- **Pod −100**: totéž dolů.
+- **Mezi ±100**: cena se drží v obvyklém pásmu kolem průměru.
+
+Lambert CCI vymyslel pro komodity s cykly – odtud „Commodity“ v názvu. Na kryptu funguje stejně jako
+každý oscilátor: popisuje, jak natažený je pohyb, ne kam pojede.
+
+<Callout type="warning" title="Bez stropu, bez jistoty">
+  CCI +200 neznamená „teď to musí spadnout“. Silné trendy natahují gumičku dál,
+  než bys čekal. Obchod jen proto, že CCI je „moc vysoko“, je sázka proti
+  trendu.
+</Callout>
+
+## Časté omyly
+
+- **„CCI je v rozsahu 0–100 jako RSI.“** Nemá hranice; ±100 jsou jen vodicí čáry.
+- **„CCI 9 a CCI 20 ukazují totéž.“** Kratší perioda kmitá víc a prorazí ±100 častěji.
+- **„Je to indikátor pro komodity, na krypto nefunguje.“** Funguje stejně dobře – a stejně omezeně – jako jiné oscilátory.
+
+<Callout title="Shrnutí">
+
+- CCI = (typická cena − její průměr) / (0,015 × průměrná odchylka).
+- ±100 jsou vodicí čáry; nad a pod nimi je cena nezvykle daleko od průměru.
+- Binance (Original) má výchozí CCI 9, jinde je běžné CCI 20.
+- CCI nemá horní ani dolní hranici.
+
+</Callout>

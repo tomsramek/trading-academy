@@ -1,0 +1,119 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "RSI: the market's thermometer",
+  description:
+    'How RSI is computed from the average rise and fall, why Binance\'s chart has three RSIs (6, 12 and 24), what 70 and 30 mean and why "overbought" does not yet mean "sell".',
+};
+
+<Callout title="In this lesson">
+
+- compute RSI step by step from the average rise and fall
+- find out why Binance shows three RSIs and how to switch them on
+- understand why a market can stay "overbought" for weeks
+
+</Callout>
+
+The <KeyTerm term="rsi">RSI</KeyTerm> indicator is the market's thermometer: it shows how
+"heated" a move is on a scale from 0 to 100. Above 70 people speak of
+overbought, below 30 of oversold. Professor Wick starts sweating at seventy –
+but nobody ever sold anything to a thermometer.
+
+<Illustration name="rsiThermometer" />
+
+## How RSI is computed
+
+RSI compares how much the price on average **rose** and how much it **fell** over the last N candles:
+
+1. For each candle compute the change against the previous close. A rise goes to "gains", a fall to
+   "losses".
+2. Average the gains and losses over the last N candles (default N = 14). Later values only move 1/N of
+   the way towards the new change – so-called Wilder smoothing.
+3. The ratio of the average gain to the average loss is RS. From it RSI = 100 − 100 / (1 + RS).
+
+When the market only rises, losses are zero and RSI is 100. When rises and falls are equal, RSI is 50.
+Walk through it on a real chart:
+
+<IndicatorSteps
+  data={btc}
+  indicator="rsi"
+  from="2024-01-25"
+  label="Computing RSI 14 on the daily Bitcoin chart from late January 2024, step by step"
+/>
+
+## Where to find it on Binance
+
+In **Original** mode click the indicator icon above the chart, switch to the **Sub Indicator** tab, tick
+**RSI** and click **Save**. A panel with **three** lines appears below the chart: RSI(6), RSI(12) and
+RSI(24), with dashed levels at 70 and 30. The short RSI 6 is very sensitive, the long RSI 24 calm. In
+**Trading View** mode and in most textbooks a single RSI 14 is used – the one the charts in this course
+draw.
+
+<Video
+  src="/videos/binance-ind-rsi.mp4"
+  poster="/videos/binance-ind-rsi.webp"
+  label="Video: on Binance in Original mode the indicator dialog opens, RSI with lengths 6, 12 and 24 and levels 70 and 30 is ticked on the Sub Indicator tab, and after saving an RSI panel appears below the chart"
+  caption="Video (21 s): switching on RSI on Binance – Sub Indicator, RSI 6, 12 and 24, levels 70 and 30, Save (Binance, 9 Oct 2026)."
+/>
+
+## The period changes everything
+
+Try moving the period. A short RSI jumps into the 70/30 zones again and again, a long one hardly ever:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="rsi"
+  min={3}
+  max={30}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with an RSI whose period you change with a slider"
+/>
+
+## Overbought does not mean "sell"
+
+Bitcoin's RSI 14 crossed 70 on 9 February 2024 (close 47,133). Anyone who sold then because "it is
+overbought" watched RSI cross seventy again on 26 February and 6 March, and the price closed at 73,072 on
+13 March. Over the whole period shown, RSI was above 70 on 84 days out of 444.
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with RSI 14 in a panel below and levels at 70 and 30"
+  caption="RSI 14 below the chart. In a strong rise it stays above 70 for weeks; it got below 30 on only a few days."
+  indicators={{ rsi: true }}
+/>
+
+In a strong trend, "overbought" is more a sign of strength than of weakness. RSI says the most in a
+market moving sideways – and above all together with other tools. More on working with it is in the
+lesson [RSI and momentum](/courses/trading-with-a-plan/rsi-and-momentum).
+
+Try it:
+
+<ChartQuiz
+  data={btc}
+  from="2024-01-25"
+  question="Click the candle on which RSI 14 first crossed above 70."
+  answer={["2024-02-08", "2024-02-10"]}
+  explanation="On 9 February 2024 RSI jumped from 65 to 71.4 – the price climbed from 45,289 to as high as 48,200 that day. And the rise went on for another five weeks."
+  indicators={{ panel: "rsi" }}
+  label="Quiz: find RSI's first cross above 70 on the daily Bitcoin chart in February 2024"
+/>
+
+<Callout type="warning" title="RSI is not a trade signal">
+  The 70 and 30 levels are not "sell" and "buy" orders. An overbought market can
+  keep rising and an oversold one keep falling. Trading on RSI alone without a
+  stop-loss and a plan is a bet, not a strategy.
+</Callout>
+
+## Common myths
+
+- **"RSI above 70 = sell."** In a strong rise RSI often stays above 70 for weeks.
+- **"Three RSIs on Binance are three signals."** It is one measure with three periods – one piece of information three times.
+- **"RSI 50 is neutral, so it says nothing."** It says rises and falls are balanced – neither side has the upper hand.
+
+<Callout title="Summary">
+
+- RSI = 100 − 100 / (1 + RS), where RS is the average rise divided by the average fall over N candles.
+- Binance's Original mode draws RSI 6, 12 and 24; the common standard is RSI 14.
+- A shorter period = more entries into the 70/30 zones, more false signals.
+- Overbought and oversold describe a state, they are not trading orders.
+
+</Callout>

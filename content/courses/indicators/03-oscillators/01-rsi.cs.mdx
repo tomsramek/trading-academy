@@ -1,0 +1,118 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "RSI: teploměr trhu",
+  slug: "rsi",
+  description:
+    "Jak se RSI počítá z průměrného růstu a poklesu, proč má Binance v grafu tři RSI (6, 12 a 24), co znamená 70 a 30 a proč „překoupeno“ ještě neznamená „prodávej“.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš RSI krok za krokem z průměrného růstu a poklesu
+- zjistíš, proč Binance ukazuje tři RSI a jak je zapnout
+- pochopíš, proč může trh zůstat „překoupený“ celé týdny
+
+</Callout>
+
+Indikátor <KeyTerm term="rsi">RSI</KeyTerm> je teploměr trhu: ukazuje, jak „rozpálený“ je
+pohyb, na stupnici od 0 do 100. Nad 70 se mluví o překoupení, pod 30 o
+přeprodanosti. Profesor Knot se u sedmdesátky začne potit – ale z teploměru se
+ještě nikdo neprodal.
+
+<Illustration name="rsiThermometer" />
+
+## Jak se RSI počítá
+
+RSI porovnává, o kolik cena v posledních N svíčkách v průměru **rostla** a o kolik **klesala**:
+
+1. U každé svíčky spočítej změnu proti předchozímu zavření. Růst jde do „zisků“, pokles do „ztrát“.
+2. Zprůměruj zisky a ztráty za posledních N svíček (výchozí N = 14). Další hodnoty se jen posouvají o
+   1/N k nové změně – tzv. Wilderovo vyhlazení.
+3. Poměr průměrného zisku a ztráty je RS. Z něj RSI = 100 − 100 / (1 + RS).
+
+Když trh jen roste, ztráty jsou nula a RSI je 100. Když jsou růsty a poklesy stejné, RSI je 50. Projdi si
+to na skutečném grafu:
+
+<IndicatorSteps
+  data={btc}
+  indicator="rsi"
+  from="2024-01-25"
+  label="Výpočet RSI 14 na denním grafu bitcoinu od konce ledna 2024, krok za krokem"
+/>
+
+## Kde ho najdeš na Binance
+
+V režimu **Original** klikni na ikonu indikátorů nad grafem, přepni na záložku **Sub Indicator**,
+zaškrtni **RSI** a dej **Save**. Pod grafem se objeví panel se **třemi** čarami: RSI(6), RSI(12) a
+RSI(24), a čárkovaně hladiny 70 a 30. Krátké RSI 6 je velmi citlivé, dlouhé RSI 24 klidné. V režimu
+**Trading View** a ve většině učebnic se používá jedno RSI 14 – stejné kreslíme v grafech tohoto kurzu.
+
+<Video
+  src="/videos/binance-ind-rsi.mp4"
+  poster="/videos/binance-ind-rsi.webp"
+  label="Video: na Binance se v režimu Original otevře dialog indikátorů, na záložce Sub Indicator se zaškrtne RSI s délkami 6, 12 a 24 a hladinami 70 a 30, po uložení se pod grafem objeví panel RSI"
+  caption="Video (21 s): zapnutí RSI na Binance – Sub Indicator, RSI 6, 12 a 24, hladiny 70 a 30, Save (Binance, 9. 10. 2026)."
+/>
+
+## Perioda mění všechno
+
+Zkus periodu posunout. Krátké RSI skáče do zón 70/30 pořád dokola, dlouhé skoro nikdy:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="rsi"
+  min={3}
+  max={30}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s RSI, jehož periodu měníš posuvníkem"
+/>
+
+## Překoupeno neznamená „prodej“
+
+RSI 14 bitcoinu překročilo 70 dne 9. února 2024 (zavření 47 133). Kdo tehdy prodal, protože „je
+překoupeno“, se díval, jak RSI překročilo sedmdesátku znovu 26. února a 6. března a cena 13. března
+zavřela na 73 072. Za celé sledované období bylo RSI nad 70 celkem 84 dní ze 444.
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s RSI 14 v panelu pod grafem a hladinami 70 a 30"
+  caption="RSI 14 pod grafem. V silném růstu zůstává nad 70 celé týdny; pod 30 se dostalo jen pár dní."
+  indicators={{ rsi: true }}
+/>
+
+V silném trendu je „překoupeno“ spíš známka síly než slabosti. RSI nejvíc říká v trhu, který se
+přelévá do stran – a hlavně ve spojení s dalšími nástroji. Víc o práci s ním najdeš v lekci
+[RSI a momentum](/kurzy/obchodovani-podle-planu/rsi-a-momentum).
+
+Vyzkoušej si to:
+
+<ChartQuiz
+  data={btc}
+  from="2024-01-25"
+  question="Klikni na svíčku, na které RSI 14 poprvé překročilo hladinu 70."
+  answer={["2024-02-08", "2024-02-10"]}
+  explanation="9. února 2024 vyskočilo RSI ze 65 na 71,4 – cena ten den vystoupala z 45 289 až na 48 200. A růst pokračoval ještě dalších pět týdnů."
+  indicators={{ panel: "rsi" }}
+  label="Kvíz: najdi první překročení hladiny 70 u RSI na denním grafu bitcoinu v únoru 2024"
+/>
+
+<Callout type="warning" title="RSI není signál k obchodu">
+  Hladiny 70 a 30 nejsou příkazy „prodej“ a „kup“. Překoupený trh může dál růst
+  a přeprodaný dál padat. Obchod podle samotného RSI bez stop-lossu a plánu je
+  sázka, ne strategie.
+</Callout>
+
+## Časté omyly
+
+- **„RSI nad 70 = prodej.“** V silném růstu bývá RSI nad 70 celé týdny.
+- **„Tři RSI na Binance jsou tři signály.“** Je to jedna veličina se třemi periodami – jedna informace třikrát.
+- **„RSI 50 je neutrální, takže nic neříká.“** Říká, že růsty a poklesy jsou vyrovnané – trh nemá převahu.
+
+<Callout title="Shrnutí">
+
+- RSI = 100 − 100 / (1 + RS), kde RS je průměrný růst děleno průměrným poklesem za N svíček.
+- Binance v režimu Original kreslí RSI 6, 12 a 24; běžný standard je RSI 14.
+- Kratší perioda = víc vstupů do zón 70/30, víc falešných signálů.
+- Překoupeno a přeprodáno jsou popisy stavu, ne pokyny k obchodu.
+
+</Callout>

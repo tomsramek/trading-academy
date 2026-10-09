@@ -1,0 +1,102 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "MFI: RSI s peněženkou",
+  slug: "mfi",
+  description:
+    "Money Flow Index počítá jako RSI, ale místo změn ceny sčítá peníze: typickou cenu krát objem. Jak se počítá, co znamenají čáry 80 a 20, proč má Binance tři MFI a v čem se liší od RSI.",
+};
+
+<Callout title="V této lekci">
+
+- spočítáš MFI z peněz, které do trhu přitékají a odtékají
+- porovnáš MFI s RSI na stejném grafu
+- zapneš MFI na Binance a zjistíš, proč tam jsou rovnou tři čáry
+
+</Callout>
+
+Indikátor <KeyTerm term="rsi">RSI</KeyTerm> se dívá jen na to, o kolik cena vyrostla nebo
+spadla. Den, kdy se obchodovalo pár bitcoinů, váží stejně jako den, kdy se
+obchodovalo sto tisíc. <KeyTerm term="mfi">MFI</KeyTerm>
+tohle napravuje: je to RSI, které si pořídilo peněženku a počítá peníze.
+Profesor Knot ho přirovnává k vodárně – sleduje, kolik vody přitéká a kolik
+odtéká.
+
+<Illustration name="moneyPipes" />
+
+## Jak se počítá
+
+1. **Typická cena** svíčky = (maximum + minimum + zavření) / 3.
+2. **Tok peněz** = typická cena × <KeyTerm term="volume">objem</KeyTerm>.
+3. Je typická cena vyšší než u předchozí svíčky? Tok peněz je **kladný** (přítok). Nižší? **Záporný**
+   (odtok).
+4. Za posledních 14 svíček sečti zvlášť přítoky a zvlášť odtoky. **Poměr** = přítoky / odtoky.
+5. **MFI = 100 − 100 / (1 + poměr)**.
+
+Kdyby za 14 dní přiteklo 6 jednotek peněz a odteklo 1, poměr je 6 a MFI = 100 − 100 / 7 ≈ 86. Kdyby
+peníze jen přitékaly, MFI je 100.
+
+Stejně jako u RSI vyznačují čáry **80** a **20** zóny, kde je přítok, nebo odtok neobvykle silný. Zkus,
+jak s nimi zamává perioda:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="mfi"
+  min={3}
+  max={40}
+  value={14}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s MFI, jehož periodu měníš posuvníkem"
+/>
+
+## MFI vs. RSI
+
+<CandleChart
+  data={btc}
+  label="Denní graf bitcoinu od října 2023 do prosince 2024 s MFI 14 a RSI 14 v panelech pod grafem; 5. srpna 2024 MFI propadlo na 11,5, RSI jen na 26,7"
+  caption="MFI a RSI většinou kreslí podobnou křivku. Rozcházejí se ve dnech, kdy se obchoduje neobvykle hodně – jako 5. 8. 2024."
+  indicators={{ mfi: true, rsi: true }}
+  markers={[{ time: "2024-08-05", kind: "event", label: "5. 8." }]}
+/>
+
+Většinu času jdou obě čáry ruku v ruce. Rozdíl uvidíš, když se zobchoduje obrovský objem:
+
+- **5. srpna 2024** spadla cena na 54 019 při nejvyšším objemu za celé období. RSI kleslo na 26,7, ale
+  MFI až na **11,5** – obří odtok peněz ho stáhl mnohem níž.
+- **13. března 2024**, těsně u tehdejšího maxima, bylo MFI 82,4 a RSI 78,7.
+
+Za 15 měsíců v grafu bylo MFI nad 80 celkem 53 dní, pod 20 jen dva dny. V rostoucím trhu se „překoupené“
+zóny drží dlouho – stejně jako u RSI.
+
+## MFI na Binance
+
+V režimu Original: ikonka indikátorů, záložka **Sub Indicator**, zaškrtnout **MFI** a **Save**. Binance
+kreslí rovnou tři čáry: **MFI(7), MFI(14) a MFI(21)** – rychlou, střední a pomalou. Pokud chceš graf
+čistší, dvě z nich v nastavení vypni. Grafy v tomhle kurzu používají MFI 14.
+
+<Video
+  src="/videos/binance-ind-mfi.mp4"
+  poster="/videos/binance-ind-mfi.webp"
+  label="Video: na Binance se v dialogu indikátorů na záložce Sub Indicator zaškrtne MFI, klikne se na Save a pod grafem se objeví panel se třemi čarami MFI 7, 14 a 21"
+  caption="Video (20 s): MFI zaškrtnuté v záložce Sub Indicator – Binance kreslí tři čáry, MFI(7), MFI(14) a MFI(21) (Binance, 9. 10. 2026)."
+/>
+
+<Callout type="warning" title="Objem jedné burzy, tok peněz jedné burzy">
+  MFI stojí na objemu – a objem na Binance je jen objem Binance. Akce na nulové
+  poplatky nebo jeden velký obchodník umí čísla posunout, aniž by se změnil celý
+  trh. MFI je pohled na jednu burzu, ne na všechny peníze v bitcoinu.
+</Callout>
+
+## Časté omyly
+
+- **„MFI nad 80 = prodej.“** V silném růstu zůstává nad 80 klidně týdny – jako RSI.
+- **„MFI měří peníze, které do bitcoinu přišly zvenčí.“** Měří typickou cenu krát objem obchodů na jedné burze. Ke každému nákupu patří prodej.
+- **„Tři čáry MFI dávají tři signály.“** Je to tentýž výpočet s různou periodou. Vyber si jednu.
+
+<Callout title="Shrnutí">
+
+- MFI = RSI z toků peněz: typická cena × objem, přítoky proti odtokům za 14 svíček.
+- MFI = 100 − 100 / (1 + přítoky / odtoky); čáry 80 a 20 značí silný přítok a odtok.
+- S RSI se rozchází ve dnech s obřím objemem: 5. 8. 2024 MFI 11,5, RSI 26,7.
+- Na Binance kreslí MFI tři čáry – 7, 14 a 21.
+
+</Callout>

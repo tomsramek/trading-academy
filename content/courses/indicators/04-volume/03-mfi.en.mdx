@@ -1,0 +1,104 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "MFI: an RSI with a wallet",
+  description:
+    "The Money Flow Index is computed like RSI, but instead of price changes it adds up money: the typical price times volume. How it is computed, what the 80 and 20 lines mean, why Binance shows three MFIs and how it differs from RSI.",
+};
+
+<Callout title="In this lesson">
+
+- compute MFI from the money flowing into and out of the market
+- compare MFI with RSI on the same chart
+- switch on MFI on Binance and find out why there are three lines right away
+
+</Callout>
+
+The <KeyTerm term="rsi">RSI</KeyTerm> looks only at how much the price rose or fell.
+A day when a few bitcoin were traded weighs as much as a day when a hundred
+thousand were. <KeyTerm term="mfi">MFI</KeyTerm> fixes that: it is an RSI that
+got itself a wallet and counts money. Professor Wick compares it to a waterworks
+– it watches how much water flows in and how much flows out.
+
+<Illustration name="moneyPipes" />
+
+## How it is computed
+
+1. **Typical price** of a candle = (high + low + close) / 3.
+2. **Money flow** = typical price × <KeyTerm term="volume">volume</KeyTerm>.
+3. Is the typical price higher than the previous candle's? The money flow is **positive** (inflow).
+   Lower? **Negative** (outflow).
+4. Over the last 14 candles, add up the inflows and the outflows separately. **Ratio** = inflows /
+   outflows.
+5. **MFI = 100 − 100 / (1 + ratio)**.
+
+If 6 units of money flowed in and 1 flowed out over 14 days, the ratio is 6 and MFI = 100 − 100 / 7 ≈ 86. If money only flowed in, MFI is 100.
+
+As with RSI, the **80** and **20** lines mark zones where the inflow or outflow is unusually strong. See
+how the period shakes them:
+
+<IndicatorPeriod
+  data={btc}
+  indicator="mfi"
+  min={3}
+  max={40}
+  value={14}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with MFI whose period you change with a slider"
+/>
+
+## MFI vs. RSI
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with MFI 14 and RSI 14 in panels below the chart; on 5 August 2024 MFI dropped to 11.5, RSI only to 26.7"
+  caption="MFI and RSI mostly draw a similar curve. They part ways on days with unusually heavy trading – like 5 Aug 2024."
+  indicators={{ mfi: true, rsi: true }}
+  markers={[{ time: "2024-08-05", kind: "event", label: "5 Aug" }]}
+/>
+
+Most of the time the two lines go hand in hand. You see the difference when a huge volume is traded:
+
+- **On 5 August 2024** the price fell to 54,019 on the highest volume of the whole period. RSI dropped to
+  26.7, but MFI all the way to **11.5** – the giant outflow of money pulled it much lower.
+- **On 13 March 2024**, right at the high of the time, MFI was 82.4 and RSI 78.7.
+
+Over the 15 months in the chart, MFI was above 80 on 53 days and below 20 on only two. In a rising
+market the "overbought" zones last a long time – just as with RSI.
+
+## MFI on Binance
+
+In Original mode: the indicator icon, the **Sub Indicator** tab, tick **MFI** and **Save**. Binance
+draws three lines right away: **MFI(7), MFI(14) and MFI(21)** – fast, medium and slow. If you want a
+cleaner chart, switch two of them off in the settings. The charts in this course use MFI 14.
+
+<Video
+  src="/videos/binance-ind-mfi.mp4"
+  poster="/videos/binance-ind-mfi.webp"
+  label="Video: in Binance's indicator dialog, MFI is ticked on the Sub Indicator tab, Save is clicked and a panel with three lines, MFI 7, 14 and 21, appears below the chart"
+  caption="Video (20 s): MFI ticked in the Sub Indicator tab – Binance draws three lines, MFI(7), MFI(14) and MFI(21) (Binance, 9 Oct 2026)."
+/>
+
+<Callout
+  type="warning"
+  title="One exchange's volume, one exchange's money flow"
+>
+  MFI stands on volume – and the volume on Binance is only Binance's volume. A
+  zero-fee promotion or one big trader can move the numbers without the whole
+  market changing. MFI is a view of one exchange, not of all the money in
+  bitcoin.
+</Callout>
+
+## Common myths
+
+- **"MFI above 80 = sell."** In a strong rise it stays above 80 for weeks – like RSI.
+- **"MFI measures money that came into bitcoin from outside."** It measures the typical price times the volume of trades on one exchange. Every purchase has a sale on the other side.
+- **"Three MFI lines give three signals."** It is the same calculation with different periods. Pick one.
+
+<Callout title="Summary">
+
+- MFI = RSI of money flows: typical price × volume, inflows against outflows over 14 candles.
+- MFI = 100 − 100 / (1 + inflows / outflows); the 80 and 20 lines mark strong inflow and outflow.
+- It parts ways with RSI on days of giant volume: on 5 Aug 2024 MFI was 11.5, RSI 26.7.
+- On Binance, MFI draws three lines – 7, 14 and 21.
+
+</Callout>

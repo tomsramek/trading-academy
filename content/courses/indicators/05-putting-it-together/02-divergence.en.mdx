@@ -1,0 +1,91 @@
+import btc from "@content/market-data/btcusdt-1d-2023-10-2024-12.json";
+
+export const metadata = {
+  title: "Divergence",
+  description:
+    "The price makes a new high, but RSI does not. What bearish and bullish divergence are, how to find one on the real Bitcoin chart from December 2024 and why it is a warning, not an order to trade.",
+};
+
+<Callout title="In this lesson">
+
+- recognise bearish and bullish divergence
+- find a real divergence on the Bitcoin chart from late 2024
+- find out why divergence often fails and how to handle it
+
+</Callout>
+
+The price climbs to a new high, everyone celebrates – and the oscillator below the chart looks as if it
+does not care. Professor Wick knows the feeling: when a runner gets further than last time but gasps for
+air even more, the next lap may not happen. This mismatch is called <KeyTerm term="divergence">divergence</KeyTerm>.
+
+<Illustration name="divergenceArrows" />
+
+## Bearish and bullish divergence
+
+- **Bearish divergence:** the price makes a **higher high**, but the oscillator (say <KeyTerm term="rsi">RSI</KeyTerm>) only a **lower peak**. The rise goes on, but with less strength.
+- **Bullish divergence:** the price makes a **lower low**, but the oscillator a **higher trough**. The fall goes on, but the sellers are running out of breath.
+
+There is also so-called hidden divergence: the price makes a higher low, but the oscillator a lower one.
+It is read as a hint that the trend continues. The ordinary kind is enough to start with.
+
+## A real example: December 2024
+
+On 22 November 2024 Bitcoin climbed to **99,588** with RSI 14 at **82.2**. Less than a month later, on 17
+December, it made a new high of **108,353** – but RSI reached only **70.1**. Price higher, strength lower:
+
+<CandleChart
+  data={btc}
+  label="Daily Bitcoin chart from October 2023 to December 2024 with RSI 14; the highs of 22 November and 17 December 2024 are marked, where the price made a higher high and RSI a lower peak"
+  caption="Bearish divergence: the high of 17 Dec (108,353) is above that of 22 Nov (99,588), but RSI is lower (70.1 vs 82.2)."
+  indicators={{ rsi: true }}
+  markers={[
+    { time: "2024-11-22", kind: "high", label: "99,588" },
+    { time: "2024-12-17", kind: "high", label: "108,353" },
+  ]}
+  zones={[{ from: "2024-11-22", to: "2024-12-17", label: "Divergence" }]}
+/>
+
+What came next: on 20 December the price fell as low as **92,233** during the day, and on 30 December it
+closed at **92,792**. This time the warning was right. Now try to find it yourself:
+
+<ChartQuiz
+  data={btc}
+  from="2024-11-10"
+  candles={48}
+  question="Click the candle where the price made a higher high than in November, but RSI only a lower peak."
+  answer={["2024-12-16", "2024-12-17"]}
+  explanation="On 16 and 17 December the price rose to 107,793 and 108,353 – above November's 99,588. But RSI was only around 70, against more than 82 in November. That is a bearish divergence."
+  indicators={{ panel: "rsi" }}
+  label="Quiz: find the bearish RSI divergence on the daily Bitcoin chart in December 2024"
+/>
+
+## Why divergence often fails
+
+In a strong trend a divergence can last for weeks. The price makes a higher high, then another and
+another – and RSI below is a little lower each time. Whoever sold on the first divergence missed the rest
+of the rise. Divergence does not say **when** the trend turns, or **whether** it will at all.
+
+It is wiser to treat it as a heads-up: pay attention, tighten your risk, do not open a new trade in the
+direction of a weakening move. If you want to trade against the trend, wait for confirmation – for
+example a close below an important level or below a trend line.
+
+<Callout type="warning" title="Divergence is not an order">
+  Divergence looks beautiful in hindsight. In real time you do not know whether
+  the last high has already come. Trading on divergence alone against a strong
+  trend is one of the most expensive habits of new traders.
+</Callout>
+
+## Common myths
+
+- **"Divergence = reversal."** It often means only a slowdown or a while sideways.
+- **"The more divergences in a row, the surer the fall."** A string of divergences in a strong trend is common, and the trend can keep going.
+- **"I can find divergence on every chart."** If you look for it, you will find it almost everywhere. So define in advance exactly what counts as one.
+
+<Callout title="Summary">
+
+- Bearish divergence: a higher high in price, a lower peak in the oscillator. Bullish: a lower low in price, a higher trough in the oscillator.
+- December 2024: a high of 108,353 with RSI 70.1 against 99,588 with RSI 82.2 – then a fall towards 92,000.
+- Divergence says a move is weakening, not when or whether it turns.
+- Treat it as a warning and wait for confirmation, not as a signal to trade.
+
+</Callout>
