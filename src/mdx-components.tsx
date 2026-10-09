@@ -15,6 +15,7 @@ import { LessonHeading } from "@/components/lesson/LessonHeading";
 import { LessonLink } from "@/components/lesson/LessonLink";
 import { LineChart } from "@/components/lesson/LineChart";
 import { OrderBook } from "@/components/lesson/OrderBook";
+import { OrderSimulator } from "@/components/lesson/OrderSimulator";
 import { SharedLedger } from "@/components/lesson/SharedLedger";
 import { TransactionFlow } from "@/components/lesson/TransactionFlow";
 import { Video } from "@/components/lesson/Video";
@@ -40,6 +41,7 @@ const components: MDXComponents = {
   ChartQuiz,
   IndicatorPeriod,
   IndicatorSteps,
+  OrderSimulator,
   CandlePattern,
   Figure,
   Illustration,
