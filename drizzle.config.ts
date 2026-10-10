@@ -11,5 +11,7 @@ export default defineConfig({
   schema: "./src/server/db/schema.ts",
   // Generated SQL migrations – committed to git and applied when the app starts.
   out: "./drizzle",
+  // camelCase in TypeScript, snake_case columns in the database – the same as in src/server/db.
+  casing: "snake_case",
   dbCredentials: { url: process.env.DATABASE_URL ?? "" },
 });
