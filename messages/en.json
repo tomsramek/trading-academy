@@ -1382,9 +1382,7 @@
     "account": {
       "metaTitle": "My account",
       "title": "My account",
-      "signedInAs": "Signed in as {email}",
       "since": "You have had your account since {date}.",
-      "progressSoon": "Soon your course progress and quiz results will be saved here.",
       "signOut": "Sign out",
       "signingOut": "Signing out…",
       "signOutError": "Signing out failed. Please try again.",
@@ -1397,12 +1395,65 @@
       "deleting": "Deleting…",
       "deleteFresh": "For security, please sign in again first, then delete the account.",
       "signInAgain": "Sign in again",
-      "deleteError": "The account could not be deleted. Try again, or write to us."
+      "deleteError": "The account could not be deleted. Try again, or write to us.",
+      "settingsTitle": "Account settings"
     },
     "header": {
       "signIn": "Sign in",
       "account": "My account",
       "loading": "Loading your account"
+    }
+  },
+  "Progress": {
+    "lesson": {
+      "loading": "Loading your progress",
+      "question": "Done with this lesson?",
+      "markDone": "Done",
+      "done": "Lesson done",
+      "undo": "Undo",
+      "signIn": "<link>Sign in</link> and we will remember which lessons you have finished.",
+      "loadError": "Your progress could not be loaded.",
+      "retry": "Try again",
+      "saveError": "Could not be saved.",
+      "quizFirst": "You finish this lesson by checking the quiz above."
+    },
+    "quiz": {
+      "saved": "Result saved. Best attempt: {best} of {total}.",
+      "signIn": "<link>Sign in</link> and your result will be saved.",
+      "saveError": "The result could not be saved."
+    },
+    "outline": {
+      "done": "Done",
+      "quiz": "Quiz {best}/{total}"
+    },
+    "course": {
+      "start": "Start the course",
+      "continue": "Continue",
+      "again": "Go through again",
+      "label": "Course progress",
+      "done": "{done} of {total} lessons done",
+      "finished": "You have finished the course"
+    },
+    "account": {
+      "statsTitle": "Summary",
+      "stat": {
+        "lessons": "Lessons done",
+        "quizzes": "Quizzes taken",
+        "courses": "Courses finished"
+      },
+      "startedTitle": "Courses in progress",
+      "empty": "You have not finished any lesson yet. Pick a course and click “Done” at the end of each lesson.",
+      "noneStarted": "You have no course in progress right now. Pick the next one.",
+      "browse": "Browse courses",
+      "progressLabel": "Progress in {course}",
+      "continue": "Continue",
+      "missing": "Missing: {lessons, plural, =0 {no lessons} one {# lesson} other {# lessons}}{quizzes, plural, =0 {} one { · # quiz} other { · # quizzes}}",
+      "whatsMissing": "What is missing",
+      "quizDone": "Quiz – best attempt {best} of {total}",
+      "quizMissing": "Quiz not taken yet",
+      "finishedTitle": "Finished courses",
+      "nextTitle": "You can start",
+      "lessonsCount": "{count, plural, one {# lesson} other {# lessons}}"
     }
   }
 }

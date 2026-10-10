@@ -10,11 +10,13 @@ import { LessonOutline } from "@/components/lesson-page/LessonOutline";
 import { LessonOutlineSheet } from "@/components/lesson-page/LessonOutlineSheet";
 import { LessonPager } from "@/components/lesson-page/LessonPager";
 import { ModuleQuiz } from "@/components/lesson-page/ModuleQuiz";
+import { LessonDone } from "@/components/progress/LessonDone";
 import { TableOfContents } from "@/components/lesson-page/TableOfContents";
 import { alternateLinks } from "@/i18n/alternates";
 import { routing } from "@/i18n/routing";
 import { findLesson } from "@/lib/content/course-navigation";
 import { toQuizQuestions } from "@/lib/content/quiz";
+import { LOGIN_ENABLED } from "@/lib/features";
 import {
   getCourse,
   getCourses,
@@ -160,10 +162,26 @@ export default async function LessonPage({
             <Content />
           </article>
 
+          {/* With a quiz, the lesson is done by taking it – so the "Done" box comes after it. */}
+          {LOGIN_ENABLED && !quiz && (
+            <LessonDone course={course.slug} lesson={slug} />
+          )}
+
           {quiz && (
             <ModuleQuiz
+              course={course.slug}
+              module={current.module.slug}
+              lesson={slug}
               moduleTitle={current.module.meta.title[locale]}
               questions={toQuizQuestions(quiz, locale)}
+            />
+          )}
+
+          {LOGIN_ENABLED && quiz && (
+            <LessonDone
+              course={course.slug}
+              lesson={slug}
+              quizModule={current.module.slug}
             />
           )}
 
