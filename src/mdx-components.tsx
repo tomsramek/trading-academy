@@ -1,28 +1,13 @@
 import type { MDXComponents } from "mdx/types";
 
-import { BlockchainDiagram } from "@/components/lesson/BlockchainDiagram";
 import { Callout } from "@/components/lesson/Callout";
-import { CandleAnatomy } from "@/components/lesson/CandleAnatomy";
-import { CandleChart } from "@/components/lesson/CandleChart";
-import { ChartQuiz } from "@/components/lesson/ChartQuiz";
-import { CandlePattern } from "@/components/lesson/CandlePattern";
-import { Figure } from "@/components/lesson/Figure";
-import { Illustration } from "@/components/lesson/Illustration";
-import { IndicatorPeriod } from "@/components/lesson/IndicatorPeriod";
-import { IndicatorSteps } from "@/components/lesson/IndicatorSteps";
-import { KeyTerm } from "@/components/lesson/KeyTerm";
 import { LessonHeading } from "@/components/lesson/LessonHeading";
 import { LessonLink } from "@/components/lesson/LessonLink";
-import { LineChart } from "@/components/lesson/LineChart";
-import { OrderBook } from "@/components/lesson/OrderBook";
-import { OrderSimulator } from "@/components/lesson/OrderSimulator";
-import { SharedLedger } from "@/components/lesson/SharedLedger";
-import { TransactionFlow } from "@/components/lesson/TransactionFlow";
-import { Video } from "@/components/lesson/Video";
-import { WalletKeys } from "@/components/lesson/WalletKeys";
 
-// Required by @next/mdx: components used for MDX content (lessons).
+// Required by @next/mdx: components for every MDX file – lessons and the text pages (terms, privacy…).
 // Elements of the Markdown text are replaced by our components; their look comes from `prose prose-academy`.
+// Lesson-only components (charts, quizzes, illustrations…) are passed by the lesson page instead
+// (lessonComponents.tsx): listed here, their client code would be sent with every text page too.
 const components: MDXComponents = {
   h2: (props) => <LessonHeading as="h2" {...props} />,
   h3: (props) => <LessonHeading as="h3" {...props} />,
@@ -33,25 +18,8 @@ const components: MDXComponents = {
       <table {...props} />
     </div>
   ),
-  // Components available in every lesson without an import.
-  BlockchainDiagram,
+  // Components available in every MDX file without an import.
   Callout,
-  CandleAnatomy,
-  CandleChart,
-  ChartQuiz,
-  IndicatorPeriod,
-  IndicatorSteps,
-  OrderSimulator,
-  CandlePattern,
-  Figure,
-  Illustration,
-  KeyTerm,
-  LineChart,
-  OrderBook,
-  SharedLedger,
-  TransactionFlow,
-  Video,
-  WalletKeys,
 };
 
 export function useMDXComponents(): MDXComponents {

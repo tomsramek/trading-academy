@@ -14,7 +14,7 @@ import {
 } from "@/lib/content/indicator-period";
 
 import type { Candle } from "./CandleChart";
-import { CandleChartCanvas } from "./CandleChartCanvas";
+import { CandleChartCanvasLazy } from "./CandleChartCanvasLazy";
 
 type IndicatorPeriodChartProps = {
   candles: Candle[];
@@ -58,7 +58,7 @@ export function IndicatorPeriodChart({
 
   return (
     <div className="flex flex-col gap-4">
-      <CandleChartCanvas
+      <CandleChartCanvasLazy
         candles={candles}
         label={`${label} (${lineLabel})`}
         annotations={NO_ANNOTATIONS}

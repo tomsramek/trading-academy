@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { useLocale } from "next-intl";
-import { cva } from "class-variance-authority";
 import {
   CandlestickSeries,
   ColorType,
@@ -34,6 +33,7 @@ import type {
 
 import type { Candle } from "./CandleChart";
 import { tokenReader, withAlpha, type ColorOf } from "./chartColors";
+import { chartHeight, panelCount } from "./chartHeight";
 import { ChartZoomButtons } from "./ChartZoomButtons";
 
 type CandleChartCanvasProps = {
@@ -43,21 +43,6 @@ type CandleChartCanvasProps = {
   annotations: ChartAnnotations;
   indicators: ChartIndicators;
 };
-
-// Taller when indicators get their own panels under the price.
-const chartHeight = cva(
-  "relative overflow-hidden rounded-lg border border-border bg-card",
-  {
-    variants: {
-      panels: {
-        0: "h-80 sm:h-96",
-        1: "h-96 sm:h-112",
-        2: "h-112 sm:h-128",
-        3: "h-128 sm:h-144",
-      },
-    },
-  },
-);
 
 // Token of each level: green for levels below the price that hold it up, red for the ones that stop it.
 const LEVEL_TOKENS: Record<LevelKind, string> = {
@@ -277,10 +262,6 @@ export function CandleChartCanvas({
       </div>
     </>
   );
-}
-
-function panelCount(indicators: ChartIndicators): 0 | 1 | 2 | 3 {
-  return Math.min(indicators.panels.length, 3) as 0 | 1 | 2 | 3;
 }
 
 type IndicatorSeries = ISeriesApi<"Line"> | ISeriesApi<"Histogram">;

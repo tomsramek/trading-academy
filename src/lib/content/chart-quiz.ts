@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { toTimestamp } from "./chart";
+import type { ChartQuizData } from "./chart-quiz-answer";
 import type { StepLine } from "./indicator-steps";
 import {
   bollinger,
@@ -42,21 +43,7 @@ export const chartQuizSchema = z.strictObject({
 });
 export type ChartQuizInput = z.input<typeof chartQuizSchema>;
 
-type Candle = {
-  time: number;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-};
-
-export type ChartQuizData = {
-  candles: Candle[];
-  overlay: StepLine[];
-  panel?: { lines: StepLine[]; bars?: (number | null)[]; guides: number[] };
-  // Indexes of the first and last right candle among the shown ones.
-  answer: [number, number];
-};
+type Candle = ChartQuizData["candles"][number];
 
 const AVERAGE_COLORS = ["--chart-1", "--chart-3"] as const;
 
@@ -164,6 +151,5 @@ export function buildChartQuiz(
   };
 }
 
-export function isCorrect(choice: number, answer: [number, number]) {
-  return choice >= answer[0] && choice <= answer[1];
-}
+// The browser imports these from chart-quiz-answer (no zod there); re-exported for the build code and tests.
+export { isCorrect, type ChartQuizData } from "./chart-quiz-answer";

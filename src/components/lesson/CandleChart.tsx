@@ -14,7 +14,7 @@ import {
 import { buildIndicators } from "@/lib/content/chart-indicators";
 import { cn } from "@/lib/utils";
 
-import { CandleChartCanvas } from "./CandleChartCanvas";
+import { CandleChartCanvasLazy } from "./CandleChartCanvasLazy";
 import { ChartSource } from "./ChartSource";
 
 export type Candle = {
@@ -86,7 +86,7 @@ export function CandleChart({
 
   return (
     <figure className="not-prose my-8">
-      <CandleChartCanvas
+      <CandleChartCanvasLazy
         candles={data.candles}
         label={label}
         annotations={annotations}
