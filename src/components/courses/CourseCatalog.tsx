@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import type { CourseSummary } from "@/lib/content/course-summary";
-import { LEVELS, type Level } from "@/lib/content/schema";
+import { LEVELS, type Level } from "@/lib/content/levels";
 import { cn } from "@/lib/utils";
 
 import { CourseCard } from "./CourseCard";

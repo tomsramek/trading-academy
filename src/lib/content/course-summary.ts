@@ -2,7 +2,7 @@ import type { Locale } from "next-intl";
 
 import type { Course } from "@/server/content";
 
-import { LEVELS, type Level } from "./schema";
+import { LEVELS, type Level } from "./levels";
 
 // What a course card needs, in one language. Plain data, so it can be passed to client components.
 export type CourseSummary = {

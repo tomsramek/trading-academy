@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 
 import type { CourseSummary } from "@/lib/content/course-summary";
-import { levelSchema } from "@/lib/content/schema";
+import { levelParam } from "@/lib/content/levels";
 
 import { CourseCatalog } from "./CourseCatalog";
 
@@ -17,7 +17,7 @@ export function CourseCatalogFromUrl({
 }) {
   const searchParams = useSearchParams();
   // An unknown value (?level=expert) shows all courses instead of an error.
-  const level = levelSchema.safeParse(searchParams.get("level")).data;
+  const level = levelParam.safeParse(searchParams.get("level")).data;
 
   return <CourseCatalog courses={courses} level={level} />;
 }

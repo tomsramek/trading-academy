@@ -17,6 +17,7 @@
     "format": "prettier --check --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude .",
     "format:fix": "prettier --write --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude .",
     "i18n:check": "node scripts/check-messages.ts",
+    "size:check": "node scripts/check-bundle-size.ts",
     "content:fetch-candles": "node scripts/fetch-candles.ts"
   },
   "dependencies": {

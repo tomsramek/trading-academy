@@ -52,3 +52,6 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Check JavaScript budget
+        run: yarn size:check
