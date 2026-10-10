@@ -233,7 +233,8 @@ export function CandleChartCanvas({
     <>
       <ChartZoomButtons chartRef={chartRef} points={candles.length} />
       <div
-        role="img"
+        // A group, not an image: the chart library adds a focusable attribution link inside.
+        role="group"
         aria-label={label}
         className={chartHeight({
           panels: panelCount(indicators),

@@ -62,6 +62,8 @@ export function CurriculumSection({ courses }: { courses: HomeCourse[] }) {
                 className={cn(buttonVariants({ size: "lg" }), "mt-auto w-fit")}
               >
                 {t("start")}
+                {/* Seven links with the same text: the course name tells them apart for screen readers. */}
+                <span className="sr-only">: {course.title}</span>
               </Link>
             </Card>
           ))}

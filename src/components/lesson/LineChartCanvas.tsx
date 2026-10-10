@@ -135,7 +135,8 @@ export function LineChartCanvas({
       <ChartZoomButtons chartRef={chartRef} points={points} />
       <div
         ref={containerRef}
-        role="img"
+        // A group, not an image: the chart library adds a focusable attribution link inside.
+        role="group"
         aria-label={label}
         className="h-72 overflow-hidden rounded-lg border border-border bg-card sm:h-80"
       />

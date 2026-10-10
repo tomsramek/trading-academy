@@ -84,7 +84,7 @@ export function IllustrationCarousel({ children }: { children: ReactNode[] }) {
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center">
         {children.map((_, childIndex) => (
           <button
             // The dots never reorder, so their position is a stable key.
@@ -96,11 +96,17 @@ export function IllustrationCarousel({ children }: { children: ReactNode[] }) {
               total: children.length,
             })}
             aria-current={childIndex === index ? "true" : undefined}
-            className={cn(
-              "size-2.5 rounded-full bg-muted-foreground/40 transition-colors hover:bg-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-              childIndex === index && "bg-primary hover:bg-primary",
-            )}
-          />
+            // A 24 px target around the small dot (WCAG 2.2 target size), the dot itself stays small.
+            className="group flex size-6 items-center justify-center rounded-full focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          >
+            <span
+              aria-hidden="true"
+              className={cn(
+                "size-2.5 rounded-full bg-muted-foreground/40 transition-colors group-hover:bg-muted-foreground",
+                childIndex === index && "bg-primary group-hover:bg-primary",
+              )}
+            />
+          </button>
         ))}
         {!reducedMotion && (
           <button
