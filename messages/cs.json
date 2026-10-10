@@ -1518,5 +1518,10 @@
     "donate": "Kup Profesorovi Knotovi kafe",
     "opensInNewTab": "otevře se v nové záložce",
     "thanks": "Díky, že o tom vůbec přemýšlíš. Profesor Knot už si nahřívá hrnek."
+  },
+  "OgImage": {
+    "footer": "Zdarma · trading-academy.app",
+    "title": "Kryptotrading krok za krokem – od první svíčky po otestovanou strategii.",
+    "alt": "Trading Academy – bezplatné kurzy kryptotradingu"
   }
 }

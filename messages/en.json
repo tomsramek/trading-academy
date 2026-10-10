@@ -1518,5 +1518,10 @@
     "donate": "Buy Professor Wick a coffee",
     "opensInNewTab": "opens in a new tab",
     "thanks": "Thank you for even thinking about it. Professor Wick is already warming up the mug."
+  },
+  "OgImage": {
+    "footer": "Free · trading-academy.app",
+    "title": "Crypto trading, step by step – from your first candle to a tested strategy.",
+    "alt": "Trading Academy – free crypto trading courses"
   }
 }
