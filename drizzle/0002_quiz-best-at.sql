@@ -1,0 +1,1 @@
+ALTER TABLE "quiz_results" ADD COLUMN "best_at" timestamp with time zone DEFAULT now() NOT NULL;
