@@ -51,7 +51,7 @@ export function MobileMenu({ courseSlugs }: { courseSlugs: CourseSlugs }) {
           </nav>
           <div className="flex flex-wrap items-center gap-3 border-t p-4">
             <LocaleSwitcher courseSlugs={courseSlugs} side="top" />
-            <ThemeToggle />
+            <ThemeToggle side="top" />
           </div>
         </SheetContent>
       </Sheet>
