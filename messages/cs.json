@@ -1339,5 +1339,16 @@
     "description": "Profesor Knot vyhazuje čepici do vzduchu. Teď je čas naučené věci vyzkoušet – nejdřív bez peněz, pak po malých krocích.",
     "nextStep": "Další krok: {course}",
     "catalog": "Vybrat další kurz"
+  },
+  "Email": {
+    "magicLink": {
+      "subject": "Přihlášení do Trading Academy",
+      "heading": "Tvůj odkaz pro přihlášení",
+      "intro": "Klikni na tlačítko níže a jsi přihlášený. Heslo není potřeba.",
+      "button": "Přihlásit se",
+      "expiry": "Odkaz platí {minutes} minut a jde použít jen jednou.",
+      "ignore": "Pokud ses nepřihlašoval ty, e-mail klidně smaž – bez kliknutí na odkaz se nic nestane.",
+      "noReply": "Tento e-mail byl odeslán automaticky, neodpovídej na něj."
+    }
   }
 }
