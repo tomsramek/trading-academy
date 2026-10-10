@@ -15,7 +15,7 @@ import { MAGIC_LINK_MINUTES, renderMagicLinkEmail } from "./email/render";
 import { sendEmail } from "./email/send";
 
 /*
- * Login with Better Auth (https://better-auth.com): a magic link by e-mail, later Google.
+ * Login with Better Auth (https://better-auth.com): a magic link by e-mail or Google.
  * Users and sessions live in our PostgreSQL (tables in ./db/schema). No passwords.
  */
 
@@ -24,6 +24,12 @@ const envSchema = z.object({
   BETTER_AUTH_URL: z.url(),
   // Signs the session cookies: `openssl rand -base64 32`.
   BETTER_AUTH_SECRET: z.string().min(32),
+  // Google sign-in (Google Cloud Console → OAuth client). Without them only the magic link works.
+  GOOGLE_CLIENT_ID: z
+    .string()
+    .endsWith(".apps.googleusercontent.com")
+    .optional(),
+  GOOGLE_CLIENT_SECRET: z.string().min(10).optional(),
 });
 
 function createAuth() {
@@ -39,6 +45,22 @@ function createAuth() {
     appName: "Trading Academy",
     baseURL: env.BETTER_AUTH_URL,
     secret: env.BETTER_AUTH_SECRET,
+    socialProviders:
+      env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET
+        ? {
+            google: {
+              clientId: env.GOOGLE_CLIENT_ID,
+              clientSecret: env.GOOGLE_CLIENT_SECRET,
+            },
+          }
+        : {},
+    account: {
+      accountLinking: {
+        // Google confirms the e-mail address, so signing in with Google joins the account that
+        // a magic link created for the same address – one person, one account.
+        trustedProviders: ["google"],
+      },
+    },
     database: drizzleAdapter(db(), {
       provider: "pg",
       schema,

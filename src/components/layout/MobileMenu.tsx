@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { MenuIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { AccountLink } from "@/components/auth/AccountLink";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import type { CourseSlugs } from "@/lib/content/localized-slugs";
+import { LOGIN_ENABLED } from "@/lib/features";
 import {
   Sheet,
   SheetContent,
@@ -40,6 +42,12 @@ export function MobileMenu({ courseSlugs }: { courseSlugs: CourseSlugs }) {
             className="flex-1 overflow-y-auto px-2 py-4"
           >
             <NavLinks vertical onNavigate={() => setIsOpen(false)} />
+            {LOGIN_ENABLED && (
+              <AccountLink
+                onNavigate={() => setIsOpen(false)}
+                className="mt-2"
+              />
+            )}
           </nav>
           <div className="flex flex-wrap items-center gap-3 border-t p-4">
             <LocaleSwitcher courseSlugs={courseSlugs} side="top" />

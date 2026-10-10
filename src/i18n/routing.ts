@@ -22,6 +22,8 @@ export const routing = defineRouting({
     "/glossary": { en: "/glossary", cs: "/slovnik" },
     "/terms": { en: "/terms", cs: "/podminky-uzivani" },
     "/risk-warning": { en: "/risk-warning", cs: "/upozorneni-na-rizika" },
+    "/sign-in": { en: "/sign-in", cs: "/prihlaseni" },
+    "/account": { en: "/account", cs: "/ucet" },
     "/ui": "/ui",
     "/ui/lesson": "/ui/lesson",
   },

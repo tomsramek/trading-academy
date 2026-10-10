@@ -1350,5 +1350,42 @@
       "ignore": "If you did not try to sign in, just delete this e-mail – nothing happens without a click on the link.",
       "noReply": "This e-mail was sent automatically, please do not reply."
     }
+  },
+  "Auth": {
+    "signIn": {
+      "metaTitle": "Sign in",
+      "title": "Sign in",
+      "intro": "An account remembers your progress in the courses. The courses stay free and open without signing in.",
+      "email": "E-mail",
+      "emailPlaceholder": "you@example.com",
+      "send": "Send me a sign-in link",
+      "sending": "Sending…",
+      "invalidEmail": "Enter a valid e-mail address.",
+      "sentTitle": "Check your e-mail",
+      "sent": "We sent a sign-in link to {email}. It works for 15 minutes. Cannot see it? Check your spam folder too.",
+      "otherEmail": "Use another e-mail",
+      "or": "or",
+      "google": "Continue with Google",
+      "error": "The link could not be sent. Please try again in a moment.",
+      "tooMany": "Too many attempts. Please wait a minute and try again.",
+      "linkError": "The link has expired or was already used. Send yourself a new one.",
+      "googleError": "Signing in with Google failed. Try again, or use your e-mail.",
+      "terms": "By signing in you agree to the terms of use."
+    },
+    "account": {
+      "metaTitle": "My account",
+      "title": "My account",
+      "signedInAs": "Signed in as {email}",
+      "since": "You have had your account since {date}.",
+      "progressSoon": "Soon your course progress and quiz results will be saved here.",
+      "signOut": "Sign out",
+      "signingOut": "Signing out…",
+      "signOutError": "Signing out failed. Please try again."
+    },
+    "header": {
+      "signIn": "Sign in",
+      "account": "My account",
+      "loading": "Loading your account"
+    }
   }
 }
