@@ -33,14 +33,17 @@ When you create an account, we process:
 - **your Google account identifier** – if you sign in with Google,
 - **sign-in details** – when you signed in, the IP address and browser type of each signed-in
   device, to protect the account from misuse,
-- later **your course progress** – completed lessons and quiz results.
+- **your course progress** – which lessons you completed and when, and your quiz results (best
+  and last score, number of attempts). Badges are calculated from it and not stored separately.
 
 We do not use or store passwords. You sign in with a link from an e-mail or with Google.
 
 ## Why, and on what legal basis
 
-- **Running your account** – to provide the account you asked for (performance of a contract,
-  Art. 6(1)(b) GDPR).
+- **Running your account** – to provide the account you asked for and save your progress
+  (performance of a contract, Art. 6(1)(b) GDPR).
+- **Backups** – so that a server failure does not wipe out your account and progress (legitimate
+  interest, Art. 6(1)(f) GDPR).
 - **Security** – limiting sign-in attempts and protecting accounts from misuse (legitimate
   interest, Art. 6(1)(f) GDPR).
 
@@ -58,7 +61,8 @@ We work with a few providers who process the data only on our behalf:
 
 | Provider                        | What for                                 | Where    |
 | ------------------------------- | ---------------------------------------- | -------- |
-| Hetzner Online GmbH             | the server and database                  | Germany  |
+| Hetzner Online GmbH             | the server, database and daily backups   | Germany  |
+| Cloudflare, Inc.                | an encrypted copy of the daily backups   | EU       |
 | Forward Email LLC               | sending the e-mail with the sign-in link | USA      |
 | Google (Google Ireland Limited) | signing in with Google, if you choose it | EU / USA |
 
@@ -67,11 +71,14 @@ When you sign in with Google, Google's side of the processing follows its
 
 ## For how long
 
-- **Your account** is kept until you delete it. You can delete it yourself on the My account page,
-  or write to us.
+- **Your account and progress** are kept until you delete the account. You can delete it yourself
+  on the My account page, or write to us.
 - **Sign-in details** are deleted when you sign out. Expired records (after 7 days) are removed
   regularly.
 - **Sign-in links** work for 15 minutes and are deleted once used or expired.
+- **Backups** are kept for 30 days. After you delete your account, your data may remain in older
+  backups for up to 30 days, until they are deleted. We use backups only to restore the site after
+  a failure.
 
 ## Your rights
 
