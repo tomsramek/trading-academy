@@ -423,3 +423,55 @@
     cursor: pointer;
   }
 }
+
+/*
+ * The glow behind the home page hero (src/components/home/Hero.tsx): three soft blobs that drift
+ * and fade into each other, so the gradient slowly moves and changes colour. Unlike the illustration
+ * animations they loop forever – but very slowly, only transform and opacity, and only with
+ * `motion-safe:` (with reduced motion the glow stays still).
+ */
+@theme {
+  --animate-glow-a: glow-a 22s ease-in-out infinite alternate;
+  --animate-glow-b: glow-b 28s ease-in-out infinite alternate;
+  --animate-glow-c: glow-c 34s ease-in-out infinite alternate;
+
+  @keyframes glow-a {
+    from {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    to {
+      transform: translate(-22%, 12%) scale(1.15);
+      opacity: 0.8;
+    }
+  }
+  @keyframes glow-b {
+    from {
+      transform: translate(0, 0) scale(1.1);
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.9;
+    }
+    to {
+      transform: translate(18%, -10%) scale(0.95);
+      opacity: 0.5;
+    }
+  }
+  @keyframes glow-c {
+    from {
+      transform: translate(0, 0) scale(0.9);
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.15;
+    }
+    to {
+      transform: translate(-12%, -16%) scale(1.2);
+      opacity: 0.85;
+    }
+  }
+}
