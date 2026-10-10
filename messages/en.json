@@ -28,7 +28,13 @@
     "legal": "Legal information",
     "riskWarning": "Risk warning",
     "terms": "Terms of use",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "tagline": "A free academy for crypto and trading – from your first candle to a tested strategy.",
+    "madeBy": "Made by <author>Tom Sramek</author>",
+    "academy": "Academy",
+    "courses": "Courses",
+    "glossary": "Glossary",
+    "signIn": "Sign in"
   },
   "TextPage": {
     "updated": "Last updated {date, date, long}"
