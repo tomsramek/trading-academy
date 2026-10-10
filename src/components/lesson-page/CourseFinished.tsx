@@ -1,9 +1,11 @@
 import { useLocale, useTranslations } from "next-intl";
 
+import { CourseBadge } from "@/components/badges/CourseBadge";
 import { ProfessorWick } from "@/components/brand/ProfessorWick";
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { courseHref } from "@/lib/content/course-navigation";
+import { LOGIN_ENABLED } from "@/lib/features";
 import { cn } from "@/lib/utils";
 import type { Course } from "@/server/content";
 
@@ -33,6 +35,19 @@ export function CourseFinished({ course, nextCourse }: CourseFinishedProps) {
       <p className="max-w-lg text-pretty text-muted-foreground">
         {t("description")}
       </p>
+      {LOGIN_ENABLED && (
+        <CourseBadge
+          course={course.slug}
+          title={course.meta.title[locale]}
+          level={course.meta.level}
+          lessons={course.modules.flatMap((module) =>
+            module.lessons.map((lesson) => lesson.slug),
+          )}
+          quizModules={course.modules
+            .filter((module) => module.quiz)
+            .map((module) => module.slug)}
+        />
+      )}
       {nextCourse ? (
         <Link
           href={courseHref(nextCourse, locale)}

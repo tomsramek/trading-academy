@@ -128,6 +128,8 @@ export const quizResults = pgTable(
     bestCorrect: integer().notNull(),
     lastCorrect: integer().notNull(),
     attempts: integer().notNull().default(1),
+    // When the best result was reached – the date of a "perfect quiz" badge.
+    bestAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },

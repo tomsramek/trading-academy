@@ -4,6 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import { DeleteAccount } from "@/components/auth/DeleteAccount";
 import { SignOutButton } from "@/components/auth/SignOutButton";
+import { AccountBadges } from "@/components/badges/AccountBadges";
 import { Container } from "@/components/layout/Container";
 import { AccountProgress } from "@/components/progress/AccountProgress";
 import { redirect } from "@/i18n/navigation";
@@ -57,6 +58,8 @@ export default async function AccountPage() {
       </header>
 
       <AccountProgress userId={user.id} />
+
+      <AccountBadges userId={user.id} />
 
       <section
         aria-labelledby="account-settings"

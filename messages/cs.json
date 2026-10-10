@@ -1455,5 +1455,57 @@
       "nextTitle": "Můžeš začít",
       "lessonsCount": "{count, plural, one {# lekce} few {# lekce} other {# lekcí}}"
     }
+  },
+  "Badges": {
+    "title": "Odznaky",
+    "count": "{earned} z {total}",
+    "earned": "Získáno {date}",
+    "progress": "Splněno {done} z {total}",
+    "progressPercent": "Nejblíž máš {percent} %",
+    "group": {
+      "courses": "Kurzy",
+      "lessons": "Lekce",
+      "quizzes": "Kvízy",
+      "days": "Vytrvalost"
+    },
+    "badge": {
+      "course": {
+        "title": "Absolvent: {course}",
+        "description": "Všechny lekce a kvízy kurzu."
+      },
+      "path": {
+        "title": "Celou cestou",
+        "description": "Všech {count} kurzů doporučeného postupu."
+      },
+      "firstLesson": {
+        "title": "První krok",
+        "description": "První hotová lekce."
+      },
+      "lessons": {
+        "title": "{count} lekcí",
+        "description": "{count} hotových lekcí."
+      },
+      "firstQuiz": {
+        "title": "Prubířský kámen",
+        "description": "První vyhodnocený kvíz."
+      },
+      "perfectQuiz": {
+        "title": "Bez chyby",
+        "description": "Kvíz na plný počet."
+      },
+      "perfectCourse": {
+        "title": "Kvízový mistr",
+        "description": "Všechny kvízy jednoho kurzu na plný počet."
+      },
+      "days": {
+        "title": "{count, plural, one {# den} few {# dny} other {# dní}} učení",
+        "description": "Lekce v {count} různých dnech."
+      }
+    },
+    "courseFinished": {
+      "signIn": "<link>Přihlas se</link> a za dokončení kurzu dostaneš odznak.",
+      "earned": "Máš odznak <strong>Absolvent: {course}</strong>. Všechny odznaky najdeš na stránce <link>Můj účet</link>.",
+      "missing": "Odznak za kurz získáš, až budeš mít hotové všechny lekce a kvízy. Chybí {count, plural, one {# položka} few {# položky} other {# položek}}."
+    }
   }
 }

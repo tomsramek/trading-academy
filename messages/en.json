@@ -1455,5 +1455,57 @@
       "nextTitle": "You can start",
       "lessonsCount": "{count, plural, one {# lesson} other {# lessons}}"
     }
+  },
+  "Badges": {
+    "title": "Badges",
+    "count": "{earned} of {total}",
+    "earned": "Earned {date}",
+    "progress": "{done} of {total} done",
+    "progressPercent": "Closest: {percent}%",
+    "group": {
+      "courses": "Courses",
+      "lessons": "Lessons",
+      "quizzes": "Quizzes",
+      "days": "Persistence"
+    },
+    "badge": {
+      "course": {
+        "title": "Graduate: {course}",
+        "description": "Every lesson and quiz of the course."
+      },
+      "path": {
+        "title": "All the way",
+        "description": "All {count} courses of the recommended path."
+      },
+      "firstLesson": {
+        "title": "First step",
+        "description": "Your first finished lesson."
+      },
+      "lessons": {
+        "title": "{count} lessons",
+        "description": "{count} finished lessons."
+      },
+      "firstQuiz": {
+        "title": "Touchstone",
+        "description": "Your first checked quiz."
+      },
+      "perfectQuiz": {
+        "title": "Flawless",
+        "description": "A quiz with full marks."
+      },
+      "perfectCourse": {
+        "title": "Quiz master",
+        "description": "Every quiz of one course with full marks."
+      },
+      "days": {
+        "title": "{count} days of learning",
+        "description": "Lessons on {count} different days."
+      }
+    },
+    "courseFinished": {
+      "signIn": "<link>Sign in</link> and you get a badge for finishing the course.",
+      "earned": "You have the badge <strong>Graduate: {course}</strong>. All your badges are on the <link>My account</link> page.",
+      "missing": "You get the course badge once every lesson and quiz is done. {count, plural, one {# item} other {# items}} still missing."
+    }
   }
 }

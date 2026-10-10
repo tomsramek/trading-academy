@@ -15,6 +15,13 @@
       "when": 1791620476430,
       "tag": "0001_progress",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791622540478,
+      "tag": "0002_quiz-best-at",
+      "breakpoints": true
     }
   ]
 }

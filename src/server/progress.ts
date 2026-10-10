@@ -124,8 +124,36 @@ export async function saveQuizAttempt(
         total,
         lastCorrect: correct,
         bestCorrect: sql`greatest(${quizResults.bestCorrect}, ${correct})`,
+        // Moves only when the best result improves.
+        bestAt: sql`case when ${correct} > ${quizResults.bestCorrect} then now() else ${quizResults.bestAt} end`,
         attempts: sql`${quizResults.attempts} + 1`,
         updatedAt: new Date(),
       },
     });
+}
+
+/** Done lessons and quiz results with their times – what the badges are computed from. */
+export async function getBadgeRecords(userId: string) {
+  const [lessons, quizzes] = await Promise.all([
+    db()
+      .select({
+        course: lessonProgress.course,
+        lesson: lessonProgress.lesson,
+        completedAt: lessonProgress.completedAt,
+      })
+      .from(lessonProgress)
+      .where(eq(lessonProgress.userId, userId)),
+    db()
+      .select({
+        course: quizResults.course,
+        module: quizResults.module,
+        total: quizResults.total,
+        best: quizResults.bestCorrect,
+        bestAt: quizResults.bestAt,
+        createdAt: quizResults.createdAt,
+      })
+      .from(quizResults)
+      .where(eq(quizResults.userId, userId)),
+  ]);
+  return { lessons, quizzes };
 }
