@@ -6,6 +6,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { CLIENT_NAMESPACES, pickMessages } from "@/i18n/client-messages";
+import { ogLocale } from "@/i18n/page-metadata";
 import { routing } from "@/i18n/routing";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { getCourseSlugs } from "@/server/content";
@@ -48,7 +49,7 @@ export async function generateMetadata({
       siteName: SITE_NAME,
       title: t("title"),
       description: t("description"),
-      locale: locale === "cs" ? "cs_CZ" : "en_US",
+      locale: ogLocale(locale),
     },
   };
 }

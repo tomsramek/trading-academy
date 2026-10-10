@@ -12,11 +12,13 @@ import { LessonPager } from "@/components/lesson-page/LessonPager";
 import { ModuleQuiz } from "@/components/lesson-page/ModuleQuiz";
 import { LessonDone } from "@/components/progress/LessonDone";
 import { TableOfContents } from "@/components/lesson-page/TableOfContents";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/i18n/page-metadata";
 import { routing } from "@/i18n/routing";
 import { findLesson, lessonHref } from "@/lib/content/course-navigation";
 import { toQuizQuestions } from "@/lib/content/quiz";
 import { LOGIN_ENABLED } from "@/lib/features";
+import { breadcrumbData, lessonBreadcrumbs } from "@/lib/structured-data";
 import {
   getCourse,
   getCourses,
@@ -74,9 +76,10 @@ export default async function LessonPage({
 }: PageProps<"/[locale]/courses/[course]/[lesson]">) {
   const { course: courseSlug, lesson: lessonSlug } = await params;
   const locale = await getLocale();
-  const [course, t] = await Promise.all([
+  const [course, t, tCourses] = await Promise.all([
     getCourse(courseSlug, locale),
     getTranslations("LessonPage"),
+    getTranslations("Courses"),
   ]);
   const found = course && findLesson(course, lessonSlug, locale);
   if (!course || !found?.current) {
@@ -110,6 +113,11 @@ export default async function LessonPage({
 
   return (
     <Container className="py-8 sm:py-12">
+      <JsonLd
+        data={breadcrumbData(
+          lessonBreadcrumbs(course, current.lesson, locale, tCourses("title")),
+        )}
+      />
       <div className="grid gap-10 lg:grid-cols-[15rem_minmax(0,1fr)] xl:grid-cols-[15rem_minmax(0,1fr)_13rem]">
         {/* Course outline: a sticky sidebar on large screens, a side panel below them. */}
         <aside className="hidden lg:block">

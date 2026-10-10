@@ -3,10 +3,8 @@ import path from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import cs from "../../messages/cs.json";
-import en from "../../messages/en.json";
-
 import { CLIENT_NAMESPACES, pickMessages } from "./client-messages";
+import { routing } from "./routing";
 
 const SRC = path.resolve(import.meta.dirname, "..");
 
@@ -96,9 +94,19 @@ describe("client messages", () => {
     expect(missing).toEqual([]);
   });
 
-  it("exist in both languages", () => {
-    for (const messages of [cs, en]) {
-      const picked = pickMessages(messages, CLIENT_NAMESPACES);
+  it("exist in every language", () => {
+    for (const locale of routing.locales) {
+      const messages: unknown = JSON.parse(
+        readFileSync(
+          path.join(SRC, "..", "messages", `${locale}.json`),
+          "utf8",
+        ),
+      );
+      expect(typeof messages, locale).toBe("object");
+      if (typeof messages !== "object" || messages === null) {
+        continue;
+      }
+      const picked = pickMessages({ ...messages }, CLIENT_NAMESPACES);
       for (const namespace of CLIENT_NAMESPACES) {
         const value = namespace
           .split(".")
@@ -109,13 +117,19 @@ describe("client messages", () => {
                 : undefined,
             picked,
           );
-        expect(value, namespace).toBeDefined();
+        expect(value, `${locale}: ${namespace}`).toBeDefined();
       }
     }
   });
 
   it("leave out what only the server needs", () => {
-    const picked = pickMessages(en, CLIENT_NAMESPACES);
+    const en: unknown = JSON.parse(
+      readFileSync(path.join(SRC, "..", "messages", "en.json"), "utf8"),
+    );
+    const picked = pickMessages(
+      typeof en === "object" && en !== null ? { ...en } : {},
+      CLIENT_NAMESPACES,
+    );
     expect(picked).not.toHaveProperty("Email");
     expect(picked).not.toHaveProperty("Lesson.illustration");
     expect(picked).toHaveProperty("Lesson.chart");

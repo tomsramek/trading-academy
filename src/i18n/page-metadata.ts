@@ -8,6 +8,14 @@ import { getPathname } from "./navigation";
 
 type Href = Parameters<typeof getPathname>[0]["href"];
 
+// Open Graph wants a language with a region. A Record over every locale, so adding a language to the
+// routing (e.g. Spanish) fails to compile until it is added here too.
+const OG_LOCALES: Record<Locale, string> = { en: "en_US", cs: "cs_CZ" };
+
+export function ogLocale(locale: Locale) {
+  return OG_LOCALES[locale];
+}
+
 type PageMetadataOptions = {
   locale: Locale;
   title: string;
@@ -39,7 +47,7 @@ export function pageMetadata({
       siteName: SITE_NAME,
       title,
       description,
-      locale: locale === "cs" ? "cs_CZ" : "en_US",
+      locale: ogLocale(locale),
       url: getPathname({ locale, href: hrefFor(locale) }),
     },
   };
