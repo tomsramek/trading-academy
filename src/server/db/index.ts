@@ -39,6 +39,8 @@ export function db(): Database {
     // A small pool: one app instance on a small server.
     client: postgres(databaseUrl(), { max: 10 }),
     schema,
+    // camelCase in TypeScript, snake_case columns in the database.
+    casing: "snake_case",
   });
   return globalForDb.database;
 }
