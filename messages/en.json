@@ -1339,5 +1339,16 @@
     "description": "Professor Wick is tossing his cap in the air. Now it is time to try out what you have learned – first without money, then in small steps.",
     "nextStep": "Next step: {course}",
     "catalog": "Choose another course"
+  },
+  "Email": {
+    "magicLink": {
+      "subject": "Sign in to Trading Academy",
+      "heading": "Your sign-in link",
+      "intro": "Click the button below and you are signed in. No password needed.",
+      "button": "Sign in",
+      "expiry": "The link works for {minutes} minutes and can be used only once.",
+      "ignore": "If you did not try to sign in, just delete this e-mail – nothing happens without a click on the link.",
+      "noReply": "This e-mail was sent automatically, please do not reply."
+    }
   }
 }
