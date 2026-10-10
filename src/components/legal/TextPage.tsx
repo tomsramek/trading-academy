@@ -1,10 +1,17 @@
+import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/layout/Container";
 import type { Page } from "@/server/pages";
 
+type TextPageProps = {
+  page: Page;
+  // Shown under the text, e.g. the donate button on the support page.
+  children?: ReactNode;
+};
+
 // A standalone text page (terms of use, risk warning): title, date of the last change and the text.
-export function TextPage({ page }: { page: Page }) {
+export function TextPage({ page, children }: TextPageProps) {
   const t = useTranslations("TextPage");
   const { meta, Content } = page;
 
@@ -22,6 +29,7 @@ export function TextPage({ page }: { page: Page }) {
         <article className="prose prose-lg max-w-none prose-academy">
           <Content />
         </article>
+        {children}
       </div>
     </Container>
   );

@@ -12,7 +12,7 @@
  * Design tokens – shadcn/ui naming, Trading Academy values.
  * Colors are named by purpose (bg-primary, text-muted-foreground, border-border…) and reference
  * the Tailwind palette. Every text/background pair meets WCAG AA contrast (4.5:1) in both themes.
- * Extra tokens beyond shadcn: link (text links), bull / bear (price up / down), warning.
+ * Extra tokens beyond shadcn: link (text links), bull / bear (price up / down), warning, donate.
  */
 :root {
   --radius: 0.625rem;
@@ -42,6 +42,9 @@
   --bull: var(--color-green-700); /* green-600 would be only 3.2:1 on white */
   --bear: var(--color-red-600);
   --warning: var(--color-amber-700);
+  /* The support button – yellow like a coffee-shop sign, dark text on it: 12:1 */
+  --donate: var(--color-yellow-400);
+  --donate-foreground: var(--color-zinc-950);
 
   --chart-1: var(--color-blue-600);
   --chart-2: var(--color-green-600);
@@ -90,6 +93,8 @@
   --bull: var(--color-green-500);
   --bear: var(--color-red-500);
   --warning: var(--color-amber-500);
+  --donate: var(--color-yellow-400);
+  --donate-foreground: var(--color-zinc-950);
 
   --chart-1: var(--color-blue-500);
   --chart-2: var(--color-green-500);
@@ -138,6 +143,8 @@
   --color-bull: var(--bull);
   --color-bear: var(--bear);
   --color-warning: var(--warning);
+  --color-donate: var(--donate);
+  --color-donate-foreground: var(--donate-foreground);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);

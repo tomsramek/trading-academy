@@ -16,6 +16,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { NavLinks } from "./NavLinks";
+import { DonateLink } from "./DonateLink";
 
 // Side drawer (shadcn Sheet on Base UI Dialog): focus trap, Escape, click outside and scroll lock built in.
 export function MobileMenu({ courseSlugs }: { courseSlugs: CourseSlugs }) {
@@ -42,6 +43,7 @@ export function MobileMenu({ courseSlugs }: { courseSlugs: CourseSlugs }) {
             className="flex-1 overflow-y-auto px-2 py-4"
           >
             <NavLinks vertical onNavigate={() => setIsOpen(false)} />
+            <DonateLink variant="menu" onNavigate={() => setIsOpen(false)} />
             {LOGIN_ENABLED && (
               <AccountLink
                 onNavigate={() => setIsOpen(false)}

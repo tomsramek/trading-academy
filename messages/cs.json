@@ -20,7 +20,10 @@
     "nav": {
       "courses": "Kurzy",
       "glossary": "Slovník"
-    }
+    },
+    "support": "Podpořit",
+    "supportLong": "Podpoř akademii",
+    "opensInNewTab": "otevře se v nové záložce"
   },
   "Footer": {
     "copyright": "© {year} Trading Academy",
@@ -34,7 +37,8 @@
     "academy": "Akademie",
     "courses": "Kurzy",
     "glossary": "Slovník",
-    "signIn": "Přihlásit se"
+    "signIn": "Přihlásit se",
+    "support": "Podpoř akademii"
   },
   "TextPage": {
     "updated": "Naposledy upraveno {date, date, long}"
@@ -1345,7 +1349,9 @@
     "title": "Hotovo! Kurz {course} máš za sebou.",
     "description": "Profesor Knot vyhazuje čepici do vzduchu. Teď je čas naučené věci vyzkoušet – nejdřív bez peněz, pak po malých krocích.",
     "nextStep": "Další krok: {course}",
-    "catalog": "Vybrat další kurz"
+    "catalog": "Vybrat další kurz",
+    "support": "Kurz tě nic nestál. Jestli ti pomohl, <link>kup Profesorovi Knotovi kafe</link> ☕",
+    "opensInNewTab": "otevře se v nové záložce"
   },
   "Email": {
     "magicLink": {
@@ -1507,5 +1513,10 @@
       "earned": "Máš odznak <strong>Absolvent: {course}</strong>. Všechny odznaky najdeš na stránce <link>Můj účet</link>.",
       "missing": "Odznak za kurz získáš, až budeš mít hotové všechny lekce a kvízy. Chybí {count, plural, one {# položka} few {# položky} other {# položek}}."
     }
+  },
+  "Support": {
+    "donate": "Kup Profesorovi Knotovi kafe",
+    "opensInNewTab": "otevře se v nové záložce",
+    "thanks": "Díky, že o tom vůbec přemýšlíš. Profesor Knot už si nahřívá hrnek."
   }
 }

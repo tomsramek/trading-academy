@@ -7,6 +7,7 @@ import { ProfessorWickFigure, type Pose } from "./ProfessorWickFigure";
 type ProfessorWickProps = {
   // standing: a green candle, smiling. fallen: a red candle tipped over, cap knocked off.
   // celebrating: a green candle tossing its cap in the air, with confetti.
+  // coffee: a tired green candle after a night over the charts, holding a steaming mug.
   pose: Pose;
   className?: string;
 };
