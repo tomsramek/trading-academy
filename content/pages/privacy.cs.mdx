@@ -33,14 +33,17 @@ Když si založíš účet, zpracováváme:
 - **identifikátor Google účtu** – pokud se přihlašuješ přes Google,
 - **údaje o přihlášení** – kdy ses přihlásil, IP adresa a typ prohlížeče u každého přihlášeného
   zařízení, abychom účet ochránili před zneužitím,
-- později **tvůj pokrok v kurzech** – projité lekce a výsledky kvízů.
+- **tvůj pokrok v kurzech** – které lekce máš hotové a kdy, a výsledky kvízů (nejlepší a poslední
+  skóre, počet pokusů). Odznaky se z nich počítají a zvlášť je neukládáme.
 
 Hesla nepoužíváme a žádná neukládáme. Přihlašuješ se odkazem z e-mailu nebo přes Google.
 
 ## Proč a na jakém základě
 
-- **Vedení účtu** – abychom ti mohli poskytnout účet, o který sis řekl (plnění smlouvy, čl. 6
-  odst. 1 písm. b GDPR).
+- **Vedení účtu** – abychom ti mohli poskytnout účet, o který sis řekl, a ukládat tvůj pokrok
+  (plnění smlouvy, čl. 6 odst. 1 písm. b GDPR).
+- **Zálohy** – aby porucha serveru nesmazala tvůj účet a pokrok (oprávněný zájem, čl. 6 odst. 1
+  písm. f GDPR).
 - **Bezpečnost** – omezení počtu pokusů o přihlášení a ochrana před zneužitím účtu (oprávněný
   zájem, čl. 6 odst. 1 písm. f GDPR).
 
@@ -58,7 +61,8 @@ Spolupracujeme s několika poskytovateli, kteří údaje zpracovávají jen pro 
 
 | Poskytovatel                    | K čemu                                    | Kde      |
 | ------------------------------- | ----------------------------------------- | -------- |
-| Hetzner Online GmbH             | server a databáze, kde údaje leží         | Německo  |
+| Hetzner Online GmbH             | server, databáze a denní zálohy           | Německo  |
+| Cloudflare, Inc.                | šifrovaná kopie denních záloh             | EU       |
 | Forward Email LLC               | odeslání e-mailu s odkazem pro přihlášení | USA      |
 | Google (Google Ireland Limited) | přihlášení přes Google, pokud ho zvolíš   | EU / USA |
 
@@ -67,11 +71,13 @@ Při přihlášení přes Google se řídí zpracování na straně Googlu jeho
 
 ## Jak dlouho
 
-- **Účet** uchováváme, dokud ho nesmažeš. Smazat ho můžeš sám na stránce Můj účet, nebo nám
-  napiš.
+- **Účet a pokrok** uchováváme, dokud účet nesmažeš. Smazat ho můžeš sám na stránce Můj účet,
+  nebo nám napiš.
 - **Údaje o přihlášení** mažeme, když se odhlásíš. Propadlé záznamy (po 7 dnech) pravidelně
   odstraňujeme.
 - **Odkazy pro přihlášení** platí 15 minut a po použití nebo vypršení se smažou.
+- **Zálohy** uchováváme 30 dní. Po smazání účtu tak mohou tvoje údaje zůstat ve starších zálohách
+  nejdéle 30 dní, než se smažou. Zálohy používáme jen k obnově webu po poruše.
 
 ## Tvoje práva
 
