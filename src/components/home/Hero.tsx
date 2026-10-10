@@ -12,11 +12,16 @@ export function Hero() {
 
   return (
     <section className="relative isolate overflow-hidden">
-      {/* Very soft brand-colored glow behind the illustration – depth without a photo. */}
+      {/* A soft, slowly drifting glow behind the content – depth without a photo. The mask fades it
+          out towards the bottom, so the section edge never cuts the blur off. */}
       <div
         aria-hidden="true"
-        className="absolute top-1/3 right-0 -z-10 h-112 w-2xl rounded-full bg-primary/15 blur-3xl"
-      />
+        className="pointer-events-none absolute inset-0 -z-10 mask-b-from-40% mask-b-to-100%"
+      >
+        <div className="absolute top-[10%] right-[-10%] size-[36rem] rounded-full bg-primary/30 blur-3xl motion-safe:animate-glow-a" />
+        <div className="absolute top-[30%] right-[25%] size-[28rem] rounded-full bg-chart-5/25 blur-3xl motion-safe:animate-glow-b" />
+        <div className="absolute top-[-10%] left-[5%] size-[30rem] rounded-full bg-chart-2/15 blur-3xl motion-safe:animate-glow-c" />
+      </div>
       {/* Text and illustration side by side on large screens, stacked on phones. */}
       <Container className="grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[1.1fr_1fr] lg:gap-14 lg:py-32">
         <div className="flex flex-col items-start gap-6">
