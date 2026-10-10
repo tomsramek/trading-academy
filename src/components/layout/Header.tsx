@@ -9,6 +9,7 @@ import { Container } from "./Container";
 import { LogoMark } from "./LogoMark";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
+import { DonateLink } from "./DonateLink";
 
 export function Header({ courseSlugs }: { courseSlugs: CourseSlugs }) {
   const t = useTranslations("Header");
@@ -33,10 +34,14 @@ export function Header({ courseSlugs }: { courseSlugs: CourseSlugs }) {
           <LocaleSwitcher courseSlugs={courseSlugs} />
           <ThemeToggle />
           {LOGIN_ENABLED && <AccountLink />}
+          <DonateLink />
         </div>
 
         {/* Mobile */}
-        <MobileMenu courseSlugs={courseSlugs} />
+        <div className="flex items-center gap-2 md:hidden">
+          <DonateLink />
+          <MobileMenu courseSlugs={courseSlugs} />
+        </div>
       </Container>
     </header>
   );

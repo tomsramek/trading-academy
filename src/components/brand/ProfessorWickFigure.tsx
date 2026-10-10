@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export type Pose = "standing" | "fallen" | "celebrating";
+export type Pose = "standing" | "fallen" | "celebrating" | "coffee";
 
 // The figure alone (a 240×200 drawing without the ground line), for placing Professor Wick inside
 // another SVG drawing, e.g. a lesson illustration: <g transform="translate(x y) scale(s)">.
@@ -10,6 +10,7 @@ export function ProfessorWickFigure({ pose }: { pose: Pose }) {
       {pose === "standing" && <Standing />}
       {pose === "fallen" && <Fallen />}
       {pose === "celebrating" && <Celebrating />}
+      {pose === "coffee" && <Coffee />}
     </>
   );
 }
@@ -169,6 +170,88 @@ function Celebrating() {
         <g transform="translate(125 40) rotate(-10)">
           <Cap />
         </g>
+      </g>
+    </g>
+  );
+}
+
+// After a night over the charts: heavy eyelids, a content smile and a steaming mug with tiny candles.
+function Coffee() {
+  return (
+    <g>
+      <line
+        x1="120"
+        y1="150"
+        x2="120"
+        y2="186"
+        className="stroke-bull"
+        strokeWidth="6"
+      />
+      <rect
+        x="96"
+        y="70"
+        width="48"
+        height="84"
+        rx="10"
+        className="fill-bull"
+      />
+      {/* Half-closed eyes with bags under them */}
+      <g className="fill-none stroke-background" strokeLinecap="round">
+        <path d="M104 99 h12 M124 99 h12" strokeWidth="4" />
+        <path d="M106 101 q4 4 8 0 M126 101 q4 4 8 0" strokeWidth="3" />
+        <path
+          d="M105 108 q5 3 10 0 M125 108 q5 3 10 0"
+          strokeWidth="2.5"
+          className="opacity-40"
+        />
+      </g>
+      <path
+        d="M112 122 q8 7 16 0"
+        className="fill-none stroke-background"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      {/* The arm and the mug */}
+      <path
+        d="M143 122 q12 6 17 -2"
+        className="fill-none stroke-bull"
+        strokeWidth="6"
+        strokeLinecap="round"
+      />
+      <rect
+        x="156"
+        y="104"
+        width="30"
+        height="34"
+        rx="5"
+        className="fill-primary"
+      />
+      <path
+        d="M186 112 q11 0 11 9 q0 9 -11 9"
+        className="fill-none stroke-primary"
+        strokeWidth="5"
+      />
+      <g className="fill-primary-foreground stroke-primary-foreground">
+        <path
+          d="M164 122 v10 M171 116 v12 M178 111 v12"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <rect x="162" y="124" width="4" height="5" className="stroke-none" />
+        <rect x="169" y="118" width="4" height="7" className="stroke-none" />
+        <rect x="176" y="113" width="4" height="7" className="stroke-none" />
+      </g>
+      <g
+        className="fill-none stroke-muted-foreground motion-safe:animate-bob"
+        strokeWidth="3"
+        strokeLinecap="round"
+      >
+        <path d="M164 98 q-5 -7 0 -14 q5 -7 0 -14" />
+        <path d="M176 96 q-5 -7 0 -14 q5 -7 0 -14" />
+      </g>
+      {/* The cap sits a little askew */}
+      <g transform="translate(118 58) rotate(-8)">
+        <Cap />
       </g>
     </g>
   );

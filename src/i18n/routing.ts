@@ -23,6 +23,7 @@ export const routing = defineRouting({
     "/terms": { en: "/terms", cs: "/podminky-uzivani" },
     "/risk-warning": { en: "/risk-warning", cs: "/upozorneni-na-rizika" },
     "/privacy": { en: "/privacy", cs: "/ochrana-osobnich-udaju" },
+    "/support": { en: "/support", cs: "/podpora" },
     "/sign-in": { en: "/sign-in", cs: "/prihlaseni" },
     "/account": { en: "/account", cs: "/ucet" },
     "/ui": "/ui",

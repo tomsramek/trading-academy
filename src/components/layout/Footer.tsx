@@ -45,6 +45,11 @@ export function Footer() {
                 {t("glossary")}
               </Link>
             </li>
+            <li>
+              <Link href="/support" className={LINK}>
+                {t("support")}
+              </Link>
+            </li>
             {LOGIN_ENABLED && (
               <li>
                 <Link href="/sign-in" className={LINK}>

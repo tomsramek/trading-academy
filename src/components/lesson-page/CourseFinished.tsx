@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { CourseBadge } from "@/components/badges/CourseBadge";
@@ -6,6 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { courseHref } from "@/lib/content/course-navigation";
 import { LOGIN_ENABLED } from "@/lib/features";
+import { DONATE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import type { Course } from "@/server/content";
 
@@ -16,6 +18,7 @@ type CourseFinishedProps = {
 };
 
 // Shown under the last lesson of a course: Professor Wick tosses his cap and suggests what next.
+// Below the next step, one quiet line asks for a donation – the moment people are most grateful.
 export function CourseFinished({ course, nextCourse }: CourseFinishedProps) {
   const t = useTranslations("CourseFinished");
   const locale = useLocale();
@@ -63,6 +66,25 @@ export function CourseFinished({ course, nextCourse }: CourseFinishedProps) {
           {t("catalog")}
         </Link>
       )}
+      <p className="max-w-lg text-sm text-pretty text-muted-foreground">
+        {t.rich("support", {
+          link: (chunks) => (
+            <a
+              href={DONATE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-sm font-medium text-foreground underline underline-offset-4 hover:decoration-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              {chunks}
+              <ArrowUpRightIcon
+                aria-hidden="true"
+                className="ml-0.5 inline size-[0.9em] align-baseline"
+              />
+              <span className="sr-only"> ({t("opensInNewTab")})</span>
+            </a>
+          ),
+        })}
+      </p>
     </section>
   );
 }

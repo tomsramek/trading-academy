@@ -20,7 +20,10 @@
     "nav": {
       "courses": "Courses",
       "glossary": "Glossary"
-    }
+    },
+    "support": "Support",
+    "supportLong": "Support the academy",
+    "opensInNewTab": "opens in a new tab"
   },
   "Footer": {
     "copyright": "© {year} Trading Academy",
@@ -34,7 +37,8 @@
     "academy": "Academy",
     "courses": "Courses",
     "glossary": "Glossary",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "support": "Support the academy"
   },
   "TextPage": {
     "updated": "Last updated {date, date, long}"
@@ -1345,7 +1349,9 @@
     "title": "Done! You have finished {course}.",
     "description": "Professor Wick is tossing his cap in the air. Now it is time to try out what you have learned – first without money, then in small steps.",
     "nextStep": "Next step: {course}",
-    "catalog": "Choose another course"
+    "catalog": "Choose another course",
+    "support": "The course cost you nothing. If it helped, <link>buy Professor Wick a coffee</link> ☕",
+    "opensInNewTab": "opens in a new tab"
   },
   "Email": {
     "magicLink": {
@@ -1507,5 +1513,10 @@
       "earned": "You have the badge <strong>Graduate: {course}</strong>. All your badges are on the <link>My account</link> page.",
       "missing": "You get the course badge once every lesson and quiz is done. {count, plural, one {# item} other {# items}} still missing."
     }
+  },
+  "Support": {
+    "donate": "Buy Professor Wick a coffee",
+    "opensInNewTab": "opens in a new tab",
+    "thanks": "Thank you for even thinking about it. Professor Wick is already warming up the mug."
   }
 }
