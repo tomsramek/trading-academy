@@ -54,6 +54,11 @@ function createAuth() {
             },
           }
         : {},
+    user: {
+      // "Delete account" on the account page – the user, sessions and accounts go (cascade).
+      // Better Auth asks for a sign-in from the last day first (session.freshAge).
+      deleteUser: { enabled: true },
+    },
     account: {
       accountLinking: {
         // Google confirms the e-mail address, so signing in with Google joins the account that

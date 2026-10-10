@@ -9,11 +9,12 @@ import { z } from "zod";
 import { pageSchema, type PageMeta } from "@/lib/content/schema";
 
 /*
- * Standalone text pages from content/pages/<page>.<locale>.mdx – the terms of use and the risk warning.
+ * Standalone text pages from content/pages/<page>.<locale>.mdx – the terms of use, the risk warning
+ * and the privacy policy.
  * The metadata is validated, so a mistake stops `yarn build`.
  */
 
-export type PageName = "terms" | "risk-warning";
+export type PageName = "terms" | "risk-warning" | "privacy";
 
 export type Page = {
   meta: PageMeta;

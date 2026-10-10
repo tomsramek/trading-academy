@@ -8,6 +8,9 @@ import { getPathname, Link, redirect } from "@/i18n/navigation";
 import { LOGIN_ENABLED } from "@/lib/features";
 import { getSession } from "@/server/session";
 
+const LEGAL_LINK =
+  "underline underline-offset-2 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none";
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Auth.signIn");
   return {
@@ -49,12 +52,18 @@ export default async function SignInPage({
         />
       </div>
       <p className="text-xs text-muted-foreground">
-        <Link
-          href="/terms"
-          className="underline underline-offset-2 hover:text-foreground"
-        >
-          {t("terms")}
-        </Link>
+        {t.rich("terms", {
+          terms: (chunks) => (
+            <Link href="/terms" className={LEGAL_LINK}>
+              {chunks}
+            </Link>
+          ),
+          privacy: (chunks) => (
+            <Link href="/privacy" className={LEGAL_LINK}>
+              {chunks}
+            </Link>
+          ),
+        })}
       </p>
     </Container>
   );

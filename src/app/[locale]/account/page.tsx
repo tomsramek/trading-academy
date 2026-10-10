@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 
+import { DeleteAccount } from "@/components/auth/DeleteAccount";
 import { SignOutButton } from "@/components/auth/SignOutButton";
 import { Container } from "@/components/layout/Container";
 import { redirect } from "@/i18n/navigation";
@@ -42,6 +43,7 @@ export default async function AccountPage() {
         <p className="text-sm text-muted-foreground">{t("progressSoon")}</p>
       </div>
       <SignOutButton />
+      <DeleteAccount />
     </Container>
   );
 }
