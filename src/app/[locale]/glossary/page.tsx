@@ -3,7 +3,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import { GlossaryList } from "@/components/glossary/GlossaryList";
 import { Container } from "@/components/layout/Container";
-import { alternateLinks } from "@/i18n/alternates";
+import { pageMetadata } from "@/i18n/page-metadata";
 import { groupByLetter, type GlossaryEntry } from "@/lib/content/glossary";
 import { getCourses } from "@/server/content";
 import { getGlossary } from "@/server/glossary";
@@ -13,11 +13,12 @@ export async function generateMetadata(): Promise<Metadata> {
     getLocale(),
     getTranslations("Glossary"),
   ]);
-  return {
+  return pageMetadata({
+    locale,
     title: t("title"),
     description: t("description"),
-    alternates: alternateLinks(locale, () => "/glossary"),
-  };
+    hrefFor: () => "/glossary",
+  });
 }
 
 export default async function GlossaryPage() {

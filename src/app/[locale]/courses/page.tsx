@@ -5,12 +5,21 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { CourseCatalog } from "@/components/courses/CourseCatalog";
 import { CourseCatalogFromUrl } from "@/components/courses/CourseCatalogFromUrl";
 import { Container } from "@/components/layout/Container";
+import { pageMetadata } from "@/i18n/page-metadata";
 import { sortCourses, toCourseSummary } from "@/lib/content/course-summary";
 import { getCourses } from "@/server/content";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("Courses");
-  return { title: t("title"), description: t("description") };
+  const [locale, t] = await Promise.all([
+    getLocale(),
+    getTranslations("Courses"),
+  ]);
+  return pageMetadata({
+    locale,
+    title: t("title"),
+    description: t("description"),
+    hrefFor: () => "/courses",
+  });
 }
 
 export default async function CoursesPage() {
