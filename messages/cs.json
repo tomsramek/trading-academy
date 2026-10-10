@@ -1350,5 +1350,42 @@
       "ignore": "Pokud ses nepřihlašoval ty, e-mail klidně smaž – bez kliknutí na odkaz se nic nestane.",
       "noReply": "Tento e-mail byl odeslán automaticky, neodpovídej na něj."
     }
+  },
+  "Auth": {
+    "signIn": {
+      "metaTitle": "Přihlášení",
+      "title": "Přihlášení",
+      "intro": "Účet si pamatuje tvůj pokrok v kurzech. Kurzy zůstávají zdarma a dostupné i bez přihlášení.",
+      "email": "E-mail",
+      "emailPlaceholder": "ty@example.com",
+      "send": "Poslat odkaz pro přihlášení",
+      "sending": "Posílám…",
+      "invalidEmail": "Zadej platnou e-mailovou adresu.",
+      "sentTitle": "Zkontroluj e-mail",
+      "sent": "Poslali jsme odkaz pro přihlášení na {email}. Platí 15 minut. Nevidíš ho? Mrkni i do spamu.",
+      "otherEmail": "Použít jiný e-mail",
+      "or": "nebo",
+      "google": "Pokračovat přes Google",
+      "error": "Odkaz se nepodařilo poslat. Zkus to prosím za chvíli znovu.",
+      "tooMany": "Příliš mnoho pokusů. Počkej prosím minutu a zkus to znovu.",
+      "linkError": "Odkaz už neplatí nebo byl použit. Pošli si nový.",
+      "googleError": "Přihlášení přes Google se nepovedlo. Zkus to znovu, nebo použij e-mail.",
+      "terms": "Přihlášením souhlasíš s podmínkami užívání."
+    },
+    "account": {
+      "metaTitle": "Můj účet",
+      "title": "Můj účet",
+      "signedInAs": "Přihlášen jako {email}",
+      "since": "Účet máš od {date}.",
+      "progressSoon": "Brzy se tu bude ukládat tvůj pokrok v kurzech a výsledky kvízů.",
+      "signOut": "Odhlásit se",
+      "signingOut": "Odhlašuji…",
+      "signOutError": "Odhlášení se nepovedlo. Zkus to znovu."
+    },
+    "header": {
+      "signIn": "Přihlásit se",
+      "account": "Můj účet",
+      "loading": "Načítám účet"
+    }
   }
 }

@@ -1,8 +1,10 @@
 import { useTranslations } from "next-intl";
+import { AccountLink } from "@/components/auth/AccountLink";
 import { Link } from "@/i18n/navigation";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import type { CourseSlugs } from "@/lib/content/localized-slugs";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { LOGIN_ENABLED } from "@/lib/features";
 import { Container } from "./Container";
 import { LogoMark } from "./LogoMark";
 import { MobileMenu } from "./MobileMenu";
@@ -30,6 +32,7 @@ export function Header({ courseSlugs }: { courseSlugs: CourseSlugs }) {
           </nav>
           <LocaleSwitcher courseSlugs={courseSlugs} />
           <ThemeToggle />
+          {LOGIN_ENABLED && <AccountLink />}
         </div>
 
         {/* Mobile */}
