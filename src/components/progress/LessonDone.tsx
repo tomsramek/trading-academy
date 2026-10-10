@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { loadProgress, toggleLesson, useProgress } from "@/lib/progress-store";
+import { track } from "@/lib/analytics";
 
 type LessonDoneProps = {
   course: string;
@@ -80,6 +81,9 @@ export function LessonDone({ course, lesson, quizModule }: LessonDoneProps) {
     const ok = await toggleLesson(course, lesson, !done);
     setPending(false);
     setFailed(!ok);
+    if (ok && !done) {
+      track("lesson-done", { course, lesson });
+    }
   }
 
   return (

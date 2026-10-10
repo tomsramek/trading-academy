@@ -17,6 +17,7 @@ import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { courseHref, lessonHref } from "@/lib/content/course-navigation";
 import { LOGIN_ENABLED } from "@/lib/features";
+import { trackClick } from "@/lib/analytics";
 import { breadcrumbData, courseData } from "@/lib/structured-data";
 import { cn } from "@/lib/utils";
 import { getCourse, getCourses } from "@/server/content";
@@ -124,6 +125,7 @@ export default async function CoursePage({
           <Link
             href={lessonHref(course, firstLesson, locale)}
             className={cn(buttonVariants({ size: "lg" }), "w-fit")}
+            {...trackClick("course-start", { course: course.slug })}
           >
             {t("start")}
           </Link>

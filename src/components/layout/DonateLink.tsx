@@ -3,6 +3,7 @@ import { CoffeeIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { DONATE_URL } from "@/lib/site";
+import { trackClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const donateLinkVariants = cva(
@@ -38,6 +39,7 @@ export function DonateLink({
   return (
     <a
       href={DONATE_URL}
+      {...trackClick("donate", { place: variant ?? "header" })}
       target="_blank"
       rel="noopener noreferrer"
       onClick={onNavigate}

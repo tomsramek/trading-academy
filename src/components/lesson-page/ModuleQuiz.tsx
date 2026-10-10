@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import type { QuizQuestion } from "@/lib/content/quiz";
 import { LOGIN_ENABLED } from "@/lib/features";
+import { track } from "@/lib/analytics";
 import { recordQuiz, toggleLesson, useProgress } from "@/lib/progress-store";
 
 type ModuleQuizProps = {
@@ -88,6 +89,11 @@ export function ModuleQuiz({
   async function check() {
     setChecked(true);
     setSaveStatus("idle");
+    track("quiz-finished", {
+      course,
+      module,
+      score: Math.round((correct / questions.length) * 100),
+    });
     if (LOGIN_ENABLED && progress.status === "ready") {
       const ok = await recordQuiz(course, module, correct, questions.length);
       // Any attempt finishes the lesson the quiz belongs to.

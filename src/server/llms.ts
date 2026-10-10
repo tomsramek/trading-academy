@@ -50,7 +50,7 @@ export async function llmsIndex(): Promise<string> {
     "",
     `> ${tMetadata("description")} Courses are available in ${languages.join(" and ")}.`,
     "",
-    "- All courses are free, with no ads, paywalls or tracking. Made by Tom Sramek (https://tomsramek.com).",
+    "- All courses are free, with no ads, paywalls or tracking cookies. Made by Tom Sramek (https://tomsramek.com).",
     "- Educational content only – not financial advice. Trading crypto carries a high risk of losing money.",
     `- Full text of the courses: ${routing.locales
       .map((locale) => `[${languageLabel(locale)}](${llmsFullUrl(locale)})`)

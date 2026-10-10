@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { hasLocale, NextIntlClientProvider, useTranslations } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { Footer } from "@/components/layout/Footer";
+import { Analytics } from "@/components/analytics/Analytics";
 import { Header } from "@/components/layout/Header";
 import { CLIENT_NAMESPACES, pickMessages } from "@/i18n/client-messages";
 import { ogLocale } from "@/i18n/page-metadata";
@@ -90,6 +91,7 @@ export default async function LocaleLayout({
             </main>
             <Footer />
           </ThemeProvider>
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -7,6 +7,7 @@ import { TextPage } from "@/components/legal/TextPage";
 import { buttonVariants } from "@/components/ui/button";
 import { pageMetadata } from "@/i18n/page-metadata";
 import { DONATE_URL } from "@/lib/site";
+import { trackClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { getPage } from "@/server/pages";
 
@@ -35,6 +36,7 @@ export default async function SupportPage() {
         </p>
         <a
           href={DONATE_URL}
+          {...trackClick("donate", { place: "support" })}
           target="_blank"
           rel="noopener noreferrer"
           className={cn(buttonVariants({ size: "lg" }))}
