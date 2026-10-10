@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import { hasLocale, NextIntlClientProvider, useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { CLIENT_NAMESPACES, pickMessages } from "@/i18n/client-messages";
 import { routing } from "@/i18n/routing";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { getCourseSlugs } from "@/server/content";
@@ -60,7 +61,10 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-  const courseSlugs = await getCourseSlugs();
+  const [courseSlugs, messages] = await Promise.all([
+    getCourseSlugs(),
+    getMessages({ locale }),
+  ]);
 
   return (
     // suppressHydrationWarning: next-themes sets the class on <html> before React loads.
@@ -73,7 +77,10 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider>
+        {/* Only the translations client components need – not every text of the site on every page. */}
+        <NextIntlClientProvider
+          messages={pickMessages(messages, CLIENT_NAMESPACES)}
+        >
           <ThemeProvider>
             <SkipLink />
             <Header courseSlugs={courseSlugs} />
