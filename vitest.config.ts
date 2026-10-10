@@ -9,5 +9,8 @@ export default defineConfig({
   test: {
     include: ["src/**/*.test.ts"],
     environment: "node",
+    // next-intl imports "next/navigation" without an extension, which plain Node cannot resolve –
+    // let Vite bundle it for the tests (needed for getPathname in the page metadata).
+    server: { deps: { inline: ["next-intl"] } },
   },
 });

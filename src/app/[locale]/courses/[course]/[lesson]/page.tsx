@@ -12,9 +12,9 @@ import { LessonPager } from "@/components/lesson-page/LessonPager";
 import { ModuleQuiz } from "@/components/lesson-page/ModuleQuiz";
 import { LessonDone } from "@/components/progress/LessonDone";
 import { TableOfContents } from "@/components/lesson-page/TableOfContents";
-import { alternateLinks } from "@/i18n/alternates";
+import { pageMetadata } from "@/i18n/page-metadata";
 import { routing } from "@/i18n/routing";
-import { findLesson } from "@/lib/content/course-navigation";
+import { findLesson, lessonHref } from "@/lib/content/course-navigation";
 import { toQuizQuestions } from "@/lib/content/quiz";
 import { LOGIN_ENABLED } from "@/lib/features";
 import {
@@ -60,14 +60,13 @@ export async function generateMetadata({
     return {};
   }
   const meta = lesson.meta[locale];
-  return {
+  return pageMetadata({
+    locale,
     title: `${meta.title} – ${course.meta.title[locale]}`,
     description: meta.description,
-    alternates: alternateLinks(locale, (other) => ({
-      pathname: "/courses/[course]/[lesson]",
-      params: { course: course.slugs[other], lesson: lesson.slugs[other] },
-    })),
-  };
+    hrefFor: (other) => lessonHref(course, lesson, other),
+    type: "article",
+  });
 }
 
 export default async function LessonPage({

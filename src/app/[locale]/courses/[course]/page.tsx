@@ -10,10 +10,10 @@ import { RiskNotice } from "@/components/legal/RiskNotice";
 import { Container } from "@/components/layout/Container";
 import { LevelBadge } from "@/components/courses/LevelBadge";
 import { buttonVariants } from "@/components/ui/button";
-import { alternateLinks } from "@/i18n/alternates";
+import { pageMetadata } from "@/i18n/page-metadata";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { lessonHref } from "@/lib/content/course-navigation";
+import { courseHref, lessonHref } from "@/lib/content/course-navigation";
 import { LOGIN_ENABLED } from "@/lib/features";
 import { cn } from "@/lib/utils";
 import { getCourse, getCourses } from "@/server/content";
@@ -45,14 +45,12 @@ export async function generateMetadata({
   if (!course) {
     return {};
   }
-  return {
+  return pageMetadata({
+    locale,
     title: course.meta.title[locale],
     description: course.meta.description[locale],
-    alternates: alternateLinks(locale, (other) => ({
-      pathname: "/courses/[course]",
-      params: { course: course.slugs[other] },
-    })),
-  };
+    hrefFor: (other) => courseHref(course, other),
+  });
 }
 
 export default async function CoursePage({

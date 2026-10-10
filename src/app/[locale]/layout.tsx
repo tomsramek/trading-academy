@@ -40,14 +40,14 @@ export async function generateMetadata({
     // Subpages set only their own title: "Courses" → "Courses – Trading Academy".
     title: { default: t("title"), template: `%s – ${SITE_NAME}` },
     description: t("description"),
-    // Preview when the link is shared on social networks and messengers.
+    // Preview when the link is shared, for pages without their own (indexable pages set it through
+    // pageMetadata with their own title and address).
     openGraph: {
       type: "website",
       siteName: SITE_NAME,
       title: t("title"),
       description: t("description"),
       locale: locale === "cs" ? "cs_CZ" : "en_US",
-      url: locale === routing.defaultLocale ? "/" : `/${locale}`,
     },
   };
 }

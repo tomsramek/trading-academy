@@ -1,4 +1,5 @@
-import { getLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import {
   CurriculumSection,
@@ -8,8 +9,24 @@ import { FaqSection } from "@/components/home/FaqSection";
 import { Hero } from "@/components/home/Hero";
 import { LevelsSection } from "@/components/home/LevelsSection";
 import { WhySection } from "@/components/home/WhySection";
+import { pageMetadata } from "@/i18n/page-metadata";
 import { sortCourses } from "@/lib/content/course-summary";
 import { getCourses } from "@/server/content";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const [locale, t] = await Promise.all([
+    getLocale(),
+    getTranslations("Metadata"),
+  ]);
+  const metadata = pageMetadata({
+    locale,
+    title: t("title"),
+    description: t("description"),
+    hrefFor: () => "/",
+  });
+  // The site name alone, without the "– Trading Academy" suffix of the subpages.
+  return { ...metadata, title: { absolute: t("title") } };
+}
 
 export default async function Home() {
   const [courses, locale] = await Promise.all([getCourses(), getLocale()]);

@@ -5,7 +5,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { ProfessorWick } from "@/components/brand/ProfessorWick";
 import { TextPage } from "@/components/legal/TextPage";
 import { buttonVariants } from "@/components/ui/button";
-import { alternateLinks } from "@/i18n/alternates";
+import { pageMetadata } from "@/i18n/page-metadata";
 import { DONATE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { getPage } from "@/server/pages";
@@ -13,11 +13,12 @@ import { getPage } from "@/server/pages";
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const { meta } = await getPage("support", locale);
-  return {
+  return pageMetadata({
+    locale,
     title: meta.title,
     description: meta.description,
-    alternates: alternateLinks(locale, () => "/support"),
-  };
+    hrefFor: () => "/support",
+  });
 }
 
 // What the academy costs and what stays free, with a plain link to the donation page.
