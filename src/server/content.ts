@@ -376,6 +376,27 @@ export async function getLessonContent(
   return mdx.default;
 }
 
+/** The MDX source of a lesson – for the table of contents and the plain-text version for AI (llms). */
+export async function getLessonSource(
+  course: Course,
+  lessonSlug: string,
+  locale: Locale,
+): Promise<string | undefined> {
+  const location = lessonLocation(course, lessonSlug);
+  if (!location) {
+    return undefined;
+  }
+  return fs.readFile(
+    path.join(
+      COURSES_DIR,
+      course.slug,
+      location.moduleDir,
+      `${location.file}.${locale}.mdx`,
+    ),
+    "utf8",
+  );
+}
+
 export type LessonHeading = {
   level: 2 | 3;
   text: string;
@@ -392,19 +413,10 @@ export async function getLessonHeadings(
   lessonSlug: string,
   locale: Locale,
 ): Promise<LessonHeading[]> {
-  const location = lessonLocation(course, lessonSlug);
-  if (!location) {
+  const source = await getLessonSource(course, lessonSlug, locale);
+  if (source === undefined) {
     return [];
   }
-  const source = await fs.readFile(
-    path.join(
-      COURSES_DIR,
-      course.slug,
-      location.moduleDir,
-      `${location.file}.${locale}.mdx`,
-    ),
-    "utf8",
-  );
 
   const headings: LessonHeading[] = [];
   let inCode = false;
