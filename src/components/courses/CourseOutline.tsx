@@ -1,7 +1,10 @@
 import { useLocale, useTranslations } from "next-intl";
 
+import { LessonCheck } from "@/components/progress/LessonCheck";
+import { ModuleQuizResult } from "@/components/progress/ModuleQuizResult";
 import { Link } from "@/i18n/navigation";
 import { lessonHref } from "@/lib/content/course-navigation";
+import { LOGIN_ENABLED } from "@/lib/features";
 import type { Course } from "@/server/content";
 
 // Modules and lessons of a course, each lesson linking to its page.
@@ -30,6 +33,9 @@ export function CourseOutline({ course }: { course: Course }) {
             <span className="text-lg font-semibold">
               {module.meta.title[locale]}
             </span>
+            {LOGIN_ENABLED && module.quiz && (
+              <ModuleQuizResult course={course.slug} module={module.slug} />
+            )}
           </h3>
           <ol className="divide-y divide-border">
             {module.lessons.map((lesson, lessonIndex) => (
@@ -52,6 +58,13 @@ export function CourseOutline({ course }: { course: Course }) {
                   <span className="shrink-0 text-sm text-muted-foreground tabular-nums">
                     {t("minutes", { count: lesson.meta[locale].minutes })}
                   </span>
+                  {LOGIN_ENABLED && (
+                    <LessonCheck
+                      course={course.slug}
+                      lesson={lesson.slug}
+                      className="self-center"
+                    />
+                  )}
                 </Link>
               </li>
             ))}

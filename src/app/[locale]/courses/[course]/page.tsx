@@ -5,6 +5,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { CheckIcon } from "lucide-react";
 
 import { CourseOutline } from "@/components/courses/CourseOutline";
+import { CourseProgress } from "@/components/progress/CourseProgress";
 import { RiskNotice } from "@/components/legal/RiskNotice";
 import { Container } from "@/components/layout/Container";
 import { LevelBadge } from "@/components/courses/LevelBadge";
@@ -13,6 +14,7 @@ import { alternateLinks } from "@/i18n/alternates";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { lessonHref } from "@/lib/content/course-navigation";
+import { LOGIN_ENABLED } from "@/lib/features";
 import { cn } from "@/lib/utils";
 import { getCourse, getCourses } from "@/server/content";
 
@@ -99,7 +101,15 @@ export default async function CoursePage({
         </p>
         {/* Seen before the reader starts the course. */}
         <RiskNotice />
-        {firstLesson ? (
+        {firstLesson && LOGIN_ENABLED ? (
+          <CourseProgress
+            course={course.slug}
+            lessons={lessons.map((lesson) => ({
+              id: lesson.slug,
+              href: lessonHref(course, lesson, locale),
+            }))}
+          />
+        ) : firstLesson ? (
           <Link
             href={lessonHref(course, firstLesson, locale)}
             className={cn(buttonVariants({ size: "lg" }), "w-fit")}
