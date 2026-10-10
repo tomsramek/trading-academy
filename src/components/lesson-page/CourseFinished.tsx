@@ -2,11 +2,13 @@ import { ArrowUpRightIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { CourseBadge } from "@/components/badges/CourseBadge";
+import { TrackOnView } from "@/components/analytics/TrackOnView";
 import { ProfessorWick } from "@/components/brand/ProfessorWick";
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { courseHref } from "@/lib/content/course-navigation";
 import { LOGIN_ENABLED } from "@/lib/features";
+import { trackClick } from "@/lib/analytics";
 import { DONATE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import type { Course } from "@/server/content";
@@ -28,6 +30,7 @@ export function CourseFinished({ course, nextCourse }: CourseFinishedProps) {
       aria-labelledby="course-finished"
       className="flex flex-col items-center gap-4 rounded-xl border border-border bg-card p-6 text-center sm:p-8"
     >
+      <TrackOnView event="course-finished" course={course.slug} />
       <ProfessorWick pose="celebrating" className="max-w-48" />
       <h2
         id="course-finished"
@@ -71,6 +74,7 @@ export function CourseFinished({ course, nextCourse }: CourseFinishedProps) {
           link: (chunks) => (
             <a
               href={DONATE_URL}
+              {...trackClick("donate", { place: "course-finished" })}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-sm font-medium text-foreground underline underline-offset-4 hover:decoration-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"

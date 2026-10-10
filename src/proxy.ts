@@ -5,8 +5,9 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  // Everything except API routes, Next.js internals, files with an extension (favicon.ico, robots.txt…)
-  // and the generated share images – their URLs already contain the locale (/en/…/opengraph-image),
-  // and the middleware would redirect the English ones to a URL without /en.
-  matcher: "/((?!api|_next|_vercel|.*/opengraph-image|.*\\..*).*)",
+  // Everything except API routes, Next.js internals, files with an extension (favicon.ico, robots.txt…),
+  // the statistics proxied to Umami (/stats/…, see next.config.ts) and the generated share images –
+  // their URLs already contain the locale (/en/…/opengraph-image), and the middleware would redirect the
+  // English ones to a URL without /en.
+  matcher: "/((?!api|_next|_vercel|stats/|.*/opengraph-image|.*\\..*).*)",
 };

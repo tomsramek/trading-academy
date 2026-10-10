@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { trackClick } from "@/lib/analytics";
 import { useProgress } from "@/lib/progress-store";
 import { cn } from "@/lib/utils";
 
@@ -44,6 +45,7 @@ export function CourseProgress({ course, lessons }: CourseProgressProps) {
       <Link
         href={next.href}
         className={cn(buttonVariants({ size: "lg" }), "w-fit")}
+        {...(done === 0 ? trackClick("course-start", { course }) : {})}
       >
         {done === 0
           ? t("start")
