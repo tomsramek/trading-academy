@@ -2,6 +2,8 @@ import { z } from "zod";
 
 import { routing } from "@/i18n/routing";
 
+import { LEVELS, type Level } from "./levels";
+
 /*
  * Shape of the course content in content/courses/. Every file is checked against these schemas
  * when the content is loaded, so a mistake stops `yarn build` instead of breaking production.
@@ -14,11 +16,9 @@ import { routing } from "@/i18n/routing";
  * content/glossary/terms.json                                    → glossarySchema
  */
 
-export const LEVELS = ["beginner", "intermediate", "advanced"] as const;
-
 export const levelSchema = z.enum(LEVELS);
 
-export type Level = z.infer<typeof levelSchema>;
+export { LEVELS, type Level };
 
 // Non-empty text in every language of the site – a missing translation is an error.
 const localizedText = z.record(
