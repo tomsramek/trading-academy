@@ -5,8 +5,10 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { CourseCatalog } from "@/components/courses/CourseCatalog";
 import { CourseCatalogFromUrl } from "@/components/courses/CourseCatalogFromUrl";
 import { Container } from "@/components/layout/Container";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/i18n/page-metadata";
 import { sortCourses, toCourseSummary } from "@/lib/content/course-summary";
+import { courseListData } from "@/lib/structured-data";
 import { getCourses } from "@/server/content";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -25,12 +27,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function CoursesPage() {
   const locale = await getLocale();
   const t = await getTranslations("Courses");
-  const courses = sortCourses(await getCourses()).map((course) =>
-    toCourseSummary(course, locale),
-  );
+  const sorted = sortCourses(await getCourses());
+  const courses = sorted.map((course) => toCourseSummary(course, locale));
 
   return (
     <Container className="flex flex-col gap-10 py-16 sm:py-20">
+      <JsonLd data={courseListData(sorted, locale)} />
       <header className="flex max-w-3xl flex-col gap-4">
         <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
           {t("title")}

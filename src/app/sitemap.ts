@@ -1,14 +1,11 @@
 import type { MetadataRoute } from "next";
 import type { Locale } from "next-intl";
 
-import { getPathname } from "@/i18n/navigation";
+import { absoluteUrl as absolute, type Href } from "@/i18n/absolute-url";
 import { routing } from "@/i18n/routing";
 import { courseHref, lessonHref } from "@/lib/content/course-navigation";
-import { SITE_URL } from "@/lib/site";
 import { getCourses } from "@/server/content";
 import { getPage, type PageName } from "@/server/pages";
-
-type Href = Parameters<typeof getPathname>[0]["href"];
 
 // Pages from content/pages, with the date of their last change.
 const TEXT_PAGES: { name: PageName; href: Href }[] = [
@@ -17,9 +14,6 @@ const TEXT_PAGES: { name: PageName; href: Href }[] = [
   { name: "risk-warning", href: "/risk-warning" },
   { name: "privacy", href: "/privacy" },
 ];
-
-const absolute = (locale: Locale, href: Href) =>
-  `${SITE_URL}${getPathname({ locale, href })}`;
 
 /**
  * One entry per page and language, each listing all its language versions (hreflang), so search

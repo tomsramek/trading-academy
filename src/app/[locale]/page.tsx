@@ -9,8 +9,10 @@ import { FaqSection } from "@/components/home/FaqSection";
 import { Hero } from "@/components/home/Hero";
 import { LevelsSection } from "@/components/home/LevelsSection";
 import { WhySection } from "@/components/home/WhySection";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/i18n/page-metadata";
 import { sortCourses } from "@/lib/content/course-summary";
+import { websiteData } from "@/lib/structured-data";
 import { getCourses } from "@/server/content";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,7 +31,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const [courses, locale] = await Promise.all([getCourses(), getLocale()]);
+  const [courses, locale, t] = await Promise.all([
+    getCourses(),
+    getLocale(),
+    getTranslations("Metadata"),
+  ]);
   // Only published courses come back in production, so drafts never show up here.
   const homeCourses: HomeCourse[] = sortCourses(courses).map((course) => ({
     slug: course.slugs[locale],
@@ -46,6 +52,7 @@ export default async function Home() {
 
   return (
     <>
+      <JsonLd data={websiteData(locale, t("description"))} />
       <Hero />
       <WhySection />
       <LevelsSection />

@@ -7,14 +7,17 @@ import { CheckIcon } from "lucide-react";
 import { CourseOutline } from "@/components/courses/CourseOutline";
 import { CourseProgress } from "@/components/progress/CourseProgress";
 import { RiskNotice } from "@/components/legal/RiskNotice";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Container } from "@/components/layout/Container";
 import { LevelBadge } from "@/components/courses/LevelBadge";
 import { buttonVariants } from "@/components/ui/button";
+import { absoluteUrl } from "@/i18n/absolute-url";
 import { pageMetadata } from "@/i18n/page-metadata";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { courseHref, lessonHref } from "@/lib/content/course-navigation";
 import { LOGIN_ENABLED } from "@/lib/features";
+import { breadcrumbData, courseData } from "@/lib/structured-data";
 import { cn } from "@/lib/utils";
 import { getCourse, getCourses } from "@/server/content";
 
@@ -76,6 +79,16 @@ export default async function CoursePage({
 
   return (
     <Container className="flex flex-col gap-12 py-12 sm:py-16">
+      <JsonLd data={courseData(course, locale)} />
+      <JsonLd
+        data={breadcrumbData([
+          { name: tCourses("title"), url: absoluteUrl(locale, "/courses") },
+          {
+            name: course.meta.title[locale],
+            url: absoluteUrl(locale, courseHref(course, locale)),
+          },
+        ])}
+      />
       <header className="flex max-w-3xl flex-col gap-5">
         <nav aria-label={t("breadcrumb")}>
           <Link
