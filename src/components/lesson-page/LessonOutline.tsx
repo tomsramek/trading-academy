@@ -1,7 +1,9 @@
 import { useLocale } from "next-intl";
 
+import { LessonCheck } from "@/components/progress/LessonCheck";
 import { Link } from "@/i18n/navigation";
 import { lessonHref, listLessons } from "@/lib/content/course-navigation";
+import { LOGIN_ENABLED } from "@/lib/features";
 import { cn } from "@/lib/utils";
 import type { Course } from "@/server/content";
 
@@ -41,7 +43,15 @@ export function LessonOutline({ course, currentSlug }: LessonOutlineProps) {
                       <span className="w-4 shrink-0 tabular-nums">
                         {number}.
                       </span>
-                      {lesson.meta[locale].title}
+                      <span className="flex-1">
+                        {lesson.meta[locale].title}
+                      </span>
+                      {LOGIN_ENABLED && (
+                        <LessonCheck
+                          course={course.slug}
+                          lesson={lesson.slug}
+                        />
+                      )}
                     </Link>
                   </li>
                 );

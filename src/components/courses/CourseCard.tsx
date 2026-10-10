@@ -7,8 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { CardProgress } from "@/components/progress/CardProgress";
 import { Link } from "@/i18n/navigation";
 import type { CourseSummary } from "@/lib/content/course-summary";
+import { LOGIN_ENABLED } from "@/lib/features";
 
 import { LevelBadge } from "./LevelBadge";
 
@@ -42,9 +44,14 @@ export function CourseCard({ course }: { course: CourseSummary }) {
           {course.description}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="mt-auto text-sm text-muted-foreground">
-        {t("lessons", { count: course.lessons })} ·{" "}
-        {t("minutes", { count: course.minutes })}
+      <CardFooter className="mt-auto flex flex-col items-start gap-3 text-sm text-muted-foreground">
+        <span>
+          {t("lessons", { count: course.lessons })} ·{" "}
+          {t("minutes", { count: course.minutes })}
+        </span>
+        {LOGIN_ENABLED && (
+          <CardProgress course={course.id} lessons={course.lessonIds} />
+        )}
       </CardFooter>
     </Card>
   );
