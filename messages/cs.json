@@ -28,7 +28,13 @@
     "legal": "Právní informace",
     "riskWarning": "Upozornění na rizika",
     "terms": "Podmínky užívání",
-    "privacy": "Ochrana osobních údajů"
+    "privacy": "Ochrana osobních údajů",
+    "tagline": "Bezplatná akademie kryptoměn a tradingu – od první svíčky po otestovanou strategii.",
+    "madeBy": "Vytvořil <author>Tom Sramek</author>",
+    "academy": "Akademie",
+    "courses": "Kurzy",
+    "glossary": "Slovník",
+    "signIn": "Přihlásit se"
   },
   "TextPage": {
     "updated": "Naposledy upraveno {date, date, long}"
