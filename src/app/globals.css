@@ -12,7 +12,8 @@
  * Design tokens – shadcn/ui naming, Trading Academy values.
  * Colors are named by purpose (bg-primary, text-muted-foreground, border-border…) and reference
  * the Tailwind palette. Every text/background pair meets WCAG AA contrast (4.5:1) in both themes.
- * Extra tokens beyond shadcn: link (text links), bull / bear (price up / down), warning, donate.
+ * Extra tokens beyond shadcn: link (text links), bull / bear (price up / down), warning, donate,
+ * destructive-text (red text on a red tint).
  */
 :root {
   --radius: 0.625rem;
@@ -34,6 +35,8 @@
   --accent: var(--color-zinc-100); /* hover background */
   --accent-foreground: var(--color-zinc-900);
   --destructive: var(--color-red-600);
+  /* Red text on a red tint (bg-destructive/10–20): red-600 there is only 3.9:1, red-800 6.9:1 */
+  --destructive-text: var(--color-red-800);
   --border: var(--color-zinc-200);
   --input: var(--color-zinc-200);
   --ring: var(--color-blue-500); /* focus outline */
@@ -85,6 +88,7 @@
   --accent: var(--color-zinc-800);
   --accent-foreground: var(--color-zinc-50);
   --destructive: var(--color-red-500);
+  --destructive-text: var(--color-red-400); /* 5.8:1 on the dark red tint */
   --border: var(--color-zinc-800);
   --input: var(--color-zinc-800);
   --ring: var(--color-blue-400);
@@ -136,6 +140,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-text: var(--destructive-text);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);

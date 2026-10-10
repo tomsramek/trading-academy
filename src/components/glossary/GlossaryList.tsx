@@ -11,7 +11,7 @@ import { normalizeForSearch, type GlossaryGroup } from "@/lib/content/glossary";
 import { cn } from "@/lib/utils";
 
 const TERM_LINK =
-  "rounded-sm text-link underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none";
+  "rounded-sm text-link underline decoration-link/40 underline-offset-4 hover:decoration-link focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none";
 
 // Terms grouped by letter with a search box. The server renders the whole list (every term has its
 // anchor in the HTML); typing filters it in the browser.

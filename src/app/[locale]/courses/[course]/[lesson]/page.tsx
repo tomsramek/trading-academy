@@ -117,14 +117,15 @@ export default async function LessonPage({
       />
       <div className="grid gap-10 lg:grid-cols-[15rem_minmax(0,1fr)] xl:grid-cols-[15rem_minmax(0,1fr)_13rem]">
         {/* Course outline: a sticky sidebar on large screens, a side panel below them. */}
-        <aside className="hidden lg:block">
+        {/* A plain wrapper: the outline <nav> inside is the landmark, with its own name. */}
+        <div className="hidden lg:block">
           <nav
             aria-label={t("outline")}
             className="sticky top-24 max-h-[calc(100dvh-7rem)] overflow-y-auto pr-2"
           >
             {outline}
           </nav>
-        </aside>
+        </div>
 
         <div className="flex w-full max-w-3xl min-w-0 flex-col gap-8">
           <header className="flex flex-col gap-4">
@@ -197,7 +198,7 @@ export default async function LessonPage({
         </div>
 
         {headings.length > 0 && (
-          <aside className="hidden xl:block">
+          <div className="hidden xl:block">
             <nav
               aria-label={t("onThisPage")}
               className="sticky top-24 flex flex-col gap-3"
@@ -205,7 +206,7 @@ export default async function LessonPage({
               <span className="text-sm font-medium">{t("onThisPage")}</span>
               <TableOfContents headings={headings} />
             </nav>
-          </aside>
+          </div>
         )}
       </div>
     </Container>

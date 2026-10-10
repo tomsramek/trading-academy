@@ -49,12 +49,13 @@ export function Callout({ type = "tip", title, children }: CalloutProps) {
   const Icon = ICONS[type];
 
   return (
-    <aside className={calloutVariants({ type })}>
+    // A note within the text – <aside> would be a page landmark nested in the article.
+    <div role="note" className={calloutVariants({ type })}>
       <Icon aria-hidden="true" className={iconVariants({ type })} />
       <div className="min-w-0 text-foreground">
         <p className="font-semibold">{title ?? t(type)}</p>
         <div className="mt-1">{children}</div>
       </div>
-    </aside>
+    </div>
   );
 }
