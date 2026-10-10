@@ -10,7 +10,7 @@ import type { IndicatorPoint } from "@/lib/content/indicators";
 import { cn } from "@/lib/utils";
 
 import { ChartSource } from "./ChartSource";
-import { LineChartCanvas } from "./LineChartCanvas";
+import { LineChartCanvasLazy } from "./LineChartCanvasLazy";
 
 // Shape of the JSON files for line charts: named series of { time, value } points.
 export type LineDataset = {
@@ -83,7 +83,7 @@ export function LineChart({
 
   return (
     <figure className="not-prose my-8">
-      <LineChartCanvas
+      <LineChartCanvasLazy
         lines={drawn}
         label={label}
         logarithmic={result.data.logarithmic}

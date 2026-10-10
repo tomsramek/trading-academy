@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import createNextIntlPlugin from "next-intl/plugin";
+import { z } from "zod";
+
+// Feature flags (src/lib/features.ts) are inlined into the browser code, so their values are checked
+// here, once per build: anything but "true", "false" or unset stops the build.
+z.object({
+  NEXT_PUBLIC_LOGIN_ENABLED: z.enum(["true", "false"]).optional(),
+}).parse(process.env);
 
 // Points next-intl to src/i18n/request.ts.
 const withNextIntl = createNextIntlPlugin();

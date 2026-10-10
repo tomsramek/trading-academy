@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Container } from "@/components/layout/Container";
+import { LESSON_COMPONENTS } from "@/components/lesson/lessonComponents";
 
 import Sample from "./sample.mdx";
 
@@ -21,7 +22,7 @@ export default function UiLessonPage() {
     <Container className="py-12">
       <article className="mx-auto prose prose-lg prose-academy">
         <h1>Reading a candlestick chart</h1>
-        <Sample />
+        <Sample components={LESSON_COMPONENTS} />
       </article>
     </Container>
   );

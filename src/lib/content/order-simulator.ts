@@ -1,4 +1,5 @@
-import { z } from "zod";
+// zod/mini: the order form is validated in the browser, where the full zod would add ~70 kB.
+import * as z from "zod/mini";
 
 /*
  * The practice order panel: an illustrative BTC/EUR market with a thin order book, so a big market
@@ -63,39 +64,41 @@ export function parseNumber(text: string): number | undefined {
 
 const positive = z
   .number({ error: "required" })
-  .positive({ error: "positive" });
+  .check(z.positive({ error: "positive" }));
 
 // What the form sends. Which fields are needed depends on the order type.
 export const orderSchema = z
   .strictObject({
     side: z.enum(SIDES),
     type: z.enum(ORDER_TYPES),
-    price: positive.optional(),
-    stop: positive.optional(),
-    amount: positive.optional(),
+    price: z.optional(positive),
+    stop: z.optional(positive),
+    amount: z.optional(positive),
     // Market buy: how much to spend instead of how much to buy.
-    total: positive.optional(),
+    total: z.optional(positive),
   })
-  .superRefine((order, context) => {
-    const need = (field: "price" | "stop" | "amount") => {
-      if (order[field] === undefined) {
-        context.addIssue({
-          code: "custom",
-          path: [field],
-          message: "required",
-        });
+  .check(
+    z.superRefine((order, context) => {
+      const need = (field: "price" | "stop" | "amount") => {
+        if (order[field] === undefined) {
+          context.addIssue({
+            code: "custom",
+            path: [field],
+            message: "required",
+          });
+        }
+      };
+      if (order.type !== "market") {
+        need("price");
+        need("amount");
+      } else if (order.amount === undefined && order.total === undefined) {
+        need("amount");
       }
-    };
-    if (order.type !== "market") {
-      need("price");
-      need("amount");
-    } else if (order.amount === undefined && order.total === undefined) {
-      need("amount");
-    }
-    if (order.type === "stopLimit") {
-      need("stop");
-    }
-  });
+      if (order.type === "stopLimit") {
+        need("stop");
+      }
+    }),
+  );
 export type Order = z.infer<typeof orderSchema>;
 
 export type Fill = { price: number; amount: number };

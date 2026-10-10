@@ -3,7 +3,7 @@ import { z } from "zod";
 import {
   indicatorPeriodSchema,
   type IndicatorPeriodInput,
-} from "@/lib/content/indicator-period";
+} from "@/lib/content/indicator-period-schema";
 
 import type { CandleDataset } from "./CandleChart";
 import { ChartSource } from "./ChartSource";

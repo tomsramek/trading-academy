@@ -12,6 +12,7 @@ import { LessonPager } from "@/components/lesson-page/LessonPager";
 import { ModuleQuiz } from "@/components/lesson-page/ModuleQuiz";
 import { LessonDone } from "@/components/progress/LessonDone";
 import { TableOfContents } from "@/components/lesson-page/TableOfContents";
+import { LESSON_COMPONENTS } from "@/components/lesson/lessonComponents";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/i18n/page-metadata";
 import { routing } from "@/i18n/routing";
@@ -19,12 +20,8 @@ import { findLesson, lessonHref } from "@/lib/content/course-navigation";
 import { toQuizQuestions } from "@/lib/content/quiz";
 import { LOGIN_ENABLED } from "@/lib/features";
 import { breadcrumbData, lessonBreadcrumbs } from "@/lib/structured-data";
-import {
-  getCourse,
-  getCourses,
-  getLessonContent,
-  getLessonHeadings,
-} from "@/server/content";
+import { getCourse, getCourses, getLessonHeadings } from "@/server/content";
+import { getLessonContent } from "@/server/lesson-content";
 
 // One page per lesson of every course and language, generated at build time; other lesson URLs are 404.
 // [locale] comes from the layout. [course] is generated here too: parent params are passed down only
@@ -166,7 +163,7 @@ export default async function LessonPage({
           )}
 
           <article className="prose prose-lg max-w-none prose-academy">
-            <Content />
+            <Content components={LESSON_COMPONENTS} />
           </article>
 
           {/* With a quiz, the lesson is done by taking it – so the "Done" box comes after it. */}

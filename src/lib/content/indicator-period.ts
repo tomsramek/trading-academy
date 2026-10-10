@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 import type { ChartIndicators } from "./chart";
 import {
   atrPercent,
@@ -63,24 +61,6 @@ export const DEFAULT_PERIODS: Record<PeriodIndicator, number> = {
   mfi: 14,
   atr: 14,
 };
-
-export const indicatorPeriodSchema = z
-  .strictObject({
-    indicator: z.enum(PERIOD_INDICATORS),
-    min: z.int().min(2).default(2),
-    max: z.int().max(200).default(50),
-    // Where the slider starts; Binance's default when left out.
-    value: z.int().optional(),
-    label: z.string().trim().min(1),
-  })
-  .refine((props) => props.min < props.max, "min must be below max")
-  .refine(
-    (props) =>
-      props.value === undefined ||
-      (props.value >= props.min && props.value <= props.max),
-    "value must be between min and max",
-  );
-export type IndicatorPeriodInput = z.input<typeof indicatorPeriodSchema>;
 
 type Candle = {
   time: number;

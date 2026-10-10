@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import { ORDER_TYPES, SIDES } from "@/lib/content/order-simulator";
 
-import { OrderSimulatorPanel } from "./OrderSimulatorPanel";
+import { OrderSimulatorPanelLazy } from "./OrderSimulatorPanelLazy";
 
 const orderSimulatorSchema = z.strictObject({
   // What the form starts with, so a lesson can open it on its own topic.
@@ -26,7 +26,7 @@ export function OrderSimulator(props: OrderSimulatorProps) {
 
   return (
     <div className="not-prose my-8">
-      <OrderSimulatorPanel
+      <OrderSimulatorPanelLazy
         initialSide={side}
         initialType={type}
         label={label}

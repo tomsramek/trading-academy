@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { cva } from "class-variance-authority";
 
 import { Button } from "@/components/ui/button";
-import { isCorrect, type ChartQuizData } from "@/lib/content/chart-quiz";
+import { isCorrect, type ChartQuizData } from "@/lib/content/chart-quiz-answer";
 
 import { MiniChart } from "./MiniChart";
 

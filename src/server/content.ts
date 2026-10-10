@@ -3,13 +3,13 @@ import "server-only";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import type { MDXContent, MDXModule } from "mdx/types";
 import type { Locale } from "next-intl";
 import { cache } from "react";
 import { z } from "zod";
 
 import { routing } from "@/i18n/routing";
 import { getGlossary } from "@/server/glossary";
+import { readMdxMetadata } from "@/server/mdx-metadata";
 import { readingMinutes } from "@/lib/content/reading-time";
 import { slugify } from "@/lib/slugify";
 import type { CourseSlugs } from "@/lib/content/localized-slugs";
@@ -119,19 +119,6 @@ function parseOrderedName(name: string, file: string) {
   return { order: Number(order), slug };
 }
 
-// The bundler includes every file matching the static parts of the path – the folder at the start and
-// ".mdx" at the end – so other files in content/courses (README.md) are left out.
-function importLesson(
-  course: string,
-  moduleDir: string,
-  lesson: string,
-  locale: Locale,
-): Promise<MDXModule> {
-  return import(
-    `../../content/courses/${course}/${moduleDir}/${lesson}.${locale}.mdx`
-  );
-}
-
 async function loadLesson(
   course: string,
   moduleDir: string,
@@ -145,14 +132,17 @@ async function loadLesson(
   const entries = await Promise.all(
     routing.locales.map(async (locale) => {
       const file = `${baseName}.${locale}.mdx`;
-      const mdx = await importLesson(course, moduleDir, baseName, locale).catch(
-        () => {
+      // The source, not an import of the MDX file – see readMdxMetadata.
+      const source = await fs
+        .readFile(path.join(dir, file), "utf8")
+        .catch(() => {
           throw new ContentError(path.join(dir, file), "missing translation");
-        },
+        });
+      const meta = parseWith(
+        lessonSchema,
+        readMdxMetadata(source),
+        path.join(dir, file),
       );
-      const metadata: unknown = "metadata" in mdx ? mdx.metadata : undefined;
-      const meta = parseWith(lessonSchema, metadata, path.join(dir, file));
-      const source = await fs.readFile(path.join(dir, file), "utf8");
       // MDX turns a line starting with <KeyTerm> into its own block and splits the sentence.
       const brokenLine = source
         .split("\n")
@@ -342,7 +332,7 @@ export async function getCourseSlugs(): Promise<CourseSlugs> {
 }
 
 // Folder and file name of a lesson: "01-blockchain", "02-what-is-bitcoin" (without ".<locale>.mdx").
-function lessonLocation(course: Course, lessonSlug: string) {
+export function lessonLocation(course: Course, lessonSlug: string) {
   for (const courseModule of course.modules) {
     const lesson = courseModule.lessons.find(
       (item) => item.slug === lessonSlug,
@@ -355,25 +345,6 @@ function lessonLocation(course: Course, lessonSlug: string) {
     }
   }
   return undefined;
-}
-
-/** The lesson body as a React component, e.g. `<Content />`. */
-export async function getLessonContent(
-  course: Course,
-  lessonSlug: string,
-  locale: Locale,
-): Promise<MDXContent | undefined> {
-  const location = lessonLocation(course, lessonSlug);
-  if (!location) {
-    return undefined;
-  }
-  const mdx = await importLesson(
-    course.slug,
-    location.moduleDir,
-    location.file,
-    locale,
-  );
-  return mdx.default;
 }
 
 /** The MDX source of a lesson – for the table of contents and the plain-text version for AI (llms). */
