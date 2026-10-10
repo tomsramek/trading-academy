@@ -6,12 +6,22 @@ import { useTranslations } from "next-intl";
 import { cva } from "class-variance-authority";
 
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import type { QuizQuestion } from "@/lib/content/quiz";
+import { LOGIN_ENABLED } from "@/lib/features";
+import { recordQuiz, toggleLesson, useProgress } from "@/lib/progress-store";
 
 type ModuleQuizProps = {
+  // Ids from content/ – where the result is saved for a signed-in user.
+  course: string;
+  module: string;
+  // The lesson the quiz ends – taking the quiz marks it as done.
+  lesson: string;
   moduleTitle: string;
   questions: QuizQuestion[];
 };
+
+type SaveStatus = "idle" | "saved" | "failed";
 
 // How an option looks: before checking, and after it (correct answer / wrong choice / the rest).
 const optionVariants = cva(
@@ -51,8 +61,17 @@ function optionState(
 
 // Quiz at the end of a module: answer everything, check, read the explanations, try again.
 // Nothing is saved – the result lives only on this page (saving comes with user accounts).
-export function ModuleQuiz({ moduleTitle, questions }: ModuleQuizProps) {
+export function ModuleQuiz({
+  course,
+  module,
+  lesson,
+  moduleTitle,
+  questions,
+}: ModuleQuizProps) {
   const t = useTranslations("Quiz");
+  const tp = useTranslations("Progress.quiz");
+  const progress = useProgress();
+  const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [answers, setAnswers] = useState<(number | undefined)[]>(() =>
     questions.map(() => undefined),
   );
@@ -65,9 +84,22 @@ export function ModuleQuiz({ moduleTitle, questions }: ModuleQuizProps) {
   ).length;
   const allAnswered = answered === questions.length;
 
+  // Checking also saves the result for a signed-in user; without an account nothing is saved.
+  async function check() {
+    setChecked(true);
+    setSaveStatus("idle");
+    if (LOGIN_ENABLED && progress.status === "ready") {
+      const ok = await recordQuiz(course, module, correct, questions.length);
+      // Any attempt finishes the lesson the quiz belongs to.
+      const lessonDone = ok && (await toggleLesson(course, lesson, true));
+      setSaveStatus(ok && lessonDone ? "saved" : "failed");
+    }
+  }
+
   function retry() {
     setAnswers(questions.map(() => undefined));
     setChecked(false);
+    setSaveStatus("idle");
     // Back to the start of the quiz, so a keyboard user does not end up at the bottom.
     headingRef.current?.focus();
   }
@@ -168,6 +200,31 @@ export function ModuleQuiz({ moduleTitle, questions }: ModuleQuizProps) {
               total: questions.length,
             })}
         </p>
+        {checked && LOGIN_ENABLED && (
+          <p className="text-sm text-muted-foreground">
+            {progress.status === "signedOut" &&
+              tp.rich("signIn", {
+                link: (chunks) => (
+                  <Link
+                    href="/sign-in"
+                    className="font-medium text-foreground underline underline-offset-2"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            {progress.status === "ready" &&
+              saveStatus === "saved" &&
+              tp("saved", {
+                best:
+                  progress.progress.quizzes[course]?.[module]?.best ?? correct,
+                total: questions.length,
+              })}
+            {saveStatus === "failed" && (
+              <span className="text-bear">{tp("saveError")}</span>
+            )}
+          </p>
+        )}
         {checked ? (
           <Button variant="outline" onClick={retry} className="w-fit">
             {t("retry")}
@@ -175,7 +232,7 @@ export function ModuleQuiz({ moduleTitle, questions }: ModuleQuizProps) {
         ) : (
           <div className="flex flex-wrap items-center gap-3">
             <Button
-              onClick={() => setChecked(true)}
+              onClick={() => void check()}
               disabled={!allAnswered}
               className="w-fit"
             >

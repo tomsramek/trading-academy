@@ -1,4 +1,12 @@
-import { boolean, index, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  index,
+  integer,
+  pgTable,
+  primaryKey,
+  text,
+  timestamp,
+} from "drizzle-orm/pg-core";
 
 /*
  * The database tables, described in TypeScript. `yarn db:generate` turns a change here into an SQL
@@ -83,4 +91,47 @@ export const verifications = pgTable(
     updatedAt: updatedAt(),
   },
   (table) => [index().on(table.identifier)],
+);
+
+/*
+ * Progress. Courses, modules and lessons are identified by their folder and file names in content/
+ * (course.slug, module.slug, lesson.slug) – the same in every language, unlike the URLs.
+ */
+
+// A lesson the user marked as done.
+export const lessonProgress = pgTable(
+  "lesson_progress",
+  {
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    course: text().notNull(),
+    lesson: text().notNull(),
+    completedAt: createdAt(),
+  },
+  (table) => [
+    primaryKey({ columns: [table.userId, table.course, table.lesson] }),
+  ],
+);
+
+// The result of a module's quiz: the best and the last attempt.
+export const quizResults = pgTable(
+  "quiz_results",
+  {
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    course: text().notNull(),
+    module: text().notNull(),
+    // Number of questions when the quiz was taken – the quiz can grow later.
+    total: integer().notNull(),
+    bestCorrect: integer().notNull(),
+    lastCorrect: integer().notNull(),
+    attempts: integer().notNull().default(1),
+    createdAt: createdAt(),
+    updatedAt: updatedAt(),
+  },
+  (table) => [
+    primaryKey({ columns: [table.userId, table.course, table.module] }),
+  ],
 );

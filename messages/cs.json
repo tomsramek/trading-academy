@@ -1382,9 +1382,7 @@
     "account": {
       "metaTitle": "Můj účet",
       "title": "Můj účet",
-      "signedInAs": "Přihlášen jako {email}",
       "since": "Účet máš od {date}.",
-      "progressSoon": "Brzy se tu bude ukládat tvůj pokrok v kurzech a výsledky kvízů.",
       "signOut": "Odhlásit se",
       "signingOut": "Odhlašuji…",
       "signOutError": "Odhlášení se nepovedlo. Zkus to znovu.",
@@ -1397,12 +1395,65 @@
       "deleting": "Mažu…",
       "deleteFresh": "Z bezpečnostních důvodů se nejdřív znovu přihlas, pak účet smažeš.",
       "signInAgain": "Přihlásit se znovu",
-      "deleteError": "Účet se nepodařilo smazat. Zkus to znovu, nebo nám napiš."
+      "deleteError": "Účet se nepodařilo smazat. Zkus to znovu, nebo nám napiš.",
+      "settingsTitle": "Nastavení účtu"
     },
     "header": {
       "signIn": "Přihlásit se",
       "account": "Můj účet",
       "loading": "Načítám účet"
+    }
+  },
+  "Progress": {
+    "lesson": {
+      "loading": "Načítám tvůj pokrok",
+      "question": "Máš lekci za sebou?",
+      "markDone": "Hotovo",
+      "done": "Lekce hotová",
+      "undo": "Vrátit",
+      "signIn": "<link>Přihlas se</link> a budeme ti ukládat, které lekce máš hotové.",
+      "loadError": "Tvůj pokrok se nepodařilo načíst.",
+      "retry": "Zkusit znovu",
+      "saveError": "Nepodařilo se uložit.",
+      "quizFirst": "Lekci dokončíš vyhodnocením kvízu výše."
+    },
+    "quiz": {
+      "saved": "Výsledek uložen. Nejlepší pokus: {best} z {total}.",
+      "signIn": "<link>Přihlas se</link> a výsledek se ti uloží.",
+      "saveError": "Výsledek se nepodařilo uložit."
+    },
+    "outline": {
+      "done": "Hotovo",
+      "quiz": "Kvíz {best}/{total}"
+    },
+    "course": {
+      "start": "Začít kurz",
+      "continue": "Pokračovat",
+      "again": "Projít znovu",
+      "label": "Pokrok v kurzu",
+      "done": "Hotovo {done} z {total} lekcí",
+      "finished": "Kurz máš hotový"
+    },
+    "account": {
+      "statsTitle": "Souhrn",
+      "stat": {
+        "lessons": "Hotové lekce",
+        "quizzes": "Splněné kvízy",
+        "courses": "Dokončené kurzy"
+      },
+      "startedTitle": "Rozpracované kurzy",
+      "empty": "Zatím nemáš hotovou žádnou lekci. Vyber si kurz a na konci každé lekce klikni na „Hotovo“.",
+      "noneStarted": "Žádný kurz teď nemáš rozpracovaný. Vyber si další.",
+      "browse": "Prohlédnout kurzy",
+      "progressLabel": "Pokrok v kurzu {course}",
+      "continue": "Pokračovat",
+      "missing": "Chybí: {lessons, plural, =0 {žádná lekce} one {# lekce} few {# lekce} other {# lekcí}}{quizzes, plural, =0 {} one { · # kvíz} few { · # kvízy} other { · # kvízů}}",
+      "whatsMissing": "Co ti chybí",
+      "quizDone": "Kvíz – nejlepší pokus {best} z {total}",
+      "quizMissing": "Kvíz ještě není udělaný",
+      "finishedTitle": "Dokončené kurzy",
+      "nextTitle": "Můžeš začít",
+      "lessonsCount": "{count, plural, one {# lekce} few {# lekce} other {# lekcí}}"
     }
   }
 }
