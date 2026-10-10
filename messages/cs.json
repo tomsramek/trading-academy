@@ -27,7 +27,8 @@
     "disclaimer": "Pouze vzdělávací obsah – nejde o investiční doporučení.",
     "legal": "Právní informace",
     "riskWarning": "Upozornění na rizika",
-    "terms": "Podmínky užívání"
+    "terms": "Podmínky užívání",
+    "privacy": "Ochrana osobních údajů"
   },
   "TextPage": {
     "updated": "Naposledy upraveno {date, date, long}"
@@ -1370,7 +1371,7 @@
       "tooMany": "Příliš mnoho pokusů. Počkej prosím minutu a zkus to znovu.",
       "linkError": "Odkaz už neplatí nebo byl použit. Pošli si nový.",
       "googleError": "Přihlášení přes Google se nepovedlo. Zkus to znovu, nebo použij e-mail.",
-      "terms": "Přihlášením souhlasíš s podmínkami užívání."
+      "terms": "Přihlášením souhlasíš s <terms>podmínkami užívání</terms>. Jak zacházíme s tvými údaji, popisují <privacy>zásady ochrany osobních údajů</privacy>."
     },
     "account": {
       "metaTitle": "Můj účet",
@@ -1380,7 +1381,17 @@
       "progressSoon": "Brzy se tu bude ukládat tvůj pokrok v kurzech a výsledky kvízů.",
       "signOut": "Odhlásit se",
       "signingOut": "Odhlašuji…",
-      "signOutError": "Odhlášení se nepovedlo. Zkus to znovu."
+      "signOutError": "Odhlášení se nepovedlo. Zkus to znovu.",
+      "deleteTitle": "Smazat účet",
+      "deleteIntro": "Smaže se tvůj účet, přihlášení i všechny uložené údaje. Kurzy ti zůstanou dostupné i bez účtu.",
+      "delete": "Smazat účet",
+      "deleteConfirm": "Opravdu smazat? Tohle nejde vrátit.",
+      "deleteYes": "Ano, smazat účet",
+      "deleteCancel": "Zrušit",
+      "deleting": "Mažu…",
+      "deleteFresh": "Z bezpečnostních důvodů se nejdřív znovu přihlas, pak účet smažeš.",
+      "signInAgain": "Přihlásit se znovu",
+      "deleteError": "Účet se nepodařilo smazat. Zkus to znovu, nebo nám napiš."
     },
     "header": {
       "signIn": "Přihlásit se",

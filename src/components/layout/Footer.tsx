@@ -28,6 +28,11 @@ export function Footer() {
                 {t("terms")}
               </Link>
             </li>
+            <li>
+              <Link href="/privacy" className={LINK}>
+                {t("privacy")}
+              </Link>
+            </li>
           </ul>
         </nav>
       </Container>
